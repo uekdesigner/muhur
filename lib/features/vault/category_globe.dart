@@ -48,6 +48,14 @@ class _CategoryGlobeState extends State<CategoryGlobe> {
     super.dispose();
   }
 
+  /// Sayfa değerini yalnızca hazırken okur (yerleşim sırasında okumak hata verir).
+  double _currentPage() {
+    if (!_c.hasClients) return _base.toDouble();
+    final pos = _c.position;
+    if (!pos.hasPixels || !pos.hasContentDimensions) return _base.toDouble();
+    return _c.page ?? _base.toDouble();
+  }
+
   Widget _face(GlobeItem it, double t) {
     final border = Color.lerp(
       MuhurColors.bronze.withValues(alpha: 0.5),
@@ -115,8 +123,7 @@ class _CategoryGlobeState extends State<CategoryGlobe> {
               return AnimatedBuilder(
                 animation: _c,
                 builder: (context, _) {
-                  final page =
-                      (_c.hasClients ? _c.page : null) ?? _base.toDouble();
+                  final page = _currentPage();
                   final d = index - page; // negatif: solda, pozitif: sağda
                   final a = (d * _step).clamp(-math.pi / 2, math.pi / 2);
                   final cosA = math.cos(a);

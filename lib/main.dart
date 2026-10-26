@@ -12,7 +12,6 @@ import 'features/auth/auth_service.dart';
 import 'features/vault/vault_home_screen.dart';
 import 'l10n/app_localizations.dart';
 import 'core/constants/app_theme.dart';
-import '../../core/widgets/language_button.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

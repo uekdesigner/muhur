@@ -336,4 +336,24 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get statReused => 'Tekrar';
+
+  @override
+  String get planFree => 'ÜCRETSİZ';
+
+  @override
+  String get statusScreen => 'Ekran Koruması';
+
+  @override
+  String get statusBackup => 'Oto Yedek';
+
+  @override
+  String get helpTitle => 'Yardım';
+
+  @override
+  String get helpBody => 'Yardım içeriği buraya eklenecek.';
+
+  @override
+  String deleteSelectedConfirm(int count) {
+    return 'Seçili $count kayıt silinsin mi? Bu işlem geri alınamaz.';
+  }
 }

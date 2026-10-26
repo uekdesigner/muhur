@@ -103,5 +103,12 @@
   "language": "Dil",
    "languageSystem": "Sistem dili",
   "statTotal": "Toplam",
-  "statReused": "Tekrar"
+  "statReused": "Tekrar",
+    "statReused": "Tekrar",
+  "planFree": "ÜCRETSİZ",
+  "statusScreen": "Ekran Koruması",
+  "statusBackup": "Oto Yedek",
+  "helpTitle": "Yardım",
+  "helpBody": "Yardım içeriği buraya eklenecek.",
+  "deleteSelectedConfirm": "Seçili {count} kayıt silinsin mi? Bu işlem geri alınamaz."
 }

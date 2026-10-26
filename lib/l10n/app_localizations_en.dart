@@ -336,4 +336,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get statReused => 'Reused';
+
+  @override
+  String get planFree => 'FREE';
+
+  @override
+  String get statusScreen => 'Screen protection';
+
+  @override
+  String get statusBackup => 'Auto backup';
+
+  @override
+  String get helpTitle => 'Help';
+
+  @override
+  String get helpBody => 'Help content will be added here.';
+
+  @override
+  String deleteSelectedConfirm(int count) {
+    return 'Delete $count selected entries? This cannot be undone.';
+  }
 }

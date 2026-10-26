@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/crypto/crypto_service.dart';
+import '../../core/utils/window_security.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
@@ -12,6 +13,7 @@ import 'category_globe.dart';
 import 'entry_detail_screen.dart';
 import 'entry_edit_screen.dart';
 import 'stats_panel.dart';
+import 'vault_header.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
 
@@ -34,6 +36,8 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   String _query = '';
   late Future<List<VaultEntry>> _entries;
   VaultStats? _stats;
+  bool _screenProtected = false;
+  final Set<int> _selected = {};
 
   @override
   void initState() {
@@ -41,6 +45,9 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     _entries = _repo.entries();
     _repo.categories().then((c) {
       if (mounted) setState(() => _cats = c);
+    });
+    WindowSecurity.isScreenProtected().then((v) {
+      if (mounted) setState(() => _screenProtected = v);
     });
     _loadStats();
   }
@@ -56,6 +63,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
 
   void _reload() {
     setState(() {
+      _selected.clear();
       _entries = _repo.entries(categoryId: _catId, query: _query);
     });
   }
@@ -91,6 +99,53 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     if (changed == true) _refreshAll();
   }
 
+  void _toggleSelect(VaultEntry e) {
+    setState(() {
+      if (!_selected.remove(e.id!)) _selected.add(e.id!);
+    });
+  }
+
+  Future<void> _deleteSelected() async {
+    final t = AppLocalizations.of(context)!;
+    final count = _selected.length;
+    if (count == 0) return;
+    final yes = await showDialog<bool>(
+      context: context,
+      builder: (c) => AlertDialog(
+        content: Text(t.deleteSelectedConfirm(count)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(c, false),
+            child: Text(t.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(c, true),
+            child: Text(t.delete),
+          ),
+        ],
+      ),
+    );
+    if (yes != true) return;
+    for (final id in _selected.toList()) {
+      await _repo.delete(id);
+    }
+    if (mounted) _refreshAll();
+  }
+
+  void _showHelp() {
+    final t = AppLocalizations.of(context)!;
+    showDialog<void>(
+      context: context,
+      builder: (c) => AlertDialog(
+        title: Text(t.helpTitle),
+        content: Text(t.helpBody),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(c), child: Text(t.close)),
+        ],
+      ),
+    );
+  }
+
   Color? _dotColor(Strength? s) => switch (s) {
     null => null,
     Strength.weak => Colors.redAccent,
@@ -101,178 +156,176 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
+    final selecting = _selected.isNotEmpty;
 
-    return MuhurBackground(
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        floatingActionButton: FloatingActionButton(
-          onPressed: _add,
-          tooltip: t.addEntry,
-          backgroundColor: const Color(0xE614181C),
-          foregroundColor: MuhurColors.cream,
-          shape: RoundedRectangleBorder(
-            side: const BorderSide(color: MuhurColors.bronze, width: 1.4),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: const Icon(Icons.add),
-        ),
-        bottomNavigationBar: StatsPanel(
-          stats: _stats,
-          onSettings: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => SettingsScreen(auth: widget.auth),
+    return PopScope(
+      canPop: _selected.isEmpty,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop && _selected.isNotEmpty) setState(_selected.clear);
+      },
+      child: MuhurBackground(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          floatingActionButton: FloatingActionButton(
+            onPressed: _add,
+            tooltip: t.addEntry,
+            backgroundColor: const Color(0xE614181C),
+            foregroundColor: MuhurColors.cream,
+            shape: RoundedRectangleBorder(
+              side: const BorderSide(color: MuhurColors.bronze, width: 1.4),
+              borderRadius: BorderRadius.circular(16),
             ),
+            child: const Icon(Icons.add),
           ),
-        ),
-        body: Column(
-          children: [
-            // Üst başlık
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 8, 0),
-              child: Row(
-                children: [
-                  const MuhurSeal(size: 36),
-                  const SizedBox(width: 10),
-                  Text(
-                    t.brandName,
-                    style: const TextStyle(
-                      color: MuhurColors.bronzeLight,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 1,
-                    ),
-                  ),
-                  const Spacer(),
-                  IconButton(
-                    icon: const Icon(Icons.password),
-                    tooltip: t.generator,
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => const PasswordGeneratorScreen(),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.lock),
-                    tooltip: t.lockNow,
-                    onPressed: () {
-                      Navigator.of(context).popUntil((r) => r.isFirst);
-                      widget.onLock();
-                    },
-                  ),
-                ],
+          bottomNavigationBar: StatsPanel(
+            stats: _stats,
+            onSettings: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => SettingsScreen(auth: widget.auth),
               ),
             ),
-            // Arama
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: t.searchHint,
-                  prefixIcon: const Icon(Icons.search),
-                  isDense: true,
+          ),
+          body: Column(
+            children: [
+              VaultHeader(
+                screenProtected: _screenProtected,
+                selectedCount: _selected.length,
+                onHelp: _showHelp,
+                onDelete: _deleteSelected,
+                onGenerator: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const PasswordGeneratorScreen(),
+                  ),
                 ),
-                onChanged: (v) {
-                  _query = v;
-                  _reload();
+                onLock: () {
+                  Navigator.of(context).popUntil((r) => r.isFirst);
+                  widget.onLock();
                 },
               ),
-            ),
-            // Dönen küre
-            if (_cats.isNotEmpty)
-              CategoryGlobe(
-                items: [
-                  GlobeItem(t.all, Icons.apps),
-                  for (final c in _cats) GlobeItem(c.label(t), c.icon),
-                ],
-                onSelected: (i) {
-                  _catId = i == 0 ? null : _cats[i - 1].id;
-                  _reload();
-                },
-              )
-            else
-              const SizedBox(height: 108),
-            // Kayıt listesi
-            Expanded(
-              child: FutureBuilder<List<VaultEntry>>(
-                future: _entries,
-                builder: (context, snap) {
-                  if (snap.hasError) {
-                    return Center(child: Text('${snap.error}'));
-                  }
-                  if (!snap.hasData) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  final list = snap.data!;
-                  if (list.isEmpty) {
-                    return Center(
-                      child: Text(
-                        t.noEntries,
-                        style: const TextStyle(color: MuhurColors.cream),
-                      ),
-                    );
-                  }
-                  return ListView.builder(
-                    padding: const EdgeInsets.only(bottom: 80),
-                    itemCount: list.length,
-                    itemBuilder: (context, i) {
-                      final e = list[i];
-                      final cat = _cats
-                          .where((c) => c.id == e.categoryId)
-                          .firstOrNull;
-                      final dot = _dotColor(_stats?.levels[e.id]);
-                      return Container(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: const Color(0xCC14181C),
-                          borderRadius: BorderRadius.circular(14),
-                          border: Border.all(
-                            color: MuhurColors.bronze.withValues(alpha: 0.6),
-                          ),
-                        ),
-                        child: ListTile(
-                          leading: Icon(
-                            cat?.icon ?? Icons.folder,
-                            color: MuhurColors.bronzeLight,
-                          ),
-                          title: Text(e.title),
-                          subtitle: e.domain == null ? null : Text(e.domain!),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              if (e.isFavorite)
-                                const Icon(
-                                  Icons.star,
-                                  size: 18,
-                                  color: MuhurColors.bronzeLight,
-                                ),
-                              if (dot != null) ...[
-                                const SizedBox(width: 8),
-                                Container(
-                                  width: 12,
-                                  height: 12,
-                                  decoration: BoxDecoration(
-                                    color: dot,
-                                    shape: BoxShape.circle,
-                                  ),
-                                ),
-                              ],
-                            ],
-                          ),
-                          onTap: () => _open(e),
+              // Arama
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: t.searchHint,
+                    prefixIcon: const Icon(Icons.search),
+                    isDense: true,
+                  ),
+                  onChanged: (v) {
+                    _query = v;
+                    _reload();
+                  },
+                ),
+              ),
+              // Dönen küre
+              if (_cats.isNotEmpty)
+                CategoryGlobe(
+                  items: [
+                    GlobeItem(t.all, Icons.apps),
+                    for (final c in _cats) GlobeItem(c.label(t), c.icon),
+                  ],
+                  onSelected: (i) {
+                    _catId = i == 0 ? null : _cats[i - 1].id;
+                    _reload();
+                  },
+                )
+              else
+                const SizedBox(height: 108),
+              // Kayıt listesi
+              Expanded(
+                child: FutureBuilder<List<VaultEntry>>(
+                  future: _entries,
+                  builder: (context, snap) {
+                    if (snap.hasError) {
+                      return Center(child: Text('${snap.error}'));
+                    }
+                    if (!snap.hasData) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                    final list = snap.data!;
+                    if (list.isEmpty) {
+                      return Center(
+                        child: Text(
+                          t.noEntries,
+                          style: const TextStyle(color: MuhurColors.cream),
                         ),
                       );
-                    },
-                  );
-                },
+                    }
+                    return ListView.builder(
+                      padding: const EdgeInsets.only(bottom: 80),
+                      itemCount: list.length,
+                      itemBuilder: (context, i) {
+                        final e = list[i];
+                        final cat = _cats
+                            .where((c) => c.id == e.categoryId)
+                            .firstOrNull;
+                        final dot = _dotColor(_stats?.levels[e.id]);
+                        final picked = _selected.contains(e.id);
+                        return Container(
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: picked
+                                ? const Color(0xE61E262C)
+                                : const Color(0xCC14181C),
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                              color: picked
+                                  ? MuhurColors.bronzeLight
+                                  : MuhurColors.bronze.withValues(alpha: 0.6),
+                              width: picked ? 2 : 1,
+                            ),
+                          ),
+                          child: ListTile(
+                            leading: Icon(
+                              selecting
+                                  ? (picked
+                                        ? Icons.check_circle
+                                        : Icons.radio_button_unchecked)
+                                  : (cat?.icon ?? Icons.folder),
+                              color: MuhurColors.bronzeLight,
+                            ),
+                            title: Text(e.title),
+                            subtitle: e.domain == null ? null : Text(e.domain!),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                if (e.isFavorite)
+                                  const Icon(
+                                    Icons.star,
+                                    size: 18,
+                                    color: MuhurColors.bronzeLight,
+                                  ),
+                                if (dot != null) ...[
+                                  const SizedBox(width: 8),
+                                  Container(
+                                    width: 12,
+                                    height: 12,
+                                    decoration: BoxDecoration(
+                                      color: dot,
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                ],
+                              ],
+                            ),
+                            onTap: selecting
+                                ? () => _toggleSelect(e)
+                                : () => _open(e),
+                            onLongPress: () => _toggleSelect(e),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

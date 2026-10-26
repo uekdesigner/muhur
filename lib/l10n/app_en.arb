@@ -105,5 +105,12 @@
   "language": "Language",
   "languageSystem": "System default",
   "statTotal": "Total",
-  "statReused": "Reused"
+  "statReused": "Reused",  "statReused": "Reused",
+  "planFree": "FREE",
+  "statusScreen": "Screen protection",
+  "statusBackup": "Auto backup",
+  "helpTitle": "Help",
+  "helpBody": "Help content will be added here.",
+  "deleteSelectedConfirm": "Delete {count} selected entries? This cannot be undone.",
+  "@deleteSelectedConfirm": { "placeholders": { "count": { "type": "int" } } }
 }

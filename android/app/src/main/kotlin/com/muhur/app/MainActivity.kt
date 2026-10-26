@@ -29,31 +29,43 @@ class MainActivity : FlutterFragmentActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-        MethodChannel(
-            flutterEngine.dartExecutor.binaryMessenger,
-            "com.muhur.app/clipboard"
-        ).setMethodCallHandler { call, result ->
-            val cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            when (call.method) {
-                "copySensitive" -> {
-                    val text = call.argument<String>("text") ?: ""
-                    val clip = ClipData.newPlainText("muhur", text)
-                    clip.description.extras = PersistableBundle().apply {
-                        putBoolean("android.content.extra.IS_SENSITIVE", true)
+        val messenger = flutterEngine.dartExecutor.binaryMessenger
+
+        MethodChannel(messenger, "com.muhur.app/clipboard")
+            .setMethodCallHandler { call, result ->
+                val cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                when (call.method) {
+                    "copySensitive" -> {
+                        val text = call.argument<String>("text") ?: ""
+                        val clip = ClipData.newPlainText("muhur", text)
+                        clip.description.extras = PersistableBundle().apply {
+                            putBoolean("android.content.extra.IS_SENSITIVE", true)
+                        }
+                        cm.setPrimaryClip(clip)
+                        result.success(null)
                     }
-                    cm.setPrimaryClip(clip)
-                    result.success(null)
-                }
-                "clear" -> {
-                    if (Build.VERSION.SDK_INT >= 28) {
-                        cm.clearPrimaryClip()
-                    } else {
-                        cm.setPrimaryClip(ClipData.newPlainText("", ""))
+                    "clear" -> {
+                        if (Build.VERSION.SDK_INT >= 28) {
+                            cm.clearPrimaryClip()
+                        } else {
+                            cm.setPrimaryClip(ClipData.newPlainText("", ""))
+                        }
+                        result.success(null)
                     }
-                    result.success(null)
+                    else -> result.notImplemented()
                 }
-                else -> result.notImplemented()
             }
-        }
+
+        MethodChannel(messenger, "com.muhur.app/window")
+            .setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "isSecure" -> {
+                        val secure =
+                            (window.attributes.flags and WindowManager.LayoutParams.FLAG_SECURE) != 0
+                        result.success(secure)
+                    }
+                    else -> result.notImplemented()
+                }
+            }
     }
 }

@@ -729,6 +729,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Reused'**
   String get statReused;
+
+  /// No description provided for @planFree.
+  ///
+  /// In en, this message translates to:
+  /// **'FREE'**
+  String get planFree;
+
+  /// No description provided for @statusScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen protection'**
+  String get statusScreen;
+
+  /// No description provided for @statusBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto backup'**
+  String get statusBackup;
+
+  /// No description provided for @helpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get helpTitle;
+
+  /// No description provided for @helpBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Help content will be added here.'**
+  String get helpBody;
+
+  /// No description provided for @deleteSelectedConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete {count} selected entries? This cannot be undone.'**
+  String deleteSelectedConfirm(int count);
 }
 
 class _AppLocalizationsDelegate
