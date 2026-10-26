@@ -207,6 +207,8 @@ class _UnlockScreenState extends State<UnlockScreen> {
   bool _busy = false;
   bool _bioEnabled = false;
   String? _error;
+  bool get _canSubmit =>
+      !_busy && _pw.text.runes.length >= kMinMasterPasswordLength;
 
   @override
   void initState() {
@@ -289,7 +291,10 @@ class _UnlockScreenState extends State<UnlockScreen> {
                     obscureText: !_show,
                     enableSuggestions: false,
                     autocorrect: false,
-                    onSubmitted: (_) => _busy ? null : _submit(),
+                    onChanged: (_) => setState(() {}),
+                    onSubmitted: (_) {
+                      if (_canSubmit) _submit();
+                    },
                     decoration: InputDecoration(
                       labelText: t.masterPassword,
                       suffixIcon: IconButton(
@@ -325,7 +330,7 @@ class _UnlockScreenState extends State<UnlockScreen> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: FilledButton(
-                          onPressed: _busy ? null : _submit,
+                          onPressed: _canSubmit ? _submit : null,
                           child: _busy
                               ? const SizedBox(
                                   height: 20,

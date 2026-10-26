@@ -52,6 +52,8 @@ ThemeData buildMuhurTheme() {
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
+        disabledBackgroundColor: const Color(0x66141414),
+        disabledForegroundColor: Colors.white38,
         backgroundColor: const Color(0xCC14181C),
         foregroundColor: MuhurColors.cream,
         side: const BorderSide(color: MuhurColors.bronze, width: 1.4),

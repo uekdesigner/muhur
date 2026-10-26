@@ -44,26 +44,26 @@ class AppLocalizationsDe extends AppLocalizations {
   String get confirmPassword => 'Passwort bestätigen';
 
   @override
-  String get passwordTooShort => 'Verwenden Sie mindestens 12 Zeichen.';
+  String get passwordTooShort => 'Verwenden Sie mindestens 8 Zeichen.';
 
   @override
   String get passwordNeedsMix =>
-      'Use lowercase, uppercase, a digit and a special character.';
+      'Verwenden Sie Klein- und Großbuchstaben, eine Ziffer und ein Sonderzeichen.';
 
   @override
-  String get reqLength => 'At least 8 characters';
+  String get reqLength => 'Mindestens 8 Zeichen';
 
   @override
-  String get reqLower => 'A lowercase letter';
+  String get reqLower => 'Ein Kleinbuchstabe';
 
   @override
-  String get reqUpper => 'An uppercase letter';
+  String get reqUpper => 'Ein Großbuchstabe';
 
   @override
-  String get reqDigit => 'A digit';
+  String get reqDigit => 'Eine Ziffer';
 
   @override
-  String get reqSpecial => 'A special character (!@#...)';
+  String get reqSpecial => 'Ein Sonderzeichen (!@#...)';
 
   @override
   String get passwordsDontMatch => 'Passwörter stimmen nicht überein.';
@@ -333,28 +333,28 @@ class AppLocalizationsDe extends AppLocalizations {
   String get languageSystem => 'Systemstandard';
 
   @override
-  String get statTotal => 'Total';
+  String get statTotal => 'Gesamt';
 
   @override
-  String get statReused => 'Reused';
+  String get statReused => 'Wiederverwendet';
 
   @override
-  String get planFree => 'FREE';
+  String get planFree => 'KOSTENLOS';
 
   @override
-  String get statusScreen => 'Screen protection';
+  String get statusScreen => 'Bildschirmschutz';
 
   @override
-  String get statusBackup => 'Auto backup';
+  String get statusBackup => 'Auto-Backup';
 
   @override
-  String get helpTitle => 'Help';
+  String get helpTitle => 'Hilfe';
 
   @override
-  String get helpBody => 'Help content will be added here.';
+  String get helpBody => 'Hilfeinhalte werden hier hinzugefügt.';
 
   @override
   String deleteSelectedConfirm(int count) {
-    return 'Delete $count selected entries? This cannot be undone.';
+    return '$count ausgewählte Einträge löschen? Dies kann nicht rückgängig gemacht werden.';
   }
 }

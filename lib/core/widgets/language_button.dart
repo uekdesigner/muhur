@@ -8,7 +8,29 @@ class LanguageButton extends StatelessWidget {
 
   /// Menüde görünecek diller (kendi dillerinde yazılır).
   /// Yeni dil eklerken .arb dosyasının yanı sıra buraya da ekle.
-  static const Map<String, String> _names = {'en': 'English', 'tr': 'Türkçe'};
+  static const Map<String, String> _names = {
+    'en': 'English',
+    'tr': 'Türkçe',
+    'de': 'Deutsch',
+    'ar': 'العربية',
+    'es': 'Español',
+    'fr': 'Français',
+    'hi': 'हिंदी',
+    'id': 'Bahasa Indonesia',
+    'it': 'Italiano',
+    'ja': '日本語',
+    'ko': '한국어',
+    'ms': 'Bahasa Melayu',
+    'nl': 'Nederlands',
+    'pl': 'Polski',
+    'pt': 'Português',
+    'ru': 'Русский',
+    'sv': 'Svenska',
+    'th': 'ไทย',
+    'uk': 'Українська',
+    'vi': 'Tiếng Việt',
+    'zh': '中文',
+  };
 
   @override
   Widget build(BuildContext context) {
