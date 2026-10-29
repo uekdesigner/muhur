@@ -1,0 +1,11 @@
+build/
+.dart_tool/
+.pub/
+android/
+ios/
+macos/
+linux/
+windows/
+web/
+*.g.dart
+*.freezed.dart

@@ -767,6 +767,342 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete {count} selected entries? This cannot be undone.'**
   String deleteSelectedConfirm(int count);
+
+  /// No description provided for @fcBankName.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank Name'**
+  String get fcBankName;
+
+  /// No description provided for @fcTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Tag'**
+  String get fcTag;
+
+  /// No description provided for @fcInternetBankingPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Online Banking Password'**
+  String get fcInternetBankingPassword;
+
+  /// No description provided for @fcCardPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Card PIN'**
+  String get fcCardPin;
+
+  /// No description provided for @fcCardNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Card Number'**
+  String get fcCardNumber;
+
+  /// No description provided for @fcExpiryDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry Date'**
+  String get fcExpiryDate;
+
+  /// No description provided for @fcCvv.
+  ///
+  /// In en, this message translates to:
+  /// **'CVV / CVC'**
+  String get fcCvv;
+
+  /// No description provided for @fcCustomerServiceNo.
+  ///
+  /// In en, this message translates to:
+  /// **'Customer Service Number'**
+  String get fcCustomerServiceNo;
+
+  /// No description provided for @fcCustomerNoTc.
+  ///
+  /// In en, this message translates to:
+  /// **'Customer Number / National ID'**
+  String get fcCustomerNoTc;
+
+  /// No description provided for @fcBranchNameCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Branch Name & Code'**
+  String get fcBranchNameCode;
+
+  /// No description provided for @fcAccountType.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Type'**
+  String get fcAccountType;
+
+  /// No description provided for @fcPhoneBankingPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Banking Password'**
+  String get fcPhoneBankingPassword;
+
+  /// No description provided for @fcSwiftBic.
+  ///
+  /// In en, this message translates to:
+  /// **'SWIFT / BIC Code'**
+  String get fcSwiftBic;
+
+  /// No description provided for @fcCardStatementDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Statement & Due Date'**
+  String get fcCardStatementDate;
+
+  /// No description provided for @fcAccountTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Title'**
+  String get fcAccountTitle;
+
+  /// No description provided for @fcEmailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Address'**
+  String get fcEmailAddress;
+
+  /// No description provided for @fcRecoveryEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Recovery Email'**
+  String get fcRecoveryEmail;
+
+  /// No description provided for @fcRecoveryPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Recovery Phone'**
+  String get fcRecoveryPhone;
+
+  /// No description provided for @fc2faBackupCodes.
+  ///
+  /// In en, this message translates to:
+  /// **'2FA / Backup Codes'**
+  String get fc2faBackupCodes;
+
+  /// No description provided for @fcLoginMethodProvider.
+  ///
+  /// In en, this message translates to:
+  /// **'Login Method / Provider'**
+  String get fcLoginMethodProvider;
+
+  /// No description provided for @fcImapSmtp.
+  ///
+  /// In en, this message translates to:
+  /// **'IMAP / SMTP Server Settings'**
+  String get fcImapSmtp;
+
+  /// No description provided for @fcSecurityQA.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Question & Answer'**
+  String get fcSecurityQA;
+
+  /// No description provided for @fcPasswordChangeDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Password Change Date'**
+  String get fcPasswordChangeDate;
+
+  /// No description provided for @fcPlatformTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Platform / Title'**
+  String get fcPlatformTitle;
+
+  /// No description provided for @fcUsernameProfileId.
+  ///
+  /// In en, this message translates to:
+  /// **'Username / Profile ID'**
+  String get fcUsernameProfileId;
+
+  /// No description provided for @fcRegisteredEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Registered Email'**
+  String get fcRegisteredEmail;
+
+  /// No description provided for @fcRegisteredPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Registered Phone Number'**
+  String get fcRegisteredPhone;
+
+  /// No description provided for @fcProfileUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Link (URL)'**
+  String get fcProfileUrl;
+
+  /// No description provided for @fcAccountTypeStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Type / Status'**
+  String get fcAccountTypeStatus;
+
+  /// No description provided for @fcLinkedMainAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Linked Main Account'**
+  String get fcLinkedMainAccount;
+
+  /// No description provided for @fcProfileNumericId.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile / Numeric ID'**
+  String get fcProfileNumericId;
+
+  /// No description provided for @fc2faSecretKey.
+  ///
+  /// In en, this message translates to:
+  /// **'2FA Secret Key'**
+  String get fc2faSecretKey;
+
+  /// No description provided for @fcServiceName.
+  ///
+  /// In en, this message translates to:
+  /// **'Organization / Service Name'**
+  String get fcServiceName;
+
+  /// No description provided for @fcCompanyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Company Name'**
+  String get fcCompanyName;
+
+  /// No description provided for @fcCorporateUserId.
+  ///
+  /// In en, this message translates to:
+  /// **'Username / Corporate ID'**
+  String get fcCorporateUserId;
+
+  /// No description provided for @fcPanelUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Service / Panel Address (URL)'**
+  String get fcPanelUrl;
+
+  /// No description provided for @fcDepartmentPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Department / Position'**
+  String get fcDepartmentPosition;
+
+  /// No description provided for @fcLicenseCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Customer / License Code'**
+  String get fcLicenseCode;
+
+  /// No description provided for @fcSupportContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Authorized / Support Contact'**
+  String get fcSupportContact;
+
+  /// No description provided for @fcLoginMethodVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Login Method / Verification Type'**
+  String get fcLoginMethodVerification;
+
+  /// No description provided for @fcTaxOffice.
+  ///
+  /// In en, this message translates to:
+  /// **'Tax Office & Tax No'**
+  String get fcTaxOffice;
+
+  /// No description provided for @fcRegistryNo.
+  ///
+  /// In en, this message translates to:
+  /// **'Registry No / Dealer Code'**
+  String get fcRegistryNo;
+
+  /// No description provided for @fcIpVpn.
+  ///
+  /// In en, this message translates to:
+  /// **'IP Restriction / VPN Address'**
+  String get fcIpVpn;
+
+  /// No description provided for @fcLicenseExpiry.
+  ///
+  /// In en, this message translates to:
+  /// **'Portal / License Expiry Date'**
+  String get fcLicenseExpiry;
+
+  /// No description provided for @fcSiteName.
+  ///
+  /// In en, this message translates to:
+  /// **'Site / Service Name'**
+  String get fcSiteName;
+
+  /// No description provided for @fcWebAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Web Address (URL)'**
+  String get fcWebAddress;
+
+  /// No description provided for @fcUsernameEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Username / Email'**
+  String get fcUsernameEmail;
+
+  /// No description provided for @fcSubscriptionFee.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription Fee & Period'**
+  String get fcSubscriptionFee;
+
+  /// No description provided for @fcRegistrationDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration Date'**
+  String get fcRegistrationDate;
+
+  /// No description provided for @fcPaymentMethod.
+  ///
+  /// In en, this message translates to:
+  /// **'Billing / Payment Method'**
+  String get fcPaymentMethod;
+
+  /// No description provided for @fcPinCode.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN Code'**
+  String get fcPinCode;
+
+  /// No description provided for @fcLicenseCodeSimple.
+  ///
+  /// In en, this message translates to:
+  /// **'License Code'**
+  String get fcLicenseCodeSimple;
+
+  /// No description provided for @pickFieldTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick a field'**
+  String get pickFieldTitle;
+
+  /// No description provided for @allFieldsAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'All fields added'**
+  String get allFieldsAdded;
+
+  /// No description provided for @generatorSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Generator settings'**
+  String get generatorSettings;
+
+  /// No description provided for @saveAndExit.
+  ///
+  /// In en, this message translates to:
+  /// **'Save and exit'**
+  String get saveAndExit;
 }
 
 class _AppLocalizationsDelegate

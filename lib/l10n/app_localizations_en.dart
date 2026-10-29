@@ -356,4 +356,172 @@ class AppLocalizationsEn extends AppLocalizations {
   String deleteSelectedConfirm(int count) {
     return 'Delete $count selected entries? This cannot be undone.';
   }
+
+  @override
+  String get fcBankName => 'Bank Name';
+
+  @override
+  String get fcTag => 'Tag';
+
+  @override
+  String get fcInternetBankingPassword => 'Online Banking Password';
+
+  @override
+  String get fcCardPin => 'Card PIN';
+
+  @override
+  String get fcCardNumber => 'Card Number';
+
+  @override
+  String get fcExpiryDate => 'Expiry Date';
+
+  @override
+  String get fcCvv => 'CVV / CVC';
+
+  @override
+  String get fcCustomerServiceNo => 'Customer Service Number';
+
+  @override
+  String get fcCustomerNoTc => 'Customer Number / National ID';
+
+  @override
+  String get fcBranchNameCode => 'Branch Name & Code';
+
+  @override
+  String get fcAccountType => 'Account Type';
+
+  @override
+  String get fcPhoneBankingPassword => 'Phone Banking Password';
+
+  @override
+  String get fcSwiftBic => 'SWIFT / BIC Code';
+
+  @override
+  String get fcCardStatementDate => 'Statement & Due Date';
+
+  @override
+  String get fcAccountTitle => 'Account Title';
+
+  @override
+  String get fcEmailAddress => 'Email Address';
+
+  @override
+  String get fcRecoveryEmail => 'Recovery Email';
+
+  @override
+  String get fcRecoveryPhone => 'Recovery Phone';
+
+  @override
+  String get fc2faBackupCodes => '2FA / Backup Codes';
+
+  @override
+  String get fcLoginMethodProvider => 'Login Method / Provider';
+
+  @override
+  String get fcImapSmtp => 'IMAP / SMTP Server Settings';
+
+  @override
+  String get fcSecurityQA => 'Security Question & Answer';
+
+  @override
+  String get fcPasswordChangeDate => 'Password Change Date';
+
+  @override
+  String get fcPlatformTitle => 'Platform / Title';
+
+  @override
+  String get fcUsernameProfileId => 'Username / Profile ID';
+
+  @override
+  String get fcRegisteredEmail => 'Registered Email';
+
+  @override
+  String get fcRegisteredPhone => 'Registered Phone Number';
+
+  @override
+  String get fcProfileUrl => 'Profile Link (URL)';
+
+  @override
+  String get fcAccountTypeStatus => 'Account Type / Status';
+
+  @override
+  String get fcLinkedMainAccount => 'Linked Main Account';
+
+  @override
+  String get fcProfileNumericId => 'Profile / Numeric ID';
+
+  @override
+  String get fc2faSecretKey => '2FA Secret Key';
+
+  @override
+  String get fcServiceName => 'Organization / Service Name';
+
+  @override
+  String get fcCompanyName => 'Company Name';
+
+  @override
+  String get fcCorporateUserId => 'Username / Corporate ID';
+
+  @override
+  String get fcPanelUrl => 'Service / Panel Address (URL)';
+
+  @override
+  String get fcDepartmentPosition => 'Department / Position';
+
+  @override
+  String get fcLicenseCode => 'Customer / License Code';
+
+  @override
+  String get fcSupportContact => 'Authorized / Support Contact';
+
+  @override
+  String get fcLoginMethodVerification => 'Login Method / Verification Type';
+
+  @override
+  String get fcTaxOffice => 'Tax Office & Tax No';
+
+  @override
+  String get fcRegistryNo => 'Registry No / Dealer Code';
+
+  @override
+  String get fcIpVpn => 'IP Restriction / VPN Address';
+
+  @override
+  String get fcLicenseExpiry => 'Portal / License Expiry Date';
+
+  @override
+  String get fcSiteName => 'Site / Service Name';
+
+  @override
+  String get fcWebAddress => 'Web Address (URL)';
+
+  @override
+  String get fcUsernameEmail => 'Username / Email';
+
+  @override
+  String get fcSubscriptionFee => 'Subscription Fee & Period';
+
+  @override
+  String get fcRegistrationDate => 'Registration Date';
+
+  @override
+  String get fcPaymentMethod => 'Billing / Payment Method';
+
+  @override
+  String get fcPinCode => 'PIN Code';
+
+  @override
+  String get fcLicenseCodeSimple => 'License Code';
+
+  @override
+  String get pickFieldTitle => 'Pick a field';
+
+  @override
+  String get allFieldsAdded => 'All fields added';
+
+  @override
+  String get generatorSettings => 'Generator settings';
+
+  @override
+  String get saveAndExit => 'Save and exit';
 }

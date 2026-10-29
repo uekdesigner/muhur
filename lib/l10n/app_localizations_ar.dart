@@ -355,4 +355,173 @@ class AppLocalizationsAr extends AppLocalizations {
   String deleteSelectedConfirm(int count) {
     return 'هل تريد حذف $count من المدخلات المحددة؟ لا يمكن التراجع عن هذا الإجراء.';
   }
+
+  @override
+  String get fcBankName => 'اسم البنك';
+
+  @override
+  String get fcTag => 'وسم';
+
+  @override
+  String get fcInternetBankingPassword =>
+      'كلمة مرور الخدمات المصرفية عبر الإنترنت';
+
+  @override
+  String get fcCardPin => 'رمز البطاقة السري (PIN)';
+
+  @override
+  String get fcCardNumber => 'رقم البطاقة';
+
+  @override
+  String get fcExpiryDate => 'تاريخ الانتهاء';
+
+  @override
+  String get fcCvv => 'CVV / CVC';
+
+  @override
+  String get fcCustomerServiceNo => 'رقم خدمة العملاء';
+
+  @override
+  String get fcCustomerNoTc => 'رقم العميل / الرقم الوطني';
+
+  @override
+  String get fcBranchNameCode => 'اسم الفرع ورمزه';
+
+  @override
+  String get fcAccountType => 'نوع الحساب';
+
+  @override
+  String get fcPhoneBankingPassword => 'كلمة مرور الخدمات المصرفية الهاتفية';
+
+  @override
+  String get fcSwiftBic => 'رمز SWIFT / BIC';
+
+  @override
+  String get fcCardStatementDate => 'تاريخ كشف الحساب والاستحقاق';
+
+  @override
+  String get fcAccountTitle => 'اسم الحساب';
+
+  @override
+  String get fcEmailAddress => 'عنوان البريد الإلكتروني';
+
+  @override
+  String get fcRecoveryEmail => 'بريد الاسترداد';
+
+  @override
+  String get fcRecoveryPhone => 'هاتف الاسترداد';
+
+  @override
+  String get fc2faBackupCodes => 'رموز 2FA / النسخ الاحتياطي';
+
+  @override
+  String get fcLoginMethodProvider => 'طريقة الدخول / المزود';
+
+  @override
+  String get fcImapSmtp => 'إعدادات خادم IMAP / SMTP';
+
+  @override
+  String get fcSecurityQA => 'سؤال الأمان وإجابته';
+
+  @override
+  String get fcPasswordChangeDate => 'تاريخ تغيير كلمة المرور';
+
+  @override
+  String get fcPlatformTitle => 'المنصة / العنوان';
+
+  @override
+  String get fcUsernameProfileId => 'اسم المستخدم / معرف الملف الشخصي';
+
+  @override
+  String get fcRegisteredEmail => 'البريد الإلكتروني المسجل';
+
+  @override
+  String get fcRegisteredPhone => 'رقم الهاتف المسجل';
+
+  @override
+  String get fcProfileUrl => 'رابط الملف الشخصي';
+
+  @override
+  String get fcAccountTypeStatus => 'نوع الحساب / الحالة';
+
+  @override
+  String get fcLinkedMainAccount => 'الحساب الرئيسي المرتبط';
+
+  @override
+  String get fcProfileNumericId => 'معرف الملف الشخصي الرقمي';
+
+  @override
+  String get fc2faSecretKey => 'المفتاح السري لـ 2FA';
+
+  @override
+  String get fcServiceName => 'اسم المؤسسة / الخدمة';
+
+  @override
+  String get fcCompanyName => 'اسم الشركة';
+
+  @override
+  String get fcCorporateUserId => 'اسم المستخدم / المعرف المؤسسي';
+
+  @override
+  String get fcPanelUrl => 'عنوان الخدمة / اللوحة (URL)';
+
+  @override
+  String get fcDepartmentPosition => 'القسم / المنصب';
+
+  @override
+  String get fcLicenseCode => 'رمز العميل / الترخيص';
+
+  @override
+  String get fcSupportContact => 'المسؤول / جهة اتصال الدعم';
+
+  @override
+  String get fcLoginMethodVerification => 'طريقة الدخول / نوع التحقق';
+
+  @override
+  String get fcTaxOffice => 'مصلحة الضرائب ورقم التعريف الضريبي';
+
+  @override
+  String get fcRegistryNo => 'رقم السجل / رمز الوكيل';
+
+  @override
+  String get fcIpVpn => 'تقييد IP / عنوان VPN';
+
+  @override
+  String get fcLicenseExpiry => 'تاريخ انتهاء البوابة / الترخيص';
+
+  @override
+  String get fcSiteName => 'اسم الموقع / الخدمة';
+
+  @override
+  String get fcWebAddress => 'عنوان الموقع (URL)';
+
+  @override
+  String get fcUsernameEmail => 'اسم المستخدم / البريد الإلكتروني';
+
+  @override
+  String get fcSubscriptionFee => 'رسوم الاشتراك والفترة';
+
+  @override
+  String get fcRegistrationDate => 'تاريخ التسجيل';
+
+  @override
+  String get fcPaymentMethod => 'طريقة الفوترة / الدفع';
+
+  @override
+  String get fcPinCode => 'رمز PIN';
+
+  @override
+  String get fcLicenseCodeSimple => 'رمز الترخيص';
+
+  @override
+  String get pickFieldTitle => 'اختر حقلاً';
+
+  @override
+  String get allFieldsAdded => 'تمت إضافة جميع الحقول';
+
+  @override
+  String get generatorSettings => 'Generator settings';
+
+  @override
+  String get saveAndExit => 'Save and exit';
 }

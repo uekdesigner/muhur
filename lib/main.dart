@@ -9,6 +9,7 @@ import 'core/utils/clipboard_service.dart';
 import 'core/utils/privacy_cover.dart';
 import 'features/auth/auth_screens.dart';
 import 'features/auth/auth_service.dart';
+import 'features/password_gen/generator_settings.dart';
 import 'features/vault/vault_home_screen.dart';
 import 'l10n/app_localizations.dart';
 import 'core/constants/app_theme.dart';
@@ -16,6 +17,7 @@ import 'core/constants/app_theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AppSettings.instance.load();
+  await GeneratorSettings.instance.load();
   ClipboardService.instance.init();
   runApp(const MuhurApp());
 }

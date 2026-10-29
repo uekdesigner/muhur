@@ -357,4 +357,172 @@ class AppLocalizationsDe extends AppLocalizations {
   String deleteSelectedConfirm(int count) {
     return '$count ausgewählte Einträge löschen? Dies kann nicht rückgängig gemacht werden.';
   }
+
+  @override
+  String get fcBankName => 'Bankname';
+
+  @override
+  String get fcTag => 'Etikett';
+
+  @override
+  String get fcInternetBankingPassword => 'Online-Banking-Passwort';
+
+  @override
+  String get fcCardPin => 'Karten-PIN';
+
+  @override
+  String get fcCardNumber => 'Kartennummer';
+
+  @override
+  String get fcExpiryDate => 'Ablaufdatum';
+
+  @override
+  String get fcCvv => 'CVV / CVC';
+
+  @override
+  String get fcCustomerServiceNo => 'Kundendienstnummer';
+
+  @override
+  String get fcCustomerNoTc => 'Kundennummer / Personalausweisnummer';
+
+  @override
+  String get fcBranchNameCode => 'Filialname und -code';
+
+  @override
+  String get fcAccountType => 'Kontotyp';
+
+  @override
+  String get fcPhoneBankingPassword => 'Telefonbanking-Passwort';
+
+  @override
+  String get fcSwiftBic => 'SWIFT / BIC-Code';
+
+  @override
+  String get fcCardStatementDate => 'Abrechnungs- und Fälligkeitsdatum';
+
+  @override
+  String get fcAccountTitle => 'Kontobezeichnung';
+
+  @override
+  String get fcEmailAddress => 'E-Mail-Adresse';
+
+  @override
+  String get fcRecoveryEmail => 'Wiederherstellungs-E-Mail';
+
+  @override
+  String get fcRecoveryPhone => 'Wiederherstellungstelefon';
+
+  @override
+  String get fc2faBackupCodes => '2FA / Backup-Codes';
+
+  @override
+  String get fcLoginMethodProvider => 'Anmeldemethode / Anbieter';
+
+  @override
+  String get fcImapSmtp => 'IMAP / SMTP-Servereinstellungen';
+
+  @override
+  String get fcSecurityQA => 'Sicherheitsfrage und Antwort';
+
+  @override
+  String get fcPasswordChangeDate => 'Datum der Passwortänderung';
+
+  @override
+  String get fcPlatformTitle => 'Plattform / Bezeichnung';
+
+  @override
+  String get fcUsernameProfileId => 'Benutzername / Profil-ID';
+
+  @override
+  String get fcRegisteredEmail => 'Registrierte E-Mail';
+
+  @override
+  String get fcRegisteredPhone => 'Registrierte Telefonnummer';
+
+  @override
+  String get fcProfileUrl => 'Profillink (URL)';
+
+  @override
+  String get fcAccountTypeStatus => 'Kontotyp / Status';
+
+  @override
+  String get fcLinkedMainAccount => 'Verknüpftes Hauptkonto';
+
+  @override
+  String get fcProfileNumericId => 'Profil / Numerische ID';
+
+  @override
+  String get fc2faSecretKey => '2FA-Geheimschlüssel';
+
+  @override
+  String get fcServiceName => 'Organisation / Servicename';
+
+  @override
+  String get fcCompanyName => 'Firmenname';
+
+  @override
+  String get fcCorporateUserId => 'Benutzername / Unternehmens-ID';
+
+  @override
+  String get fcPanelUrl => 'Service- / Paneladresse (URL)';
+
+  @override
+  String get fcDepartmentPosition => 'Abteilung / Position';
+
+  @override
+  String get fcLicenseCode => 'Kunden- / Lizenzcode';
+
+  @override
+  String get fcSupportContact => 'Verantwortlicher / Support-Kontakt';
+
+  @override
+  String get fcLoginMethodVerification => 'Anmeldemethode / Verifizierungsart';
+
+  @override
+  String get fcTaxOffice => 'Finanzamt & Steuernummer';
+
+  @override
+  String get fcRegistryNo => 'Registernummer / Händlercode';
+
+  @override
+  String get fcIpVpn => 'IP-Beschränkung / VPN-Adresse';
+
+  @override
+  String get fcLicenseExpiry => 'Portal- / Lizenzablaufdatum';
+
+  @override
+  String get fcSiteName => 'Seiten- / Servicename';
+
+  @override
+  String get fcWebAddress => 'Webadresse (URL)';
+
+  @override
+  String get fcUsernameEmail => 'Benutzername / E-Mail';
+
+  @override
+  String get fcSubscriptionFee => 'Abogebühr und -zeitraum';
+
+  @override
+  String get fcRegistrationDate => 'Registrierungsdatum';
+
+  @override
+  String get fcPaymentMethod => 'Rechnungs- / Zahlungsmethode';
+
+  @override
+  String get fcPinCode => 'PIN-Code';
+
+  @override
+  String get fcLicenseCodeSimple => 'Lizenzcode';
+
+  @override
+  String get pickFieldTitle => 'Feld auswählen';
+
+  @override
+  String get allFieldsAdded => 'Alle Felder hinzugefügt';
+
+  @override
+  String get generatorSettings => 'Generator settings';
+
+  @override
+  String get saveAndExit => 'Save and exit';
 }

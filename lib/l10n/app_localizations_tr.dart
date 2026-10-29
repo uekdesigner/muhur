@@ -356,4 +356,172 @@ class AppLocalizationsTr extends AppLocalizations {
   String deleteSelectedConfirm(int count) {
     return 'Seçili $count kayıt silinsin mi? Bu işlem geri alınamaz.';
   }
+
+  @override
+  String get fcBankName => 'Banka Adı';
+
+  @override
+  String get fcTag => 'Etiket';
+
+  @override
+  String get fcInternetBankingPassword => 'İnternet Bankacılığı Şifresi';
+
+  @override
+  String get fcCardPin => 'Kart Şifresi (PIN)';
+
+  @override
+  String get fcCardNumber => 'Kart Numarası';
+
+  @override
+  String get fcExpiryDate => 'Son Kullanma Tarihi';
+
+  @override
+  String get fcCvv => 'CVV / CVC';
+
+  @override
+  String get fcCustomerServiceNo => 'Müşteri Hizmetleri No';
+
+  @override
+  String get fcCustomerNoTc => 'Müşteri Numarası / T.C. No';
+
+  @override
+  String get fcBranchNameCode => 'Şube Adı ve Şube Kodu';
+
+  @override
+  String get fcAccountType => 'Hesap Türü';
+
+  @override
+  String get fcPhoneBankingPassword => 'Telefon Bankacılığı Şifresi';
+
+  @override
+  String get fcSwiftBic => 'Swift / BIC Kodu';
+
+  @override
+  String get fcCardStatementDate => 'Kart Kesim & Son Ödeme Tarihi';
+
+  @override
+  String get fcAccountTitle => 'Başlık / Hesap Adı';
+
+  @override
+  String get fcEmailAddress => 'E-posta Adresi';
+
+  @override
+  String get fcRecoveryEmail => 'Kurtarma E-postası';
+
+  @override
+  String get fcRecoveryPhone => 'Kurtarma Telefonu';
+
+  @override
+  String get fc2faBackupCodes => '2FA / Yedek Kodlar';
+
+  @override
+  String get fcLoginMethodProvider => 'Giriş Yöntemi / Sağlayıcı';
+
+  @override
+  String get fcImapSmtp => 'IMAP / SMTP Sunucu Ayarları';
+
+  @override
+  String get fcSecurityQA => 'Güvenlik Sorusu ve Yanıtı';
+
+  @override
+  String get fcPasswordChangeDate => 'Şifre Değiştirme Tarihi';
+
+  @override
+  String get fcPlatformTitle => 'Platform / Başlık';
+
+  @override
+  String get fcUsernameProfileId => 'Kullanıcı Adı / Profil ID';
+
+  @override
+  String get fcRegisteredEmail => 'Kayıtlı E-posta Adresi';
+
+  @override
+  String get fcRegisteredPhone => 'Kayıtlı Telefon Numarası';
+
+  @override
+  String get fcProfileUrl => 'Profil Bağlantısı (URL)';
+
+  @override
+  String get fcAccountTypeStatus => 'Hesap Türü / Statü';
+
+  @override
+  String get fcLinkedMainAccount => 'Bağlı Ana Hesap';
+
+  @override
+  String get fcProfileNumericId => 'Profil ID / Numeric ID';
+
+  @override
+  String get fc2faSecretKey => '2FA Gizli Anahtarı';
+
+  @override
+  String get fcServiceName => 'Kurum / Servis Adı';
+
+  @override
+  String get fcCompanyName => 'Şirket / Firma Adı';
+
+  @override
+  String get fcCorporateUserId => 'Kullanıcı Adı / Kurumsal ID';
+
+  @override
+  String get fcPanelUrl => 'Servis / Panel Adresi (URL)';
+
+  @override
+  String get fcDepartmentPosition => 'Departman / Pozisyon';
+
+  @override
+  String get fcLicenseCode => 'Müşteri / Lisans Kodu';
+
+  @override
+  String get fcSupportContact => 'Yetkili / Destek Kişisi';
+
+  @override
+  String get fcLoginMethodVerification => 'Giriş Yöntemi / Doğrulama Türü';
+
+  @override
+  String get fcTaxOffice => 'Vergi Dairesi & Vergi No (VKN)';
+
+  @override
+  String get fcRegistryNo => 'Sicil No / Kurumsal Bayi Kodu';
+
+  @override
+  String get fcIpVpn => 'IP Kısıtlaması / VPN Adresi';
+
+  @override
+  String get fcLicenseExpiry => 'Portal / Lisans Bitiş Tarihi';
+
+  @override
+  String get fcSiteName => 'Site / Servis Adı';
+
+  @override
+  String get fcWebAddress => 'Web Adresi (URL)';
+
+  @override
+  String get fcUsernameEmail => 'Kullanıcı Adı / E-posta';
+
+  @override
+  String get fcSubscriptionFee => 'Abonelik Ücreti ve Periyodu';
+
+  @override
+  String get fcRegistrationDate => 'Kayıt Tarihi';
+
+  @override
+  String get fcPaymentMethod => 'Fatura / Ödeme Yöntemi';
+
+  @override
+  String get fcPinCode => 'PIN Kodu';
+
+  @override
+  String get fcLicenseCodeSimple => 'Lisans Kodu';
+
+  @override
+  String get pickFieldTitle => 'Alan seç';
+
+  @override
+  String get allFieldsAdded => 'Tüm alanlar eklendi';
+
+  @override
+  String get generatorSettings => 'Generator settings';
+
+  @override
+  String get saveAndExit => 'Save and exit';
 }

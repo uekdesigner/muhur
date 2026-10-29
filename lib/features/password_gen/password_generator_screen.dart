@@ -2,14 +2,24 @@ import 'package:flutter/material.dart';
 
 import '../../core/utils/clipboard_service.dart';
 import '../../l10n/app_localizations.dart';
+import 'generator_settings.dart';
 import 'password_generator.dart';
 import 'strength_bar.dart';
 
-class PasswordGeneratorScreen extends StatefulWidget {
-  const PasswordGeneratorScreen({super.key, this.pick = false});
+/// Ekranın açılış amacı:
+/// - [view]: Ana menüden serbestçe şifre üretme (yalnızca üret/kopyala).
+/// - [pick]: Bir alana değer seçmek için ("Bu parolayı kullan" döner).
+/// - [settings]: Yalnızca üretim ayarlarını düzenleyip kaydetmek için
+///   ("Kaydet ve çık", değer döndürmez).
+enum GeneratorScreenMode { view, pick, settings }
 
-  /// true ise "Bu parolayı kullan" butonu çıkar ve seçilen parola geri döner.
-  final bool pick;
+class PasswordGeneratorScreen extends StatefulWidget {
+  const PasswordGeneratorScreen({
+    super.key,
+    this.mode = GeneratorScreenMode.view,
+  });
+
+  final GeneratorScreenMode mode;
 
   @override
   State<PasswordGeneratorScreen> createState() =>
@@ -18,7 +28,7 @@ class PasswordGeneratorScreen extends StatefulWidget {
 
 class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
   final PasswordGenerator _gen = PasswordGenerator();
-  GeneratorOptions _opts = const GeneratorOptions();
+  late GeneratorOptions _opts = GeneratorSettings.instance.options;
   late String _pw = _gen.generate(_opts);
 
   void _update(GeneratorOptions o) {
@@ -28,6 +38,11 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
       _opts = o;
       _pw = _gen.generate(o);
     });
+  }
+
+  Future<void> _saveAndExit() async {
+    await GeneratorSettings.instance.save(_opts);
+    if (mounted) Navigator.pop(context);
   }
 
   @override
@@ -123,11 +138,18 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
             value: _opts.avoidAmbiguous,
             onChanged: (v) => _update(_opts.copyWith(avoidAmbiguous: v)),
           ),
-          if (widget.pick) ...[
+          if (widget.mode == GeneratorScreenMode.pick) ...[
             const SizedBox(height: 16),
             FilledButton(
               onPressed: () => Navigator.pop(context, _pw),
               child: Text(t.usePassword),
+            ),
+          ],
+          if (widget.mode == GeneratorScreenMode.settings) ...[
+            const SizedBox(height: 16),
+            FilledButton(
+              onPressed: _saveAndExit,
+              child: Text(t.saveAndExit),
             ),
           ],
         ],
