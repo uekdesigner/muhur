@@ -193,5 +193,6 @@
   "customTypeText": "Text",
   "customTypeNote": "Notiz",
   "customTypePassword": "Verstecktes Passwort",
-  "customTypeDate": "Datum"
+  "customTypeDate": "Datum",
+  "customTypePhone": "Telefon"
 }

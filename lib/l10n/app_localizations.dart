@@ -1145,6 +1145,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Date'**
   String get customTypeDate;
+
+  /// No description provided for @customTypePhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get customTypePhone;
 }
 
 class _AppLocalizationsDelegate

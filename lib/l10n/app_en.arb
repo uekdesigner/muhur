@@ -175,5 +175,6 @@
   "customTypeText": "Text",
   "customTypeNote": "Note",
   "customTypePassword": "Hidden password",
-  "customTypeDate": "Date"
+  "customTypeDate": "Date",
+  "customTypePhone": "Phone"
 }

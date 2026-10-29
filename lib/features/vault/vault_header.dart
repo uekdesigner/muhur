@@ -12,7 +12,6 @@ class VaultHeader extends StatelessWidget {
     required this.selectedCount,
     required this.onHelp,
     required this.onDelete,
-    required this.onGenerator,
     required this.onLock,
   });
 
@@ -20,7 +19,6 @@ class VaultHeader extends StatelessWidget {
   final int selectedCount;
   final VoidCallback onHelp;
   final VoidCallback onDelete;
-  final VoidCallback onGenerator;
   final VoidCallback onLock;
 
   @override
@@ -102,12 +100,6 @@ class VaultHeader extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-              IconButton(
-                visualDensity: VisualDensity.compact,
-                icon: const Icon(Icons.password),
-                tooltip: t.generator,
-                onPressed: onGenerator,
               ),
               IconButton(
                 visualDensity: VisualDensity.compact,

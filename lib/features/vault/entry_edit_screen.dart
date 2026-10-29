@@ -52,6 +52,7 @@ class _FieldDraft {
     type: type,
     sensitive: type == 'password',
     generatable: type == 'password',
+    keyboard: type == 'phone' ? TextInputType.phone : null,
   );
 
   final FieldSpec? spec;
@@ -106,9 +107,13 @@ class _CustomFieldDialogState extends State<_CustomFieldDialog> {
       'text': t.customTypeText,
       'notes': t.customTypeNote,
       'password': t.customTypePassword,
+      'phone': t.customTypePhone,
       'date': t.customTypeDate,
     };
     return AlertDialog(
+      // Klavye açılınca içerik kaydırılabilsin (sarı-siyah taşma şeridi olmasın).
+      scrollable: true,
+      insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       title: Text(t.customField),
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -121,37 +126,65 @@ class _CustomFieldDialogState extends State<_CustomFieldDialog> {
             onChanged: (_) => setState(() {}),
           ),
           const SizedBox(height: 16),
-          Text(
-            t.customFieldType,
-            style: Theme.of(context).textTheme.labelLarge,
-          ),
+          Text(t.customFieldType, style: Theme.of(context).textTheme.labelLarge),
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
+            runSpacing: 8,
             children: [
               for (final e in types.entries)
-                ChoiceChip(
-                  label: Text(e.value),
-                  selected: _type == e.key,
-                  onSelected: (_) => setState(() => _type = e.key),
+                // Material çip yerine düz kutu: dolgu yok, ripple/kırmızı
+                // parlama yok; seçili olan yeşil çerçeve + yeşil tik.
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => setState(() => _type = e.key),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: _type == e.key ? Colors.green : Colors.white24,
+                        width: _type == e.key ? 1.6 : 1,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (_type == e.key) ...[
+                          const Icon(Icons.check, size: 16, color: Colors.green),
+                          const SizedBox(width: 6),
+                        ],
+                        Text(
+                          e.value,
+                          style: const TextStyle(color: MuhurColors.cream),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
             ],
           ),
         ],
       ),
       actions: [
-        TextButton(
+        IconButton(
+          icon: const Icon(Icons.close),
+          tooltip: t.cancel,
           onPressed: () => Navigator.pop(context),
-          child: Text(t.cancel),
         ),
-        FilledButton(
+        IconButton(
+          icon: const Icon(Icons.check),
+          color: Colors.green,
+          tooltip: t.addField,
           onPressed: _name.text.trim().isEmpty
               ? null
               : () => Navigator.pop(
                   context,
                   _CustomFieldResult(_name.text.trim(), _type),
                 ),
-          child: Text(t.addField),
         ),
       ],
     );
@@ -235,6 +268,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
               type: f.type,
               sensitive: f.sensitive,
               generatable: f.type == 'password',
+              keyboard: f.type == 'phone' ? TextInputType.phone : null,
             ),
           );
         }
@@ -245,9 +279,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
   }
 
   List<_FieldDraft> _draftsFor(AppLocalizations t, String key) =>
-      FieldCatalog.defaultsFor(key)
-          .map((s) => _FieldDraft.fromSpec(s, t))
-          .toList();
+      FieldCatalog.defaultsFor(key).map((s) => _FieldDraft.fromSpec(s, t)).toList();
 
   /// Kullanıcı hazır alanlara hiç dokunmadı mı?
   bool _isPristine() {
@@ -296,9 +328,9 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     final t = AppLocalizations.of(context)!;
     final cat = widget.categories.firstWhere((c) => c.id == _categoryId);
     final added = _drafts.map((d) => d.fieldKey).whereType<String>().toSet();
-    final available = FieldCatalog.forCategory(cat.nameKey)
-        .where((s) => !added.contains(s.key))
-        .toList();
+    final available = FieldCatalog.forCategory(
+      cat.nameKey,
+    ).where((s) => !added.contains(s.key)).toList();
 
     final chosen = await showModalBottomSheet<Object>(
       context: context,
@@ -601,10 +633,12 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
 
     return Card(
       key: ObjectKey(d),
-      margin: const EdgeInsets.symmetric(vertical: 6),
+      margin: const EdgeInsets.symmetric(vertical: 2),
       child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: tall ? SizedBox(height: _kFieldHeight * 5, child: field) : field,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        child: tall
+            ? SizedBox(height: _kFieldHeight * 5, child: field)
+            : field,
       ),
     );
   }

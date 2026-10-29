@@ -193,5 +193,6 @@
   "customTypeText": "Metin",
   "customTypeNote": "Not",
   "customTypePassword": "Gizli parola",
-  "customTypeDate": "Tarih"
+  "customTypeDate": "Tarih",
+  "customTypePhone": "Telefon"
 }

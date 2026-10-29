@@ -547,4 +547,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get customTypeDate => 'Datum';
+
+  @override
+  String get customTypePhone => 'Telefon';
 }

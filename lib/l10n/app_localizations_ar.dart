@@ -316,7 +316,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get infoBody =>
-      'يحفظ مُهُور كلمات المرور مشفرة على هذا الجهاز فقط. لا توجد حسابات ولا خوادم.\n\nلا يمكن استعادة كلمة المرور الرئيسية الخاصة بك. إذا نسيتها، فلن يمكن فتح بياناتك، لذا احتفظ بننسخة احتياطية مشفرة.';
+      'يحفظ مُهُور كلمات المرور مشفرة على هذا الجهاز فقط. لا توجد حسابات ولا خوادم.\n\nلا يمكن استعادة كلمة المرور الرئيسية الخاصة بك. إذا نسيتها، فلن يمكن فتح بياناتك، لذا احتفظ بنسخة احتياطية مشفرة.';
 
   @override
   String get understandNoRecovery =>
@@ -546,4 +546,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get customTypeDate => 'تاريخ';
+
+  @override
+  String get customTypePhone => 'هاتف';
 }

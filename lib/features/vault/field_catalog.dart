@@ -127,20 +127,8 @@ class FieldCatalog {
       keyboard: TextInputType.number,
     ),
     FieldSpec(
-      'customerServiceNo1',
-      (t) => '${t.fcCustomerServiceNo} 1',
-      isDefault: true,
-      keyboard: TextInputType.phone,
-    ),
-    FieldSpec(
-      'customerServiceNo2',
-      (t) => '${t.fcCustomerServiceNo} 2',
-      isDefault: true,
-      keyboard: TextInputType.phone,
-    ),
-    FieldSpec(
-      'customerServiceNo3',
-      (t) => '${t.fcCustomerServiceNo} 3',
+      'customerServiceNo',
+      (t) => t.fcCustomerServiceNo,
       isDefault: true,
       keyboard: TextInputType.phone,
     ),

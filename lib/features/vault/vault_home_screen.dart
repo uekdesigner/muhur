@@ -7,7 +7,6 @@ import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
 import '../password_gen/password_generator.dart';
-import '../password_gen/password_generator_screen.dart';
 import '../settings/settings_screen.dart';
 import 'category_globe.dart';
 import 'entry_detail_screen.dart';
@@ -193,12 +192,6 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                 selectedCount: _selected.length,
                 onHelp: _showHelp,
                 onDelete: _deleteSelected,
-                onGenerator: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const PasswordGeneratorScreen(),
-                  ),
-                ),
                 onLock: () {
                   Navigator.of(context).popUntil((r) => r.isFirst);
                   widget.onLock();
