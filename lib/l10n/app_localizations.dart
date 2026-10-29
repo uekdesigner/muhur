@@ -339,7 +339,7 @@ abstract class AppLocalizations {
   /// No description provided for @tags.
   ///
   /// In en, this message translates to:
-  /// **'Tags (comma separated)'**
+  /// **'Tag'**
   String get tags;
 
   /// No description provided for @fields.
@@ -447,7 +447,7 @@ abstract class AppLocalizations {
   /// No description provided for @fieldNote.
   ///
   /// In en, this message translates to:
-  /// **'Note'**
+  /// **'Notes'**
   String get fieldNote;
 
   /// No description provided for @copy.
@@ -1103,6 +1103,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save and exit'**
   String get saveAndExit;
+
+  /// No description provided for @customField.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom field'**
+  String get customField;
+
+  /// No description provided for @customFieldName.
+  ///
+  /// In en, this message translates to:
+  /// **'Field name'**
+  String get customFieldName;
+
+  /// No description provided for @customFieldType.
+  ///
+  /// In en, this message translates to:
+  /// **'Field type'**
+  String get customFieldType;
+
+  /// No description provided for @customTypeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Text'**
+  String get customTypeText;
+
+  /// No description provided for @customTypeNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get customTypeNote;
+
+  /// No description provided for @customTypePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden password'**
+  String get customTypePassword;
+
+  /// No description provided for @customTypeDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get customTypeDate;
 }
 
 class _AppLocalizationsDelegate

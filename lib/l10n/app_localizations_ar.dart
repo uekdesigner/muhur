@@ -10,7 +10,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appName => 'Mühür';
+  String get appName => 'مُهُور';
 
   @override
   String get catBanks => 'البنوك';
@@ -35,7 +35,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get setupInfo =>
-      'لا يمكن استعادة كلمة المرور هذه. إذا نسيتها، فلن تتمكن من الوصول إلى بياناتك مرة أخرى.';
+      'لا يمكن استعادة كلمة المرور هذه. إذا نسيتها، فلن يمكن فتح بياناتك أبداً.';
 
   @override
   String get masterPassword => 'كلمة المرور الرئيسية';
@@ -48,7 +48,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get passwordNeedsMix =>
-      'استخدم أحرفًا صغيرة وكبيرة ورقمًا ورمزًا خاصًا.';
+      'استخدم حروفاً صغيرة وكبيرة، رقماً ورمزاً خاصاً.';
 
   @override
   String get reqLength => '8 أحرف على الأقل';
@@ -72,24 +72,24 @@ class AppLocalizationsAr extends AppLocalizations {
   String get createVault => 'إنشاء الخزنة';
 
   @override
-  String get unlockTitle => 'إلغاء القفل';
+  String get unlockTitle => 'فتح القفل';
 
   @override
-  String get unlock => 'فتح';
+  String get unlock => 'فتح القفل';
 
   @override
   String get wrongPassword => 'كلمة المرور الرئيسية غير صحيحة.';
 
   @override
   String lockedOut(int seconds) {
-    return 'محاولات كثيرة جدًا. حاول مرة أخرى بعد $seconds ثوانٍ.';
+    return 'محاولات كثيرة جداً. حاول مرة أخرى بعد $seconds ثانية.';
   }
 
   @override
-  String get useBiometrics => 'إلغاء القفل بالبصمة';
+  String get useBiometrics => 'فتح القفل باستخدام البصمة';
 
   @override
-  String get enableBiometricsQ => 'هل تريد تفعيل الدخول بالبصمة؟';
+  String get enableBiometricsQ => 'تفعيل فتح القفل بالبصمة؟';
 
   @override
   String get enable => 'تفعيل';
@@ -98,7 +98,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get notNow => 'ليس الآن';
 
   @override
-  String get biometricReason => 'إلغاء قفل Mühür';
+  String get biometricReason => 'فتح قفل مُهُور';
 
   @override
   String get lockNow => 'قفل';
@@ -110,16 +110,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get all => 'الكل';
 
   @override
-  String get noEntries => 'لا توجد مدخلات بعد';
+  String get noEntries => 'لا توجد إدخالات بعد';
 
   @override
-  String get searchHint => 'ابحث عن العنوان أو النطاق أو الوسم';
+  String get searchHint => 'البحث في العنوان، النطاق أو الوسم';
 
   @override
-  String get addEntry => 'إضافة مدخل';
+  String get addEntry => 'إضافة إدخال';
 
   @override
-  String get editEntry => 'تعديل المدخل';
+  String get editEntry => 'تعديل الإدخال';
 
   @override
   String get title => 'العنوان';
@@ -131,7 +131,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get domain => 'النطاق (مثال: example.com)';
 
   @override
-  String get tags => 'الوسوم (مفصولة بفواصل)';
+  String get tags => 'الوسم';
 
   @override
   String get fields => 'الحقول';
@@ -149,7 +149,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get typeText => 'نص';
 
   @override
-  String get typePassword => 'كلمة مرور';
+  String get typePassword => 'كلمة المرور';
 
   @override
   String get typeUrl => 'رابط';
@@ -171,7 +171,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteConfirm =>
-      'هل تريد حذف هذا المدخل؟ لا يمكن التراجع عن هذا الإجراء.';
+      'حذف هذا الإدخال؟ لا يمكن التراجع عن هذا الإجراء.';
 
   @override
   String get titleRequired => 'العنوان مطلوب.';
@@ -183,17 +183,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fieldPassword => 'كلمة المرور';
 
   @override
-  String get fieldIban => 'IBAN';
+  String get fieldIban => 'رقم الحساب المصرفي الدولي (IBAN)';
 
   @override
-  String get fieldNote => 'ملاحظة';
+  String get fieldNote => 'ملاحظات';
 
   @override
   String get copy => 'نسخ';
 
   @override
   String copied(int seconds) {
-    return 'تم النسخ. سيتم مسح الحافظة بعد $seconds ثوانٍ.';
+    return 'تم النسخ. سيتم مسح الحافظة خلال $seconds ثوانٍ.';
   }
 
   @override
@@ -203,7 +203,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get autoLock => 'القفل التلقائي';
 
   @override
-  String get immediately => 'فورًا';
+  String get immediately => 'فوري';
 
   @override
   String get seconds15 => '15 ثانية';
@@ -215,7 +215,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get minutes5 => '5 دقائق';
 
   @override
-  String get biometricUnlock => 'إلغاء القفل بالبصمة';
+  String get biometricUnlock => 'فتح القفل الحيوي';
 
   @override
   String get generator => 'مولد كلمات المرور';
@@ -227,10 +227,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get length => 'الطول';
 
   @override
-  String get lowercase => 'أحرف صغيرة (a-z)';
+  String get lowercase => 'حروف صغيرة (a-z)';
 
   @override
-  String get uppercase => 'أحرف كبيرة (A-Z)';
+  String get uppercase => 'حروف كبيرة (A-Z)';
 
   @override
   String get digits => 'أرقام (0-9)';
@@ -260,14 +260,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get strengthStrong => 'قوية';
 
   @override
-  String get scan => 'مسح باستخدام الكاميرا';
+  String get scan => 'مسح بالكاميرا';
 
   @override
   String get scanHint =>
-      'ثبّت الكاميرا فوق النص. يتم الاكتشاف تلقائيًا في وضع IBAN.';
+      'ثبت الكاميرا بثبات فوق النص. في وضع IBAN يتم اكتشافه تلقائياً.';
 
   @override
-  String get scanRetake => 'إعادة الالتقاط';
+  String get scanRetake => 'إعادة التقاط';
 
   @override
   String get scanning => 'جاري المسح...';
@@ -277,10 +277,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get ibanNotFound =>
-      'لم يتم العثور على IBAN صالحة. حاول مرة أخرى في إضاءة أفضل أو اختر سطرًا من الأسفل.';
+      'لم يتم العثور على IBAN صالح. حاول مرة أخرى بإضاءة أفضل، أو اختر سطراً أدناه.';
 
   @override
-  String get ibanCorrected => 'قد تكون تمت معالجتها بعد خطأ OCR. تحقق بعناية.';
+  String get ibanCorrected =>
+      'ربما تم التصحيح بعد خطأ في التعرف الضوئي على الحروف. تحقق بعناية.';
 
   @override
   String get pickLine => 'اضغط على سطر لاستخدامه';
@@ -292,34 +293,34 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cameraError => 'الكاميرا غير متاحة. تحقق من إذن الكاميرا.';
 
   @override
-  String get editBeforeUse => 'تحقق وعدّل إذا لزم الأمر';
+  String get editBeforeUse => 'تحقق وقم بالتحرير إذا لزم الأمر';
 
   @override
   String get useValue => 'استخدام';
 
   @override
-  String get brandName => 'MÜHÜR';
+  String get brandName => 'مُهُور';
 
   @override
   String get brandSubtitle => 'مدير كلمات المرور';
 
   @override
   String get tagline =>
-      'مفاتيحك الرقمية بين يديك بالكامل.\nلا خوادم. أنت وكلمات مرورك فقط.\nMÜHÜR: خزنتك الرقمية التي لا يراها أحد سواك.';
+      'مفاتيحك الرقمية بين يديك بالكامل.\n لا خوادم. فقط أنت وكلمات مرورك.\n مُهُور: خزنتك الرقمية التي لا يمكن لأحد غيرك رؤيتها.';
 
   @override
   String get login => 'دخول';
 
   @override
-  String get infoTitle => 'حول Mühür';
+  String get infoTitle => 'حول مُهُور';
 
   @override
   String get infoBody =>
-      'يحفظ Mühür كلمات المرور مشفرة على هذا الجهاز فقط. لا يوجد حساب ولا خادم.\n\nلا يمكن استعادة كلمة المرور الرئيسية. إذا نسيتها، فلن تتمكن من فتح بياناتك، لذا يحتفظ بنسخة احتياطية مشفرة.';
+      'يحفظ مُهُور كلمات المرور مشفرة على هذا الجهاز فقط. لا توجد حسابات ولا خوادم.\n\nلا يمكن استعادة كلمة المرور الرئيسية الخاصة بك. إذا نسيتها، فلن يمكن فتح بياناتك، لذا احتفظ بننسخة احتياطية مشفرة.';
 
   @override
   String get understandNoRecovery =>
-      'أفهم أنه لا يمكن استعادة كلمة المرور الرئيسية المفقودة.';
+      'أنا أتفهم أن كلمة المرور الرئيسية المنسية لا يمكن استعادتها.';
 
   @override
   String get close => 'إغلاق';
@@ -328,7 +329,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get language => 'اللغة';
 
   @override
-  String get languageSystem => 'افتراضي النظام';
+  String get languageSystem => 'لغة النظام الافتراضية';
 
   @override
   String get statTotal => 'الإجمالي';
@@ -343,7 +344,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get statusScreen => 'حماية الشاشة';
 
   @override
-  String get statusBackup => 'نسخ احتياطي تلقائي';
+  String get statusBackup => 'النسخ الاحتياطي التلقائي';
 
   @override
   String get helpTitle => 'المساعدة';
@@ -353,21 +354,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String deleteSelectedConfirm(int count) {
-    return 'هل تريد حذف $count من المدخلات المحددة؟ لا يمكن التراجع عن هذا الإجراء.';
+    return 'حذف $count من الإدخالات المحددة؟ لا يمكن التراجع عن هذا الإجراء.';
   }
 
   @override
   String get fcBankName => 'اسم البنك';
 
   @override
-  String get fcTag => 'وسم';
+  String get fcTag => 'الوسم';
 
   @override
   String get fcInternetBankingPassword =>
       'كلمة مرور الخدمات المصرفية عبر الإنترنت';
 
   @override
-  String get fcCardPin => 'رمز البطاقة السري (PIN)';
+  String get fcCardPin => 'الرمز السري للبطاقة (PIN)';
 
   @override
   String get fcCardNumber => 'رقم البطاقة';
@@ -376,16 +377,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcExpiryDate => 'تاريخ الانتهاء';
 
   @override
-  String get fcCvv => 'CVV / CVC';
+  String get fcCvv => 'رمز الأمان (CVV / CVC)';
 
   @override
   String get fcCustomerServiceNo => 'رقم خدمة العملاء';
 
   @override
-  String get fcCustomerNoTc => 'رقم العميل / الرقم الوطني';
+  String get fcCustomerNoTc => 'رقم العميل / الرقم القومي';
 
   @override
-  String get fcBranchNameCode => 'اسم الفرع ورمزه';
+  String get fcBranchNameCode => 'اسم ورقم الفرع';
 
   @override
   String get fcAccountType => 'نوع الحساب';
@@ -394,34 +395,34 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcPhoneBankingPassword => 'كلمة مرور الخدمات المصرفية الهاتفية';
 
   @override
-  String get fcSwiftBic => 'رمز SWIFT / BIC';
+  String get fcSwiftBic => 'رمز سويفت (SWIFT / BIC)';
 
   @override
-  String get fcCardStatementDate => 'تاريخ كشف الحساب والاستحقاق';
+  String get fcCardStatementDate => 'تاريخ كشف الحساب واستحقاق الدفع';
 
   @override
-  String get fcAccountTitle => 'اسم الحساب';
+  String get fcAccountTitle => 'عنوان الحساب';
 
   @override
   String get fcEmailAddress => 'عنوان البريد الإلكتروني';
 
   @override
-  String get fcRecoveryEmail => 'بريد الاسترداد';
+  String get fcRecoveryEmail => 'البريد الإلكتروني للاسترداد';
 
   @override
   String get fcRecoveryPhone => 'هاتف الاسترداد';
 
   @override
-  String get fc2faBackupCodes => 'رموز 2FA / النسخ الاحتياطي';
+  String get fc2faBackupCodes => 'رمز التحقق الثنائي / رموز النسخ الاحتياطي';
 
   @override
-  String get fcLoginMethodProvider => 'طريقة الدخول / المزود';
+  String get fcLoginMethodProvider => 'طريقة تسجيل الدخول / المزود';
 
   @override
   String get fcImapSmtp => 'إعدادات خادم IMAP / SMTP';
 
   @override
-  String get fcSecurityQA => 'سؤال الأمان وإجابته';
+  String get fcSecurityQA => 'سؤال وجواب الأمان';
 
   @override
   String get fcPasswordChangeDate => 'تاريخ تغيير كلمة المرور';
@@ -439,7 +440,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcRegisteredPhone => 'رقم الهاتف المسجل';
 
   @override
-  String get fcProfileUrl => 'رابط الملف الشخصي';
+  String get fcProfileUrl => 'رابط الملف الشخصي (URL)';
 
   @override
   String get fcAccountTypeStatus => 'نوع الحساب / الحالة';
@@ -451,7 +452,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcProfileNumericId => 'معرف الملف الشخصي الرقمي';
 
   @override
-  String get fc2faSecretKey => 'المفتاح السري لـ 2FA';
+  String get fc2faSecretKey => 'مفتاح التحقق الثنائي السري (2FA)';
 
   @override
   String get fcServiceName => 'اسم المؤسسة / الخدمة';
@@ -463,28 +464,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcCorporateUserId => 'اسم المستخدم / المعرف المؤسسي';
 
   @override
-  String get fcPanelUrl => 'عنوان الخدمة / اللوحة (URL)';
+  String get fcPanelUrl => 'عنوان الخدمة / لوحة التحكم (URL)';
 
   @override
-  String get fcDepartmentPosition => 'القسم / المنصب';
+  String get fcDepartmentPosition => 'القسم / المسمى الوظيفي';
 
   @override
   String get fcLicenseCode => 'رمز العميل / الترخيص';
 
   @override
-  String get fcSupportContact => 'المسؤول / جهة اتصال الدعم';
+  String get fcSupportContact => 'جهة اتصال الدعم / المسؤول';
 
   @override
-  String get fcLoginMethodVerification => 'طريقة الدخول / نوع التحقق';
+  String get fcLoginMethodVerification => 'طريقة تسجيل الدخول / نوع التحقق';
 
   @override
-  String get fcTaxOffice => 'مصلحة الضرائب ورقم التعريف الضريبي';
+  String get fcTaxOffice => 'مكتب الضرائب والرقم الضريبي';
 
   @override
   String get fcRegistryNo => 'رقم السجل / رمز الوكيل';
 
   @override
-  String get fcIpVpn => 'تقييد IP / عنوان VPN';
+  String get fcIpVpn => 'تقييد عنوان IP / عنوان VPN';
 
   @override
   String get fcLicenseExpiry => 'تاريخ انتهاء البوابة / الترخيص';
@@ -493,13 +494,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcSiteName => 'اسم الموقع / الخدمة';
 
   @override
-  String get fcWebAddress => 'عنوان الموقع (URL)';
+  String get fcWebAddress => 'عنوان الويب (URL)';
 
   @override
   String get fcUsernameEmail => 'اسم المستخدم / البريد الإلكتروني';
 
   @override
-  String get fcSubscriptionFee => 'رسوم الاشتراك والفترة';
+  String get fcSubscriptionFee => 'رسوم الاشتراك والمدة';
 
   @override
   String get fcRegistrationDate => 'تاريخ التسجيل';
@@ -517,11 +518,32 @@ class AppLocalizationsAr extends AppLocalizations {
   String get pickFieldTitle => 'اختر حقلاً';
 
   @override
-  String get allFieldsAdded => 'تمت إضافة جميع الحقول';
+  String get allFieldsAdded => 'تم إضافة جميع الحقول';
 
   @override
-  String get generatorSettings => 'Generator settings';
+  String get generatorSettings => 'إعدادات المولد';
 
   @override
-  String get saveAndExit => 'Save and exit';
+  String get saveAndExit => 'حفظ والخروج';
+
+  @override
+  String get customField => 'حقل مخصص';
+
+  @override
+  String get customFieldName => 'اسم الحقل';
+
+  @override
+  String get customFieldType => 'نوع الحقل';
+
+  @override
+  String get customTypeText => 'نص';
+
+  @override
+  String get customTypeNote => 'ملاحظة';
+
+  @override
+  String get customTypePassword => 'كلمة مرور مخفية';
+
+  @override
+  String get customTypeDate => 'تاريخ';
 }

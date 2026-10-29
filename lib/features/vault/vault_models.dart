@@ -62,12 +62,15 @@ class VaultEntry {
 
 class FieldData {
   FieldData({
+    this.key,
     required this.label,
     required this.value,
     this.type = 'text',
     this.sensitive = false,
   });
 
+  /// Dilden bağımsız alan anahtarı (özel / eski alanlarda null).
+  String? key;
   String label;
   String value;
   String type; // text, password, url, notes

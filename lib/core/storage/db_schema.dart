@@ -1,5 +1,5 @@
 class DbSchema {
-  static const int version = 1;
+  static const int version = 2;
   static const String fileName = 'muhur.db';
 
   static const String categories = '''
@@ -28,6 +28,7 @@ class DbSchema {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       entry_id INTEGER NOT NULL,
       field_label TEXT NOT NULL,
+      field_key TEXT,
       field_value TEXT NOT NULL,
       field_type TEXT NOT NULL DEFAULT 'text',
       is_sensitive INTEGER NOT NULL DEFAULT 0,

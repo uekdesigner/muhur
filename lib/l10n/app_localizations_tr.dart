@@ -10,7 +10,7 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'Mühür';
 
   @override
   String get catBanks => 'Bankalar';
@@ -19,7 +19,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get catWebsites => 'Siteler';
 
   @override
-  String get catEmails => 'Mailler';
+  String get catEmails => 'E-postalar';
 
   @override
   String get catSocial => 'Sosyal Medya';
@@ -35,61 +35,61 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get setupInfo =>
-      'Bu parola kurtarılamaz. Unutursanız verilerinize bir daha erişilemez.';
+      'Bu parola kurtarılamaz. Eğer unutursanız, verileriniz asla açılamaz.';
 
   @override
   String get masterPassword => 'Ana parola';
 
   @override
-  String get confirmPassword => 'Parolayı doğrula';
+  String get confirmPassword => 'Parolayı onayla';
 
   @override
   String get passwordTooShort => 'En az 8 karakter kullanın.';
 
   @override
   String get passwordNeedsMix =>
-      'Küçük harf, büyük harf, rakam ve özel karakter kullanın.';
+      'Küçük harf, büyük harf, bir rakam ve bir özel karakter kullanın.';
 
   @override
   String get reqLength => 'En az 8 karakter';
 
   @override
-  String get reqLower => 'Küçük harf';
+  String get reqLower => 'Bir küçük harf';
 
   @override
-  String get reqUpper => 'Büyük harf';
+  String get reqUpper => 'Bir büyük harf';
 
   @override
-  String get reqDigit => 'Rakam';
+  String get reqDigit => 'Bir rakam';
 
   @override
-  String get reqSpecial => 'Özel karakter (!@#...)';
+  String get reqSpecial => 'Bir özel karakter (!@#...)';
 
   @override
   String get passwordsDontMatch => 'Parolalar eşleşmiyor.';
 
   @override
-  String get createVault => 'Kasayı oluştur';
+  String get createVault => 'Kasa oluştur';
 
   @override
   String get unlockTitle => 'Kilidi aç';
 
   @override
-  String get unlock => 'Aç';
+  String get unlock => 'Kilidi aç';
 
   @override
-  String get wrongPassword => 'Ana parola yanlış.';
+  String get wrongPassword => 'Hatalı ana parola.';
 
   @override
   String lockedOut(int seconds) {
-    return 'Çok fazla deneme. $seconds saniye sonra tekrar deneyin.';
+    return 'Çok fazla deneme yapıldı. $seconds saniye sonra tekrar deneyin.';
   }
 
   @override
-  String get useBiometrics => 'Biyometrik ile aç';
+  String get useBiometrics => 'Biyometri ile aç';
 
   @override
-  String get enableBiometricsQ => 'Biyometrik giriş etkinleştirilsin mi?';
+  String get enableBiometricsQ => 'Biyometrik kilit açılsın mı?';
 
   @override
   String get enable => 'Etkinleştir';
@@ -98,13 +98,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get notNow => 'Şimdi değil';
 
   @override
-  String get biometricReason => 'Muhur kilidini aç';
+  String get biometricReason => 'Mühür\'ün kilidini aç';
 
   @override
   String get lockNow => 'Kilitle';
 
   @override
-  String get vaultUnlocked => 'Kasa açıldı';
+  String get vaultUnlocked => 'Kasa kilidi açıldı';
 
   @override
   String get all => 'Tümü';
@@ -128,10 +128,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get category => 'Kategori';
 
   @override
-  String get domain => 'Alan adı (örn. example.com)';
+  String get domain => 'Alan adı (örn. ornek.com)';
 
   @override
-  String get tags => 'Etiketler (virgülle ayırın)';
+  String get tags => 'Etiket';
 
   @override
   String get fields => 'Alanlar';
@@ -152,10 +152,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get typePassword => 'Parola';
 
   @override
-  String get typeUrl => 'Bağlantı';
+  String get typeUrl => 'URL';
 
   @override
-  String get typeNotes => 'Not';
+  String get typeNotes => 'Notlar';
 
   @override
   String get sensitive => 'Değeri gizle';
@@ -173,7 +173,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get deleteConfirm => 'Bu kayıt silinsin mi? Bu işlem geri alınamaz.';
 
   @override
-  String get titleRequired => 'Başlık gerekli.';
+  String get titleRequired => 'Başlık gereklidir.';
 
   @override
   String get fieldUsername => 'Kullanıcı adı';
@@ -185,21 +185,21 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fieldIban => 'IBAN';
 
   @override
-  String get fieldNote => 'Not';
+  String get fieldNote => 'Notlar';
 
   @override
   String get copy => 'Kopyala';
 
   @override
   String copied(int seconds) {
-    return 'Kopyalandı. Pano $seconds saniye sonra temizlenecek.';
+    return 'Kopyalandı. Pano $seconds saniye içinde temizlenecek.';
   }
 
   @override
   String get settings => 'Ayarlar';
 
   @override
-  String get autoLock => 'Otomatik kilit';
+  String get autoLock => 'Otomatik kilitleme';
 
   @override
   String get immediately => 'Hemen';
@@ -214,10 +214,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get minutes5 => '5 dakika';
 
   @override
-  String get biometricUnlock => 'Biyometrik giriş';
+  String get biometricUnlock => 'Biyometrik kilit';
 
   @override
-  String get generator => 'Şifre üretici';
+  String get generator => 'Parola üretici';
 
   @override
   String get generate => 'Üret';
@@ -232,13 +232,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get uppercase => 'Büyük harf (A-Z)';
 
   @override
-  String get digits => 'Rakam (0-9)';
+  String get digits => 'Rakamlar (0-9)';
 
   @override
-  String get symbols => 'Sembol (!@#...)';
+  String get symbols => 'Semboller (!@#...)';
 
   @override
-  String get avoidAmbiguous => 'Benzer karakterlerden kaçın (O/0, l/1)';
+  String get avoidAmbiguous => 'Benzer karakterleri kaçın (O/0, l/1)';
 
   @override
   String get regenerate => 'Yeniden üret';
@@ -263,7 +263,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get scanHint =>
-      'Kamerayı metnin üzerinde sabit tutun. IBAN modunda otomatik algılanır.';
+      'Kamerayı metnin üzerinde sabit tutun. IBAN modunda otomatik olarak algılanır.';
 
   @override
   String get scanRetake => 'Tekrar çek';
@@ -276,11 +276,11 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get ibanNotFound =>
-      'Geçerli IBAN bulunamadı. Daha iyi ışıkta tekrar deneyin ya da aşağıdan bir satır seçin.';
+      'Geçerli bir IBAN bulunamadı. Daha iyi ışıkta tekrar deneyin veya aşağıdaki bir satırı seçin.';
 
   @override
   String get ibanCorrected =>
-      'OCR hatası sonrası düzeltilmiş olabilir. Dikkatle kontrol edin.';
+      'OCR hatasından sonra düzeltilmiş olabilir. Dikkatlice kontrol edin.';
 
   @override
   String get pickLine => 'Kullanmak için bir satıra dokunun';
@@ -293,7 +293,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kamera kullanılamıyor. Kamera iznini kontrol edin.';
 
   @override
-  String get editBeforeUse => 'Kontrol edin, gerekirse düzeltin';
+  String get editBeforeUse => 'Gerekirse kontrol edip düzenleyin';
 
   @override
   String get useValue => 'Kullan';
@@ -306,21 +306,21 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get tagline =>
-      'Dijital anahtarlarınız tamamen sizin elinizde.\n Sunucu yok. Yalnızca siz ve şifreleriniz.\n MÜHÜR: Sadece sizin görebildiğiniz dijital kasanız.';
+      'Dijital anahtarlarınız tamamen sizin ellerinizde.\n Sunucu yok. Yalnızca siz ve parolalarınız.\n MÜHÜR: Yalnızca sizin görebileceğiniz dijital kasanız.';
 
   @override
   String get login => 'GİRİŞ';
 
   @override
-  String get infoTitle => 'Muhur hakkında';
+  String get infoTitle => 'Mühür Hakkında';
 
   @override
   String get infoBody =>
-      'Muhur şifrelerinizi yalnızca bu cihazda, şifreli olarak saklar. Hesap ya da sunucu yoktur.\n\nAna parolanız kurtarılamaz. Unutursanız verilerinize erişilemez, bu yüzden şifreli bir yedek tutun.';
+      'Mühür, parolalarınızı yalnızca bu cihazda şifrelenmiş olarak saklar. Hesap ve sunucu yoktur.\n\nAna parolanız kurtarılamaz. Eğer unutursanız verileriniz açılamaz, bu nedenle şifreli bir yedek saklayın.';
 
   @override
   String get understandNoRecovery =>
-      'Ana parolamı unutursam kurtarılamayacağını anlıyorum.';
+      'Unutulan bir ana parolanın kurtarılamayacağını anlıyorum.';
 
   @override
   String get close => 'Kapat';
@@ -329,32 +329,32 @@ class AppLocalizationsTr extends AppLocalizations {
   String get language => 'Dil';
 
   @override
-  String get languageSystem => 'Sistem dili';
+  String get languageSystem => 'Sistem varsayılanı';
 
   @override
   String get statTotal => 'Toplam';
 
   @override
-  String get statReused => 'Tekrar';
+  String get statReused => 'Tekrar kullanılan';
 
   @override
   String get planFree => 'ÜCRETSİZ';
 
   @override
-  String get statusScreen => 'Ekran Koruması';
+  String get statusScreen => 'Ekran koruması';
 
   @override
-  String get statusBackup => 'Oto Yedek';
+  String get statusBackup => 'Otomatik yedekleme';
 
   @override
   String get helpTitle => 'Yardım';
 
   @override
-  String get helpBody => 'Yardım içeriği buraya eklenecek.';
+  String get helpBody => 'Yardım içeriği buraya eklenecektir.';
 
   @override
   String deleteSelectedConfirm(int count) {
-    return 'Seçili $count kayıt silinsin mi? Bu işlem geri alınamaz.';
+    return 'Seçilen $count kayıt silinsin mi? Bu işlem geri alınamaz.';
   }
 
   @override
@@ -379,13 +379,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcCvv => 'CVV / CVC';
 
   @override
-  String get fcCustomerServiceNo => 'Müşteri Hizmetleri No';
+  String get fcCustomerServiceNo => 'Müşteri Hizmetleri Numarası';
 
   @override
-  String get fcCustomerNoTc => 'Müşteri Numarası / T.C. No';
+  String get fcCustomerNoTc => 'Müşteri Numarası / T.C. Kimlik No';
 
   @override
-  String get fcBranchNameCode => 'Şube Adı ve Şube Kodu';
+  String get fcBranchNameCode => 'Şube Adı ve Kodu';
 
   @override
   String get fcAccountType => 'Hesap Türü';
@@ -394,13 +394,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcPhoneBankingPassword => 'Telefon Bankacılığı Şifresi';
 
   @override
-  String get fcSwiftBic => 'Swift / BIC Kodu';
+  String get fcSwiftBic => 'SWIFT / BIC Kodu';
 
   @override
-  String get fcCardStatementDate => 'Kart Kesim & Son Ödeme Tarihi';
+  String get fcCardStatementDate => 'Hesap Özeti ve Son Ödeme Tarihi';
 
   @override
-  String get fcAccountTitle => 'Başlık / Hesap Adı';
+  String get fcAccountTitle => 'Hesap Başlığı';
 
   @override
   String get fcEmailAddress => 'E-posta Adresi';
@@ -424,7 +424,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcSecurityQA => 'Güvenlik Sorusu ve Yanıtı';
 
   @override
-  String get fcPasswordChangeDate => 'Şifre Değiştirme Tarihi';
+  String get fcPasswordChangeDate => 'Parola Değiştirme Tarihi';
 
   @override
   String get fcPlatformTitle => 'Platform / Başlık';
@@ -448,7 +448,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcLinkedMainAccount => 'Bağlı Ana Hesap';
 
   @override
-  String get fcProfileNumericId => 'Profil ID / Numeric ID';
+  String get fcProfileNumericId => 'Profil / Sayısal ID';
 
   @override
   String get fc2faSecretKey => '2FA Gizli Anahtarı';
@@ -478,10 +478,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcLoginMethodVerification => 'Giriş Yöntemi / Doğrulama Türü';
 
   @override
-  String get fcTaxOffice => 'Vergi Dairesi & Vergi No (VKN)';
+  String get fcTaxOffice => 'Vergi Dairesi ve Vergi No';
 
   @override
-  String get fcRegistryNo => 'Sicil No / Kurumsal Bayi Kodu';
+  String get fcRegistryNo => 'Sicil No / Bayi Kodu';
 
   @override
   String get fcIpVpn => 'IP Kısıtlaması / VPN Adresi';
@@ -514,14 +514,35 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcLicenseCodeSimple => 'Lisans Kodu';
 
   @override
-  String get pickFieldTitle => 'Alan seç';
+  String get pickFieldTitle => 'Bir alan seçin';
 
   @override
   String get allFieldsAdded => 'Tüm alanlar eklendi';
 
   @override
-  String get generatorSettings => 'Generator settings';
+  String get generatorSettings => 'Üretici ayarları';
 
   @override
-  String get saveAndExit => 'Save and exit';
+  String get saveAndExit => 'Kaydet ve çık';
+
+  @override
+  String get customField => 'Özel alan';
+
+  @override
+  String get customFieldName => 'Alan adı';
+
+  @override
+  String get customFieldType => 'Alan tipi';
+
+  @override
+  String get customTypeText => 'Metin';
+
+  @override
+  String get customTypeNote => 'Not';
+
+  @override
+  String get customTypePassword => 'Gizli parola';
+
+  @override
+  String get customTypeDate => 'Tarih';
 }

@@ -131,7 +131,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get domain => 'Domain (e.g. example.com)';
 
   @override
-  String get tags => 'Tags (comma separated)';
+  String get tags => 'Tag';
 
   @override
   String get fields => 'Fields';
@@ -185,7 +185,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fieldIban => 'IBAN';
 
   @override
-  String get fieldNote => 'Note';
+  String get fieldNote => 'Notes';
 
   @override
   String get copy => 'Copy';
@@ -524,4 +524,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get saveAndExit => 'Save and exit';
+
+  @override
+  String get customField => 'Custom field';
+
+  @override
+  String get customFieldName => 'Field name';
+
+  @override
+  String get customFieldType => 'Field type';
+
+  @override
+  String get customTypeText => 'Text';
+
+  @override
+  String get customTypeNote => 'Note';
+
+  @override
+  String get customTypePassword => 'Hidden password';
+
+  @override
+  String get customTypeDate => 'Date';
 }

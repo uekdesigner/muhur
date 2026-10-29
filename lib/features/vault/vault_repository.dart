@@ -80,6 +80,7 @@ class VaultRepository {
       );
       out.add(
         FieldData(
+          key: r['field_key'] as String?,
           label: label,
           value: plain,
           type: r['field_type'] as String,
@@ -135,6 +136,7 @@ class VaultRepository {
         await txn.insert('entry_fields', {
           'entry_id': id,
           'field_label': f.label,
+          'field_key': f.key,
           'field_value': enc,
           'field_type': f.type,
           'is_sensitive': f.sensitive ? 1 : 0,

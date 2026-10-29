@@ -10,9 +10,11 @@ import 'field_catalog.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
 
-/// Formdaki bir alan satırı. Alan adı artık serbest metin değildir;
-/// ya [FieldCatalog]'dan seçilen sabit bir tanıma (`spec`) sahiptir,
-/// ya da (eski kayıtlarla uyumluluk için) kaydedilmiş özel bir ad taşır.
+/// Tek bir text field'ın yaklaşık yüksekliği; "Not" alanı bunun 5 katıdır.
+const double _kFieldHeight = 56;
+
+/// Formdaki bir alan satırı. Ya [FieldCatalog]'dan bir tanıma (`spec`)
+/// dayanır, ya da kullanıcının oluşturduğu özel alandır (spec == null).
 class _FieldDraft {
   _FieldDraft({
     this.spec,
@@ -20,24 +22,139 @@ class _FieldDraft {
     String value = '',
     this.type = 'text',
     this.sensitive = false,
+    this.generatable = false,
+    this.scan,
+    this.keyboard,
+    this.removable = true,
+    this.group,
   }) : value = TextEditingController(text: value);
 
-  /// Katalogdaki sabit alan tanımı; eşleşmeyen eski kayıtlarda null olur.
+  factory _FieldDraft.fromSpec(
+    FieldSpec s,
+    AppLocalizations t, {
+    String value = '',
+  }) => _FieldDraft(
+    spec: s,
+    label: s.labelOf(t),
+    value: value,
+    type: s.type,
+    sensitive: s.sensitive,
+    generatable: s.generatable,
+    scan: s.scan,
+    keyboard: s.keyboard ?? (s.type == 'url' ? TextInputType.url : null),
+    removable: !s.isDefault, // Sabit alanlarda X yok
+    group: s.group,
+  );
+
+  /// Özel alan (katalogda olmayan). Tipi kullanıcı seçer.
+  factory _FieldDraft.custom(String name, String type) => _FieldDraft(
+    label: name,
+    type: type,
+    sensitive: type == 'password',
+    generatable: type == 'password',
+  );
+
   final FieldSpec? spec;
   final String label;
   final TextEditingController value;
   final String type;
   final bool sensitive;
+  final bool generatable;
+  final String? scan; // 'iban' | 'text' | null
+  final TextInputType? keyboard;
+  final bool removable;
+  final String? group;
   bool reveal = false;
 
-  String? get specKey => spec?.key;
-  bool get locked => spec?.locked ?? false;
-  bool get scannable => spec?.scannable ?? false;
-  bool get generatable => spec?.generatable ?? false;
-  String? get group => spec?.group;
+  /// Veritabanına yazılan, dilden bağımsız alan anahtarı (özel alanda null).
+  String? get fieldKey => spec?.key;
 
   void dispose() {
     value.dispose();
+  }
+}
+
+class _CustomFieldResult {
+  const _CustomFieldResult(this.name, this.type);
+  final String name;
+  final String type;
+}
+
+/// "Özel alan" penceresi: ad + tür (Metin / Not / Gizli Parola / Tarih).
+/// Kendi denetleyicisini kendi yönettiği için güvenle dispose edilir.
+class _CustomFieldDialog extends StatefulWidget {
+  const _CustomFieldDialog();
+
+  @override
+  State<_CustomFieldDialog> createState() => _CustomFieldDialogState();
+}
+
+class _CustomFieldDialogState extends State<_CustomFieldDialog> {
+  final TextEditingController _name = TextEditingController();
+  String _type = 'text';
+
+  @override
+  void dispose() {
+    _name.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    final types = <String, String>{
+      'text': t.customTypeText,
+      'notes': t.customTypeNote,
+      'password': t.customTypePassword,
+      'date': t.customTypeDate,
+    };
+    return AlertDialog(
+      title: Text(t.customField),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextField(
+            controller: _name,
+            autofocus: true,
+            decoration: InputDecoration(labelText: t.customFieldName),
+            onChanged: (_) => setState(() {}),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            t.customFieldType,
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            children: [
+              for (final e in types.entries)
+                ChoiceChip(
+                  label: Text(e.value),
+                  selected: _type == e.key,
+                  onSelected: (_) => setState(() => _type = e.key),
+                ),
+            ],
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text(t.cancel),
+        ),
+        FilledButton(
+          onPressed: _name.text.trim().isEmpty
+              ? null
+              : () => Navigator.pop(
+                  context,
+                  _CustomFieldResult(_name.text.trim(), _type),
+                ),
+          child: Text(t.addField),
+        ),
+      ],
+    );
   }
 }
 
@@ -99,22 +216,28 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     if (widget.initialFields != null) {
       final specs = FieldCatalog.forCategory(cat.nameKey);
       for (final f in widget.initialFields!) {
+        // Önce dilden bağımsız anahtarla, yoksa (eski kayıt) etiketle eşleştir.
         FieldSpec? match;
         for (final s in specs) {
-          if (s.labelOf(t) == f.label) {
+          if (f.key != null ? s.key == f.key : s.labelOf(t) == f.label) {
             match = s;
             break;
           }
         }
-        _drafts.add(
-          _FieldDraft(
-            spec: match,
-            label: f.label,
-            value: f.value,
-            type: f.type,
-            sensitive: f.sensitive,
-          ),
-        );
+        if (match != null) {
+          _drafts.add(_FieldDraft.fromSpec(match, t, value: f.value));
+        } else {
+          // Katalogda karşılığı olmayan (özel / eski) alan: verisi korunur.
+          _drafts.add(
+            _FieldDraft(
+              label: f.label,
+              value: f.value,
+              type: f.type,
+              sensitive: f.sensitive,
+              generatable: f.type == 'password',
+            ),
+          );
+        }
       }
     } else {
       _drafts.addAll(_draftsFor(t, cat.nameKey));
@@ -123,24 +246,17 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
 
   List<_FieldDraft> _draftsFor(AppLocalizations t, String key) =>
       FieldCatalog.defaultsFor(key)
-          .map(
-            (s) => _FieldDraft(
-              spec: s,
-              label: s.labelOf(t),
-              type: s.type,
-              sensitive: s.sensitive,
-            ),
-          )
+          .map((s) => _FieldDraft.fromSpec(s, t))
           .toList();
 
   /// Kullanıcı hazır alanlara hiç dokunmadı mı?
-  bool _isPristine(AppLocalizations t) {
+  bool _isPristine() {
     final base = FieldCatalog.defaultsFor(_templateKey);
     if (base.length != _drafts.length) return false;
     for (var i = 0; i < base.length; i++) {
       final d = _drafts[i];
       final b = base[i];
-      if (d.value.text.isNotEmpty || d.specKey != b.key) {
+      if (d.value.text.isNotEmpty || d.fieldKey != b.key) {
         return false;
       }
     }
@@ -151,7 +267,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     if (id == _categoryId) return;
     final t = AppLocalizations.of(context)!;
     final newCat = widget.categories.firstWhere((c) => c.id == id);
-    final swap = _applyTemplates && _isPristine(t);
+    final swap = _applyTemplates && _isPristine();
 
     List<_FieldDraft> old = const [];
     setState(() {
@@ -174,30 +290,23 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     }
   }
 
-  /// "Alan ekle": seçili kategoride henüz eklenmemiş katalog alanlarını
-  /// alt menüde listeler; seçilen alan forma eklenir.
+  /// "Alan ekle": önce "Özel alan", sonra seçili kategoride henüz eklenmemiş
+  /// katalog alanları listelenir.
   Future<void> _addField() async {
     final t = AppLocalizations.of(context)!;
     final cat = widget.categories.firstWhere((c) => c.id == _categoryId);
-    final added = _drafts.map((d) => d.specKey).whereType<String>().toSet();
-    final available = FieldCatalog.forCategory(
-      cat.nameKey,
-    ).where((s) => !added.contains(s.key)).toList();
+    final added = _drafts.map((d) => d.fieldKey).whereType<String>().toSet();
+    final available = FieldCatalog.forCategory(cat.nameKey)
+        .where((s) => !added.contains(s.key))
+        .toList();
 
-    if (available.isEmpty) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(t.allFieldsAdded)));
-      return;
-    }
-
-    final chosen = await showModalBottomSheet<FieldSpec>(
+    final chosen = await showModalBottomSheet<Object>(
       context: context,
       backgroundColor: const Color(0xF0161B1F),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
-      builder: (context) => SafeArea(
+      builder: (sheetContext) => SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -205,9 +314,18 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
               padding: const EdgeInsets.all(16),
               child: Text(
                 t.pickFieldTitle,
-                style: Theme.of(context).textTheme.titleMedium,
+                style: Theme.of(sheetContext).textTheme.titleMedium,
               ),
             ),
+            ListTile(
+              leading: const Icon(
+                Icons.edit_note,
+                color: MuhurColors.bronzeLight,
+              ),
+              title: Text(t.customField),
+              onTap: () => Navigator.pop(sheetContext, 'custom'),
+            ),
+            const Divider(height: 1),
             Flexible(
               child: ListView(
                 shrinkWrap: true,
@@ -215,7 +333,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
                   for (final s in available)
                     ListTile(
                       title: Text(s.labelOf(t)),
-                      onTap: () => Navigator.pop(context, s),
+                      onTap: () => Navigator.pop(sheetContext, s),
                     ),
                 ],
               ),
@@ -224,17 +342,19 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
         ),
       ),
     );
-    if (chosen == null) return;
-    setState(
-      () => _drafts.add(
-        _FieldDraft(
-          spec: chosen,
-          label: chosen.labelOf(t),
-          type: chosen.type,
-          sensitive: chosen.sensitive,
-        ),
-      ),
+    if (chosen == null || !mounted) return;
+
+    if (chosen is FieldSpec) {
+      setState(() => _drafts.add(_FieldDraft.fromSpec(chosen, t)));
+      return;
+    }
+
+    final custom = await showDialog<_CustomFieldResult>(
+      context: context,
+      builder: (_) => const _CustomFieldDialog(),
     );
+    if (custom == null || !mounted) return;
+    setState(() => _drafts.add(_FieldDraft.custom(custom.name, custom.type)));
   }
 
   @override
@@ -262,6 +382,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     final fields = _drafts
         .map(
           (d) => FieldData(
+            key: d.fieldKey,
             label: d.label,
             value: d.value.text,
             type: d.type,
@@ -273,10 +394,17 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     if (mounted) Navigator.pop(context, true);
   }
 
-  /// Bankalar kategorisinde "Başlık" alanı Banka Adı görevi görür.
+  /// Üstteki "Başlık" alanı kategoriye göre adlandırılır (tablodaki ilk alan).
   String _titleLabel(AppLocalizations t) {
     final cat = widget.categories.firstWhere((c) => c.id == _categoryId);
-    return cat.nameKey == 'banks' ? t.fcBankName : t.title;
+    return switch (cat.nameKey) {
+      'banks' => t.fcBankName,
+      'emails' => t.fcAccountTitle,
+      'social' => t.fcPlatformTitle,
+      'business' => t.fcServiceName,
+      'websites' => t.fcSiteName,
+      _ => t.title,
+    };
   }
 
   /// Başlığın solundaki kategori ikonu + açılır menü.
@@ -360,10 +488,48 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     };
   }
 
+  // --- Tarih alanı yardımcıları (gg.aa.yyyy) ---
+  String _fmtDate(DateTime d) =>
+      '${d.day.toString().padLeft(2, '0')}.${d.month.toString().padLeft(2, '0')}.${d.year}';
+
+  DateTime? _parseDate(String s) {
+    final p = s.split('.');
+    if (p.length != 3) return null;
+    final dd = int.tryParse(p[0]);
+    final mm = int.tryParse(p[1]);
+    final yy = int.tryParse(p[2]);
+    if (dd == null || mm == null || yy == null) return null;
+    if (yy < 1950 || yy > 2100 || mm < 1 || mm > 12 || dd < 1 || dd > 31) {
+      return null;
+    }
+    return DateTime(yy, mm, dd);
+  }
+
+  Future<void> _pickDate(_FieldDraft d) async {
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: _parseDate(d.value.text) ?? DateTime.now(),
+      firstDate: DateTime(1950),
+      lastDate: DateTime(2100),
+    );
+    if (picked != null && mounted) {
+      setState(() => d.value.text = _fmtDate(picked));
+    }
+  }
+
+  void _removeDraft(_FieldDraft d) {
+    setState(() => _drafts.remove(d));
+    // Alan bu çerçevede hâlâ çiziliyor; denetleyiciyi çerçeveden sonra at.
+    WidgetsBinding.instance.addPostFrameCallback((_) => d.dispose());
+  }
+
   Widget _fieldCard(AppLocalizations t, _FieldDraft d) {
     final masked = d.sensitive && !d.reveal;
+    final isDate = d.type == 'date';
+    // Not alanı: 5 text field yüksekliğinde (maskeliyken tek satır).
+    final tall = d.type == 'notes' && !masked;
     final suffixIcons = <Widget>[
-      if (d.scannable)
+      if (d.scan != null)
         IconButton(
           icon: const Icon(Icons.document_scanner),
           tooltip: t.scan,
@@ -371,7 +537,9 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
             final v = await Navigator.push<String>(
               context,
               MaterialPageRoute(
-                builder: (_) => const ScannerScreen(initialMode: ScanMode.iban),
+                builder: (_) => ScannerScreen(
+                  initialMode: d.scan == 'iban' ? ScanMode.iban : ScanMode.text,
+                ),
               ),
             );
             if (v != null) {
@@ -381,6 +549,11 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
               });
             }
           },
+        ),
+      if (isDate)
+        IconButton(
+          icon: const Icon(Icons.calendar_today),
+          onPressed: () => _pickDate(d),
         ),
       if (d.generatable) ...[
         IconButton(
@@ -399,45 +572,45 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
           icon: Icon(d.reveal ? Icons.visibility_off : Icons.visibility),
           onPressed: () => setState(() => d.reveal = !d.reveal),
         ),
-      if (!d.locked)
+      // X yalnızca opsiyonel (eklenebilir) alanlarda.
+      if (d.removable)
         IconButton(
           icon: const Icon(Icons.close),
-          onPressed: () => setState(() {
-            _drafts.remove(d);
-            d.dispose();
-          }),
+          onPressed: () => _removeDraft(d),
         ),
     ];
+
+    final field = TextField(
+      controller: d.value,
+      obscureText: masked,
+      enableSuggestions: false,
+      autocorrect: false,
+      readOnly: isDate,
+      onTap: isDate ? () => _pickDate(d) : null,
+      keyboardType: tall ? TextInputType.multiline : d.keyboard,
+      textAlignVertical: tall ? TextAlignVertical.top : null,
+      maxLines: tall ? null : 1,
+      expands: tall,
+      onChanged: d.generatable ? (_) => setState(() {}) : null,
+      decoration: InputDecoration(
+        labelText: d.label,
+        alignLabelWithHint: tall,
+        suffixIcon: Row(mainAxisSize: MainAxisSize.min, children: suffixIcons),
+      ),
+    );
+
     return Card(
       key: ObjectKey(d),
       margin: const EdgeInsets.symmetric(vertical: 6),
       child: Padding(
         padding: const EdgeInsets.all(12),
-        child: Column(
-          children: [
-            TextField(
-              controller: d.value,
-              obscureText: masked,
-              enableSuggestions: false,
-              autocorrect: false,
-              maxLines: (d.type == 'notes' && !masked) ? 4 : 1,
-              onChanged: d.generatable ? (_) => setState(() {}) : null,
-              decoration: InputDecoration(
-                labelText: d.label,
-                suffixIcon: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: suffixIcons,
-                ),
-              ),
-            ),
-          ],
-        ),
+        child: tall ? SizedBox(height: _kFieldHeight * 5, child: field) : field,
       ),
     );
   }
 
-  /// Ardışık aynı gruptaki alanları (örn. Kart No / Son K.T. / CVV) tek
-  /// satırda yan yana gösterir; diğerleri tam genişlikte sıralanır.
+  /// Aynı gruptaki alanları (örn. Son K.T. / CVV) tek satırda yan yana
+  /// gösterir; diğerleri tam genişlikte sıralanır.
   Widget _fieldsSection(AppLocalizations t) {
     final widgets = <Widget>[];
     final handled = <_FieldDraft>{};
@@ -502,18 +675,11 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
             ),
             const SizedBox(height: 12),
             TextFormField(
-              controller: _domain,
-              keyboardType: TextInputType.url,
-              autocorrect: false,
-              decoration: InputDecoration(labelText: t.domain),
-            ),
-            const SizedBox(height: 12),
-            TextFormField(
               controller: _tags,
               decoration: InputDecoration(labelText: t.tags),
             ),
-            const SizedBox(height: 20),
-            Text(t.fields, style: Theme.of(context).textTheme.titleMedium),
+            // "Alanlar" başlığı yok: tüm text field'lar aynı listede.
+            const SizedBox(height: 8),
             _fieldsSection(t),
             Align(
               alignment: Alignment.centerLeft,

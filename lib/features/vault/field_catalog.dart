@@ -1,8 +1,11 @@
+import 'package:flutter/services.dart' show TextInputType;
+
 import '../../l10n/app_localizations.dart';
 
 /// Bir kategoriye ait önceden tanımlanmış alan açıklaması.
-/// `key` sabittir (dile bağlı değildir) ve hangi alanların zaten eklendiğini
-/// anlamak için kullanılır. `labelOf` ise o an seçili dildeki görünen adı verir.
+/// `key` sabittir (dile bağlı değildir); veritabanına da yazılır ve hangi
+/// alanların zaten eklendiğini anlamak için kullanılır.
+/// `labelOf` ise o an seçili dildeki görünen adı verir.
 class FieldSpec {
   const FieldSpec(
     this.key,
@@ -10,38 +13,60 @@ class FieldSpec {
     this.type = 'text',
     this.sensitive = false,
     this.isDefault = false,
+    this.preAdded = false,
     this.generatable = false,
-    this.locked = false,
-    this.scannable = false,
+    this.scan,
+    this.keyboard,
     this.group,
   });
 
   final String key;
   final String Function(AppLocalizations t) labelOf;
-  final String type; // text, password, url, notes
+
+  /// text, password, url, notes, date
+  final String type;
   final bool sensitive;
 
-  /// true ise kategori seçildiğinde otomatik olarak forma eklenir.
-  /// false ise yalnızca "Alan ekle" kataloğunda opsiyonel olarak sunulur.
+  /// Tablodaki "Sabit" alan: kategori seçilince otomatik gelir ve X ile
+  /// kaldırılamaz. false ise "Opsiyonel"dir: yalnızca "Alan ekle" ile eklenir
+  /// ve X ile kaldırılabilir.
   final bool isDefault;
 
-  /// true ise bu alan "gerçek" bir giriş şifresidir; şifre oluşturucu
-  /// (kalkan+ayarlar) ikonları gösterilir. PIN/CVV gibi alanlar için false.
+  /// Opsiyonel olduğu halde form açılırken hazır gelen alan (Diğer kategorisi).
+  /// X ile kaldırılabilir.
+  final bool preAdded;
+
+  /// true ise gerçek bir parola alanıdır: kalkan+ (üret) ve ayarlar ikonları.
   final bool generatable;
 
-  /// true ise alan formdan silinemez (X butonu gösterilmez).
-  final bool locked;
+  /// Kamera ile tarama ikonu: 'iban' veya 'text'. null ise ikon yok.
+  final String? scan;
 
-  /// true ise kamera ile tarama ikonu gösterilir (yalnızca IBAN gibi alanlar).
-  final bool scannable;
+  final TextInputType? keyboard;
 
   /// Aynı grup adına sahip alanlar tek satırda yan yana gösterilir.
   final String? group;
+
+  /// Alanın formda ilk açılışta görünüp görünmediği.
+  bool get startsAdded => isDefault || preAdded;
+
+  /// Aynı alanın opsiyonel kopyası (Diğer kategorisinde kullanılır).
+  FieldSpec asOptional() => FieldSpec(
+    key,
+    labelOf,
+    type: type,
+    sensitive: sensitive,
+    generatable: generatable,
+    scan: scan,
+    keyboard: keyboard,
+  );
 }
 
-/// MÜHÜR kategori alan yapıları ve opsiyonel özel alanlar kataloğu.
-/// Kaynak: MUHUR_Kategori_Alan_Yapilari.docx (varsayılan alanlar) ve
-/// MUHUR_Opsiyonel_Ozel_Alanlar.docx (ek/opsiyonel alanlar).
+/// MÜHÜR kategori alan yapıları.
+/// Kaynak: Mühür_Katagori_Tablo.xlsx (Sabit = isDefault, Opsiyonel = diğerleri).
+/// Başlık ve Etiket alanları katalogda yoktur; formun üstündeki Başlık
+/// (kategoriye göre adlandırılır) ve Etiket alanları bu görevi görür.
+/// "Not" her kategoride opsiyoneldir. "Özel alan" formda ayrıca sunulur.
 class FieldCatalog {
   const FieldCatalog._();
 
@@ -54,56 +79,73 @@ class FieldCatalog {
     _ => other,
   };
 
+  /// Form ilk açıldığında görünen alanlar.
   static List<FieldSpec> defaultsFor(String key) =>
-      forCategory(key).where((f) => f.isDefault).toList();
+      forCategory(key).where((f) => f.startsAdded).toList();
 
-  // --- 1. Bankalar (catBanks) ---
-  // Not: Banka adı artık ayrı bir alan değil; kayıt "Başlık" alanı bu amaçla
-  // kullanılır (bkz. entry_edit_screen.dart kategoriye özel başlık etiketi).
+  // --- 1. Bankalar ---
   static final List<FieldSpec> banks = [
-    FieldSpec('tag', (t) => t.fcTag, isDefault: true),
-    FieldSpec(
-      'iban',
-      (t) => t.fieldIban,
-      sensitive: true,
-      isDefault: true,
-      locked: true,
-      scannable: true,
-    ),
+    // Sabit
+    FieldSpec('iban', (t) => t.fieldIban, isDefault: true, scan: 'iban'),
     FieldSpec(
       'internetBankingPassword',
       (t) => t.fcInternetBankingPassword,
       type: 'password',
       sensitive: true,
-      isDefault: true,
-      locked: true,
       generatable: true,
+      isDefault: true,
     ),
     FieldSpec(
       'cardPin',
       (t) => t.fcCardPin,
       type: 'password',
       sensitive: true,
+      generatable: true,
       isDefault: true,
+      keyboard: TextInputType.number,
     ),
     FieldSpec(
       'cardNumber',
       (t) => t.fcCardNumber,
       isDefault: true,
-      group: 'cardRow',
+      scan: 'text',
+      keyboard: TextInputType.number,
     ),
     FieldSpec(
       'expiryDate',
       (t) => t.fcExpiryDate,
       isDefault: true,
-      group: 'cardRow',
+      group: 'expRow',
+      keyboard: TextInputType.datetime,
     ),
-    FieldSpec('cvv', (t) => t.fcCvv, isDefault: true, group: 'cardRow'),
-    // Opsiyonel (MUHUR_Opsiyonel_Ozel_Alanlar.docx - Bankalar)
-    FieldSpec('customerServiceNo', (t) => t.fcCustomerServiceNo),
-    FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
+    FieldSpec(
+      'cvv',
+      (t) => t.fcCvv,
+      sensitive: true,
+      isDefault: true,
+      group: 'expRow',
+      keyboard: TextInputType.number,
+    ),
+    FieldSpec(
+      'customerServiceNo1',
+      (t) => '${t.fcCustomerServiceNo} 1',
+      isDefault: true,
+      keyboard: TextInputType.phone,
+    ),
+    FieldSpec(
+      'customerServiceNo2',
+      (t) => '${t.fcCustomerServiceNo} 2',
+      isDefault: true,
+      keyboard: TextInputType.phone,
+    ),
+    FieldSpec(
+      'customerServiceNo3',
+      (t) => '${t.fcCustomerServiceNo} 3',
+      isDefault: true,
+      keyboard: TextInputType.phone,
+    ),
+    // Opsiyonel
     FieldSpec('customerNoTc', (t) => t.fcCustomerNoTc),
-    FieldSpec('branchNameCode', (t) => t.fcBranchNameCode),
     FieldSpec('accountType', (t) => t.fcAccountType),
     FieldSpec(
       'phoneBankingPassword',
@@ -114,164 +156,169 @@ class FieldCatalog {
     ),
     FieldSpec('swiftBic', (t) => t.fcSwiftBic),
     FieldSpec('cardStatementDate', (t) => t.fcCardStatementDate),
+    FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
 
-  // --- 2. E-postalar (catEmails) ---
+  // --- 2. E-postalar ---
   static final List<FieldSpec> emails = [
-    FieldSpec('accountTitle', (t) => t.fcAccountTitle, isDefault: true),
-    FieldSpec('tag', (t) => t.fcTag, isDefault: true),
-    FieldSpec('emailAddress', (t) => t.fcEmailAddress, isDefault: true),
+    // Sabit
+    FieldSpec(
+      'emailAddress',
+      (t) => t.fcEmailAddress,
+      isDefault: true,
+      keyboard: TextInputType.emailAddress,
+    ),
     FieldSpec(
       'password',
       (t) => t.fieldPassword,
       type: 'password',
       sensitive: true,
-      isDefault: true,
       generatable: true,
+      isDefault: true,
     ),
-    FieldSpec('recoveryEmail', (t) => t.fcRecoveryEmail, isDefault: true),
-    FieldSpec('recoveryPhone', (t) => t.fcRecoveryPhone, isDefault: true),
+    FieldSpec(
+      'recoveryEmail',
+      (t) => t.fcRecoveryEmail,
+      isDefault: true,
+      keyboard: TextInputType.emailAddress,
+    ),
+    FieldSpec(
+      'recoveryPhone',
+      (t) => t.fcRecoveryPhone,
+      isDefault: true,
+      keyboard: TextInputType.phone,
+    ),
+    // Opsiyonel
     FieldSpec(
       '2faBackupCodes',
       (t) => t.fc2faBackupCodes,
       type: 'notes',
       sensitive: true,
-      isDefault: true,
     ),
-    FieldSpec('note', (t) => t.fieldNote, type: 'notes', isDefault: true),
-    // Opsiyonel (MUHUR_Opsiyonel_Ozel_Alanlar.docx - E-postalar)
-    FieldSpec('loginMethodProvider', (t) => t.fcLoginMethodProvider),
-    FieldSpec('imapSmtp', (t) => t.fcImapSmtp),
     FieldSpec('securityQA', (t) => t.fcSecurityQA, sensitive: true),
-    FieldSpec('passwordChangeDate', (t) => t.fcPasswordChangeDate),
+    FieldSpec('passwordChangeDate', (t) => t.fcPasswordChangeDate, type: 'date'),
+    FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
 
-  // --- 3. Sosyal Medya (catSocial) ---
+  // --- 3. Sosyal Medya ---
   static final List<FieldSpec> social = [
-    FieldSpec('platformTitle', (t) => t.fcPlatformTitle, isDefault: true),
-    FieldSpec('tag', (t) => t.fcTag, isDefault: true),
+    // Sabit
+    FieldSpec('usernameProfileId', (t) => t.fcUsernameProfileId, isDefault: true),
     FieldSpec(
-      'usernameProfileId',
-      (t) => t.fcUsernameProfileId,
+      'registeredEmail',
+      (t) => t.fcRegisteredEmail,
       isDefault: true,
+      keyboard: TextInputType.emailAddress,
     ),
-    FieldSpec('registeredEmail', (t) => t.fcRegisteredEmail, isDefault: true),
-    FieldSpec('registeredPhone', (t) => t.fcRegisteredPhone, isDefault: true),
+    FieldSpec(
+      'registeredPhone',
+      (t) => t.fcRegisteredPhone,
+      isDefault: true,
+      keyboard: TextInputType.phone,
+    ),
     FieldSpec(
       'password',
       (t) => t.fieldPassword,
       type: 'password',
       sensitive: true,
-      isDefault: true,
       generatable: true,
-    ),
-    FieldSpec(
-      'profileUrl',
-      (t) => t.fcProfileUrl,
-      type: 'url',
       isDefault: true,
     ),
+    FieldSpec('profileUrl', (t) => t.fcProfileUrl, type: 'url', isDefault: true),
+    // Opsiyonel
     FieldSpec(
       '2faBackupCodes',
       (t) => t.fc2faBackupCodes,
       type: 'notes',
       sensitive: true,
-      isDefault: true,
     ),
-    FieldSpec('note', (t) => t.fieldNote, type: 'notes', isDefault: true),
-    // Opsiyonel (MUHUR_Opsiyonel_Ozel_Alanlar.docx - Sosyal Medya)
     FieldSpec('accountTypeStatus', (t) => t.fcAccountTypeStatus),
     FieldSpec('linkedMainAccount', (t) => t.fcLinkedMainAccount),
-    FieldSpec('profileNumericId', (t) => t.fcProfileNumericId),
     FieldSpec('2faSecretKey', (t) => t.fc2faSecretKey, sensitive: true),
+    FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
 
-  // --- 4. Kurumsal (catBusiness) ---
-  static final List<FieldSpec> business = [
-    FieldSpec('serviceName', (t) => t.fcServiceName, isDefault: true),
-    FieldSpec('tag', (t) => t.fcTag, isDefault: true),
-    FieldSpec('companyName', (t) => t.fcCompanyName, isDefault: true),
-    FieldSpec('corporateUserId', (t) => t.fcCorporateUserId, isDefault: true),
-    FieldSpec('emailAddress', (t) => t.fcEmailAddress, isDefault: true),
-    FieldSpec(
-      'password',
-      (t) => t.fieldPassword,
-      type: 'password',
-      sensitive: true,
-      isDefault: true,
-      generatable: true,
-    ),
-    FieldSpec('panelUrl', (t) => t.fcPanelUrl, type: 'url', isDefault: true),
-    FieldSpec(
-      'departmentPosition',
-      (t) => t.fcDepartmentPosition,
-      isDefault: true,
-    ),
-    FieldSpec('licenseCode', (t) => t.fcLicenseCode, isDefault: true),
-    FieldSpec('supportContact', (t) => t.fcSupportContact, isDefault: true),
-    FieldSpec('note', (t) => t.fieldNote, type: 'notes', isDefault: true),
-    // Opsiyonel (MUHUR_Opsiyonel_Ozel_Alanlar.docx - Kurumsal & Kamu)
-    FieldSpec('loginMethodVerification', (t) => t.fcLoginMethodVerification),
-    FieldSpec('taxOffice', (t) => t.fcTaxOffice),
-    FieldSpec('registryNo', (t) => t.fcRegistryNo),
-    FieldSpec('ipVpn', (t) => t.fcIpVpn),
-    FieldSpec('licenseExpiry', (t) => t.fcLicenseExpiry),
-  ];
-
-  // --- 5. Siteler (catWebsites) ---
+  // --- 4. Siteler ---
   static final List<FieldSpec> websites = [
-    FieldSpec('siteName', (t) => t.fcSiteName, isDefault: true),
-    FieldSpec('tag', (t) => t.fcTag, isDefault: true),
-    FieldSpec(
-      'webAddress',
-      (t) => t.fcWebAddress,
-      type: 'url',
-      isDefault: true,
-    ),
+    // Sabit
+    FieldSpec('webAddress', (t) => t.fcWebAddress, type: 'url', isDefault: true),
     FieldSpec('usernameEmail', (t) => t.fcUsernameEmail, isDefault: true),
     FieldSpec(
       'password',
       (t) => t.fieldPassword,
       type: 'password',
       sensitive: true,
-      isDefault: true,
       generatable: true,
+      isDefault: true,
     ),
-    FieldSpec('registeredPhone', (t) => t.fcRegisteredPhone, isDefault: true),
+    FieldSpec(
+      'registeredPhone',
+      (t) => t.fcRegisteredPhone,
+      isDefault: true,
+      keyboard: TextInputType.phone,
+    ),
+    // Opsiyonel
     FieldSpec(
       '2faBackupCodes',
       (t) => t.fc2faBackupCodes,
       type: 'notes',
       sensitive: true,
-      isDefault: true,
     ),
-    FieldSpec('note', (t) => t.fieldNote, type: 'notes', isDefault: true),
-    // Opsiyonel (MUHUR_Opsiyonel_Ozel_Alanlar.docx - Siteler)
-    FieldSpec('subscriptionFee', (t) => t.fcSubscriptionFee),
-    FieldSpec('registrationDate', (t) => t.fcRegistrationDate),
-    FieldSpec('paymentMethod', (t) => t.fcPaymentMethod),
+    FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
 
-  // --- 6. Diğer (catOther) ---
-  static final List<FieldSpec> other = [
-    FieldSpec('username', (t) => t.fieldUsername, isDefault: true),
+  // --- 5. Kurumsal ---
+  static final List<FieldSpec> business = [
+    // Sabit
+    FieldSpec('companyName', (t) => t.fcCompanyName, isDefault: true),
+    FieldSpec('corporateUserId', (t) => t.fcCorporateUserId, isDefault: true),
+    FieldSpec(
+      'emailAddress',
+      (t) => t.fcEmailAddress,
+      isDefault: true,
+      keyboard: TextInputType.emailAddress,
+    ),
     FieldSpec(
       'password',
       (t) => t.fieldPassword,
       type: 'password',
       sensitive: true,
-      isDefault: true,
       generatable: true,
+      isDefault: true,
     ),
-    FieldSpec('note', (t) => t.fieldNote, type: 'notes', isDefault: true),
+    FieldSpec('panelUrl', (t) => t.fcPanelUrl, type: 'url', isDefault: true),
     // Opsiyonel
-    FieldSpec('webAddress', (t) => t.fcWebAddress, type: 'url'),
-    FieldSpec(
-      'pinCode',
-      (t) => t.fcPinCode,
-      type: 'password',
-      sensitive: true,
-    ),
-    FieldSpec('licenseCodeSimple', (t) => t.fcLicenseCodeSimple),
+    FieldSpec('departmentPosition', (t) => t.fcDepartmentPosition),
+    FieldSpec('licenseCode', (t) => t.fcLicenseCode),
+    FieldSpec('supportContact', (t) => t.fcSupportContact),
+    FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
+
+  // --- 6. Diğer ---
+  // Kullanıcı Adı / Parola / Not hazır gelir ama opsiyoneldir (X ile
+  // kaldırılabilir). Diğer kategorilerin tüm alanları da opsiyonel olarak
+  // eklenebilir.
+  static final List<FieldSpec> other = _buildOther();
+
+  static List<FieldSpec> _buildOther() {
+    final out = <FieldSpec>[
+      FieldSpec('username', (t) => t.fieldUsername, preAdded: true),
+      FieldSpec(
+        'password',
+        (t) => t.fieldPassword,
+        type: 'password',
+        sensitive: true,
+        generatable: true,
+        preAdded: true,
+      ),
+      FieldSpec('note', (t) => t.fieldNote, type: 'notes', preAdded: true),
+    ];
+    final seen = out.map((s) => s.key).toSet();
+    for (final list in [banks, emails, social, websites, business]) {
+      for (final s in list) {
+        if (seen.add(s.key)) out.add(s.asOptional());
+      }
+    }
+    return out;
+  }
 }

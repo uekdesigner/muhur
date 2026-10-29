@@ -57,6 +57,9 @@ class DatabaseManager {
   }
 
   Future<void> _onUpgrade(Database db, int oldV, int newV) async {
-    // Gelecekteki şema değişiklikleri buraya (oldV -> newV adımlarıyla).
+    // v2: dilden bağımsız alan anahtarı (field_key).
+    if (oldV < 2) {
+      await db.execute('ALTER TABLE entry_fields ADD COLUMN field_key TEXT');
+    }
   }
 }

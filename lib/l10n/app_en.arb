@@ -39,7 +39,7 @@
   "title": "Title",
   "category": "Category",
   "domain": "Domain (e.g. example.com)",
-  "tags": "Tags (comma separated)",
+  "tags": "Tag",
   "fields": "Fields",
   "addField": "Add field",
   "fieldLabel": "Label",
@@ -57,7 +57,7 @@
   "fieldUsername": "Username",
   "fieldPassword": "Password",
   "fieldIban": "IBAN",
-  "fieldNote": "Note",
+  "fieldNote": "Notes",
   "copy": "Copy",
   "copied": "Copied. The clipboard clears in {seconds} seconds.",
   "@copied": { "placeholders": { "seconds": { "type": "int" } } },
@@ -168,5 +168,12 @@
   "pickFieldTitle": "Pick a field",
   "allFieldsAdded": "All fields added",
   "generatorSettings": "Generator settings",
-  "saveAndExit": "Save and exit"
+  "saveAndExit": "Save and exit",
+  "customField": "Custom field",
+  "customFieldName": "Field name",
+  "customFieldType": "Field type",
+  "customTypeText": "Text",
+  "customTypeNote": "Note",
+  "customTypePassword": "Hidden password",
+  "customTypeDate": "Date"
 }
