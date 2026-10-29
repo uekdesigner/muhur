@@ -69,43 +69,47 @@ class VaultHeader extends StatelessWidget {
                   ],
                 ),
               ),
+              // Üç buton tek sıraya sığsın diye küçük ve çerçevesiz.
               HeaderButton(
                 icon: Icons.question_mark,
                 tooltip: t.helpTitle,
                 onPressed: onHelp,
+                framed: false,
+                size: 32,
+                iconSize: 22,
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: 2),
               HeaderButton(
                 icon: Icons.delete_outline,
                 tooltip: t.delete,
                 onPressed: selectedCount > 0 ? onDelete : null,
                 badge: selectedCount,
                 danger: selectedCount > 0,
+                framed: false,
+                size: 32,
+                iconSize: 22,
+              ),
+              const SizedBox(width: 2),
+              HeaderButton(
+                icon: Icons.lock,
+                tooltip: t.lockNow,
+                onPressed: onLock,
+                framed: false,
+                size: 32,
+                iconSize: 22,
               ),
             ],
           ),
           const SizedBox(height: 8),
-          Row(
+          Wrap(
+            spacing: 8,
+            runSpacing: 6,
             children: [
-              Expanded(
-                child: Wrap(
-                  spacing: 8,
-                  runSpacing: 6,
-                  children: [
-                    StatusPill(label: t.statusScreen, active: screenProtected),
-                    ValueListenableBuilder<bool>(
-                      valueListenable: AppSettings.instance.autoBackup,
-                      builder: (context, on, _) =>
-                          StatusPill(label: t.statusBackup, active: on),
-                    ),
-                  ],
-                ),
-              ),
-              IconButton(
-                visualDensity: VisualDensity.compact,
-                icon: const Icon(Icons.lock),
-                tooltip: t.lockNow,
-                onPressed: onLock,
+              StatusPill(label: t.statusScreen, active: screenProtected),
+              ValueListenableBuilder<bool>(
+                valueListenable: AppSettings.instance.autoBackup,
+                builder: (context, on, _) =>
+                    StatusPill(label: t.statusBackup, active: on),
               ),
             ],
           ),
@@ -197,6 +201,9 @@ class HeaderButton extends StatelessWidget {
     required this.onPressed,
     this.badge = 0,
     this.danger = false,
+    this.framed = true,
+    this.size = 44,
+    this.iconSize = 24,
   });
 
   final IconData icon;
@@ -205,10 +212,43 @@ class HeaderButton extends StatelessWidget {
   final int badge;
   final bool danger;
 
+  /// false ise koyu zemin ve çerçeve çizilmez; yalnızca ikon görünür.
+  final bool framed;
+  final double size;
+  final double iconSize;
+
   @override
   Widget build(BuildContext context) {
     final enabled = onPressed != null;
     final color = danger ? Colors.redAccent : MuhurColors.bronze;
+    final iconColor = (!framed && danger) ? Colors.redAccent : MuhurColors.cream;
+
+    final Widget button = framed
+        ? Material(
+            color: const Color(0xCC14181C),
+            clipBehavior: Clip.antiAlias,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(color: color, width: 1.4),
+            ),
+            child: InkWell(
+              onTap: onPressed,
+              child: SizedBox(
+                width: size,
+                height: size,
+                child: Icon(icon, size: iconSize, color: iconColor),
+              ),
+            ),
+          )
+        : InkResponse(
+            onTap: onPressed,
+            radius: size * 0.7,
+            child: SizedBox(
+              width: size,
+              height: size,
+              child: Icon(icon, size: iconSize, color: iconColor),
+            ),
+          );
 
     return Tooltip(
       message: tooltip,
@@ -217,26 +257,11 @@ class HeaderButton extends StatelessWidget {
         child: Stack(
           clipBehavior: Clip.none,
           children: [
-            Material(
-              color: const Color(0xCC14181C),
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-                side: BorderSide(color: color, width: 1.4),
-              ),
-              child: InkWell(
-                onTap: onPressed,
-                child: SizedBox(
-                  width: 44,
-                  height: 44,
-                  child: Icon(icon, color: MuhurColors.cream),
-                ),
-              ),
-            ),
+            button,
             if (badge > 0)
               Positioned(
-                right: -4,
-                top: -4,
+                right: framed ? -4 : -2,
+                top: framed ? -4 : -2,
                 child: Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 5,

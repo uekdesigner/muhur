@@ -225,7 +225,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                   },
                 )
               else
-                const SizedBox(height: 108),
+                const SizedBox(height: 96),
               // Kayıt listesi
               Expanded(
                 child: FutureBuilder<List<VaultEntry>>(

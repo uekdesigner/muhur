@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/muhur_widgets.dart';
+
 final ValueNotifier<bool> privacyCover = ValueNotifier<bool>(false);
 
 /// MaterialApp(builder: privacyBuilder) olarak kullanılır.
@@ -13,14 +15,9 @@ Widget privacyBuilder(BuildContext context, Widget? child) {
         builder: (context, covered, _) {
           if (!covered) return const SizedBox.shrink();
           return const Positioned.fill(
-            child: ColoredBox(
-              color: Color(0xFF0B1F3A),
-              child: Center(
-                child: Icon(
-                  Icons.lock_outline,
-                  size: 72,
-                  color: Colors.white54,
-                ),
+            child: Material(
+              child: MuhurBackground(
+                child: Center(child: MuhurSeal(size: 160)),
               ),
             ),
           );

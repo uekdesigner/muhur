@@ -2,63 +2,97 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../l10n/app_localizations.dart';
+import 'vault_header.dart' show HeaderButton;
 import 'vault_repository.dart';
 
-class StatsPanel extends StatelessWidget {
+class StatsPanel extends StatefulWidget {
   const StatsPanel({super.key, required this.stats, required this.onSettings});
   final VaultStats? stats;
   final VoidCallback onSettings;
 
   @override
+  State<StatsPanel> createState() => _StatsPanelState();
+}
+
+class _StatsPanelState extends State<StatsPanel> {
+  /// true: tüm panel; false: yalnızca zayıf-orta-güçlü şeridi.
+  bool _expanded = true;
+
+  @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-    final s = stats;
+    final s = widget.stats;
     final empty = s == null || s.total == 0;
 
     return Container(
-      margin: const EdgeInsets.fromLTRB(12, 4, 12, 12),
-      padding: const EdgeInsets.all(12),
+      margin: const EdgeInsets.fromLTRB(12, 4, 12, 8),
+      padding: EdgeInsets.fromLTRB(12, _expanded ? 8 : 2, 4, _expanded ? 6 : 2),
       decoration: BoxDecoration(
         color: const Color(0xEB161B1F),
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: MuhurColors.bronze, width: 1.2),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: _GradientBar(fraction: empty ? 0 : s.score / 100),
-              ),
-              const SizedBox(width: 10),
-              Text(
-                empty ? '—' : '%${s.score}',
-                style: const TextStyle(
-                  color: MuhurColors.cream,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 12,
+      child: AnimatedSize(
+        duration: const Duration(milliseconds: 200),
+        alignment: Alignment.topCenter,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: _GradientBar(fraction: empty ? 0 : s.score / 100),
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  empty ? '—' : '%${s.score}',
+                  style: const TextStyle(
+                    color: MuhurColors.cream,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 12,
+                  ),
+                ),
+                // Eksi: paneli şeride küçült, artı: eski haline döndür.
+                IconButton(
+                  visualDensity: VisualDensity.compact,
+                  icon: Icon(
+                    _expanded ? Icons.remove : Icons.add,
+                    color: MuhurColors.cream,
+                  ),
+                  onPressed: () => setState(() => _expanded = !_expanded),
+                ),
+              ],
+            ),
+            if (_expanded) ...[
+              const SizedBox(height: 2),
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Row(
+                  children: [
+                    _Stat(t.statTotal, s?.total ?? 0, MuhurColors.cream),
+                    _Stat(t.strengthWeak, s?.weak ?? 0, Colors.redAccent),
+                    _Stat(t.strengthFair, s?.fair ?? 0, Colors.orangeAccent),
+                    _Stat(t.strengthStrong, s?.strong ?? 0, Colors.greenAccent),
+                    _Stat(
+                      t.statReused,
+                      s?.duplicates ?? 0,
+                      MuhurColors.bronzeLight,
+                    ),
+                    const SizedBox(width: 4),
+                    // Çerçevesiz, yalnızca ikon.
+                    HeaderButton(
+                      icon: Icons.settings,
+                      tooltip: t.settings,
+                      onPressed: widget.onSettings,
+                      framed: false,
+                      size: 40,
+                    ),
+                  ],
                 ),
               ),
             ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              _Stat(t.statTotal, s?.total ?? 0, MuhurColors.cream),
-              _Stat(t.strengthWeak, s?.weak ?? 0, Colors.redAccent),
-              _Stat(t.strengthFair, s?.fair ?? 0, Colors.orangeAccent),
-              _Stat(t.strengthStrong, s?.strong ?? 0, Colors.greenAccent),
-              _Stat(t.statReused, s?.duplicates ?? 0, MuhurColors.bronzeLight),
-              const SizedBox(width: 4),
-              IconButton.filledTonal(
-                tooltip: t.settings,
-                onPressed: onSettings,
-                icon: const Icon(Icons.settings),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -75,7 +109,7 @@ class _Stat extends StatelessWidget {
     return Expanded(
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 3),
-        padding: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.symmetric(vertical: 3),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: MuhurColors.bronze.withValues(alpha: 0.7)),
@@ -86,7 +120,7 @@ class _Stat extends StatelessWidget {
             Text(
               '$value',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 17,
                 fontWeight: FontWeight.w800,
                 color: color,
               ),

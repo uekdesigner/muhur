@@ -226,7 +226,8 @@ class _UnlockScreenState extends State<UnlockScreen> {
     final enabled = await widget.auth.biometricEnabled();
     if (!mounted) return;
     setState(() => _bioEnabled = enabled);
-    if (enabled) _bio();
+    // Biyometrik sorgu artık otomatik açılmaz; kullanıcı parmak izi
+    // butonuna dokununca başlar.
   }
 
   Future<void> _bio() async {

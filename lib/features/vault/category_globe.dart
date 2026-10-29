@@ -16,7 +16,7 @@ class CategoryGlobe extends StatefulWidget {
     super.key,
     required this.items,
     required this.onSelected,
-    this.height = 108,
+    this.height = 96,
   });
 
   final List<GlobeItem> items;

@@ -335,7 +335,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get statTotal => 'Toplam';
 
   @override
-  String get statReused => 'Tekrar kullanılan';
+  String get statReused => 'Tekrar';
 
   @override
   String get planFree => 'ÜCRETSİZ';
@@ -344,7 +344,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get statusScreen => 'Ekran koruması';
 
   @override
-  String get statusBackup => 'Otomatik yedekleme';
+  String get statusBackup => 'Oto yedek';
 
   @override
   String get helpTitle => 'Yardım';
