@@ -74,6 +74,10 @@
     }
   },
   "settings": "الإعدادات",
+  "settingsSecurity": "الأمان",
+  "settingsBackup": "النسخ الاحتياطي",
+  "settingsGeneral": "عام",
+  "settingsAbout": "حول",
   "autoLock": "القفل التلقائي",
   "immediately": "فوري",
   "seconds15": "15 ثانية",

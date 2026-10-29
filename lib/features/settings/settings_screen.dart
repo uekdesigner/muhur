@@ -33,13 +33,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
     });
   }
 
+  Widget _sectionTitle(BuildContext context, String title) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+          color: Theme.of(context).colorScheme.primary,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.4,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(title: Text(t.settings)),
       body: ListView(
+        padding: const EdgeInsets.only(bottom: 24),
         children: [
+          _sectionTitle(context, t.settingsSecurity),
           ListTile(
             title: Text(t.autoLock),
             trailing: DropdownButton<int>(
@@ -72,6 +88,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 }
               },
             ),
+          _sectionTitle(context, t.settingsBackup),
+          _sectionTitle(context, t.settingsGeneral),
+          _sectionTitle(context, t.settingsAbout),
         ],
       ),
     );

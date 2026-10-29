@@ -74,6 +74,10 @@
     }
   },
   "settings": "Einstellungen",
+  "settingsSecurity": "Sicherheit",
+  "settingsBackup": "Backup",
+  "settingsGeneral": "Allgemein",
+  "settingsAbout": "Über",
   "autoLock": "Automatische Sperre",
   "immediately": "Sofort",
   "seconds15": "15 Sekunden",

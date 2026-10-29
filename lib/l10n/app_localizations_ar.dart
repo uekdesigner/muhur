@@ -200,6 +200,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settings => 'الإعدادات';
 
   @override
+  String get settingsSecurity => 'الأمان';
+
+  @override
+  String get settingsBackup => 'النسخ الاحتياطي';
+
+  @override
+  String get settingsGeneral => 'عام';
+
+  @override
+  String get settingsAbout => 'حول';
+
+  @override
   String get autoLock => 'القفل التلقائي';
 
   @override

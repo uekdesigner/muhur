@@ -199,6 +199,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get settings => 'Ayarlar';
 
   @override
+  String get settingsSecurity => 'Güvenlik';
+
+  @override
+  String get settingsBackup => 'Yedek';
+
+  @override
+  String get settingsGeneral => 'Genel';
+
+  @override
+  String get settingsAbout => 'Hakkında';
+
+  @override
   String get autoLock => 'Otomatik kilitleme';
 
   @override
@@ -306,7 +318,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get tagline =>
-      'Dijital anahtarlarınız tamamen sizin ellerinizde.\n Sunucu yok. Yalnızca siz ve parolalarınız.\n MÜHÜR: Yalnızca sizin görebileceğiniz dijital kasanız.';
+      'Dijital verilerini MÜHÜR\'le.\n Sunucu yok. Yalnızca siz ve verileriniz.\n MÜHÜR: Yalnızca sizin görebileceğiniz dijital kasanız.';
 
   @override
   String get login => 'GİRİŞ';

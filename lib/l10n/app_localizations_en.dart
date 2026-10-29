@@ -199,6 +199,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings => 'Settings';
 
   @override
+  String get settingsSecurity => 'Security';
+
+  @override
+  String get settingsBackup => 'Backup';
+
+  @override
+  String get settingsGeneral => 'General';
+
+  @override
+  String get settingsAbout => 'About';
+
+  @override
   String get autoLock => 'Auto-lock';
 
   @override
