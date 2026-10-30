@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../l10n/app_localizations.dart';
-import 'vault_header.dart' show HeaderButton;
+
 import 'vault_repository.dart';
 
 class StatsPanel extends StatefulWidget {
-  const StatsPanel({super.key, required this.stats, required this.onSettings});
+  const StatsPanel({super.key, required this.stats});
   final VaultStats? stats;
-  final VoidCallback onSettings;
 
   @override
   State<StatsPanel> createState() => _StatsPanelState();
@@ -16,7 +15,7 @@ class StatsPanel extends StatefulWidget {
 
 class _StatsPanelState extends State<StatsPanel> {
   /// true: tüm panel; false: yalnızca zayıf-orta-güçlü şeridi.
-  bool _expanded = true;
+  bool _expanded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,20 +42,25 @@ class _StatsPanelState extends State<StatsPanel> {
                 Expanded(
                   child: _GradientBar(fraction: empty ? 0 : s.score / 100),
                 ),
-                const SizedBox(width: 10),
-                Text(
-                  empty ? '—' : '%${s.score}',
-                  style: const TextStyle(
-                    color: MuhurColors.cream,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 12,
+                // Yüzde yalnızca en az bir parola varken görünür.
+                if (s != null && s.total > 0) ...[
+                  const SizedBox(width: 10),
+                  Text(
+                    '%${s.score}',
+                    style: const TextStyle(
+                      color: MuhurColors.cream,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 12,
+                    ),
                   ),
-                ),
-                // Eksi: paneli şeride küçült, artı: eski haline döndür.
+                ],
+                // Aşağı ok: paneli şeride küçült, yukarı ok: eski haline döndür.
                 IconButton(
                   visualDensity: VisualDensity.compact,
                   icon: Icon(
-                    _expanded ? Icons.remove : Icons.add,
+                    _expanded
+                        ? Icons.keyboard_arrow_down
+                        : Icons.keyboard_arrow_up,
                     color: MuhurColors.cream,
                   ),
                   onPressed: () => setState(() => _expanded = !_expanded),
@@ -77,15 +81,6 @@ class _StatsPanelState extends State<StatsPanel> {
                       t.statReused,
                       s?.duplicates ?? 0,
                       MuhurColors.bronzeLight,
-                    ),
-                    const SizedBox(width: 4),
-                    // Çerçevesiz, yalnızca ikon.
-                    HeaderButton(
-                      icon: Icons.settings,
-                      tooltip: t.settings,
-                      onPressed: widget.onSettings,
-                      framed: false,
-                      size: 40,
                     ),
                   ],
                 ),

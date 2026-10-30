@@ -37,6 +37,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   VaultStats? _stats;
   bool _screenProtected = false;
   final Set<int> _selected = {};
+  bool _searching = false;
 
   @override
   void initState() {
@@ -70,6 +71,22 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   void _refreshAll() {
     _reload();
     _loadStats();
+  }
+
+  void _toggleSearch() {
+    final closing = _searching;
+    setState(() => _searching = !_searching);
+    if (closing && _query.isNotEmpty) {
+      _query = '';
+      _reload();
+    }
+  }
+
+  void _openSettings() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => SettingsScreen(auth: widget.auth)),
+    );
   }
 
   Future<void> _add() async {
@@ -176,20 +193,15 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
             ),
             child: const Icon(Icons.add),
           ),
-          bottomNavigationBar: StatsPanel(
-            stats: _stats,
-            onSettings: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => SettingsScreen(auth: widget.auth),
-              ),
-            ),
-          ),
+          bottomNavigationBar: StatsPanel(stats: _stats),
           body: Column(
             children: [
               VaultHeader(
                 screenProtected: _screenProtected,
                 selectedCount: _selected.length,
+                searchActive: _searching,
+                onSearch: _toggleSearch,
+                onSettings: _openSettings,
                 onHelp: _showHelp,
                 onDelete: _deleteSelected,
                 onLock: () {
@@ -197,24 +209,27 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                   widget.onLock();
                 },
               ),
-              // Arama
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: t.searchHint,
-                    prefixIcon: const Icon(Icons.search),
-                    isDense: true,
+              // Arama (başlıktaki ikonla açılır)
+              if (_searching)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
+                  child: TextField(
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      hintText: t.searchHint,
+                      prefixIcon: const Icon(Icons.search),
+                      isDense: true,
+                    ),
+                    onChanged: (v) {
+                      _query = v;
+                      _reload();
+                    },
                   ),
-                  onChanged: (v) {
-                    _query = v;
-                    _reload();
-                  },
                 ),
-              ),
               // Dönen küre
               if (_cats.isNotEmpty)
                 CategoryGlobe(
+                  height: 72, // <-- EKLE (yoksa varsayılan 96 kalır)
                   items: [
                     GlobeItem(t.all, Icons.apps),
                     for (final c in _cats) GlobeItem(c.label(t), c.icon),
@@ -225,7 +240,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                   },
                 )
               else
-                const SizedBox(height: 96),
+                const SizedBox(height: 72),
               // Kayıt listesi
               Expanded(
                 child: FutureBuilder<List<VaultEntry>>(
@@ -259,7 +274,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                         return Container(
                           margin: const EdgeInsets.symmetric(
                             horizontal: 16,
-                            vertical: 4,
+                            vertical: 2,
                           ),
                           decoration: BoxDecoration(
                             color: picked
@@ -273,43 +288,49 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                               width: picked ? 2 : 1,
                             ),
                           ),
-                          child: ListTile(
-                            leading: Icon(
-                              selecting
-                                  ? (picked
-                                        ? Icons.check_circle
-                                        : Icons.radio_button_unchecked)
-                                  : (cat?.icon ?? Icons.folder),
-                              color: MuhurColors.bronzeLight,
-                            ),
-                            title: Text(e.title),
-                            subtitle: e.domain == null ? null : Text(e.domain!),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                if (e.isFavorite)
-                                  const Icon(
-                                    Icons.star,
-                                    size: 18,
-                                    color: MuhurColors.bronzeLight,
-                                  ),
-                                if (dot != null) ...[
-                                  const SizedBox(width: 8),
-                                  Container(
-                                    width: 12,
-                                    height: 12,
-                                    decoration: BoxDecoration(
-                                      color: dot,
-                                      shape: BoxShape.circle,
+                          child: Material(
+                            type: MaterialType.transparency,
+                            child: ListTile(
+                              dense: true,
+                              leading: Icon(
+                                selecting
+                                    ? (picked
+                                          ? Icons.check_circle
+                                          : Icons.radio_button_unchecked)
+                                    : (cat?.icon ?? Icons.folder),
+                                color: MuhurColors.bronzeLight,
+                              ),
+                              title: Text(e.title),
+                              subtitle: e.domain == null
+                                  ? null
+                                  : Text(e.domain!),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  if (e.isFavorite)
+                                    const Icon(
+                                      Icons.star,
+                                      size: 18,
+                                      color: MuhurColors.bronzeLight,
                                     ),
-                                  ),
+                                  if (dot != null) ...[
+                                    const SizedBox(width: 8),
+                                    Container(
+                                      width: 12,
+                                      height: 12,
+                                      decoration: BoxDecoration(
+                                        color: dot,
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                  ],
                                 ],
-                              ],
+                              ),
+                              onTap: selecting
+                                  ? () => _toggleSelect(e)
+                                  : () => _open(e),
+                              onLongPress: () => _toggleSelect(e),
                             ),
-                            onTap: selecting
-                                ? () => _toggleSelect(e)
-                                : () => _open(e),
-                            onLongPress: () => _toggleSelect(e),
                           ),
                         );
                       },

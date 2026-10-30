@@ -79,7 +79,7 @@ class _CategoryGlobeState extends State<CategoryGlobe> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(it.icon, color: MuhurColors.cream, size: 26),
+          Icon(it.icon, color: MuhurColors.cream, size: 22),
           const SizedBox(height: 6),
           FittedBox(
             fit: BoxFit.scaleDown,

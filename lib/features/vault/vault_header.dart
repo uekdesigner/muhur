@@ -13,6 +13,9 @@ class VaultHeader extends StatelessWidget {
     required this.onHelp,
     required this.onDelete,
     required this.onLock,
+    required this.searchActive,
+    required this.onSearch,
+    required this.onSettings,
   });
 
   final bool screenProtected;
@@ -20,6 +23,9 @@ class VaultHeader extends StatelessWidget {
   final VoidCallback onHelp;
   final VoidCallback onDelete;
   final VoidCallback onLock;
+  final bool searchActive;
+  final VoidCallback onSearch;
+  final VoidCallback onSettings;
 
   @override
   Widget build(BuildContext context) {
@@ -100,16 +106,39 @@ class VaultHeader extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 8),
-          Wrap(
-            spacing: 8,
-            runSpacing: 6,
+          const SizedBox(height: 4),
+          Row(
             children: [
-              StatusPill(label: t.statusScreen, active: screenProtected),
-              ValueListenableBuilder<bool>(
-                valueListenable: AppSettings.instance.autoBackup,
-                builder: (context, on, _) =>
-                    StatusPill(label: t.statusBackup, active: on),
+              Expanded(
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 6,
+                  children: [
+                    StatusPill(label: t.statusScreen, active: screenProtected),
+                    ValueListenableBuilder<bool>(
+                      valueListenable: AppSettings.instance.autoBackup,
+                      builder: (context, on, _) =>
+                          StatusPill(label: t.statusBackup, active: on),
+                    ),
+                  ],
+                ),
+              ),
+              HeaderButton(
+                icon: searchActive ? Icons.close : Icons.search,
+                tooltip: searchActive ? t.close : t.searchHint,
+                onPressed: onSearch,
+                framed: false,
+                size: 32,
+                iconSize: 22,
+              ),
+              const SizedBox(width: 2),
+              HeaderButton(
+                icon: Icons.settings,
+                tooltip: t.settings,
+                onPressed: onSettings,
+                framed: false,
+                size: 32,
+                iconSize: 22,
               ),
             ],
           ),
@@ -221,7 +250,9 @@ class HeaderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final enabled = onPressed != null;
     final color = danger ? Colors.redAccent : MuhurColors.bronze;
-    final iconColor = (!framed && danger) ? Colors.redAccent : MuhurColors.cream;
+    final iconColor = (!framed && danger)
+        ? Colors.redAccent
+        : MuhurColors.cream;
 
     final Widget button = framed
         ? Material(
