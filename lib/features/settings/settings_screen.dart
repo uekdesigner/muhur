@@ -94,44 +94,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  String _secLabel(AppLocalizations t, int s) =>
-      s == 0 ? t.immediately : t.secondsShort(s);
-
-  Widget _durationCard({
-    required IconData icon,
-    required String title,
-    required int value,
-    required int max,
-    required String valueLabel,
-    required ValueChanged<int> onChanged,
-    required ValueChanged<int> onCommit,
-    int min = 0,
-  }) {
-    return _card(
-      icon: icon,
-      title: title,
-      trailing: Text(
-        valueLabel,
-        style: const TextStyle(
-          color: MuhurColors.bronzeLight,
-          fontSize: 14,
-          fontWeight: FontWeight.w700,
-        ),
-      ),
-      child: Slider(
-        value: value.toDouble(),
-        min: min.toDouble(),
-        max: max.toDouble(),
-        divisions: (max - min) ~/ 5,
-        label: valueLabel,
-        activeColor: MuhurColors.bronzeLight,
-        inactiveColor: MuhurColors.bronze.withValues(alpha: 0.3),
-        onChanged: (v) => onChanged(v.round()),
-        onChangeEnd: (v) => onCommit(v.round()),
-      ),
-    );
-  }
-
   Widget _card({
     required IconData icon,
     required String title,
@@ -255,26 +217,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
         valueLabel: t.secondsShort(_copySecs),
         onChanged: (v) => setState(() => _copySecs = v),
         onCommit: AppSettings.instance.setCopySeconds,
-      ),
-      if (_bioAvailable)
-        _card(
-          icon: Icons.fingerprint,
-          title: t.biometricUnlock,
-          trailing: Switch(value: _bioEnabled, onChanged: (v) => _setBio(v, t)),
-        ),
-    ];
-  }
-
-  List<Widget> _securityItems(AppLocalizations t) {
-    return [
-      _durationCard(
-        icon: Icons.lock_clock,
-        title: t.autoLock,
-        value: _autoLock,
-        max: AppSettings.maxAutoLockSeconds,
-        valueLabel: _secLabel(t, _autoLock),
-        onChanged: (v) => setState(() => _autoLock = v),
-        onCommit: AppSettings.instance.setAutoLock,
       ),
       if (_bioAvailable)
         _card(
