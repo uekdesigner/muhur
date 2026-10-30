@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
+import '../../core/utils/screen_capture_service.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 
 class VaultHeader extends StatelessWidget {
   const VaultHeader({
     super.key,
-    required this.screenProtected,
     required this.selectedCount,
     required this.onHelp,
     required this.onDelete,
@@ -18,7 +18,6 @@ class VaultHeader extends StatelessWidget {
     required this.onSettings,
   });
 
-  final bool screenProtected;
   final int selectedCount;
   final VoidCallback onHelp;
   final VoidCallback onDelete;
@@ -114,7 +113,11 @@ class VaultHeader extends StatelessWidget {
                   spacing: 8,
                   runSpacing: 6,
                   children: [
-                    StatusPill(label: t.statusScreen, active: screenProtected),
+                    ValueListenableBuilder<bool>(
+                      valueListenable: ScreenCaptureService.instance.protected,
+                      builder: (context, on, _) =>
+                          StatusPill(label: t.statusScreen, active: on),
+                    ),
                     ValueListenableBuilder<bool>(
                       valueListenable: AppSettings.instance.autoBackup,
                       builder: (context, on, _) =>

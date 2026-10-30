@@ -365,6 +365,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get statusScreen => 'Ekran koruması';
 
   @override
+  String get screenshotAllow => 'Allow screenshots';
+
+  @override
+  String get screenshotAllowHint =>
+      'Screen protection is switched off for the time set below, then turns back on automatically.';
+
+  @override
+  String get screenshotTimer => 'Screenshot time';
+
+  @override
   String get statusBackup => 'Oto yedek';
 
   @override

@@ -327,7 +327,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tagline =>
-      'Your digital keys are entirely in your hands.\n No servers. Just you and your passwords.\n MÜHÜR: Your digital vault that only you can see.';
+      'SEAL your digital data.\n No servers. Just you and your data.\n MÜHÜR: Your digital vault that only you can see.';
 
   @override
   String get login => 'ENTER';
@@ -363,6 +363,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get statusScreen => 'Screen protection';
+
+  @override
+  String get screenshotAllow => 'Allow screenshots';
+
+  @override
+  String get screenshotAllowHint =>
+      'Screen protection is switched off for the time set below, then turns back on automatically.';
+
+  @override
+  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get statusBackup => 'Auto backup';

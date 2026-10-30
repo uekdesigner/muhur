@@ -7,6 +7,7 @@ import 'core/storage/app_settings.dart';
 import 'core/storage/database_manager.dart';
 import 'core/utils/clipboard_service.dart';
 import 'core/utils/privacy_cover.dart';
+import 'core/utils/screen_capture_service.dart';
 import 'features/auth/auth_screens.dart';
 import 'features/auth/auth_service.dart';
 import 'features/password_gen/generator_settings.dart';
@@ -19,6 +20,7 @@ Future<void> main() async {
   await AppSettings.instance.load();
   await GeneratorSettings.instance.load();
   ClipboardService.instance.init();
+  await ScreenCaptureService.instance.init();
   runApp(const MuhurApp());
 }
 

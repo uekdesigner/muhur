@@ -14,4 +14,15 @@ class WindowSecurity {
       return false;
     }
   }
+
+  /// Korumayı açar/kapatır; işlem sonrası gerçek durumu döndürür.
+  static Future<bool> setScreenProtected(bool on) async {
+    if (!Platform.isAndroid) return false;
+    try {
+      return await _channel.invokeMethod<bool>('setSecure', {'secure': on}) ??
+          false;
+    } catch (_) {
+      return await isScreenProtected();
+    }
+  }
 }

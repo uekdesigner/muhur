@@ -14,12 +14,17 @@ import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterFragmentActivity() {
 
+    private val isDebuggable: Boolean
+        get() = (applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
+
+    private fun isSecureNow(): Boolean =
+        (window.attributes.flags and WindowManager.LayoutParams.FLAG_SECURE) != 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Ekran görüntüsü ve son uygulamalar önizlemesini engelle.
         // Geliştirme (debug) sürümünde kapalı: ekran görüntüsü alabilesin diye.
-        val debuggable = (applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
-        if (!debuggable) {
+        if (!isDebuggable) {
             window.setFlags(
                 WindowManager.LayoutParams.FLAG_SECURE,
                 WindowManager.LayoutParams.FLAG_SECURE
@@ -59,10 +64,20 @@ class MainActivity : FlutterFragmentActivity() {
         MethodChannel(messenger, "com.muhur.app/window")
             .setMethodCallHandler { call, result ->
                 when (call.method) {
-                    "isSecure" -> {
-                        val secure =
-                            (window.attributes.flags and WindowManager.LayoutParams.FLAG_SECURE) != 0
-                        result.success(secure)
+                    "isSecure" -> result.success(isSecureNow())
+                    "setSecure" -> {
+                        val on = call.argument<Boolean>("secure") ?: true
+                        runOnUiThread {
+                            if (on) {
+                                // Debug sürümünde koruma hiç açılmaz (ekran görüntüsü alabilmek için).
+                                if (!isDebuggable) {
+                                    window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+                                }
+                            } else {
+                                window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+                            }
+                            result.success(isSecureNow())
+                        }
                     }
                     else -> result.notImplemented()
                 }

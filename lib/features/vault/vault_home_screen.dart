@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/crypto/crypto_service.dart';
-import '../../core/utils/window_security.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
@@ -35,7 +34,6 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   String _query = '';
   late Future<List<VaultEntry>> _entries;
   VaultStats? _stats;
-  bool _screenProtected = false;
   final Set<int> _selected = {};
   bool _searching = false;
 
@@ -45,9 +43,6 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     _entries = _repo.entries();
     _repo.categories().then((c) {
       if (mounted) setState(() => _cats = c);
-    });
-    WindowSecurity.isScreenProtected().then((v) {
-      if (mounted) setState(() => _screenProtected = v);
     });
     _loadStats();
   }
@@ -197,7 +192,6 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
           body: Column(
             children: [
               VaultHeader(
-                screenProtected: _screenProtected,
                 selectedCount: _selected.length,
                 searchActive: _searching,
                 onSearch: _toggleSearch,

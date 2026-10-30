@@ -10,7 +10,7 @@
   "setupInfo": "This password cannot be recovered. If you forget it, your data can never be opened.",
   "masterPassword": "Master password",
   "confirmPassword": "Confirm password",
-   "passwordTooShort": "Use at least 8 characters.",
+  "passwordTooShort": "Use at least 8 characters.",
   "passwordNeedsMix": "Use lowercase, uppercase, a digit and a special character.",
   "reqLength": "At least 8 characters",
   "reqLower": "A lowercase letter",
@@ -23,7 +23,13 @@
   "unlock": "Unlock",
   "wrongPassword": "Wrong master password.",
   "lockedOut": "Too many attempts. Try again in {seconds} seconds.",
-  "@lockedOut": { "placeholders": { "seconds": { "type": "int" } } },
+  "@lockedOut": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
   "useBiometrics": "Unlock with biometrics",
   "enableBiometricsQ": "Enable biometric unlock?",
   "enable": "Enable",
@@ -60,7 +66,13 @@
   "fieldNote": "Notes",
   "copy": "Copy",
   "copied": "Copied. The clipboard clears in {seconds} seconds.",
-  "@copied": { "placeholders": { "seconds": { "type": "int" } } },
+  "@copied": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
   "settings": "Settings",
   "settingsSecurity": "Security",
   "settingsBackup": "Backup",
@@ -68,11 +80,18 @@
   "settingsAbout": "About",
   "autoLock": "Auto-lock",
   "immediately": "Immediately",
-  "seconds15": "15 seconds", 
-  "minute1": "1 minute", 
+  "seconds15": "15 seconds",
+  "minute1": "1 minute",
   "copyTimer": "Clipboard timer",
-  "copyTimerHint": "Copied data is cleared from the clipboard after this time, and the vault stays unlocked until then.","secondsShort": "{seconds} sec",
-  "@secondsShort": { "placeholders": { "seconds": { "type": "int" } } },
+  "copyTimerHint": "Copied data is cleared from the clipboard after this time, and the vault stays unlocked until then.",
+  "secondsShort": "{seconds} sec",
+  "@secondsShort": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
   "biometricUnlock": "Biometric unlock",
   "generator": "Password generator",
   "generate": "Generate",
@@ -102,7 +121,7 @@
   "useValue": "Use",
   "brandName": "MÜHÜR",
   "brandSubtitle": "Password Manager",
-  "tagline": "Your digital keys are entirely in your hands.\n No servers. Just you and your passwords.\n MÜHÜR: Your digital vault that only you can see.",
+  "tagline": "SEAL your digital data.\n No servers. Just you and your data.\n MÜHÜR: Your digital vault that only you can see.",
   "login": "ENTER",
   "infoTitle": "About Muhur",
   "infoBody": "Muhur keeps your passwords encrypted on this device only. There is no account and no server.\n\nYour master password cannot be recovered. If you forget it, your data cannot be opened, so keep an encrypted backup.",
@@ -111,14 +130,23 @@
   "language": "Language",
   "languageSystem": "System default",
   "statTotal": "Total",
-  "statReused": "Reused",  "statReused": "Reused",
+  "statReused": "Reused",
   "planFree": "FREE",
   "statusScreen": "Screen protection",
+  "screenshotAllow": "Allow screenshots",
+  "screenshotAllowHint": "Screen protection is switched off for the time set below, then turns back on automatically.",
+  "screenshotTimer": "Screenshot time",
   "statusBackup": "Auto backup",
   "helpTitle": "Help",
   "helpBody": "Help content will be added here.",
   "deleteSelectedConfirm": "Delete {count} selected entries? This cannot be undone.",
-  "@deleteSelectedConfirm": { "placeholders": { "count": { "type": "int" } } },
+  "@deleteSelectedConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "fcBankName": "Bank Name",
   "fcTag": "Tag",
   "fcInternetBankingPassword": "Online Banking Password",

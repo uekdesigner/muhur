@@ -711,7 +711,7 @@ abstract class AppLocalizations {
   /// No description provided for @tagline.
   ///
   /// In en, this message translates to:
-  /// **'Your digital keys are entirely in your hands.\n No servers. Just you and your passwords.\n MÜHÜR: Your digital vault that only you can see.'**
+  /// **'SEAL your digital data.\n No servers. Just you and your data.\n MÜHÜR: Your digital vault that only you can see.'**
   String get tagline;
 
   /// No description provided for @login.
@@ -779,6 +779,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Screen protection'**
   String get statusScreen;
+
+  /// No description provided for @screenshotAllow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow screenshots'**
+  String get screenshotAllow;
+
+  /// No description provided for @screenshotAllowHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen protection is switched off for the time set below, then turns back on automatically.'**
+  String get screenshotAllowHint;
+
+  /// No description provided for @screenshotTimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Screenshot time'**
+  String get screenshotTimer;
 
   /// No description provided for @statusBackup.
   ///

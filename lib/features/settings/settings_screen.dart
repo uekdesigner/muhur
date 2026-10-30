@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
+import '../../core/utils/screen_capture_service.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
 
@@ -18,6 +21,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _bioEnabled = false;
   int _autoLock = AppSettings.instance.autoLockSeconds;
   int _copySecs = AppSettings.instance.copySeconds;
+  int _shotSecs = AppSettings.instance.screenshotSeconds;
   int _section = 0; // 0: Güvenlik, 1: Yedek, 2: Genel, 3: Hakkında
   @override
   void initState() {
@@ -218,6 +222,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
         onChanged: (v) => setState(() => _copySecs = v),
         onCommit: AppSettings.instance.setCopySeconds,
       ),
+      if (Platform.isAndroid) ...[
+        ValueListenableBuilder<bool>(
+          valueListenable: ScreenCaptureService.instance.allowed,
+          builder: (context, on, _) => _card(
+            icon: Icons.screenshot_outlined,
+            title: t.screenshotAllow,
+            subtitle: t.screenshotAllowHint,
+            trailing: Switch(
+              value: on,
+              onChanged: (v) => v
+                  ? ScreenCaptureService.instance.allowFor(
+                      Duration(seconds: _shotSecs),
+                    )
+                  : ScreenCaptureService.instance.protect(),
+            ),
+          ),
+        ),
+        _durationCard(
+          icon: Icons.timer_outlined,
+          title: t.screenshotTimer,
+          value: _shotSecs,
+          min: AppSettings.minScreenshotSeconds,
+          max: AppSettings.maxScreenshotSeconds,
+          valueLabel: t.secondsShort(_shotSecs),
+          onChanged: (v) => setState(() => _shotSecs = v),
+          onCommit: AppSettings.instance.setScreenshotSeconds,
+        ),
+      ],
       if (_bioAvailable)
         _card(
           icon: Icons.fingerprint,

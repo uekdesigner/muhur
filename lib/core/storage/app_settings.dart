@@ -14,6 +14,8 @@ class AppSettings {
   static const int maxAutoLockSeconds = 120;
   static const int minCopySeconds = 5;
   static const int maxCopySeconds = 60;
+  static const int minScreenshotSeconds = 5;
+  static const int maxScreenshotSeconds = 60;
 
   /// Arka planda kaç saniye sonra kilitlensin (0 = hemen).
   int autoLockSeconds = 0;
@@ -21,6 +23,10 @@ class AppSettings {
   /// Kopyalanan verinin panoda kalma süresi; kasa da en az bu kadar kilitlenmez.
   int copySeconds = 30;
   static const _kCopySecs = 'muhur_copy_secs';
+
+  /// Ekran görüntüsüne izin verildiğinde koruma kaç saniye sonra geri açılsın.
+  int screenshotSeconds = 15;
+  static const _kShotSecs = 'muhur_screenshot_secs';
 
   /// null = sistem dili
   final ValueNotifier<Locale?> locale = ValueNotifier<Locale?>(null);
@@ -37,6 +43,10 @@ class AppSettings {
         (int.tryParse(await _storage.read(key: _kCopySecs) ?? '') ?? 30)
             .clamp(minCopySeconds, maxCopySeconds)
             .toInt();
+    screenshotSeconds =
+        (int.tryParse(await _storage.read(key: _kShotSecs) ?? '') ?? 15)
+            .clamp(minScreenshotSeconds, maxScreenshotSeconds)
+            .toInt();
     final code = await _storage.read(key: _kLocale);
     locale.value = code == null ? null : Locale(code);
     autoBackup.value = (await _storage.read(key: _kAutoBackup)) == '1';
@@ -50,6 +60,12 @@ class AppSettings {
   Future<void> setCopySeconds(int seconds) async {
     copySeconds = seconds.clamp(minCopySeconds, maxCopySeconds).toInt();
     await _storage.write(key: _kCopySecs, value: '$copySeconds');
+  }
+
+  Future<void> setScreenshotSeconds(int seconds) async {
+    screenshotSeconds =
+        seconds.clamp(minScreenshotSeconds, maxScreenshotSeconds).toInt();
+    await _storage.write(key: _kShotSecs, value: '$screenshotSeconds');
   }
 
   Future<void> setLocale(Locale? l) async {
