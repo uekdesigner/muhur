@@ -224,7 +224,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get minute1 => 'دقيقة واحدة';
 
   @override
-  String get minutes5 => '5 دقائق';
+  String get copyTimer => 'Clipboard timer';
+
+  @override
+  String get copyTimerHint =>
+      'Copied data is cleared from the clipboard after this time, and the vault stays unlocked until then.';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds sec';
+  }
 
   @override
   String get biometricUnlock => 'فتح القفل الحيوي';

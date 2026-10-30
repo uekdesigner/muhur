@@ -87,11 +87,26 @@ class _AppRootState extends State<AppRoot> with WidgetsBindingObserver {
     }
   }
 
+  /// Arka plana geçişten sonra kasanın kilitleneceği an: otomatik kilit süresi
+  /// ile kopyalama süresinden (varsa) hangisi daha geçse o.
+  DateTime _lockDeadline(DateTime since) {
+    var deadline = since.add(
+      Duration(seconds: AppSettings.instance.autoLockSeconds),
+    );
+    final copyUntil = ClipboardService.instance.activeUntil;
+    if (copyUntil != null && copyUntil.isAfter(deadline)) {
+      deadline = copyUntil;
+    }
+    return deadline;
+  }
+
   void _scheduleLock() {
     _lockTimer?.cancel();
     if (!_unlocked) return;
-    final secs = AppSettings.instance.autoLockSeconds;
-    _lockTimer = Timer(Duration(seconds: secs), () {
+    final now = DateTime.now();
+    var delay = _lockDeadline(_backgroundedAt ?? now).difference(now);
+    if (delay.isNegative) delay = Duration.zero;
+    _lockTimer = Timer(delay, () {
       if (_auth.systemDialogActive) return;
       _lockNow();
     });
@@ -102,8 +117,7 @@ class _AppRootState extends State<AppRoot> with WidgetsBindingObserver {
     final since = _backgroundedAt;
     _backgroundedAt = null;
     if (_unlocked && since != null && !_auth.systemDialogActive) {
-      final away = DateTime.now().difference(since).inSeconds;
-      if (away >= AppSettings.instance.autoLockSeconds) {
+      if (!DateTime.now().isBefore(_lockDeadline(since))) {
         await _lockNow();
       }
     }

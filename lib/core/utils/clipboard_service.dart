@@ -7,6 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../storage/app_settings.dart';
+
 class ClipboardService with WidgetsBindingObserver {
   ClipboardService._();
   static final ClipboardService instance = ClipboardService._();
@@ -15,7 +17,18 @@ class ClipboardService with WidgetsBindingObserver {
   static const _kPending = 'muhur_clip_pending';
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
-  Duration clearAfter = const Duration(seconds: 30);
+  /// Ayarlardaki kopyalama süresi (varsayılan 30 sn).
+  Duration get clearAfter =>
+      Duration(seconds: AppSettings.instance.copySeconds);
+
+  DateTime? _expiresAt;
+
+  /// Kopyalanan veri hâlâ panodaysa silinme anı, yoksa null.
+  DateTime? get activeUntil {
+    final e = _expiresAt;
+    return (e != null && e.isAfter(DateTime.now())) ? e : null;
+  }
+
   Timer? _timer;
   List<int>? _hash; // kopyalanan değerin hash'i (düz metin bellekte tutulmaz)
 
@@ -35,6 +48,7 @@ class ClipboardService with WidgetsBindingObserver {
     await _setSensitive(value);
     _hash = (await Sha256().hash(utf8.encode(value))).bytes;
     final expires = DateTime.now().add(clearAfter);
+    _expiresAt = expires;
     await _storage.write(
       key: _kPending,
       value: '${expires.millisecondsSinceEpoch}',
@@ -91,6 +105,7 @@ class ClipboardService with WidgetsBindingObserver {
     }
     if (ours) await _clear();
     _hash = null;
+    _expiresAt = null;
     await _storage.delete(key: _kPending);
   }
 

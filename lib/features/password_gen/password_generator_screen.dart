@@ -5,6 +5,7 @@ import '../../l10n/app_localizations.dart';
 import 'generator_settings.dart';
 import 'password_generator.dart';
 import 'strength_bar.dart';
+import '../../core/widgets/copy_countdown.dart';
 
 /// Ekranın açılış amacı:
 /// - [view]: Ana menüden serbestçe şifre üretme (yalnızca üret/kopyala).
@@ -83,18 +84,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                         onPressed: () async {
                           await ClipboardService.instance.copy(_pw);
                           if (!context.mounted) return;
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                t.copied(
-                                  ClipboardService
-                                      .instance
-                                      .clearAfter
-                                      .inSeconds,
-                                ),
-                              ),
-                            ),
-                          );
+                          showCopiedSnack(context);
                         },
                       ),
                     ],
@@ -147,10 +137,7 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
           ],
           if (widget.mode == GeneratorScreenMode.settings) ...[
             const SizedBox(height: 16),
-            FilledButton(
-              onPressed: _saveAndExit,
-              child: Text(t.saveAndExit),
-            ),
+            FilledButton(onPressed: _saveAndExit, child: Text(t.saveAndExit)),
           ],
         ],
       ),

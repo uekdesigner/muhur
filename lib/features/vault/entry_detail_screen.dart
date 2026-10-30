@@ -5,6 +5,7 @@ import 'entry_edit_screen.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
 import '../../core/utils/clipboard_service.dart';
+import '../../core/widgets/copy_countdown.dart';
 
 class EntryDetailScreen extends StatefulWidget {
   const EntryDetailScreen({
@@ -125,18 +126,7 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
                         onPressed: () async {
                           await ClipboardService.instance.copy(fields[i].value);
                           if (!context.mounted) return;
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                t.copied(
-                                  ClipboardService
-                                      .instance
-                                      .clearAfter
-                                      .inSeconds,
-                                ),
-                              ),
-                            ),
-                          );
+                          showCopiedSnack(context);
                         },
                       ),
                     ],

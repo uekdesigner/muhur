@@ -516,11 +516,23 @@ abstract class AppLocalizations {
   /// **'1 minute'**
   String get minute1;
 
-  /// No description provided for @minutes5.
+  /// No description provided for @copyTimer.
   ///
   /// In en, this message translates to:
-  /// **'5 minutes'**
-  String get minutes5;
+  /// **'Clipboard timer'**
+  String get copyTimer;
+
+  /// No description provided for @copyTimerHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied data is cleared from the clipboard after this time, and the vault stays unlocked until then.'**
+  String get copyTimerHint;
+
+  /// No description provided for @secondsShort.
+  ///
+  /// In en, this message translates to:
+  /// **'{seconds} sec'**
+  String secondsShort(int seconds);
 
   /// No description provided for @biometricUnlock.
   ///
