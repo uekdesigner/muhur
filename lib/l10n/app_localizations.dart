@@ -450,6 +450,84 @@ abstract class AppLocalizations {
   /// **'Delete'**
   String get delete;
 
+  /// No description provided for @moveToTrash.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to trash'**
+  String get moveToTrash;
+
+  /// No description provided for @trash.
+  ///
+  /// In en, this message translates to:
+  /// **'Trash'**
+  String get trash;
+
+  /// No description provided for @trashKeepFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep in trash for'**
+  String get trashKeepFor;
+
+  /// No description provided for @trashHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted entries stay in the trash, still encrypted, and can be restored. They are permanently deleted after this many days, the next time the vault is unlocked. Shortening the period also removes older items from the trash. Emptying the trash cannot be undone.'**
+  String get trashHint;
+
+  /// No description provided for @daysCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day} other{{count} days}}'**
+  String daysCount(int count);
+
+  /// No description provided for @openTrash.
+  ///
+  /// In en, this message translates to:
+  /// **'Open trash'**
+  String get openTrash;
+
+  /// No description provided for @trashEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'The trash is empty.'**
+  String get trashEmpty;
+
+  /// No description provided for @restore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get restore;
+
+  /// No description provided for @deleteForever.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete permanently'**
+  String get deleteForever;
+
+  /// No description provided for @deleteForeverConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Permanently delete this entry? This cannot be undone.'**
+  String get deleteForeverConfirm;
+
+  /// No description provided for @trashDaysLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day left} other{{count} days left}}'**
+  String trashDaysLeft(int count);
+
+  /// No description provided for @emptyTrashNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty trash now'**
+  String get emptyTrashNow;
+
+  /// No description provided for @emptyTrashConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Permanently delete {count, plural, =1{1 entry} other{{count} entries}} from the trash? This cannot be undone.'**
+  String emptyTrashConfirm(int count);
+
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
@@ -459,7 +537,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteConfirm.
   ///
   /// In en, this message translates to:
-  /// **'Delete this entry? This cannot be undone.'**
+  /// **'Move this entry to the trash? You can restore it until the trash is emptied.'**
   String get deleteConfirm;
 
   /// No description provided for @titleRequired.
@@ -861,7 +939,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteSelectedConfirm.
   ///
   /// In en, this message translates to:
-  /// **'Delete {count} selected entries? This cannot be undone.'**
+  /// **'Move {count} selected entries to the trash?'**
   String deleteSelectedConfirm(int count);
 
   /// No description provided for @fcBankName.

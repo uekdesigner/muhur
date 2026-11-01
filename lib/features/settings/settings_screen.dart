@@ -10,10 +10,13 @@ import '../../core/utils/screen_capture_service.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
 import 'change_password_dialog.dart';
+import '../vault/vault_repository.dart';
+import '../vault/trash_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key, required this.auth});
+  const SettingsScreen({super.key, required this.auth, required this.repo});
   final AuthService auth;
+  final VaultRepository repo;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -25,6 +28,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   int _autoLock = AppSettings.instance.autoLockSeconds;
   int _copySecs = AppSettings.instance.copySeconds;
   int _shotSecs = AppSettings.instance.screenshotSeconds;
+  int _trashDays = AppSettings.instance.trashDays;
+  int _trashCount = 0;
   int _section = 0; // 0: Güvenlik, 1: Yedek, 2: Genel, 3: Hakkında
   @override
   void initState() {
@@ -224,6 +229,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     ValueChanged<int>? onChanged,
     ValueChanged<int>? onCommit,
     Widget? counter,
+    int step = 5,
   }) {
     return Row(
       children: [
@@ -250,7 +256,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               value: value.toDouble(),
               min: min.toDouble(),
               max: max.toDouble(),
-              divisions: (max - min) ~/ 5,
+              divisions: (max - min) ~/ step,
               label: label,
               onChanged: onChanged == null ? null : (v) => onChanged(v.round()),
               onChangeEnd: onCommit == null ? null : (v) => onCommit(v.round()),
@@ -333,6 +339,114 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  Future<void> _loadTrash() async {
+    try {
+      final n = await widget.repo.trashCount();
+      if (mounted) setState(() => _trashCount = n);
+    } catch (_) {}
+  }
+
+  Future<void> _openTrash() async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => TrashScreen(repo: widget.repo)),
+    );
+    await _loadTrash();
+  }
+
+  Future<void> _emptyTrash() async {
+    final t = AppLocalizations.of(context)!;
+    final yes = await showDialog<bool>(
+      context: context,
+      builder: (c) => AlertDialog(
+        content: Text(t.emptyTrashConfirm(_trashCount)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(c, false),
+            child: Text(t.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(c, true),
+            child: Text(t.delete),
+          ),
+        ],
+      ),
+    );
+    if (yes != true) return;
+    await widget.repo.emptyTrash();
+    await _loadTrash();
+  }
+
+  Widget _badge(String text) => Container(
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+    decoration: BoxDecoration(
+      color: MuhurColors.bronze.withValues(alpha: 0.35),
+      borderRadius: BorderRadius.circular(12),
+    ),
+    child: Text(
+      text,
+      style: const TextStyle(
+        color: MuhurColors.cream,
+        fontSize: 12,
+        fontWeight: FontWeight.w700,
+      ),
+    ),
+  );
+
+  Widget _trashPanel(AppLocalizations t) {
+    final empty = _trashCount == 0;
+    return _panel([
+      _row(
+        icon: Icons.auto_delete_outlined,
+        title: t.trashKeepFor,
+        trailing: _helpButton(t, t.trash, t.trashHint),
+        child: _sliderRow(
+          value: _trashDays,
+          min: AppSettings.minTrashDays,
+          max: AppSettings.maxTrashDays,
+          step: 1,
+          label: t.daysCount(_trashDays),
+          onChanged: (v) => setState(() => _trashDays = v),
+          onCommit: AppSettings.instance.setTrashDays,
+        ),
+      ),
+      Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: _openTrash,
+          child: _row(
+            icon: Icons.restore_from_trash_outlined,
+            title: t.openTrash,
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _badge('$_trashCount'),
+                const SizedBox(width: 4),
+                Icon(
+                  Icons.chevron_right,
+                  color: MuhurColors.cream.withValues(alpha: 0.7),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: empty ? null : _emptyTrash,
+          child: Opacity(
+            opacity: empty ? 0.5 : 1,
+            child: _row(
+              icon: Icons.delete_sweep_outlined,
+              title: t.emptyTrashNow,
+            ),
+          ),
+        ),
+      ),
+    ]);
+  }
+
   List<Widget> _securityItems(AppLocalizations t) {
     return [
       _panel([
@@ -386,6 +500,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
         ),
       ]),
+      _trashPanel(t),
     ];
   }
 

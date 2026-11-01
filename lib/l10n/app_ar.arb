@@ -210,5 +210,18 @@
   "customTypeNote": "ملاحظة",
   "customTypePassword": "كلمة مرور مخفية",
   "customTypeDate": "تاريخ",
-  "customTypePhone": "هاتف"
+  "customTypePhone": "هاتف",
+  "openTrash": "فتح سلة المهملات",
+  "trashEmpty": "سلة المهملات فارغة.",
+  "restore": "استعادة",
+  "deleteForever": "حذف نهائي",
+  "deleteForeverConfirm": "هل تريد حذف هذا الإدخال نهائياً؟ لا يمكن التراجع عن هذا الإجراء.",
+  "trashDaysLeft": "{count, plural, =0{بقي أقل من يوم} =1{متبقي يوم واحد} =2{متبقي يومان} few{متبقي {count} أيام} many{متبقي {count} يوماً} other{متبقي {count} يوم}}",
+  "@trashDaysLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

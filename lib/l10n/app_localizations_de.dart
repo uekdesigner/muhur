@@ -44,27 +44,27 @@ class AppLocalizationsDe extends AppLocalizations {
   String get confirmPassword => 'Passwort bestätigen';
 
   @override
-  String get changeMasterPassword => 'Change master password';
+  String get changeMasterPassword => 'Master-Passwort ändern';
 
   @override
-  String get currentPassword => 'Current password';
+  String get currentPassword => 'Aktuelles Passwort';
 
   @override
-  String get newPassword => 'New password';
+  String get newPassword => 'Neues Passwort';
 
   @override
   String get newPasswordSame =>
-      'The new password must be different from the current one.';
+      'Das neue Passwort muss sich vom aktuellen unterscheiden.';
 
   @override
-  String get change => 'Change';
+  String get change => 'Ändern';
 
   @override
-  String get masterPasswordChanged => 'Master password changed.';
+  String get masterPasswordChanged => 'Master-Passwort geändert.';
 
   @override
   String get changePasswordFailed =>
-      'Could not change the password. Please try again.';
+      'Passwort konnte nicht geändert werden. Bitte versuchen Sie es erneut.';
 
   @override
   String get passwordTooShort => 'Verwenden Sie mindestens 8 Zeichen.';
@@ -190,11 +190,76 @@ class AppLocalizationsDe extends AppLocalizations {
   String get delete => 'Löschen';
 
   @override
+  String get moveToTrash => 'In den Papierkorb verschieben';
+
+  @override
+  String get trash => 'Papierkorb';
+
+  @override
+  String get trashKeepFor => 'Im Papierkorb behalten für';
+
+  @override
+  String get trashHint =>
+      'Gelöschte Einträge bleiben weiterhin verschlüsselt im Papierkorb und können wiederhergestellt werden. Sie werden nach dieser Anzahl von Tagen beim nächsten Entsperren des Tresors endgültig gelöscht. Eine Verkürzung des Zeitraums entfernt auch ältere Einträge aus dem Papierkorb. Das Leeren des Papierkorbs kann nicht rückgängig gemacht werden.';
+
+  @override
+  String daysCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Tage',
+      one: '1 Tag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get openTrash => 'Papierkorb öffnen';
+
+  @override
+  String get trashEmpty => 'Der Papierkorb ist leer.';
+
+  @override
+  String get restore => 'Wiederherstellen';
+
+  @override
+  String get deleteForever => 'Endgültig löschen';
+
+  @override
+  String get deleteForeverConfirm =>
+      'Diesen Eintrag endgültig löschen? Dies kann nicht rückgängig gemacht werden.';
+
+  @override
+  String trashDaysLeft(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Noch $count Tage',
+      one: 'Noch 1 Tag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get emptyTrashNow => 'Papierkorb jetzt leeren';
+
+  @override
+  String emptyTrashConfirm(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Einträge',
+      one: '1 Eintrag',
+    );
+    return '$_temp0 endgültig aus dem Papierkorb löschen? Dies kann nicht rückgängig gemacht werden.';
+  }
+
+  @override
   String get cancel => 'Abbrechen';
 
   @override
   String get deleteConfirm =>
-      'Diesen Eintrag löschen? Dies kann nicht rückgängig gemacht werden.';
+      'Diesen Eintrag in den Papierkorb verschieben? Sie können ihn wiederherstellen, bis der Papierkorb geleert wird.';
 
   @override
   String get titleRequired => 'Titel ist erforderlich.';
@@ -409,7 +474,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String deleteSelectedConfirm(int count) {
-    return '$count ausgewählte Einträge löschen? Dies kann nicht rückgängig gemacht werden.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ausgewählte Einträge',
+      one: '1 ausgewählten Eintrag',
+    );
+    return '$_temp0 in den Papierkorb verschieben?';
   }
 
   @override

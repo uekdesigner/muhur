@@ -41,6 +41,7 @@ class VaultEntry {
     this.domain,
     this.tags,
     this.isFavorite = false,
+    this.deletedAt,
   });
 
   final int? id;
@@ -49,6 +50,7 @@ class VaultEntry {
   final String? domain;
   final String? tags;
   final bool isFavorite;
+  final DateTime? deletedAt;
 
   factory VaultEntry.fromRow(Map<String, Object?> r) => VaultEntry(
     id: r['id'] as int,
@@ -57,6 +59,7 @@ class VaultEntry {
     domain: r['domain'] as String?,
     tags: r['tags'] as String?,
     isFavorite: (r['is_favorite'] as int) == 1,
+    deletedAt: DateTime.tryParse((r['deleted_at'] as String?) ?? ''),
   );
 }
 

@@ -10,6 +10,13 @@
   "setupInfo": "Dieses Passwort kann nicht wiederhergestellt werden. Wenn Sie es vergessen, können Ihre Daten nie wieder geöffnet werden.",
   "masterPassword": "Master-Passwort",
   "confirmPassword": "Passwort bestätigen",
+  "changeMasterPassword": "Master-Passwort ändern",
+  "currentPassword": "Aktuelles Passwort",
+  "newPassword": "Neues Passwort",
+  "newPasswordSame": "Das neue Passwort muss sich vom aktuellen unterscheiden.",
+  "change": "Ändern",
+  "masterPasswordChanged": "Master-Passwort geändert.",
+  "changePasswordFailed": "Passwort konnte nicht geändert werden. Bitte versuchen Sie es erneut.",
   "passwordTooShort": "Verwenden Sie mindestens 8 Zeichen.",
   "passwordNeedsMix": "Verwenden Sie Kleinbuchstaben, Großbuchstaben, eine Ziffer und ein Sonderzeichen.",
   "reqLength": "Mindestens 8 Zeichen",
@@ -57,8 +64,42 @@
   "sensitive": "Wert ausblenden",
   "save": "Speichern",
   "delete": "Löschen",
+  "moveToTrash": "In den Papierkorb verschieben",
+  "trash": "Papierkorb",
+  "trashKeepFor": "Im Papierkorb behalten für",
+  "trashHint": "Gelöschte Einträge bleiben weiterhin verschlüsselt im Papierkorb und können wiederhergestellt werden. Sie werden nach dieser Anzahl von Tagen beim nächsten Entsperren des Tresors endgültig gelöscht. Eine Verkürzung des Zeitraums entfernt auch ältere Einträge aus dem Papierkorb. Das Leeren des Papierkorbs kann nicht rückgängig gemacht werden.",
+  "daysCount": "{count, plural, =1{1 Tag} other{{count} Tage}}",
+  "@daysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "openTrash": "Papierkorb öffnen",
+  "trashEmpty": "Der Papierkorb ist leer.",
+  "restore": "Wiederherstellen",
+  "deleteForever": "Endgültig löschen",
+  "deleteForeverConfirm": "Diesen Eintrag endgültig löschen? Dies kann nicht rückgängig gemacht werden.",
+  "trashDaysLeft": "{count, plural, =1{Noch 1 Tag} other{Noch {count} Tage}}",
+  "@trashDaysLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyTrashNow": "Papierkorb jetzt leeren",
+  "emptyTrashConfirm": "{count, plural, =1{1 Eintrag} other{{count} Einträge}} endgültig aus dem Papierkorb löschen? Dies kann nicht rückgängig gemacht werden.",
+  "@emptyTrashConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "cancel": "Abbrechen",
-  "deleteConfirm": "Diesen Eintrag löschen? Dies kann nicht rückgängig gemacht werden.",
+  "deleteConfirm": "Diesen Eintrag in den Papierkorb verschieben? Sie können ihn wiederherstellen, bis der Papierkorb geleert wird.",
   "titleRequired": "Titel ist erforderlich.",
   "fieldUsername": "Benutzername",
   "fieldPassword": "Passwort",
@@ -139,7 +180,7 @@
   "statusBackup": "Automatische Sicherung",
   "helpTitle": "Hilfe",
   "helpBody": "Hilfeinhalte werden hier hinzugefügt.",
-  "deleteSelectedConfirm": "{count} ausgewählte Einträge löschen? Dies kann nicht rückgängig gemacht werden.",
+  "deleteSelectedConfirm": "{count, plural, =1{1 ausgewählten Eintrag} other{{count} ausgewählte Einträge}} in den Papierkorb verschieben?",
   "@deleteSelectedConfirm": {
     "placeholders": {
       "count": {

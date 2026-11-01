@@ -10,6 +10,13 @@
   "setupInfo": "Bu şifre geri kurtarılamaz. Unutursanız verilerinize bir daha asla erişemezsiniz.",
   "masterPassword": "Ana şifre",
   "confirmPassword": "Şifreyi doğrula",
+  "changeMasterPassword": "Ana şifreyi değiştir",
+  "currentPassword": "Mevcut şifre",
+  "newPassword": "Yeni şifre",
+  "newPasswordSame": "Yeni şifre mevcut şifreden farklı olmalıdır.",
+  "change": "Değiştir",
+  "masterPasswordChanged": "Ana şifre değiştirildi.",
+  "changePasswordFailed": "Şifre değiştirilemedi. Lütfen tekrar deneyin.",
   "passwordTooShort": "En az 8 karakter kullanın.",
   "passwordNeedsMix": "Küçük harf, büyük harf, rakam ve özel karakter kullanın.",
   "reqLength": "En az 8 karakter",
@@ -57,8 +64,42 @@
   "sensitive": "Değeri gizle",
   "save": "Kaydet",
   "delete": "Sil",
+  "moveToTrash": "Çöp kutusuna taşı",
+  "trash": "Çöp Kutusu",
+  "trashKeepFor": "Çöp kutusunda tutma süresi",
+  "trashHint": "Silinen ögeler çöp kutusunda hâlâ şifreli olarak kalır ve geri yüklenebilir. Belirtilen gün sayısı dolduğunda, kasanın bir sonraki açılışında kalıcı olarak silinirler. Süreyi kısaltmak eski ögeleri de çöp kutusundan kaldırır. Çöp kutusunu boşaltma işlemi geri alınamaz.",
+  "daysCount": "{count, plural, =1{1 gün} other{{count} gün}}",
+  "@daysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "openTrash": "Çöp kutusunu aç",
+  "trashEmpty": "Çöp kutusu boş.",
+  "restore": "Geri yükle",
+  "deleteForever": "Kalıcı olarak sil",
+  "deleteForeverConfirm": "Bu öge kalıcı olarak silinsin mi? Bu işlem geri alınamaz.",
+  "trashDaysLeft": "{count, plural, =1{1 gün kaldı} other{{count} gün kaldı}}",
+  "@trashDaysLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyTrashNow": "Çöp kutusunu şimdi boşalt",
+  "emptyTrashConfirm": "Çöp kutusundaki {count, plural, =1{1 öge} other{{count} öge}} kalıcı olarak silinsin mi? Bu işlem geri alınamaz.",
+  "@emptyTrashConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "cancel": "İptal",
-  "deleteConfirm": "Bu öge silinsin mi? Bu işlem geri alınamaz.",
+  "deleteConfirm": "Bu öge çöp kutusuna taşınsın mı? Çöp kutusu boşaltılana kadar geri yükleyebilirsiniz.",
   "titleRequired": "Başlık zorunludur.",
   "fieldUsername": "Kullanıcı adı",
   "fieldPassword": "Şifre",
@@ -139,7 +180,7 @@
   "statusBackup": "Otomatik yedekleme",
   "helpTitle": "Yardım",
   "helpBody": "Yardım içeriği buraya eklenecektir.",
-  "deleteSelectedConfirm": "Seçilen {count} öge silinsin mi? Bu işlem geri alınamaz.",
+  "deleteSelectedConfirm": "Seçilen {count} öge çöp kutusuna taşınsın mı?",
   "@deleteSelectedConfirm": {
     "placeholders": {
       "count": {

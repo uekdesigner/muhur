@@ -190,10 +190,76 @@ class AppLocalizationsEn extends AppLocalizations {
   String get delete => 'Delete';
 
   @override
+  String get moveToTrash => 'Move to trash';
+
+  @override
+  String get trash => 'Trash';
+
+  @override
+  String get trashKeepFor => 'Keep in trash for';
+
+  @override
+  String get trashHint =>
+      'Deleted entries stay in the trash, still encrypted, and can be restored. They are permanently deleted after this many days, the next time the vault is unlocked. Shortening the period also removes older items from the trash. Emptying the trash cannot be undone.';
+
+  @override
+  String daysCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days',
+      one: '1 day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get openTrash => 'Open trash';
+
+  @override
+  String get trashEmpty => 'The trash is empty.';
+
+  @override
+  String get restore => 'Restore';
+
+  @override
+  String get deleteForever => 'Delete permanently';
+
+  @override
+  String get deleteForeverConfirm =>
+      'Permanently delete this entry? This cannot be undone.';
+
+  @override
+  String trashDaysLeft(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days left',
+      one: '1 day left',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get emptyTrashNow => 'Empty trash now';
+
+  @override
+  String emptyTrashConfirm(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entries',
+      one: '1 entry',
+    );
+    return 'Permanently delete $_temp0 from the trash? This cannot be undone.';
+  }
+
+  @override
   String get cancel => 'Cancel';
 
   @override
-  String get deleteConfirm => 'Delete this entry? This cannot be undone.';
+  String get deleteConfirm =>
+      'Move this entry to the trash? You can restore it until the trash is emptied.';
 
   @override
   String get titleRequired => 'Title is required.';
@@ -408,7 +474,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String deleteSelectedConfirm(int count) {
-    return 'Delete $count selected entries? This cannot be undone.';
+    return 'Move $count selected entries to the trash?';
   }
 
   @override

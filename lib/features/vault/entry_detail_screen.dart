@@ -57,13 +57,13 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
           ),
           FilledButton(
             onPressed: () => Navigator.pop(c, true),
-            child: Text(t.delete),
+            child: Text(t.moveToTrash),
           ),
         ],
       ),
     );
     if (yes != true) return;
-    await widget.repo.delete(widget.entry.id!);
+    await widget.repo.moveToTrash(widget.entry.id!);
     if (mounted) Navigator.pop(context, true);
   }
 

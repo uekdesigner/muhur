@@ -16,6 +16,8 @@ class AppSettings {
   static const int maxCopySeconds = 60;
   static const int minScreenshotSeconds = 5;
   static const int maxScreenshotSeconds = 60;
+  static const int minTrashDays = 1;
+  static const int maxTrashDays = 30;
 
   /// Arka planda kaç saniye sonra kilitlensin (0 = hemen).
   int autoLockSeconds = 0;
@@ -27,6 +29,10 @@ class AppSettings {
   /// Ekran görüntüsüne izin verildiğinde koruma kaç saniye sonra geri açılsın.
   int screenshotSeconds = 15;
   static const _kShotSecs = 'muhur_screenshot_secs';
+
+  /// Silinen kayıtlar çöp kutusunda kaç gün saklansın.
+  int trashDays = 30;
+  static const _kTrashDays = 'muhur_trash_days';
 
   /// null = sistem dili
   final ValueNotifier<Locale?> locale = ValueNotifier<Locale?>(null);
@@ -47,6 +53,10 @@ class AppSettings {
         (int.tryParse(await _storage.read(key: _kShotSecs) ?? '') ?? 15)
             .clamp(minScreenshotSeconds, maxScreenshotSeconds)
             .toInt();
+    trashDays =
+        (int.tryParse(await _storage.read(key: _kTrashDays) ?? '') ?? 30)
+            .clamp(minTrashDays, maxTrashDays)
+            .toInt();
     final code = await _storage.read(key: _kLocale);
     locale.value = code == null ? null : Locale(code);
     autoBackup.value = (await _storage.read(key: _kAutoBackup)) == '1';
@@ -63,9 +73,15 @@ class AppSettings {
   }
 
   Future<void> setScreenshotSeconds(int seconds) async {
-    screenshotSeconds =
-        seconds.clamp(minScreenshotSeconds, maxScreenshotSeconds).toInt();
+    screenshotSeconds = seconds
+        .clamp(minScreenshotSeconds, maxScreenshotSeconds)
+        .toInt();
     await _storage.write(key: _kShotSecs, value: '$screenshotSeconds');
+  }
+
+  Future<void> setTrashDays(int days) async {
+    trashDays = days.clamp(minTrashDays, maxTrashDays).toInt();
+    await _storage.write(key: _kTrashDays, value: '$trashDays');
   }
 
   Future<void> setLocale(Locale? l) async {

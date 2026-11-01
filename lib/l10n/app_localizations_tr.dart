@@ -44,27 +44,26 @@ class AppLocalizationsTr extends AppLocalizations {
   String get confirmPassword => 'Şifreyi doğrula';
 
   @override
-  String get changeMasterPassword => 'Change master password';
+  String get changeMasterPassword => 'Ana şifreyi değiştir';
 
   @override
-  String get currentPassword => 'Current password';
+  String get currentPassword => 'Mevcut şifre';
 
   @override
-  String get newPassword => 'New password';
+  String get newPassword => 'Yeni şifre';
 
   @override
-  String get newPasswordSame =>
-      'The new password must be different from the current one.';
+  String get newPasswordSame => 'Yeni şifre mevcut şifreden farklı olmalıdır.';
 
   @override
-  String get change => 'Change';
+  String get change => 'Değiştir';
 
   @override
-  String get masterPasswordChanged => 'Master password changed.';
+  String get masterPasswordChanged => 'Ana şifre değiştirildi.';
 
   @override
   String get changePasswordFailed =>
-      'Could not change the password. Please try again.';
+      'Şifre değiştirilemedi. Lütfen tekrar deneyin.';
 
   @override
   String get passwordTooShort => 'En az 8 karakter kullanın.';
@@ -190,10 +189,76 @@ class AppLocalizationsTr extends AppLocalizations {
   String get delete => 'Sil';
 
   @override
+  String get moveToTrash => 'Çöp kutusuna taşı';
+
+  @override
+  String get trash => 'Çöp Kutusu';
+
+  @override
+  String get trashKeepFor => 'Çöp kutusunda tutma süresi';
+
+  @override
+  String get trashHint =>
+      'Silinen ögeler çöp kutusunda hâlâ şifreli olarak kalır ve geri yüklenebilir. Belirtilen gün sayısı dolduğunda, kasanın bir sonraki açılışında kalıcı olarak silinirler. Süreyi kısaltmak eski ögeleri de çöp kutusundan kaldırır. Çöp kutusunu boşaltma işlemi geri alınamaz.';
+
+  @override
+  String daysCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count gün',
+      one: '1 gün',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get openTrash => 'Çöp kutusunu aç';
+
+  @override
+  String get trashEmpty => 'Çöp kutusu boş.';
+
+  @override
+  String get restore => 'Geri yükle';
+
+  @override
+  String get deleteForever => 'Kalıcı olarak sil';
+
+  @override
+  String get deleteForeverConfirm =>
+      'Bu öge kalıcı olarak silinsin mi? Bu işlem geri alınamaz.';
+
+  @override
+  String trashDaysLeft(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count gün kaldı',
+      one: '1 gün kaldı',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get emptyTrashNow => 'Çöp kutusunu şimdi boşalt';
+
+  @override
+  String emptyTrashConfirm(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count öge',
+      one: '1 öge',
+    );
+    return 'Çöp kutusundaki $_temp0 kalıcı olarak silinsin mi? Bu işlem geri alınamaz.';
+  }
+
+  @override
   String get cancel => 'İptal';
 
   @override
-  String get deleteConfirm => 'Bu öge silinsin mi? Bu işlem geri alınamaz.';
+  String get deleteConfirm =>
+      'Bu öge çöp kutusuna taşınsın mı? Çöp kutusu boşaltılana kadar geri yükleyebilirsiniz.';
 
   @override
   String get titleRequired => 'Başlık zorunludur.';
@@ -408,7 +473,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String deleteSelectedConfirm(int count) {
-    return 'Seçilen $count öge silinsin mi? Bu işlem geri alınamaz.';
+    return 'Seçilen $count öge çöp kutusuna taşınsın mı?';
   }
 
   @override

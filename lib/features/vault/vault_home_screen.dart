@@ -14,6 +14,7 @@ import 'stats_panel.dart';
 import 'vault_header.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
+import '../../core/storage/app_settings.dart';
 
 class VaultHomeScreen extends StatefulWidget {
   const VaultHomeScreen({super.key, required this.auth, required this.onLock});
@@ -47,7 +48,17 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     _loadStats();
   }
 
+  /// Süresi dolan çöp kayıtlarını kasa açılırken kalıcı siler.
+  Future<void> _purgeTrash() async {
+    try {
+      await _repo.purgeExpired(AppSettings.instance.trashDays);
+    } catch (_) {
+      // temizlik başarısız olursa bir sonraki açılışta tekrar denenir
+    }
+  }
+
   Future<void> _loadStats() async {
+    _purgeTrash();
     try {
       final s = await _repo.stats();
       if (mounted) setState(() => _stats = s);
@@ -77,11 +88,14 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     }
   }
 
-  void _openSettings() {
-    Navigator.push(
+  Future<void> _openSettings() async {
+    await Navigator.push(
       context,
-      MaterialPageRoute(builder: (_) => SettingsScreen(auth: widget.auth)),
+      MaterialPageRoute(
+        builder: (_) => SettingsScreen(auth: widget.auth, repo: _repo),
+      ),
     );
+    if (mounted) _refreshAll();
   }
 
   Future<void> _add() async {
@@ -131,14 +145,14 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
           ),
           FilledButton(
             onPressed: () => Navigator.pop(c, true),
-            child: Text(t.delete),
+            child: Text(t.moveToTrash),
           ),
         ],
       ),
     );
     if (yes != true) return;
     for (final id in _selected.toList()) {
-      await _repo.delete(id);
+      await _repo.moveToTrash(id);
     }
     if (mounted) _refreshAll();
   }

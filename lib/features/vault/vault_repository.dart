@@ -146,9 +146,66 @@ class VaultRepository {
     });
   }
 
-  /// Kaydı ve (ON DELETE CASCADE ile) alanlarını siler.
-  Future<void> delete(int id) async {
-    await _db.delete('vault_entries', where: 'id = ?', whereArgs: [id]);
+  /// Kaydı çöp kutusuna taşır (kalıcı silmez).
+  Future<void> moveToTrash(int id) async {
+    await _db.update(
+      'vault_entries',
+      {'deleted_at': DateTime.now().toUtc().toIso8601String()},
+      where: 'id = ? AND deleted_at IS NULL',
+      whereArgs: [id],
+    );
+  }
+
+  Future<int> trashCount() async {
+    final r = await _db.rawQuery(
+      'SELECT COUNT(*) AS c FROM vault_entries WHERE deleted_at IS NOT NULL',
+    );
+    return (r.first['c'] as int?) ?? 0;
+  }
+
+  Future<List<VaultEntry>> trashed() async {
+    final rows = await _db.query(
+      'vault_entries',
+      where: 'deleted_at IS NOT NULL',
+      orderBy: 'deleted_at DESC',
+    );
+    return rows.map(VaultEntry.fromRow).toList();
+  }
+
+  Future<void> restore(int id) async {
+    await _db.update(
+      'vault_entries',
+      {'deleted_at': null},
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<void> deleteForever(int id) async {
+    await _purge('id = ? AND deleted_at IS NOT NULL', [id]);
+  }
+
+  /// Çöp kutusundaki her şeyi kalıcı siler.
+  Future<int> emptyTrash() => _purge('deleted_at IS NOT NULL', const []);
+
+  /// [days] günden eski çöp kayıtlarını kalıcı siler.
+  Future<int> purgeExpired(int days) {
+    final cutoff = DateTime.now()
+        .toUtc()
+        .subtract(Duration(days: days))
+        .toIso8601String();
+    return _purge('deleted_at IS NOT NULL AND deleted_at < ?', [cutoff]);
+  }
+
+  Future<int> _purge(String where, List<Object?> args) {
+    return _db.transaction((txn) async {
+      await txn.delete(
+        'entry_fields',
+        where: 'entry_id IN (SELECT id FROM vault_entries WHERE $where)',
+        whereArgs: args,
+      );
+      return txn.delete('vault_entries', where: where, whereArgs: args);
+    });
   }
 
   /// Parola sağlığı istatistikleri (yalnızca bellekte hesaplanır, kaydedilmez).
