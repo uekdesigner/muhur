@@ -137,15 +137,18 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     final yes = await showDialog<bool>(
       context: context,
       builder: (c) => AlertDialog(
+        actionsAlignment: MainAxisAlignment.spaceEvenly,
         content: Text(t.deleteSelectedConfirm(count)),
         actions: [
-          TextButton(
+          IconButton(
+            tooltip: t.cancel,
+            icon: const Icon(Icons.close),
             onPressed: () => Navigator.pop(c, false),
-            child: Text(t.cancel),
           ),
-          FilledButton(
+          IconButton.filled(
+            tooltip: t.moveToTrash,
+            icon: const Icon(Icons.delete_outline),
             onPressed: () => Navigator.pop(c, true),
-            child: Text(t.moveToTrash),
           ),
         ],
       ),

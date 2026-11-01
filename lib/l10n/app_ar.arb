@@ -10,6 +10,13 @@
   "setupInfo": "لا يمكن استرداد كلمة المرور هذه. إذا نسيتها، فلن يمكن فتح بياناتك أبداً.",
   "masterPassword": "كلمة المرور الرئيسية",
   "confirmPassword": "تأكيد كلمة المرور",
+  "changeMasterPassword": "تغيير كلمة المرور الرئيسية",
+  "currentPassword": "كلمة المرور الحالية",
+  "newPassword": "كلمة المرور الجديدة",
+  "newPasswordSame": "يجب أن تكون كلمة المرور الجديدة مختلفة عن الحالية.",
+  "change": "تغيير",
+  "masterPasswordChanged": "تم تغيير كلمة المرور الرئيسية.",
+  "changePasswordFailed": "تعذر تغيير كلمة المرور. يرجى المحاولة مرة أخرى.",
   "passwordTooShort": "استخدم 8 أحرف على الأقل.",
   "passwordNeedsMix": "استخدم أحرفاً صغيرة وكبيرة، رقماً، ورمزاً خاصاً.",
   "reqLength": "8 أحرف على الأقل",
@@ -57,8 +64,42 @@
   "sensitive": "إخفاء القيمة",
   "save": "حفظ",
   "delete": "حذف",
+  "moveToTrash": "نقل إلى سلة المهملات",
+  "trash": "سلة المهملات",
+  "trashKeepFor": "الاحتفاظ في سلة المهملات لمدة",
+  "trashHint": "تظل الإدخالات المحذوفة في سلة المهملات مشفرة ويمكن استعادتها. يتم حذفها نهائياً بعد مرور هذا عدد الأيام، في المرة التالية التي يتم فيها فتح الخزنة. كما أن تقليل المدة يؤدي إلى إزالة العناصر الأقدم من سلة المهملات. لا يمكن التراجع عن إفرغ سلة المهملات.",
+  "daysCount": "{count, plural, =0{أقل من يوم} =1{يوم واحد} =2{يومان} few{{count} أيام} many{{count} يوماً} other{{count} يوم}}",
+  "@daysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "openTrash": "فتح سلة المهملات",
+  "trashEmpty": "سلة المهملات فارغة.",
+  "restore": "استعادة",
+  "deleteForever": "حذف نهائي",
+  "deleteForeverConfirm": "هل تريد حذف هذا الإدخال نهائياً؟ لا يمكن التراجع عن هذا الإجراء.",
+  "trashDaysLeft": "{count, plural, =0{بقي أقل من يوم} =1{متبقي يوم واحد} =2{متبقي يومان} few{متبقي {count} أيام} many{متبقي {count} يوماً} other{متبقي {count} يوم}}",
+  "@trashDaysLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "emptyTrashNow": "إفراغ سلة المهملات الآن",
+  "emptyTrashConfirm": "هل تريد حذف {count, plural, =0{أقل من عنصر} =1{عنصر واحد} =2{عنصرين} few{{count} عناصر} many{{count} عنصراً} other{{count} عنصر}} نهائياً من سلة المهملات؟ لا يمكن التراجع عن هذا الإجراء.",
+  "@emptyTrashConfirm": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "cancel": "إلغاء",
-  "deleteConfirm": "هل تريد حذف هذا الإدخال؟ لا يمكن التراجع عن هذا الإجراء.",
+  "deleteConfirm": "هل تريد نقل هذا الإدخال إلى سلة المهملات؟ يمكنك استعادته حتى يتم إفراغ سلة المهملات.",
   "titleRequired": "العنوان مطلوب.",
   "fieldUsername": "اسم المستخدم",
   "fieldPassword": "كلمة المرور",
@@ -139,7 +180,7 @@
   "statusBackup": "النسخ الاحتياطي التلقائي",
   "helpTitle": "المساعدة",
   "helpBody": "سيتم إتمام محتوى المساعدة هنا.",
-  "deleteSelectedConfirm": "هل تريد حذف {count} من الإدخالات المحددة؟ لا يمكن التراجع عن هذا الإجراء.",
+  "deleteSelectedConfirm": "هل تريد نقل {count, plural, =0{أقل من عنصر} =1{عنصر واحد} =2{عنصرين} few{{count} عناصر} many{{count} عنصراً} other{{count} عنصر}} المحدد إلى سلة المهملات؟",
   "@deleteSelectedConfirm": {
     "placeholders": {
       "count": {
@@ -210,18 +251,5 @@
   "customTypeNote": "ملاحظة",
   "customTypePassword": "كلمة مرور مخفية",
   "customTypeDate": "تاريخ",
-  "customTypePhone": "هاتف",
-  "openTrash": "فتح سلة المهملات",
-  "trashEmpty": "سلة المهملات فارغة.",
-  "restore": "استعادة",
-  "deleteForever": "حذف نهائي",
-  "deleteForeverConfirm": "هل تريد حذف هذا الإدخال نهائياً؟ لا يمكن التراجع عن هذا الإجراء.",
-  "trashDaysLeft": "{count, plural, =0{بقي أقل من يوم} =1{متبقي يوم واحد} =2{متبقي يومان} few{متبقي {count} أيام} many{متبقي {count} يوماً} other{متبقي {count} يوم}}",
-  "@trashDaysLeft": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  }
+  "customTypePhone": "هاتف"
 }

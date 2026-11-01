@@ -57,13 +57,15 @@ class _TrashScreenState extends State<TrashScreen> {
       builder: (c) => AlertDialog(
         content: Text(t.deleteForeverConfirm),
         actions: [
-          TextButton(
+          IconButton(
+            tooltip: t.cancel,
+            icon: const Icon(Icons.close),
             onPressed: () => Navigator.pop(c, false),
-            child: Text(t.cancel),
           ),
-          FilledButton(
+          IconButton.filled(
+            tooltip: t.delete,
+            icon: const Icon(Icons.delete_forever_outlined),
             onPressed: () => Navigator.pop(c, true),
-            child: Text(t.delete),
           ),
         ],
       ),

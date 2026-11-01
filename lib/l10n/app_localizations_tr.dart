@@ -463,7 +463,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get screenshotTimer => 'Ekran görüntüsü süresi';
 
   @override
-  String get statusBackup => 'Otomatik yedekleme';
+  String get statusBackup => 'Oto. Yedek.';
 
   @override
   String get helpTitle => 'Yardım';

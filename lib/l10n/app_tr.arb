@@ -177,7 +177,7 @@
   "screenshotAllow": "Ekran görüntülerine izin ver",
   "screenshotAllowHint": "Ekran koruması aşağıda ayarlanan süre boyunca kapatılır, ardından otomatik olarak tekrar açılır.",
   "screenshotTimer": "Ekran görüntüsü süresi",
-  "statusBackup": "Otomatik yedekleme",
+  "statusBackup": "Oto. Yedek.",
   "helpTitle": "Yardım",
   "helpBody": "Yardım içeriği buraya eklenecektir.",
   "deleteSelectedConfirm": "Seçilen {count} öge çöp kutusuna taşınsın mı?",

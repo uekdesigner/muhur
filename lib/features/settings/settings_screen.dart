@@ -7,6 +7,7 @@ import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
 import '../../core/utils/clipboard_service.dart';
 import '../../core/utils/screen_capture_service.dart';
+import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
 import 'change_password_dialog.dart';
@@ -35,6 +36,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void initState() {
     super.initState();
     _load();
+    _loadTrash();
   }
 
   Future<void> _load() async {
@@ -516,21 +518,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-    return Scaffold(
-      appBar: AppBar(title: Text(t.settings)),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12, 12, 12, 8),
-            child: _buildTabs(t),
-          ),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.only(bottom: 24),
-              children: _sectionItems(t),
+    return MuhurBackground(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: Text(t.settings),
+          backgroundColor: Colors.transparent,
+        ),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 12, 12, 8),
+              child: _buildTabs(t),
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.only(bottom: 24),
+                children: _sectionItems(t),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

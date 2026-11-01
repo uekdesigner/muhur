@@ -44,27 +44,27 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmPassword => 'تأكيد كلمة المرور';
 
   @override
-  String get changeMasterPassword => 'Change master password';
+  String get changeMasterPassword => 'تغيير كلمة المرور الرئيسية';
 
   @override
-  String get currentPassword => 'Current password';
+  String get currentPassword => 'كلمة المرور الحالية';
 
   @override
-  String get newPassword => 'New password';
+  String get newPassword => 'كلمة المرور الجديدة';
 
   @override
   String get newPasswordSame =>
-      'The new password must be different from the current one.';
+      'يجب أن تكون كلمة المرور الجديدة مختلفة عن الحالية.';
 
   @override
-  String get change => 'Change';
+  String get change => 'تغيير';
 
   @override
-  String get masterPasswordChanged => 'Master password changed.';
+  String get masterPasswordChanged => 'تم تغيير كلمة المرور الرئيسية.';
 
   @override
   String get changePasswordFailed =>
-      'Could not change the password. Please try again.';
+      'تعذر تغيير كلمة المرور. يرجى المحاولة مرة أخرى.';
 
   @override
   String get passwordTooShort => 'استخدم 8 أحرف على الأقل.';
@@ -190,25 +190,29 @@ class AppLocalizationsAr extends AppLocalizations {
   String get delete => 'حذف';
 
   @override
-  String get moveToTrash => 'Move to trash';
+  String get moveToTrash => 'نقل إلى سلة المهملات';
 
   @override
-  String get trash => 'Trash';
+  String get trash => 'سلة المهملات';
 
   @override
-  String get trashKeepFor => 'Keep in trash for';
+  String get trashKeepFor => 'الاحتفاظ في سلة المهملات لمدة';
 
   @override
   String get trashHint =>
-      'Deleted entries stay in the trash, still encrypted, and can be restored. They are permanently deleted after this many days, the next time the vault is unlocked. Shortening the period also removes older items from the trash. Emptying the trash cannot be undone.';
+      'تظل الإدخالات المحذوفة في سلة المهملات مشفرة ويمكن استعادتها. يتم حذفها نهائياً بعد مرور هذا عدد الأيام، في المرة التالية التي يتم فيها فتح الخزنة. كما أن تقليل المدة يؤدي إلى إزالة العناصر الأقدم من سلة المهملات. لا يمكن التراجع عن إفرغ سلة المهملات.';
 
   @override
   String daysCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count days',
-      one: '1 day',
+      other: '$count يوم',
+      many: '$count يوماً',
+      few: '$count أيام',
+      two: 'يومان',
+      one: 'يوم واحد',
+      zero: 'أقل من يوم',
     );
     return '$_temp0';
   }
@@ -245,17 +249,21 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get emptyTrashNow => 'Empty trash now';
+  String get emptyTrashNow => 'إفراغ سلة المهملات الآن';
 
   @override
   String emptyTrashConfirm(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count entries',
-      one: '1 entry',
+      other: '$count عنصر',
+      many: '$count عنصراً',
+      few: '$count عناصر',
+      two: 'عنصرين',
+      one: 'عنصر واحد',
+      zero: 'أقل من عنصر',
     );
-    return 'Permanently delete $_temp0 from the trash? This cannot be undone.';
+    return 'هل تريد حذف $_temp0 نهائياً من سلة المهملات؟ لا يمكن التراجع عن هذا الإجراء.';
   }
 
   @override
@@ -263,7 +271,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteConfirm =>
-      'هل تريد حذف هذا الإدخال؟ لا يمكن التراجع عن هذا الإجراء.';
+      'هل تريد نقل هذا الإدخال إلى سلة المهملات؟ يمكنك استعادته حتى يتم إفراغ سلة المهملات.';
 
   @override
   String get titleRequired => 'العنوان مطلوب.';
@@ -477,7 +485,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String deleteSelectedConfirm(int count) {
-    return 'هل تريد حذف $count من الإدخالات المحددة؟ لا يمكن التراجع عن هذا الإجراء.';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count عنصر',
+      many: '$count عنصراً',
+      few: '$count عناصر',
+      two: 'عنصرين',
+      one: 'عنصر واحد',
+      zero: 'أقل من عنصر',
+    );
+    return 'هل تريد نقل $_temp0 المحدد إلى سلة المهملات؟';
   }
 
   @override
