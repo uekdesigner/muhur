@@ -28,6 +28,8 @@ class AuthService {
   static const _kBioDek = 'muhur_bio_dek';
   static const _kFails = 'muhur_fail_count';
   static const _kLockUntil = 'muhur_lock_until';
+  static const _kPendingSalt = 'muhur_salt_pending';
+  static const _kPendingWrapped = 'muhur_wrapped_pending';
 
   SecretKey? _dek;
   bool _dialogOpen = false;
@@ -58,18 +60,81 @@ class AuthService {
     final remaining = await lockoutRemaining();
     if (remaining > Duration.zero) throw LockedOutException(remaining);
 
-    final salt = base64Decode((await _storage.read(key: _kSalt))!);
-    final wrapped = base64Decode((await _storage.read(key: _kWrapped))!);
-
     SecretKey key;
     try {
-      key = await _crypto.unlock(password, salt, wrapped);
+      key = await _unwrap(password);
     } catch (_) {
       await _registerFailure();
       throw WrongPasswordException();
     }
     await _clearFailures();
     await _openWith(key);
+  }
+
+  /// Parolayla DEK'i açar. Parola değişimi yarıda kaldıysa geçici çifti de dener.
+  Future<SecretKey> _unwrap(String password) async {
+    final salt = await _storage.read(key: _kSalt);
+    final wrapped = await _storage.read(key: _kWrapped);
+    if (salt != null && wrapped != null) {
+      try {
+        final key = await _crypto.unlock(
+          password,
+          base64Decode(salt),
+          base64Decode(wrapped),
+        );
+        await _dropPending();
+        return key;
+      } catch (_) {
+        // Asıl çift açılmadı; geçici çift varsa onu dene.
+      }
+    }
+    final pSalt = await _storage.read(key: _kPendingSalt);
+    final pWrapped = await _storage.read(key: _kPendingWrapped);
+    if (pSalt == null || pWrapped == null) throw WrongPasswordException();
+    final key = await _crypto.unlock(
+      password,
+      base64Decode(pSalt),
+      base64Decode(pWrapped),
+    );
+    await _storage.write(key: _kSalt, value: pSalt);
+    await _storage.write(key: _kWrapped, value: pWrapped);
+    await _dropPending();
+    return key;
+  }
+
+  Future<void> _dropPending() async {
+    if (!await _storage.containsKey(key: _kPendingSalt)) return;
+    await _storage.delete(key: _kPendingSalt);
+    await _storage.delete(key: _kPendingWrapped);
+  }
+
+  /// Ana parolayı değiştirir. DEK aynı kalır, yalnızca yeni parolayla yeniden sarılır.
+  Future<void> changePassword(String oldPassword, String newPassword) async {
+    final remaining = await lockoutRemaining();
+    if (remaining > Duration.zero) throw LockedOutException(remaining);
+    if (!isUnlocked) throw StateError('Kasa kilitli.');
+
+    SecretKey key;
+    try {
+      key = await _unwrap(oldPassword);
+    } catch (_) {
+      await _registerFailure();
+      throw WrongPasswordException();
+    }
+    await _clearFailures();
+
+    final m = await _crypto.rewrap(key, newPassword);
+    // Yazmadan önce yeni çiftin gerçekten açıldığını doğrula.
+    await _crypto.unlock(newPassword, m.salt, m.wrappedDek);
+
+    final salt = base64Encode(m.salt);
+    final wrapped = base64Encode(m.wrappedDek);
+    // Önce geçici çift, sonra asıl çift: yarıda kalırsa _unwrap geçiciyi kullanır.
+    await _storage.write(key: _kPendingSalt, value: salt);
+    await _storage.write(key: _kPendingWrapped, value: wrapped);
+    await _storage.write(key: _kSalt, value: salt);
+    await _storage.write(key: _kWrapped, value: wrapped);
+    await _dropPending();
   }
 
   Future<void> lock() async {

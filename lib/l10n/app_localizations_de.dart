@@ -10,7 +10,7 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
-  String get appName => 'Mühür';
+  String get appName => 'Muhur';
 
   @override
   String get catBanks => 'Banken';
@@ -25,7 +25,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get catSocial => 'Soziale Medien';
 
   @override
-  String get catBusiness => 'Geschäftlich';
+  String get catBusiness => 'Unternehmen';
 
   @override
   String get catOther => 'Andere';
@@ -42,6 +42,29 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get confirmPassword => 'Passwort bestätigen';
+
+  @override
+  String get changeMasterPassword => 'Change master password';
+
+  @override
+  String get currentPassword => 'Current password';
+
+  @override
+  String get newPassword => 'New password';
+
+  @override
+  String get newPasswordSame =>
+      'The new password must be different from the current one.';
+
+  @override
+  String get change => 'Change';
+
+  @override
+  String get masterPasswordChanged => 'Master password changed.';
+
+  @override
+  String get changePasswordFailed =>
+      'Could not change the password. Please try again.';
 
   @override
   String get passwordTooShort => 'Verwenden Sie mindestens 8 Zeichen.';
@@ -98,7 +121,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get notNow => 'Später';
 
   @override
-  String get biometricReason => 'Mühür entsperren';
+  String get biometricReason => 'Muhur entsperren';
 
   @override
   String get lockNow => 'Sperren';
@@ -128,7 +151,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get category => 'Kategorie';
 
   @override
-  String get domain => 'Domain (z.B. beispiel.de)';
+  String get domain => 'Domain (z. B. beispiel.de)';
 
   @override
   String get tags => 'Tag';
@@ -158,7 +181,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get typeNotes => 'Notizen';
 
   @override
-  String get sensitive => 'Wert verbergen';
+  String get sensitive => 'Wert ausblenden';
 
   @override
   String get save => 'Speichern';
@@ -203,7 +226,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settingsSecurity => 'Sicherheit';
 
   @override
-  String get settingsBackup => 'Backup';
+  String get settingsBackup => 'Sicherung';
 
   @override
   String get settingsGeneral => 'Allgemein';
@@ -224,15 +247,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get minute1 => '1 Minute';
 
   @override
-  String get copyTimer => 'Clipboard timer';
+  String get copyTimer => 'Zwischenablage-Timer';
 
   @override
   String get copyTimerHint =>
-      'Copied data is cleared from the clipboard after this time, and the vault stays unlocked until then.';
+      'Kopierte Daten werden nach dieser Zeit aus der Zwischenablage gelöscht und der Tresor bleibt bis dahin entsperrt.';
 
   @override
   String secondsShort(int seconds) {
-    return '$seconds sec';
+    return '$seconds Sek.';
   }
 
   @override
@@ -260,8 +283,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get symbols => 'Symbole (!@#...)';
 
   @override
-  String get avoidAmbiguous =>
-      'Verwechslungsanfällige Zeichen vermeiden (O/0, l/1)';
+  String get avoidAmbiguous => 'Verwechselbare Zeichen vermeiden (O/0, l/1)';
 
   @override
   String get regenerate => 'Neu generieren';
@@ -286,13 +308,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get scanHint =>
-      'Halten Sie die Kamera ruhig über den Text. Im IBAN-Modus wird er automatisch erkannt.';
+      'Halten Sie die Kamera ruhig über den Text. Im IBAN-Modus wird dieser automatisch erkannt.';
 
   @override
   String get scanRetake => 'Erneut aufnehmen';
 
   @override
-  String get scanning => 'Scannen...';
+  String get scanning => 'Wird gescannt...';
 
   @override
   String get ibanFound => 'IBAN gefunden';
@@ -303,20 +325,20 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get ibanCorrected =>
-      'Möglicherweise nach OCR-Fehler korrigiert. Sorgfältig prüfen.';
+      'Möglicherweise nach einem OCR-Fehler korrigiert. Sorgfältig prüfen.';
 
   @override
-  String get pickLine => 'Tippen Sie auf eine Zeile';
+  String get pickLine => 'Tippen Sie auf eine Zeile, um sie zu verwenden';
 
   @override
   String get noTextFound => 'Kein Text gefunden.';
 
   @override
   String get cameraError =>
-      'Kamera nicht verfügbar. Überprüfen Sie die Kameraberechtigung.';
+      'Kamera ist nicht verfügbar. Überprüfen Sie die Kameraerlaubnis.';
 
   @override
-  String get editBeforeUse => 'Bei Bedarf prüfen und bearbeiten';
+  String get editBeforeUse => 'Überprüfen und ggf. bearbeiten';
 
   @override
   String get useValue => 'Verwenden';
@@ -325,25 +347,25 @@ class AppLocalizationsDe extends AppLocalizations {
   String get brandName => 'MÜHÜR';
 
   @override
-  String get brandSubtitle => 'Passwort-Manager';
+  String get brandSubtitle => 'Passwortmanager';
 
   @override
   String get tagline =>
-      'Ihre digitalen Schlüssel liegen ganz in Ihren Händen.\n Keine Server. Nur Sie und Ihre Passwörter.\n MÜHÜR: Ihr digitaler Tresor, den nur Sie sehen können.';
+      'SIEGELN Sie Ihre digitalen Daten.\n Keine Server. Nur Sie und Ihre Daten.\n MÜHÜR: Ihr digitaler Tresor, den nur Sie sehen können.';
 
   @override
   String get login => 'ANMELDEN';
 
   @override
-  String get infoTitle => 'Über Mühür';
+  String get infoTitle => 'Über Muhur';
 
   @override
   String get infoBody =>
-      'Mühür speichert Ihre Passwörter ausschließlich verschlüsselt auf diesem Gerät. Es gibt kein Konto und keinen Server.\n\nIhr Master-Passwort kann nicht wiederhergestellt werden. Wenn Sie es vergessen, können Ihre Daten nicht geöffnet werden. Bewahren Sie daher ein verschlüsseltes Backup auf.';
+      'Muhur speichert Ihre Passwörter ausschließlich verschlüsselt auf diesem Gerät. Es gibt kein Konto und keinen Server.\n\nIhr Master-Passwort kann nicht wiederhergestellt werden. Wenn Sie es vergessen, können Ihre Daten nicht geöffnet werden. Bewahren Sie daher ein verschlüsseltes Backup auf.';
 
   @override
   String get understandNoRecovery =>
-      'Mir ist bewusst, dass ein vergessenes Master-Passwort nicht wiederhergestellt werden kann.';
+      'Ich verstehe, dass ein vergessenes Master-Passwort nicht wiederhergestellt werden kann.';
 
   @override
   String get close => 'Schließen';
@@ -367,17 +389,17 @@ class AppLocalizationsDe extends AppLocalizations {
   String get statusScreen => 'Bildschirmschutz';
 
   @override
-  String get screenshotAllow => 'Allow screenshots';
+  String get screenshotAllow => 'Screenshots erlauben';
 
   @override
   String get screenshotAllowHint =>
-      'Screen protection is switched off for the time set below, then turns back on automatically.';
+      'Der Bildschirmschutz wird für die unten eingestellte Zeit ausgeschaltet und schaltet sich danach automatisch wieder ein.';
 
   @override
-  String get screenshotTimer => 'Screenshot time';
+  String get screenshotTimer => 'Screenshot-Zeit';
 
   @override
-  String get statusBackup => 'Automatisches Backup';
+  String get statusBackup => 'Automatische Sicherung';
 
   @override
   String get helpTitle => 'Hilfe';
@@ -406,19 +428,19 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcCardNumber => 'Kartennummer';
 
   @override
-  String get fcExpiryDate => 'Gültigkeitsdatum';
+  String get fcExpiryDate => 'Ablaufdatum';
 
   @override
   String get fcCvv => 'CVV / CVC';
 
   @override
-  String get fcCustomerServiceNo => 'Kundenservice-Nummer';
+  String get fcCustomerServiceNo => 'Kundendienstnummer';
 
   @override
-  String get fcCustomerNoTc => 'Kundennummer / Sozialversicherungsnr.';
+  String get fcCustomerNoTc => 'Kundennummer / Steuernummer';
 
   @override
-  String get fcBranchNameCode => 'Filialname & Code';
+  String get fcBranchNameCode => 'Filialname & -code';
 
   @override
   String get fcAccountType => 'Kontotyp';
@@ -430,10 +452,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcSwiftBic => 'SWIFT / BIC-Code';
 
   @override
-  String get fcCardStatementDate => 'Abrechnungs- und Fälligkeitsdatum';
+  String get fcCardStatementDate => 'Auszugs- & Fälligkeitsdatum';
 
   @override
-  String get fcAccountTitle => 'Konto-Bezeichnung';
+  String get fcAccountTitle => 'Kontobezeichnung';
 
   @override
   String get fcEmailAddress => 'E-Mail-Adresse';
@@ -454,10 +476,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcImapSmtp => 'IMAP / SMTP-Servereinstellungen';
 
   @override
-  String get fcSecurityQA => 'Sicherheitsfrage & Antwort';
+  String get fcSecurityQA => 'Sicherheitsfrage & -antwort';
 
   @override
-  String get fcPasswordChangeDate => 'Passwortänderungsdatum';
+  String get fcPasswordChangeDate => 'Passwort-Änderungsdatum';
 
   @override
   String get fcPlatformTitle => 'Plattform / Titel';
@@ -484,7 +506,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcProfileNumericId => 'Profil / Numerische ID';
 
   @override
-  String get fc2faSecretKey => '2FA Geheimschlüssel';
+  String get fc2faSecretKey => '2FA-Geheimschlüssel';
 
   @override
   String get fcServiceName => 'Organisation / Dienstname';
@@ -493,7 +515,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcCompanyName => 'Unternehmensname';
 
   @override
-  String get fcCorporateUserId => 'Benutzername / Firmen-ID';
+  String get fcCorporateUserId => 'Benutzername / Unternehmens-ID';
 
   @override
   String get fcPanelUrl => 'Dienst- / Panel-Adresse (URL)';
@@ -514,7 +536,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcTaxOffice => 'Finanzamt & Steuernummer';
 
   @override
-  String get fcRegistryNo => 'Registernummer / Händlercode';
+  String get fcRegistryNo => 'Registernummer / Händlernummer';
 
   @override
   String get fcIpVpn => 'IP-Beschränkung / VPN-Adresse';
@@ -523,7 +545,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcLicenseExpiry => 'Portal- / Lizenzablaufdatum';
 
   @override
-  String get fcSiteName => 'Website- / Dienstname';
+  String get fcSiteName => 'Site- / Dienstname';
 
   @override
   String get fcWebAddress => 'Webadresse (URL)';
@@ -532,7 +554,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcUsernameEmail => 'Benutzername / E-Mail';
 
   @override
-  String get fcSubscriptionFee => 'Abonnementgebühr & Zeitraum';
+  String get fcSubscriptionFee => 'Abonnementgebühr & -zeitraum';
 
   @override
   String get fcRegistrationDate => 'Registrierungsdatum';

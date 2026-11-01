@@ -1,12 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
 import 'window_security.dart';
 
 /// Ekran görüntüsü korumasını süreli olarak kapatır.
-/// Süre arka planda sessizce geri sayılır (ekranda gösterilmez); bitince koruma
+/// Kalan süre ayarlar ekranında canlı gösterilir; bitince koruma
 /// kendiliğinden geri açılır ve ana ekrandaki gösterge yeniden yeşile döner.
 /// Uygulama her açılışında koruma açık başlar; "izin ver" durumu saklanmaz.
 class ScreenCaptureService with WidgetsBindingObserver {
@@ -21,6 +20,9 @@ class ScreenCaptureService with WidgetsBindingObserver {
 
   DateTime? _allowedUntil;
   Timer? _timer;
+
+  /// İzin açıkken korumanın geri açılacağı an; kapalıyken null.
+  DateTime? get allowedUntil => _allowedUntil;
 
   /// main() içinde bir kez çağrılır.
   Future<void> init() async {

@@ -168,6 +168,48 @@ abstract class AppLocalizations {
   /// **'Confirm password'**
   String get confirmPassword;
 
+  /// No description provided for @changeMasterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change master password'**
+  String get changeMasterPassword;
+
+  /// No description provided for @currentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Current password'**
+  String get currentPassword;
+
+  /// No description provided for @newPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get newPassword;
+
+  /// No description provided for @newPasswordSame.
+  ///
+  /// In en, this message translates to:
+  /// **'The new password must be different from the current one.'**
+  String get newPasswordSame;
+
+  /// No description provided for @change.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
+  String get change;
+
+  /// No description provided for @masterPasswordChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'Master password changed.'**
+  String get masterPasswordChanged;
+
+  /// No description provided for @changePasswordFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not change the password. Please try again.'**
+  String get changePasswordFailed;
+
   /// No description provided for @passwordTooShort.
   ///
   /// In en, this message translates to:

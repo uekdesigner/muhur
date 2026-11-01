@@ -5,7 +5,6 @@ import '../../l10n/app_localizations.dart';
 import 'generator_settings.dart';
 import 'password_generator.dart';
 import 'strength_bar.dart';
-import '../../core/widgets/copy_countdown.dart';
 
 /// Ekranın açılış amacı:
 /// - [view]: Ana menüden serbestçe şifre üretme (yalnızca üret/kopyala).
@@ -83,8 +82,6 @@ class _PasswordGeneratorScreenState extends State<PasswordGeneratorScreen> {
                         tooltip: t.copy,
                         onPressed: () async {
                           await ClipboardService.instance.copy(_pw);
-                          if (!context.mounted) return;
-                          showCopiedSnack(context);
                         },
                       ),
                     ],

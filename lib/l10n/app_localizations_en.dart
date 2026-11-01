@@ -44,6 +44,29 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirmPassword => 'Confirm password';
 
   @override
+  String get changeMasterPassword => 'Change master password';
+
+  @override
+  String get currentPassword => 'Current password';
+
+  @override
+  String get newPassword => 'New password';
+
+  @override
+  String get newPasswordSame =>
+      'The new password must be different from the current one.';
+
+  @override
+  String get change => 'Change';
+
+  @override
+  String get masterPasswordChanged => 'Master password changed.';
+
+  @override
+  String get changePasswordFailed =>
+      'Could not change the password. Please try again.';
+
+  @override
   String get passwordTooShort => 'Use at least 8 characters.';
 
   @override

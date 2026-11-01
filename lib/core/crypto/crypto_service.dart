@@ -57,6 +57,14 @@ class CryptoService {
     return VaultKeyMaterial(salt, wrapped, dek);
   }
 
+  /// Mevcut DEK'i yeni ana paroladan türetilen KEK ile yeniden sarar (DEK değişmez).
+  Future<VaultKeyMaterial> rewrap(SecretKey dek, String newPassword) async {
+    final salt = randomBytes(16);
+    final kek = await _deriveKek(newPassword, salt);
+    final wrapped = await _seal(await dek.extractBytes(), kek, _dekAad);
+    return VaultKeyMaterial(salt, wrapped, dek);
+  }
+
   /// Kilit açma. Parola yanlışsa Exception fırlatır.
   Future<SecretKey> unlock(
     String password,
