@@ -127,6 +127,7 @@ class _ScannerScreenState extends State<ScannerScreen>
 
   bool _inFrame(Rect box) =>
       !_canMap || _frameRect(_view).inflate(8).contains(_toView(box));
+
   InputImage? _toInputImage(CameraImage image) {
     final c = _controller;
     if (c == null) return null;
@@ -227,7 +228,6 @@ class _ScannerScreenState extends State<ScannerScreen>
           });
         }
       }
-      setState(() => _liveLines = lines.take(8).toList());
     } catch (e) {
       if (mounted) setState(() => _error = '$e');
     } finally {
