@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../core/constants/app_theme.dart';
+import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../password_gen/generator_settings.dart';
 import '../password_gen/password_generator.dart';
@@ -12,6 +14,23 @@ import 'vault_repository.dart';
 
 /// Tek bir text field'ın yaklaşık yüksekliği; "Not" alanı bunun 5 katıdır.
 const double _kFieldHeight = 56;
+
+/// Son kullanma tarihi: rakamları AA/YY biçimine sokar (0528 -> 05/28).
+class _ExpiryDateFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    var d = newValue.text.replaceAll(RegExp(r'\D'), '');
+    if (d.length > 4) d = d.substring(0, 4);
+    final text = d.length > 2 ? '${d.substring(0, 2)}/${d.substring(2)}' : d;
+    return TextEditingValue(
+      text: text,
+      selection: TextSelection.collapsed(offset: text.length),
+    );
+  }
+}
 
 /// Formdaki bir alan satırı. Ya [FieldCatalog]'dan bir tanıma (`spec`)
 /// dayanır, ya da kullanıcının oluşturduğu özel alandır (spec == null).
@@ -126,7 +145,10 @@ class _CustomFieldDialogState extends State<_CustomFieldDialog> {
             onChanged: (_) => setState(() {}),
           ),
           const SizedBox(height: 16),
-          Text(t.customFieldType, style: Theme.of(context).textTheme.labelLarge),
+          Text(
+            t.customFieldType,
+            style: Theme.of(context).textTheme.labelLarge,
+          ),
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
@@ -154,7 +176,11 @@ class _CustomFieldDialogState extends State<_CustomFieldDialog> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         if (_type == e.key) ...[
-                          const Icon(Icons.check, size: 16, color: Colors.green),
+                          const Icon(
+                            Icons.check,
+                            size: 16,
+                            color: Colors.green,
+                          ),
                           const SizedBox(width: 6),
                         ],
                         Text(
@@ -230,6 +256,25 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
   final List<_FieldDraft> _drafts = [];
   bool _initialized = false;
   bool _saving = false;
+  List<String> _titleHints = [];
+  List<String> _tagHints = [];
+
+  Future<void> _loadHints() async {
+    final all = await widget.repo.entries();
+    final titles = <String>{};
+    final tags = <String>{};
+    for (final e in all) {
+      if (e.title.trim().isNotEmpty) titles.add(e.title.trim());
+      for (final tag in (e.tags ?? '').split(',')) {
+        if (tag.trim().isNotEmpty) tags.add(tag.trim());
+      }
+    }
+    if (!mounted) return;
+    setState(() {
+      _titleHints = titles.toList()..sort();
+      _tagHints = tags.toList()..sort();
+    });
+  }
 
   /// Şu an yüklü olan hazır alanların ait olduğu kategori anahtarı.
   String _templateKey = '';
@@ -243,6 +288,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     super.didChangeDependencies();
     if (_initialized) return;
     _initialized = true;
+    _loadHints();
     final t = AppLocalizations.of(context)!;
     final cat = widget.categories.firstWhere((c) => c.id == _categoryId);
     _templateKey = cat.nameKey;
@@ -279,7 +325,9 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
   }
 
   List<_FieldDraft> _draftsFor(AppLocalizations t, String key) =>
-      FieldCatalog.defaultsFor(key).map((s) => _FieldDraft.fromSpec(s, t)).toList();
+      FieldCatalog.defaultsFor(key)
+          .map((s) => _FieldDraft.fromSpec(s, t))
+          .toList();
 
   /// Kullanıcı hazır alanlara hiç dokunmadı mı?
   bool _isPristine() {
@@ -328,9 +376,9 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     final t = AppLocalizations.of(context)!;
     final cat = widget.categories.firstWhere((c) => c.id == _categoryId);
     final added = _drafts.map((d) => d.fieldKey).whereType<String>().toSet();
-    final available = FieldCatalog.forCategory(
-      cat.nameKey,
-    ).where((s) => !added.contains(s.key)).toList();
+    final available = FieldCatalog.forCategory(cat.nameKey)
+        .where((s) => !added.contains(s.key))
+        .toList();
 
     final chosen = await showModalBottomSheet<Object>(
       context: context,
@@ -620,6 +668,9 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       readOnly: isDate,
       onTap: isDate ? () => _pickDate(d) : null,
       keyboardType: tall ? TextInputType.multiline : d.keyboard,
+      inputFormatters: d.fieldKey == 'expiryDate'
+          ? [_ExpiryDateFormatter()]
+          : null,
       textAlignVertical: tall ? TextAlignVertical.top : null,
       maxLines: tall ? null : 1,
       expands: tall,
@@ -636,9 +687,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       margin: const EdgeInsets.symmetric(vertical: 2),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-        child: tall
-            ? SizedBox(height: _kFieldHeight * 5, child: field)
-            : field,
+        child: tall ? SizedBox(height: _kFieldHeight * 5, child: field) : field,
       ),
     );
   }
@@ -676,59 +725,152 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.entry == null ? t.addEntry : t.editEntry),
-        actions: [
-          IconButton(
-            icon: Icon(_favorite ? Icons.star : Icons.star_border),
-            onPressed: () => setState(() => _favorite = !_favorite),
-          ),
-        ],
-      ),
-      body: Form(
-        key: _formKey,
-        child: ListView(
-          padding: const EdgeInsets.all(16),
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _categoryMenu(t),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: TextFormField(
-                    controller: _title,
-                    decoration: InputDecoration(labelText: _titleLabel(t)),
-                    validator: (v) => (v == null || v.trim().isEmpty)
-                        ? t.titleRequired
-                        : null,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            TextFormField(
-              controller: _tags,
-              decoration: InputDecoration(labelText: t.tags),
-            ),
-            // "Alanlar" başlığı yok: tüm text field'lar aynı listede.
-            const SizedBox(height: 8),
-            _fieldsSection(t),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton.icon(
-                icon: const Icon(Icons.add),
-                label: Text(t.addField),
-                onPressed: _addField,
-              ),
-            ),
-            const SizedBox(height: 16),
-            FilledButton(
-              onPressed: _saving ? null : _save,
-              child: Text(t.save),
+    return MuhurBackground(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: Text(widget.entry == null ? t.addEntry : t.editEntry),
+          backgroundColor: Colors.transparent,
+          actions: [
+            IconButton(
+              icon: Icon(_favorite ? Icons.star : Icons.star_border),
+              onPressed: () => setState(() => _favorite = !_favorite),
             ),
           ],
+        ),
+        body: Form(
+          key: _formKey,
+          child: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _categoryMenu(t),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: _HintField(
+                      controller: _title,
+                      hints: _titleHints,
+                      label: _titleLabel(t),
+                      validator: (v) => (v == null || v.trim().isEmpty)
+                          ? t.titleRequired
+                          : null,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              _HintField(
+                controller: _tags,
+                hints: _tagHints,
+                label: t.tags,
+                commaList: true,
+              ),
+              // "Alanlar" başlığı yok: tüm text field'lar aynı listede.
+              const SizedBox(height: 8),
+              _fieldsSection(t),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton.icon(
+                  icon: const Icon(Icons.add),
+                  label: Text(t.addField),
+                  onPressed: _addField,
+                ),
+              ),
+              const SizedBox(height: 16),
+              FilledButton(
+                onPressed: _saving ? null : _save,
+                child: Text(t.save),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Büyük harfle başlayan, önceki kayıtlardan öneri sunan metin alanı.
+/// [commaList] açıksa yalnızca son virgülden sonraki parça tamamlanır.
+class _HintField extends StatefulWidget {
+  const _HintField({
+    required this.controller,
+    required this.hints,
+    required this.label,
+    this.validator,
+    this.commaList = false,
+  });
+  final TextEditingController controller;
+  final List<String> hints;
+  final String label;
+  final String? Function(String?)? validator;
+  final bool commaList;
+
+  @override
+  State<_HintField> createState() => _HintFieldState();
+}
+
+class _HintFieldState extends State<_HintField> {
+  final FocusNode _focus = FocusNode();
+  String _prefix = '';
+
+  @override
+  void dispose() {
+    _focus.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RawAutocomplete<String>(
+      textEditingController: widget.controller,
+      focusNode: _focus,
+      optionsBuilder: (value) {
+        final text = value.text;
+        final cut = widget.commaList ? text.lastIndexOf(',') + 1 : 0;
+        _prefix = cut == 0 ? '' : '${text.substring(0, cut)} ';
+        final q = text.substring(cut).trim().toLowerCase();
+        if (q.isEmpty) return const Iterable<String>.empty();
+        return widget.hints
+            .where((h) {
+              final l = h.toLowerCase();
+              return l.startsWith(q) && l != q;
+            })
+            .take(5);
+      },
+      onSelected: (s) {
+        final c = widget.controller;
+        c.text = '$_prefix$s';
+        c.selection = TextSelection.collapsed(offset: c.text.length);
+      },
+      fieldViewBuilder: (context, controller, focusNode, onSubmit) =>
+          TextFormField(
+            controller: controller,
+            focusNode: focusNode,
+            textCapitalization: TextCapitalization.words,
+            validator: widget.validator,
+            decoration: InputDecoration(labelText: widget.label),
+          ),
+      optionsViewBuilder: (context, onSelected, options) => Align(
+        alignment: Alignment.topLeft,
+        child: Material(
+          elevation: 4,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 200, maxWidth: 320),
+            child: ListView(
+              padding: EdgeInsets.zero,
+              shrinkWrap: true,
+              children: [
+                for (final o in options)
+                  ListTile(
+                    dense: true,
+                    title: Text(o),
+                    onTap: () => onSelected(o),
+                  ),
+              ],
+            ),
+          ),
         ),
       ),
     );

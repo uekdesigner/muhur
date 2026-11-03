@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
+import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
@@ -79,73 +80,79 @@ class _TrashScreenState extends State<TrashScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final items = _items;
-    return Scaffold(
-      appBar: AppBar(title: Text(t.trash)),
-      body: items == null
-          ? const Center(child: CircularProgressIndicator())
-          : items.isEmpty
-          ? Center(
-              child: Text(
-                t.trashEmpty,
-                style: TextStyle(
-                  color: MuhurColors.cream.withValues(alpha: 0.7),
+    return MuhurBackground(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: Text(t.trash),
+          backgroundColor: Colors.transparent,
+        ),
+        body: items == null
+            ? const Center(child: CircularProgressIndicator())
+            : items.isEmpty
+            ? Center(
+                child: Text(
+                  t.trashEmpty,
+                  style: TextStyle(
+                    color: MuhurColors.cream.withValues(alpha: 0.7),
+                  ),
                 ),
+              )
+            : ListView.builder(
+                padding: const EdgeInsets.only(top: 8, bottom: 24),
+                itemCount: items.length,
+                itemBuilder: (context, i) {
+                  final e = items[i];
+                  final cat = _cats
+                      .where((c) => c.id == e.categoryId)
+                      .firstOrNull;
+                  return Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xCC14181C),
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(
+                        color: MuhurColors.bronze.withValues(alpha: 0.6),
+                      ),
+                    ),
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: ListTile(
+                        dense: true,
+                        leading: Icon(
+                          cat?.icon ?? Icons.folder,
+                          color: MuhurColors.bronzeLight,
+                        ),
+                        title: Text(e.title),
+                        subtitle: Text(t.trashDaysLeft(_daysLeft(e))),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.restore_from_trash),
+                              color: MuhurColors.bronzeLight,
+                              visualDensity: VisualDensity.compact,
+                              tooltip: t.restore,
+                              onPressed: () => _restore(e),
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.delete_forever),
+                              color: Colors.redAccent,
+                              visualDensity: VisualDensity.compact,
+                              tooltip: t.deleteForever,
+                              onPressed: () => _deleteForever(e),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
-            )
-          : ListView.builder(
-              padding: const EdgeInsets.only(top: 8, bottom: 24),
-              itemCount: items.length,
-              itemBuilder: (context, i) {
-                final e = items[i];
-                final cat = _cats
-                    .where((c) => c.id == e.categoryId)
-                    .firstOrNull;
-                return Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 2,
-                  ),
-                  decoration: BoxDecoration(
-                    color: const Color(0xCC14181C),
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(
-                      color: MuhurColors.bronze.withValues(alpha: 0.6),
-                    ),
-                  ),
-                  child: Material(
-                    type: MaterialType.transparency,
-                    child: ListTile(
-                      dense: true,
-                      leading: Icon(
-                        cat?.icon ?? Icons.folder,
-                        color: MuhurColors.bronzeLight,
-                      ),
-                      title: Text(e.title),
-                      subtitle: Text(t.trashDaysLeft(_daysLeft(e))),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.restore_from_trash),
-                            color: MuhurColors.bronzeLight,
-                            visualDensity: VisualDensity.compact,
-                            tooltip: t.restore,
-                            onPressed: () => _restore(e),
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.delete_forever),
-                            color: Colors.redAccent,
-                            visualDensity: VisualDensity.compact,
-                            tooltip: t.deleteForever,
-                            onPressed: () => _deleteForever(e),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
+      ),
     );
   }
 }

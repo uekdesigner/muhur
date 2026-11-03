@@ -5,6 +5,7 @@ import 'entry_edit_screen.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
 import '../../core/utils/clipboard_service.dart';
+import '../../core/widgets/muhur_widgets.dart';
 
 class EntryDetailScreen extends StatefulWidget {
   const EntryDetailScreen({
@@ -74,68 +75,79 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     final e = widget.entry;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(e.title),
-        actions: [
-          IconButton(icon: const Icon(Icons.edit), onPressed: _edit),
-          IconButton(icon: const Icon(Icons.delete), onPressed: _delete),
-        ],
-      ),
-      body: FutureBuilder<List<FieldData>>(
-        future: _fields,
-        builder: (context, snap) {
-          if (snap.hasError) return Center(child: Text('${snap.error}'));
-          if (!snap.hasData) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          final fields = snap.data!;
-          return ListView(
-            children: [
-              if (e.domain != null)
-                ListTile(
-                  leading: const Icon(Icons.public),
-                  title: Text(e.domain!),
-                ),
-              if (e.tags != null)
-                ListTile(leading: const Icon(Icons.sell), title: Text(e.tags!)),
-              const Divider(),
-              for (var i = 0; i < fields.length; i++)
-                ListTile(
-                  title: Text(fields[i].label),
-                  subtitle: Text(
-                    fields[i].sensitive && !_revealed.contains(i)
-                        ? '••••••••'
-                        : fields[i].value,
+    return MuhurBackground(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: Text(e.title),
+          actions: [
+            IconButton(icon: const Icon(Icons.edit), onPressed: _edit),
+            IconButton(icon: const Icon(Icons.delete), onPressed: _delete),
+          ],
+        ),
+        body: FutureBuilder<List<FieldData>>(
+          future: _fields,
+          builder: (context, snap) {
+            if (snap.hasError) return Center(child: Text('${snap.error}'));
+            if (!snap.hasData) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            final fields = snap.data!
+                .where((f) => f.value.trim().isNotEmpty)
+                .toList();
+            return ListView(
+              children: [
+                if (e.domain != null)
+                  ListTile(
+                    leading: const Icon(Icons.public),
+                    title: Text(e.domain!),
                   ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (fields[i].sensitive)
-                        IconButton(
-                          icon: Icon(
-                            _revealed.contains(i)
-                                ? Icons.visibility_off
-                                : Icons.visibility,
+                if (e.tags != null)
+                  ListTile(
+                    leading: const Icon(Icons.sell),
+                    title: Text(e.tags!),
+                  ),
+                const Divider(),
+                for (var i = 0; i < fields.length; i++)
+                  ListTile(
+                    title: Text(fields[i].label),
+                    subtitle: Text(
+                      fields[i].sensitive && !_revealed.contains(i)
+                          ? '••••••••'
+                          : fields[i].value,
+                    ),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (fields[i].sensitive)
+                          IconButton(
+                            icon: Icon(
+                              _revealed.contains(i)
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                            onPressed: () => setState(() {
+                              if (!_revealed.remove(i)) _revealed.add(i);
+                            }),
                           ),
-                          onPressed: () => setState(() {
-                            if (!_revealed.remove(i)) _revealed.add(i);
-                          }),
+                        IconButton(
+                          icon: const Icon(Icons.copy),
+                          tooltip: t.copy,
+                          onPressed: () async {
+                            await ClipboardService.instance.copy(
+                              fields[i].value,
+                            );
+                          },
                         ),
-                      IconButton(
-                        icon: const Icon(Icons.copy),
-                        tooltip: t.copy,
-                        onPressed: () async {
-                          await ClipboardService.instance.copy(fields[i].value);
-                        },
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              if (fields.isEmpty) ListTile(title: Text(t.noEntries)),
-            ],
-          );
-        },
+                if (fields.isEmpty) ListTile(title: Text(t.noEntries)),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

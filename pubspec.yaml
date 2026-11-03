@@ -49,7 +49,6 @@ package_rename_config:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icon/icon.png"
-  adaptive_icon_background: "#14181C"
-  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+  image_path: "assets/icon/android_eski_C_seffaf_tam.png"
+  image_path_ios: "assets/icon/ios_A_acik_zemin.png"
   remove_alpha_ios: true

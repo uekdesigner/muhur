@@ -51,7 +51,7 @@ class ClipboardService with WidgetsBindingObserver {
     _expiresAt = expires;
     await _storage.write(
       key: _kPending,
-      value: '${expires.millisecondsSinceEpoch}',
+      value: '${expires.millisecondsSinceEpoch}|${base64Encode(_hash!)}',
     );
     _timer = Timer(clearAfter, _clearIfOurs);
   }
@@ -60,10 +60,14 @@ class ClipboardService with WidgetsBindingObserver {
   Future<void> checkPending() async {
     final raw = await _storage.read(key: _kPending);
     if (raw == null) return;
-    final expires = DateTime.fromMillisecondsSinceEpoch(int.parse(raw));
+    final parts = raw.split('|');
+    final expires = DateTime.fromMillisecondsSinceEpoch(int.parse(parts[0]));
+    if (parts.length > 1) _hash ??= base64Decode(parts[1]);
     final left = expires.difference(DateTime.now());
     if (left <= Duration.zero) {
-      await _clearIfOurs();
+      // Öne gelirken pencere odağı henüz gelmemiş olabilir; biraz bekleyip oku.
+      await Future.delayed(const Duration(milliseconds: 500));
+      await _clearIfOurs(lastTry: true);
     } else if (_timer == null || !_timer!.isActive) {
       _timer = Timer(left, _clearIfOurs);
     }
@@ -91,19 +95,19 @@ class ClipboardService with WidgetsBindingObserver {
     await Clipboard.setData(const ClipboardData(text: ''));
   }
 
-  Future<void> _clearIfOurs() async {
+  Future<void> _clearIfOurs({bool lastTry = false}) async {
     _timer?.cancel();
-    var ours = true;
     final mine = _hash;
     if (mine != null) {
-      final data = await Clipboard.getData(Clipboard.kTextPlain);
-      final text = data?.text;
+      final text = (await Clipboard.getData(Clipboard.kTextPlain))?.text;
+      // Arka planda pano okunamaz: sahibini doğrulayamadan silme,
+      // uygulama öne gelince checkPending() yeniden dener.
+      if (text == null && !lastTry) return;
       if (text != null && text.isNotEmpty) {
         final h = (await Sha256().hash(utf8.encode(text))).bytes;
-        ours = _same(h, mine);
+        if (_same(h, mine)) await _clear();
       }
     }
-    if (ours) await _clear();
     _hash = null;
     _expiresAt = null;
     await _storage.delete(key: _kPending);

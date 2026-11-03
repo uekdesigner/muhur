@@ -116,7 +116,7 @@ class FieldCatalog {
       (t) => t.fcExpiryDate,
       isDefault: true,
       group: 'expRow',
-      keyboard: TextInputType.datetime,
+      keyboard: TextInputType.number,
     ),
     FieldSpec(
       'cvv',
@@ -184,14 +184,22 @@ class FieldCatalog {
       sensitive: true,
     ),
     FieldSpec('securityQA', (t) => t.fcSecurityQA, sensitive: true),
-    FieldSpec('passwordChangeDate', (t) => t.fcPasswordChangeDate, type: 'date'),
+    FieldSpec(
+      'passwordChangeDate',
+      (t) => t.fcPasswordChangeDate,
+      type: 'date',
+    ),
     FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
 
   // --- 3. Sosyal Medya ---
   static final List<FieldSpec> social = [
     // Sabit
-    FieldSpec('usernameProfileId', (t) => t.fcUsernameProfileId, isDefault: true),
+    FieldSpec(
+      'usernameProfileId',
+      (t) => t.fcUsernameProfileId,
+      isDefault: true,
+    ),
     FieldSpec(
       'registeredEmail',
       (t) => t.fcRegisteredEmail,
@@ -212,7 +220,12 @@ class FieldCatalog {
       generatable: true,
       isDefault: true,
     ),
-    FieldSpec('profileUrl', (t) => t.fcProfileUrl, type: 'url', isDefault: true),
+    FieldSpec(
+      'profileUrl',
+      (t) => t.fcProfileUrl,
+      type: 'url',
+      isDefault: true,
+    ),
     // Opsiyonel
     FieldSpec(
       '2faBackupCodes',
@@ -229,7 +242,12 @@ class FieldCatalog {
   // --- 4. Siteler ---
   static final List<FieldSpec> websites = [
     // Sabit
-    FieldSpec('webAddress', (t) => t.fcWebAddress, type: 'url', isDefault: true),
+    FieldSpec(
+      'webAddress',
+      (t) => t.fcWebAddress,
+      type: 'url',
+      isDefault: true,
+    ),
     FieldSpec('usernameEmail', (t) => t.fcUsernameEmail, isDefault: true),
     FieldSpec(
       'password',
