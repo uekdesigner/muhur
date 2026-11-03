@@ -816,6 +816,24 @@ abstract class AppLocalizations {
   /// **'Use'**
   String get useValue;
 
+  /// No description provided for @scanIsThis.
+  ///
+  /// In en, this message translates to:
+  /// **'Is this the one?'**
+  String get scanIsThis;
+
+  /// No description provided for @scanNo.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get scanNo;
+
+  /// No description provided for @scanYes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get scanYes;
+
   /// No description provided for @brandName.
   ///
   /// In en, this message translates to:

@@ -1,9 +1,12 @@
+import 'dart:math' as math;
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 
 import '../../l10n/app_localizations.dart';
+import '../../core/constants/app_theme.dart';
 import 'iban_validator.dart';
 
 enum ScanMode { iban, text }
@@ -18,7 +21,8 @@ class ScannerScreen extends StatefulWidget {
   State<ScannerScreen> createState() => _ScannerScreenState();
 }
 
-class _ScannerScreenState extends State<ScannerScreen> {
+class _ScannerScreenState extends State<ScannerScreen>
+    with SingleTickerProviderStateMixin {
   CameraController? _controller;
   final TextRecognizer _recognizer = TextRecognizer(
     script: TextRecognitionScript.latin,
@@ -30,10 +34,18 @@ class _ScannerScreenState extends State<ScannerScreen> {
   bool _done = false;
   DateTime _lastRun = DateTime.fromMillisecondsSinceEpoch(0);
 
-  String? _lastIban;
+  late final AnimationController _sweep = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 2200),
+  )..repeat(reverse: true);
+
+  Size _view = Size.zero; // önizleme alanı
+  Size _upright = Size.zero; // döndürülmüş kamera karesi
+  final Set<String> _rejected = {}; // "Hayır" denenler, bir daha önerilmez
+  String? _lastKey;
   int _stable = 0;
-  List<IbanMatch> _foundIbans = [];
-  List<String> _liveLines = [];
+  String? _candidate;
+  bool _candidateCorrected = false;
   String? _error;
 
   @override
@@ -76,6 +88,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
 
   @override
   void dispose() {
+    _sweep.dispose();
     SystemChrome.setPreferredOrientations(DeviceOrientation.values);
     final c = _controller;
     _controller = null;
@@ -91,6 +104,29 @@ class _ScannerScreenState extends State<ScannerScreen> {
     super.dispose();
   }
 
+  String _key(String s) =>
+      s.toUpperCase().replaceAll(RegExp(r'[^A-Z0-9ÇĞİÖŞÜ]'), '');
+
+  Rect _frameRect(Size v) {
+    final w = v.width * 0.9;
+    const h = 150.0;
+    return Rect.fromLTWH((v.width - w) / 2, (v.height - h) / 2 * 0.75, w, h);
+  }
+
+  bool get _canMap => _view != Size.zero && _upright != Size.zero;
+
+  Offset _toView(Rect box) {
+    final s = math.max(
+      _view.width / _upright.width,
+      _view.height / _upright.height,
+    );
+    final dx = (_view.width - _upright.width * s) / 2;
+    final dy = (_view.height - _upright.height * s) / 2;
+    return Offset(box.center.dx * s + dx, box.center.dy * s + dy);
+  }
+
+  bool _inFrame(Rect box) =>
+      !_canMap || _frameRect(_view).inflate(8).contains(_toView(box));
   InputImage? _toInputImage(CameraImage image) {
     final c = _controller;
     if (c == null) return null;
@@ -121,42 +157,74 @@ class _ScannerScreenState extends State<ScannerScreen> {
     _lastRun = now;
     try {
       final input = _toInputImage(image);
+      final rot = _controller!.description.sensorOrientation;
+      _upright = (rot == 90 || rot == 270)
+          ? Size(image.height.toDouble(), image.width.toDouble())
+          : Size(image.width.toDouble(), image.height.toDouble());
       if (input == null) return;
       final result = await _recognizer.processImage(input);
       if (!mounted || _done) return;
 
-      final lines = <String>[
+      // Yalnızca hedef çerçevenin içindeki satırlar dikkate alınır.
+      final lines = <TextLine>[
         for (final b in result.blocks)
-          for (final l in b.lines) l.text.trim(),
-      ].where((l) => l.isNotEmpty).toList();
+          for (final l in b.lines)
+            if (l.text.trim().isNotEmpty && _inFrame(l.boundingBox)) l,
+      ];
 
+      String? value;
+      var corrected = false;
       if (_mode == ScanMode.iban) {
-        final found = findIbans(result.text);
+        final found = findIbans(lines.map((l) => l.text).join(' '))
+            .where((m) => !_rejected.contains(m.value))
+            .toList();
         if (found.isNotEmpty) {
-          final v = found.first.value;
-          if (v == _lastIban) {
-            _stable++;
-          } else {
-            _lastIban = v;
-            _stable = 1;
+          value = found.first.value;
+          corrected = found.first.corrected;
+        }
+      } else {
+        if (_canMap) {
+          final fc = _frameRect(_view).center;
+          lines.sort(
+            (a, b) => (_toView(a.boundingBox) - fc).distance.compareTo(
+              (_toView(b.boundingBox) - fc).distance,
+            ),
+          );
+        }
+        for (final l in lines) {
+          final tx = l.text.trim();
+          if (tx.length >= 3 && !_rejected.contains(_key(tx))) {
+            value = tx;
+            break;
           }
-          if (_stable >= 2) {
-            _done = true;
-            try {
-              await _controller?.stopImageStream();
-            } catch (_) {}
-            HapticFeedback.mediumImpact();
-            if (mounted) {
-              setState(() {
-                _foundIbans = found;
-                _liveLines = lines.take(8).toList();
-              });
-            }
-            return;
-          }
-        } else {
-          _lastIban = null;
-          _stable = 0;
+        }
+      }
+
+      if (value == null) {
+        _lastKey = null;
+        _stable = 0;
+        return;
+      }
+      final key = _key(value);
+      if (key == _lastKey) {
+        _stable++;
+      } else {
+        _lastKey = key;
+        _stable = 1;
+      }
+      // Sağlama toplamı tutan IBAN anında önerilir; diğerleri 2 karede doğrulanır.
+      final need = (_mode == ScanMode.iban && !corrected) ? 1 : 2;
+      if (_stable >= need) {
+        _done = true;
+        try {
+          await _controller?.stopImageStream();
+        } catch (_) {}
+        HapticFeedback.mediumImpact();
+        if (mounted) {
+          setState(() {
+            _candidate = value;
+            _candidateCorrected = corrected;
+          });
         }
       }
       setState(() => _liveLines = lines.take(8).toList());
@@ -167,10 +235,11 @@ class _ScannerScreenState extends State<ScannerScreen> {
     }
   }
 
-  Future<void> _rescan() async {
+  Future<void> _resume() async {
     setState(() {
-      _foundIbans = [];
-      _lastIban = null;
+      _candidate = null;
+      _candidateCorrected = false;
+      _lastKey = null;
       _stable = 0;
       _done = false;
     });
@@ -179,6 +248,13 @@ class _ScannerScreenState extends State<ScannerScreen> {
     } catch (e) {
       if (mounted) setState(() => _error = '$e');
     }
+  }
+
+  /// "Hayır": bu değer bir daha önerilmez.
+  Future<void> _reject() async {
+    final v = _candidate;
+    if (v != null) _rejected.add(_key(v));
+    await _resume();
   }
 
   Future<void> _pickLine(String line) async {
@@ -209,60 +285,207 @@ class _ScannerScreenState extends State<ScannerScreen> {
     }
   }
 
+  Widget _modeSwitch(AppLocalizations t) {
+    Widget item(ScanMode m, IconData icon, String label) {
+      final sel = _mode == m;
+      return GestureDetector(
+        onTap: () {
+          if (sel) return;
+          setState(() {
+            _mode = m;
+            _lastKey = null;
+            _stable = 0;
+          });
+          if (_candidate != null) _resume();
+        },
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 180),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
+          decoration: BoxDecoration(
+            color: sel ? MuhurColors.bronze : Colors.transparent,
+            borderRadius: BorderRadius.circular(22),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                size: 18,
+                color: sel ? Colors.black : MuhurColors.bronzeLight,
+              ),
+              const SizedBox(width: 6),
+              Text(
+                label,
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 0.5,
+                  color: sel ? Colors.black : MuhurColors.cream,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return Container(
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        color: const Color(0xCC0E1215),
+        borderRadius: BorderRadius.circular(26),
+        border: Border.all(color: const Color(0x66B8925A)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          item(ScanMode.iban, Icons.account_balance_outlined, 'IBAN'),
+          item(ScanMode.text, Icons.text_fields_rounded, t.typeText),
+        ],
+      ),
+    );
+  }
+
   Widget _bottomPanel(AppLocalizations t) {
-    final theme = Theme.of(context);
-    final maxH = MediaQuery.of(context).size.height * 0.34;
+    final c = _candidate;
+    final isIban = _mode == ScanMode.iban;
     return Container(
       width: double.infinity,
-      constraints: BoxConstraints(maxHeight: maxH),
-      color: Colors.black87,
-      child: ListView(
-        shrinkWrap: true,
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-        children: [
-          if (_error != null)
-            Text(_error!, style: TextStyle(color: theme.colorScheme.error)),
-          if (_foundIbans.isNotEmpty) ...[
-            Text(t.ibanFound, style: theme.textTheme.titleMedium),
-            for (final m in _foundIbans)
-              Card(
-                child: ListTile(
-                  title: SelectableText(groupIban(m.value)),
-                  subtitle: m.corrected ? Text(t.ibanCorrected) : null,
-                  trailing: FilledButton(
-                    onPressed: () => Navigator.pop(context, m.value),
-                    child: Text(t.useValue),
+      padding: const EdgeInsets.fromLTRB(18, 16, 18, 22),
+      decoration: BoxDecoration(
+        color: const Color(0xEB0E1215),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(22)),
+        border: Border.all(color: const Color(0x66B8925A)),
+      ),
+      child: SafeArea(
+        top: false,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (_error != null)
+              Text(
+                _error!,
+                style: const TextStyle(color: MuhurColors.bronzeLight),
+              ),
+            if (c == null) ...[
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: MuhurColors.bronzeLight,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    t.scanning,
+                    style: const TextStyle(
+                      color: MuhurColors.cream,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Text(
+                t.scanHint,
+                style: const TextStyle(color: Colors.white60, fontSize: 12.5),
+              ),
+            ] else ...[
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0x33B8925A),
+                    ),
+                    child: Icon(
+                      isIban
+                          ? Icons.account_balance_outlined
+                          : Icons.text_fields_rounded,
+                      size: 20,
+                      color: MuhurColors.bronzeLight,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    t.scanIsThis,
+                    style: const TextStyle(
+                      color: MuhurColors.cream,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 12,
+                ),
+                decoration: BoxDecoration(
+                  color: const Color(0x99000000),
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: MuhurColors.bronze, width: 1.2),
+                ),
+                child: Text(
+                  isIban ? groupIban(c) : c,
+                  style: const TextStyle(
+                    color: MuhurColors.cream,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1,
                   ),
                 ),
               ),
-            OutlinedButton.icon(
-              icon: const Icon(Icons.refresh),
-              label: Text(t.scanRetake),
-              onPressed: _rescan,
-            ),
-          ] else ...[
-            Row(
-              children: [
-                const SizedBox(
-                  width: 14,
-                  height: 14,
-                  child: CircularProgressIndicator(strokeWidth: 2),
+              if (_candidateCorrected)
+                Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Text(
+                    t.ibanCorrected,
+                    style: const TextStyle(
+                      color: MuhurColors.bronzeLight,
+                      fontSize: 12,
+                    ),
+                  ),
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(t.scanning, style: theme.textTheme.bodySmall),
-                ),
-              ],
-            ),
-            const SizedBox(height: 4),
-            Text(t.scanHint, style: theme.textTheme.bodySmall),
-            const SizedBox(height: 8),
-            if (_liveLines.isNotEmpty)
-              Text(t.pickLine, style: theme.textTheme.titleSmall),
-            for (final l in _liveLines)
-              ListTile(dense: true, title: Text(l), onTap: () => _pickLine(l)),
+              const SizedBox(height: 14),
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: _reject,
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                      ),
+                      child: Text(t.scanNo),
+                    ),
+                  ),
+                  IconButton(
+                    tooltip: t.editBeforeUse,
+                    onPressed: () => _pickLine(c),
+                    icon: const Icon(
+                      Icons.edit_outlined,
+                      color: MuhurColors.bronzeLight,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: FilledButton(
+                      onPressed: () => Navigator.pop(context, c),
+                      child: Text(t.scanYes),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }
@@ -300,63 +523,36 @@ class _ScannerScreenState extends State<ScannerScreen> {
     } else if (c == null || !c.value.isInitialized) {
       body = const Center(child: CircularProgressIndicator());
     } else {
-      final screenW = MediaQuery.of(context).size.width;
-      body = Stack(
-        children: [
-          Positioned.fill(child: _fullPreview(c)),
-          // Hedefleme çerçevesi (yalnızca görsel kılavuz)
-          Align(
-            alignment: const Alignment(0, -0.25),
-            child: IgnorePointer(
-              child: Container(
-                width: screenW * 0.9,
-                height: 150,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white70, width: 2),
-                  borderRadius: BorderRadius.circular(12),
+      body = LayoutBuilder(
+        builder: (context, box) {
+          _view = box.biggest;
+          return Stack(
+            children: [
+              Positioned.fill(child: _fullPreview(c)),
+              Positioned.fill(
+                child: IgnorePointer(
+                  child: AnimatedBuilder(
+                    animation: _sweep,
+                    builder: (context, child) => CustomPaint(
+                      painter: _ScanOverlayPainter(
+                        _frameRect(_view),
+                        _sweep.value,
+                        _candidate == null,
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-          // Mod seçimi
-          Positioned(
-            top: 8,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.black54,
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                child: Wrap(
-                  spacing: 8,
-                  children: [
-                    ChoiceChip(
-                      label: const Text('IBAN'),
-                      selected: _mode == ScanMode.iban,
-                      onSelected: (_) => setState(() {
-                        _mode = ScanMode.iban;
-                        _lastIban = null;
-                        _stable = 0;
-                      }),
-                    ),
-                    ChoiceChip(
-                      label: Text(t.typeText),
-                      selected: _mode == ScanMode.text,
-                      onSelected: (_) => setState(() => _mode = ScanMode.text),
-                    ),
-                  ],
-                ),
+              Positioned(
+                top: 10,
+                left: 0,
+                right: 0,
+                child: Center(child: _modeSwitch(t)),
               ),
-            ),
-          ),
-          Positioned(left: 0, right: 0, bottom: 0, child: _bottomPanel(t)),
-        ],
+              Positioned(left: 0, right: 0, bottom: 0, child: _bottomPanel(t)),
+            ],
+          );
+        },
       );
     }
 
@@ -365,4 +561,75 @@ class _ScannerScreenState extends State<ScannerScreen> {
       body: body,
     );
   }
+}
+
+class _ScanOverlayPainter extends CustomPainter {
+  _ScanOverlayPainter(this.frame, this.progress, this.active);
+  final Rect frame;
+  final double progress;
+  final bool active;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rrect = RRect.fromRectAndRadius(frame, const Radius.circular(16));
+    final scrim = Path()
+      ..addRect(Offset.zero & size)
+      ..addRRect(rrect)
+      ..fillType = PathFillType.evenOdd;
+    canvas.drawPath(scrim, Paint()..color = const Color(0x99000000));
+
+    final p = Paint()
+      ..color = MuhurColors.bronzeLight
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3.5
+      ..strokeCap = StrokeCap.round;
+    const r = 16.0, l = 28.0;
+    final f = frame;
+    canvas.drawPath(
+      Path()
+        ..moveTo(f.left, f.top + l)
+        ..lineTo(f.left, f.top + r)
+        ..quadraticBezierTo(f.left, f.top, f.left + r, f.top)
+        ..lineTo(f.left + l, f.top),
+      p,
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(f.right - l, f.top)
+        ..lineTo(f.right - r, f.top)
+        ..quadraticBezierTo(f.right, f.top, f.right, f.top + r)
+        ..lineTo(f.right, f.top + l),
+      p,
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(f.left, f.bottom - l)
+        ..lineTo(f.left, f.bottom - r)
+        ..quadraticBezierTo(f.left, f.bottom, f.left + r, f.bottom)
+        ..lineTo(f.left + l, f.bottom),
+      p,
+    );
+    canvas.drawPath(
+      Path()
+        ..moveTo(f.right - l, f.bottom)
+        ..lineTo(f.right - r, f.bottom)
+        ..quadraticBezierTo(f.right, f.bottom, f.right, f.bottom - r)
+        ..lineTo(f.right, f.bottom - l),
+      p,
+    );
+
+    if (active) {
+      final y = f.top + 10 + (f.height - 20) * progress;
+      final line = Paint()
+        ..strokeWidth = 2
+        ..shader = const LinearGradient(
+          colors: [Color(0x00D9BC85), Color(0xCCD9BC85), Color(0x00D9BC85)],
+        ).createShader(Rect.fromLTWH(f.left, y, f.width, 2));
+      canvas.drawLine(Offset(f.left + 12, y), Offset(f.right - 12, y), line);
+    }
+  }
+
+  @override
+  bool shouldRepaint(_ScanOverlayPainter o) =>
+      o.progress != progress || o.active != active || o.frame != frame;
 }

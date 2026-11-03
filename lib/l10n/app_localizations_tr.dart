@@ -408,6 +408,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get useValue => 'Kullan';
 
   @override
+  String get scanIsThis => 'Is this the one?';
+
+  @override
+  String get scanNo => 'No';
+
+  @override
+  String get scanYes => 'Yes';
+
+  @override
   String get brandName => 'MÜHÜR';
 
   @override

@@ -730,7 +730,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text(widget.entry == null ? t.addEntry : t.editEntry),
-          backgroundColor: Colors.transparent,
+          backgroundColor: const Color(0xD90E1215),
           actions: [
             IconButton(
               icon: Icon(_favorite ? Icons.star : Icons.star_border),
@@ -738,52 +738,61 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
             ),
           ],
         ),
-        body: Form(
-          key: _formKey,
-          child: ListView(
-            padding: const EdgeInsets.all(16),
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _categoryMenu(t),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: _HintField(
-                      controller: _title,
-                      hints: _titleHints,
-                      label: _titleLabel(t),
-                      validator: (v) => (v == null || v.trim().isEmpty)
-                          ? t.titleRequired
-                          : null,
+        body: Container(
+          margin: const EdgeInsets.fromLTRB(10, 4, 10, 10),
+          clipBehavior: Clip.antiAlias,
+          decoration: BoxDecoration(
+            color: const Color(0xD90E1215),
+            borderRadius: BorderRadius.circular(18),
+            border: Border.all(color: const Color(0x59B8925A)),
+          ),
+          child: Form(
+            key: _formKey,
+            child: ListView(
+              padding: const EdgeInsets.all(16),
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _categoryMenu(t),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: _HintField(
+                        controller: _title,
+                        hints: _titleHints,
+                        label: _titleLabel(t),
+                        validator: (v) => (v == null || v.trim().isEmpty)
+                            ? t.titleRequired
+                            : null,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-              _HintField(
-                controller: _tags,
-                hints: _tagHints,
-                label: t.tags,
-                commaList: true,
-              ),
-              // "Alanlar" başlığı yok: tüm text field'lar aynı listede.
-              const SizedBox(height: 8),
-              _fieldsSection(t),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextButton.icon(
-                  icon: const Icon(Icons.add),
-                  label: Text(t.addField),
-                  onPressed: _addField,
+                  ],
                 ),
-              ),
-              const SizedBox(height: 16),
-              FilledButton(
-                onPressed: _saving ? null : _save,
-                child: Text(t.save),
-              ),
-            ],
+                const SizedBox(height: 12),
+                _HintField(
+                  controller: _tags,
+                  hints: _tagHints,
+                  label: t.tags,
+                  commaList: true,
+                ),
+                // "Alanlar" başlığı yok: tüm text field'lar aynı listede.
+                const SizedBox(height: 8),
+                _fieldsSection(t),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    icon: const Icon(Icons.add),
+                    label: Text(t.addField),
+                    onPressed: _addField,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                FilledButton(
+                  onPressed: _saving ? null : _save,
+                  child: Text(t.save),
+                ),
+              ],
+            ),
           ),
         ),
       ),
