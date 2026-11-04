@@ -6,6 +6,7 @@ import 'vault_models.dart';
 import 'vault_repository.dart';
 import '../../core/utils/clipboard_service.dart';
 import '../../core/widgets/muhur_widgets.dart';
+import '../../core/constants/app_theme.dart';
 
 class EntryDetailScreen extends StatefulWidget {
   const EntryDetailScreen({
@@ -109,41 +110,60 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
                     title: Text(e.tags!),
                   ),
                 const Divider(),
-                for (var i = 0; i < fields.length; i++)
-                  ListTile(
-                    title: Text(fields[i].label),
-                    subtitle: Text(
-                      fields[i].sensitive && !_revealed.contains(i)
-                          ? '••••••••'
-                          : fields[i].value,
+                Container(
+                  margin: const EdgeInsets.fromLTRB(12, 8, 12, 12),
+                  child: Material(
+                    color: const Color(0xAA000000),
+                    clipBehavior: Clip.antiAlias,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      side: const BorderSide(
+                        color: MuhurColors.bronze,
+                        width: 1.2,
+                      ),
                     ),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
+                    child: Column(
                       children: [
-                        if (fields[i].sensitive)
-                          IconButton(
-                            icon: Icon(
-                              _revealed.contains(i)
-                                  ? Icons.visibility_off
-                                  : Icons.visibility,
+                        for (var i = 0; i < fields.length; i++)
+                          ListTile(
+                            title: Text(fields[i].label),
+                            subtitle: Text(
+                              fields[i].sensitive && !_revealed.contains(i)
+                                  ? '••••••••'
+                                  : fields[i].value,
                             ),
-                            onPressed: () => setState(() {
-                              if (!_revealed.remove(i)) _revealed.add(i);
-                            }),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                if (fields[i].sensitive)
+                                  IconButton(
+                                    icon: Icon(
+                                      _revealed.contains(i)
+                                          ? Icons.visibility_off
+                                          : Icons.visibility,
+                                    ),
+                                    onPressed: () => setState(() {
+                                      if (!_revealed.remove(i))
+                                        _revealed.add(i);
+                                    }),
+                                  ),
+                                IconButton(
+                                  icon: const Icon(Icons.copy),
+                                  tooltip: t.copy,
+                                  onPressed: () async {
+                                    await ClipboardService.instance.copy(
+                                      fields[i].value,
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
-                        IconButton(
-                          icon: const Icon(Icons.copy),
-                          tooltip: t.copy,
-                          onPressed: () async {
-                            await ClipboardService.instance.copy(
-                              fields[i].value,
-                            );
-                          },
-                        ),
+                        if (fields.isEmpty) ListTile(title: Text(t.noEntries)),
                       ],
                     ),
                   ),
-                if (fields.isEmpty) ListTile(title: Text(t.noEntries)),
+                ),
               ],
             );
           },

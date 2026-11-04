@@ -4,7 +4,7 @@
 <uses-feature android:name="android.hardware.camera" android:required="false"/>
     <application
         android:allowBackup="false"
-        android:label="Muhur"
+        android:label="MÜHÜR"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

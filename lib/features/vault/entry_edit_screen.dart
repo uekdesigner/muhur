@@ -684,9 +684,13 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
 
     return Card(
       key: ObjectKey(d),
+      color: Colors.transparent,
+      elevation: 0,
+      shadowColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
       margin: const EdgeInsets.symmetric(vertical: 2),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        padding: const EdgeInsets.symmetric(vertical: 6),
         child: tall ? SizedBox(height: _kFieldHeight * 5, child: field) : field,
       ),
     );
@@ -730,7 +734,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text(widget.entry == null ? t.addEntry : t.editEntry),
-          backgroundColor: const Color(0xD90E1215),
+          backgroundColor: Colors.transparent,
           actions: [
             IconButton(
               icon: Icon(_favorite ? Icons.star : Icons.star_border),
@@ -738,14 +742,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
             ),
           ],
         ),
-        body: Container(
-          margin: const EdgeInsets.fromLTRB(10, 4, 10, 10),
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-            color: const Color(0xD90E1215),
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(color: const Color(0x59B8925A)),
-          ),
+        body: Form(
           child: Form(
             key: _formKey,
             child: ListView(
