@@ -165,6 +165,15 @@
   "statusBackup": "Auto backup",
   "helpTitle": "Help",
   "helpBody": "Help content will be added here.",
+  "helpMenuTitle": "How to use?",
+  "helpAdd": "+ button: Add a new entry",
+  "helpTap": "Tap a card: View details",
+  "helpLongPress": "Long press: Select and delete",
+  "helpSearch": "Search: Find quickly",
+  "helpCategories": "Categories: Filter your entries",
+  "helpLock": "Lock icon: Lock the vault now",
+  "helpSettings": "Settings: Backup, auto-lock and more",
+  "helpStats": "Bottom panel: Vault summary",
   "deleteSelectedConfirm": "Move {count} selected entries to the trash?",
   "@deleteSelectedConfirm": {
     "placeholders": {

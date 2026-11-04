@@ -954,6 +954,60 @@ abstract class AppLocalizations {
   /// **'Help content will be added here.'**
   String get helpBody;
 
+  /// No description provided for @helpMenuTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How to use?'**
+  String get helpMenuTitle;
+
+  /// No description provided for @helpAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'+ button: Add a new entry'**
+  String get helpAdd;
+
+  /// No description provided for @helpTap.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a card: View details'**
+  String get helpTap;
+
+  /// No description provided for @helpLongPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Long press: Select and delete'**
+  String get helpLongPress;
+
+  /// No description provided for @helpSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search: Find quickly'**
+  String get helpSearch;
+
+  /// No description provided for @helpCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories: Filter your entries'**
+  String get helpCategories;
+
+  /// No description provided for @helpLock.
+  ///
+  /// In en, this message translates to:
+  /// **'Lock icon: Lock the vault now'**
+  String get helpLock;
+
+  /// No description provided for @helpSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings: Backup, auto-lock and more'**
+  String get helpSettings;
+
+  /// No description provided for @helpStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Bottom panel: Vault summary'**
+  String get helpStats;
+
   /// No description provided for @deleteSelectedConfirm.
   ///
   /// In en, this message translates to:

@@ -160,20 +160,6 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     if (mounted) _refreshAll();
   }
 
-  void _showHelp() {
-    final t = AppLocalizations.of(context)!;
-    showDialog<void>(
-      context: context,
-      builder: (c) => AlertDialog(
-        title: Text(t.helpTitle),
-        content: Text(t.helpBody),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(c), child: Text(t.close)),
-        ],
-      ),
-    );
-  }
-
   Color? _dotColor(Strength? s) => switch (s) {
     null => null,
     Strength.weak => Colors.redAccent,
@@ -213,7 +199,6 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                 searchActive: _searching,
                 onSearch: _toggleSearch,
                 onSettings: _openSettings,
-                onHelp: _showHelp,
                 onDelete: _deleteSelected,
                 onLock: () {
                   Navigator.of(context).popUntil((r) => r.isFirst);

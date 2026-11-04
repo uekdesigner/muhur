@@ -10,7 +10,6 @@ class VaultHeader extends StatelessWidget {
   const VaultHeader({
     super.key,
     required this.selectedCount,
-    required this.onHelp,
     required this.onDelete,
     required this.onLock,
     required this.searchActive,
@@ -19,7 +18,6 @@ class VaultHeader extends StatelessWidget {
   });
 
   final int selectedCount;
-  final VoidCallback onHelp;
   final VoidCallback onDelete;
   final VoidCallback onLock;
   final bool searchActive;
@@ -75,14 +73,7 @@ class VaultHeader extends StatelessWidget {
                 ),
               ),
               // Üç buton tek sıraya sığsın diye küçük ve çerçevesiz.
-              HeaderButton(
-                icon: Icons.question_mark,
-                tooltip: t.helpTitle,
-                onPressed: onHelp,
-                framed: false,
-                size: 32,
-                iconSize: 22,
-              ),
+              const _HelpMenu(),
               const SizedBox(width: 2),
               HeaderButton(
                 icon: Icons.delete_outline,
@@ -316,6 +307,159 @@ class HeaderButton extends StatelessWidget {
                 ),
               ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _HelpMenu extends StatelessWidget {
+  const _HelpMenu();
+
+  static const double _panelW = 260;
+
+  void _open(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    final box = context.findRenderObject() as RenderBox;
+    final pos = box.localToGlobal(Offset.zero);
+    final screenW = MediaQuery.of(context).size.width;
+    final top = pos.dy + box.size.height + 6;
+    final iconCx = pos.dx + box.size.width / 2;
+    final panelLeft = screenW - 12 - _panelW;
+    final originX = (((iconCx - panelLeft) / _panelW) * 2 - 1).clamp(-1.0, 1.0);
+
+    final items = <(IconData, String)>[
+      (Icons.add, t.helpAdd),
+      (Icons.touch_app_outlined, t.helpTap),
+      (Icons.pan_tool_outlined, t.helpLongPress),
+      (Icons.search, t.helpSearch),
+      (Icons.folder_outlined, t.helpCategories),
+      (Icons.lock_outline, t.helpLock),
+      (Icons.settings_outlined, t.helpSettings),
+      (Icons.bar_chart_rounded, t.helpStats),
+    ];
+
+    showGeneralDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      barrierLabel: t.close,
+      barrierColor: const Color(0x00000000),
+      transitionDuration: const Duration(milliseconds: 250),
+      pageBuilder: (ctx, anim, secondary) {
+        return Stack(
+          children: [
+            Positioned(
+              top: top,
+              right: 12,
+              width: _panelW,
+              child: Material(
+                color: const Color(0xF0161B1F),
+                elevation: 8,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  side: const BorderSide(color: MuhurColors.bronze, width: 1.2),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(14, 12, 14, 8),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        t.helpMenuTitle,
+                        style: const TextStyle(
+                          color: MuhurColors.cream,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      const Divider(color: MuhurColors.bronze, height: 1),
+                      const SizedBox(height: 4),
+                      for (var i = 0; i < items.length; i++)
+                        _stagger(
+                          anim,
+                          i,
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  items[i].$1,
+                                  size: 19,
+                                  color: MuhurColors.bronzeLight,
+                                ),
+                                const SizedBox(width: 10),
+                                Expanded(
+                                  child: Text(
+                                    items[i].$2,
+                                    style: const TextStyle(
+                                      color: MuhurColors.cream,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+      transitionBuilder: (ctx, anim, secondary, child) {
+        final scale = CurvedAnimation(
+          parent: anim,
+          curve: Curves.easeOutCubic,
+          reverseCurve: Curves.easeInCubic,
+        );
+        return FadeTransition(
+          opacity: CurvedAnimation(parent: anim, curve: Curves.easeOut),
+          child: ScaleTransition(
+            alignment: Alignment(originX, -1),
+            scale: Tween<double>(begin: 0.8, end: 1).animate(scale),
+            child: child,
+          ),
+        );
+      },
+    );
+  }
+
+  /// Maddeler sırayla, sağdan hafifçe kayarak belirir.
+  Widget _stagger(Animation<double> anim, int i, Widget child) {
+    final start = (0.15 + i * 0.07).clamp(0.0, 0.7);
+    final curve = CurvedAnimation(
+      parent: anim,
+      curve: Interval(start, 1.0, curve: Curves.easeOut),
+    );
+    return FadeTransition(
+      opacity: curve,
+      child: SlideTransition(
+        position: Tween<Offset>(
+          begin: const Offset(0.08, 0),
+          end: Offset.zero,
+        ).animate(curve),
+        child: child,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppLocalizations.of(context)!;
+    return Tooltip(
+      message: t.helpTitle,
+      child: InkResponse(
+        radius: 22,
+        onTap: () => _open(context),
+        child: const SizedBox(
+          width: 32,
+          height: 32,
+          child: Icon(Icons.question_mark, size: 22, color: MuhurColors.cream),
         ),
       ),
     );

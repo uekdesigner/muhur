@@ -481,6 +481,33 @@ class AppLocalizationsTr extends AppLocalizations {
   String get helpBody => 'Yardım içeriği buraya eklenecektir.';
 
   @override
+  String get helpMenuTitle => 'How to use?';
+
+  @override
+  String get helpAdd => '+ button: Add a new entry';
+
+  @override
+  String get helpTap => 'Tap a card: View details';
+
+  @override
+  String get helpLongPress => 'Long press: Select and delete';
+
+  @override
+  String get helpSearch => 'Search: Find quickly';
+
+  @override
+  String get helpCategories => 'Categories: Filter your entries';
+
+  @override
+  String get helpLock => 'Lock icon: Lock the vault now';
+
+  @override
+  String get helpSettings => 'Settings: Backup, auto-lock and more';
+
+  @override
+  String get helpStats => 'Bottom panel: Vault summary';
+
+  @override
   String deleteSelectedConfirm(int count) {
     return 'Seçilen $count öge çöp kutusuna taşınsın mı?';
   }
