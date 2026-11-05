@@ -467,6 +467,31 @@ class AppLocalizationsDe extends AppLocalizations {
       'Makes panels and cards more or less see-through';
 
   @override
+  String get backgroundTitle => 'Background';
+
+  @override
+  String get backgroundDim => 'Background dimming';
+
+  @override
+  String get backgroundDimDesc =>
+      'Makes the background image darker or lighter';
+
+  @override
+  String get bgStone => 'Stone';
+
+  @override
+  String get bgNight => 'Night';
+
+  @override
+  String get bgBronze => 'Bronze';
+
+  @override
+  String get bgSteel => 'Steel';
+
+  @override
+  String get bgInk => 'Ink';
+
+  @override
   String get helpAnimation => 'Help animation';
 
   @override

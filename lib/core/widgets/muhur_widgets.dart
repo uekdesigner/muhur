@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_theme.dart';
 import 'language_button.dart';
+import '../constants/backgrounds.dart';
+import '../storage/app_settings.dart';
 
 /// Arka plan görseli + karartma + güvenli alan.
 class MuhurBackground extends StatelessWidget {
@@ -18,20 +20,35 @@ class MuhurBackground extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        Image.asset(
-          MuhurAssets.background,
-          fit: BoxFit.cover,
-          errorBuilder: (context, error, stack) => const DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFF1A2026), Color(0xFF0B0E11)],
-              ),
-            ),
+        ValueListenableBuilder<String>(
+          valueListenable: AppSettings.instance.background,
+          builder: (context, id, _) {
+            final bg = bgById(id);
+            if (bg.asset != null) {
+              return Image.asset(
+                bg.asset,
+                fit: BoxFit.cover,
+                cacheWidth: 1080, // belleği azaltır
+                errorBuilder: (context, error, stack) => const DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Color(0xFF1A2026), Color(0xFF0B0E11)],
+                    ),
+                  ),
+                ),
+              );
+            }
+          },
+        ),
+        ValueListenableBuilder<int>(
+          valueListenable: AppSettings.instance.backgroundDim,
+          builder: (context, dim, _) => ColoredBox(
+            color: const Color(0xFF0B0E11).withValues(alpha: dim / 100),
           ),
         ),
-        const ColoredBox(color: MuhurColors.overlay),
+
         SafeArea(
           child: Stack(
             children: [

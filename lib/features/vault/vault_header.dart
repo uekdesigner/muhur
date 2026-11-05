@@ -179,7 +179,7 @@ class StatusPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      //padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: const Color(0xCC1B2024),
         borderRadius: BorderRadius.circular(16),
@@ -468,7 +468,7 @@ class _HelpMenu extends StatelessWidget {
   }
 }
 
-/// İlk açılışta ? ikonu 5 kez sallanıp parlar; dokununca ya da bitince durur.
+/// ? ikonu dokunulana kadar 5 saniyede bir sallanıp parlar.
 class _HelpWiggle extends StatefulWidget {
   const _HelpWiggle({required this.child});
   final Widget child;
@@ -479,30 +479,49 @@ class _HelpWiggle extends StatefulWidget {
 
 class _HelpWiggleState extends State<_HelpWiggle>
     with SingleTickerProviderStateMixin {
+  static const _gap = Duration(
+    milliseconds: 2800,
+  ); // iki animasyon arası bekleme
+
   late final AnimationController _c = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 2800),
+    duration: const Duration(milliseconds: 2200),
   );
+  bool _active = false;
 
   @override
   void initState() {
     super.initState();
     final s = AppSettings.instance;
     if (s.helpAnimation.value && !s.helpSeen) {
-      Future.delayed(const Duration(milliseconds: 700), () {
-        if (mounted) _c.forward().whenComplete(s.markHelpSeen);
-      });
+      _active = true;
+      _loop();
     }
   }
 
+  bool get _shouldPlay =>
+      mounted && _active && AppSettings.instance.helpAnimation.value;
+
+  Future<void> _loop() async {
+    await Future.delayed(const Duration(milliseconds: 700));
+    while (_shouldPlay) {
+      await _c.forward(from: 0);
+      if (!_shouldPlay) break;
+      await Future.delayed(_gap);
+    }
+  }
+
+  /// Dokununca bir daha oynamaz.
   void _stop() {
-    if (_c.isAnimating) _c.stop();
+    _active = false;
+    _c.stop(canceled: false);
     _c.value = 0;
     AppSettings.instance.markHelpSeen();
   }
 
   @override
   void dispose() {
+    _active = false;
     _c.dispose();
     super.dispose();
   }
@@ -517,23 +536,31 @@ class _HelpWiggleState extends State<_HelpWiggle>
           final t = _c.value;
           final wave = math.sin(t * math.pi * 10); // 5 tam sallanma
           final fade = math.sin(t * math.pi); // başta ve sonda yumuşak
-          final glow = wave.abs() * fade;
+          final glow = (wave.abs() * fade).clamp(0.0, 1.0);
           return Transform.rotate(
             angle: wave * 0.35 * fade,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: MuhurColors.bronzeLight.withValues(
-                      alpha: 0.55 * glow,
-                    ),
-                    blurRadius: 16 * glow,
-                    spreadRadius: 3 * glow,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // Soru işaretinin kendi şeklini saran dar ve keskin ışık
+                if (glow > 0.01)
+                  Icon(
+                    Icons.question_mark,
+                    size: 22,
+                    color: MuhurColors.bronzeLight.withValues(alpha: glow),
+                    shadows: [
+                      Shadow(
+                        color: MuhurColors.bronzeLight.withValues(alpha: glow),
+                        blurRadius: 4 * glow,
+                      ),
+                      Shadow(
+                        color: MuhurColors.bronze.withValues(alpha: 0.9 * glow),
+                        blurRadius: 9 * glow,
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              child: child,
+                child!,
+              ],
             ),
           );
         },

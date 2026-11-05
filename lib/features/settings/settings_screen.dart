@@ -15,6 +15,7 @@ import 'change_password_dialog.dart';
 import '../vault/vault_repository.dart';
 import '../vault/trash_screen.dart';
 import '../../core/widgets/panel_style.dart';
+import '../../core/constants/backgrounds.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key, required this.auth, required this.repo});
@@ -116,9 +117,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final line = MuhurColors.bronze.withValues(alpha: 0.35);
     return Container(
       margin: const EdgeInsets.fromLTRB(12, 6, 12, 6),
-      color: panelColor(context, const Color(0xCC14181C)),
+
       decoration: BoxDecoration(
-        color: const Color(0xCC14181C),
+        color: panelColor(context, const Color(0xCC14181C)),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(color: MuhurColors.bronze.withValues(alpha: 0.6)),
       ),
@@ -537,12 +538,113 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
     ),
   );
+  String _bgLabel(AppLocalizations t, String id) => switch (id) {
+    'ember' => t.bgEmber,
+    'sapphire' => t.bgSapphire,
+    'obsidian' => t.bgObsidian,
+    'lumen' => t.bgLumen,
+    _ => t.bgBronze,
+  };
+
+  Widget _bgThumb(AppLocalizations t, MuhurBg b, bool selected, AppSettings s) {
+    return GestureDetector(
+      onTap: () => s.setBackground(b.id),
+      child: Container(
+        width: 64,
+        margin: const EdgeInsets.only(right: 10),
+        child: Column(
+          children: [
+            Container(
+              width: 64,
+              height: 56,
+              clipBehavior: Clip.antiAlias,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: selected
+                      ? MuhurColors.bronzeLight
+                      : MuhurColors.bronze.withValues(alpha: 0.4),
+                  width: selected ? 2.5 : 1,
+                ),
+                image: DecorationImage(
+                  image: ResizeImage(AssetImage(b.asset), width: 160),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: selected
+                  ? const Icon(
+                      Icons.check,
+                      color: MuhurColors.bronzeLight,
+                      size: 22,
+                    )
+                  : null,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              _bgLabel(t, b.id),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 11.5,
+                color: selected
+                    ? MuhurColors.cream
+                    : MuhurColors.cream.withValues(alpha: 0.65),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   List<Widget> _generalItems(AppLocalizations t) {
     final s = AppSettings.instance;
     return [
       _sectionTitle(Icons.palette_outlined, t.sectionAppearance),
       _panel([
+        ValueListenableBuilder<String>(
+          valueListenable: s.background,
+          builder: (context, sel, _) => _row(
+            icon: Icons.wallpaper,
+            title: t.backgroundTitle,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: SizedBox(
+                height: 84,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    for (final b in muhurBackgrounds)
+                      _bgThumb(t, b, sel == b.id, s),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        ValueListenableBuilder<int>(
+          valueListenable: s.backgroundDim,
+          builder: (context, dim, _) => _row(
+            icon: Icons.brightness_6_outlined,
+            title: t.backgroundDim,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _desc(t.backgroundDimDesc),
+                _sliderRow(
+                  value: dim,
+                  min: 0,
+                  max: 90,
+                  step: 5,
+                  label: '$dim%',
+                  onChanged: (v) => s.backgroundDim.value = v,
+                  onCommit: (_) => s.saveBackgroundDim(),
+                ),
+              ],
+            ),
+          ),
+        ),
         ValueListenableBuilder<int>(
           valueListenable: s.panelPercent,
           builder: (context, pct, _) => _row(

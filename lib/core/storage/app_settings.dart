@@ -52,6 +52,15 @@ class AppSettings {
     defaultPanelPercent,
   );
 
+  static const _kBg = 'muhur_bg';
+  static const _kBgDim = 'muhur_bg_dim';
+
+  /// Seçili arka plan kimliği (varsayılan: stone).
+  final ValueNotifier<String> background = ValueNotifier<String>('bronze');
+
+  /// Arka plan karartması %0-%90 (varsayılan %60, eski görünümle aynı).
+  final ValueNotifier<int> backgroundDim = ValueNotifier<int>(60);
+
   /// ? ikonunun dikkat çekme animasyonu açık mı? (varsayılan: açık)
   final ValueNotifier<bool> helpAnimation = ValueNotifier<bool>(true);
 
@@ -96,6 +105,11 @@ class AppSettings {
         (int.tryParse(await _storage.read(key: _kPanelPct) ?? '') ??
                 defaultPanelPercent)
             .clamp(30, 100)
+            .toInt();
+    background.value = await _storage.read(key: _kBg) ?? 'bronze';
+    backgroundDim.value =
+        (int.tryParse(await _storage.read(key: _kBgDim) ?? '') ?? 60)
+            .clamp(0, 90)
             .toInt();
   }
 
@@ -168,4 +182,12 @@ class AppSettings {
 
   Future<void> savePanelPercent() =>
       _storage.write(key: _kPanelPct, value: '${panelPercent.value}');
+
+  Future<void> setBackground(String id) async {
+    background.value = id;
+    await _storage.write(key: _kBg, value: id);
+  }
+
+  Future<void> saveBackgroundDim() =>
+      _storage.write(key: _kBgDim, value: '${backgroundDim.value}');
 }

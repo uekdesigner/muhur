@@ -924,6 +924,54 @@ abstract class AppLocalizations {
   /// **'Makes panels and cards more or less see-through'**
   String get panelDarknessDesc;
 
+  /// No description provided for @backgroundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Background'**
+  String get backgroundTitle;
+
+  /// No description provided for @backgroundDim.
+  ///
+  /// In en, this message translates to:
+  /// **'Background dimming'**
+  String get backgroundDim;
+
+  /// No description provided for @backgroundDimDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Makes the background image darker or lighter'**
+  String get backgroundDimDesc;
+
+  /// No description provided for @bgStone.
+  ///
+  /// In en, this message translates to:
+  /// **'Stone'**
+  String get bgStone;
+
+  /// No description provided for @bgNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Night'**
+  String get bgNight;
+
+  /// No description provided for @bgBronze.
+  ///
+  /// In en, this message translates to:
+  /// **'Bronze'**
+  String get bgBronze;
+
+  /// No description provided for @bgSteel.
+  ///
+  /// In en, this message translates to:
+  /// **'Steel'**
+  String get bgSteel;
+
+  /// No description provided for @bgInk.
+  ///
+  /// In en, this message translates to:
+  /// **'Ink'**
+  String get bgInk;
+
   /// No description provided for @helpAnimation.
   ///
   /// In en, this message translates to:
