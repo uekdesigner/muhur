@@ -144,8 +144,9 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
                                           : Icons.visibility,
                                     ),
                                     onPressed: () => setState(() {
-                                      if (!_revealed.remove(i))
+                                      if (!_revealed.remove(i)) {
                                         _revealed.add(i);
+                                      }
                                     }),
                                   ),
                                 IconButton(
