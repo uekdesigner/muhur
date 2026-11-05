@@ -8,11 +8,13 @@ import '../../core/storage/app_settings.dart';
 import '../../core/utils/clipboard_service.dart';
 import '../../core/utils/screen_capture_service.dart';
 import '../../core/widgets/muhur_widgets.dart';
+import '../../core/widgets/language_button.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
 import 'change_password_dialog.dart';
 import '../vault/vault_repository.dart';
 import '../vault/trash_screen.dart';
+import '../../core/widgets/panel_style.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key, required this.auth, required this.repo});
@@ -114,7 +116,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final line = MuhurColors.bronze.withValues(alpha: 0.35);
     return Container(
       margin: const EdgeInsets.fromLTRB(12, 6, 12, 6),
-      clipBehavior: Clip.antiAlias,
+      color: panelColor(context, const Color(0xCC14181C)),
       decoration: BoxDecoration(
         color: const Color(0xCC14181C),
         borderRadius: BorderRadius.circular(14),
@@ -506,12 +508,117 @@ class _SettingsScreenState extends State<SettingsScreen> {
     ];
   }
 
+  Widget _sectionTitle(IconData icon, String text) => Padding(
+    padding: const EdgeInsets.fromLTRB(16, 14, 16, 4),
+    child: Row(
+      children: [
+        Icon(icon, size: 18, color: MuhurColors.cream),
+        const SizedBox(width: 10),
+        Text(
+          text,
+          style: const TextStyle(
+            color: MuhurColors.cream,
+            fontSize: 14,
+            fontWeight: FontWeight.w800,
+            letterSpacing: 1.5,
+          ),
+        ),
+      ],
+    ),
+  );
+
+  Widget _desc(String text) => Padding(
+    padding: const EdgeInsets.only(left: 36, top: 2),
+    child: Text(
+      text,
+      style: TextStyle(
+        color: MuhurColors.cream.withValues(alpha: 0.65),
+        fontSize: 13,
+      ),
+    ),
+  );
+
+  List<Widget> _generalItems(AppLocalizations t) {
+    final s = AppSettings.instance;
+    return [
+      _sectionTitle(Icons.palette_outlined, t.sectionAppearance),
+      _panel([
+        ValueListenableBuilder<int>(
+          valueListenable: s.panelPercent,
+          builder: (context, pct, _) => _row(
+            icon: Icons.contrast,
+            title: t.panelDarkness,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _desc(t.panelDarknessDesc),
+                _sliderRow(
+                  value: pct,
+                  min: 30,
+                  max: 100,
+                  step: 5,
+                  label: '$pct%',
+                  onChanged: (v) => s.panelPercent.value = v,
+                  onCommit: (_) => s.savePanelPercent(),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ]),
+      _sectionTitle(Icons.language, t.sectionLanguage),
+      _panel([
+        _row(
+          icon: Icons.language,
+          title: t.language,
+          trailing: const LanguageButton(),
+        ),
+      ]),
+      _sectionTitle(Icons.tune, t.sectionExperience),
+      _panel([
+        ValueListenableBuilder<bool>(
+          valueListenable: s.helpAnimation,
+          builder: (context, on, _) => _row(
+            icon: Icons.auto_awesome,
+            title: t.helpAnimation,
+            trailing: _switch(on, s.setHelpAnimation),
+            child: _desc(t.helpAnimationDesc),
+          ),
+        ),
+        ValueListenableBuilder<bool>(
+          valueListenable: s.smartGuide,
+          builder: (context, on, _) => _row(
+            icon: Icons.chat_bubble_outline,
+            title: t.smartGuide,
+            trailing: _switch(on, s.setSmartGuide),
+            child: _desc(t.smartGuideDesc),
+          ),
+        ),
+        InkWell(
+          onTap: () async {
+            await s.resetTips();
+            if (!mounted) return;
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(t.tipsResetDone)));
+          },
+          child: _row(
+            icon: Icons.restart_alt,
+            title: t.resetTips,
+            child: _desc(t.resetTipsDesc),
+          ),
+        ),
+      ]),
+    ];
+  }
+
   List<Widget> _sectionItems(AppLocalizations t) {
     switch (_section) {
       case 0:
         return _securityItems(t);
+      case 2:
+        return _generalItems(t);
       default:
-        return const []; // Yedek, Genel, Hakkında: içerik sonra eklenecek
+        return const []; // Yedek, Hakkında: içerik sonra eklenecek
     }
   }
 

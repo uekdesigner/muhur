@@ -462,6 +462,49 @@ class AppLocalizationsAr extends AppLocalizations {
   String get languageSystem => 'اللغة الافتراضية للنظام';
 
   @override
+  String get sectionLanguage => 'LANGUAGE';
+
+  @override
+  String get sectionExperience => 'EXPERIENCE';
+
+  @override
+  String get sectionAppearance => 'APPEARANCE';
+
+  @override
+  String get panelDarkness => 'Panel darkness';
+
+  @override
+  String get panelDarknessDesc =>
+      'Makes panels and cards more or less see-through';
+
+  @override
+  String get helpAnimation => 'Help animation';
+
+  @override
+  String get helpAnimationDesc =>
+      'Makes the help icon wiggle and glow on first launch so it is noticed';
+
+  @override
+  String get smartGuide => 'Smart guidance';
+
+  @override
+  String get smartGuideDesc =>
+      'Shows short tips the first time you use a feature';
+
+  @override
+  String get resetTips => 'Reset tips';
+
+  @override
+  String get resetTipsDesc => 'Show the help animation and all tips again';
+
+  @override
+  String get tipsResetDone => 'Tips will be shown again';
+
+  @override
+  String get tipLongPress =>
+      'Tip: long press an entry to select it, then delete several at once.';
+
+  @override
   String get statTotal => 'الإجمالي';
 
   @override

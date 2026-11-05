@@ -894,6 +894,84 @@ abstract class AppLocalizations {
   /// **'System default'**
   String get languageSystem;
 
+  /// No description provided for @sectionLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'LANGUAGE'**
+  String get sectionLanguage;
+
+  /// No description provided for @sectionExperience.
+  ///
+  /// In en, this message translates to:
+  /// **'EXPERIENCE'**
+  String get sectionExperience;
+
+  /// No description provided for @sectionAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'APPEARANCE'**
+  String get sectionAppearance;
+
+  /// No description provided for @panelDarkness.
+  ///
+  /// In en, this message translates to:
+  /// **'Panel darkness'**
+  String get panelDarkness;
+
+  /// No description provided for @panelDarknessDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Makes panels and cards more or less see-through'**
+  String get panelDarknessDesc;
+
+  /// No description provided for @helpAnimation.
+  ///
+  /// In en, this message translates to:
+  /// **'Help animation'**
+  String get helpAnimation;
+
+  /// No description provided for @helpAnimationDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Makes the help icon wiggle and glow on first launch so it is noticed'**
+  String get helpAnimationDesc;
+
+  /// No description provided for @smartGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart guidance'**
+  String get smartGuide;
+
+  /// No description provided for @smartGuideDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Shows short tips the first time you use a feature'**
+  String get smartGuideDesc;
+
+  /// No description provided for @resetTips.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset tips'**
+  String get resetTips;
+
+  /// No description provided for @resetTipsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Show the help animation and all tips again'**
+  String get resetTipsDesc;
+
+  /// No description provided for @tipsResetDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips will be shown again'**
+  String get tipsResetDone;
+
+  /// No description provided for @tipLongPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip: long press an entry to select it, then delete several at once.'**
+  String get tipLongPress;
+
   /// No description provided for @statTotal.
   ///
   /// In en, this message translates to:

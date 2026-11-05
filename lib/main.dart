@@ -14,6 +14,7 @@ import 'features/password_gen/generator_settings.dart';
 import 'features/vault/vault_home_screen.dart';
 import 'l10n/app_localizations.dart';
 import 'core/constants/app_theme.dart';
+import 'core/widgets/panel_style.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +37,7 @@ class MuhurApp extends StatelessWidget {
         onGenerateTitle: (c) => AppLocalizations.of(c)!.appName,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        builder: privacyBuilder,
+        builder: (c, child) => PanelScope(child: privacyBuilder(c, child)),
         theme: buildMuhurTheme(),
         home: const AppRoot(),
       ),

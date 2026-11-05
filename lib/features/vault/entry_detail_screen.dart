@@ -7,6 +7,7 @@ import 'vault_repository.dart';
 import '../../core/utils/clipboard_service.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../core/constants/app_theme.dart';
+import '../../core/widgets/panel_style.dart';
 
 class EntryDetailScreen extends StatefulWidget {
   const EntryDetailScreen({
@@ -113,7 +114,7 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
                 Container(
                   margin: const EdgeInsets.fromLTRB(12, 8, 12, 12),
                   child: Material(
-                    color: const Color(0xAA000000),
+                    color: panelColor(context, const Color(0xAA000000)),
                     clipBehavior: Clip.antiAlias,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),

@@ -4,6 +4,7 @@ import '../../core/constants/app_theme.dart';
 import '../../l10n/app_localizations.dart';
 
 import 'vault_repository.dart';
+import '../../core/widgets/panel_style.dart';
 
 class StatsPanel extends StatefulWidget {
   const StatsPanel({super.key, required this.stats});
@@ -27,7 +28,7 @@ class _StatsPanelState extends State<StatsPanel> {
       margin: const EdgeInsets.fromLTRB(12, 4, 12, 8),
       padding: EdgeInsets.fromLTRB(12, _expanded ? 8 : 2, 4, _expanded ? 6 : 2),
       decoration: BoxDecoration(
-        color: const Color(0xEB161B1F),
+        color: panelColor(context, const Color(0xEB161B1F)),
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: MuhurColors.bronze, width: 1.2),
       ),

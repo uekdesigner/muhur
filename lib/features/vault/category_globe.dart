@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/constants/app_theme.dart';
+import '../../core/widgets/panel_style.dart';
 
 class GlobeItem {
   const GlobeItem(this.label, this.icon);
@@ -66,7 +67,11 @@ class _CategoryGlobeState extends State<CategoryGlobe> {
       margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
       padding: const EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
-        color: Color.lerp(const Color(0xCC14181C), const Color(0xF0222A30), t),
+        color: Color.lerp(
+          panelColor(context, const Color(0xCC14181C)),
+          panelColor(context, const Color(0xF0222A30)),
+          t,
+        ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: border, width: 1 + t),
         boxShadow: [

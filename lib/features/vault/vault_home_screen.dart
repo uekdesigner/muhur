@@ -15,6 +15,8 @@ import 'vault_header.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
 import '../../core/storage/app_settings.dart';
+import '../../core/widgets/guide_tip.dart';
+import '../../core/widgets/panel_style.dart';
 
 class VaultHomeScreen extends StatefulWidget {
   const VaultHomeScreen({super.key, required this.auth, required this.onLock});
@@ -46,6 +48,14 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
       if (mounted) setState(() => _cats = c);
     });
     _loadStats();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      showGuideTip(
+        context,
+        'long_press',
+        AppLocalizations.of(context)!.tipLongPress,
+      );
+    });
   }
 
   /// Süresi dolan çöp kayıtlarını kasa açılırken kalıcı siler.
@@ -273,9 +283,12 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                             vertical: 2,
                           ),
                           decoration: BoxDecoration(
-                            color: picked
-                                ? const Color(0xE61E262C)
-                                : const Color(0xCC14181C),
+                            color: panelColor(
+                              context,
+                              picked
+                                  ? const Color(0xE61E262C)
+                                  : const Color(0xCC14181C),
+                            ),
                             borderRadius: BorderRadius.circular(14),
                             border: Border.all(
                               color: picked

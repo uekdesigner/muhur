@@ -40,6 +40,28 @@ class AppSettings {
   /// Otomatik yedek açık mı? (Yedek özelliği henüz yok, şimdilik hep kapalı.)
   final ValueNotifier<bool> autoBackup = ValueNotifier<bool>(false);
 
+  static const _kHelpAnim = 'muhur_help_anim';
+  static const _kHelpSeen = 'muhur_help_seen';
+  static const _kSmartGuide = 'muhur_smart_guide';
+  static const _kTipsSeen = 'muhur_tips_seen';
+  static const defaultPanelPercent = 80;
+  static const _kPanelPct = 'muhur_panel_pct';
+
+  /// Panel koyuluğu (%30-%100). Varsayılan %80.
+  final ValueNotifier<int> panelPercent = ValueNotifier<int>(
+    defaultPanelPercent,
+  );
+
+  /// ? ikonunun dikkat çekme animasyonu açık mı? (varsayılan: açık)
+  final ValueNotifier<bool> helpAnimation = ValueNotifier<bool>(true);
+
+  /// Akıllı yönlendirme: özelliklerde ilk kullanımda kısa ipuçları.
+  final ValueNotifier<bool> smartGuide = ValueNotifier<bool>(false);
+
+  /// ? animasyonu bir kez gösterildi mi?
+  bool helpSeen = false;
+  final Set<String> _tipsSeen = {};
+
   Future<void> load() async {
     autoLockSeconds =
         (int.tryParse(await _storage.read(key: _kAutoLock) ?? '') ?? 0)
@@ -60,6 +82,21 @@ class AppSettings {
     final code = await _storage.read(key: _kLocale);
     locale.value = code == null ? null : Locale(code);
     autoBackup.value = (await _storage.read(key: _kAutoBackup)) == '1';
+    helpAnimation.value = (await _storage.read(key: _kHelpAnim)) != '0';
+    helpSeen = (await _storage.read(key: _kHelpSeen)) == '1';
+    smartGuide.value = (await _storage.read(key: _kSmartGuide)) == '1';
+    _tipsSeen
+      ..clear()
+      ..addAll(
+        (await _storage.read(key: _kTipsSeen) ?? '')
+            .split(',')
+            .where((e) => e.isNotEmpty),
+      );
+    panelPercent.value =
+        (int.tryParse(await _storage.read(key: _kPanelPct) ?? '') ??
+                defaultPanelPercent)
+            .clamp(30, 100)
+            .toInt();
   }
 
   Future<void> setAutoLock(int seconds) async {
@@ -97,4 +134,38 @@ class AppSettings {
     autoBackup.value = on;
     await _storage.write(key: _kAutoBackup, value: on ? '1' : '0');
   }
+
+  Future<void> setHelpAnimation(bool on) async {
+    helpAnimation.value = on;
+    await _storage.write(key: _kHelpAnim, value: on ? '1' : '0');
+  }
+
+  Future<void> setSmartGuide(bool on) async {
+    smartGuide.value = on;
+    await _storage.write(key: _kSmartGuide, value: on ? '1' : '0');
+  }
+
+  Future<void> markHelpSeen() async {
+    if (helpSeen) return;
+    helpSeen = true;
+    await _storage.write(key: _kHelpSeen, value: '1');
+  }
+
+  bool tipSeen(String id) => _tipsSeen.contains(id);
+
+  Future<void> markTipSeen(String id) async {
+    if (!_tipsSeen.add(id)) return;
+    await _storage.write(key: _kTipsSeen, value: _tipsSeen.join(','));
+  }
+
+  /// Yardım animasyonunu ve tüm ipuçlarını yeniden gösterir.
+  Future<void> resetTips() async {
+    helpSeen = false;
+    _tipsSeen.clear();
+    await _storage.write(key: _kHelpSeen, value: '0');
+    await _storage.delete(key: _kTipsSeen);
+  }
+
+  Future<void> savePanelPercent() =>
+      _storage.write(key: _kPanelPct, value: '${panelPercent.value}');
 }

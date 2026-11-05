@@ -6,6 +6,7 @@ import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
+import '../../core/widgets/panel_style.dart';
 
 /// Silinen kayıtlar: geri yükle veya kalıcı sil.
 class TrashScreen extends StatefulWidget {
@@ -112,7 +113,7 @@ class _TrashScreenState extends State<TrashScreen> {
                       vertical: 2,
                     ),
                     decoration: BoxDecoration(
-                      color: const Color(0xCC14181C),
+                      color: panelColor(context, const Color(0xCC14181C)),
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
                         color: MuhurColors.bronze.withValues(alpha: 0.6),

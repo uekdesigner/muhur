@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
@@ -73,7 +75,7 @@ class VaultHeader extends StatelessWidget {
                 ),
               ),
               // Üç buton tek sıraya sığsın diye küçük ve çerçevesiz.
-              const _HelpMenu(),
+              const _HelpWiggle(child: _HelpMenu()),
               const SizedBox(width: 2),
               HeaderButton(
                 icon: Icons.delete_outline,
@@ -461,6 +463,81 @@ class _HelpMenu extends StatelessWidget {
           height: 32,
           child: Icon(Icons.question_mark, size: 22, color: MuhurColors.cream),
         ),
+      ),
+    );
+  }
+}
+
+/// İlk açılışta ? ikonu 5 kez sallanıp parlar; dokununca ya da bitince durur.
+class _HelpWiggle extends StatefulWidget {
+  const _HelpWiggle({required this.child});
+  final Widget child;
+
+  @override
+  State<_HelpWiggle> createState() => _HelpWiggleState();
+}
+
+class _HelpWiggleState extends State<_HelpWiggle>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _c = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 2800),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    final s = AppSettings.instance;
+    if (s.helpAnimation.value && !s.helpSeen) {
+      Future.delayed(const Duration(milliseconds: 700), () {
+        if (mounted) _c.forward().whenComplete(s.markHelpSeen);
+      });
+    }
+  }
+
+  void _stop() {
+    if (_c.isAnimating) _c.stop();
+    _c.value = 0;
+    AppSettings.instance.markHelpSeen();
+  }
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Listener(
+      onPointerDown: (_) => _stop(),
+      child: AnimatedBuilder(
+        animation: _c,
+        builder: (context, child) {
+          final t = _c.value;
+          final wave = math.sin(t * math.pi * 10); // 5 tam sallanma
+          final fade = math.sin(t * math.pi); // başta ve sonda yumuşak
+          final glow = wave.abs() * fade;
+          return Transform.rotate(
+            angle: wave * 0.35 * fade,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: MuhurColors.bronzeLight.withValues(
+                      alpha: 0.55 * glow,
+                    ),
+                    blurRadius: 16 * glow,
+                    spreadRadius: 3 * glow,
+                  ),
+                ],
+              ),
+              child: child,
+            ),
+          );
+        },
+        child: widget.child,
       ),
     );
   }
