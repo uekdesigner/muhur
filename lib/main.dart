@@ -42,7 +42,7 @@ class MuhurApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder<String>(
       valueListenable: AppSettings.instance.background,
-      builder: (context, _, __) => ValueListenableBuilder<Locale?>(
+      builder: (context, _, _) => ValueListenableBuilder<Locale?>(
         valueListenable: AppSettings.instance.locale,
         builder: (context, loc, _) => MaterialApp(
           locale: loc,

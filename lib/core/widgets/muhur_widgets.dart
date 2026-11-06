@@ -24,22 +24,20 @@ class MuhurBackground extends StatelessWidget {
           valueListenable: AppSettings.instance.background,
           builder: (context, id, _) {
             final bg = bgById(id);
-            if (bg.asset != null) {
-              return Image.asset(
-                bg.asset,
-                fit: BoxFit.cover,
-                cacheWidth: 1080, // belleği azaltır
-                errorBuilder: (context, error, stack) => const DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF1A2026), Color(0xFF0B0E11)],
-                    ),
+            return Image.asset(
+              bg.asset,
+              fit: BoxFit.cover,
+              cacheWidth: 1080, // belleği azaltır
+              errorBuilder: (context, error, stack) => const DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0xFF1A2026), Color(0xFF0B0E11)],
                   ),
                 ),
-              );
-            }
+              ),
+            );
           },
         ),
         ValueListenableBuilder<int>(
