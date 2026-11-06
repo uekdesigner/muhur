@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
+import '../../core/utils/haptics.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../password_gen/strength_bar.dart';
@@ -233,7 +234,10 @@ class _UnlockScreenState extends State<UnlockScreen> {
   Future<void> _bio() async {
     final t = AppLocalizations.of(context)!;
     final ok = await widget.auth.unlockWithBiometrics(t.biometricReason);
-    if (ok && mounted) widget.onDone();
+    if (ok && mounted) {
+      Haptics.medium();
+      widget.onDone();
+    }
   }
 
   Future<void> _submit() async {

@@ -108,13 +108,19 @@ class VaultHeader extends StatelessWidget {
                   children: [
                     ValueListenableBuilder<bool>(
                       valueListenable: ScreenCaptureService.instance.protected,
-                      builder: (context, on, _) =>
-                          StatusPill(label: t.statusScreen, active: on),
+                      builder: (context, on, _) => StatusPill(
+                        icon: Icons.shield_outlined,
+                        tooltip: on ? t.statusScreenOn : t.statusScreenOff,
+                        active: on,
+                      ),
                     ),
                     ValueListenableBuilder<bool>(
                       valueListenable: AppSettings.instance.autoBackup,
-                      builder: (context, on, _) =>
-                          StatusPill(label: t.statusBackup, active: on),
+                      builder: (context, on, _) => StatusPill(
+                        icon: Icons.settings_backup_restore,
+                        tooltip: on ? t.statusBackupOn : t.statusBackupOff,
+                        active: on,
+                      ),
                     ),
                   ],
                 ),
@@ -170,49 +176,43 @@ class _FreeBadge extends StatelessWidget {
   }
 }
 
-/// Yalnızca bilgi gösterir; dokunulmaz. Yeşil = açık, gri = kapalı.
+/// Durum ikonu: yeşil = açık, soluk = kapalı. Dokunulunca açıklama gösterir.
 class StatusPill extends StatelessWidget {
-  const StatusPill({super.key, required this.label, required this.active});
-  final String label;
+  const StatusPill({
+    super.key,
+    required this.icon,
+    required this.tooltip,
+    required this.active,
+  });
+  final IconData icon;
+  final String tooltip;
   final bool active;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        color: const Color(0xCC1B2024),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: 10,
-            height: 10,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: active ? Colors.greenAccent : Colors.grey,
-              boxShadow: active
-                  ? [
-                      BoxShadow(
-                        color: Colors.greenAccent.withValues(alpha: 0.7),
-                        blurRadius: 8,
-                      ),
-                    ]
-                  : null,
-            ),
-          ),
-          const SizedBox(width: 8),
-          Text(
-            label,
-            style: TextStyle(
-              color: MuhurColors.cream,
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
+    final color = active
+        ? Colors.greenAccent
+        : MuhurColors.cream.withValues(alpha: 0.35);
+    return Tooltip(
+      message: tooltip,
+      triggerMode: TooltipTriggerMode.tap,
+      showDuration: const Duration(seconds: 3),
+      child: Container(
+        width: 32,
+        height: 32,
+        decoration: BoxDecoration(
+          color: const Color(0xCC1B2024),
+          shape: BoxShape.circle,
+          boxShadow: active
+              ? [
+                  BoxShadow(
+                    color: Colors.greenAccent.withValues(alpha: 0.35),
+                    blurRadius: 8,
+                  ),
+                ]
+              : null,
+        ),
+        child: Icon(icon, size: 18, color: color),
       ),
     );
   }
@@ -339,6 +339,8 @@ class _HelpMenu extends StatelessWidget {
       (Icons.lock_outline, t.helpLock),
       (Icons.settings_outlined, t.helpSettings),
       (Icons.bar_chart_rounded, t.helpStats),
+      (Icons.shield_outlined, t.helpStatusScreen),
+      (Icons.settings_backup_restore, t.helpStatusBackup),
     ];
 
     showGeneralDialog<void>(
@@ -346,7 +348,9 @@ class _HelpMenu extends StatelessWidget {
       barrierDismissible: true,
       barrierLabel: t.close,
       barrierColor: const Color(0x00000000),
-      transitionDuration: const Duration(milliseconds: 250),
+      transitionDuration: AppSettings.instance.reduceAnimations.value
+          ? Duration.zero
+          : const Duration(milliseconds: 250),
       pageBuilder: (ctx, anim, secondary) {
         return Stack(
           children: [
@@ -389,7 +393,12 @@ class _HelpMenu extends StatelessWidget {
                                 Icon(
                                   items[i].$1,
                                   size: 19,
-                                  color: MuhurColors.bronzeLight,
+                                  color:
+                                      (items[i].$1 == Icons.shield_outlined ||
+                                          items[i].$1 ==
+                                              Icons.settings_backup_restore)
+                                      ? Colors.greenAccent
+                                      : MuhurColors.bronzeLight,
                                 ),
                                 const SizedBox(width: 10),
                                 Expanded(
@@ -433,6 +442,7 @@ class _HelpMenu extends StatelessWidget {
 
   /// Maddeler sırayla, sağdan hafifçe kayarak belirir.
   Widget _stagger(Animation<double> anim, int i, Widget child) {
+    if (AppSettings.instance.reduceAnimations.value) return child;
     final start = (0.15 + i * 0.07).clamp(0.0, 0.7);
     final curve = CurvedAnimation(
       parent: anim,
@@ -493,14 +503,17 @@ class _HelpWiggleState extends State<_HelpWiggle>
   void initState() {
     super.initState();
     final s = AppSettings.instance;
-    if (s.helpAnimation.value && !s.helpSeen) {
+    if (s.helpAnimation.value && !s.reduceAnimations.value && !s.helpSeen) {
       _active = true;
       _loop();
     }
   }
 
   bool get _shouldPlay =>
-      mounted && _active && AppSettings.instance.helpAnimation.value;
+      mounted &&
+      _active &&
+      AppSettings.instance.helpAnimation.value &&
+      !AppSettings.instance.reduceAnimations.value;
 
   Future<void> _loop() async {
     await Future.delayed(const Duration(milliseconds: 700));
@@ -541,7 +554,29 @@ class _HelpWiggleState extends State<_HelpWiggle>
             angle: wave * 0.35 * fade,
             child: Stack(
               alignment: Alignment.center,
+              clipBehavior: Clip.none,
               children: [
+                if (glow > 0.01)
+                  Positioned(
+                    left: -10,
+                    right: -10,
+                    top: -10,
+                    bottom: -10,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: MuhurColors.bronzeLight.withValues(
+                              alpha: 0.45 * glow,
+                            ),
+                            blurRadius: 18 * glow,
+                            spreadRadius: 2 * glow,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 // Soru işaretinin kendi şeklini saran dar ve keskin ışık
                 if (glow > 0.01)
                   Icon(
@@ -551,11 +586,11 @@ class _HelpWiggleState extends State<_HelpWiggle>
                     shadows: [
                       Shadow(
                         color: MuhurColors.bronzeLight.withValues(alpha: glow),
-                        blurRadius: 4 * glow,
+                        blurRadius: 6 * glow,
                       ),
                       Shadow(
                         color: MuhurColors.bronze.withValues(alpha: 0.9 * glow),
-                        blurRadius: 9 * glow,
+                        blurRadius: 14 * glow,
                       ),
                     ],
                   ),

@@ -408,13 +408,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get useValue => 'Kullan';
 
   @override
-  String get scanIsThis => 'Is this the one?';
+  String get scanIsThis => 'Aradığınız bu mu?';
 
   @override
-  String get scanNo => 'No';
+  String get scanNo => 'Hayır';
 
   @override
-  String get scanYes => 'Yes';
+  String get scanYes => 'Evet';
 
   @override
   String get brandName => 'MÜHÜR';
@@ -450,72 +450,87 @@ class AppLocalizationsTr extends AppLocalizations {
   String get languageSystem => 'Sistem varsayılanı';
 
   @override
-  String get sectionLanguage => 'LANGUAGE';
+  String get sectionLanguage => 'DİL';
 
   @override
-  String get sectionExperience => 'EXPERIENCE';
+  String get sectionExperience => 'DENEYİM';
 
   @override
-  String get sectionAppearance => 'APPEARANCE';
+  String get sectionAppearance => 'GÖRÜNÜM';
 
   @override
-  String get panelDarkness => 'Panel darkness';
+  String get panelDarkness => 'Panel koyuluğu';
 
   @override
   String get panelDarknessDesc =>
-      'Makes panels and cards more or less see-through';
+      'Panellerin ve kartların saydamlığını ayarlar';
 
   @override
-  String get backgroundTitle => 'Background';
+  String get backgroundTitle => 'Arka plan';
 
   @override
-  String get backgroundDim => 'Background dimming';
+  String get backgroundDim => 'Arka plan karartması';
 
   @override
   String get backgroundDimDesc =>
-      'Makes the background image darker or lighter';
+      'Arka plan görselini daha koyu veya açık yapar';
 
   @override
-  String get bgBronze => 'Bronze';
+  String get bgBronze => 'Bronz';
 
   @override
-  String get bgEmber => 'Ember';
+  String get bgEmber => 'Köz';
 
   @override
-  String get bgSapphire => 'Sapphire';
+  String get bgSapphire => 'Safir';
 
   @override
-  String get bgObsidian => 'Obsidian';
+  String get bgObsidian => 'Obsidyen';
 
   @override
-  String get bgLumen => 'Lumen';
+  String get bgLumen => 'Lümen';
 
   @override
-  String get helpAnimation => 'Help animation';
+  String get helpAnimation => 'Yardım animasyonu';
 
   @override
   String get helpAnimationDesc =>
-      'Makes the help icon wiggle and glow on first launch so it is noticed';
+      'Fark edilmesi için ilk açılışta yardım simgesini sallar ve parlatır';
 
   @override
-  String get smartGuide => 'Smart guidance';
+  String get smartGuide => 'Akıllı rehberlik';
 
   @override
   String get smartGuideDesc =>
-      'Shows short tips the first time you use a feature';
+      'Bir özelliği ilk kez kullandığınızda kısa ipuçları gösterir';
 
   @override
-  String get resetTips => 'Reset tips';
+  String get haptics => 'Titreşim';
 
   @override
-  String get resetTipsDesc => 'Show the help animation and all tips again';
+  String get hapticsDesc =>
+      'Parmak iziyle kilit açarken ve kopyalarken kısa bir titreşim verir';
 
   @override
-  String get tipsResetDone => 'Tips will be shown again';
+  String get reduceAnimations => 'Animasyonları azalt';
+
+  @override
+  String get reduceAnimationsDesc =>
+      'Yardım menüsü animasyonunu, simge sallanmasını ve sayfa geçişlerini kapatır. Yavaş cihazlar için idealdir';
+
+  @override
+  String get resetTips => 'İpuçlarını sıfırla';
+
+  @override
+  String get resetTipsDesc =>
+      'Yardım animasyonunu ve tüm ipuçlarını tekrar gösterir';
+
+  @override
+  String get tipsResetDone => 'İpuçları tekrar gösterilecek';
 
   @override
   String get tipLongPress =>
-      'Tip: long press an entry to select it, then delete several at once.';
+      'İpucu: Seçmek için bir ögeye uzun basın, ardından birden fazlasını aynı anda silin.';
 
   @override
   String get statTotal => 'Toplam';
@@ -540,7 +555,29 @@ class AppLocalizationsTr extends AppLocalizations {
   String get screenshotTimer => 'Ekran görüntüsü süresi';
 
   @override
-  String get statusBackup => 'Oto. Yedek.';
+  String get statusBackup => 'Otomatik yedekleme';
+
+  @override
+  String get statusScreenOn =>
+      'Ekran koruması açık: ekran görüntüleri ve kaydı engellenir';
+
+  @override
+  String get statusScreenOff =>
+      'Ekran koruması geçici olarak kapalı: ekran görüntülerine izin verilir';
+
+  @override
+  String get statusBackupOn => 'Otomatik yedekleme açık';
+
+  @override
+  String get statusBackupOff => 'Otomatik yedekleme kapalı';
+
+  @override
+  String get helpStatusScreen =>
+      'Kalkan simgesi: Ekran koruması (yeşil = açık, soluk = kapalı)';
+
+  @override
+  String get helpStatusBackup =>
+      'Yedekleme simgesi: Otomatik yedekleme (yeşil = açık, soluk = kapalı)';
 
   @override
   String get helpTitle => 'Yardım';
@@ -549,31 +586,32 @@ class AppLocalizationsTr extends AppLocalizations {
   String get helpBody => 'Yardım içeriği buraya eklenecektir.';
 
   @override
-  String get helpMenuTitle => 'How to use?';
+  String get helpMenuTitle => 'Nasıl kullanılır?';
 
   @override
-  String get helpAdd => '+ button: Add a new entry';
+  String get helpAdd => '+ butonu: Yeni öge ekleyin';
 
   @override
-  String get helpTap => 'Tap a card: View details';
+  String get helpTap => 'Karta dokunun: Detayları görüntüleyin';
 
   @override
-  String get helpLongPress => 'Long press: Select and delete';
+  String get helpLongPress => 'Uzun basın: Seçin ve silin';
 
   @override
-  String get helpSearch => 'Search: Find quickly';
+  String get helpSearch => 'Arama: Hızlıca bulun';
 
   @override
-  String get helpCategories => 'Categories: Filter your entries';
+  String get helpCategories => 'Kategoriler: Ögelerinizi filtreleyin';
 
   @override
-  String get helpLock => 'Lock icon: Lock the vault now';
+  String get helpLock => 'Kilit simgesi: Kasayı hemen kilitleyin';
 
   @override
-  String get helpSettings => 'Settings: Backup, auto-lock and more';
+  String get helpSettings =>
+      'Ayarlar: Yedekleme, otomatik kilitleme ve daha fazlası';
 
   @override
-  String get helpStats => 'Bottom panel: Vault summary';
+  String get helpStats => 'Alt panel: Kasa özeti';
 
   @override
   String deleteSelectedConfirm(int count) {

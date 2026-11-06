@@ -8,6 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../storage/app_settings.dart';
+import 'haptics.dart';
 
 class ClipboardService with WidgetsBindingObserver {
   ClipboardService._();
@@ -46,6 +47,7 @@ class ClipboardService with WidgetsBindingObserver {
   Future<void> copy(String value) async {
     _timer?.cancel();
     await _setSensitive(value);
+    Haptics.light();
     _hash = (await Sha256().hash(utf8.encode(value))).bytes;
     final expires = DateTime.now().add(clearAfter);
     _expiresAt = expires;

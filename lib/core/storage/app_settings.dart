@@ -44,6 +44,8 @@ class AppSettings {
   static const _kHelpSeen = 'muhur_help_seen';
   static const _kSmartGuide = 'muhur_smart_guide';
   static const _kTipsSeen = 'muhur_tips_seen';
+  static const _kHaptics = 'muhur_haptics';
+  static const _kReduceAnim = 'muhur_reduce_anim';
   static const defaultPanelPercent = 80;
   static const _kPanelPct = 'muhur_panel_pct';
 
@@ -66,6 +68,12 @@ class AppSettings {
 
   /// Akıllı yönlendirme: özelliklerde ilk kullanımda kısa ipuçları.
   final ValueNotifier<bool> smartGuide = ValueNotifier<bool>(false);
+
+  /// Titreşim geri bildirimi (parmak izi girişi, kopyalama). Varsayılan: açık.
+  final ValueNotifier<bool> haptics = ValueNotifier<bool>(true);
+
+  /// Animasyonları azalt: yardım menüsü, ? animasyonu ve sayfa geçişleri.
+  final ValueNotifier<bool> reduceAnimations = ValueNotifier<bool>(false);
 
   /// ? animasyonu bir kez gösterildi mi?
   bool helpSeen = false;
@@ -94,6 +102,8 @@ class AppSettings {
     helpAnimation.value = (await _storage.read(key: _kHelpAnim)) != '0';
     helpSeen = (await _storage.read(key: _kHelpSeen)) == '1';
     smartGuide.value = (await _storage.read(key: _kSmartGuide)) == '1';
+    haptics.value = (await _storage.read(key: _kHaptics)) != '0';
+    reduceAnimations.value = (await _storage.read(key: _kReduceAnim)) == '1';
     _tipsSeen
       ..clear()
       ..addAll(
@@ -157,6 +167,16 @@ class AppSettings {
   Future<void> setSmartGuide(bool on) async {
     smartGuide.value = on;
     await _storage.write(key: _kSmartGuide, value: on ? '1' : '0');
+  }
+
+  Future<void> setHaptics(bool on) async {
+    haptics.value = on;
+    await _storage.write(key: _kHaptics, value: on ? '1' : '0');
+  }
+
+  Future<void> setReduceAnimations(bool on) async {
+    reduceAnimations.value = on;
+    await _storage.write(key: _kReduceAnim, value: on ? '1' : '0');
   }
 
   Future<void> markHelpSeen() async {

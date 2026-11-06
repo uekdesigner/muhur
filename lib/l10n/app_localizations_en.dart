@@ -506,6 +506,20 @@ class AppLocalizationsEn extends AppLocalizations {
       'Shows short tips the first time you use a feature';
 
   @override
+  String get haptics => 'Vibration';
+
+  @override
+  String get hapticsDesc =>
+      'Gives a short vibration on fingerprint unlock and when copying';
+
+  @override
+  String get reduceAnimations => 'Reduce animations';
+
+  @override
+  String get reduceAnimationsDesc =>
+      'Turns off the help menu animation, the help icon wiggle and page transitions. Good for slower devices and sensitive users';
+
+  @override
   String get resetTips => 'Reset tips';
 
   @override
@@ -542,6 +556,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get statusBackup => 'Auto backup';
+
+  @override
+  String get statusScreenOn =>
+      'Screen protection is on: screenshots and screen recording are blocked';
+
+  @override
+  String get statusScreenOff =>
+      'Screen protection is off for now: screenshots are allowed';
+
+  @override
+  String get statusBackupOn => 'Auto backup is on';
+
+  @override
+  String get statusBackupOff => 'Auto backup is off';
+
+  @override
+  String get helpStatusScreen =>
+      'Shield icon: Screen protection (green = on, faded = off)';
+
+  @override
+  String get helpStatusBackup =>
+      'Backup icon: Auto backup (green = on, faded = off)';
 
   @override
   String get helpTitle => 'Help';

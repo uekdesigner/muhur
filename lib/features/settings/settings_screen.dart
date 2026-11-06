@@ -690,6 +690,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: _desc(t.smartGuideDesc),
           ),
         ),
+        ValueListenableBuilder<bool>(
+          valueListenable: s.haptics,
+          builder: (context, on, _) => _row(
+            icon: Icons.vibration,
+            title: t.haptics,
+            trailing: _switch(on, s.setHaptics),
+            child: _desc(t.hapticsDesc),
+          ),
+        ),
+        ValueListenableBuilder<bool>(
+          valueListenable: s.reduceAnimations,
+          builder: (context, on, _) => _row(
+            icon: Icons.motion_photos_off_outlined,
+            title: t.reduceAnimations,
+            trailing: _switch(on, s.setReduceAnimations),
+            child: _desc(t.reduceAnimationsDesc),
+          ),
+        ),
         InkWell(
           onTap: () async {
             await s.resetTips();

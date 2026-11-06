@@ -420,13 +420,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get useValue => 'استخدام';
 
   @override
-  String get scanIsThis => 'Is this the one?';
+  String get scanIsThis => 'هل هذا هو النطاق المطلوبة؟';
 
   @override
-  String get scanNo => 'No';
+  String get scanNo => 'لا';
 
   @override
-  String get scanYes => 'Yes';
+  String get scanYes => 'نعم';
 
   @override
   String get brandName => 'MÜHÜR';
@@ -462,72 +462,84 @@ class AppLocalizationsAr extends AppLocalizations {
   String get languageSystem => 'اللغة الافتراضية للنظام';
 
   @override
-  String get sectionLanguage => 'LANGUAGE';
+  String get sectionLanguage => 'اللغة';
 
   @override
-  String get sectionExperience => 'EXPERIENCE';
+  String get sectionExperience => 'التجربة';
 
   @override
-  String get sectionAppearance => 'APPEARANCE';
+  String get sectionAppearance => 'المظهر';
 
   @override
-  String get panelDarkness => 'Panel darkness';
+  String get panelDarkness => 'درجة تعتيم اللوحة';
 
   @override
-  String get panelDarknessDesc =>
-      'Makes panels and cards more or less see-through';
+  String get panelDarknessDesc => 'يجعل اللوحات والبطاقات أكثر أو أقل شفافية';
 
   @override
-  String get backgroundTitle => 'Background';
+  String get backgroundTitle => 'الخلفية';
 
   @override
-  String get backgroundDim => 'Background dimming';
+  String get backgroundDim => 'تعتيم الخلفية';
 
   @override
-  String get backgroundDimDesc =>
-      'Makes the background image darker or lighter';
+  String get backgroundDimDesc => 'يجعل صورة الخلفية أكثر دكانة أو إضاءة';
 
   @override
-  String get bgBronze => 'Bronze';
+  String get bgBronze => 'برونزي';
 
   @override
-  String get bgEmber => 'Ember';
+  String get bgEmber => 'جمر';
 
   @override
-  String get bgSapphire => 'Sapphire';
+  String get bgSapphire => 'ياقوتي';
 
   @override
-  String get bgObsidian => 'Obsidian';
+  String get bgObsidian => 'سبجي';
 
   @override
-  String get bgLumen => 'Lumen';
+  String get bgLumen => 'لومين';
 
   @override
-  String get helpAnimation => 'Help animation';
+  String get helpAnimation => 'حركة المساعدة';
 
   @override
   String get helpAnimationDesc =>
-      'Makes the help icon wiggle and glow on first launch so it is noticed';
+      'تجعل أيقونة المساعدة تهتز وتتوهج عند التشغيل الأول لافتات الانتباه';
 
   @override
-  String get smartGuide => 'Smart guidance';
+  String get smartGuide => 'التوجيه الذكي';
 
   @override
   String get smartGuideDesc =>
-      'Shows short tips the first time you use a feature';
+      'يعرض تلميحات قصيرة في المرة الأولى التي تستخدم فيها ميزة ما';
 
   @override
-  String get resetTips => 'Reset tips';
+  String get haptics => 'الاهتزاز';
 
   @override
-  String get resetTipsDesc => 'Show the help animation and all tips again';
+  String get hapticsDesc =>
+      'يعطي اهتزازاً قصيراً عند فتح القفل بالبصمة وعند النسخ';
 
   @override
-  String get tipsResetDone => 'Tips will be shown again';
+  String get reduceAnimations => 'تقليل الحركات';
+
+  @override
+  String get reduceAnimationsDesc =>
+      'يوقف حركة قائمة المساعدة وهز الأيقونات وانتقالات الصفحات. مناسب للأجهزة البطئية';
+
+  @override
+  String get resetTips => 'إعادة ضبط التلميحات';
+
+  @override
+  String get resetTipsDesc => 'إظهار حركة المساعدة وجميع التلميحات مرة أخرى';
+
+  @override
+  String get tipsResetDone => 'سيتم عرض التلميحات مرة أخرى';
 
   @override
   String get tipLongPress =>
-      'Tip: long press an entry to select it, then delete several at once.';
+      'تلميح: اضغط مطولاً على عنصر لتحديده، ثم احذف عدة عناصر في وقت واحد.';
 
   @override
   String get statTotal => 'الإجمالي';
@@ -555,37 +567,60 @@ class AppLocalizationsAr extends AppLocalizations {
   String get statusBackup => 'النسخ الاحتياطي التلقائي';
 
   @override
+  String get statusScreenOn =>
+      'حماية الشاشة قيد التشغيل: تم حظر لقطات وتسجيل الشاشة';
+
+  @override
+  String get statusScreenOff =>
+      'حماية الشاشة متوقفة حالياً: يُسمح بلقطات الشاشة';
+
+  @override
+  String get statusBackupOn => 'النسخ الاحتياطي التلقائي قيد التشغيل';
+
+  @override
+  String get statusBackupOff => 'النسخ الاحتياطي التلقائي متوقف';
+
+  @override
+  String get helpStatusScreen =>
+      'أيقونة الدرع: حماية الشاشة (أخضر = مفعّل، باهت = معطّل)';
+
+  @override
+  String get helpStatusBackup =>
+      'أيقونة النسخ الاحتياطي: النسخ الاحتياطي التلقائي (أخضر = مفعّل، باهت = معطّل)';
+
+  @override
   String get helpTitle => 'المساعدة';
 
   @override
   String get helpBody => 'سيتم إتمام محتوى المساعدة هنا.';
 
   @override
-  String get helpMenuTitle => 'How to use?';
+  String get helpMenuTitle => 'كيفية الاستخدام؟';
 
   @override
-  String get helpAdd => '+ button: Add a new entry';
+  String get helpAdd => 'زر +: إضافة عنصر جديد';
 
   @override
-  String get helpTap => 'Tap a card: View details';
+  String get helpTap => 'الضغط على بطاقة: عرض التفاصيل';
 
   @override
-  String get helpLongPress => 'Long press: Select and delete';
+  String get helpLongPress => 'الضغط المطول: التحديد والحذف';
 
   @override
-  String get helpSearch => 'Search: Find quickly';
+  String get helpSearch => 'البحث: العثور بسرعة';
 
   @override
-  String get helpCategories => 'Categories: Filter your entries';
+  String get helpCategories => 'الفئات: تصفية عناصرك';
 
   @override
-  String get helpLock => 'Lock icon: Lock the vault now';
+  String get helpLock => 'أيقونة القفل: قفل الخزنة الآن';
 
   @override
-  String get helpSettings => 'Settings: Backup, auto-lock and more';
+  String get helpSettings =>
+      'الإعدادات: النسخ الاحتياطي والقفل التلقائي والمزيد';
 
   @override
-  String get helpStats => 'Bottom panel: Vault summary';
+  String get helpStats => 'اللوحة السفلى: ملخص الخزنة';
 
   @override
   String deleteSelectedConfirm(int count) {

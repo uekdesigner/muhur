@@ -1,9 +1,9 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../core/constants/app_theme.dart';
+import '../../core/utils/haptics.dart';
 import '../../core/widgets/panel_style.dart';
 
 class GlobeItem {
@@ -120,7 +120,7 @@ class _CategoryGlobeState extends State<CategoryGlobe> {
               final i = p % _n;
               if (i != _lastIndex) {
                 _lastIndex = i;
-                HapticFeedback.selectionClick();
+                Haptics.tick();
               }
               widget.onSelected(i);
             },

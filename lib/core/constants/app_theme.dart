@@ -44,6 +44,11 @@ ThemeData buildMuhurTheme() {
 
   return ThemeData(
     useMaterial3: true,
+    pageTransitionsTheme: PageTransitionsTheme(
+      builders: {
+        for (final p in TargetPlatform.values) p: const _MuhurPageTransitions(),
+      },
+    ),
     colorScheme: scheme,
     scaffoldBackgroundColor: MuhurColors.bg,
     appBarTheme: AppBarTheme(
@@ -85,4 +90,28 @@ ThemeData buildMuhurTheme() {
       ),
     ),
   );
+}
+
+/// Animasyonları azalt açıksa sayfa geçişi anında olur.
+class _MuhurPageTransitions extends PageTransitionsBuilder {
+  const _MuhurPageTransitions();
+  static const _base = ZoomPageTransitionsBuilder();
+
+  @override
+  Widget buildTransitions<T>(
+    PageRoute<T> route,
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    if (AppSettings.instance.reduceAnimations.value) return child;
+    return _base.buildTransitions<T>(
+      route,
+      context,
+      animation,
+      secondaryAnimation,
+      child,
+    );
+  }
 }

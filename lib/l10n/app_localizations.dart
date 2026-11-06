@@ -996,6 +996,30 @@ abstract class AppLocalizations {
   /// **'Shows short tips the first time you use a feature'**
   String get smartGuideDesc;
 
+  /// No description provided for @haptics.
+  ///
+  /// In en, this message translates to:
+  /// **'Vibration'**
+  String get haptics;
+
+  /// No description provided for @hapticsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Gives a short vibration on fingerprint unlock and when copying'**
+  String get hapticsDesc;
+
+  /// No description provided for @reduceAnimations.
+  ///
+  /// In en, this message translates to:
+  /// **'Reduce animations'**
+  String get reduceAnimations;
+
+  /// No description provided for @reduceAnimationsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Turns off the help menu animation, the help icon wiggle and page transitions. Good for slower devices and sensitive users'**
+  String get reduceAnimationsDesc;
+
   /// No description provided for @resetTips.
   ///
   /// In en, this message translates to:
@@ -1067,6 +1091,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Auto backup'**
   String get statusBackup;
+
+  /// No description provided for @statusScreenOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen protection is on: screenshots and screen recording are blocked'**
+  String get statusScreenOn;
+
+  /// No description provided for @statusScreenOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen protection is off for now: screenshots are allowed'**
+  String get statusScreenOff;
+
+  /// No description provided for @statusBackupOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto backup is on'**
+  String get statusBackupOn;
+
+  /// No description provided for @statusBackupOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto backup is off'**
+  String get statusBackupOff;
+
+  /// No description provided for @helpStatusScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Shield icon: Screen protection (green = on, faded = off)'**
+  String get helpStatusScreen;
+
+  /// No description provided for @helpStatusBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup icon: Auto backup (green = on, faded = off)'**
+  String get helpStatusBackup;
 
   /// No description provided for @helpTitle.
   ///

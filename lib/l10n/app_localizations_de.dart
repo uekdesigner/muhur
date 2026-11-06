@@ -409,13 +409,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get useValue => 'Verwenden';
 
   @override
-  String get scanIsThis => 'Is this the one?';
+  String get scanIsThis => 'Ist das der richtige?';
 
   @override
-  String get scanNo => 'No';
+  String get scanNo => 'Nein';
 
   @override
-  String get scanYes => 'Yes';
+  String get scanYes => 'Ja';
 
   @override
   String get brandName => 'MÜHÜR';
@@ -451,39 +451,39 @@ class AppLocalizationsDe extends AppLocalizations {
   String get languageSystem => 'Systemstandard';
 
   @override
-  String get sectionLanguage => 'LANGUAGE';
+  String get sectionLanguage => 'SPRACHE';
 
   @override
-  String get sectionExperience => 'EXPERIENCE';
+  String get sectionExperience => 'ERFAHRUNG';
 
   @override
-  String get sectionAppearance => 'APPEARANCE';
+  String get sectionAppearance => 'ERSCHEINUNGSBILD';
 
   @override
-  String get panelDarkness => 'Panel darkness';
+  String get panelDarkness => 'Panel-Dunkelheit';
 
   @override
   String get panelDarknessDesc =>
-      'Makes panels and cards more or less see-through';
+      'Macht Panels und Karten mehr oder weniger transparent';
 
   @override
-  String get backgroundTitle => 'Background';
+  String get backgroundTitle => 'Hintergrund';
 
   @override
-  String get backgroundDim => 'Background dimming';
+  String get backgroundDim => 'Hintergrundabdunkelung';
 
   @override
   String get backgroundDimDesc =>
-      'Makes the background image darker or lighter';
+      'Macht das Hintergrundbild dunkler oder heller';
 
   @override
   String get bgBronze => 'Bronze';
 
   @override
-  String get bgEmber => 'Ember';
+  String get bgEmber => 'Glut';
 
   @override
-  String get bgSapphire => 'Sapphire';
+  String get bgSapphire => 'Saphir';
 
   @override
   String get bgObsidian => 'Obsidian';
@@ -492,31 +492,45 @@ class AppLocalizationsDe extends AppLocalizations {
   String get bgLumen => 'Lumen';
 
   @override
-  String get helpAnimation => 'Help animation';
+  String get helpAnimation => 'Hilfe-Animation';
 
   @override
   String get helpAnimationDesc =>
-      'Makes the help icon wiggle and glow on first launch so it is noticed';
+      'Lässt das Hilfe-Icon beim ersten Start wackeln und leuchten, damit es auffällt';
 
   @override
-  String get smartGuide => 'Smart guidance';
+  String get smartGuide => 'Intelligente Führung';
 
   @override
   String get smartGuideDesc =>
-      'Shows short tips the first time you use a feature';
+      'Zeigt kurze Tipps, wenn Sie eine Funktion zum ersten Mal verwenden';
 
   @override
-  String get resetTips => 'Reset tips';
+  String get haptics => 'Vibration';
 
   @override
-  String get resetTipsDesc => 'Show the help animation and all tips again';
+  String get hapticsDesc =>
+      'Gibt eine kurze Vibration beim Entsperren per Fingerabdruck und beim Kopieren';
 
   @override
-  String get tipsResetDone => 'Tips will be shown again';
+  String get reduceAnimations => 'Animationen reduzieren';
+
+  @override
+  String get reduceAnimationsDesc =>
+      'Schaltet Hilfe-Menü-Animation, Icon-Wackeln und Seitenübergänge aus. Ideal für langsamere Geräte';
+
+  @override
+  String get resetTips => 'Tipps zurücksetzen';
+
+  @override
+  String get resetTipsDesc => 'Hilfe-Animation und alle Tipps erneut anzeigen';
+
+  @override
+  String get tipsResetDone => 'Tipps werden wieder angezeigt';
 
   @override
   String get tipLongPress =>
-      'Tip: long press an entry to select it, then delete several at once.';
+      'Tipp: Drücken Sie lange auf einen Eintrag, um ihn auszuwählen, und löschen Sie mehrere auf einmal.';
 
   @override
   String get statTotal => 'Gesamt';
@@ -544,37 +558,60 @@ class AppLocalizationsDe extends AppLocalizations {
   String get statusBackup => 'Automatische Sicherung';
 
   @override
+  String get statusScreenOn =>
+      'Bildschirmschutz ist aktiv: Screenshots und Bildschirmaufnahmen sind blockiert';
+
+  @override
+  String get statusScreenOff =>
+      'Bildschirmschutz ist vorübergehend aus: Screenshots sind erlaubt';
+
+  @override
+  String get statusBackupOn => 'Automatische Sicherung ist aktiv';
+
+  @override
+  String get statusBackupOff => 'Automatische Sicherung ist aus';
+
+  @override
+  String get helpStatusScreen =>
+      'Schild-Icon: Bildschirmschutz (Grün = An, Ausgebleicht = Aus)';
+
+  @override
+  String get helpStatusBackup =>
+      'Backup-Icon: Automatische Sicherung (Grün = An, Ausgebleicht = Aus)';
+
+  @override
   String get helpTitle => 'Hilfe';
 
   @override
   String get helpBody => 'Hilfeinhalte werden hier hinzugefügt.';
 
   @override
-  String get helpMenuTitle => 'How to use?';
+  String get helpMenuTitle => 'Wie benutzt man es?';
 
   @override
-  String get helpAdd => '+ button: Add a new entry';
+  String get helpAdd => '+ Taste: Neuen Eintrag hinzufügen';
 
   @override
-  String get helpTap => 'Tap a card: View details';
+  String get helpTap => 'Karte tippen: Details anzeigen';
 
   @override
-  String get helpLongPress => 'Long press: Select and delete';
+  String get helpLongPress => 'Lange drücken: Auswählen und löschen';
 
   @override
-  String get helpSearch => 'Search: Find quickly';
+  String get helpSearch => 'Suche: Schnell finden';
 
   @override
-  String get helpCategories => 'Categories: Filter your entries';
+  String get helpCategories => 'Kategorien: Einträge filtern';
 
   @override
-  String get helpLock => 'Lock icon: Lock the vault now';
+  String get helpLock => 'Schloss-Icon: Tresor sofort sperren';
 
   @override
-  String get helpSettings => 'Settings: Backup, auto-lock and more';
+  String get helpSettings =>
+      'Einstellungen: Backup, automatische Sperre und mehr';
 
   @override
-  String get helpStats => 'Bottom panel: Vault summary';
+  String get helpStats => 'Unteres Panel: Tresor-Zusammenfassung';
 
   @override
   String deleteSelectedConfirm(int count) {

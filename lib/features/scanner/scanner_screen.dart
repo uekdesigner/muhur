@@ -7,6 +7,7 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 
 import '../../l10n/app_localizations.dart';
 import '../../core/constants/app_theme.dart';
+import '../../core/utils/haptics.dart';
 import 'iban_validator.dart';
 
 enum ScanMode { iban, text }
@@ -220,7 +221,7 @@ class _ScannerScreenState extends State<ScannerScreen>
         try {
           await _controller?.stopImageStream();
         } catch (_) {}
-        HapticFeedback.mediumImpact();
+        Haptics.medium();
         if (mounted) {
           setState(() {
             _candidate = value;
