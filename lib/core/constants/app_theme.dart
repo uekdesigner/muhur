@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../storage/app_settings.dart';
+import 'backgrounds.dart';
+
 class MuhurAssets {
   static const background = 'assets/images/bg_bronze.webp';
   static const seal = 'assets/images/seal.webp';
@@ -16,18 +19,18 @@ class MuhurColors {
 }
 
 ThemeData buildMuhurTheme() {
-  const scheme = ColorScheme.dark(
+  final scheme = ColorScheme.dark(
     primary: MuhurColors.bronze,
     onPrimary: Colors.black,
-    secondary: MuhurColors.wax,
     surface: MuhurColors.panel,
+    secondary: MuhurColors.bronzeLight,
     onSurface: MuhurColors.cream,
     error: Color(0xFFE57373),
   );
 
   final border = OutlineInputBorder(
     borderRadius: BorderRadius.circular(14),
-    borderSide: const BorderSide(color: MuhurColors.bronze, width: 1.2),
+    borderSide: BorderSide(color: MuhurColors.bronze, width: 1.2),
   );
   final shape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(14));
 
@@ -35,7 +38,7 @@ ThemeData buildMuhurTheme() {
     useMaterial3: true,
     colorScheme: scheme,
     scaffoldBackgroundColor: MuhurColors.bg,
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       backgroundColor: MuhurColors.bg,
       foregroundColor: MuhurColors.cream,
       elevation: 0,
@@ -46,9 +49,9 @@ ThemeData buildMuhurTheme() {
       border: border,
       enabledBorder: border,
       focusedBorder: border.copyWith(
-        borderSide: const BorderSide(color: MuhurColors.bronzeLight, width: 2),
+        borderSide: BorderSide(color: MuhurColors.bronzeLight, width: 2),
       ),
-      labelStyle: const TextStyle(color: MuhurColors.bronzeLight),
+      labelStyle: TextStyle(color: MuhurColors.bronzeLight),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
@@ -56,7 +59,7 @@ ThemeData buildMuhurTheme() {
         disabledForegroundColor: Colors.white38,
         backgroundColor: const Color(0xCC14181C),
         foregroundColor: MuhurColors.cream,
-        side: const BorderSide(color: MuhurColors.bronze, width: 1.4),
+        side: BorderSide(color: MuhurColors.bronze, width: 1.4),
         shape: shape,
         padding: const EdgeInsets.symmetric(vertical: 16),
         textStyle: const TextStyle(
@@ -69,7 +72,7 @@ ThemeData buildMuhurTheme() {
       style: OutlinedButton.styleFrom(
         foregroundColor: MuhurColors.cream,
         backgroundColor: const Color(0x8014181C),
-        side: const BorderSide(color: MuhurColors.bronze, width: 1.4),
+        side: BorderSide(color: MuhurColors.bronze, width: 1.4),
         shape: shape,
       ),
     ),

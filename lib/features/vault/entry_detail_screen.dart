@@ -118,10 +118,7 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
                     clipBehavior: Clip.antiAlias,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
-                      side: const BorderSide(
-                        color: MuhurColors.bronze,
-                        width: 1.2,
-                      ),
+                      side: BorderSide(color: MuhurColors.bronze, width: 1.2),
                     ),
                     child: Column(
                       children: [

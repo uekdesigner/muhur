@@ -48,7 +48,7 @@ class _StatsPanelState extends State<StatsPanel> {
                   const SizedBox(width: 10),
                   Text(
                     '%${s.score}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: MuhurColors.cream,
                       fontWeight: FontWeight.w800,
                       fontSize: 12,
@@ -125,7 +125,7 @@ class _Stat extends StatelessWidget {
               fit: BoxFit.scaleDown,
               child: Text(
                 label,
-                style: const TextStyle(fontSize: 10, color: MuhurColors.cream),
+                style: TextStyle(fontSize: 10, color: MuhurColors.cream),
               ),
             ),
           ],

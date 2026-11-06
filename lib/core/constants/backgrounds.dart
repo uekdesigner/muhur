@@ -13,7 +13,6 @@ class MuhurBg {
   final String id;
   final String asset;
 
-  // Vurgu renkleri: bir sonraki adımda arayüze uygulanacak.
   final Color accent;
   final Color accentLight;
   final Color text;

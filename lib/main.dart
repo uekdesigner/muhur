@@ -2,19 +2,19 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import 'core/constants/app_theme.dart';
 import 'core/crypto/crypto_service.dart';
 import 'core/storage/app_settings.dart';
 import 'core/storage/database_manager.dart';
 import 'core/utils/clipboard_service.dart';
 import 'core/utils/privacy_cover.dart';
 import 'core/utils/screen_capture_service.dart';
+import 'core/widgets/panel_style.dart';
 import 'features/auth/auth_screens.dart';
 import 'features/auth/auth_service.dart';
 import 'features/password_gen/generator_settings.dart';
 import 'features/vault/vault_home_screen.dart';
 import 'l10n/app_localizations.dart';
-import 'core/constants/app_theme.dart';
-import 'core/widgets/panel_style.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +22,16 @@ Future<void> main() async {
   await GeneratorSettings.instance.load();
   ClipboardService.instance.init();
   await ScreenCaptureService.instance.init();
+  AppSettings.instance.background.addListener(() {
+    void rebuild(Element e) {
+      e.markNeedsBuild();
+      e.visitChildren(rebuild);
+    }
+
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => WidgetsBinding.instance.rootElement?.visitChildren(rebuild),
+    );
+  });
   runApp(const MuhurApp());
 }
 
@@ -30,16 +40,19 @@ class MuhurApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<Locale?>(
-      valueListenable: AppSettings.instance.locale,
-      builder: (context, loc, _) => MaterialApp(
-        locale: loc,
-        onGenerateTitle: (c) => AppLocalizations.of(c)!.appName,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        builder: (c, child) => PanelScope(child: privacyBuilder(c, child)),
-        theme: buildMuhurTheme(),
-        home: const AppRoot(),
+    return ValueListenableBuilder<String>(
+      valueListenable: AppSettings.instance.background,
+      builder: (context, _, __) => ValueListenableBuilder<Locale?>(
+        valueListenable: AppSettings.instance.locale,
+        builder: (context, loc, _) => MaterialApp(
+          locale: loc,
+          onGenerateTitle: (c) => AppLocalizations.of(c)!.appName,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          builder: (c, child) => PanelScope(child: privacyBuilder(c, child)),
+          theme: buildMuhurTheme(),
+          home: const AppRoot(),
+        ),
       ),
     );
   }

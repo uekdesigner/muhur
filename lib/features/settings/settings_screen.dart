@@ -159,7 +159,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Expanded(
                 child: Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: MuhurColors.cream,
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
@@ -253,9 +253,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               disabledThumbColor: MuhurColors.bronze.withValues(alpha: 0.7),
               tickMarkShape: SliderTickMarkShape.noTickMark,
               valueIndicatorColor: MuhurColors.bronze,
-              valueIndicatorTextStyle: const TextStyle(
-                color: MuhurColors.cream,
-              ),
+              valueIndicatorTextStyle: TextStyle(color: MuhurColors.cream),
             ),
             child: Slider(
               value: value.toDouble(),
@@ -277,7 +275,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               fit: BoxFit.scaleDown,
               child: Text(
                 label,
-                style: const TextStyle(
+                style: TextStyle(
                   color: MuhurColors.bronzeLight,
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
@@ -390,7 +388,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     ),
     child: Text(
       text,
-      style: const TextStyle(
+      style: TextStyle(
         color: MuhurColors.cream,
         fontSize: 12,
         fontWeight: FontWeight.w700,
@@ -517,7 +515,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         const SizedBox(width: 10),
         Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             color: MuhurColors.cream,
             fontSize: 14,
             fontWeight: FontWeight.w800,
@@ -564,7 +562,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 border: Border.all(
                   color: selected
                       ? MuhurColors.bronzeLight
-                      : MuhurColors.bronze.withValues(alpha: 0.4),
+                      : MuhurColors.bronze.withValues(alpha: 0.65),
                   width: selected ? 2.5 : 1,
                 ),
                 image: DecorationImage(
@@ -574,11 +572,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
               child: selected
-                  ? const Icon(
-                      Icons.check,
-                      color: MuhurColors.bronzeLight,
-                      size: 22,
-                    )
+                  ? Icon(Icons.check, color: MuhurColors.bronzeLight, size: 22)
                   : null,
             ),
             const SizedBox(height: 4),

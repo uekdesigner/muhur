@@ -21,11 +21,11 @@ void showGuideTip(BuildContext context, String id, String text) {
       closeIconColor: MuhurColors.bronzeLight,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(14),
-        side: const BorderSide(color: MuhurColors.bronze, width: 1.2),
+        side: BorderSide(color: MuhurColors.bronze, width: 1.2),
       ),
       content: Row(
         children: [
-          const Icon(
+          Icon(
             Icons.lightbulb_outline,
             color: MuhurColors.bronzeLight,
             size: 20,
@@ -34,7 +34,7 @@ void showGuideTip(BuildContext context, String id, String text) {
           Expanded(
             child: Text(
               text,
-              style: const TextStyle(color: MuhurColors.cream, fontSize: 13.5),
+              style: TextStyle(color: MuhurColors.cream, fontSize: 13.5),
             ),
           ),
         ],

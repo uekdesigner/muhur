@@ -363,14 +363,11 @@ class _ScannerScreenState extends State<ScannerScreen>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (_error != null)
-              Text(
-                _error!,
-                style: const TextStyle(color: MuhurColors.bronzeLight),
-              ),
+              Text(_error!, style: TextStyle(color: MuhurColors.bronzeLight)),
             if (c == null) ...[
               Row(
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     width: 16,
                     height: 16,
                     child: CircularProgressIndicator(
@@ -381,7 +378,7 @@ class _ScannerScreenState extends State<ScannerScreen>
                   const SizedBox(width: 10),
                   Text(
                     t.scanning,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: MuhurColors.cream,
                       fontWeight: FontWeight.w700,
                     ),
@@ -413,7 +410,7 @@ class _ScannerScreenState extends State<ScannerScreen>
                   const SizedBox(width: 10),
                   Text(
                     t.scanIsThis,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: MuhurColors.cream,
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
@@ -435,7 +432,7 @@ class _ScannerScreenState extends State<ScannerScreen>
                 ),
                 child: Text(
                   isIban ? groupIban(c) : c,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: MuhurColors.cream,
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
@@ -448,7 +445,7 @@ class _ScannerScreenState extends State<ScannerScreen>
                   padding: const EdgeInsets.only(top: 6),
                   child: Text(
                     t.ibanCorrected,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: MuhurColors.bronzeLight,
                       fontSize: 12,
                     ),
@@ -469,7 +466,7 @@ class _ScannerScreenState extends State<ScannerScreen>
                   IconButton(
                     tooltip: t.editBeforeUse,
                     onPressed: () => _pickLine(c),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.edit_outlined,
                       color: MuhurColors.bronzeLight,
                     ),

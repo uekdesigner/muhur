@@ -91,7 +91,7 @@ class _CategoryGlobeState extends State<CategoryGlobe> {
             child: Text(
               it.label,
               maxLines: 1,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w700,
                 color: MuhurColors.cream,

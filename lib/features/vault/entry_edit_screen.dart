@@ -185,7 +185,7 @@ class _CustomFieldDialogState extends State<_CustomFieldDialog> {
                         ],
                         Text(
                           e.value,
-                          style: const TextStyle(color: MuhurColors.cream),
+                          style: TextStyle(color: MuhurColors.cream),
                         ),
                       ],
                     ),
@@ -398,10 +398,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
               ),
             ),
             ListTile(
-              leading: const Icon(
-                Icons.edit_note,
-                color: MuhurColors.bronzeLight,
-              ),
+              leading: Icon(Icons.edit_note, color: MuhurColors.bronzeLight),
               title: Text(t.customField),
               onTap: () => Navigator.pop(sheetContext, 'custom'),
             ),
@@ -496,7 +493,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       color: const Color(0xF0161B1F),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(14),
-        side: const BorderSide(color: MuhurColors.bronze, width: 1.2),
+        side: BorderSide(color: MuhurColors.bronze, width: 1.2),
       ),
       onSelected: _onCategory,
       itemBuilder: (context) => [
@@ -509,11 +506,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
                 const SizedBox(width: 12),
                 Expanded(child: Text(c.label(t))),
                 if (c.id == _categoryId)
-                  const Icon(
-                    Icons.check,
-                    size: 18,
-                    color: MuhurColors.bronzeLight,
-                  ),
+                  Icon(Icons.check, size: 18, color: MuhurColors.bronzeLight),
               ],
             ),
           ),
@@ -530,7 +523,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(current.icon, color: MuhurColors.bronzeLight),
-            const Icon(Icons.arrow_drop_down, color: MuhurColors.cream),
+            Icon(Icons.arrow_drop_down, color: MuhurColors.cream),
           ],
         ),
       ),

@@ -50,7 +50,7 @@ class VaultHeader extends StatelessWidget {
                           child: Text(
                             t.brandName,
                             overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: MuhurColors.bronzeLight,
                               fontSize: 22,
                               fontWeight: FontWeight.w800,
@@ -65,7 +65,7 @@ class VaultHeader extends StatelessWidget {
                     Text(
                       t.brandSubtitle,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: MuhurColors.cream,
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -159,7 +159,7 @@ class _FreeBadge extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: const TextStyle(
+        style: TextStyle(
           color: MuhurColors.bronzeLight,
           fontSize: 10,
           fontWeight: FontWeight.w800,
@@ -206,7 +206,7 @@ class StatusPill extends StatelessWidget {
           const SizedBox(width: 8),
           Text(
             label,
-            style: const TextStyle(
+            style: TextStyle(
               color: MuhurColors.cream,
               fontSize: 12,
               fontWeight: FontWeight.w600,
@@ -359,7 +359,7 @@ class _HelpMenu extends StatelessWidget {
                 elevation: 8,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
-                  side: const BorderSide(color: MuhurColors.bronze, width: 1.2),
+                  side: BorderSide(color: MuhurColors.bronze, width: 1.2),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(14, 12, 14, 8),
@@ -369,14 +369,14 @@ class _HelpMenu extends StatelessWidget {
                     children: [
                       Text(
                         t.helpMenuTitle,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: MuhurColors.cream,
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
                       const SizedBox(height: 8),
-                      const Divider(color: MuhurColors.bronze, height: 1),
+                      Divider(color: MuhurColors.bronze, height: 1),
                       const SizedBox(height: 4),
                       for (var i = 0; i < items.length; i++)
                         _stagger(
@@ -395,7 +395,7 @@ class _HelpMenu extends StatelessWidget {
                                 Expanded(
                                   child: Text(
                                     items[i].$2,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       color: MuhurColors.cream,
                                       fontSize: 13,
                                     ),
@@ -458,7 +458,7 @@ class _HelpMenu extends StatelessWidget {
       child: InkResponse(
         radius: 22,
         onTap: () => _open(context),
-        child: const SizedBox(
+        child: SizedBox(
           width: 32,
           height: 32,
           child: Icon(Icons.question_mark, size: 22, color: MuhurColors.cream),

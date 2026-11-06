@@ -196,7 +196,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
             backgroundColor: const Color(0xE614181C),
             foregroundColor: MuhurColors.cream,
             shape: RoundedRectangleBorder(
-              side: const BorderSide(color: MuhurColors.bronze, width: 1.4),
+              side: BorderSide(color: MuhurColors.bronze, width: 1.4),
               borderRadius: BorderRadius.circular(16),
             ),
             child: const Icon(Icons.add),
@@ -263,7 +263,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                       return Center(
                         child: Text(
                           t.noEntries,
-                          style: const TextStyle(color: MuhurColors.cream),
+                          style: TextStyle(color: MuhurColors.cream),
                         ),
                       );
                     }
@@ -317,7 +317,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   if (e.isFavorite)
-                                    const Icon(
+                                    Icon(
                                       Icons.star,
                                       size: 18,
                                       color: MuhurColors.bronzeLight,
