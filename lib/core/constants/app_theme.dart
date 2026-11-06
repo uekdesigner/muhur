@@ -11,9 +11,17 @@ class MuhurAssets {
 class MuhurColors {
   static const bg = Color(0xFF0E1215);
   static const panel = Color(0xFF161B1F);
-  static const bronze = Color(0xFFB8925A);
-  static const bronzeLight = Color(0xFFD9BC85);
-  static const cream = Color(0xFFEADFC4);
+  static MuhurBg get _bg => bgById(AppSettings.instance.background.value);
+
+  // Koyu arka planda silik kalmasın diye en az bu parlaklığa yükseltilir.
+  static Color _lift(Color c, double minL) {
+    final h = HSLColor.fromColor(c);
+    return h.lightness >= minL ? c : h.withLightness(minL).toColor();
+  }
+
+  static Color get bronze => _lift(_bg.accent, 0.62);
+  static Color get bronzeLight => _lift(_bg.accentLight, 0.78);
+  static Color get cream => _lift(_bg.text, 0.85);
   static const wax = Color(0xFF8E1B1B);
   static const overlay = Color(0x990B0E11); // arka plan karartması
 }

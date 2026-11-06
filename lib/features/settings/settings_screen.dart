@@ -568,7 +568,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 image: DecorationImage(
                   image: ResizeImage(AssetImage(b.asset), width: 160),
                   fit: BoxFit.cover,
-                  onError: (e, st) {},
                 ),
               ),
               child: selected
