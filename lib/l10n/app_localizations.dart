@@ -942,35 +942,35 @@ abstract class AppLocalizations {
   /// **'Makes the background image darker or lighter'**
   String get backgroundDimDesc;
 
-  /// No description provided for @bgStone.
-  ///
-  /// In en, this message translates to:
-  /// **'Stone'**
-  String get bgStone;
-
-  /// No description provided for @bgNight.
-  ///
-  /// In en, this message translates to:
-  /// **'Night'**
-  String get bgNight;
-
   /// No description provided for @bgBronze.
   ///
   /// In en, this message translates to:
   /// **'Bronze'**
   String get bgBronze;
 
-  /// No description provided for @bgSteel.
+  /// No description provided for @bgEmber.
   ///
   /// In en, this message translates to:
-  /// **'Steel'**
-  String get bgSteel;
+  /// **'Ember'**
+  String get bgEmber;
 
-  /// No description provided for @bgInk.
+  /// No description provided for @bgSapphire.
   ///
   /// In en, this message translates to:
-  /// **'Ink'**
-  String get bgInk;
+  /// **'Sapphire'**
+  String get bgSapphire;
+
+  /// No description provided for @bgObsidian.
+  ///
+  /// In en, this message translates to:
+  /// **'Obsidian'**
+  String get bgObsidian;
+
+  /// No description provided for @bgLumen.
+  ///
+  /// In en, this message translates to:
+  /// **'Lumen'**
+  String get bgLumen;
 
   /// No description provided for @helpAnimation.
   ///

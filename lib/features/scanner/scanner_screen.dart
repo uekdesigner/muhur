@@ -362,32 +362,9 @@ class _ScannerScreenState extends State<ScannerScreen>
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (_error != null)
-              Text(
-                _error!,
-                style: const TextStyle(color: MuhurColors.bronzeLight),
-              ),
+            if (_error != null) Text(_error!),
             if (c == null) ...[
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 16,
-                    height: 16,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: MuhurColors.bronzeLight,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    t.scanning,
-                    style: const TextStyle(
-                      color: MuhurColors.cream,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ],
-              ),
+              Row(children: [const SizedBox(width: 10), Text(t.scanning)]),
               const SizedBox(height: 6),
               Text(
                 t.scanHint,
@@ -411,14 +388,7 @@ class _ScannerScreenState extends State<ScannerScreen>
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Text(
-                    t.scanIsThis,
-                    style: const TextStyle(
-                      color: MuhurColors.cream,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16,
-                    ),
-                  ),
+                  Text(t.scanIsThis),
                 ],
               ),
               const SizedBox(height: 12),
@@ -433,26 +403,12 @@ class _ScannerScreenState extends State<ScannerScreen>
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(color: MuhurColors.bronze, width: 1.2),
                 ),
-                child: Text(
-                  isIban ? groupIban(c) : c,
-                  style: const TextStyle(
-                    color: MuhurColors.cream,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 1,
-                  ),
-                ),
+                child: Text(isIban ? groupIban(c) : c),
               ),
               if (_candidateCorrected)
                 Padding(
                   padding: const EdgeInsets.only(top: 6),
-                  child: Text(
-                    t.ibanCorrected,
-                    style: const TextStyle(
-                      color: MuhurColors.bronzeLight,
-                      fontSize: 12,
-                    ),
-                  ),
+                  child: Text(t.ibanCorrected),
                 ),
               const SizedBox(height: 14),
               Row(
@@ -469,10 +425,7 @@ class _ScannerScreenState extends State<ScannerScreen>
                   IconButton(
                     tooltip: t.editBeforeUse,
                     onPressed: () => _pickLine(c),
-                    icon: const Icon(
-                      Icons.edit_outlined,
-                      color: MuhurColors.bronzeLight,
-                    ),
+                    icon: const Icon(Icons.edit_outlined),
                   ),
                   Expanded(
                     flex: 2,

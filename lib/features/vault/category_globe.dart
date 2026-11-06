@@ -86,18 +86,7 @@ class _CategoryGlobeState extends State<CategoryGlobe> {
         children: [
           Icon(it.icon, color: MuhurColors.cream, size: 22),
           const SizedBox(height: 6),
-          FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              it.label,
-              maxLines: 1,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w700,
-                color: MuhurColors.cream,
-              ),
-            ),
-          ),
+          FittedBox(fit: BoxFit.scaleDown, child: Text(it.label, maxLines: 1)),
         ],
       ),
     );

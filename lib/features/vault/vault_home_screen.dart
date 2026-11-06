@@ -196,7 +196,6 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
             backgroundColor: const Color(0xE614181C),
             foregroundColor: MuhurColors.cream,
             shape: RoundedRectangleBorder(
-              side: const BorderSide(color: MuhurColors.bronze, width: 1.4),
               borderRadius: BorderRadius.circular(16),
             ),
             child: const Icon(Icons.add),
@@ -260,12 +259,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                     }
                     final list = snap.data!;
                     if (list.isEmpty) {
-                      return Center(
-                        child: Text(
-                          t.noEntries,
-                          style: const TextStyle(color: MuhurColors.cream),
-                        ),
-                      );
+                      return Center(child: Text(t.noEntries));
                     }
                     return ListView.builder(
                       padding: const EdgeInsets.only(bottom: 80),
@@ -317,22 +311,17 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   if (e.isFavorite)
-                                    const Icon(
-                                      Icons.star,
-                                      size: 18,
-                                      color: MuhurColors.bronzeLight,
-                                    ),
-                                  if (dot != null) ...[
-                                    const SizedBox(width: 8),
-                                    Container(
-                                      width: 12,
-                                      height: 12,
-                                      decoration: BoxDecoration(
-                                        color: dot,
-                                        shape: BoxShape.circle,
+                                    if (dot != null) ...[
+                                      const SizedBox(width: 8),
+                                      Container(
+                                        width: 12,
+                                        height: 12,
+                                        decoration: BoxDecoration(
+                                          color: dot,
+                                          shape: BoxShape.circle,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
                                 ],
                               ),
                               onTap: selecting

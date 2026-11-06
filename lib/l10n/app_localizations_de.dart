@@ -477,19 +477,19 @@ class AppLocalizationsDe extends AppLocalizations {
       'Makes the background image darker or lighter';
 
   @override
-  String get bgStone => 'Stone';
-
-  @override
-  String get bgNight => 'Night';
-
-  @override
   String get bgBronze => 'Bronze';
 
   @override
-  String get bgSteel => 'Steel';
+  String get bgEmber => 'Ember';
 
   @override
-  String get bgInk => 'Ink';
+  String get bgSapphire => 'Sapphire';
+
+  @override
+  String get bgObsidian => 'Obsidian';
+
+  @override
+  String get bgLumen => 'Lumen';
 
   @override
   String get helpAnimation => 'Help animation';

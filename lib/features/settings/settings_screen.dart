@@ -156,16 +156,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: [
               Icon(icon, color: MuhurColors.bronzeLight),
               const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    color: MuhurColors.cream,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
+              Expanded(child: Text(title)),
               ?trailing,
             ],
           ),
@@ -253,9 +244,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               disabledThumbColor: MuhurColors.bronze.withValues(alpha: 0.7),
               tickMarkShape: SliderTickMarkShape.noTickMark,
               valueIndicatorColor: MuhurColors.bronze,
-              valueIndicatorTextStyle: const TextStyle(
-                color: MuhurColors.cream,
-              ),
             ),
             child: Slider(
               value: value.toDouble(),
@@ -273,17 +261,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           width: 84,
           child: Align(
             alignment: AlignmentDirectional.centerEnd,
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                label,
-                style: const TextStyle(
-                  color: MuhurColors.bronzeLight,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ),
+            child: FittedBox(fit: BoxFit.scaleDown, child: Text(label)),
           ),
         ),
       ],
@@ -388,14 +366,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       color: MuhurColors.bronze.withValues(alpha: 0.35),
       borderRadius: BorderRadius.circular(12),
     ),
-    child: Text(
-      text,
-      style: const TextStyle(
-        color: MuhurColors.cream,
-        fontSize: 12,
-        fontWeight: FontWeight.w700,
-      ),
-    ),
+    child: Text(text),
   );
 
   Widget _trashPanel(AppLocalizations t) {
@@ -515,15 +486,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       children: [
         Icon(icon, size: 18, color: MuhurColors.cream),
         const SizedBox(width: 10),
-        Text(
-          text,
-          style: const TextStyle(
-            color: MuhurColors.cream,
-            fontSize: 14,
-            fontWeight: FontWeight.w800,
-            letterSpacing: 1.5,
-          ),
-        ),
+        Text(text),
       ],
     ),
   );
@@ -570,15 +533,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 image: DecorationImage(
                   image: ResizeImage(AssetImage(b.asset), width: 160),
                   fit: BoxFit.cover,
+                  onError: (e, st) {},
                 ),
               ),
-              child: selected
-                  ? const Icon(
-                      Icons.check,
-                      color: MuhurColors.bronzeLight,
-                      size: 22,
-                    )
-                  : null,
+              child: selected ? const Icon(Icons.check, size: 22) : null,
             ),
             const SizedBox(height: 4),
             Text(

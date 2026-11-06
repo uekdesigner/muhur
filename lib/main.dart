@@ -22,6 +22,16 @@ Future<void> main() async {
   await GeneratorSettings.instance.load();
   ClipboardService.instance.init();
   await ScreenCaptureService.instance.init();
+  AppSettings.instance.background.addListener(() {
+    void rebuild(Element e) {
+      e.markNeedsBuild();
+      e.visitChildren(rebuild);
+    }
+
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => WidgetsBinding.instance.rootElement?.visitChildren(rebuild),
+    );
+  });
   runApp(const MuhurApp());
 }
 
@@ -30,16 +40,19 @@ class MuhurApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<Locale?>(
-      valueListenable: AppSettings.instance.locale,
-      builder: (context, loc, _) => MaterialApp(
-        locale: loc,
-        onGenerateTitle: (c) => AppLocalizations.of(c)!.appName,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        builder: (c, child) => PanelScope(child: privacyBuilder(c, child)),
-        theme: buildMuhurTheme(),
-        home: const AppRoot(),
+    return ValueListenableBuilder<String>(
+      valueListenable: AppSettings.instance.background,
+      builder: (context, _, __) => ValueListenableBuilder<Locale?>(
+        valueListenable: AppSettings.instance.locale,
+        builder: (context, loc, _) => MaterialApp(
+          locale: loc,
+          onGenerateTitle: (c) => AppLocalizations.of(c)!.appName,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          builder: (c, child) => PanelScope(child: privacyBuilder(c, child)),
+          theme: buildMuhurTheme(),
+          home: const AppRoot(),
+        ),
       ),
     );
   }

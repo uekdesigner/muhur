@@ -19,24 +19,12 @@ void showGuideTip(BuildContext context, String id, String text) {
       backgroundColor: const Color(0xF0161B1F),
       showCloseIcon: true,
       closeIconColor: MuhurColors.bronzeLight,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(14),
-        side: const BorderSide(color: MuhurColors.bronze, width: 1.2),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       content: Row(
         children: [
-          const Icon(
-            Icons.lightbulb_outline,
-            color: MuhurColors.bronzeLight,
-            size: 20,
-          ),
+          const Icon(Icons.lightbulb_outline, size: 20),
           const SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              text,
-              style: const TextStyle(color: MuhurColors.cream, fontSize: 13.5),
-            ),
-          ),
+          Expanded(child: Text(text)),
         ],
       ),
     ),

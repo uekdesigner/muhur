@@ -46,14 +46,7 @@ class _StatsPanelState extends State<StatsPanel> {
                 // Yüzde yalnızca en az bir parola varken görünür.
                 if (s != null && s.total > 0) ...[
                   const SizedBox(width: 10),
-                  Text(
-                    '%${s.score}',
-                    style: const TextStyle(
-                      color: MuhurColors.cream,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 12,
-                    ),
-                  ),
+                  Text('%${s.score}'),
                 ],
                 // Aşağı ok: paneli şeride küçült, yukarı ok: eski haline döndür.
                 IconButton(
@@ -121,13 +114,7 @@ class _Stat extends StatelessWidget {
                 color: color,
               ),
             ),
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                label,
-                style: const TextStyle(fontSize: 10, color: MuhurColors.cream),
-              ),
-            ),
+            FittedBox(fit: BoxFit.scaleDown, child: Text(label)),
           ],
         ),
       ),
