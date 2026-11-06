@@ -183,6 +183,10 @@ class _CustomFieldDialogState extends State<_CustomFieldDialog> {
                           ),
                           const SizedBox(width: 6),
                         ],
+                        Text(
+                          e.value,
+                          style: const TextStyle(color: MuhurColors.cream),
+                        ),
                       ],
                     ),
                   ),
@@ -394,7 +398,10 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.edit_note),
+              leading: const Icon(
+                Icons.edit_note,
+                color: MuhurColors.bronzeLight,
+              ),
               title: Text(t.customField),
               onTap: () => Navigator.pop(sheetContext, 'custom'),
             ),
@@ -487,7 +494,10 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       tooltip: '${t.category}: ${current.label(t)}',
       position: PopupMenuPosition.under,
       color: const Color(0xF0161B1F),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+        side: const BorderSide(color: MuhurColors.bronze, width: 1.2),
+      ),
       onSelected: _onCategory,
       itemBuilder: (context) => [
         for (final c in widget.categories)
@@ -498,7 +508,12 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
                 Icon(c.icon, color: MuhurColors.bronzeLight, size: 22),
                 const SizedBox(width: 12),
                 Expanded(child: Text(c.label(t))),
-                if (c.id == _categoryId) const Icon(Icons.check, size: 18),
+                if (c.id == _categoryId)
+                  const Icon(
+                    Icons.check,
+                    size: 18,
+                    color: MuhurColors.bronzeLight,
+                  ),
               ],
             ),
           ),
@@ -513,7 +528,10 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: [Icon(current.icon, color: MuhurColors.bronzeLight)],
+          children: [
+            Icon(current.icon, color: MuhurColors.bronzeLight),
+            const Icon(Icons.arrow_drop_down, color: MuhurColors.cream),
+          ],
         ),
       ),
     );

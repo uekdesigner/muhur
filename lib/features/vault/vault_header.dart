@@ -50,13 +50,27 @@ class VaultHeader extends StatelessWidget {
                           child: Text(
                             t.brandName,
                             overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              color: MuhurColors.bronzeLight,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: 1,
+                            ),
                           ),
                         ),
                         const SizedBox(width: 8),
                         _FreeBadge(t.planFree),
                       ],
                     ),
-                    Text(t.brandSubtitle, overflow: TextOverflow.ellipsis),
+                    Text(
+                      t.brandSubtitle,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: MuhurColors.cream,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -143,7 +157,15 @@ class _FreeBadge extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: MuhurColors.bronze.withValues(alpha: 0.8)),
       ),
-      child: Text(label),
+      child: Text(
+        label,
+        style: const TextStyle(
+          color: MuhurColors.bronzeLight,
+          fontSize: 10,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0.5,
+        ),
+      ),
     );
   }
 }
@@ -182,7 +204,14 @@ class StatusPill extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          Text(label),
+          Text(
+            label,
+            style: const TextStyle(
+              color: MuhurColors.cream,
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ],
       ),
     );
@@ -330,6 +359,7 @@ class _HelpMenu extends StatelessWidget {
                 elevation: 8,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
+                  side: const BorderSide(color: MuhurColors.bronze, width: 1.2),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(14, 12, 14, 8),
@@ -340,12 +370,13 @@ class _HelpMenu extends StatelessWidget {
                       Text(
                         t.helpMenuTitle,
                         style: const TextStyle(
+                          color: MuhurColors.cream,
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
                         ),
                       ),
                       const SizedBox(height: 8),
-
+                      const Divider(color: MuhurColors.bronze, height: 1),
                       const SizedBox(height: 4),
                       for (var i = 0; i < items.length; i++)
                         _stagger(
@@ -361,7 +392,15 @@ class _HelpMenu extends StatelessWidget {
                                   color: MuhurColors.bronzeLight,
                                 ),
                                 const SizedBox(width: 10),
-                                Expanded(child: Text(items[i].$2)),
+                                Expanded(
+                                  child: Text(
+                                    items[i].$2,
+                                    style: const TextStyle(
+                                      color: MuhurColors.cream,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -416,7 +455,15 @@ class _HelpMenu extends StatelessWidget {
     final t = AppLocalizations.of(context)!;
     return Tooltip(
       message: t.helpTitle,
-      child: InkResponse(radius: 22, onTap: () => _open(context)),
+      child: InkResponse(
+        radius: 22,
+        onTap: () => _open(context),
+        child: const SizedBox(
+          width: 32,
+          height: 32,
+          child: Icon(Icons.question_mark, size: 22, color: MuhurColors.cream),
+        ),
+      ),
     );
   }
 }
