@@ -8,6 +8,7 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 import '../../l10n/app_localizations.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/utils/haptics.dart';
+import '../../core/utils/motion.dart';
 import 'iban_validator.dart';
 
 enum ScanMode { iban, text }
@@ -38,7 +39,7 @@ class _ScannerScreenState extends State<ScannerScreen>
   late final AnimationController _sweep = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 2200),
-  )..repeat(reverse: true);
+  );
 
   Size _view = Size.zero; // önizleme alanı
   Size _upright = Size.zero; // döndürülmüş kamera karesi
@@ -52,6 +53,11 @@ class _ScannerScreenState extends State<ScannerScreen>
   @override
   void initState() {
     super.initState();
+    if (Motion.off) {
+      _sweep.value = 0.5; // tarama çizgisi ortada sabit kalır
+    } else {
+      _sweep.repeat(reverse: true);
+    }
     // Görüntü yönünü sabitlemek için dikey kilitle
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     _initCamera();
@@ -263,6 +269,7 @@ class _ScannerScreenState extends State<ScannerScreen>
     final ctrl = TextEditingController(text: line);
     final value = await showDialog<String>(
       context: context,
+      animationStyle: Motion.style,
       builder: (c) => AlertDialog(
         title: Text(t.editBeforeUse),
         content: TextField(
@@ -300,7 +307,7 @@ class _ScannerScreenState extends State<ScannerScreen>
           if (_candidate != null) _resume();
         },
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 180),
+          duration: Motion.d(const Duration(milliseconds: 180)),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
           decoration: BoxDecoration(
             color: sel ? MuhurColors.bronze : Colors.transparent,

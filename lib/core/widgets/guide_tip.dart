@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_theme.dart';
 import '../storage/app_settings.dart';
+import '../utils/motion.dart';
 
 /// Akıllı yönlendirme açıksa, bu ipucunu yalnızca ilk seferde kısa bir bant
 /// olarak gösterir. Yeni ipucu eklemek için tek satır yeter:
@@ -13,6 +14,7 @@ void showGuideTip(BuildContext context, String id, String text) {
   final m = ScaffoldMessenger.of(context);
   m.hideCurrentSnackBar();
   m.showSnackBar(
+    snackBarAnimationStyle: Motion.style,
     SnackBar(
       behavior: SnackBarBehavior.floating,
       duration: const Duration(seconds: 7),

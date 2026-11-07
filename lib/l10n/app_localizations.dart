@@ -972,18 +972,6 @@ abstract class AppLocalizations {
   /// **'Lumen'**
   String get bgLumen;
 
-  /// No description provided for @helpAnimation.
-  ///
-  /// In en, this message translates to:
-  /// **'Help animation'**
-  String get helpAnimation;
-
-  /// No description provided for @helpAnimationDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Makes the help icon wiggle and glow on first launch so it is noticed'**
-  String get helpAnimationDesc;
-
   /// No description provided for @smartGuide.
   ///
   /// In en, this message translates to:
@@ -1011,13 +999,13 @@ abstract class AppLocalizations {
   /// No description provided for @reduceAnimations.
   ///
   /// In en, this message translates to:
-  /// **'Reduce animations'**
+  /// **'Turn off animations'**
   String get reduceAnimations;
 
   /// No description provided for @reduceAnimationsDesc.
   ///
   /// In en, this message translates to:
-  /// **'Turns off the help menu animation, the help icon wiggle and page transitions. Good for slower devices and sensitive users'**
+  /// **'Turns off every animation in the app: the help icon wiggle and glow, the help menu, page transitions, dialogs and the scanner line. Good for slower devices and sensitive users'**
   String get reduceAnimationsDesc;
 
   /// No description provided for @resetTips.

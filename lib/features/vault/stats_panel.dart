@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
+import '../../core/utils/motion.dart';
 import '../../l10n/app_localizations.dart';
 
 import 'vault_repository.dart';
@@ -33,7 +34,7 @@ class _StatsPanelState extends State<StatsPanel> {
         border: Border.all(color: MuhurColors.bronze, width: 1.2),
       ),
       child: AnimatedSize(
-        duration: const Duration(milliseconds: 200),
+        duration: Motion.d(const Duration(milliseconds: 200)),
         alignment: Alignment.topCenter,
         child: Column(
           mainAxisSize: MainAxisSize.min,

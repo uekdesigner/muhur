@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/utils/haptics.dart';
+import '../../core/utils/motion.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../password_gen/strength_bar.dart';
@@ -58,6 +59,7 @@ class _SetupScreenState extends State<SetupScreen> {
       if (await widget.auth.biometricAvailable() && mounted) {
         final enable = await showDialog<bool>(
           context: context,
+          animationStyle: Motion.style,
           builder: (c) => AlertDialog(
             title: Text(t.enableBiometricsQ),
             actions: [
@@ -264,6 +266,7 @@ class _UnlockScreenState extends State<UnlockScreen> {
     final t = AppLocalizations.of(context)!;
     showDialog<void>(
       context: context,
+      animationStyle: Motion.style,
       builder: (c) => AlertDialog(
         title: Text(t.infoTitle),
         content: Text(t.infoBody),

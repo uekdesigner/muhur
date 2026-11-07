@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/constants/app_theme.dart';
+import '../../core/utils/motion.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../password_gen/generator_settings.dart';
@@ -382,6 +383,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
 
     final chosen = await showModalBottomSheet<Object>(
       context: context,
+      sheetAnimationStyle: Motion.style,
       backgroundColor: const Color(0xF0161B1F),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
@@ -428,6 +430,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
 
     final custom = await showDialog<_CustomFieldResult>(
       context: context,
+      animationStyle: Motion.style,
       builder: (_) => const _CustomFieldDialog(),
     );
     if (custom == null || !mounted) return;
@@ -488,6 +491,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
   Widget _categoryMenu(AppLocalizations t) {
     final current = widget.categories.firstWhere((c) => c.id == _categoryId);
     return PopupMenuButton<int>(
+      popUpAnimationStyle: Motion.style,
       tooltip: '${t.category}: ${current.label(t)}',
       position: PopupMenuPosition.under,
       color: const Color(0xF0161B1F),

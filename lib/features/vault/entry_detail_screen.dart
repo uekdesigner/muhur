@@ -5,6 +5,7 @@ import 'entry_edit_screen.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
 import '../../core/utils/clipboard_service.dart';
+import '../../core/utils/motion.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/widgets/panel_style.dart';
@@ -51,6 +52,7 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
     final t = AppLocalizations.of(context)!;
     final yes = await showDialog<bool>(
       context: context,
+      animationStyle: Motion.style,
       builder: (c) => AlertDialog(
         actionsAlignment: MainAxisAlignment.spaceEvenly,
         content: Text(t.deleteConfirm),

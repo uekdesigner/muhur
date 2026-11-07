@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
+import '../../core/utils/motion.dart';
 import '../auth/auth_service.dart';
 import '../auth/password_policy.dart';
 import '../auth/password_requirements.dart';
@@ -10,6 +11,7 @@ import '../password_gen/strength_bar.dart';
 Future<bool?> showChangePasswordDialog(BuildContext context, AuthService auth) {
   return showDialog<bool>(
     context: context,
+    animationStyle: Motion.style,
     barrierDismissible: false,
     builder: (_) => _ChangePasswordDialog(auth: auth),
   );

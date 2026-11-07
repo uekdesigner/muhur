@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
+import '../../core/utils/motion.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import 'vault_models.dart';
@@ -56,6 +57,7 @@ class _TrashScreenState extends State<TrashScreen> {
     final t = AppLocalizations.of(context)!;
     final yes = await showDialog<bool>(
       context: context,
+      animationStyle: Motion.style,
       builder: (c) => AlertDialog(
         content: Text(t.deleteForeverConfirm),
         actions: [

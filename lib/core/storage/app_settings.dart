@@ -40,7 +40,6 @@ class AppSettings {
   /// Otomatik yedek açık mı? (Yedek özelliği henüz yok, şimdilik hep kapalı.)
   final ValueNotifier<bool> autoBackup = ValueNotifier<bool>(false);
 
-  static const _kHelpAnim = 'muhur_help_anim';
   static const _kHelpSeen = 'muhur_help_seen';
   static const _kSmartGuide = 'muhur_smart_guide';
   static const _kTipsSeen = 'muhur_tips_seen';
@@ -62,9 +61,6 @@ class AppSettings {
 
   /// Arka plan karartması %0-%90 (varsayılan %60, eski görünümle aynı).
   final ValueNotifier<int> backgroundDim = ValueNotifier<int>(60);
-
-  /// ? ikonunun dikkat çekme animasyonu açık mı? (varsayılan: açık)
-  final ValueNotifier<bool> helpAnimation = ValueNotifier<bool>(true);
 
   /// Akıllı yönlendirme: özelliklerde ilk kullanımda kısa ipuçları.
   final ValueNotifier<bool> smartGuide = ValueNotifier<bool>(false);
@@ -99,7 +95,6 @@ class AppSettings {
     final code = await _storage.read(key: _kLocale);
     locale.value = code == null ? null : Locale(code);
     autoBackup.value = (await _storage.read(key: _kAutoBackup)) == '1';
-    helpAnimation.value = (await _storage.read(key: _kHelpAnim)) != '0';
     helpSeen = (await _storage.read(key: _kHelpSeen)) == '1';
     smartGuide.value = (await _storage.read(key: _kSmartGuide)) == '1';
     haptics.value = (await _storage.read(key: _kHaptics)) != '0';
@@ -157,11 +152,6 @@ class AppSettings {
   Future<void> setAutoBackup(bool on) async {
     autoBackup.value = on;
     await _storage.write(key: _kAutoBackup, value: on ? '1' : '0');
-  }
-
-  Future<void> setHelpAnimation(bool on) async {
-    helpAnimation.value = on;
-    await _storage.write(key: _kHelpAnim, value: on ? '1' : '0');
   }
 
   Future<void> setSmartGuide(bool on) async {

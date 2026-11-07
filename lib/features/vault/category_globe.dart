@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/utils/haptics.dart';
+import '../../core/utils/motion.dart';
 import '../../core/widgets/panel_style.dart';
 
 class GlobeItem {
@@ -155,7 +156,9 @@ class _CategoryGlobeState extends State<CategoryGlobe> {
                             behavior: HitTestBehavior.opaque,
                             onTap: () => _c.animateToPage(
                               index,
-                              duration: const Duration(milliseconds: 320),
+                              duration: Motion.d(
+                                const Duration(milliseconds: 320),
+                              ),
                               curve: Curves.easeOutCubic,
                             ),
                             child: _face(item, cosA * cosA),

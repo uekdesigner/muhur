@@ -491,13 +491,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get bgLumen => 'Lümen';
 
   @override
-  String get helpAnimation => 'Yardım animasyonu';
-
-  @override
-  String get helpAnimationDesc =>
-      'Fark edilmesi için ilk açılışta yardım simgesini sallar ve parlatır';
-
-  @override
   String get smartGuide => 'Akıllı rehberlik';
 
   @override

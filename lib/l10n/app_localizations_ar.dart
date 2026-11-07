@@ -501,13 +501,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get bgLumen => 'لومين';
 
   @override
-  String get helpAnimation => 'حركة المساعدة';
-
-  @override
-  String get helpAnimationDesc =>
-      'تجعل أيقونة المساعدة تهتز وتتوهج عند التشغيل الأول لافتات الانتباه';
-
-  @override
   String get smartGuide => 'التوجيه الذكي';
 
   @override

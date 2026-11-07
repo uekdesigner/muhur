@@ -22,6 +22,9 @@ class MuhurColors {
   static Color get bronze => _lift(_bg.accent, 0.62);
   static Color get bronzeLight => _lift(_bg.accentLight, 0.78);
   static Color get cream => _lift(_bg.text, 0.85);
+
+  /// Yuvarlak panellerin ince çerçevesi: seçili arka planın vurgu rengi.
+  static Color get line => bronze.withValues(alpha: 0.7);
   static const wax = Color(0xFF8E1B1B);
   static const overlay = Color(0x990B0E11); // arka plan karartması
 }

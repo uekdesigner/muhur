@@ -52,7 +52,7 @@ class VaultHeader extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: MuhurColors.bronzeLight,
-                              fontSize: 22,
+                              fontSize: 16,
                               fontWeight: FontWeight.w800,
                               letterSpacing: 1,
                             ),
@@ -67,7 +67,7 @@ class VaultHeader extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: MuhurColors.cream,
-                        fontSize: 14,
+                        fontSize: 10,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -167,7 +167,7 @@ class _FreeBadge extends StatelessWidget {
         label,
         style: TextStyle(
           color: MuhurColors.bronzeLight,
-          fontSize: 10,
+          fontSize: 7.8,
           fontWeight: FontWeight.w800,
           letterSpacing: 0.5,
         ),
@@ -203,6 +203,11 @@ class StatusPill extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xCC1B2024),
           shape: BoxShape.circle,
+          border: Border.all(
+            color: active
+                ? Colors.greenAccent.withValues(alpha: 0.6)
+                : MuhurColors.line,
+          ),
           boxShadow: active
               ? [
                   BoxShadow(
@@ -267,16 +272,25 @@ class HeaderButton extends StatelessWidget {
               ),
             ),
           )
-        : InkResponse(
-            onTap: onPressed,
-            radius: size * 0.7,
-            child: SizedBox(
-              width: size,
-              height: size,
-              child: Icon(icon, size: iconSize, color: iconColor),
+        : Material(
+            color: const Color(0xCC1B2024),
+            shape: const CircleBorder(),
+
+            clipBehavior: Clip.antiAlias,
+            child: InkWell(
+              onTap: onPressed,
+              customBorder: const CircleBorder(),
+              child: SizedBox(
+                width: size,
+                height: size,
+                child: Icon(
+                  icon,
+                  size: math.min(iconSize, size * 0.62),
+                  color: iconColor,
+                ),
+              ),
             ),
           );
-
     return Tooltip(
       message: tooltip,
       child: Opacity(
@@ -465,13 +479,22 @@ class _HelpMenu extends StatelessWidget {
     final t = AppLocalizations.of(context)!;
     return Tooltip(
       message: t.helpTitle,
-      child: InkResponse(
-        radius: 22,
-        onTap: () => _open(context),
-        child: SizedBox(
-          width: 32,
-          height: 32,
-          child: Icon(Icons.question_mark, size: 22, color: MuhurColors.cream),
+      child: Material(
+        color: const Color(0xCC1B2024),
+        shape: CircleBorder(side: BorderSide(color: MuhurColors.line)),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () => _open(context),
+          customBorder: const CircleBorder(),
+          child: SizedBox(
+            width: 32,
+            height: 32,
+            child: Icon(
+              Icons.question_mark,
+              size: 20,
+              color: MuhurColors.cream,
+            ),
+          ),
         ),
       ),
     );
@@ -503,17 +526,15 @@ class _HelpWiggleState extends State<_HelpWiggle>
   void initState() {
     super.initState();
     final s = AppSettings.instance;
-    if (s.helpAnimation.value && !s.reduceAnimations.value && !s.helpSeen) {
+    s.reduceAnimations.addListener(_onReduce);
+    if (!s.reduceAnimations.value && !s.helpSeen) {
       _active = true;
       _loop();
     }
   }
 
   bool get _shouldPlay =>
-      mounted &&
-      _active &&
-      AppSettings.instance.helpAnimation.value &&
-      !AppSettings.instance.reduceAnimations.value;
+      mounted && _active && !AppSettings.instance.reduceAnimations.value;
 
   Future<void> _loop() async {
     await Future.delayed(const Duration(milliseconds: 700));
@@ -522,6 +543,13 @@ class _HelpWiggleState extends State<_HelpWiggle>
       if (!_shouldPlay) break;
       await Future.delayed(_gap);
     }
+  }
+
+  /// Ayar açılınca sürmekte olan animasyonu hemen durdurur.
+  void _onReduce() {
+    if (!AppSettings.instance.reduceAnimations.value) return;
+    _c.stop(canceled: false);
+    _c.value = 0;
   }
 
   /// Dokununca bir daha oynamaz.
@@ -535,6 +563,7 @@ class _HelpWiggleState extends State<_HelpWiggle>
   @override
   void dispose() {
     _active = false;
+    AppSettings.instance.reduceAnimations.removeListener(_onReduce);
     _c.dispose();
     super.dispose();
   }
@@ -577,11 +606,12 @@ class _HelpWiggleState extends State<_HelpWiggle>
                       ),
                     ),
                   ),
+                child!,
                 // Soru işaretinin kendi şeklini saran dar ve keskin ışık
                 if (glow > 0.01)
                   Icon(
                     Icons.question_mark,
-                    size: 22,
+                    size: 20,
                     color: MuhurColors.bronzeLight.withValues(alpha: glow),
                     shadows: [
                       Shadow(
@@ -594,7 +624,6 @@ class _HelpWiggleState extends State<_HelpWiggle>
                       ),
                     ],
                   ),
-                child!,
               ],
             ),
           );

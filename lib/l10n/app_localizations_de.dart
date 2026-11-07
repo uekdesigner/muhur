@@ -492,13 +492,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get bgLumen => 'Lumen';
 
   @override
-  String get helpAnimation => 'Hilfe-Animation';
-
-  @override
-  String get helpAnimationDesc =>
-      'Lässt das Hilfe-Icon beim ersten Start wackeln und leuchten, damit es auffällt';
-
-  @override
   String get smartGuide => 'Intelligente Führung';
 
   @override

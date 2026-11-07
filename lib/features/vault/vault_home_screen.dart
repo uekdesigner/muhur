@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/crypto/crypto_service.dart';
+import '../../core/utils/motion.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
@@ -146,6 +147,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     if (count == 0) return;
     final yes = await showDialog<bool>(
       context: context,
+      animationStyle: Motion.style,
       builder: (c) => AlertDialog(
         actionsAlignment: MainAxisAlignment.spaceEvenly,
         content: Text(t.deleteSelectedConfirm(count)),

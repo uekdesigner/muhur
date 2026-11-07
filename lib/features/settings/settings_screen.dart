@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
 import '../../core/utils/clipboard_service.dart';
+import '../../core/utils/motion.dart';
 import '../../core/utils/screen_capture_service.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../core/widgets/language_button.dart';
@@ -187,6 +188,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       tooltip: title,
       onPressed: () => showDialog<void>(
         context: context,
+        animationStyle: Motion.style,
         builder: (ctx) => AlertDialog(
           title: Text(title),
           content: Text(body),
@@ -337,8 +339,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final t = AppLocalizations.of(context)!;
     final ok = await showChangePasswordDialog(context, widget.auth);
     if (ok == true && mounted) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(t.masterPasswordChanged)));
+      ScaffoldMessenger.of(context).showSnackBar(
+        snackBarAnimationStyle: Motion.style,
+        SnackBar(content: Text(t.masterPasswordChanged)),
+      );
     }
   }
 
@@ -361,6 +365,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final t = AppLocalizations.of(context)!;
     final yes = await showDialog<bool>(
       context: context,
+      animationStyle: Motion.style,
       builder: (c) => AlertDialog(
         content: Text(t.emptyTrashConfirm(_trashCount)),
         actions: [
@@ -673,15 +678,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _sectionTitle(Icons.tune, t.sectionExperience),
       _panel([
         ValueListenableBuilder<bool>(
-          valueListenable: s.helpAnimation,
-          builder: (context, on, _) => _row(
-            icon: Icons.auto_awesome,
-            title: t.helpAnimation,
-            trailing: _switch(on, s.setHelpAnimation),
-            child: _desc(t.helpAnimationDesc),
-          ),
-        ),
-        ValueListenableBuilder<bool>(
           valueListenable: s.smartGuide,
           builder: (context, on, _) => _row(
             icon: Icons.chat_bubble_outline,
@@ -702,7 +698,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ValueListenableBuilder<bool>(
           valueListenable: s.reduceAnimations,
           builder: (context, on, _) => _row(
-            icon: Icons.motion_photos_off_outlined,
+            icon: Icons.auto_awesome,
             title: t.reduceAnimations,
             trailing: _switch(on, s.setReduceAnimations),
             child: _desc(t.reduceAnimationsDesc),
@@ -712,8 +708,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           onTap: () async {
             await s.resetTips();
             if (!mounted) return;
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text(t.tipsResetDone)));
+            ScaffoldMessenger.of(context).showSnackBar(
+              snackBarAnimationStyle: Motion.style,
+              SnackBar(content: Text(t.tipsResetDone)),
+            );
           },
           child: _row(
             icon: Icons.restart_alt,

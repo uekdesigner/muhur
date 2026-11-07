@@ -492,13 +492,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get bgLumen => 'Lumen';
 
   @override
-  String get helpAnimation => 'Help animation';
-
-  @override
-  String get helpAnimationDesc =>
-      'Makes the help icon wiggle and glow on first launch so it is noticed';
-
-  @override
   String get smartGuide => 'Smart guidance';
 
   @override
@@ -513,11 +506,11 @@ class AppLocalizationsEn extends AppLocalizations {
       'Gives a short vibration on fingerprint unlock and when copying';
 
   @override
-  String get reduceAnimations => 'Reduce animations';
+  String get reduceAnimations => 'Turn off animations';
 
   @override
   String get reduceAnimationsDesc =>
-      'Turns off the help menu animation, the help icon wiggle and page transitions. Good for slower devices and sensitive users';
+      'Turns off every animation in the app: the help icon wiggle and glow, the help menu, page transitions, dialogs and the scanner line. Good for slower devices and sensitive users';
 
   @override
   String get resetTips => 'Reset tips';

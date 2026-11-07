@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
+import '../utils/motion.dart';
 import '../storage/app_settings.dart';
 
 class LanguageButton extends StatelessWidget {
@@ -55,6 +56,7 @@ class LanguageButton extends StatelessWidget {
     );
 
     return PopupMenuButton<String>(
+      popUpAnimationStyle: Motion.style,
       icon: const Icon(Icons.language),
       tooltip: t.language,
       onSelected: (code) => AppSettings.instance.setLocale(
