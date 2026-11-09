@@ -114,13 +114,22 @@ class VaultHeader extends StatelessWidget {
                         active: on,
                       ),
                     ),
-                    ValueListenableBuilder<bool>(
-                      valueListenable: AppSettings.instance.autoBackup,
-                      builder: (context, on, _) => StatusPill(
-                        icon: Icons.settings_backup_restore,
-                        tooltip: on ? t.statusBackupOn : t.statusBackupOff,
-                        active: on,
-                      ),
+                    ListenableBuilder(
+                      listenable: AppSettings.instance.backupChanges,
+                      builder: (context, _) {
+                        final s = AppSettings.instance;
+                        final days = s.daysSinceBackup;
+                        final overdue = s.backupOverdue;
+                        return StatusPill(
+                          icon: Icons.settings_backup_restore,
+                          tooltip: days == null
+                              ? t.statusBackupNever
+                              : overdue
+                              ? t.statusBackupOverdue(days)
+                              : t.statusBackupOk(days),
+                          active: !overdue,
+                        );
+                      },
                     ),
                   ],
                 ),

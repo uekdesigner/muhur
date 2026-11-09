@@ -598,6 +598,37 @@ class AppLocalizationsDe extends AppLocalizations {
   String get backupInvalidFile => 'This is not a valid Muhur backup file';
 
   @override
+  String get backupReminderTitle => 'Backup reminder';
+
+  @override
+  String get backupReminderDesc =>
+      'Reminds you on the home screen when your last backup is older than this. Set to 0 to turn it off.';
+
+  @override
+  String get backupReminderOff => 'Off';
+
+  @override
+  String get backupReminderNever =>
+      'You have not made a backup yet. Back up now so you do not lose your passwords.';
+
+  @override
+  String backupReminderAgo(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Your last backup was $days days ago.',
+      one: 'Your last backup was 1 day ago.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get backupReminderNow => 'Back up';
+
+  @override
+  String get backupReminderLater => 'Later';
+
+  @override
   String get statusScreenOn =>
       'Bildschirmschutz ist aktiv: Screenshots und Bildschirmaufnahmen sind blockiert';
 
@@ -606,10 +637,31 @@ class AppLocalizationsDe extends AppLocalizations {
       'Bildschirmschutz ist vorübergehend aus: Screenshots sind erlaubt';
 
   @override
-  String get statusBackupOn => 'Automatische Sicherung ist aktiv';
+  String get statusBackupNever =>
+      'No backup yet. Create one in Settings > Backup';
 
   @override
-  String get statusBackupOff => 'Automatische Sicherung ist aus';
+  String statusBackupOk(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Last backup: $days days ago',
+      one: 'Last backup: yesterday',
+      zero: 'Backed up today',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String statusBackupOverdue(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Backup overdue: last one was $days days ago',
+      one: 'Backup overdue: last one was 1 day ago',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get helpStatusScreen =>

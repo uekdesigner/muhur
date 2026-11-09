@@ -1164,6 +1164,48 @@ abstract class AppLocalizations {
   /// **'This is not a valid Muhur backup file'**
   String get backupInvalidFile;
 
+  /// No description provided for @backupReminderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup reminder'**
+  String get backupReminderTitle;
+
+  /// No description provided for @backupReminderDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminds you on the home screen when your last backup is older than this. Set to 0 to turn it off.'**
+  String get backupReminderDesc;
+
+  /// No description provided for @backupReminderOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get backupReminderOff;
+
+  /// No description provided for @backupReminderNever.
+  ///
+  /// In en, this message translates to:
+  /// **'You have not made a backup yet. Back up now so you do not lose your passwords.'**
+  String get backupReminderNever;
+
+  /// No description provided for @backupReminderAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, =1{Your last backup was 1 day ago.} other{Your last backup was {days} days ago.}}'**
+  String backupReminderAgo(int days);
+
+  /// No description provided for @backupReminderNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Back up'**
+  String get backupReminderNow;
+
+  /// No description provided for @backupReminderLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get backupReminderLater;
+
   /// No description provided for @statusScreenOn.
   ///
   /// In en, this message translates to:
@@ -1176,17 +1218,23 @@ abstract class AppLocalizations {
   /// **'Screen protection is off for now: screenshots are allowed'**
   String get statusScreenOff;
 
-  /// No description provided for @statusBackupOn.
+  /// No description provided for @statusBackupNever.
   ///
   /// In en, this message translates to:
-  /// **'Auto backup is on'**
-  String get statusBackupOn;
+  /// **'No backup yet. Create one in Settings > Backup'**
+  String get statusBackupNever;
 
-  /// No description provided for @statusBackupOff.
+  /// No description provided for @statusBackupOk.
   ///
   /// In en, this message translates to:
-  /// **'Auto backup is off'**
-  String get statusBackupOff;
+  /// **'{days, plural, =0{Backed up today} =1{Last backup: yesterday} other{Last backup: {days} days ago}}'**
+  String statusBackupOk(int days);
+
+  /// No description provided for @statusBackupOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'{days, plural, =1{Backup overdue: last one was 1 day ago} other{Backup overdue: last one was {days} days ago}}'**
+  String statusBackupOverdue(int days);
 
   /// No description provided for @helpStatusScreen.
   ///
@@ -1197,7 +1245,7 @@ abstract class AppLocalizations {
   /// No description provided for @helpStatusBackup.
   ///
   /// In en, this message translates to:
-  /// **'Backup icon: Auto backup (green = on, faded = off)'**
+  /// **'Backup icon: Backup status (green = recent backup, faded = backup due)'**
   String get helpStatusBackup;
 
   /// No description provided for @helpTitle.

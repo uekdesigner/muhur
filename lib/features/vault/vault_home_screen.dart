@@ -8,6 +8,7 @@ import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
 import '../password_gen/password_generator.dart';
 import '../settings/settings_screen.dart';
+import 'backup_reminder_banner.dart';
 import 'category_globe.dart';
 import 'entry_detail_screen.dart';
 import 'entry_edit_screen.dart';
@@ -99,16 +100,21 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     }
   }
 
-  Future<void> _openSettings() async {
+  Future<void> _openSettings({int section = 0}) async {
     await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => SettingsScreen(auth: widget.auth, repo: _repo),
+        builder: (_) => SettingsScreen(
+          auth: widget.auth,
+          repo: _repo,
+          initialSection: section,
+        ),
       ),
     );
     if (mounted) _refreshAll();
   }
 
+  void _openBackupSettings() => _openSettings(section: 2);
   Future<void> _add() async {
     if (_cats.isEmpty) return;
     final ok = await Navigator.push<bool>(
@@ -217,6 +223,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                   widget.onLock();
                 },
               ),
+              BackupReminderBanner(onBackup: _openBackupSettings),
               // Arama (başlıktaki ikonla açılır)
               if (_searching)
                 Padding(

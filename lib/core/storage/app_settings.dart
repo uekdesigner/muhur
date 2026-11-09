@@ -7,7 +7,10 @@ class AppSettings {
 
   static const _kAutoLock = 'muhur_autolock_secs';
   static const _kLocale = 'muhur_locale';
-  static const _kAutoBackup = 'muhur_autobackup';
+  static const _kReminderDays = 'muhur_backup_reminder_days';
+  static const _kLastBackup = 'muhur_last_backup';
+  static const _kSnoozeUntil = 'muhur_backup_snooze';
+  static const _kReminderBase = 'muhur_backup_base';
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
   /// Otomatik kilit için izin verilen en uzun süre (saniye).
@@ -37,8 +40,46 @@ class AppSettings {
   /// null = sistem dili
   final ValueNotifier<Locale?> locale = ValueNotifier<Locale?>(null);
 
-  /// Otomatik yedek açık mı? (Yedek özelliği henüz yok, şimdilik hep kapalı.)
-  final ValueNotifier<bool> autoBackup = ValueNotifier<bool>(false);
+  /// Yedek hatırlatma aralığı (gün). 0 = kapalı.
+  final ValueNotifier<int> backupReminderDays = ValueNotifier<int>(30);
+  static const maxReminderDays = 90;
+
+  /// Son yedeğin zamanı (UTC). Hiç yedek alınmadıysa null.
+  final ValueNotifier<DateTime?> lastBackup = ValueNotifier<DateTime?>(null);
+
+  /// "Sonra" denince hatırlatma bu zamana kadar gizlenir.
+  final ValueNotifier<DateTime?> snoozeUntil = ValueNotifier<DateTime?>(null);
+
+  /// Hiç yedek alınmadıysa hatırlatma sayımı buradan başlar (ilk çalıştırma).
+  DateTime _reminderBase = DateTime.now().toUtc();
+
+  Listenable get backupChanges =>
+      Listenable.merge([backupReminderDays, lastBackup, snoozeUntil]);
+
+  /// Son yedekten bu yana geçen gün; hiç yedek yoksa null.
+  int? get daysSinceBackup {
+    final last = lastBackup.value;
+    return last == null ? null : DateTime.now().toUtc().difference(last).inDays;
+  }
+
+  /// Yedek eski mi? Hatırlatma kapalıysa 30 gün esas alınır.
+  bool get backupOverdue {
+    final days = daysSinceBackup;
+    if (days == null) return true;
+    final limit = backupReminderDays.value > 0 ? backupReminderDays.value : 30;
+    return days >= limit;
+  }
+
+  /// Ana ekranda hatırlatma gösterilmeli mi?
+  bool get backupDue {
+    final every = backupReminderDays.value;
+    if (every == 0) return false;
+    final now = DateTime.now().toUtc();
+    final until = snoozeUntil.value;
+    if (until != null && now.isBefore(until)) return false;
+    final since = lastBackup.value ?? _reminderBase;
+    return now.difference(since).inDays >= every;
+  }
 
   static const _kHelpSeen = 'muhur_help_seen';
   static const _kSmartGuide = 'muhur_smart_guide';
@@ -94,7 +135,27 @@ class AppSettings {
             .toInt();
     final code = await _storage.read(key: _kLocale);
     locale.value = code == null ? null : Locale(code);
-    autoBackup.value = (await _storage.read(key: _kAutoBackup)) == '1';
+    backupReminderDays.value =
+        (int.tryParse(await _storage.read(key: _kReminderDays) ?? '') ?? 30)
+            .clamp(0, maxReminderDays)
+            .toInt();
+    lastBackup.value = DateTime.tryParse(
+      await _storage.read(key: _kLastBackup) ?? '',
+    );
+    snoozeUntil.value = DateTime.tryParse(
+      await _storage.read(key: _kSnoozeUntil) ?? '',
+    );
+    final base = DateTime.tryParse(
+      await _storage.read(key: _kReminderBase) ?? '',
+    );
+    if (base != null) {
+      _reminderBase = base;
+    } else {
+      await _storage.write(
+        key: _kReminderBase,
+        value: _reminderBase.toIso8601String(),
+      );
+    }
     helpSeen = (await _storage.read(key: _kHelpSeen)) == '1';
     smartGuide.value = (await _storage.read(key: _kSmartGuide)) == '1';
     haptics.value = (await _storage.read(key: _kHaptics)) != '0';
@@ -149,9 +210,28 @@ class AppSettings {
     }
   }
 
-  Future<void> setAutoBackup(bool on) async {
-    autoBackup.value = on;
-    await _storage.write(key: _kAutoBackup, value: on ? '1' : '0');
+  Future<void> setBackupReminderDays(int days) async {
+    backupReminderDays.value = days.clamp(0, maxReminderDays).toInt();
+    await _storage.write(
+      key: _kReminderDays,
+      value: '${backupReminderDays.value}',
+    );
+  }
+
+  /// Yedek başarıyla kaydedilince çağrılır.
+  Future<void> markBackupDone() async {
+    final now = DateTime.now().toUtc();
+    lastBackup.value = now;
+    snoozeUntil.value = null;
+    await _storage.write(key: _kLastBackup, value: now.toIso8601String());
+    await _storage.delete(key: _kSnoozeUntil);
+  }
+
+  /// "Sonra" denince hatırlatmayı 1 gün gizler.
+  Future<void> snoozeBackupReminder() async {
+    final until = DateTime.now().toUtc().add(const Duration(days: 1));
+    snoozeUntil.value = until;
+    await _storage.write(key: _kSnoozeUntil, value: until.toIso8601String());
   }
 
   Future<void> setSmartGuide(bool on) async {
