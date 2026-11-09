@@ -186,6 +186,30 @@
   "screenshotAllowHint": "Screen protection is switched off for the time set below, then turns back on automatically.",
   "screenshotTimer": "Screenshot time", 
   "statusBackup": "Auto backup",
+  "backupSection": "ENCRYPTED BACKUP",
+  "backupExport": "Create encrypted backup",
+  "backupExportDesc": "Saves all entries, including the trash, to a file protected by a backup password. Keep the file somewhere safe.",
+  "backupImport": "Restore from backup",
+  "backupImportDesc": "Adds the entries from a backup file. Existing entries are never overwritten or deleted.",
+  "backupPasswordTitle": "Backup password",
+  "backupPasswordInfo": "This password protects the backup file. It can be different from your master password. If you forget it, the backup cannot be opened.",
+  "backupEnterPassword": "Enter the backup password",
+  "backupContinue": "Continue",
+  "backupSaved": "Backup saved",
+  "backupFailed": "The backup could not be created",
+  "backupRestored": "{added} added, {skipped} already existed",
+  "@backupRestored": {
+    "placeholders": {
+      "added": {
+        "type": "int"
+      },
+      "skipped": {
+        "type": "int"
+      }
+    }
+  },
+  "backupWrongPassword": "Wrong backup password",
+  "backupInvalidFile": "This is not a valid Muhur backup file",
   "statusScreenOn": "Screen protection is on: screenshots and screen recording are blocked",
   "statusScreenOff": "Screen protection is off for now: screenshots are allowed",
   "statusBackupOn": "Auto backup is on",

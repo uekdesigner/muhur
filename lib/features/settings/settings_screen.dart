@@ -2,7 +2,11 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 
+import '../../core/crypto/crypto_service.dart';
+import 'backup_password_dialog.dart';
+import 'backup_service.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
 import '../../core/utils/clipboard_service.dart';
@@ -19,9 +23,15 @@ import '../../core/widgets/panel_style.dart';
 import '../../core/constants/backgrounds.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key, required this.auth, required this.repo});
+  const SettingsScreen({
+    super.key,
+    required this.auth,
+    required this.repo,
+    this.initialSection = 0,
+  });
   final AuthService auth;
   final VaultRepository repo;
+  final int initialSection;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -35,7 +45,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   int _shotSecs = AppSettings.instance.screenshotSeconds;
   int _trashDays = AppSettings.instance.trashDays;
   int _trashCount = 0;
-  int _section = 0; // 0: Güvenlik, 1: Yedek, 2: Genel, 3: Hakkında
+  int _reminderDays = AppSettings.instance.backupReminderDays.value;
+  late final BackupService _backup = BackupService(
+    widget.auth,
+    CryptoService(),
+  );
+  late int _section =
+      widget.initialSection; // 0: Genel, 1: Güvenlik, 2: Yedek, 3: Hakkında
   @override
   void initState() {
     super.initState();
@@ -97,9 +113,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Widget _buildTabs(AppLocalizations t) {
     final items = <(IconData, String)>[
+      (Icons.tune, t.settingsGeneral),
       (Icons.lock_outline, t.settingsSecurity),
       (Icons.backup_outlined, t.settingsBackup),
-      (Icons.tune, t.settingsGeneral),
       (Icons.info_outline, t.settingsAbout),
     ];
     return Row(
@@ -723,12 +739,118 @@ class _SettingsScreenState extends State<SettingsScreen> {
     ];
   }
 
+  bool _backupBusy = false;
+
+  void _toast(String text) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(text)),
+      snackBarAnimationStyle: Motion.style,
+    );
+  }
+
+  Future<void> _exportBackup() async {
+    final t = AppLocalizations.of(context)!;
+    final pw = await askBackupPassword(context, confirm: true);
+    if (pw == null || !mounted) return;
+    setState(() => _backupBusy = true);
+    try {
+      final bytes = await _backup.export(pw);
+      final saved = await FilePicker.saveFile(
+        fileName: _backup.suggestedFileName(),
+        bytes: bytes,
+        dialogTitle: t.backupExport,
+      );
+      if (saved != null) {
+        await AppSettings.instance.markBackupDone();
+        _toast(t.backupSaved);
+      }
+    } catch (_) {
+      _toast(t.backupFailed);
+    } finally {
+      if (mounted) setState(() => _backupBusy = false);
+    }
+  }
+
+  Future<void> _importBackup() async {
+    final t = AppLocalizations.of(context)!;
+    final file = await FilePicker.pickFile(dialogTitle: t.backupImport);
+    if (file == null || !mounted) return;
+    final bytes = await file.readAsBytes();
+    if (!mounted) return;
+    final pw = await askBackupPassword(context, confirm: false);
+    if (pw == null || !mounted) return;
+    setState(() => _backupBusy = true);
+    try {
+      final r = await _backup.restore(bytes, pw);
+      _toast(t.backupRestored(r.added, r.skipped));
+    } on BackupPasswordException {
+      _toast(t.backupWrongPassword);
+    } catch (_) {
+      _toast(t.backupInvalidFile);
+    } finally {
+      if (mounted) setState(() => _backupBusy = false);
+    }
+  }
+
+  List<Widget> _backupItems(AppLocalizations t) {
+    return [
+      _sectionTitle(Icons.backup_outlined, t.backupSection),
+      _panel([
+        InkWell(
+          onTap: _backupBusy ? null : _exportBackup,
+          child: _row(
+            icon: Icons.file_upload_outlined,
+            title: t.backupExport,
+            child: _desc(t.backupExportDesc),
+          ),
+        ),
+        InkWell(
+          onTap: _backupBusy ? null : _importBackup,
+          child: _row(
+            icon: Icons.file_download_outlined,
+            title: t.backupImport,
+            child: _desc(t.backupImportDesc),
+          ),
+        ),
+        _row(
+          icon: Icons.notifications_active_outlined,
+          title: t.backupReminderTitle,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _desc(t.backupReminderDesc),
+              _sliderRow(
+                value: _reminderDays,
+                min: 0,
+                max: AppSettings.maxReminderDays,
+                step: 1,
+                label: _reminderDays == 0
+                    ? t.backupReminderOff
+                    : t.daysCount(_reminderDays),
+                onChanged: (v) => setState(() => _reminderDays = v),
+                onCommit: AppSettings.instance.setBackupReminderDays,
+              ),
+            ],
+          ),
+        ),
+      ]),
+      if (_backupBusy)
+        const Padding(
+          padding: EdgeInsets.all(16),
+          child: Center(child: CircularProgressIndicator()),
+        ),
+    ];
+  }
+
   List<Widget> _sectionItems(AppLocalizations t) {
     switch (_section) {
       case 0:
+        return _generalItems(t);
+      case 1:
         return _securityItems(t);
       case 2:
-        return _generalItems(t);
+        return _backupItems(t);
       default:
         return const []; // Yedek, Hakkında: içerik sonra eklenecek
     }

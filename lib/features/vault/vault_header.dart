@@ -274,8 +274,7 @@ class HeaderButton extends StatelessWidget {
           )
         : Material(
             color: const Color(0xCC1B2024),
-            shape: const CircleBorder(),
-
+            shape: CircleBorder(side: BorderSide(color: MuhurColors.line)),
             clipBehavior: Clip.antiAlias,
             child: InkWell(
               onTap: onPressed,

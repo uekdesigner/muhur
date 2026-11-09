@@ -1080,6 +1080,90 @@ abstract class AppLocalizations {
   /// **'Auto backup'**
   String get statusBackup;
 
+  /// No description provided for @backupSection.
+  ///
+  /// In en, this message translates to:
+  /// **'ENCRYPTED BACKUP'**
+  String get backupSection;
+
+  /// No description provided for @backupExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Create encrypted backup'**
+  String get backupExport;
+
+  /// No description provided for @backupExportDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Saves all entries, including the trash, to a file protected by a backup password. Keep the file somewhere safe.'**
+  String get backupExportDesc;
+
+  /// No description provided for @backupImport.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore from backup'**
+  String get backupImport;
+
+  /// No description provided for @backupImportDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Adds the entries from a backup file. Existing entries are never overwritten or deleted.'**
+  String get backupImportDesc;
+
+  /// No description provided for @backupPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup password'**
+  String get backupPasswordTitle;
+
+  /// No description provided for @backupPasswordInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'This password protects the backup file. It can be different from your master password. If you forget it, the backup cannot be opened.'**
+  String get backupPasswordInfo;
+
+  /// No description provided for @backupEnterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the backup password'**
+  String get backupEnterPassword;
+
+  /// No description provided for @backupContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get backupContinue;
+
+  /// No description provided for @backupSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup saved'**
+  String get backupSaved;
+
+  /// No description provided for @backupFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The backup could not be created'**
+  String get backupFailed;
+
+  /// No description provided for @backupRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'{added} added, {skipped} already existed'**
+  String backupRestored(int added, int skipped);
+
+  /// No description provided for @backupWrongPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong backup password'**
+  String get backupWrongPassword;
+
+  /// No description provided for @backupInvalidFile.
+  ///
+  /// In en, this message translates to:
+  /// **'This is not a valid Muhur backup file'**
+  String get backupInvalidFile;
+
   /// No description provided for @statusScreenOn.
   ///
   /// In en, this message translates to:

@@ -551,6 +551,53 @@ class AppLocalizationsEn extends AppLocalizations {
   String get statusBackup => 'Auto backup';
 
   @override
+  String get backupSection => 'ENCRYPTED BACKUP';
+
+  @override
+  String get backupExport => 'Create encrypted backup';
+
+  @override
+  String get backupExportDesc =>
+      'Saves all entries, including the trash, to a file protected by a backup password. Keep the file somewhere safe.';
+
+  @override
+  String get backupImport => 'Restore from backup';
+
+  @override
+  String get backupImportDesc =>
+      'Adds the entries from a backup file. Existing entries are never overwritten or deleted.';
+
+  @override
+  String get backupPasswordTitle => 'Backup password';
+
+  @override
+  String get backupPasswordInfo =>
+      'This password protects the backup file. It can be different from your master password. If you forget it, the backup cannot be opened.';
+
+  @override
+  String get backupEnterPassword => 'Enter the backup password';
+
+  @override
+  String get backupContinue => 'Continue';
+
+  @override
+  String get backupSaved => 'Backup saved';
+
+  @override
+  String get backupFailed => 'The backup could not be created';
+
+  @override
+  String backupRestored(int added, int skipped) {
+    return '$added added, $skipped already existed';
+  }
+
+  @override
+  String get backupWrongPassword => 'Wrong backup password';
+
+  @override
+  String get backupInvalidFile => 'This is not a valid Muhur backup file';
+
+  @override
   String get statusScreenOn =>
       'Screen protection is on: screenshots and screen recording are blocked';
 

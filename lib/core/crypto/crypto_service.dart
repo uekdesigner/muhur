@@ -13,6 +13,9 @@ class VaultKeyMaterial {
   VaultKeyMaterial(this.salt, this.wrappedDek, this.dek);
 }
 
+/// Yedek parolası yanlış.
+class BackupPasswordException implements Exception {}
+
 class CryptoService {
   /// Test için daha düşük değerler verilebilir; üretimde varsayılanı kullan.
   CryptoService({this.memoryKiB = 19456, this.iterations = 2});
@@ -22,6 +25,7 @@ class CryptoService {
 
   static final AesGcm _aes = AesGcm.with256bits();
   static final List<int> _dekAad = utf8.encode('muhur-dek-v1');
+  static final List<int> _backupAad = utf8.encode('muhur-backup-v1');
 
   Uint8List randomBytes(int length) {
     final r = Random.secure();
@@ -112,6 +116,54 @@ class CryptoService {
     final aad = utf8.encode('muhur-field-v1|$entryId|$label');
     final bytes = await _open(base64Decode(stored), dek, aad);
     return utf8.decode(bytes);
+  }
+
+  /// Yedek: parola -> Argon2id -> AES-256-GCM. Dosya zarfını (JSON'a çevrilecek harita) döndürür.
+  Future<Map<String, Object?>> sealBackup(
+    List<int> plain,
+    String password,
+  ) async {
+    final salt = randomBytes(16);
+    final key = await _deriveKek(password, salt);
+    final sealed = await _seal(plain, key, _backupAad);
+    return {
+      'app': 'muhur',
+      'format': 1,
+      'kdf': {
+        'alg': 'argon2id',
+        'm': memoryKiB,
+        't': iterations,
+        'salt': base64Encode(salt),
+      },
+      'cipher': 'aes-256-gcm',
+      'data': base64Encode(sealed),
+    };
+  }
+
+  /// Yedek zarfını açar. Parola yanlışsa [BackupPasswordException] fırlatır.
+  Future<List<int>> openBackup(
+    Map<String, dynamic> env,
+    String password,
+  ) async {
+    if (env['app'] != 'muhur' || env['format'] != 1) {
+      throw const FormatException('Geçersiz yedek dosyası.');
+    }
+    final kdf = env['kdf'] as Map<String, dynamic>;
+    final m = kdf['m'] as int;
+    final it = kdf['t'] as int;
+    // Kötü niyetli dosya aşırı bellek veya süre istemesin.
+    if (m < 8192 || m > 262144 || it < 1 || it > 10) {
+      throw const FormatException('Geçersiz yedek ayarları.');
+    }
+    final key = await CryptoService(
+      memoryKiB: m,
+      iterations: it,
+    )._deriveKek(password, base64Decode(kdf['salt'] as String));
+    try {
+      return await _open(base64Decode(env['data'] as String), key, _backupAad);
+    } on SecretBoxAuthenticationError {
+      throw BackupPasswordException();
+    }
   }
 
   /// Çıktı: nonce(12) + şifreli veri + tag(16)
