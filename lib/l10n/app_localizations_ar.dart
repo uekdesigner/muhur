@@ -557,20 +557,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get screenshotTimer => 'وقت لقطة الشاشة';
 
   @override
-  String get statusBackup => 'النسخ الاحتياطي التلقائي';
-
-  @override
   String get backupSection => 'ENCRYPTED BACKUP';
 
   @override
-  String get backupExport => 'Create encrypted backup';
+  String get backupExport => 'Create backup';
 
   @override
   String get backupExportDesc =>
       'Saves all entries, including the trash, to a file protected by a backup password. Keep the file somewhere safe.';
 
   @override
-  String get backupImport => 'Restore from backup';
+  String get backupImport => 'Restore';
 
   @override
   String get backupImportDesc =>
@@ -587,7 +584,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backupEnterPassword => 'Enter the backup password';
 
   @override
-  String get backupContinue => 'Continue';
+  String get backupContinue => 'Next';
 
   @override
   String get backupSaved => 'Backup saved';
@@ -921,4 +918,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get customTypePhone => 'هاتف';
+
+  @override
+  String get orphanVaultTitle => 'Old vault found';
+
+  @override
+  String get orphanVaultBody =>
+      'A vault file from before exists on this device, but its keys can\'t be read, so it can\'t be opened. If you continue, that old data will be deleted. If you have a backup, create a new vault and restore it afterwards.';
+
+  @override
+  String get orphanVaultReplace => 'Delete and continue';
 }

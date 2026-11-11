@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:path/path.dart' as p;
 import 'package:sqflite_sqlcipher/sqflite.dart';
 
@@ -40,6 +42,12 @@ class DatabaseManager {
     await close();
     final dir = await getDatabasesPath();
     await deleteDatabase(p.join(dir, DbSchema.fileName));
+  }
+
+  /// Diskte şifreli veritabanı dosyası var mı?
+  Future<bool> hasDatabaseFile() async {
+    final dir = await getDatabasesPath();
+    return File(p.join(dir, DbSchema.fileName)).exists();
   }
 
   Future<void> _onCreate(Database db, int version) async {

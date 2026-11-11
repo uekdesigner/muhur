@@ -261,7 +261,7 @@ abstract class AppLocalizations {
   /// No description provided for @createVault.
   ///
   /// In en, this message translates to:
-  /// **'Create vault'**
+  /// **'Create'**
   String get createVault;
 
   /// No description provided for @unlockTitle.
@@ -291,7 +291,7 @@ abstract class AppLocalizations {
   /// No description provided for @useBiometrics.
   ///
   /// In en, this message translates to:
-  /// **'Unlock with biometrics'**
+  /// **'Biometrics'**
   String get useBiometrics;
 
   /// No description provided for @enableBiometricsQ.
@@ -345,7 +345,7 @@ abstract class AppLocalizations {
   /// No description provided for @searchHint.
   ///
   /// In en, this message translates to:
-  /// **'Search title, domain or tag'**
+  /// **'Search title, domain, tag'**
   String get searchHint;
 
   /// No description provided for @addEntry.
@@ -453,7 +453,7 @@ abstract class AppLocalizations {
   /// No description provided for @moveToTrash.
   ///
   /// In en, this message translates to:
-  /// **'Move to trash'**
+  /// **'To trash'**
   String get moveToTrash;
 
   /// No description provided for @trash.
@@ -483,7 +483,7 @@ abstract class AppLocalizations {
   /// No description provided for @openTrash.
   ///
   /// In en, this message translates to:
-  /// **'Open trash'**
+  /// **'Trash'**
   String get openTrash;
 
   /// No description provided for @trashEmpty.
@@ -501,7 +501,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteForever.
   ///
   /// In en, this message translates to:
-  /// **'Delete permanently'**
+  /// **'Erase'**
   String get deleteForever;
 
   /// No description provided for @deleteForeverConfirm.
@@ -519,7 +519,7 @@ abstract class AppLocalizations {
   /// No description provided for @emptyTrashNow.
   ///
   /// In en, this message translates to:
-  /// **'Empty trash now'**
+  /// **'Empty trash'**
   String get emptyTrashNow;
 
   /// No description provided for @emptyTrashConfirm.
@@ -621,25 +621,25 @@ abstract class AppLocalizations {
   /// No description provided for @immediately.
   ///
   /// In en, this message translates to:
-  /// **'Immediately'**
+  /// **'Instant'**
   String get immediately;
 
   /// No description provided for @seconds15.
   ///
   /// In en, this message translates to:
-  /// **'15 seconds'**
+  /// **'15 sec'**
   String get seconds15;
 
   /// No description provided for @minute1.
   ///
   /// In en, this message translates to:
-  /// **'1 minute'**
+  /// **'1 min'**
   String get minute1;
 
   /// No description provided for @copyTimer.
   ///
   /// In en, this message translates to:
-  /// **'Clipboard timer'**
+  /// **'Copy timer'**
   String get copyTimer;
 
   /// No description provided for @copyTimerHint.
@@ -657,13 +657,13 @@ abstract class AppLocalizations {
   /// No description provided for @biometricUnlock.
   ///
   /// In en, this message translates to:
-  /// **'Biometric unlock'**
+  /// **'Biometrics'**
   String get biometricUnlock;
 
   /// No description provided for @generator.
   ///
   /// In en, this message translates to:
-  /// **'Password generator'**
+  /// **'Generator'**
   String get generator;
 
   /// No description provided for @generate.
@@ -705,19 +705,19 @@ abstract class AppLocalizations {
   /// No description provided for @avoidAmbiguous.
   ///
   /// In en, this message translates to:
-  /// **'Avoid look-alike characters (O/0, l/1)'**
+  /// **'No look-alikes (O/0, l/1)'**
   String get avoidAmbiguous;
 
   /// No description provided for @regenerate.
   ///
   /// In en, this message translates to:
-  /// **'Regenerate'**
+  /// **'Redo'**
   String get regenerate;
 
   /// No description provided for @usePassword.
   ///
   /// In en, this message translates to:
-  /// **'Use this password'**
+  /// **'Use'**
   String get usePassword;
 
   /// No description provided for @strengthWeak.
@@ -747,7 +747,7 @@ abstract class AppLocalizations {
   /// No description provided for @scan.
   ///
   /// In en, this message translates to:
-  /// **'Scan with camera'**
+  /// **'Scan'**
   String get scan;
 
   /// No description provided for @scanHint.
@@ -807,7 +807,7 @@ abstract class AppLocalizations {
   /// No description provided for @editBeforeUse.
   ///
   /// In en, this message translates to:
-  /// **'Check and edit if needed'**
+  /// **'Check and edit'**
   String get editBeforeUse;
 
   /// No description provided for @useValue.
@@ -849,7 +849,7 @@ abstract class AppLocalizations {
   /// No description provided for @tagline.
   ///
   /// In en, this message translates to:
-  /// **'SEAL your digital data.\n No servers. Just you and your data.\n MÜHÜR: Your digital vault that only you can see.'**
+  /// **'SEAL your digital data.\nNo servers. Just you and your data.\nSEAL the safest lock for your digital memory.'**
   String get tagline;
 
   /// No description provided for @login.
@@ -933,7 +933,7 @@ abstract class AppLocalizations {
   /// No description provided for @backgroundDim.
   ///
   /// In en, this message translates to:
-  /// **'Background dimming'**
+  /// **'Dimming'**
   String get backgroundDim;
 
   /// No description provided for @backgroundDimDesc.
@@ -975,7 +975,7 @@ abstract class AppLocalizations {
   /// No description provided for @smartGuide.
   ///
   /// In en, this message translates to:
-  /// **'Smart guidance'**
+  /// **'Smart tips'**
   String get smartGuide;
 
   /// No description provided for @smartGuideDesc.
@@ -999,7 +999,7 @@ abstract class AppLocalizations {
   /// No description provided for @reduceAnimations.
   ///
   /// In en, this message translates to:
-  /// **'Turn off animations'**
+  /// **'No animations'**
   String get reduceAnimations;
 
   /// No description provided for @reduceAnimationsDesc.
@@ -1074,12 +1074,6 @@ abstract class AppLocalizations {
   /// **'Screenshot time'**
   String get screenshotTimer;
 
-  /// No description provided for @statusBackup.
-  ///
-  /// In en, this message translates to:
-  /// **'Auto backup'**
-  String get statusBackup;
-
   /// No description provided for @backupSection.
   ///
   /// In en, this message translates to:
@@ -1089,7 +1083,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupExport.
   ///
   /// In en, this message translates to:
-  /// **'Create encrypted backup'**
+  /// **'Create backup'**
   String get backupExport;
 
   /// No description provided for @backupExportDesc.
@@ -1101,7 +1095,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupImport.
   ///
   /// In en, this message translates to:
-  /// **'Restore from backup'**
+  /// **'Restore'**
   String get backupImport;
 
   /// No description provided for @backupImportDesc.
@@ -1131,7 +1125,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupContinue.
   ///
   /// In en, this message translates to:
-  /// **'Continue'**
+  /// **'Next'**
   String get backupContinue;
 
   /// No description provided for @backupSaved.
@@ -1335,7 +1329,7 @@ abstract class AppLocalizations {
   /// No description provided for @fcInternetBankingPassword.
   ///
   /// In en, this message translates to:
-  /// **'Online Banking Password'**
+  /// **'Online Bank Password'**
   String get fcInternetBankingPassword;
 
   /// No description provided for @fcCardPin.
@@ -1365,19 +1359,19 @@ abstract class AppLocalizations {
   /// No description provided for @fcCustomerServiceNo.
   ///
   /// In en, this message translates to:
-  /// **'Customer Service Number'**
+  /// **'Support No.'**
   String get fcCustomerServiceNo;
 
   /// No description provided for @fcCustomerNoTc.
   ///
   /// In en, this message translates to:
-  /// **'Customer Number / National ID'**
+  /// **'Customer No / ID'**
   String get fcCustomerNoTc;
 
   /// No description provided for @fcBranchNameCode.
   ///
   /// In en, this message translates to:
-  /// **'Branch Name & Code'**
+  /// **'Branch / Code'**
   String get fcBranchNameCode;
 
   /// No description provided for @fcAccountType.
@@ -1389,19 +1383,19 @@ abstract class AppLocalizations {
   /// No description provided for @fcPhoneBankingPassword.
   ///
   /// In en, this message translates to:
-  /// **'Phone Banking Password'**
+  /// **'Phone Bank Password'**
   String get fcPhoneBankingPassword;
 
   /// No description provided for @fcSwiftBic.
   ///
   /// In en, this message translates to:
-  /// **'SWIFT / BIC Code'**
+  /// **'SWIFT / BIC'**
   String get fcSwiftBic;
 
   /// No description provided for @fcCardStatementDate.
   ///
   /// In en, this message translates to:
-  /// **'Statement & Due Date'**
+  /// **'Statement / Due'**
   String get fcCardStatementDate;
 
   /// No description provided for @fcAccountTitle.
@@ -1437,25 +1431,25 @@ abstract class AppLocalizations {
   /// No description provided for @fcLoginMethodProvider.
   ///
   /// In en, this message translates to:
-  /// **'Login Method / Provider'**
+  /// **'Login Method'**
   String get fcLoginMethodProvider;
 
   /// No description provided for @fcImapSmtp.
   ///
   /// In en, this message translates to:
-  /// **'IMAP / SMTP Server Settings'**
+  /// **'IMAP / SMTP'**
   String get fcImapSmtp;
 
   /// No description provided for @fcSecurityQA.
   ///
   /// In en, this message translates to:
-  /// **'Security Question & Answer'**
+  /// **'Security Q&A'**
   String get fcSecurityQA;
 
   /// No description provided for @fcPasswordChangeDate.
   ///
   /// In en, this message translates to:
-  /// **'Password Change Date'**
+  /// **'Password Changed'**
   String get fcPasswordChangeDate;
 
   /// No description provided for @fcPlatformTitle.
@@ -1479,13 +1473,13 @@ abstract class AppLocalizations {
   /// No description provided for @fcRegisteredPhone.
   ///
   /// In en, this message translates to:
-  /// **'Registered Phone Number'**
+  /// **'Registered Phone'**
   String get fcRegisteredPhone;
 
   /// No description provided for @fcProfileUrl.
   ///
   /// In en, this message translates to:
-  /// **'Profile Link (URL)'**
+  /// **'Profile URL'**
   String get fcProfileUrl;
 
   /// No description provided for @fcAccountTypeStatus.
@@ -1497,13 +1491,13 @@ abstract class AppLocalizations {
   /// No description provided for @fcLinkedMainAccount.
   ///
   /// In en, this message translates to:
-  /// **'Linked Main Account'**
+  /// **'Linked Account'**
   String get fcLinkedMainAccount;
 
   /// No description provided for @fcProfileNumericId.
   ///
   /// In en, this message translates to:
-  /// **'Profile / Numeric ID'**
+  /// **'Profile ID'**
   String get fcProfileNumericId;
 
   /// No description provided for @fc2faSecretKey.
@@ -1515,7 +1509,7 @@ abstract class AppLocalizations {
   /// No description provided for @fcServiceName.
   ///
   /// In en, this message translates to:
-  /// **'Organization / Service Name'**
+  /// **'Organization'**
   String get fcServiceName;
 
   /// No description provided for @fcCompanyName.
@@ -1533,7 +1527,7 @@ abstract class AppLocalizations {
   /// No description provided for @fcPanelUrl.
   ///
   /// In en, this message translates to:
-  /// **'Service / Panel Address (URL)'**
+  /// **'Panel URL'**
   String get fcPanelUrl;
 
   /// No description provided for @fcDepartmentPosition.
@@ -1545,55 +1539,55 @@ abstract class AppLocalizations {
   /// No description provided for @fcLicenseCode.
   ///
   /// In en, this message translates to:
-  /// **'Customer / License Code'**
+  /// **'Customer / License'**
   String get fcLicenseCode;
 
   /// No description provided for @fcSupportContact.
   ///
   /// In en, this message translates to:
-  /// **'Authorized / Support Contact'**
+  /// **'Support Contact'**
   String get fcSupportContact;
 
   /// No description provided for @fcLoginMethodVerification.
   ///
   /// In en, this message translates to:
-  /// **'Login Method / Verification Type'**
+  /// **'Verification'**
   String get fcLoginMethodVerification;
 
   /// No description provided for @fcTaxOffice.
   ///
   /// In en, this message translates to:
-  /// **'Tax Office & Tax No'**
+  /// **'Tax Office / No'**
   String get fcTaxOffice;
 
   /// No description provided for @fcRegistryNo.
   ///
   /// In en, this message translates to:
-  /// **'Registry No / Dealer Code'**
+  /// **'Registry / Dealer No'**
   String get fcRegistryNo;
 
   /// No description provided for @fcIpVpn.
   ///
   /// In en, this message translates to:
-  /// **'IP Restriction / VPN Address'**
+  /// **'IP / VPN'**
   String get fcIpVpn;
 
   /// No description provided for @fcLicenseExpiry.
   ///
   /// In en, this message translates to:
-  /// **'Portal / License Expiry Date'**
+  /// **'License Expiry'**
   String get fcLicenseExpiry;
 
   /// No description provided for @fcSiteName.
   ///
   /// In en, this message translates to:
-  /// **'Site / Service Name'**
+  /// **'Site Name'**
   String get fcSiteName;
 
   /// No description provided for @fcWebAddress.
   ///
   /// In en, this message translates to:
-  /// **'Web Address (URL)'**
+  /// **'Website URL'**
   String get fcWebAddress;
 
   /// No description provided for @fcUsernameEmail.
@@ -1605,19 +1599,19 @@ abstract class AppLocalizations {
   /// No description provided for @fcSubscriptionFee.
   ///
   /// In en, this message translates to:
-  /// **'Subscription Fee & Period'**
+  /// **'Fee / Period'**
   String get fcSubscriptionFee;
 
   /// No description provided for @fcRegistrationDate.
   ///
   /// In en, this message translates to:
-  /// **'Registration Date'**
+  /// **'Sign-up Date'**
   String get fcRegistrationDate;
 
   /// No description provided for @fcPaymentMethod.
   ///
   /// In en, this message translates to:
-  /// **'Billing / Payment Method'**
+  /// **'Payment Method'**
   String get fcPaymentMethod;
 
   /// No description provided for @fcPinCode.
@@ -1653,7 +1647,7 @@ abstract class AppLocalizations {
   /// No description provided for @saveAndExit.
   ///
   /// In en, this message translates to:
-  /// **'Save and exit'**
+  /// **'Save & exit'**
   String get saveAndExit;
 
   /// No description provided for @customField.
@@ -1689,7 +1683,7 @@ abstract class AppLocalizations {
   /// No description provided for @customTypePassword.
   ///
   /// In en, this message translates to:
-  /// **'Hidden password'**
+  /// **'Password'**
   String get customTypePassword;
 
   /// No description provided for @customTypeDate.
@@ -1703,6 +1697,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Phone'**
   String get customTypePhone;
+
+  /// No description provided for @orphanVaultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Old vault found'**
+  String get orphanVaultTitle;
+
+  /// No description provided for @orphanVaultBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A vault file from before exists on this device, but its keys can\'t be read, so it can\'t be opened. If you continue, that old data will be deleted. If you have a backup, create a new vault and restore it afterwards.'**
+  String get orphanVaultBody;
+
+  /// No description provided for @orphanVaultReplace.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete and continue'**
+  String get orphanVaultReplace;
 }
 
 class _AppLocalizationsDelegate

@@ -7,6 +7,7 @@ import 'package:local_auth/local_auth.dart';
 
 import '../../core/crypto/crypto_service.dart';
 import '../../core/storage/database_manager.dart';
+import '../../core/storage/vault_header_store.dart';
 
 class WrongPasswordException implements Exception {}
 
@@ -15,12 +16,15 @@ class LockedOutException implements Exception {
   final Duration remaining;
 }
 
+class OrphanVaultException implements Exception {}
+
 class AuthService {
   AuthService(this._crypto, this._db);
 
   final CryptoService _crypto;
   final DatabaseManager _db;
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
+  final VaultHeaderStore _header = VaultHeaderStore();
   final LocalAuthentication _localAuth = LocalAuthentication();
 
   static const _kSalt = 'muhur_salt';
@@ -44,14 +48,78 @@ class AuthService {
   bool get isUnlocked => _dek != null && _db.isOpen;
   SecretKey get dek => _dek ?? (throw StateError('Kasa kilitli.'));
 
-  Future<bool> vaultExists() => _storage.containsKey(key: _kSalt);
+  /// Eski sürümde secure storage'a yazılmış başlığı dosyaya taşır (bir kez).
+  Future<void> _migrateLegacyHeader() async {
+    if (await _header.containsKey(_kSalt)) return;
+    try {
+      final salt = await _storage.read(key: _kSalt);
+      final wrapped = await _storage.read(key: _kWrapped);
+      if (salt == null || wrapped == null) return;
+      final pSalt = await _storage.read(key: _kPendingSalt);
+      final pWrapped = await _storage.read(key: _kPendingWrapped);
+      await _header.replace({
+        _kSalt: salt,
+        _kWrapped: wrapped,
+        if (pSalt != null && pWrapped != null) ...{
+          _kPendingSalt: pSalt,
+          _kPendingWrapped: pWrapped,
+        },
+      });
+      // Diskten yeniden okuyup doğrula, sonra eski kopyaları sil.
+      _header.invalidate();
+      if (await _header.read(_kSalt) == salt &&
+          await _header.read(_kWrapped) == wrapped) {
+        for (final k in [_kSalt, _kWrapped, _kPendingSalt, _kPendingWrapped]) {
+          await _storage.delete(key: k);
+        }
+      }
+    } catch (_) {
+      // Secure storage okunamadı: taşınacak bir şey yok.
+    }
+  }
 
-  /// İlk kurulum.
-  Future<void> createVault(String password) async {
+  /// Keystore sıfırlanmış/okunamaz ise secure storage'ı temizleyip null döner.
+  Future<String?> _secureRead(String key) async {
+    try {
+      return await _storage.read(key: key);
+    } catch (_) {
+      try {
+        await _storage.deleteAll();
+      } catch (_) {}
+      return null;
+    }
+  }
+
+  Future<bool> vaultExists() async {
+    await _migrateLegacyHeader();
+    return _header.containsKey(_kSalt);
+  }
+
+  /// İlk kurulum. Diskte eski bir veritabanı varsa [replaceExisting] olmadan silmez.
+  Future<void> createVault(
+    String password, {
+    bool replaceExisting = false,
+  }) async {
+    if (await vaultExists()) throw StateError('Kasa zaten var.');
+    if (!replaceExisting && await _db.hasDatabaseFile()) {
+      throw OrphanVaultException();
+    }
     final m = await _crypto.createVault(password);
     await _db.deleteFile();
-    await _storage.write(key: _kSalt, value: base64Encode(m.salt));
-    await _storage.write(key: _kWrapped, value: base64Encode(m.wrappedDek));
+    await _header.replace({
+      _kSalt: base64Encode(m.salt),
+      _kWrapped: base64Encode(m.wrappedDek),
+      _kPendingSalt: null,
+      _kPendingWrapped: null,
+    });
+    try {
+      await _clearFailures();
+      await _storage.delete(key: _kBioDek);
+    } catch (_) {
+      try {
+        await _storage.deleteAll();
+      } catch (_) {}
+    }
     await _openWith(m.dek);
   }
 
@@ -71,10 +139,11 @@ class AuthService {
     await _openWith(key);
   }
 
-  /// Parolayla DEK'i açar. Parola değişimi yarıda kaldıysa geçici çifti de dener.
+  /// Parolayla DEK'i açar. Eski sürümden kalan yarım parola değişimini de toparlar.
   Future<SecretKey> _unwrap(String password) async {
-    final salt = await _storage.read(key: _kSalt);
-    final wrapped = await _storage.read(key: _kWrapped);
+    await _migrateLegacyHeader();
+    final salt = await _header.read(_kSalt);
+    final wrapped = await _header.read(_kWrapped);
     if (salt != null && wrapped != null) {
       try {
         final key = await _crypto.unlock(
@@ -88,24 +157,26 @@ class AuthService {
         // Asıl çift açılmadı; geçici çift varsa onu dene.
       }
     }
-    final pSalt = await _storage.read(key: _kPendingSalt);
-    final pWrapped = await _storage.read(key: _kPendingWrapped);
+    final pSalt = await _header.read(_kPendingSalt);
+    final pWrapped = await _header.read(_kPendingWrapped);
     if (pSalt == null || pWrapped == null) throw WrongPasswordException();
     final key = await _crypto.unlock(
       password,
       base64Decode(pSalt),
       base64Decode(pWrapped),
     );
-    await _storage.write(key: _kSalt, value: pSalt);
-    await _storage.write(key: _kWrapped, value: pWrapped);
-    await _dropPending();
+    await _header.replace({
+      _kSalt: pSalt,
+      _kWrapped: pWrapped,
+      _kPendingSalt: null,
+      _kPendingWrapped: null,
+    });
     return key;
   }
 
   Future<void> _dropPending() async {
-    if (!await _storage.containsKey(key: _kPendingSalt)) return;
-    await _storage.delete(key: _kPendingSalt);
-    await _storage.delete(key: _kPendingWrapped);
+    if (!await _header.containsKey(_kPendingSalt)) return;
+    await _header.replace({_kPendingSalt: null, _kPendingWrapped: null});
   }
 
   /// Ana parolayı değiştirir. DEK aynı kalır, yalnızca yeni parolayla yeniden sarılır.
@@ -127,14 +198,12 @@ class AuthService {
     // Yazmadan önce yeni çiftin gerçekten açıldığını doğrula.
     await _crypto.unlock(newPassword, m.salt, m.wrappedDek);
 
-    final salt = base64Encode(m.salt);
-    final wrapped = base64Encode(m.wrappedDek);
-    // Önce geçici çift, sonra asıl çift: yarıda kalırsa _unwrap geçiciyi kullanır.
-    await _storage.write(key: _kPendingSalt, value: salt);
-    await _storage.write(key: _kPendingWrapped, value: wrapped);
-    await _storage.write(key: _kSalt, value: salt);
-    await _storage.write(key: _kWrapped, value: wrapped);
-    await _dropPending();
+    await _header.replace({
+      _kSalt: base64Encode(m.salt),
+      _kWrapped: base64Encode(m.wrappedDek),
+      _kPendingSalt: null,
+      _kPendingWrapped: null,
+    });
   }
 
   Future<void> lock() async {
@@ -159,7 +228,7 @@ class AuthService {
     }
   }
 
-  Future<bool> biometricEnabled() => _storage.containsKey(key: _kBioDek);
+  Future<bool> biometricEnabled() async => await _secureRead(_kBioDek) != null;
 
   Future<bool> _authenticate(String reason) async {
     _dialogOpen = true;
@@ -187,7 +256,7 @@ class AuthService {
   Future<bool> unlockWithBiometrics(String reason) async {
     if (!await biometricEnabled()) return false;
     if (!await _authenticate(reason)) return false;
-    final b64 = await _storage.read(key: _kBioDek);
+    final b64 = await _secureRead(_kBioDek);
     if (b64 == null) return false;
     try {
       await _openWith(SecretKey(base64Decode(b64)));
@@ -200,7 +269,7 @@ class AuthService {
   // ---- Yanlış deneme sınırı ----
 
   Future<Duration> lockoutRemaining() async {
-    final raw = await _storage.read(key: _kLockUntil);
+    final raw = await _secureRead(_kLockUntil);
     if (raw == null) return Duration.zero;
     final until = DateTime.fromMillisecondsSinceEpoch(int.parse(raw));
     final left = until.difference(DateTime.now());
@@ -208,8 +277,7 @@ class AuthService {
   }
 
   Future<void> _registerFailure() async {
-    final fails =
-        (int.tryParse(await _storage.read(key: _kFails) ?? '0') ?? 0) + 1;
+    final fails = (int.tryParse(await _secureRead(_kFails) ?? '0') ?? 0) + 1;
     await _storage.write(key: _kFails, value: '$fails');
     if (fails >= 5) {
       final exp = min(fails - 5, 7);

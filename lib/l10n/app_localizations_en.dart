@@ -92,7 +92,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordsDontMatch => 'Passwords do not match.';
 
   @override
-  String get createVault => 'Create vault';
+  String get createVault => 'Create';
 
   @override
   String get unlockTitle => 'Unlock';
@@ -109,7 +109,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get useBiometrics => 'Unlock with biometrics';
+  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Enable biometric unlock?';
@@ -136,7 +136,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noEntries => 'No entries yet';
 
   @override
-  String get searchHint => 'Search title, domain or tag';
+  String get searchHint => 'Search title, domain, tag';
 
   @override
   String get addEntry => 'Add entry';
@@ -190,7 +190,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get delete => 'Delete';
 
   @override
-  String get moveToTrash => 'Move to trash';
+  String get moveToTrash => 'To trash';
 
   @override
   String get trash => 'Trash';
@@ -214,7 +214,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get openTrash => 'Open trash';
+  String get openTrash => 'Trash';
 
   @override
   String get trashEmpty => 'The trash is empty.';
@@ -223,7 +223,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get restore => 'Restore';
 
   @override
-  String get deleteForever => 'Delete permanently';
+  String get deleteForever => 'Erase';
 
   @override
   String get deleteForeverConfirm =>
@@ -241,7 +241,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get emptyTrashNow => 'Empty trash now';
+  String get emptyTrashNow => 'Empty trash';
 
   @override
   String emptyTrashConfirm(int count) {
@@ -303,16 +303,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get autoLock => 'Auto-lock';
 
   @override
-  String get immediately => 'Immediately';
+  String get immediately => 'Instant';
 
   @override
-  String get seconds15 => '15 seconds';
+  String get seconds15 => '15 sec';
 
   @override
-  String get minute1 => '1 minute';
+  String get minute1 => '1 min';
 
   @override
-  String get copyTimer => 'Clipboard timer';
+  String get copyTimer => 'Copy timer';
 
   @override
   String get copyTimerHint =>
@@ -324,10 +324,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get biometricUnlock => 'Biometric unlock';
+  String get biometricUnlock => 'Biometrics';
 
   @override
-  String get generator => 'Password generator';
+  String get generator => 'Generator';
 
   @override
   String get generate => 'Generate';
@@ -348,13 +348,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get symbols => 'Symbols (!@#...)';
 
   @override
-  String get avoidAmbiguous => 'Avoid look-alike characters (O/0, l/1)';
+  String get avoidAmbiguous => 'No look-alikes (O/0, l/1)';
 
   @override
-  String get regenerate => 'Regenerate';
+  String get regenerate => 'Redo';
 
   @override
-  String get usePassword => 'Use this password';
+  String get usePassword => 'Use';
 
   @override
   String get strengthWeak => 'Weak';
@@ -369,7 +369,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get strengthStrong => 'Strong';
 
   @override
-  String get scan => 'Scan with camera';
+  String get scan => 'Scan';
 
   @override
   String get scanHint =>
@@ -403,7 +403,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Camera is unavailable. Check the camera permission.';
 
   @override
-  String get editBeforeUse => 'Check and edit if needed';
+  String get editBeforeUse => 'Check and edit';
 
   @override
   String get useValue => 'Use';
@@ -425,7 +425,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tagline =>
-      'SEAL your digital data.\n No servers. Just you and your data.\n MÜHÜR: Your digital vault that only you can see.';
+      'SEAL your digital data.\nNo servers. Just you and your data.\nSEAL the safest lock for your digital memory.';
 
   @override
   String get login => 'ENTER';
@@ -470,7 +470,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backgroundTitle => 'Background';
 
   @override
-  String get backgroundDim => 'Background dimming';
+  String get backgroundDim => 'Dimming';
 
   @override
   String get backgroundDimDesc =>
@@ -492,7 +492,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get bgLumen => 'Lumen';
 
   @override
-  String get smartGuide => 'Smart guidance';
+  String get smartGuide => 'Smart tips';
 
   @override
   String get smartGuideDesc =>
@@ -506,7 +506,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Gives a short vibration on fingerprint unlock and when copying';
 
   @override
-  String get reduceAnimations => 'Turn off animations';
+  String get reduceAnimations => 'No animations';
 
   @override
   String get reduceAnimationsDesc =>
@@ -548,20 +548,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get screenshotTimer => 'Screenshot time';
 
   @override
-  String get statusBackup => 'Auto backup';
-
-  @override
   String get backupSection => 'ENCRYPTED BACKUP';
 
   @override
-  String get backupExport => 'Create encrypted backup';
+  String get backupExport => 'Create backup';
 
   @override
   String get backupExportDesc =>
       'Saves all entries, including the trash, to a file protected by a backup password. Keep the file somewhere safe.';
 
   @override
-  String get backupImport => 'Restore from backup';
+  String get backupImport => 'Restore';
 
   @override
   String get backupImportDesc =>
@@ -578,7 +575,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backupEnterPassword => 'Enter the backup password';
 
   @override
-  String get backupContinue => 'Continue';
+  String get backupContinue => 'Next';
 
   @override
   String get backupSaved => 'Backup saved';
@@ -716,7 +713,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fcTag => 'Tag';
 
   @override
-  String get fcInternetBankingPassword => 'Online Banking Password';
+  String get fcInternetBankingPassword => 'Online Bank Password';
 
   @override
   String get fcCardPin => 'Card PIN';
@@ -731,25 +728,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fcCvv => 'CVV / CVC';
 
   @override
-  String get fcCustomerServiceNo => 'Customer Service Number';
+  String get fcCustomerServiceNo => 'Support No.';
 
   @override
-  String get fcCustomerNoTc => 'Customer Number / National ID';
+  String get fcCustomerNoTc => 'Customer No / ID';
 
   @override
-  String get fcBranchNameCode => 'Branch Name & Code';
+  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Account Type';
 
   @override
-  String get fcPhoneBankingPassword => 'Phone Banking Password';
+  String get fcPhoneBankingPassword => 'Phone Bank Password';
 
   @override
-  String get fcSwiftBic => 'SWIFT / BIC Code';
+  String get fcSwiftBic => 'SWIFT / BIC';
 
   @override
-  String get fcCardStatementDate => 'Statement & Due Date';
+  String get fcCardStatementDate => 'Statement / Due';
 
   @override
   String get fcAccountTitle => 'Account Title';
@@ -767,16 +764,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Backup Codes';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method / Provider';
+  String get fcLoginMethodProvider => 'Login Method';
 
   @override
-  String get fcImapSmtp => 'IMAP / SMTP Server Settings';
+  String get fcImapSmtp => 'IMAP / SMTP';
 
   @override
-  String get fcSecurityQA => 'Security Question & Answer';
+  String get fcSecurityQA => 'Security Q&A';
 
   @override
-  String get fcPasswordChangeDate => 'Password Change Date';
+  String get fcPasswordChangeDate => 'Password Changed';
 
   @override
   String get fcPlatformTitle => 'Platform / Title';
@@ -788,25 +785,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fcRegisteredEmail => 'Registered Email';
 
   @override
-  String get fcRegisteredPhone => 'Registered Phone Number';
+  String get fcRegisteredPhone => 'Registered Phone';
 
   @override
-  String get fcProfileUrl => 'Profile Link (URL)';
+  String get fcProfileUrl => 'Profile URL';
 
   @override
   String get fcAccountTypeStatus => 'Account Type / Status';
 
   @override
-  String get fcLinkedMainAccount => 'Linked Main Account';
+  String get fcLinkedMainAccount => 'Linked Account';
 
   @override
-  String get fcProfileNumericId => 'Profile / Numeric ID';
+  String get fcProfileNumericId => 'Profile ID';
 
   @override
   String get fc2faSecretKey => '2FA Secret Key';
 
   @override
-  String get fcServiceName => 'Organization / Service Name';
+  String get fcServiceName => 'Organization';
 
   @override
   String get fcCompanyName => 'Company Name';
@@ -815,49 +812,49 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fcCorporateUserId => 'Username / Corporate ID';
 
   @override
-  String get fcPanelUrl => 'Service / Panel Address (URL)';
+  String get fcPanelUrl => 'Panel URL';
 
   @override
   String get fcDepartmentPosition => 'Department / Position';
 
   @override
-  String get fcLicenseCode => 'Customer / License Code';
+  String get fcLicenseCode => 'Customer / License';
 
   @override
-  String get fcSupportContact => 'Authorized / Support Contact';
+  String get fcSupportContact => 'Support Contact';
 
   @override
-  String get fcLoginMethodVerification => 'Login Method / Verification Type';
+  String get fcLoginMethodVerification => 'Verification';
 
   @override
-  String get fcTaxOffice => 'Tax Office & Tax No';
+  String get fcTaxOffice => 'Tax Office / No';
 
   @override
-  String get fcRegistryNo => 'Registry No / Dealer Code';
+  String get fcRegistryNo => 'Registry / Dealer No';
 
   @override
-  String get fcIpVpn => 'IP Restriction / VPN Address';
+  String get fcIpVpn => 'IP / VPN';
 
   @override
-  String get fcLicenseExpiry => 'Portal / License Expiry Date';
+  String get fcLicenseExpiry => 'License Expiry';
 
   @override
-  String get fcSiteName => 'Site / Service Name';
+  String get fcSiteName => 'Site Name';
 
   @override
-  String get fcWebAddress => 'Web Address (URL)';
+  String get fcWebAddress => 'Website URL';
 
   @override
   String get fcUsernameEmail => 'Username / Email';
 
   @override
-  String get fcSubscriptionFee => 'Subscription Fee & Period';
+  String get fcSubscriptionFee => 'Fee / Period';
 
   @override
-  String get fcRegistrationDate => 'Registration Date';
+  String get fcRegistrationDate => 'Sign-up Date';
 
   @override
-  String get fcPaymentMethod => 'Billing / Payment Method';
+  String get fcPaymentMethod => 'Payment Method';
 
   @override
   String get fcPinCode => 'PIN Code';
@@ -875,7 +872,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get generatorSettings => 'Generator settings';
 
   @override
-  String get saveAndExit => 'Save and exit';
+  String get saveAndExit => 'Save & exit';
 
   @override
   String get customField => 'Custom field';
@@ -893,11 +890,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get customTypeNote => 'Note';
 
   @override
-  String get customTypePassword => 'Hidden password';
+  String get customTypePassword => 'Password';
 
   @override
   String get customTypeDate => 'Date';
 
   @override
   String get customTypePhone => 'Phone';
+
+  @override
+  String get orphanVaultTitle => 'Old vault found';
+
+  @override
+  String get orphanVaultBody =>
+      'A vault file from before exists on this device, but its keys can\'t be read, so it can\'t be opened. If you continue, that old data will be deleted. If you have a backup, create a new vault and restore it afterwards.';
+
+  @override
+  String get orphanVaultReplace => 'Delete and continue';
 }

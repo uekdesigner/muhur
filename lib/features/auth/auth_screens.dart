@@ -54,7 +54,34 @@ class _SetupScreenState extends State<SetupScreen> {
       _error = null;
     });
     try {
-      await widget.auth.createVault(_pw.text);
+      try {
+        await widget.auth.createVault(_pw.text);
+      } on OrphanVaultException {
+        if (!mounted) return;
+        final replace = await showDialog<bool>(
+          context: context,
+          animationStyle: Motion.style,
+          builder: (c) => AlertDialog(
+            title: Text(t.orphanVaultTitle),
+            content: Text(t.orphanVaultBody),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(c, false),
+                child: Text(t.cancel),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(c, true),
+                child: Text(t.orphanVaultReplace),
+              ),
+            ],
+          ),
+        );
+        if (replace != true) {
+          if (mounted) setState(() => _busy = false);
+          return;
+        }
+        await widget.auth.createVault(_pw.text, replaceExisting: true);
+      }
 
       if (await widget.auth.biometricAvailable() && mounted) {
         final enable = await showDialog<bool>(
