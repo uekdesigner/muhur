@@ -44,6 +44,17 @@ class AuthService {
       _dialogOpen ||
       (_graceUntil != null && DateTime.now().isBefore(_graceUntil!));
 
+  /// Dosya seçici gibi sistem pencereleri açıkken kasa kilitlenmesin.
+  Future<T> runExternal<T>(Future<T> Function() action) async {
+    _dialogOpen = true;
+    try {
+      return await action();
+    } finally {
+      _dialogOpen = false;
+      _graceUntil = DateTime.now().add(const Duration(seconds: 2));
+    }
+  }
+
   DatabaseManager get database => _db;
   bool get isUnlocked => _dek != null && _db.isOpen;
   SecretKey get dek => _dek ?? (throw StateError('Kasa kilitli.'));

@@ -756,10 +756,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
     setState(() => _backupBusy = true);
     try {
       final bytes = await _backup.export(pw);
-      final saved = await FilePicker.saveFile(
-        fileName: _backup.suggestedFileName(),
-        bytes: bytes,
-        dialogTitle: t.backupExport,
+      final saved = await widget.auth.runExternal(
+        () => FilePicker.saveFile(
+          fileName: _backup.suggestedFileName(),
+          bytes: bytes,
+          dialogTitle: t.backupExport,
+        ),
       );
       if (saved != null) {
         await AppSettings.instance.markBackupDone();
@@ -774,7 +776,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _importBackup() async {
     final t = AppLocalizations.of(context)!;
-    final file = await FilePicker.pickFile(dialogTitle: t.backupImport);
+    final file = await widget.auth.runExternal(
+      () => FilePicker.pickFile(dialogTitle: t.backupImport),
+    );
     if (file == null || !mounted) return;
     final bytes = await file.readAsBytes();
     if (!mounted) return;

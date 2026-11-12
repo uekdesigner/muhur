@@ -3,7 +3,12 @@ import 'package:muhurpm/core/crypto/crypto_service.dart';
 
 void main() {
   // Testlerde hız için düşük Argon2id değerleri
-  final crypto = CryptoService(memoryKiB: 1024, iterations: 1);
+  final crypto = CryptoService(
+    memoryKiB: 1024,
+    iterations: 1,
+    backupMemoryKiB: 1024,
+    backupIterations: 1,
+  );
 
   test('doğru parola kasayı açar', () async {
     final v = await crypto.createVault('dogru-parola');

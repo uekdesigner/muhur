@@ -38,6 +38,7 @@ class BackupService {
     };
     final entries = await _db.query('vault_entries', orderBy: 'id');
     final out = <Map<String, Object?>>[];
+
     for (final e in entries) {
       final id = e['id'] as int;
       final rows = await _db.query(
@@ -98,19 +99,27 @@ class BackupService {
     final fallbackCat = catId['other'] ?? cats.first['id'] as int;
 
     final existing = <String>{};
+    final trashed = <String, int>{}; // çöpteki kayıtlar: anahtar -> id
     final rows = await _db.query(
       'vault_entries',
-      columns: ['category_id', 'title', 'domain', 'created_at'],
+      columns: [
+        'id',
+        'category_id',
+        'title',
+        'domain',
+        'created_at',
+        'deleted_at',
+      ],
     );
     for (final r in rows) {
-      existing.add(
-        _key(
-          r['category_id'] as int,
-          r['title'] as String,
-          r['domain'] as String?,
-          r['created_at'] as String,
-        ),
+      final k = _key(
+        r['category_id'] as int,
+        r['title'] as String,
+        r['domain'] as String?,
+        r['created_at'] as String,
       );
+      existing.add(k);
+      if (r['deleted_at'] != null) trashed[k] = r['id'] as int;
     }
 
     var added = 0;
@@ -121,8 +130,20 @@ class BackupService {
         final title = e['title'] as String;
         final domain = e['domain'] as String?;
         final created = e['created_at'] as String;
-        if (!existing.add(_key(cat, title, domain, created))) {
-          skipped++;
+        final k = _key(cat, title, domain, created);
+        if (!existing.add(k)) {
+          final trashedId = trashed.remove(k);
+          if (trashedId != null && e['deleted_at'] == null) {
+            await txn.update(
+              'vault_entries',
+              {'deleted_at': null},
+              where: 'id = ?',
+              whereArgs: [trashedId],
+            );
+            added++;
+          } else {
+            skipped++;
+          }
           continue;
         }
         final id = await txn.insert('vault_entries', {

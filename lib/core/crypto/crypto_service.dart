@@ -18,24 +18,36 @@ class BackupPasswordException implements Exception {}
 
 class CryptoService {
   /// Test için daha düşük değerler verilebilir; üretimde varsayılanı kullan.
-  CryptoService({this.memoryKiB = 19456, this.iterations = 2});
+  CryptoService({
+    this.memoryKiB = 19456,
+    this.iterations = 2,
+    this.backupMemoryKiB = 65536,
+    this.backupIterations = 3,
+  });
 
   final int memoryKiB;
   final int iterations;
-
+  final int backupMemoryKiB;
+  final int backupIterations;
   static final AesGcm _aes = AesGcm.with256bits();
   static final List<int> _dekAad = utf8.encode('muhur-dek-v1');
   static final List<int> _backupAad = utf8.encode('muhur-backup-v1');
-
+  static List<int> _backupAadV2(int m, int t, String salt) =>
+      utf8.encode('muhur-backup-v2|argon2id|aes-256-gcm|$m|$t|$salt');
   Uint8List randomBytes(int length) {
     final r = Random.secure();
     return Uint8List.fromList(List.generate(length, (_) => r.nextInt(256)));
   }
 
   /// Argon2id'i ayrı isolate'te çalıştırır, arayüz donmaz.
-  Future<SecretKey> _deriveKek(String password, List<int> salt) async {
-    final m = memoryKiB;
-    final it = iterations;
+  Future<SecretKey> _deriveKek(
+    String password,
+    List<int> salt, {
+    int? memory,
+    int? passes,
+  }) async {
+    final m = memory ?? memoryKiB;
+    final it = passes ?? iterations;
     final bytes = await Isolate.run(() async {
       final kdf = Argon2id(
         memory: m,
@@ -124,15 +136,24 @@ class CryptoService {
     String password,
   ) async {
     final salt = randomBytes(16);
-    final key = await _deriveKek(password, salt);
-    final sealed = await _seal(plain, key, _backupAad);
+    final key = await _deriveKek(
+      password,
+      salt,
+      memory: backupMemoryKiB,
+      passes: backupIterations,
+    );
+    final sealed = await _seal(
+      plain,
+      key,
+      _backupAadV2(backupMemoryKiB, backupIterations, base64Encode(salt)),
+    );
     return {
       'app': 'muhur',
-      'format': 1,
+      'format': 2,
       'kdf': {
         'alg': 'argon2id',
-        'm': memoryKiB,
-        't': iterations,
+        'm': backupMemoryKiB,
+        't': backupIterations,
         'salt': base64Encode(salt),
       },
       'cipher': 'aes-256-gcm',
@@ -145,7 +166,7 @@ class CryptoService {
     Map<String, dynamic> env,
     String password,
   ) async {
-    if (env['app'] != 'muhur' || env['format'] != 1) {
+    if (env['app'] != 'muhur' || (env['format'] != 1 && env['format'] != 2)) {
       throw const FormatException('Geçersiz yedek dosyası.');
     }
     final kdf = env['kdf'] as Map<String, dynamic>;
@@ -159,8 +180,11 @@ class CryptoService {
       memoryKiB: m,
       iterations: it,
     )._deriveKek(password, base64Decode(kdf['salt'] as String));
+    final aad = env['format'] == 1
+        ? _backupAad
+        : _backupAadV2(m, it, kdf['salt'] as String);
     try {
-      return await _open(base64Decode(env['data'] as String), key, _backupAad);
+      return await _open(base64Decode(env['data'] as String), key, aad);
     } on SecretBoxAuthenticationError {
       throw BackupPasswordException();
     }
