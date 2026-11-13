@@ -23,6 +23,20 @@ void main() {
       throwsException,
     );
   });
+  test('başlıktaki KDF değerine dokunulan sarım açılmaz (AAD)', () async {
+    final v = await crypto.createVault('p');
+    expect(
+      () => crypto.unlock(
+        'p',
+        v.salt,
+        v.wrappedDek,
+        wrapVersion: 2,
+        memoryKiB: v.memoryKiB + 1024,
+        iterations: v.iterations,
+      ),
+      throwsException,
+    );
+  });
 
   test('alan şifrele ve çöz', () async {
     final v = await crypto.createVault('p');

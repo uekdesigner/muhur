@@ -34,6 +34,9 @@ class AuthService {
   static const _kLockUntil = 'muhur_lock_until';
   static const _kPendingSalt = 'muhur_salt_pending';
   static const _kPendingWrapped = 'muhur_wrapped_pending';
+  static const _kKdfM = 'muhur_kdf_m';
+  static const _kKdfT = 'muhur_kdf_t';
+  static const _kWrapV = 'muhur_wrap_v';
 
   SecretKey? _dek;
   bool _dialogOpen = false;
@@ -120,6 +123,9 @@ class AuthService {
     await _header.replace({
       _kSalt: base64Encode(m.salt),
       _kWrapped: base64Encode(m.wrappedDek),
+      _kKdfM: '${m.memoryKiB}',
+      _kKdfT: '${m.iterations}',
+      _kWrapV: '${m.wrapVersion}',
       _kPendingSalt: null,
       _kPendingWrapped: null,
     });
@@ -151,27 +157,42 @@ class AuthService {
   }
 
   /// Parolayla DEK'i açar. Eski sürümden kalan yarım parola değişimini de toparlar.
+  /// Parolayla DEK'i açar. Eski sürümden kalan yarım parola değişimini de toparlar.
+  /// Başlıkta KDF ayarı yoksa eski varsayılanlar geçerlidir; başarılı girişte
+  /// DEK güncel ayarlarla otomatik yeniden sarılır.
   Future<SecretKey> _unwrap(String password) async {
     await _migrateLegacyHeader();
     final salt = await _header.read(_kSalt);
     final wrapped = await _header.read(_kWrapped);
+    SecretKey? key;
     if (salt != null && wrapped != null) {
       try {
-        final key = await _crypto.unlock(
+        key = await _crypto.unlock(
           password,
           base64Decode(salt),
           base64Decode(wrapped),
+          wrapVersion: await _headerInt(_kWrapV, 1),
+          memoryKiB: await _headerInt(_kKdfM, CryptoService.legacyMemoryKiB),
+          iterations: await _headerInt(_kKdfT, CryptoService.legacyIterations),
         );
-        await _dropPending();
-        return key;
       } catch (_) {
-        // Asıl çift açılmadı; geçici çift varsa onu dene.
+        key = null; // Asıl çift açılmadı; geçici çift varsa onu dene.
+      }
+      if (key != null) {
+        await _dropPending();
+        try {
+          await _upgradeKdfIfNeeded(key, password);
+        } catch (_) {
+          // Yeniden sarma opsiyonel: eski başlık hâlâ geçerli, sonra tekrar dener.
+        }
+        return key;
       }
     }
     final pSalt = await _header.read(_kPendingSalt);
     final pWrapped = await _header.read(_kPendingWrapped);
     if (pSalt == null || pWrapped == null) throw WrongPasswordException();
-    final key = await _crypto.unlock(
+    // Geçici çift her zaman eski biçimdedir (yalnızca eski sürümden kalma).
+    final pKey = await _crypto.unlock(
       password,
       base64Decode(pSalt),
       base64Decode(pWrapped),
@@ -182,12 +203,44 @@ class AuthService {
       _kPendingSalt: null,
       _kPendingWrapped: null,
     });
-    return key;
+    return pKey;
   }
 
   Future<void> _dropPending() async {
     if (!await _header.containsKey(_kPendingSalt)) return;
     await _header.replace({_kPendingSalt: null, _kPendingWrapped: null});
+  }
+
+  Future<int> _headerInt(String key, int fallback) async =>
+      int.tryParse(await _header.read(key) ?? '') ?? fallback;
+
+  /// Başlıktaki KDF ayarları/sarım sürümü güncel değilse DEK'i yeniden sarar.
+  Future<void> _upgradeKdfIfNeeded(SecretKey dek, String password) async {
+    final m = await _headerInt(_kKdfM, CryptoService.legacyMemoryKiB);
+    final t = await _headerInt(_kKdfT, CryptoService.legacyIterations);
+    final v = await _headerInt(_kWrapV, 1);
+    if (m == _crypto.memoryKiB &&
+        t == _crypto.iterations &&
+        v == CryptoService.dekWrapVersion) {
+      return;
+    }
+    final material = await _crypto.rewrap(dek, password);
+    // Yazmadan önce yeni çiftin gerçekten açıldığını doğrula.
+    await _crypto.unlock(
+      password,
+      material.salt,
+      material.wrappedDek,
+      wrapVersion: material.wrapVersion,
+      memoryKiB: material.memoryKiB,
+      iterations: material.iterations,
+    );
+    await _header.replace({
+      _kSalt: base64Encode(material.salt),
+      _kWrapped: base64Encode(material.wrappedDek),
+      _kKdfM: '${material.memoryKiB}',
+      _kKdfT: '${material.iterations}',
+      _kWrapV: '${material.wrapVersion}',
+    });
   }
 
   /// Ana parolayı değiştirir. DEK aynı kalır, yalnızca yeni parolayla yeniden sarılır.
@@ -207,11 +260,21 @@ class AuthService {
 
     final m = await _crypto.rewrap(key, newPassword);
     // Yazmadan önce yeni çiftin gerçekten açıldığını doğrula.
-    await _crypto.unlock(newPassword, m.salt, m.wrappedDek);
+    await _crypto.unlock(
+      newPassword,
+      m.salt,
+      m.wrappedDek,
+      wrapVersion: m.wrapVersion,
+      memoryKiB: m.memoryKiB,
+      iterations: m.iterations,
+    );
 
     await _header.replace({
       _kSalt: base64Encode(m.salt),
       _kWrapped: base64Encode(m.wrappedDek),
+      _kKdfM: '${m.memoryKiB}',
+      _kKdfT: '${m.iterations}',
+      _kWrapV: '${m.wrapVersion}',
       _kPendingSalt: null,
       _kPendingWrapped: null,
     });

@@ -28,7 +28,7 @@
   "passwordsDontMatch": "Passwords do not match.",
   "createVault": "Create",
   "unlockTitle": "Unlock",
-  "unlock": "Unlock",
+  "unlock": "Unlock", 
   "wrongPassword": "Wrong master password.",
   "lockedOut": "Too many attempts. Try again in {seconds} seconds.",
   "@lockedOut": {
