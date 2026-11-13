@@ -70,8 +70,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordTooShort => 'Use at least 8 characters.';
 
   @override
-  String get passwordNeedsMix =>
-      'Use lowercase, uppercase, a digit and a special character.';
+  String get passwordNeedsMix => 'Use lowercase, uppercase, a digit.';
 
   @override
   String get reqLength => 'At least 8 characters';
@@ -86,7 +85,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reqDigit => 'A digit';
 
   @override
-  String get reqSpecial => 'A special character (!@#...)';
+  String get reqSpecial => 'A special character (!@#...) – recommended';
 
   @override
   String get passwordsDontMatch => 'Passwords do not match.';

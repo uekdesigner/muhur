@@ -219,7 +219,7 @@ abstract class AppLocalizations {
   /// No description provided for @passwordNeedsMix.
   ///
   /// In en, this message translates to:
-  /// **'Use lowercase, uppercase, a digit and a special character.'**
+  /// **'Use lowercase, uppercase, a digit.'**
   String get passwordNeedsMix;
 
   /// No description provided for @reqLength.
@@ -249,7 +249,7 @@ abstract class AppLocalizations {
   /// No description provided for @reqSpecial.
   ///
   /// In en, this message translates to:
-  /// **'A special character (!@#...)'**
+  /// **'A special character (!@#...) – recommended'**
   String get reqSpecial;
 
   /// No description provided for @passwordsDontMatch.

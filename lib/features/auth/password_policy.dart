@@ -14,7 +14,7 @@ class PasswordChecks {
   final bool digit;
   final bool special;
 
-  bool get ok => length && lower && upper && digit && special;
+  bool get ok => length && lower && upper && digit;
 }
 
 const int kMinMasterPasswordLength = 8;
