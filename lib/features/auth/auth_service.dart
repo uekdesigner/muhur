@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:cryptography/cryptography.dart';
+import 'package:flutter/services.dart' show PlatformException;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 
@@ -37,6 +38,8 @@ class AuthService {
   static const _kKdfM = 'muhur_kdf_m';
   static const _kKdfT = 'muhur_kdf_t';
   static const _kBioEnabled = 'muhur_bio_enabled';
+  static const _kBioNs = 'muhur_bio_ns';
+  static const _kBioReset = 'muhur_bio_reset';
   static const _kWrapV = 'muhur_wrap_v';
 
   SecretKey? _dek;
@@ -133,6 +136,7 @@ class AuthService {
     try {
       await _clearFailures();
       await _storage.delete(key: _kBioDek);
+      await _storage.delete(key: _kBioEnabled);
     } catch (_) {
       try {
         await _storage.deleteAll();
@@ -150,12 +154,14 @@ class AuthService {
     try {
       key = await _unwrap(password);
     } catch (_) {
-      await _registerFailure();
+      _registerFailure().catchError((_) {});
       throw WrongPasswordException();
     }
     // Eski sürümden kalan korumasız biyometrik DEK kopyasını sil;
     // kullanıcı biyometriği bir kez yeniden etkinleştirmeli.
-    await _storage.delete(key: _kBioDek);
+    try {
+      await _storage.delete(key: _kBioDek);
+    } catch (_) {}
     await _clearFailures();
     await _openWith(key);
   }
@@ -256,7 +262,7 @@ class AuthService {
     try {
       key = await _unwrap(oldPassword);
     } catch (_) {
-      await _registerFailure();
+      _registerFailure().catchError((_) {});
       throw WrongPasswordException();
     }
     await _clearFailures();
@@ -305,69 +311,160 @@ class AuthService {
     }
   }
 
-  /// DEK'in saklandığı, her erişimde kullanıcı doğrulaması istenen depo.
-  /// Android: anahtar Keystore'da kullanıcı doğrulamasına bağlı
-  /// (enforceBiometrics + requireBiometricsPerOperation = her işlemde istek).
-  /// iOS: Keychain öğesi biometryCurrentSet erişim kontrolü taşır.
-  FlutterSecureStorage _bioStorage([String? reason]) => FlutterSecureStorage(
-    aOptions: AndroidOptions.biometric(
-      enforceBiometrics: true,
-      requireBiometricsPerOperation: true,
-      biometricPromptTitle: reason ?? 'Mühür',
-      storageNamespace: 'bio',
-    ),
-    iOptions: const IOSOptions(
-      accessibility: KeychainAccessibility.passcode,
-      accessControlFlags: [AccessControlFlag.biometryCurrentSet],
-    ),
-  );
+  /// Android anahtar adı `storageNamespace`'e bağlı. Yeni parmak izi eklenince
+  /// eski anahtar kalıcı geçersiz olur ve eklenti silmez: numarayı artırıp
+  /// taze anahtara geçiyoruz.
+  Future<FlutterSecureStorage> _bioStorage([String? reason]) async {
+    final n = await _secureRead(_kBioNs) ?? '0';
+    return FlutterSecureStorage(
+      aOptions: AndroidOptions.biometric(
+        enforceBiometrics: true,
+        requireBiometricsPerOperation: true,
+        biometricPromptTitle: reason ?? 'Mühür',
+        storageNamespace: 'bs$n',
+        biometricType: AndroidBiometricType.strongBiometricOnly,
+        biometricPromptNegativeButton: 'İptal',
+      ),
+      iOptions: const IOSOptions(
+        accessibility: KeychainAccessibility.passcode,
+        accessControlFlags: [AccessControlFlag.biometryCurrentSet],
+      ),
+    );
+  }
+
+  Future<void> _rotateBioKey() async {
+    final n = int.tryParse(await _secureRead(_kBioNs) ?? '0') ?? 0;
+    try {
+      await _storage.write(key: _kBioNs, value: '${n + 1}');
+    } catch (_) {}
+  }
+
+  bool _keyInvalidated(Object e) {
+    final text = e is PlatformException ? '${e.message} ${e.details}' : '$e';
+    return text.contains('KeyPermanentlyInvalidated');
+  }
 
   Future<bool> biometricEnabled() async =>
       await _secureRead(_kBioEnabled) != null;
 
   /// Kasa açıkken çağrılır: DEK, kullanıcı doğrulamasına bağlı depoya yazılır.
-  /// Yazma da keystore katmanında biyometrik pencere gösterir.
   Future<bool> enableBiometrics(String reason) async {
     if (!isUnlocked) return false;
-    try {
-      final bytes = await dek.extractBytes();
-      await _bioStorage(reason)
-          .write(key: _kBioDek, value: base64Encode(bytes));
-      await _storage.write(key: _kBioEnabled, value: '1');
-      return true;
-    } catch (_) {
-      // Cihaz güvenliği yok veya kullanıcı vazgeçti.
-      return false;
+    final value = base64Encode(await dek.extractBytes());
+    for (var attempt = 0; attempt < 2; attempt++) {
+      try {
+        final store = await _bioStorage(reason);
+        await runExternal(() => store.write(key: _kBioDek, value: value));
+        await _storage.write(key: _kBioEnabled, value: '1');
+        return true;
+      } catch (e) {
+        // Anahtar geçersizse (yeni parmak izi) taze anahtarla bir kez daha dene.
+        if (attempt == 0 && _keyInvalidated(e)) {
+          await _rotateBioKey();
+          continue;
+        }
+        return false; // Cihaz güvenliği yok veya kullanıcı vazgeçti.
+      }
     }
+    return false;
   }
 
+  /// Her kapatmada anahtar numarası artar: sonraki açış her zaman taze anahtar kullanır.
   Future<void> disableBiometrics() async {
-    await _storage.delete(key: _kBioEnabled);
     try {
-      await _bioStorage().delete(key: _kBioDek);
+      await _storage.delete(key: _kBioEnabled);
+    } catch (_) {}
+    try {
+      await (await _bioStorage()).delete(key: _kBioDek);
     } catch (_) {
       // Silinemese bile işaret kalktı: DEK'e artık hiç erişilmez.
     }
+    await _rotateBioKey();
   }
 
   Future<bool> unlockWithBiometrics(String reason) async {
     if (!await biometricEnabled()) return false;
-    // Keystore/Keychain her okumada kullanıcı doğrulaması ister.
     final String? b64;
     try {
-      b64 = await _bioStorage(reason).read(key: _kBioDek);
-    } catch (_) {
+      final store = await _bioStorage(reason);
+      b64 = await runExternal(() => store.read(key: _kBioDek));
+    } catch (e) {
+      // Yeni parmak izi/yüz eklendi: eski anahtar bir daha açılmaz.
+      if (_keyInvalidated(e)) {
+        try {
+          await _storage.write(key: _kBioReset, value: '1');
+        } catch (_) {}
+        await disableBiometrics();
+      }
       return false;
     }
-    if (b64 == null) return false;
+    if (b64 == null) {
+      await disableBiometrics(); // Anahtar yok: işareti kaldır.
+      return false;
+    }
     try {
       await _openWith(SecretKey(base64Decode(b64)));
       return true;
     } catch (_) {
-      // Saklı DEK geçersiz (ör. biyometrik kayıt değişti): işareti temizle.
       await disableBiometrics();
       return false;
     }
+  }
+
+  /// Parmak izi/yüz değişikliği yüzünden kapanan biyometrik girişi bir kez bildirir.
+  Future<bool> takeBiometricResetFlag() async {
+    if (await _secureRead(_kBioReset) == null) return false;
+    try {
+      await _storage.delete(key: _kBioReset);
+    } catch (_) {}
+    return true;
+  }
+
+  /// Eski parola gerekmeden yeni ana parola belirler. Kasa açık olmalı ve
+  /// biyometrik doğrulama taze alınır (Keystore her okumada ister).
+  Future<bool> resetPasswordWithBiometrics(
+    String newPassword,
+    String reason,
+  ) async {
+    if (!isUnlocked || !await biometricEnabled()) return false;
+    final String? b64;
+    try {
+      final store = await _bioStorage(reason);
+      b64 = await runExternal(() => store.read(key: _kBioDek));
+    } catch (_) {
+      return false;
+    }
+    if (b64 == null) return false;
+    final stored = base64Decode(b64);
+    final current = await dek.extractBytes();
+    if (stored.length != current.length) return false;
+    var diff = 0;
+    for (var i = 0; i < stored.length; i++) {
+      diff |= stored[i] ^ current[i];
+    }
+    if (diff != 0) return false;
+
+    final m = await _crypto.rewrap(dek, newPassword);
+    // Yazmadan önce yeni çiftin gerçekten açıldığını doğrula.
+    await _crypto.unlock(
+      newPassword,
+      m.salt,
+      m.wrappedDek,
+      wrapVersion: m.wrapVersion,
+      memoryKiB: m.memoryKiB,
+      iterations: m.iterations,
+    );
+    await _header.replace({
+      _kSalt: base64Encode(m.salt),
+      _kWrapped: base64Encode(m.wrappedDek),
+      _kKdfM: '${m.memoryKiB}',
+      _kKdfT: '${m.iterations}',
+      _kWrapV: '${m.wrapVersion}',
+      _kPendingSalt: null,
+      _kPendingWrapped: null,
+    });
+    await _clearFailures();
+    return true;
   }
 
   // ---- Yanlış deneme sınırı ----
@@ -398,7 +495,9 @@ class AuthService {
   }
 
   Future<void> _clearFailures() async {
-    await _storage.delete(key: _kFails);
-    await _storage.delete(key: _kLockUntil);
+    try {
+      await _storage.delete(key: _kFails);
+      await _storage.delete(key: _kLockUntil);
+    } catch (_) {}
   }
 }

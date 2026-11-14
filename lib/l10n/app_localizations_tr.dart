@@ -901,4 +901,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get orphanVaultReplace => 'Delete and continue';
+
+  @override
+  String get forgotOldPassword => 'I don\'t remember my current password';
+
+  @override
+  String get useCurrentPassword => 'Use my current password instead';
+
+  @override
+  String get forgotPasswordBioHint =>
+      'Confirm with your fingerprint or face to set a new master password. Your records stay as they are.';
+
+  @override
+  String get bioConfirmFailed =>
+      'Biometric confirmation failed or was cancelled.';
+
+  @override
+  String get biometricChangedBody =>
+      'Your fingerprint or face settings changed, so biometric login was turned off for your safety.';
 }

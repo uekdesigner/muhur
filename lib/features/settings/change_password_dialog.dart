@@ -32,6 +32,16 @@ class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
   bool _show = false;
   bool _busy = false;
   String? _error;
+  bool _bioMode = false;
+  bool _bioAvailable = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.auth.biometricEnabled().then((v) {
+      if (mounted) setState(() => _bioAvailable = v);
+    });
+  }
 
   @override
   void dispose() {
@@ -54,7 +64,7 @@ class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
       setState(() => _error = t.passwordsDontMatch);
       return;
     }
-    if (_new.text == _old.text) {
+    if (!_bioMode && _new.text == _old.text) {
       setState(() => _error = t.newPasswordSame);
       return;
     }
@@ -63,7 +73,23 @@ class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
       _error = null;
     });
     try {
-      await widget.auth.changePassword(_old.text, _new.text);
+      if (_bioMode) {
+        final ok = await widget.auth.resetPasswordWithBiometrics(
+          _new.text,
+          t.biometricReason,
+        );
+        if (!ok) {
+          if (mounted) {
+            setState(() {
+              _busy = false;
+              _error = t.bioConfirmFailed;
+            });
+          }
+          return;
+        }
+      } else {
+        await widget.auth.changePassword(_old.text, _new.text);
+      }
       if (mounted) Navigator.pop(context, true);
     } on WrongPasswordException {
       if (mounted) {
@@ -104,20 +130,41 @@ class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
               style: const TextStyle(fontSize: 12, color: Colors.white70),
             ),
             const SizedBox(height: 16),
-            TextField(
-              controller: _old,
-              obscureText: !_show,
-              enabled: !_busy,
-              enableSuggestions: false,
-              autocorrect: false,
-              decoration: InputDecoration(
-                labelText: t.currentPassword,
-                suffixIcon: IconButton(
-                  icon: Icon(_show ? Icons.visibility_off : Icons.visibility),
-                  onPressed: () => setState(() => _show = !_show),
+            if (!_bioMode)
+              TextField(
+                controller: _old,
+                obscureText: !_show,
+                enabled: !_busy,
+                enableSuggestions: false,
+                autocorrect: false,
+                decoration: InputDecoration(
+                  labelText: t.currentPassword,
+                  suffixIcon: IconButton(
+                    icon: Icon(_show ? Icons.visibility_off : Icons.visibility),
+                    onPressed: () => setState(() => _show = !_show),
+                  ),
                 ),
               ),
-            ),
+            if (_bioMode)
+              Text(
+                t.forgotPasswordBioHint,
+                style: const TextStyle(fontSize: 12, color: Colors.white70),
+              ),
+            if (_bioAvailable)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: _busy
+                      ? null
+                      : () => setState(() {
+                          _bioMode = !_bioMode;
+                          _error = null;
+                        }),
+                  child: Text(
+                    _bioMode ? t.useCurrentPassword : t.forgotOldPassword,
+                  ),
+                ),
+              ),
             const SizedBox(height: 16),
             TextField(
               controller: _new,

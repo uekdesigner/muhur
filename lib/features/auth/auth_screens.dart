@@ -266,7 +266,36 @@ class _UnlockScreenState extends State<UnlockScreen> {
     if (ok && mounted) {
       Haptics.medium();
       widget.onDone();
+    } else if (mounted && !await widget.auth.biometricEnabled()) {
+      // Parmak izi/yüz ayarları değişti: biyometrik giriş kapatıldı.
+      setState(() {
+        _bioEnabled = false;
+        _error = t.biometricChangedBody;
+      });
     }
+  }
+
+  Future<void> _offerBiometrics() async {
+    final t = AppLocalizations.of(context)!;
+    final enable = await showDialog<bool>(
+      context: context,
+      animationStyle: Motion.style,
+      builder: (c) => AlertDialog(
+        title: Text(t.enableBiometricsQ),
+        content: Text(t.biometricChangedBody),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(c, false),
+            child: Text(t.notNow),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(c, true),
+            child: Text(t.enable),
+          ),
+        ],
+      ),
+    );
+    if (enable == true) await widget.auth.enableBiometrics(t.biometricReason);
   }
 
   Future<void> _submit() async {
@@ -277,6 +306,9 @@ class _UnlockScreenState extends State<UnlockScreen> {
     });
     try {
       await widget.auth.unlockWithPassword(_pw.text);
+      if (mounted && await widget.auth.takeBiometricResetFlag()) {
+        await _offerBiometrics();
+      }
       if (mounted) widget.onDone();
     } on WrongPasswordException {
       if (mounted) setState(() => _error = t.wrongPassword);

@@ -1715,6 +1715,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete and continue'**
   String get orphanVaultReplace;
+
+  /// No description provided for @forgotOldPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'I don\'t remember my current password'**
+  String get forgotOldPassword;
+
+  /// No description provided for @useCurrentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Use my current password instead'**
+  String get useCurrentPassword;
+
+  /// No description provided for @forgotPasswordBioHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm with your fingerprint or face to set a new master password. Your records stay as they are.'**
+  String get forgotPasswordBioHint;
+
+  /// No description provided for @bioConfirmFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric confirmation failed or was cancelled.'**
+  String get bioConfirmFailed;
+
+  /// No description provided for @biometricChangedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your fingerprint or face settings changed, so biometric login was turned off for your safety.'**
+  String get biometricChangedBody;
 }
 
 class _AppLocalizationsDelegate
