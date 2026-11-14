@@ -147,7 +147,7 @@ class CryptoService {
     } else {
       m = memoryKiB ?? (throw ArgumentError('wrapVersion 2 için m gerekli.'));
       t = iterations ?? (throw ArgumentError('wrapVersion 2 için t gerekli.'));
-      if (m < 8192 || m > 262144 || t < 1 || t > 10) {
+      if (m < 1024 || m > 262144 || t < 1 || t > 10) {
         throw const FormatException('Geçersiz kasa KDF ayarları.');
       }
       aad = _dekAadV2(m, t, base64Encode(salt));

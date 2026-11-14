@@ -12,14 +12,28 @@ void main() {
 
   test('doğru parola kasayı açar', () async {
     final v = await crypto.createVault('dogru-parola');
-    final dek = await crypto.unlock('dogru-parola', v.salt, v.wrappedDek);
+    final dek = await crypto.unlock(
+      'dogru-parola',
+      v.salt,
+      v.wrappedDek,
+      wrapVersion: v.wrapVersion,
+      memoryKiB: v.memoryKiB,
+      iterations: v.iterations,
+    );
     expect(await dek.extractBytes(), await v.dek.extractBytes());
   });
 
   test('yanlış parola reddedilir', () async {
     final v = await crypto.createVault('dogru-parola');
     expect(
-      () => crypto.unlock('yanlis-parola', v.salt, v.wrappedDek),
+      () => crypto.unlock(
+        'yanlis-parola',
+        v.salt,
+        v.wrappedDek,
+        wrapVersion: v.wrapVersion,
+        memoryKiB: v.memoryKiB,
+        iterations: v.iterations,
+      ),
       throwsException,
     );
   });

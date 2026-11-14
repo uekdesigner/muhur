@@ -36,6 +36,7 @@ class AuthService {
   static const _kPendingWrapped = 'muhur_wrapped_pending';
   static const _kKdfM = 'muhur_kdf_m';
   static const _kKdfT = 'muhur_kdf_t';
+  static const _kBioEnabled = 'muhur_bio_enabled';
   static const _kWrapV = 'muhur_wrap_v';
 
   SecretKey? _dek;
@@ -152,11 +153,13 @@ class AuthService {
       await _registerFailure();
       throw WrongPasswordException();
     }
+    // Eski sürümden kalan korumasız biyometrik DEK kopyasını sil;
+    // kullanıcı biyometriği bir kez yeniden etkinleştirmeli.
+    await _storage.delete(key: _kBioDek);
     await _clearFailures();
     await _openWith(key);
   }
 
-  /// Parolayla DEK'i açar. Eski sürümden kalan yarım parola değişimini de toparlar.
   /// Parolayla DEK'i açar. Eski sürümden kalan yarım parola değişimini de toparlar.
   /// Başlıkta KDF ayarı yoksa eski varsayılanlar geçerlidir; başarılı girişte
   /// DEK güncel ayarlarla otomatik yeniden sarılır.
@@ -302,40 +305,67 @@ class AuthService {
     }
   }
 
-  Future<bool> biometricEnabled() async => await _secureRead(_kBioDek) != null;
+  /// DEK'in saklandığı, her erişimde kullanıcı doğrulaması istenen depo.
+  /// Android: anahtar Keystore'da kullanıcı doğrulamasına bağlı
+  /// (enforceBiometrics + requireBiometricsPerOperation = her işlemde istek).
+  /// iOS: Keychain öğesi biometryCurrentSet erişim kontrolü taşır.
+  FlutterSecureStorage _bioStorage([String? reason]) => FlutterSecureStorage(
+    aOptions: AndroidOptions.biometric(
+      enforceBiometrics: true,
+      requireBiometricsPerOperation: true,
+      biometricPromptTitle: reason ?? 'Mühür',
+      storageNamespace: 'bio',
+    ),
+    iOptions: const IOSOptions(
+      accessibility: KeychainAccessibility.passcode,
+      accessControlFlags: [AccessControlFlag.biometryCurrentSet],
+    ),
+  );
 
-  Future<bool> _authenticate(String reason) async {
-    _dialogOpen = true;
+  Future<bool> biometricEnabled() async =>
+      await _secureRead(_kBioEnabled) != null;
+
+  /// Kasa açıkken çağrılır: DEK, kullanıcı doğrulamasına bağlı depoya yazılır.
+  /// Yazma da keystore katmanında biyometrik pencere gösterir.
+  Future<bool> enableBiometrics(String reason) async {
+    if (!isUnlocked) return false;
     try {
-      return await _localAuth.authenticate(localizedReason: reason);
+      final bytes = await dek.extractBytes();
+      await _bioStorage(reason)
+          .write(key: _kBioDek, value: base64Encode(bytes));
+      await _storage.write(key: _kBioEnabled, value: '1');
+      return true;
     } catch (_) {
+      // Cihaz güvenliği yok veya kullanıcı vazgeçti.
       return false;
-    } finally {
-      _dialogOpen = false;
-      _graceUntil = DateTime.now().add(const Duration(seconds: 2));
     }
   }
 
-  /// Kasa açıkken çağrılır: doğrulama sonrası DEK donanım destekli depoya yazılır.
-  Future<bool> enableBiometrics(String reason) async {
-    if (!isUnlocked) return false;
-    if (!await _authenticate(reason)) return false;
-    final bytes = await dek.extractBytes();
-    await _storage.write(key: _kBioDek, value: base64Encode(bytes));
-    return true;
+  Future<void> disableBiometrics() async {
+    await _storage.delete(key: _kBioEnabled);
+    try {
+      await _bioStorage().delete(key: _kBioDek);
+    } catch (_) {
+      // Silinemese bile işaret kalktı: DEK'e artık hiç erişilmez.
+    }
   }
-
-  Future<void> disableBiometrics() => _storage.delete(key: _kBioDek);
 
   Future<bool> unlockWithBiometrics(String reason) async {
     if (!await biometricEnabled()) return false;
-    if (!await _authenticate(reason)) return false;
-    final b64 = await _secureRead(_kBioDek);
+    // Keystore/Keychain her okumada kullanıcı doğrulaması ister.
+    final String? b64;
+    try {
+      b64 = await _bioStorage(reason).read(key: _kBioDek);
+    } catch (_) {
+      return false;
+    }
     if (b64 == null) return false;
     try {
       await _openWith(SecretKey(base64Decode(b64)));
       return true;
     } catch (_) {
+      // Saklı DEK geçersiz (ör. biyometrik kayıt değişti): işareti temizle.
+      await disableBiometrics();
       return false;
     }
   }
