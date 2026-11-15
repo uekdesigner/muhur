@@ -7,6 +7,7 @@ import 'core/crypto/crypto_service.dart';
 import 'core/storage/app_settings.dart';
 import 'core/storage/database_manager.dart';
 import 'core/utils/clipboard_service.dart';
+import 'core/utils/mono_clock.dart';
 import 'core/utils/privacy_cover.dart';
 import 'core/utils/screen_capture_service.dart';
 import 'core/widgets/panel_style.dart';
@@ -68,7 +69,7 @@ class _AppRootState extends State<AppRoot> with WidgetsBindingObserver {
   final AuthService _auth = AuthService(CryptoService(), DatabaseManager());
   bool? _exists;
   bool _unlocked = false;
-  DateTime? _backgroundedAt;
+  Future<int?>? _bgMono;
   Timer? _lockTimer;
 
   @override
@@ -94,7 +95,7 @@ class _AppRootState extends State<AppRoot> with WidgetsBindingObserver {
       case AppLifecycleState.hidden:
       case AppLifecycleState.paused:
         privacyCover.value = true;
-        _backgroundedAt ??= DateTime.now();
+        _bgMono ??= MonoClock.elapsedMs();
         _scheduleLock();
       case AppLifecycleState.resumed:
         _onResumed();
@@ -130,10 +131,19 @@ class _AppRootState extends State<AppRoot> with WidgetsBindingObserver {
 
   Future<void> _onResumed() async {
     _lockTimer?.cancel();
-    final since = _backgroundedAt;
-    _backgroundedAt = null;
+    final monoStart = _bgMono;
+    _bgMono = null;
     if (_unlocked && since != null && !_auth.systemDialogActive) {
-      if (!DateTime.now().isBefore(_lockDeadline(since))) {
+      final lockAfter = _lockDeadline(since).difference(since);
+      var elapsed = DateTime.now().difference(since);
+      // Saat geri alınsa bile monotonik süre küçülmez: büyük olanı kullan.
+      final m0 = await monoStart;
+      final m1 = await MonoClock.elapsedMs();
+      if (m0 != null && m1 != null) {
+        final mono = Duration(milliseconds: m1 - m0);
+        if (mono > elapsed) elapsed = mono;
+      }
+      if (elapsed >= lockAfter) {
         await _lockNow();
       }
     }

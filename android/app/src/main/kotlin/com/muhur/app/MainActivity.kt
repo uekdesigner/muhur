@@ -7,6 +7,7 @@ import android.content.pm.ApplicationInfo
 import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.os.SystemClock
 import android.view.WindowManager
 import io.flutter.embedding.android.FlutterFragmentActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -79,6 +80,14 @@ class MainActivity : FlutterFragmentActivity() {
                             result.success(isSecureNow())
                         }
                     }
+                    else -> result.notImplemented()
+                }
+            }
+            
+        MethodChannel(messenger, "com.muhur.app/clock")
+            .setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "elapsedRealtime" -> result.success(SystemClock.elapsedRealtime())
                     else -> result.notImplemented()
                 }
             }

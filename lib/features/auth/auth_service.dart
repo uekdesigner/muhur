@@ -9,6 +9,7 @@ import 'package:local_auth/local_auth.dart';
 import '../../core/crypto/crypto_service.dart';
 import '../../core/storage/database_manager.dart';
 import '../../core/storage/vault_header_store.dart';
+import '../../core/utils/mono_clock.dart';
 
 class WrongPasswordException implements Exception {}
 
@@ -33,6 +34,7 @@ class AuthService {
   static const _kBioDek = 'muhur_bio_dek';
   static const _kFails = 'muhur_fail_count';
   static const _kLockUntil = 'muhur_lock_until';
+  static const _kLockMono = 'muhur_lock_mono';
   static const _kPendingSalt = 'muhur_salt_pending';
   static const _kPendingWrapped = 'muhur_wrapped_pending';
   static const _kKdfM = 'muhur_kdf_m';
@@ -44,12 +46,12 @@ class AuthService {
 
   SecretKey? _dek;
   bool _dialogOpen = false;
-  DateTime? _graceUntil;
+  final _grace = Stopwatch();
 
   /// Sistem biyometrik penceresi açıkken (veya hemen sonrasında) true.
   bool get systemDialogActive =>
       _dialogOpen ||
-      (_graceUntil != null && DateTime.now().isBefore(_graceUntil!));
+      (_grace.isRunning && _grace.elapsed < const Duration(seconds: 2));
 
   /// Dosya seçici gibi sistem pencereleri açıkken kasa kilitlenmesin.
   Future<T> runExternal<T>(Future<T> Function() action) async {
@@ -58,7 +60,9 @@ class AuthService {
       return await action();
     } finally {
       _dialogOpen = false;
-      _graceUntil = DateTime.now().add(const Duration(seconds: 2));
+      _grace
+        ..reset()
+        ..start();
     }
   }
 
@@ -479,8 +483,29 @@ class AuthService {
     final raw = await _secureRead(_kLockUntil);
     if (raw == null) return Duration.zero;
     final until = DateTime.fromMillisecondsSinceEpoch(int.parse(raw));
-    final left = until.difference(DateTime.now());
-    return left.isNegative ? Duration.zero : left;
+    var left = until.difference(DateTime.now());
+    // Aynı açılışta geçen süreyi monotonik saatten al: sistem saatini ileri
+    // almak beklemeyi atlatmasın.
+    final mono =
+        (await _secureRead(_kLockMono))?.split(':') ?? const <String>[];
+    final now = await MonoClock.elapsedMs();
+    final start = mono.length == 2 ? int.tryParse(mono[0]) : null;
+    final secs = mono.length == 2 ? int.tryParse(mono[1]) : null;
+    if (now != null && start != null && secs != null) {
+      if (now < start) {
+        // Cihaz yeniden başlatılmış: geçen süre bilinemez, bekleme baştan.
+        await _storage.write(key: _kLockMono, value: '$now:$secs');
+        return Duration(seconds: secs);
+      }
+      left = Duration(milliseconds: secs * 1000 - (now - start));
+    }
+    if (left > Duration.zero) return left;
+    // Süre doldu: kayıtları kaldır (deneme sayısı kalır, ceza artmaya devam eder).
+    try {
+      await _storage.delete(key: _kLockUntil);
+      await _storage.delete(key: _kLockMono);
+    } catch (_) {}
+    return Duration.zero;
   }
 
   Future<void> _registerFailure() async {
@@ -497,6 +522,10 @@ class AuthService {
         key: _kLockUntil,
         value: '${until.millisecondsSinceEpoch}',
       );
+      final mono = await MonoClock.elapsedMs();
+      if (mono != null) {
+        await _storage.write(key: _kLockMono, value: '$mono:$secs');
+      }
     }
   }
 
@@ -504,6 +533,7 @@ class AuthService {
     try {
       await _storage.delete(key: _kFails);
       await _storage.delete(key: _kLockUntil);
+      await _storage.delete(key: _kLockMono);
     } catch (_) {}
   }
 }
