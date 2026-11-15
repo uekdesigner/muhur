@@ -64,7 +64,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final enabled = await widget.auth.biometricEnabled();
     if (!mounted) return;
     setState(() {
-      _bioAvailable = available;
+      _bioAvailable = available || enabled;
       _bioEnabled = enabled;
     });
   }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'core/constants/app_theme.dart';
 import 'core/crypto/crypto_service.dart';
+import 'core/entitlements/entitlements.dart';
 import 'core/storage/app_settings.dart';
 import 'core/storage/database_manager.dart';
 import 'core/utils/clipboard_service.dart';
@@ -21,6 +22,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AppSettings.instance.load();
   await GeneratorSettings.instance.load();
+  await Entitlements.instance.load();
   ClipboardService.instance.init();
   await ScreenCaptureService.instance.init();
   AppSettings.instance.background.addListener(() {

@@ -306,17 +306,16 @@ class AuthService {
 
   // ---- Biyometrik ----
 
+  /// Kasa yalnızca güçlü biyometriyle açılır (Android Class 3, iOS Face ID /
+  /// Touch ID). Kayıtlı parmak izi/yüz yoksa veya sadece zayıf yüz tanıma varsa false.
   Future<bool> biometricAvailable() async {
     try {
-      final can = await _localAuth.canCheckBiometrics;
-      final sup = await _localAuth.isDeviceSupported();
+      if (!await _localAuth.isDeviceSupported()) return false;
       final list = await _localAuth.getAvailableBiometrics();
-      // ignore: avoid_print
-      print('BIYOMETRI can=$can supported=$sup list=$list');
-      return can && sup;
-    } catch (e) {
-      // ignore: avoid_print
-      print('BIYOMETRI hata: $e');
+      return list.contains(BiometricType.strong) ||
+          list.contains(BiometricType.fingerprint) ||
+          list.contains(BiometricType.face);
+    } catch (_) {
       return false;
     }
   }
