@@ -4,12 +4,14 @@ import 'dart:typed_data';
 import 'package:sqflite_sqlcipher/sqflite.dart';
 
 import '../../core/crypto/crypto_service.dart';
+import '../../core/entitlements/entitlements.dart';
 import '../auth/auth_service.dart';
 
 class BackupResult {
-  const BackupResult(this.added, this.skipped);
+  const BackupResult(this.added, this.skipped, [this.limited = 0]);
   final int added;
   final int skipped;
+  final int limited; // ücretsiz sınır yüzünden alınmayan kayıtlar
 }
 
 class BackupService {
@@ -83,9 +85,15 @@ class BackupService {
     return Uint8List.fromList(utf8.encode(jsonEncode(env)));
   }
 
+  /// Bundan büyük dosya yedek sayılmaz (~50 bin kayıt için fazlasıyla yeter).
+  static const maxBackupBytes = 50 * 1024 * 1024;
+
   /// Yedeği açar ve kayıtları kasaya ekler. Var olan kayıtlara dokunmaz.
   /// Parola yanlışsa [BackupPasswordException], dosya geçersizse başka bir hata fırlatır.
   Future<BackupResult> restore(Uint8List bytes, String password) async {
+    if (bytes.length > maxBackupBytes) {
+      throw const FormatException('Yedek dosyası çok büyük.');
+    }
     final env = jsonDecode(utf8.decode(bytes)) as Map<String, dynamic>;
     final plain = await _crypto.openBackup(env, password);
     final payload = jsonDecode(utf8.decode(plain)) as Map<String, dynamic>;
@@ -100,6 +108,8 @@ class BackupService {
 
     final existing = <String>{};
     final trashed = <String, int>{}; // çöpteki kayıtlar: anahtar -> id
+    final active = <int, int>{}; // kategori -> aktif kayıt sayısı
+    final ent = Entitlements.instance;
     final rows = await _db.query(
       'vault_entries',
       columns: [
@@ -119,11 +129,17 @@ class BackupService {
         r['created_at'] as String,
       );
       existing.add(k);
-      if (r['deleted_at'] != null) trashed[k] = r['id'] as int;
+      if (r['deleted_at'] != null) {
+        trashed[k] = r['id'] as int;
+      } else {
+        final c = r['category_id'] as int;
+        active[c] = (active[c] ?? 0) + 1;
+      }
     }
 
     var added = 0;
     var skipped = 0;
+    var limited = 0;
     await _db.transaction((txn) async {
       for (final e in items) {
         final cat = catId[e['category'] as String?] ?? fallbackCat;
@@ -134,6 +150,11 @@ class BackupService {
         if (!existing.add(k)) {
           final trashedId = trashed.remove(k);
           if (trashedId != null && e['deleted_at'] == null) {
+            if (!ent.canAdd(active[cat] ?? 0)) {
+              limited++;
+              continue;
+            }
+            active[cat] = (active[cat] ?? 0) + 1;
             await txn.update(
               'vault_entries',
               {'deleted_at': null},
@@ -145,6 +166,13 @@ class BackupService {
             skipped++;
           }
           continue;
+        }
+        if (e['deleted_at'] == null) {
+          if (!ent.canAdd(active[cat] ?? 0)) {
+            limited++;
+            continue;
+          }
+          active[cat] = (active[cat] ?? 0) + 1;
         }
         final id = await txn.insert('vault_entries', {
           'category_id': cat,
@@ -177,7 +205,7 @@ class BackupService {
         added++;
       }
     });
-    return BackupResult(added, skipped);
+    return BackupResult(added, skipped, limited);
   }
 
   String _key(int cat, String title, String? domain, String created) =>

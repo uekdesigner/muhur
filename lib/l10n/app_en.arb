@@ -310,11 +310,19 @@
   "customTypePassword": "Password",
   "customTypeDate": "Date",
   "customTypePhone": "Phone",
-    "orphanVaultTitle": "Old vault found",
+  "orphanVaultTitle": "Old vault found",
   "orphanVaultBody": "A vault file from before exists on this device, but its keys can't be read, so it can't be opened. If you continue, that old data will be deleted. If you have a backup, create a new vault and restore it afterwards.",
   "orphanVaultReplace": "Delete and continue",  "forgotOldPassword": "I don't remember my current password",
   "useCurrentPassword": "Use my current password instead",
   "forgotPasswordBioHint": "Confirm with your fingerprint or face to set a new master password. Your records stay as they are.",
   "bioConfirmFailed": "Biometric confirmation failed or was cancelled.",
-  "biometricChangedBody": "Your fingerprint or face settings changed, so biometric login was turned off for your safety."
+  "biometricChangedBody": "Your fingerprint or face settings changed, so biometric login was turned off for your safety.",
+    "limitReachedTitle": "Free limit reached",
+  "limitReachedBody": "The free version holds up to {count} records per category. Delete a record or upgrade to Pro for unlimited records.",
+  "@limitReachedBody": { "placeholders": { "count": { "type": "int" } } },
+  "scanLimitTitle": "Free scans used",
+  "scanLimitBody": "You've used your {count} free scans. Upgrade to Pro for unlimited scanning.",
+  "@scanLimitBody": { "placeholders": { "count": { "type": "int" } } },
+  "backupRestoreLimited": "{added} added, {limited} not restored (free limit reached). Your backup file is unchanged.",
+  "@backupRestoreLimited": { "placeholders": { "added": { "type": "int" }, "limited": { "type": "int" } } }
 }

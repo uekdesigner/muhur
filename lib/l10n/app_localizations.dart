@@ -1745,6 +1745,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your fingerprint or face settings changed, so biometric login was turned off for your safety.'**
   String get biometricChangedBody;
+
+  /// No description provided for @limitReachedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Free limit reached'**
+  String get limitReachedTitle;
+
+  /// No description provided for @limitReachedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The free version holds up to {count} records per category. Delete a record or upgrade to Pro for unlimited records.'**
+  String limitReachedBody(int count);
+
+  /// No description provided for @scanLimitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Free scans used'**
+  String get scanLimitTitle;
+
+  /// No description provided for @scanLimitBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve used your {count} free scans. Upgrade to Pro for unlimited scanning.'**
+  String scanLimitBody(int count);
+
+  /// No description provided for @backupRestoreLimited.
+  ///
+  /// In en, this message translates to:
+  /// **'{added} added, {limited} not restored (free limit reached). Your backup file is unchanged.'**
+  String backupRestoreLimited(int added, int limited);
 }
 
 class _AppLocalizationsDelegate

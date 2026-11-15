@@ -787,7 +787,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     setState(() => _backupBusy = true);
     try {
       final r = await _backup.restore(bytes, pw);
-      _toast(t.backupRestored(r.added, r.skipped));
+      _toast(
+        r.limited > 0
+            ? t.backupRestoreLimited(r.added, r.limited)
+            : t.backupRestored(r.added, r.skipped),
+      );
     } on BackupPasswordException {
       _toast(t.backupWrongPassword);
     } catch (_) {

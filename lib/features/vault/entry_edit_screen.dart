@@ -12,6 +12,9 @@ import '../scanner/scanner_screen.dart';
 import 'field_catalog.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
+import 'pro_dialog.dart';
+import '../../core/entitlements/entitlements.dart';
+import '../../core/storage/app_settings.dart';
 
 /// Tek bir text field'ın yaklaşık yüksekliği; "Not" alanı bunun 5 katıdır.
 const double _kFieldHeight = 56;
@@ -470,7 +473,20 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
           ),
         )
         .toList();
-    await widget.repo.save(entry, fields);
+    try {
+      await widget.repo.save(entry, fields);
+    } on LimitReachedException {
+      if (mounted) {
+        setState(() => _saving = false);
+        final t = AppLocalizations.of(context)!;
+        await showProDialog(
+          context,
+          t.limitReachedTitle,
+          t.limitReachedBody(Entitlements.freeEntriesPerCategory),
+        );
+      }
+      return;
+    }
     if (mounted) Navigator.pop(context, true);
   }
 
@@ -611,6 +627,19 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
           icon: const Icon(Icons.document_scanner),
           tooltip: t.scan,
           onPressed: () async {
+            final pro = Entitlements.instance.isPro;
+            if (!pro &&
+                await AppSettings.instance.scanTrialsUsed() >=
+                    Entitlements.freeScanTrials) {
+              if (mounted) {
+                await showProDialog(
+                  context,
+                  t.scanLimitTitle,
+                  t.scanLimitBody(Entitlements.freeScanTrials),
+                );
+              }
+              return;
+            }
             final v = await Navigator.push<String>(
               context,
               MaterialPageRoute(
@@ -620,6 +649,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
               ),
             );
             if (v != null) {
+              if (!pro) await AppSettings.instance.useScanTrial();
               setState(() {
                 d.value.text = v;
                 d.reveal = true;

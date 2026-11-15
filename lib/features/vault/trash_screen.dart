@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
+import '../../core/entitlements/entitlements.dart';
+import 'pro_dialog.dart';
 import '../../core/storage/app_settings.dart';
 import '../../core/utils/motion.dart';
 import '../../core/widgets/muhur_widgets.dart';
@@ -49,7 +51,18 @@ class _TrashScreenState extends State<TrashScreen> {
   }
 
   Future<void> _restore(VaultEntry e) async {
-    await widget.repo.restore(e.id!);
+    try {
+      await widget.repo.restore(e.id!);
+    } on LimitReachedException {
+      if (!mounted) return;
+      final t = AppLocalizations.of(context)!;
+      await showProDialog(
+        context,
+        t.limitReachedTitle,
+        t.limitReachedBody(Entitlements.freeEntriesPerCategory),
+      );
+      return;
+    }
     await _load();
   }
 

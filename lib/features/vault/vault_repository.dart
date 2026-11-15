@@ -3,6 +3,7 @@ import 'package:sqflite_sqlcipher/sqflite.dart';
 import '../../core/crypto/crypto_service.dart';
 import '../auth/auth_service.dart';
 import 'vault_models.dart';
+import '../../core/entitlements/entitlements.dart';
 
 import 'dart:convert';
 
@@ -91,8 +92,37 @@ class VaultRepository {
     return out;
   }
 
+  /// Kategorideki aktif (çöpte olmayan) kayıt sayısı.
+  Future<int> activeCount(int categoryId) async {
+    final r = await _db.rawQuery(
+      'SELECT COUNT(*) AS c FROM vault_entries '
+      'WHERE category_id = ? AND deleted_at IS NULL',
+      [categoryId],
+    );
+    return (r.first['c'] as int?) ?? 0;
+  }
+
+  Future<bool> canAddTo(int categoryId) async =>
+      Entitlements.instance.canAdd(await activeCount(categoryId));
+
   /// Yeni kayıt ekler ya da (entry.id doluysa) günceller. Kaydın id'sini döndürür.
   Future<int> save(VaultEntry e, List<FieldData> fields) async {
+    // Ücretsiz sınır: yeni kayıt ya da başka kategoriye taşıma.
+    if (e.id == null) {
+      if (!await canAddTo(e.categoryId)) throw const LimitReachedException();
+    } else {
+      final cur = await _db.query(
+        'vault_entries',
+        columns: ['category_id'],
+        where: 'id = ?',
+        whereArgs: [e.id],
+      );
+      if (cur.isNotEmpty &&
+          cur.first['category_id'] != e.categoryId &&
+          !await canAddTo(e.categoryId)) {
+        throw const LimitReachedException();
+      }
+    }
     final now = DateTime.now().toUtc().toIso8601String();
     final dek = _auth.dek;
 
@@ -173,6 +203,16 @@ class VaultRepository {
   }
 
   Future<void> restore(int id) async {
+    final rows = await _db.query(
+      'vault_entries',
+      columns: ['category_id'],
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+    if (rows.isEmpty) return;
+    if (!await canAddTo(rows.first['category_id'] as int)) {
+      throw const LimitReachedException();
+    }
     await _db.update(
       'vault_entries',
       {'deleted_at': null},

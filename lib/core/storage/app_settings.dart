@@ -262,6 +262,22 @@ class AppSettings {
     await _storage.write(key: _kTipsSeen, value: _tipsSeen.join(','));
   }
 
+  static const _kScanTrials = 'muhur_scan_trials';
+
+  /// Ücretsiz kamera taramada şimdiye kadar kullanılan başarılı tarama sayısı.
+  Future<int> scanTrialsUsed() async {
+    try {
+      return int.tryParse(await _storage.read(key: _kScanTrials) ?? '') ?? 0;
+    } catch (_) {
+      return 0;
+    }
+  }
+
+  Future<void> useScanTrial() async {
+    final n = await scanTrialsUsed();
+    await _storage.write(key: _kScanTrials, value: '${n + 1}');
+  }
+
   /// Yardım animasyonunu ve tüm ipuçlarını yeniden gösterir.
   Future<void> resetTips() async {
     helpSeen = false;

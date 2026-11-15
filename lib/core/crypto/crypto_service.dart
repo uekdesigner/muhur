@@ -238,7 +238,7 @@ class CryptoService {
     final m = kdf['m'] as int;
     final it = kdf['t'] as int;
     // Kötü niyetli dosya aşırı bellek veya süre istemesin.
-    if (m < 8192 || m > 262144 || it < 1 || it > 10) {
+    if (m < 1024 || m > 262144 || it < 1 || it > 10) {
       throw const FormatException('Geçersiz yedek ayarları.');
     }
     final key = await CryptoService(

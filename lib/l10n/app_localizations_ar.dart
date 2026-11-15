@@ -946,4 +946,25 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get biometricChangedBody =>
       'Your fingerprint or face settings changed, so biometric login was turned off for your safety.';
+
+  @override
+  String get limitReachedTitle => 'Free limit reached';
+
+  @override
+  String limitReachedBody(int count) {
+    return 'The free version holds up to $count records per category. Delete a record or upgrade to Pro for unlimited records.';
+  }
+
+  @override
+  String get scanLimitTitle => 'Free scans used';
+
+  @override
+  String scanLimitBody(int count) {
+    return 'You\'ve used your $count free scans. Upgrade to Pro for unlimited scanning.';
+  }
+
+  @override
+  String backupRestoreLimited(int added, int limited) {
+    return '$added added, $limited not restored (free limit reached). Your backup file is unchanged.';
+  }
 }
