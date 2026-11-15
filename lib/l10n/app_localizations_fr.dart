@@ -211,7 +211,7 @@ class AppLocalizationsFr extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count jours',
-      one: '1 jour',
+      one: '$count jour',
     );
     return '$_temp0';
   }
@@ -238,7 +238,7 @@ class AppLocalizationsFr extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count jours restants',
-      one: '1 jour restant',
+      one: '$count jour restant',
     );
     return '$_temp0';
   }
@@ -252,7 +252,7 @@ class AppLocalizationsFr extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count entrées',
-      one: '1 entrée',
+      one: '$count entrée',
     );
     return 'Supprimer définitivement $_temp0 de la corbeille ? Action irréversible.';
   }
@@ -619,7 +619,7 @@ class AppLocalizationsFr extends AppLocalizations {
       days,
       locale: localeName,
       other: 'Votre dernière sauvegarde remonte à $days jours.',
-      one: 'Votre dernière sauvegarde remonte à 1 jour.',
+      one: 'Votre dernière sauvegarde remonte à $days jour.',
     );
     return '$_temp0';
   }
@@ -660,7 +660,7 @@ class AppLocalizationsFr extends AppLocalizations {
       days,
       locale: localeName,
       other: 'Sauvegarde en retard : la dernière remonte à $days jours',
-      one: 'Sauvegarde en retard : la dernière remonte à 1 jour',
+      one: 'Sauvegarde en retard : la dernière remonte à $days jour',
     );
     return '$_temp0';
   }
@@ -671,7 +671,7 @@ class AppLocalizationsFr extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count éléments dans la corbeille',
-      one: '1 élément dans la corbeille',
+      one: '$count élément dans la corbeille',
       zero: 'Corbeille vide',
     );
     return '$_temp0';
@@ -984,4 +984,34 @@ class AppLocalizationsFr extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return '$added ajoutées, $limited non restaurées (limite gratuite atteinte). Votre fichier de sauvegarde n\'a pas changé.';
   }
+
+  @override
+  String get aboutSection => 'À PROPOS';
+
+  @override
+  String get aboutVersion => 'Version';
+
+  @override
+  String get aboutProtectionTitle => 'Comment vos données sont protégées';
+
+  @override
+  String get aboutProtectionBody =>
+      'Chaque entrée est chiffrée en AES-256 sur cet appareil. La clé qui ouvre le coffre est dérivée de votre mot de passe principal avec Argon2id ; le mot de passe lui-même n\'est jamais stocké.';
+
+  @override
+  String get aboutOfflineTitle => 'Fonctionne hors ligne';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhur n\'a ni autorisation Internet, ni compte, ni serveur. Vos données ne quittent jamais cet appareil, sauf si vous exportez vous-même une sauvegarde chiffrée.';
+
+  @override
+  String get aboutLicenses => 'Licences open source';
+
+  @override
+  String get aboutLicensesDesc =>
+      'Licences des composants open source utilisés dans Muhur';
+
+  @override
+  String get aboutRights => 'Tous droits réservés.';
 }

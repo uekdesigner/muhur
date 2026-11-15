@@ -249,5 +249,14 @@
   "limitReachedBody": "無料版では各カテゴリに{count}件まで保存できます。項目を削除するか、Proにアップグレードすると無制限になります。",
   "scanLimitTitle": "無料スキャンを使い切りました",
   "scanLimitBody": "無料スキャン{count}回をすべて使いました。Proにアップグレードすると無制限にスキャンできます。",
-  "backupRestoreLimited": "{added}件追加、{limited}件は復元されませんでした（無料版の上限）。バックアップファイルは変更されていません。"
+  "backupRestoreLimited": "{added}件追加、{limited}件は復元されませんでした（無料版の上限）。バックアップファイルは変更されていません。",
+  "aboutSection": "情報",
+  "aboutVersion": "バージョン",
+  "aboutProtectionTitle": "データの保護方法",
+  "aboutProtectionBody": "すべての項目はこの端末上でAES-256により暗号化されます。保管庫を開く鍵はマスターパスワードからArgon2idで生成され、パスワード自体はどこにも保存されません。",
+  "aboutOfflineTitle": "オフラインで動作",
+  "aboutOfflineBody": "Muhurにはインターネット権限、アカウント、サーバーがありません。暗号化バックアップを自分でエクスポートしない限り、データがこの端末の外に出ることはありません。",
+  "aboutLicenses": "オープンソースライセンス",
+  "aboutLicensesDesc": "Muhurで使用しているオープンソース部品のライセンス",
+  "aboutRights": "無断複製・転載を禁じます。"
 }

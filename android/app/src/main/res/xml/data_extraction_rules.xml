@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Parola kasası: hiçbir veri buluta veya yeni cihaza aktarılmaz. -->
+<data-extraction-rules xmlns:tools="http://schemas.android.com/tools">
+    <cloud-backup>
+        <exclude domain="root" path="." tools:ignore="FullBackupContent" />
+        <exclude domain="device_root" path="." tools:ignore="FullBackupContent" />
+        <exclude domain="external" path="." tools:ignore="FullBackupContent" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="root" path="." tools:ignore="FullBackupContent" />
+        <exclude domain="device_root" path="." tools:ignore="FullBackupContent" />
+        <exclude domain="external" path="." tools:ignore="FullBackupContent" />
+    </device-transfer>
+</data-extraction-rules>

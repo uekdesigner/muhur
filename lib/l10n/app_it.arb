@@ -249,5 +249,14 @@
   "limitReachedBody": "La versione gratuita consente fino a {count} voci per categoria. Elimina una voce o passa a Pro per voci illimitate.",
   "scanLimitTitle": "Scansioni gratuite esaurite",
   "scanLimitBody": "Hai usato le tue {count} scansioni gratuite. Passa a Pro per scansioni illimitate.",
-  "backupRestoreLimited": "{added} aggiunte, {limited} non ripristinate (limite gratuito raggiunto). Il file di backup non è cambiato."
+  "backupRestoreLimited": "{added} aggiunte, {limited} non ripristinate (limite gratuito raggiunto). Il file di backup non è cambiato.",
+  "aboutSection": "INFO",
+  "aboutVersion": "Versione",
+  "aboutProtectionTitle": "Come sono protetti i tuoi dati",
+  "aboutProtectionBody": "Ogni voce è cifrata con AES-256 su questo dispositivo. La chiave che apre la cassaforte deriva dalla password principale tramite Argon2id; la password non viene mai memorizzata.",
+  "aboutOfflineTitle": "Funziona offline",
+  "aboutOfflineBody": "Muhur non ha permesso di accesso a Internet, né account né server. I tuoi dati non lasciano questo dispositivo, a meno che tu non esporti un backup cifrato.",
+  "aboutLicenses": "Licenze open source",
+  "aboutLicensesDesc": "Licenze dei componenti open source usati in Muhur",
+  "aboutRights": "Tutti i diritti riservati."
 }

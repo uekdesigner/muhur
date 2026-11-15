@@ -998,4 +998,34 @@ class AppLocalizationsRu extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return 'Добавлено: $added, не восстановлено: $limited (лимит бесплатной версии). Файл резервной копии не изменился.';
   }
+
+  @override
+  String get aboutSection => 'О ПРИЛОЖЕНИИ';
+
+  @override
+  String get aboutVersion => 'Версия';
+
+  @override
+  String get aboutProtectionTitle => 'Как защищены ваши данные';
+
+  @override
+  String get aboutProtectionBody =>
+      'Каждая запись шифруется на этом устройстве алгоритмом AES-256. Ключ, открывающий хранилище, создаётся из мастер-пароля с помощью Argon2id; сам пароль нигде не хранится.';
+
+  @override
+  String get aboutOfflineTitle => 'Работает без интернета';
+
+  @override
+  String get aboutOfflineBody =>
+      'У Muhur нет доступа к интернету, аккаунта и сервера. Ваши данные не покидают устройство, если вы сами не экспортируете зашифрованную копию.';
+
+  @override
+  String get aboutLicenses => 'Лицензии open source';
+
+  @override
+  String get aboutLicensesDesc =>
+      'Лицензии компонентов с открытым исходным кодом, используемых в Muhur';
+
+  @override
+  String get aboutRights => 'Все права защищены.';
 }

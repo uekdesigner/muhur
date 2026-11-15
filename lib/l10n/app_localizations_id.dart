@@ -968,4 +968,34 @@ class AppLocalizationsId extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return '$added ditambahkan, $limited tidak dipulihkan (batas gratis tercapai). File cadangan Anda tidak berubah.';
   }
+
+  @override
+  String get aboutSection => 'TENTANG';
+
+  @override
+  String get aboutVersion => 'Versi';
+
+  @override
+  String get aboutProtectionTitle => 'Cara data Anda dilindungi';
+
+  @override
+  String get aboutProtectionBody =>
+      'Setiap entri dienkripsi dengan AES-256 di perangkat ini. Kunci pembuka brankas diturunkan dari kata sandi utama Anda dengan Argon2id; kata sandinya sendiri tidak pernah disimpan.';
+
+  @override
+  String get aboutOfflineTitle => 'Berfungsi offline';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhur tidak memiliki izin internet, akun, maupun server. Data Anda tidak pernah keluar dari perangkat ini kecuali Anda sendiri mengekspor cadangan terenkripsi.';
+
+  @override
+  String get aboutLicenses => 'Lisensi sumber terbuka';
+
+  @override
+  String get aboutLicensesDesc =>
+      'Lisensi komponen sumber terbuka yang digunakan di Muhur';
+
+  @override
+  String get aboutRights => 'Hak cipta dilindungi undang-undang.';
 }

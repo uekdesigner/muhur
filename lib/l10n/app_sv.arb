@@ -249,5 +249,14 @@
   "limitReachedBody": "Gratisversionen rymmer upp till {count} poster per kategori. Radera en post eller uppgradera till Pro för obegränsat antal poster.",
   "scanLimitTitle": "Gratisskanningar slut",
   "scanLimitBody": "Du har använt dina {count} gratisskanningar. Uppgradera till Pro för obegränsad skanning.",
-  "backupRestoreLimited": "{added} tillagda, {limited} inte återställda (gratisgränsen nådd). Din backupfil är oförändrad."
+  "backupRestoreLimited": "{added} tillagda, {limited} inte återställda (gratisgränsen nådd). Din backupfil är oförändrad.",
+  "aboutSection": "OM",
+  "aboutVersion": "Version",
+  "aboutProtectionTitle": "Så skyddas dina data",
+  "aboutProtectionBody": "Varje post krypteras med AES-256 på den här enheten. Nyckeln som öppnar valvet härleds från ditt huvudlösenord med Argon2id; själva lösenordet sparas aldrig.",
+  "aboutOfflineTitle": "Fungerar offline",
+  "aboutOfflineBody": "Muhur har ingen internetbehörighet, inget konto och ingen server. Dina data lämnar aldrig enheten om du inte själv exporterar en krypterad backup.",
+  "aboutLicenses": "Licenser för öppen källkod",
+  "aboutLicensesDesc": "Licenser för komponenter med öppen källkod som används i Muhur",
+  "aboutRights": "Med ensamrätt."
 }

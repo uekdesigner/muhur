@@ -962,4 +962,34 @@ class AppLocalizationsTh extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return 'เพิ่ม $added รายการ, ไม่ได้กู้คืน $limited รายการ (ถึงขีดจำกัดเวอร์ชันฟรี) ไฟล์สำรองของคุณไม่เปลี่ยนแปลง';
   }
+
+  @override
+  String get aboutSection => 'เกี่ยวกับ';
+
+  @override
+  String get aboutVersion => 'เวอร์ชัน';
+
+  @override
+  String get aboutProtectionTitle => 'วิธีปกป้องข้อมูลของคุณ';
+
+  @override
+  String get aboutProtectionBody =>
+      'ทุกรายการถูกเข้ารหัสด้วย AES-256 บนอุปกรณ์นี้ คีย์ที่ใช้เปิดตู้นิรภัยสร้างจากรหัสผ่านหลักด้วย Argon2id และไม่มีการบันทึกรหัสผ่านไว้ที่ใด';
+
+  @override
+  String get aboutOfflineTitle => 'ใช้งานแบบออฟไลน์';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhur ไม่มีสิทธิ์เข้าถึงอินเทอร์เน็ต ไม่มีบัญชี และไม่มีเซิร์ฟเวอร์ ข้อมูลของคุณจะไม่ออกจากอุปกรณ์นี้ เว้นแต่คุณจะส่งออกข้อมูลสำรองที่เข้ารหัสด้วยตัวเอง';
+
+  @override
+  String get aboutLicenses => 'สัญญาอนุญาตโอเพนซอร์ส';
+
+  @override
+  String get aboutLicensesDesc =>
+      'สัญญาอนุญาตของส่วนประกอบโอเพนซอร์สที่ใช้ใน Muhur';
+
+  @override
+  String get aboutRights => 'สงวนลิขสิทธิ์';
 }

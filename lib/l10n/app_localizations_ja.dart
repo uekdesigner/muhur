@@ -944,4 +944,33 @@ class AppLocalizationsJa extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return '$added件追加、$limited件は復元されませんでした（無料版の上限）。バックアップファイルは変更されていません。';
   }
+
+  @override
+  String get aboutSection => '情報';
+
+  @override
+  String get aboutVersion => 'バージョン';
+
+  @override
+  String get aboutProtectionTitle => 'データの保護方法';
+
+  @override
+  String get aboutProtectionBody =>
+      'すべての項目はこの端末上でAES-256により暗号化されます。保管庫を開く鍵はマスターパスワードからArgon2idで生成され、パスワード自体はどこにも保存されません。';
+
+  @override
+  String get aboutOfflineTitle => 'オフラインで動作';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhurにはインターネット権限、アカウント、サーバーがありません。暗号化バックアップを自分でエクスポートしない限り、データがこの端末の外に出ることはありません。';
+
+  @override
+  String get aboutLicenses => 'オープンソースライセンス';
+
+  @override
+  String get aboutLicensesDesc => 'Muhurで使用しているオープンソース部品のライセンス';
+
+  @override
+  String get aboutRights => '無断複製・転載を禁じます。';
 }

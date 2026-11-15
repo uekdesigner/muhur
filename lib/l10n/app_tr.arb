@@ -249,5 +249,14 @@
   "limitReachedBody": "Ücretsiz sürümde her kategoride en fazla {count} kayıt tutulabilir. Sınırsız kayıt için bir kaydı silin veya Pro'ya geçin.",
   "scanLimitTitle": "Ücretsiz taramalar bitti",
   "scanLimitBody": "{count} ücretsiz tarama hakkınızı kullandınız. Sınırsız tarama için Pro'ya geçin.",
-  "backupRestoreLimited": "{added} eklendi, {limited} geri yüklenmedi (ücretsiz sınıra ulaşıldı). Yedek dosyanız değişmedi."
+  "backupRestoreLimited": "{added} eklendi, {limited} geri yüklenmedi (ücretsiz sınıra ulaşıldı). Yedek dosyanız değişmedi.",
+  "aboutSection": "HAKKINDA",
+  "aboutVersion": "Sürüm",
+  "aboutProtectionTitle": "Verileriniz nasıl korunur",
+  "aboutProtectionBody": "Her kayıt bu cihazda AES-256 ile şifrelenir. Kasayı açan anahtar ana parolanızdan Argon2id ile türetilir; parolanın kendisi hiçbir yerde saklanmaz.",
+  "aboutOfflineTitle": "İnternetsiz çalışır",
+  "aboutOfflineBody": "Muhur'un internet izni, hesabı ve sunucusu yoktur. Şifreli bir yedeği kendiniz dışa aktarmadığınız sürece verileriniz bu cihazdan çıkmaz.",
+  "aboutLicenses": "Açık kaynak lisansları",
+  "aboutLicensesDesc": "Muhur'da kullanılan açık kaynak bileşenlerin lisansları",
+  "aboutRights": "Tüm hakları saklıdır."
 }

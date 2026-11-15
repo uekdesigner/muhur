@@ -980,4 +980,34 @@ class AppLocalizationsSv extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return '$added tillagda, $limited inte återställda (gratisgränsen nådd). Din backupfil är oförändrad.';
   }
+
+  @override
+  String get aboutSection => 'OM';
+
+  @override
+  String get aboutVersion => 'Version';
+
+  @override
+  String get aboutProtectionTitle => 'Så skyddas dina data';
+
+  @override
+  String get aboutProtectionBody =>
+      'Varje post krypteras med AES-256 på den här enheten. Nyckeln som öppnar valvet härleds från ditt huvudlösenord med Argon2id; själva lösenordet sparas aldrig.';
+
+  @override
+  String get aboutOfflineTitle => 'Fungerar offline';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhur har ingen internetbehörighet, inget konto och ingen server. Dina data lämnar aldrig enheten om du inte själv exporterar en krypterad backup.';
+
+  @override
+  String get aboutLicenses => 'Licenser för öppen källkod';
+
+  @override
+  String get aboutLicensesDesc =>
+      'Licenser för komponenter med öppen källkod som används i Muhur';
+
+  @override
+  String get aboutRights => 'Med ensamrätt.';
 }

@@ -983,4 +983,34 @@ class AppLocalizationsNl extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return '$added toegevoegd, $limited niet hersteld (gratis limiet bereikt). Je back-upbestand is niet gewijzigd.';
   }
+
+  @override
+  String get aboutSection => 'OVER';
+
+  @override
+  String get aboutVersion => 'Versie';
+
+  @override
+  String get aboutProtectionTitle => 'Zo worden je gegevens beschermd';
+
+  @override
+  String get aboutProtectionBody =>
+      'Elk item wordt op dit apparaat versleuteld met AES-256. De sleutel die de kluis opent, wordt met Argon2id afgeleid van je hoofdwachtwoord; het wachtwoord zelf wordt nergens opgeslagen.';
+
+  @override
+  String get aboutOfflineTitle => 'Werkt offline';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhur heeft geen internettoestemming, geen account en geen server. Je gegevens verlaten dit apparaat alleen als je zelf een versleutelde back-up exporteert.';
+
+  @override
+  String get aboutLicenses => 'Opensourcelicenties';
+
+  @override
+  String get aboutLicensesDesc =>
+      'Licenties van de opensourcecomponenten in Muhur';
+
+  @override
+  String get aboutRights => 'Alle rechten voorbehouden.';
 }

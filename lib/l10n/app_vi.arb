@@ -249,5 +249,14 @@
   "limitReachedBody": "Bản miễn phí chứa tối đa {count} mục mỗi danh mục. Hãy xóa một mục hoặc nâng cấp lên Pro để không giới hạn.",
   "scanLimitTitle": "Đã hết lượt quét miễn phí",
   "scanLimitBody": "Bạn đã dùng hết {count} lượt quét miễn phí. Nâng cấp lên Pro để quét không giới hạn.",
-  "backupRestoreLimited": "Đã thêm {added}, {limited} không được khôi phục (đạt giới hạn miễn phí). Tệp sao lưu của bạn không thay đổi."
+  "backupRestoreLimited": "Đã thêm {added}, {limited} không được khôi phục (đạt giới hạn miễn phí). Tệp sao lưu của bạn không thay đổi.",
+  "aboutSection": "GIỚI THIỆU",
+  "aboutVersion": "Phiên bản",
+  "aboutProtectionTitle": "Cách dữ liệu của bạn được bảo vệ",
+  "aboutProtectionBody": "Mọi mục đều được mã hóa AES-256 trên thiết bị này. Khóa mở kho được tạo từ mật khẩu chính bằng Argon2id; bản thân mật khẩu không bao giờ được lưu.",
+  "aboutOfflineTitle": "Hoạt động ngoại tuyến",
+  "aboutOfflineBody": "Muhur không có quyền truy cập Internet, không có tài khoản và không có máy chủ. Dữ liệu không rời khỏi thiết bị này trừ khi bạn tự xuất bản sao lưu đã mã hóa.",
+  "aboutLicenses": "Giấy phép nguồn mở",
+  "aboutLicensesDesc": "Giấy phép của các thành phần nguồn mở dùng trong Muhur",
+  "aboutRights": "Bảo lưu mọi quyền."
 }

@@ -209,7 +209,7 @@ class AppLocalizationsHi extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count दिन',
-      one: '1 दिन',
+      one: '$count दिन',
     );
     return '$_temp0';
   }
@@ -236,7 +236,7 @@ class AppLocalizationsHi extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count दिन बाकी',
-      one: '1 दिन बाकी',
+      one: '$count दिन बाकी',
     );
     return '$_temp0';
   }
@@ -250,7 +250,7 @@ class AppLocalizationsHi extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count एंट्री',
-      one: '1 एंट्री',
+      one: '$count एंट्री',
     );
     return 'ट्रैश से $_temp0 हमेशा के लिए हटाएं? इसे वापस नहीं किया जा सकता।';
   }
@@ -613,7 +613,7 @@ class AppLocalizationsHi extends AppLocalizations {
       days,
       locale: localeName,
       other: 'आपका आखिरी बैकअप $days दिन पहले हुआ था।',
-      one: 'आपका आखिरी बैकअप 1 दिन पहले हुआ था।',
+      one: 'आपका आखिरी बैकअप $days दिन पहले हुआ था।',
     );
     return '$_temp0';
   }
@@ -654,7 +654,7 @@ class AppLocalizationsHi extends AppLocalizations {
       days,
       locale: localeName,
       other: 'बैकअप बाकी: आखिरी $days दिन पहले',
-      one: 'बैकअप बाकी: आखिरी 1 दिन पहले',
+      one: 'बैकअप बाकी: आखिरी $days दिन पहले',
     );
     return '$_temp0';
   }
@@ -665,7 +665,7 @@ class AppLocalizationsHi extends AppLocalizations {
       count,
       locale: localeName,
       other: 'ट्रैश में $count एंट्री',
-      one: 'ट्रैश में 1 एंट्री',
+      one: 'ट्रैश में $count एंट्री',
       zero: 'ट्रैश खाली है',
     );
     return '$_temp0';
@@ -978,4 +978,34 @@ class AppLocalizationsHi extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return '$added जोड़ी गईं, $limited रीस्टोर नहीं हुईं (मुफ़्त सीमा पूरी)। आपकी बैकअप फ़ाइल नहीं बदली।';
   }
+
+  @override
+  String get aboutSection => 'जानकारी';
+
+  @override
+  String get aboutVersion => 'वर्ज़न';
+
+  @override
+  String get aboutProtectionTitle => 'आपका डेटा कैसे सुरक्षित रहता है';
+
+  @override
+  String get aboutProtectionBody =>
+      'हर एंट्री इसी डिवाइस पर AES-256 से एन्क्रिप्ट होती है। वॉल्ट खोलने वाली कुंजी आपके मास्टर पासवर्ड से Argon2id द्वारा बनाई जाती है; पासवर्ड खुद कहीं सेव नहीं होता।';
+
+  @override
+  String get aboutOfflineTitle => 'ऑफ़लाइन काम करता है';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhur के पास इंटरनेट की अनुमति, खाता या सर्वर नहीं है। जब तक आप खुद एन्क्रिप्टेड बैकअप एक्सपोर्ट न करें, आपका डेटा इस डिवाइस से बाहर नहीं जाता।';
+
+  @override
+  String get aboutLicenses => 'ओपन-सोर्स लाइसेंस';
+
+  @override
+  String get aboutLicensesDesc =>
+      'Muhur में इस्तेमाल किए गए ओपन-सोर्स घटकों के लाइसेंस';
+
+  @override
+  String get aboutRights => 'सर्वाधिकार सुरक्षित।';
 }

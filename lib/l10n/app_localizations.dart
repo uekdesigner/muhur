@@ -1839,6 +1839,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{added} added, {limited} not restored (free limit reached). Your backup file is unchanged.'**
   String backupRestoreLimited(int added, int limited);
+
+  /// No description provided for @aboutSection.
+  ///
+  /// In en, this message translates to:
+  /// **'ABOUT'**
+  String get aboutSection;
+
+  /// No description provided for @aboutVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get aboutVersion;
+
+  /// No description provided for @aboutProtectionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How your data is protected'**
+  String get aboutProtectionTitle;
+
+  /// No description provided for @aboutProtectionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every entry is encrypted with AES-256 on this device. The key that opens the vault is derived from your master password with Argon2id; the password itself is never stored.'**
+  String get aboutProtectionBody;
+
+  /// No description provided for @aboutOfflineTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Works offline'**
+  String get aboutOfflineTitle;
+
+  /// No description provided for @aboutOfflineBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Muhur has no internet permission, no account and no server. Your data never leaves this device unless you export an encrypted backup yourself.'**
+  String get aboutOfflineBody;
+
+  /// No description provided for @aboutLicenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Open-source licenses'**
+  String get aboutLicenses;
+
+  /// No description provided for @aboutLicensesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Licenses of the open-source components used in Muhur'**
+  String get aboutLicensesDesc;
+
+  /// No description provided for @aboutRights.
+  ///
+  /// In en, this message translates to:
+  /// **'All rights reserved.'**
+  String get aboutRights;
 }
 
 class _AppLocalizationsDelegate

@@ -965,4 +965,34 @@ class AppLocalizationsVi extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return 'Đã thêm $added, $limited không được khôi phục (đạt giới hạn miễn phí). Tệp sao lưu của bạn không thay đổi.';
   }
+
+  @override
+  String get aboutSection => 'GIỚI THIỆU';
+
+  @override
+  String get aboutVersion => 'Phiên bản';
+
+  @override
+  String get aboutProtectionTitle => 'Cách dữ liệu của bạn được bảo vệ';
+
+  @override
+  String get aboutProtectionBody =>
+      'Mọi mục đều được mã hóa AES-256 trên thiết bị này. Khóa mở kho được tạo từ mật khẩu chính bằng Argon2id; bản thân mật khẩu không bao giờ được lưu.';
+
+  @override
+  String get aboutOfflineTitle => 'Hoạt động ngoại tuyến';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhur không có quyền truy cập Internet, không có tài khoản và không có máy chủ. Dữ liệu không rời khỏi thiết bị này trừ khi bạn tự xuất bản sao lưu đã mã hóa.';
+
+  @override
+  String get aboutLicenses => 'Giấy phép nguồn mở';
+
+  @override
+  String get aboutLicensesDesc =>
+      'Giấy phép của các thành phần nguồn mở dùng trong Muhur';
+
+  @override
+  String get aboutRights => 'Bảo lưu mọi quyền.';
 }

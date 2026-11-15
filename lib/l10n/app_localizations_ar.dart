@@ -1000,4 +1000,34 @@ class AppLocalizationsAr extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return 'أُضيف $added، ولم يُستعد $limited (بلغت الحد المجاني). ملف النسخة الاحتياطية لم يتغيّر.';
   }
+
+  @override
+  String get aboutSection => 'حول';
+
+  @override
+  String get aboutVersion => 'الإصدار';
+
+  @override
+  String get aboutProtectionTitle => 'كيف تُحمى بياناتك';
+
+  @override
+  String get aboutProtectionBody =>
+      'يُشفَّر كل عنصر على هذا الجهاز باستخدام AES-256. يُشتق المفتاح الذي يفتح الخزنة من كلمة المرور الرئيسية باستخدام Argon2id، ولا تُخزَّن كلمة المرور نفسها في أي مكان.';
+
+  @override
+  String get aboutOfflineTitle => 'يعمل دون إنترنت';
+
+  @override
+  String get aboutOfflineBody =>
+      'لا يملك Muhur إذن الوصول إلى الإنترنت، ولا حسابًا ولا خادمًا. لا تغادر بياناتك هذا الجهاز إلا إذا صدّرت بنفسك نسخة احتياطية مشفّرة.';
+
+  @override
+  String get aboutLicenses => 'تراخيص المصادر المفتوحة';
+
+  @override
+  String get aboutLicensesDesc =>
+      'تراخيص المكونات مفتوحة المصدر المستخدمة في Muhur';
+
+  @override
+  String get aboutRights => 'جميع الحقوق محفوظة.';
 }

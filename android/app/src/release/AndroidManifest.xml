@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Yayın sürümü ağa çıkamaz: eklentiler (ör. ML Kit) bu izinleri eklese bile
+         birleştirme sırasında kaldırılır. Debug/profile sürümleri etkilenmez,
+         çünkü Flutter araçları geliştirme sırasında ağa ihtiyaç duyar. -->
+    <uses-permission android:name="android.permission.INTERNET" tools:node="remove" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" tools:node="remove" />
+    <!-- Kamera eklentisi video için ekliyor; tarayıcı sessiz çalışır (enableAudio: false). -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />
+</manifest>

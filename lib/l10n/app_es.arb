@@ -249,5 +249,14 @@
   "limitReachedBody": "La versión gratuita admite hasta {count} entradas por categoría. Elimina una entrada o pásate a Pro para tener entradas ilimitadas.",
   "scanLimitTitle": "Escaneos gratuitos agotados",
   "scanLimitBody": "Has usado tus {count} escaneos gratuitos. Pásate a Pro para escanear sin límite.",
-  "backupRestoreLimited": "{added} añadidas, {limited} sin restaurar (límite gratuito alcanzado). Tu archivo de copia no ha cambiado."
+  "backupRestoreLimited": "{added} añadidas, {limited} sin restaurar (límite gratuito alcanzado). Tu archivo de copia no ha cambiado.",
+  "aboutSection": "ACERCA DE",
+  "aboutVersion": "Versión",
+  "aboutProtectionTitle": "Cómo se protegen tus datos",
+  "aboutProtectionBody": "Cada entrada se cifra con AES-256 en este dispositivo. La clave que abre la bóveda se deriva de tu contraseña maestra con Argon2id; la contraseña nunca se guarda.",
+  "aboutOfflineTitle": "Funciona sin conexión",
+  "aboutOfflineBody": "Muhur no tiene permiso de Internet, ni cuenta ni servidor. Tus datos no salen de este dispositivo salvo que exportes tú mismo una copia cifrada.",
+  "aboutLicenses": "Licencias de código abierto",
+  "aboutLicensesDesc": "Licencias de los componentes de código abierto que usa Muhur",
+  "aboutRights": "Todos los derechos reservados."
 }

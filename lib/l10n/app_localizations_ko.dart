@@ -943,4 +943,33 @@ class AppLocalizationsKo extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return '$added개 추가, $limited개는 복원되지 않음 (무료 한도 도달). 백업 파일은 변경되지 않았습니다.';
   }
+
+  @override
+  String get aboutSection => '정보';
+
+  @override
+  String get aboutVersion => '버전';
+
+  @override
+  String get aboutProtectionTitle => '데이터 보호 방식';
+
+  @override
+  String get aboutProtectionBody =>
+      '모든 항목은 이 기기에서 AES-256으로 암호화됩니다. 보관함을 여는 키는 마스터 비밀번호에서 Argon2id로 생성되며, 비밀번호 자체는 어디에도 저장되지 않습니다.';
+
+  @override
+  String get aboutOfflineTitle => '오프라인으로 작동';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhur에는 인터넷 권한, 계정, 서버가 없습니다. 암호화된 백업을 직접 내보내지 않는 한 데이터는 이 기기를 벗어나지 않습니다.';
+
+  @override
+  String get aboutLicenses => '오픈소스 라이선스';
+
+  @override
+  String get aboutLicensesDesc => 'Muhur에 사용된 오픈소스 구성 요소의 라이선스';
+
+  @override
+  String get aboutRights => '모든 권리 보유.';
 }

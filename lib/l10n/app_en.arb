@@ -332,5 +332,14 @@
   "scanLimitBody": "You've used your {count} free scans. Upgrade to Pro for unlimited scanning.",
   "@scanLimitBody": { "placeholders": { "count": { "type": "int" } } },
   "backupRestoreLimited": "{added} added, {limited} not restored (free limit reached). Your backup file is unchanged.",
-  "@backupRestoreLimited": { "placeholders": { "added": { "type": "int" }, "limited": { "type": "int" } } }
+  "@backupRestoreLimited": { "placeholders": { "added": { "type": "int" }, "limited": { "type": "int" } } },
+  "aboutSection": "ABOUT",
+  "aboutVersion": "Version",
+  "aboutProtectionTitle": "How your data is protected",
+  "aboutProtectionBody": "Every entry is encrypted with AES-256 on this device. The key that opens the vault is derived from your master password with Argon2id; the password itself is never stored.",
+  "aboutOfflineTitle": "Works offline",
+  "aboutOfflineBody": "Muhur has no internet permission, no account and no server. Your data never leaves this device unless you export an encrypted backup yourself.",
+  "aboutLicenses": "Open-source licenses",
+  "aboutLicensesDesc": "Licenses of the open-source components used in Muhur",
+  "aboutRights": "All rights reserved."
 }

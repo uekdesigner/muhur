@@ -210,7 +210,7 @@ class AppLocalizationsPt extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count dias',
-      one: '1 dia',
+      one: '$count dia',
     );
     return '$_temp0';
   }
@@ -237,7 +237,7 @@ class AppLocalizationsPt extends AppLocalizations {
       count,
       locale: localeName,
       other: 'Faltam $count dias',
-      one: 'Falta 1 dia',
+      one: 'Falta $count dia',
     );
     return '$_temp0';
   }
@@ -251,7 +251,7 @@ class AppLocalizationsPt extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count itens',
-      one: '1 item',
+      one: '$count item',
     );
     return 'Apagar de vez $_temp0 da lixeira? Não é possível desfazer.';
   }
@@ -618,7 +618,7 @@ class AppLocalizationsPt extends AppLocalizations {
       days,
       locale: localeName,
       other: 'Seu último backup foi há $days dias.',
-      one: 'Seu último backup foi há 1 dia.',
+      one: 'Seu último backup foi há $days dia.',
     );
     return '$_temp0';
   }
@@ -659,7 +659,7 @@ class AppLocalizationsPt extends AppLocalizations {
       days,
       locale: localeName,
       other: 'Backup atrasado: o último foi há $days dias',
-      one: 'Backup atrasado: o último foi há 1 dia',
+      one: 'Backup atrasado: o último foi há $days dia',
     );
     return '$_temp0';
   }
@@ -670,7 +670,7 @@ class AppLocalizationsPt extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count itens na lixeira',
-      one: '1 item na lixeira',
+      one: '$count item na lixeira',
       zero: 'A lixeira está vazia',
     );
     return '$_temp0';
@@ -983,4 +983,34 @@ class AppLocalizationsPt extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return '$added adicionados, $limited não restaurados (limite gratuito atingido). Seu arquivo de backup não foi alterado.';
   }
+
+  @override
+  String get aboutSection => 'SOBRE';
+
+  @override
+  String get aboutVersion => 'Versão';
+
+  @override
+  String get aboutProtectionTitle => 'Como seus dados são protegidos';
+
+  @override
+  String get aboutProtectionBody =>
+      'Cada item é criptografado com AES-256 neste dispositivo. A chave que abre o cofre é derivada da sua senha mestra com Argon2id; a senha em si nunca é armazenada.';
+
+  @override
+  String get aboutOfflineTitle => 'Funciona offline';
+
+  @override
+  String get aboutOfflineBody =>
+      'O Muhur não tem permissão de internet, conta nem servidor. Seus dados não saem deste dispositivo, a menos que você mesmo exporte um backup criptografado.';
+
+  @override
+  String get aboutLicenses => 'Licenças de código aberto';
+
+  @override
+  String get aboutLicensesDesc =>
+      'Licenças dos componentes de código aberto usados no Muhur';
+
+  @override
+  String get aboutRights => 'Todos os direitos reservados.';
 }

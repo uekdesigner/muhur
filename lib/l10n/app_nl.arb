@@ -249,5 +249,14 @@
   "limitReachedBody": "De gratis versie bewaart tot {count} items per categorie. Verwijder een item of stap over op Pro voor onbeperkte items.",
   "scanLimitTitle": "Gratis scans opgebruikt",
   "scanLimitBody": "Je hebt je {count} gratis scans gebruikt. Stap over op Pro om onbeperkt te scannen.",
-  "backupRestoreLimited": "{added} toegevoegd, {limited} niet hersteld (gratis limiet bereikt). Je back-upbestand is niet gewijzigd."
+  "backupRestoreLimited": "{added} toegevoegd, {limited} niet hersteld (gratis limiet bereikt). Je back-upbestand is niet gewijzigd.",
+  "aboutSection": "OVER",
+  "aboutVersion": "Versie",
+  "aboutProtectionTitle": "Zo worden je gegevens beschermd",
+  "aboutProtectionBody": "Elk item wordt op dit apparaat versleuteld met AES-256. De sleutel die de kluis opent, wordt met Argon2id afgeleid van je hoofdwachtwoord; het wachtwoord zelf wordt nergens opgeslagen.",
+  "aboutOfflineTitle": "Werkt offline",
+  "aboutOfflineBody": "Muhur heeft geen internettoestemming, geen account en geen server. Je gegevens verlaten dit apparaat alleen als je zelf een versleutelde back-up exporteert.",
+  "aboutLicenses": "Opensourcelicenties",
+  "aboutLicensesDesc": "Licenties van de opensourcecomponenten in Muhur",
+  "aboutRights": "Alle rechten voorbehouden."
 }

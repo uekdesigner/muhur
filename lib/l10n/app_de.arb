@@ -249,5 +249,14 @@
   "limitReachedBody": "Die Gratisversion speichert bis zu {count} Einträge pro Kategorie. Lösche einen Eintrag oder wechsle zu Pro für unbegrenzte Einträge.",
   "scanLimitTitle": "Gratis-Scans aufgebraucht",
   "scanLimitBody": "Du hast deine {count} Gratis-Scans genutzt. Mit Pro scannst du unbegrenzt.",
-  "backupRestoreLimited": "{added} hinzugefügt, {limited} nicht eingespielt (Gratis-Limit erreicht). Deine Backup-Datei bleibt unverändert."
+  "backupRestoreLimited": "{added} hinzugefügt, {limited} nicht eingespielt (Gratis-Limit erreicht). Deine Backup-Datei bleibt unverändert.",
+  "aboutSection": "ÜBER",
+  "aboutVersion": "Version",
+  "aboutProtectionTitle": "So werden deine Daten geschützt",
+  "aboutProtectionBody": "Jeder Eintrag wird auf diesem Gerät mit AES-256 verschlüsselt. Der Schlüssel zum Tresor wird mit Argon2id aus deinem Master-Passwort abgeleitet; das Passwort selbst wird nirgends gespeichert.",
+  "aboutOfflineTitle": "Funktioniert offline",
+  "aboutOfflineBody": "Muhur hat keine Internetberechtigung, kein Konto und keinen Server. Deine Daten verlassen dieses Gerät nur, wenn du selbst ein verschlüsseltes Backup exportierst.",
+  "aboutLicenses": "Open-Source-Lizenzen",
+  "aboutLicensesDesc": "Lizenzen der in Muhur verwendeten Open-Source-Komponenten",
+  "aboutRights": "Alle Rechte vorbehalten."
 }

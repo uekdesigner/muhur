@@ -968,4 +968,34 @@ class AppLocalizationsTr extends AppLocalizations {
   String backupRestoreLimited(int added, int limited) {
     return '$added eklendi, $limited geri yüklenmedi (ücretsiz sınıra ulaşıldı). Yedek dosyanız değişmedi.';
   }
+
+  @override
+  String get aboutSection => 'HAKKINDA';
+
+  @override
+  String get aboutVersion => 'Sürüm';
+
+  @override
+  String get aboutProtectionTitle => 'Verileriniz nasıl korunur';
+
+  @override
+  String get aboutProtectionBody =>
+      'Her kayıt bu cihazda AES-256 ile şifrelenir. Kasayı açan anahtar ana parolanızdan Argon2id ile türetilir; parolanın kendisi hiçbir yerde saklanmaz.';
+
+  @override
+  String get aboutOfflineTitle => 'İnternetsiz çalışır';
+
+  @override
+  String get aboutOfflineBody =>
+      'Muhur\'un internet izni, hesabı ve sunucusu yoktur. Şifreli bir yedeği kendiniz dışa aktarmadığınız sürece verileriniz bu cihazdan çıkmaz.';
+
+  @override
+  String get aboutLicenses => 'Açık kaynak lisansları';
+
+  @override
+  String get aboutLicensesDesc =>
+      'Muhur\'da kullanılan açık kaynak bileşenlerin lisansları';
+
+  @override
+  String get aboutRights => 'Tüm hakları saklıdır.';
 }

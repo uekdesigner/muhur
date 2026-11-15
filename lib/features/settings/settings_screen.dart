@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../core/crypto/crypto_service.dart';
 import 'backup_password_dialog.dart';
@@ -47,6 +48,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   int _trashDays = AppSettings.instance.trashDays;
   int _trashCount = 0;
   int _reminderDays = AppSettings.instance.backupReminderDays.value;
+  String _version = '';
   late final BackupService _backup = BackupService(
     widget.auth,
     CryptoService(),
@@ -58,6 +60,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     super.initState();
     _load();
     _loadTrash();
+    PackageInfo.fromPlatform().then((p) {
+      if (mounted) setState(() => _version = '${p.version} (${p.buildNumber})');
+    });
   }
 
   Future<void> _load() async {
@@ -856,6 +861,50 @@ class _SettingsScreenState extends State<SettingsScreen> {
     ];
   }
 
+  List<Widget> _aboutItems(AppLocalizations t) {
+    final legal = '© 2026 MÜHÜR. ${t.aboutRights}';
+    return [
+      _sectionTitle(Icons.info_outline, t.aboutSection),
+      _panel([
+        _row(
+          icon: Icons.verified_outlined,
+          title: t.aboutVersion,
+          trailing: Text(
+            _version,
+            style: TextStyle(
+              color: MuhurColors.bronzeLight,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+        _row(
+          icon: Icons.shield_outlined,
+          title: t.aboutProtectionTitle,
+          child: _desc(t.aboutProtectionBody),
+        ),
+        _row(
+          icon: Icons.wifi_off_outlined,
+          title: t.aboutOfflineTitle,
+          child: _desc(t.aboutOfflineBody),
+        ),
+        InkWell(
+          onTap: () => showLicensePage(
+            context: context,
+            applicationName: t.brandName,
+            applicationVersion: _version,
+            applicationLegalese: legal,
+          ),
+          child: _row(
+            icon: Icons.description_outlined,
+            title: t.aboutLicenses,
+            child: _desc(t.aboutLicensesDesc),
+          ),
+        ),
+      ]),
+      _desc(legal),
+    ];
+  }
+
   List<Widget> _sectionItems(AppLocalizations t) {
     switch (_section) {
       case 0:
@@ -865,7 +914,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       case 2:
         return _backupItems(t);
       default:
-        return const []; // Yedek, Hakkında: içerik sonra eklenecek
+        return _aboutItems(t);
     }
   }
 

@@ -249,5 +249,14 @@
   "limitReachedBody": "Darmowa wersja mieści do {count} wpisów w każdej kategorii. Usuń wpis lub przejdź na Pro, aby mieć nieograniczoną liczbę wpisów.",
   "scanLimitTitle": "Darmowe skany wykorzystane",
   "scanLimitBody": "Wykorzystano wszystkie darmowe skany ({count}). Przejdź na Pro, aby skanować bez limitu.",
-  "backupRestoreLimited": "Dodano: {added}, nie przywrócono: {limited} (limit darmowej wersji). Plik kopii pozostał bez zmian."
+  "backupRestoreLimited": "Dodano: {added}, nie przywrócono: {limited} (limit darmowej wersji). Plik kopii pozostał bez zmian.",
+  "aboutSection": "INFORMACJE",
+  "aboutVersion": "Wersja",
+  "aboutProtectionTitle": "Jak chronione są Twoje dane",
+  "aboutProtectionBody": "Każdy wpis jest szyfrowany na tym urządzeniu algorytmem AES-256. Klucz otwierający sejf powstaje z hasła głównego za pomocą Argon2id; samo hasło nigdzie nie jest zapisywane.",
+  "aboutOfflineTitle": "Działa offline",
+  "aboutOfflineBody": "Muhur nie ma uprawnień do internetu, konta ani serwera. Twoje dane nie opuszczają tego urządzenia, chyba że sam wyeksportujesz zaszyfrowaną kopię.",
+  "aboutLicenses": "Licencje open source",
+  "aboutLicensesDesc": "Licencje komponentów open source używanych w Muhur",
+  "aboutRights": "Wszelkie prawa zastrzeżone."
 }
