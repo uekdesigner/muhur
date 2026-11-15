@@ -973,4 +973,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get aboutRights => '無断複製・転載を禁じます。';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'クリップボードは$seconds秒後に消去されます。タップすると今すぐ消去します。';
+  }
+
+  @override
+  String get helpStatusClipboard => 'クリップボードアイコン：コピーした値（数字＝消去までの秒数、タップで今すぐ消去）';
 }

@@ -1025,4 +1025,13 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get aboutRights => 'Wszelkie prawa zastrzeżone.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Schowek zostanie wyczyszczony za $seconds s. Dotknij, aby wyczyścić teraz.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Ikona schowka: skopiowana wartość (liczba = sekundy do wyczyszczenia, dotknij, aby wyczyścić teraz)';
 }

@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur non ha permesso di accesso a Internet, né account né server. I tuoi dati non lasciano questo dispositivo, a meno che tu non esporti un backup cifrato.",
   "aboutLicenses": "Licenze open source",
   "aboutLicensesDesc": "Licenze dei componenti open source usati in Muhur",
-  "aboutRights": "Tutti i diritti riservati."
+  "aboutRights": "Tutti i diritti riservati.",
+  "statusClipboard": "Gli appunti verranno cancellati tra {seconds} s. Tocca per cancellarli ora.",
+  "helpStatusClipboard": "Icona appunti: valore copiato (numero = secondi alla cancellazione, tocca per cancellare ora)"
 }

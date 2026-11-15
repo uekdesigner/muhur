@@ -995,4 +995,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get aboutRights => 'Bảo lưu mọi quyền.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Bộ nhớ tạm sẽ được xóa sau $seconds giây. Chạm để xóa ngay.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Biểu tượng bộ nhớ tạm: giá trị đã sao chép (số = số giây còn lại trước khi xóa, chạm để xóa ngay)';
 }

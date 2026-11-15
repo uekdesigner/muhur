@@ -1013,4 +1013,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get aboutRights => 'Todos los derechos reservados.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'El portapapeles se borrará en $seconds s. Toca para borrarlo ya.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Icono de portapapeles: valor copiado (número = segundos hasta borrarse, toca para borrar ya)';
 }

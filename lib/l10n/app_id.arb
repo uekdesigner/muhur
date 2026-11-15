@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur tidak memiliki izin internet, akun, maupun server. Data Anda tidak pernah keluar dari perangkat ini kecuali Anda sendiri mengekspor cadangan terenkripsi.",
   "aboutLicenses": "Lisensi sumber terbuka",
   "aboutLicensesDesc": "Lisensi komponen sumber terbuka yang digunakan di Muhur",
-  "aboutRights": "Hak cipta dilindungi undang-undang."
+  "aboutRights": "Hak cipta dilindungi undang-undang.",
+  "statusClipboard": "Papan klip dibersihkan dalam {seconds} dtk. Ketuk untuk membersihkan sekarang.",
+  "helpStatusClipboard": "Ikon papan klip: nilai yang disalin (angka = detik sampai dibersihkan, ketuk untuk membersihkan sekarang)"
 }

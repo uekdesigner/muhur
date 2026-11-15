@@ -998,4 +998,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get aboutRights => 'Tüm hakları saklıdır.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Pano $seconds sn sonra temizlenecek. Hemen temizlemek için dokunun.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Pano simgesi: Kopyalanan değer (rakam = silinmeye kalan saniye, dokununca hemen silinir)';
 }

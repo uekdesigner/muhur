@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur nie ma uprawnień do internetu, konta ani serwera. Twoje dane nie opuszczają tego urządzenia, chyba że sam wyeksportujesz zaszyfrowaną kopię.",
   "aboutLicenses": "Licencje open source",
   "aboutLicensesDesc": "Licencje komponentów open source używanych w Muhur",
-  "aboutRights": "Wszelkie prawa zastrzeżone."
+  "aboutRights": "Wszelkie prawa zastrzeżone.",
+  "statusClipboard": "Schowek zostanie wyczyszczony za {seconds} s. Dotknij, aby wyczyścić teraz.",
+  "helpStatusClipboard": "Ikona schowka: skopiowana wartość (liczba = sekundy do wyczyszczenia, dotknij, aby wyczyścić teraz)"
 }

@@ -1028,4 +1028,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get aboutRights => 'Все права защищены.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Буфер обмена очистится через $seconds с. Нажмите, чтобы очистить сейчас.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Значок буфера: скопированное значение (число = секунды до очистки, нажмите, чтобы очистить сейчас)';
 }

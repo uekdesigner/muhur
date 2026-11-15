@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur no tiene permiso de Internet, ni cuenta ni servidor. Tus datos no salen de este dispositivo salvo que exportes tú mismo una copia cifrada.",
   "aboutLicenses": "Licencias de código abierto",
   "aboutLicensesDesc": "Licencias de los componentes de código abierto que usa Muhur",
-  "aboutRights": "Todos los derechos reservados."
+  "aboutRights": "Todos los derechos reservados.",
+  "statusClipboard": "El portapapeles se borrará en {seconds} s. Toca para borrarlo ya.",
+  "helpStatusClipboard": "Icono de portapapeles: valor copiado (número = segundos hasta borrarse, toca para borrar ya)"
 }

@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur har ingen internetbehörighet, inget konto och ingen server. Dina data lämnar aldrig enheten om du inte själv exporterar en krypterad backup.",
   "aboutLicenses": "Licenser för öppen källkod",
   "aboutLicensesDesc": "Licenser för komponenter med öppen källkod som används i Muhur",
-  "aboutRights": "Med ensamrätt."
+  "aboutRights": "Med ensamrätt.",
+  "statusClipboard": "Urklipp rensas om {seconds} s. Tryck för att rensa nu.",
+  "helpStatusClipboard": "Urklippsikon: kopierat värde (siffra = sekunder tills det rensas, tryck för att rensa nu)"
 }

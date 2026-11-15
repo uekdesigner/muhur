@@ -1030,4 +1030,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aboutRights => 'جميع الحقوق محفوظة.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'ستُمسح الحافظة بعد $seconds ث. اضغط لمسحها الآن.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'أيقونة الحافظة: قيمة منسوخة (الرقم = الثواني المتبقية حتى المسح، اضغط للمسح الآن)';
 }

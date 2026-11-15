@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur'un internet izni, hesabı ve sunucusu yoktur. Şifreli bir yedeği kendiniz dışa aktarmadığınız sürece verileriniz bu cihazdan çıkmaz.",
   "aboutLicenses": "Açık kaynak lisansları",
   "aboutLicensesDesc": "Muhur'da kullanılan açık kaynak bileşenlerin lisansları",
-  "aboutRights": "Tüm hakları saklıdır."
+  "aboutRights": "Tüm hakları saklıdır.",
+  "statusClipboard": "Pano {seconds} sn sonra temizlenecek. Hemen temizlemek için dokunun.",
+  "helpStatusClipboard": "Pano simgesi: Kopyalanan değer (rakam = silinmeye kalan saniye, dokununca hemen silinir)"
 }

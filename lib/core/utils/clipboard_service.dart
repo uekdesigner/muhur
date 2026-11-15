@@ -30,6 +30,9 @@ class ClipboardService with WidgetsBindingObserver {
     return (e != null && e.isAfter(DateTime.now())) ? e : null;
   }
 
+  /// Arayüz için: panoda Mühür'den kopyalanmış değer varsa silinme anı.
+  final ValueNotifier<DateTime?> active = ValueNotifier<DateTime?>(null);
+
   Timer? _timer;
   List<int>? _hash; // kopyalanan değerin hash'i (düz metin bellekte tutulmaz)
 
@@ -51,12 +54,16 @@ class ClipboardService with WidgetsBindingObserver {
     _hash = (await Sha256().hash(utf8.encode(value))).bytes;
     final expires = DateTime.now().add(clearAfter);
     _expiresAt = expires;
+    active.value = expires;
     await _storage.write(
       key: _kPending,
       value: '${expires.millisecondsSinceEpoch}|${base64Encode(_hash!)}',
     );
     _timer = Timer(clearAfter, _clearIfOurs);
   }
+
+  /// Kullanıcı isteğiyle hemen temizle (uygulama öndeyken pano okunabilir).
+  Future<void> clearNow() => _clearIfOurs(lastTry: true);
 
   /// Uygulama açılırken / öne gelirken: bekleyen temizlik var mı?
   Future<void> checkPending() async {
@@ -70,8 +77,12 @@ class ClipboardService with WidgetsBindingObserver {
       // Öne gelirken pencere odağı henüz gelmemiş olabilir; biraz bekleyip oku.
       await Future.delayed(const Duration(milliseconds: 500));
       await _clearIfOurs(lastTry: true);
-    } else if (_timer == null || !_timer!.isActive) {
-      _timer = Timer(left, _clearIfOurs);
+    } else {
+      _expiresAt = expires;
+      active.value = expires;
+      if (_timer == null || !_timer!.isActive) {
+        _timer = Timer(left, _clearIfOurs);
+      }
     }
   }
 
@@ -112,6 +123,7 @@ class ClipboardService with WidgetsBindingObserver {
     }
     _hash = null;
     _expiresAt = null;
+    active.value = null;
     await _storage.delete(key: _kPending);
   }
 

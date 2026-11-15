@@ -1008,4 +1008,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get aboutRights => 'सर्वाधिकार सुरक्षित।';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'क्लिपबोर्ड $seconds से. में साफ़ हो जाएगा। अभी साफ़ करने के लिए टैप करें।';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'क्लिपबोर्ड आइकन: कॉपी की गई वैल्यू (संख्या = साफ़ होने में बचे सेकंड, अभी साफ़ करने के लिए टैप करें)';
 }

@@ -1013,4 +1013,13 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get aboutRights => 'Tutti i diritti riservati.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Gli appunti verranno cancellati tra $seconds s. Tocca per cancellarli ora.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Icona appunti: valore copiato (numero = secondi alla cancellazione, tocca per cancellare ora)';
 }

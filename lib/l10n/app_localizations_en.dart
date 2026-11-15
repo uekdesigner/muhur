@@ -1011,4 +1011,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutRights => 'All rights reserved.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Clipboard clears in $seconds s. Tap to clear now.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Clipboard icon: Copied value (number = seconds until cleared, tap to clear now)';
 }

@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhurにはインターネット権限、アカウント、サーバーがありません。暗号化バックアップを自分でエクスポートしない限り、データがこの端末の外に出ることはありません。",
   "aboutLicenses": "オープンソースライセンス",
   "aboutLicensesDesc": "Muhurで使用しているオープンソース部品のライセンス",
-  "aboutRights": "無断複製・転載を禁じます。"
+  "aboutRights": "無断複製・転載を禁じます。",
+  "statusClipboard": "クリップボードは{seconds}秒後に消去されます。タップすると今すぐ消去します。",
+  "helpStatusClipboard": "クリップボードアイコン：コピーした値（数字＝消去までの秒数、タップで今すぐ消去）"
 }

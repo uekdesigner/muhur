@@ -1010,4 +1010,13 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get aboutRights => 'Med ensamrätt.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Urklipp rensas om $seconds s. Tryck för att rensa nu.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Urklippsikon: kopierat värde (siffra = sekunder tills det rensas, tryck för att rensa nu)';
 }

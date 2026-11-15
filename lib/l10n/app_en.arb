@@ -341,5 +341,8 @@
   "aboutOfflineBody": "Muhur has no internet permission, no account and no server. Your data never leaves this device unless you export an encrypted backup yourself.",
   "aboutLicenses": "Open-source licenses",
   "aboutLicensesDesc": "Licenses of the open-source components used in Muhur",
-  "aboutRights": "All rights reserved."
+  "aboutRights": "All rights reserved.",
+  "statusClipboard": "Clipboard clears in {seconds} s. Tap to clear now.",
+  "@statusClipboard": {"placeholders": {"seconds": {"type": "int"}}},
+  "helpStatusClipboard": "Clipboard icon: Copied value (number = seconds until cleared, tap to clear now)"
 }

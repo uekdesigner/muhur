@@ -1014,4 +1014,13 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get aboutRights => 'Tous droits réservés.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Le presse-papiers sera vidé dans $seconds s. Touchez pour le vider maintenant.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Icône presse-papiers : valeur copiée (nombre = secondes avant effacement, touchez pour effacer)';
 }

@@ -998,4 +998,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get aboutRights => 'Hak cipta dilindungi undang-undang.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Papan klip dibersihkan dalam $seconds dtk. Ketuk untuk membersihkan sekarang.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Ikon papan klip: nilai yang disalin (angka = detik sampai dibersihkan, ketuk untuk membersihkan sekarang)';
 }

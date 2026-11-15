@@ -258,5 +258,7 @@
   "aboutOfflineBody": "O Muhur não tem permissão de internet, conta nem servidor. Seus dados não saem deste dispositivo, a menos que você mesmo exporte um backup criptografado.",
   "aboutLicenses": "Licenças de código aberto",
   "aboutLicensesDesc": "Licenças dos componentes de código aberto usados no Muhur",
-  "aboutRights": "Todos os direitos reservados."
+  "aboutRights": "Todos os direitos reservados.",
+  "statusClipboard": "A área de transferência será limpa em {seconds} s. Toque para limpar agora.",
+  "helpStatusClipboard": "Ícone da área de transferência: valor copiado (número = segundos até limpar, toque para limpar agora)"
 }

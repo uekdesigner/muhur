@@ -1893,6 +1893,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All rights reserved.'**
   String get aboutRights;
+
+  /// No description provided for @statusClipboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Clipboard clears in {seconds} s. Tap to clear now.'**
+  String statusClipboard(int seconds);
+
+  /// No description provided for @helpStatusClipboard.
+  ///
+  /// In en, this message translates to:
+  /// **'Clipboard icon: Copied value (number = seconds until cleared, tap to clear now)'**
+  String get helpStatusClipboard;
 }
 
 class _AppLocalizationsDelegate

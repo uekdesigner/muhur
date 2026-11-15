@@ -1013,4 +1013,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get aboutRights => 'Alle rechten voorbehouden.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Klembord wordt over $seconds sec gewist. Tik om nu te wissen.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Klembordicoon: gekopieerde waarde (getal = seconden tot wissen, tik om nu te wissen)';
 }

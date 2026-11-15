@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
+import '../../core/utils/clipboard_service.dart';
 import '../../core/utils/screen_capture_service.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
@@ -158,6 +160,7 @@ class VaultHeader extends StatelessWidget {
                       badge: trashCount,
                       onTap: onTrash,
                     ),
+                    const _ClipboardPill(),
                   ],
                 ),
               ),
@@ -448,6 +451,7 @@ class _HelpMenu extends StatelessWidget {
       (Icons.fingerprint, t.helpStatusBiometric),
       (Icons.settings_backup_restore, t.helpStatusBackup),
       (Icons.restore_from_trash_outlined, t.helpStatusTrash),
+      (Icons.content_paste, t.helpStatusClipboard),
     ];
 
     showGeneralDialog<void>(
@@ -723,6 +727,71 @@ class _HelpWiggleState extends State<_HelpWiggle>
         },
         child: widget.child,
       ),
+    );
+  }
+}
+
+/// Panoda Mühür'den kopyalanan bir değer varken görünür; geri sayım bitince
+/// ya da pano temizlenince kaybolur. Dokununca panoyu hemen temizler.
+class _ClipboardPill extends StatefulWidget {
+  const _ClipboardPill();
+
+  @override
+  State<_ClipboardPill> createState() => _ClipboardPillState();
+}
+
+class _ClipboardPillState extends State<_ClipboardPill> {
+  final _clip = ClipboardService.instance;
+  Timer? _tick;
+
+  @override
+  void initState() {
+    super.initState();
+    _clip.active.addListener(_onChange);
+    _startTick();
+  }
+
+  @override
+  void dispose() {
+    _clip.active.removeListener(_onChange);
+    _tick?.cancel();
+    super.dispose();
+  }
+
+  int get _left {
+    final until = _clip.active.value;
+    if (until == null) return 0;
+    final ms = until.difference(DateTime.now()).inMilliseconds;
+    return ms <= 0 ? 0 : (ms / 1000).ceil();
+  }
+
+  void _startTick() {
+    _tick?.cancel();
+    if (_left == 0) return;
+    _tick = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (!mounted) return;
+      setState(() {});
+      if (_left == 0) _tick?.cancel();
+    });
+  }
+
+  void _onChange() {
+    _startTick();
+    if (mounted) setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final left = _left;
+    if (left == 0) return const SizedBox.shrink();
+    final t = AppLocalizations.of(context)!;
+    return StatusPill(
+      icon: Icons.content_paste,
+      tooltip: t.statusClipboard(left),
+      active: false,
+      accent: MuhurColors.bronzeLight,
+      badge: left,
+      onTap: _clip.clearNow,
     );
   }
 }

@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur hat keine Internetberechtigung, kein Konto und keinen Server. Deine Daten verlassen dieses Gerät nur, wenn du selbst ein verschlüsseltes Backup exportierst.",
   "aboutLicenses": "Open-Source-Lizenzen",
   "aboutLicensesDesc": "Lizenzen der in Muhur verwendeten Open-Source-Komponenten",
-  "aboutRights": "Alle Rechte vorbehalten."
+  "aboutRights": "Alle Rechte vorbehalten.",
+  "statusClipboard": "Zwischenablage wird in {seconds} Sek. geleert. Tippen, um sie sofort zu leeren.",
+  "helpStatusClipboard": "Zwischenablage-Symbol: Kopierter Wert (Zahl = Sekunden bis zum Löschen, Tippen löscht sofort)"
 }

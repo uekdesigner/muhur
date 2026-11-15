@@ -992,4 +992,13 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get aboutRights => 'สงวนลิขสิทธิ์';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'คลิปบอร์ดจะถูกล้างใน $seconds วิ แตะเพื่อล้างทันที';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'ไอคอนคลิปบอร์ด: ค่าที่คัดลอก (ตัวเลข = วินาทีที่เหลือก่อนล้าง, แตะเพื่อล้างทันที)';
 }

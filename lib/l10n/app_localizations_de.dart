@@ -1013,4 +1013,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get aboutRights => 'Alle Rechte vorbehalten.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'Zwischenablage wird in $seconds Sek. geleert. Tippen, um sie sofort zu leeren.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Zwischenablage-Symbol: Kopierter Wert (Zahl = Sekunden bis zum Löschen, Tippen löscht sofort)';
 }

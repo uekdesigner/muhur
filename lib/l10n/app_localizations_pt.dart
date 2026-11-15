@@ -1013,4 +1013,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get aboutRights => 'Todos os direitos reservados.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return 'A área de transferência será limpa em $seconds s. Toque para limpar agora.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      'Ícone da área de transferência: valor copiado (número = segundos até limpar, toque para limpar agora)';
 }

@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur에는 인터넷 권한, 계정, 서버가 없습니다. 암호화된 백업을 직접 내보내지 않는 한 데이터는 이 기기를 벗어나지 않습니다.",
   "aboutLicenses": "오픈소스 라이선스",
   "aboutLicensesDesc": "Muhur에 사용된 오픈소스 구성 요소의 라이선스",
-  "aboutRights": "모든 권리 보유."
+  "aboutRights": "모든 권리 보유.",
+  "statusClipboard": "클립보드가 {seconds}초 후에 지워집니다. 탭하면 지금 지웁니다.",
+  "helpStatusClipboard": "클립보드 아이콘: 복사한 값 (숫자 = 지워질 때까지 남은 초, 탭하면 지금 지움)"
 }

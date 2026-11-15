@@ -37,7 +37,7 @@ Sürüm 1.0 · Kasım 2026 · Kodla birlikte güncel tutulmalıdır.
 | T3 | Uygulama içinde ana parola tahmini | 5 hatalı denemeden sonra 30 sn'den başlayıp her seferinde ikiye katlanan, en çok 1 saatlik bekleme. Süre monotonik saatle ölçülür; sistem saatini değiştirmek beklemeyi kısaltmaz | Telefon yeniden başlatılırsa bekleme baştan başlar (bilinçli seçim) |
 | T4 | Kasa dosyası kopyalanıp çevrimdışı kırılmaya çalışılır | Argon2id ile her deneme pahalı; parola kuralı en az 8 karakter + küçük/büyük harf + rakam | Kısa veya tahmin edilebilir parolalar yine de kırılabilir |
 | T5 | Ekran görüntüsü, ekran kaydı, ekran paylaşımı | `FLAG_SECURE` varsayılan açık; kullanıcı geçici olarak kapatırsa süre sonunda kendiliğinden geri açılır | Geçici izin süresince ekran görüntülenebilir |
-| T6 | Panodaki parolanın başka uygulamalarca okunması | Kopyalanan değer ayarlanan süre sonunda (varsayılan 30 sn) panodan silinir | Bazı klavyelerin pano geçmişi kopyayı saklayabilir (bkz. iyileştirmeler) |
+| T6 | Panodaki parolanın başka uygulamalarca okunması | Kopyalanan değer "hassas" olarak işaretlenir (Android 13+ klavye pano geçmişinde ve önizlemede gizlenir); ayarlanan süre sonunda (varsayılan 30 sn) panodan silinir. Ana ekrandaki pano simgesi geri sayımı gösterir, dokununca hemen siler | Android 12 ve altında bazı klavyelerin pano geçmişi kopyayı saklayabilir |
 | T7 | Bulut yedeği veya yeni telefona taşıma ile verinin çıkması | `allowBackup="false"` ve `dataExtractionRules` ile bulut yedeği ve cihazdan cihaza taşıma kapalı | Yok (anahtarlar zaten donanıma bağlı, taşınsa da açılmazdı) |
 | T8 | Uygulamanın veriyi internete göndermesi (bilerek veya bir eklenti yüzünden) | Yayın sürümünde `INTERNET` ve `ACCESS_NETWORK_STATE` izinleri kaldırılır | İzinlerin gerçekten kalktığı her sürümde birleşik manifest'ten doğrulanmalı |
 | T9 | Biyometri yoluyla yetkisiz açma | Sadece güçlü biyometri (Class 3) kabul edilir; her açılışta doğrulama istenir; yeni parmak izi veya yüz eklenince anahtar geçersiz olur ve biyometri kapanır | Kullanıcı zorla parmağını okutmaya mecbur bırakılabilir |
@@ -54,7 +54,6 @@ Sürüm 1.0 · Kasım 2026 · Kodla birlikte güncel tutulmalıdır.
 
 ## 6. İyileştirme fikirleri
 
-- Android 13+ için panoya kopyalanan değeri "hassas" olarak işaretlemek (`ClipDescription.EXTRA_IS_SENSITIVE`), böylece klavye geçmişinde ve pano önizlemesinde görünmez.
 - Yedek parolası için de ana parola kuralını uygulamak.
 - Yedek dosyası için birim testleri: dışa aktar → geri yükle, yanlış parola, bozulmuş dosya.
 

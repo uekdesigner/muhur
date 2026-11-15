@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur heeft geen internettoestemming, geen account en geen server. Je gegevens verlaten dit apparaat alleen als je zelf een versleutelde back-up exporteert.",
   "aboutLicenses": "Opensourcelicenties",
   "aboutLicensesDesc": "Licenties van de opensourcecomponenten in Muhur",
-  "aboutRights": "Alle rechten voorbehouden."
+  "aboutRights": "Alle rechten voorbehouden.",
+  "statusClipboard": "Klembord wordt over {seconds} sec gewist. Tik om nu te wissen.",
+  "helpStatusClipboard": "Klembordicoon: gekopieerde waarde (getal = seconden tot wissen, tik om nu te wissen)"
 }

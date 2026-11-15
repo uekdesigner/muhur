@@ -972,4 +972,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get aboutRights => '모든 권리 보유.';
+
+  @override
+  String statusClipboard(int seconds) {
+    return '클립보드가 $seconds초 후에 지워집니다. 탭하면 지금 지웁니다.';
+  }
+
+  @override
+  String get helpStatusClipboard =>
+      '클립보드 아이콘: 복사한 값 (숫자 = 지워질 때까지 남은 초, 탭하면 지금 지움)';
 }

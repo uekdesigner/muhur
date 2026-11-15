@@ -258,5 +258,7 @@
   "aboutOfflineBody": "Muhur n'a ni autorisation Internet, ni compte, ni serveur. Vos données ne quittent jamais cet appareil, sauf si vous exportez vous-même une sauvegarde chiffrée.",
   "aboutLicenses": "Licences open source",
   "aboutLicensesDesc": "Licences des composants open source utilisés dans Muhur",
-  "aboutRights": "Tous droits réservés."
+  "aboutRights": "Tous droits réservés.",
+  "statusClipboard": "Le presse-papiers sera vidé dans {seconds} s. Touchez pour le vider maintenant.",
+  "helpStatusClipboard": "Icône presse-papiers : valeur copiée (nombre = secondes avant effacement, touchez pour effacer)"
 }
