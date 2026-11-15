@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/utils/motion.dart';
+import '../../core/widgets/dialog_parts.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/password_policy.dart';
 import '../auth/password_requirements.dart';
@@ -66,10 +67,21 @@ class _BackupPasswordDialogState extends State<_BackupPasswordDialog> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return AlertDialog(
-      title: Text(
-        widget.confirm ? t.backupPasswordTitle : t.backupEnterPassword,
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(widget.confirm ? t.backupPasswordTitle : t.backupEnterPassword),
+          if (widget.confirm) ...[
+            const SizedBox(height: 10),
+            PasswordRuleChips(_pw.text),
+          ],
+        ],
       ),
-      content: SingleChildScrollView(
+      titlePadding: const EdgeInsets.fromLTRB(24, 20, 24, 12),
+      contentPadding: EdgeInsets.zero,
+      actionsPadding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+      content: DividedScroll(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,22 +101,27 @@ class _BackupPasswordDialogState extends State<_BackupPasswordDialog> {
               onChanged: (_) => setState(() => _error = null),
               decoration: InputDecoration(
                 labelText: t.backupPasswordTitle,
-                suffixIcon: IconButton(
-                  icon: Icon(_show ? Icons.visibility_off : Icons.visibility),
+                isDense: true,
+                contentPadding: kDenseFieldPadding,
+                suffixIcon: PasswordToggleButton(
+                  shown: _show,
                   onPressed: () => setState(() => _show = !_show),
                 ),
               ),
             ),
             if (widget.confirm) ...[
               StrengthBar(_pw.text),
-              PasswordRequirements(_pw.text),
               const SizedBox(height: 16),
               TextField(
                 controller: _pw2,
                 obscureText: !_show,
                 enableSuggestions: false,
                 autocorrect: false,
-                decoration: InputDecoration(labelText: t.confirmPassword),
+                decoration: InputDecoration(
+                  labelText: t.confirmPassword,
+                  isDense: true,
+                  contentPadding: kDenseFieldPadding,
+                ),
               ),
             ],
             if (_error != null)
@@ -119,11 +136,19 @@ class _BackupPasswordDialogState extends State<_BackupPasswordDialog> {
         ),
       ),
       actions: [
-        TextButton(
+        RoundIconButton(
+          icon: Icons.close,
+          tooltip: t.cancel,
           onPressed: () => Navigator.pop(context),
-          child: Text(t.cancel),
         ),
-        FilledButton(onPressed: _submit, child: Text(t.backupContinue)),
+        RoundIconButton(
+          icon: Directionality.of(context) == TextDirection.rtl
+              ? Icons.arrow_back
+              : Icons.arrow_forward,
+          tooltip: t.backupContinue,
+          primary: true,
+          onPressed: _submit,
+        ),
       ],
     );
   }

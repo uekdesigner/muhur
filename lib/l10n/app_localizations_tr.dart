@@ -655,12 +655,27 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String statusTrash(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Çöp kutusunda $count kayıt',
+      zero: 'Çöp kutusu boş',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpStatusScreen =>
       'Kalkan simgesi: Ekran koruması (yeşil = açık, soluk = kapalı)';
 
   @override
   String get helpStatusBackup =>
       'Yedek simgesi: Yedek durumu (yeşil = yeni yedek, soluk = yedek gerekli)';
+
+  @override
+  String get helpStatusTrash =>
+      'Çöp simgesi: Silinen kayıtlar (rakam = bekleyen kayıt, dokununca açılır)';
 
   @override
   String get helpTitle => 'Yardım';

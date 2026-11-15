@@ -304,14 +304,15 @@ class AuthService {
 
   Future<bool> biometricAvailable() async {
     try {
-      // Android yalnızca strong/weak döndürür: güçlü gerekir (zayıf yüz kabul
-      // edilmez). iOS face/fingerprint döndürür.
-      final types = await _localAuth.getAvailableBiometrics();
-      return await _localAuth.isDeviceSupported() &&
-          (types.contains(BiometricType.strong) ||
-              types.contains(BiometricType.face) ||
-              types.contains(BiometricType.fingerprint));
-    } catch (_) {
+      final can = await _localAuth.canCheckBiometrics;
+      final sup = await _localAuth.isDeviceSupported();
+      final list = await _localAuth.getAvailableBiometrics();
+      // ignore: avoid_print
+      print('BIYOMETRI can=$can supported=$sup list=$list');
+      return can && sup;
+    } catch (e) {
+      // ignore: avoid_print
+      print('BIYOMETRI hata: $e');
       return false;
     }
   }

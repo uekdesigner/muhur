@@ -13,6 +13,7 @@ import 'category_globe.dart';
 import 'entry_detail_screen.dart';
 import 'entry_edit_screen.dart';
 import 'stats_panel.dart';
+import 'trash_screen.dart';
 import 'vault_header.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
@@ -39,6 +40,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   String _query = '';
   late Future<List<VaultEntry>> _entries;
   VaultStats? _stats;
+  int _trashCount = 0;
   final Set<int> _selected = {};
   bool _searching = false;
 
@@ -70,10 +72,16 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   }
 
   Future<void> _loadStats() async {
-    _purgeTrash();
+    await _purgeTrash();
     try {
       final s = await _repo.stats();
-      if (mounted) setState(() => _stats = s);
+      final n = await _repo.trashCount();
+      if (mounted) {
+        setState(() {
+          _stats = s;
+          _trashCount = n;
+        });
+      }
     } catch (_) {
       // istatistik hesaplanamazsa panel boş kalır
     }
@@ -115,6 +123,15 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   }
 
   void _openBackupSettings() => _openSettings(section: 2);
+
+  Future<void> _openTrash() async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => TrashScreen(repo: _repo)),
+    );
+    if (mounted) _refreshAll();
+  }
+
   Future<void> _add() async {
     if (_cats.isEmpty) return;
     final ok = await Navigator.push<bool>(
@@ -218,6 +235,9 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                 onSearch: _toggleSearch,
                 onSettings: _openSettings,
                 onDelete: _deleteSelected,
+                trashCount: _trashCount,
+                onTrash: _openTrash,
+                onBackup: _openBackupSettings,
                 onLock: () {
                   Navigator.of(context).popUntil((r) => r.isFirst);
                   widget.onLock();

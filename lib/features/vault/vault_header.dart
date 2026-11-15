@@ -17,6 +17,9 @@ class VaultHeader extends StatelessWidget {
     required this.searchActive,
     required this.onSearch,
     required this.onSettings,
+    required this.trashCount,
+    required this.onTrash,
+    required this.onBackup,
   });
 
   final int selectedCount;
@@ -25,6 +28,9 @@ class VaultHeader extends StatelessWidget {
   final bool searchActive;
   final VoidCallback onSearch;
   final VoidCallback onSettings;
+  final int trashCount;
+  final VoidCallback onTrash;
+  final VoidCallback onBackup;
 
   @override
   Widget build(BuildContext context) {
@@ -128,8 +134,17 @@ class VaultHeader extends StatelessWidget {
                               ? t.statusBackupOverdue(days)
                               : t.statusBackupOk(days),
                           active: !overdue,
+                          onTap: onBackup,
                         );
                       },
+                    ),
+                    StatusPill(
+                      icon: Icons.restore_from_trash_outlined,
+                      tooltip: t.statusTrash(trashCount),
+                      active: false,
+                      accent: trashCount > 0 ? MuhurColors.bronzeLight : null,
+                      badge: trashCount,
+                      onTap: onTrash,
                     ),
                   ],
                 ),
@@ -186,47 +201,103 @@ class _FreeBadge extends StatelessWidget {
 }
 
 /// Durum ikonu: yeşil = açık, soluk = kapalı. Dokunulunca açıklama gösterir.
+/// [onTap] verilirse ikon bir kısayola dönüşür (açıklama uzun basınca çıkar);
+/// [accent] yeşil/soluk yerine sabit bir renk kullanır; [badge] > 0 ise
+/// köşede sayı rozeti gösterir.
 class StatusPill extends StatelessWidget {
   const StatusPill({
     super.key,
     required this.icon,
     required this.tooltip,
     required this.active,
+    this.onTap,
+    this.accent,
+    this.badge = 0,
   });
   final IconData icon;
   final String tooltip;
   final bool active;
+  final VoidCallback? onTap;
+  final Color? accent;
+  final int badge;
 
   @override
   Widget build(BuildContext context) {
-    final color = active
-        ? Colors.greenAccent
-        : MuhurColors.cream.withValues(alpha: 0.35);
+    final a = accent;
+    final color =
+        a ??
+        (active
+            ? Colors.greenAccent
+            : MuhurColors.cream.withValues(alpha: 0.35));
+    final frame = a != null
+        ? a.withValues(alpha: 0.7)
+        : (active
+              ? Colors.greenAccent.withValues(alpha: 0.6)
+              : MuhurColors.line);
+    Widget pill = Container(
+      width: 32,
+      height: 32,
+      decoration: BoxDecoration(
+        color: const Color(0xCC1B2024),
+        shape: BoxShape.circle,
+        border: Border.all(color: frame),
+        boxShadow: active && a == null
+            ? [
+                BoxShadow(
+                  color: Colors.greenAccent.withValues(alpha: 0.35),
+                  blurRadius: 8,
+                ),
+              ]
+            : null,
+      ),
+      child: Icon(icon, size: 18, color: color),
+    );
+    if (onTap != null) {
+      pill = GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap,
+        child: pill,
+      );
+    }
     return Tooltip(
       message: tooltip,
-      triggerMode: TooltipTriggerMode.tap,
-      showDuration: const Duration(seconds: 3),
-      child: Container(
-        width: 32,
-        height: 32,
-        decoration: BoxDecoration(
-          color: const Color(0xCC1B2024),
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: active
-                ? Colors.greenAccent.withValues(alpha: 0.6)
-                : MuhurColors.line,
-          ),
-          boxShadow: active
-              ? [
-                  BoxShadow(
-                    color: Colors.greenAccent.withValues(alpha: 0.35),
-                    blurRadius: 8,
-                  ),
-                ]
-              : null,
+      triggerMode: onTap == null
+          ? TooltipTriggerMode.tap
+          : TooltipTriggerMode.longPress,
+      showDuration: const Duration(seconds: 5),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          pill,
+          if (badge > 0)
+            Positioned(right: -6, top: -6, child: _CountBadge(badge)),
+        ],
+      ),
+    );
+  }
+}
+
+class _CountBadge extends StatelessWidget {
+  const _CountBadge(this.count);
+  final int count;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+      decoration: BoxDecoration(
+        color: const Color(0xFF14181C),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: MuhurColors.bronzeLight, width: 1),
+      ),
+      child: Text(
+        count > 99 ? '99+' : '$count',
+        style: TextStyle(
+          color: MuhurColors.cream,
+          fontSize: 9.5,
+          fontWeight: FontWeight.w800,
+          height: 1.2,
         ),
-        child: Icon(icon, size: 18, color: color),
       ),
     );
   }
@@ -363,6 +434,7 @@ class _HelpMenu extends StatelessWidget {
       (Icons.bar_chart_rounded, t.helpStats),
       (Icons.shield_outlined, t.helpStatusScreen),
       (Icons.settings_backup_restore, t.helpStatusBackup),
+      (Icons.restore_from_trash_outlined, t.helpStatusTrash),
     ];
 
     showGeneralDialog<void>(

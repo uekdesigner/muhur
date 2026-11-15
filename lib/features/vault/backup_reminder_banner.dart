@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
+import '../../core/widgets/dialog_parts.dart';
 import '../../core/widgets/panel_style.dart';
 import '../../l10n/app_localizations.dart';
 
@@ -42,13 +43,19 @@ class BackupReminderBanner extends StatelessWidget {
                   style: TextStyle(color: MuhurColors.cream, fontSize: 13),
                 ),
               ),
-              TextButton(
+              RoundIconButton(
+                icon: Icons.snooze,
+                tooltip: t.backupReminderLater,
+                size: 38,
                 onPressed: s.snoozeBackupReminder,
-                child: Text(t.backupReminderLater),
               ),
-              FilledButton(
+              const SizedBox(width: 6),
+              RoundIconButton(
+                icon: Icons.save_alt,
+                tooltip: t.backupReminderNow,
+                size: 38,
+                primary: true,
                 onPressed: onBackup,
-                child: Text(t.backupReminderNow),
               ),
             ],
           ),

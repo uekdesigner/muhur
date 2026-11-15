@@ -661,12 +661,28 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String statusTrash(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Einträge im Papierkorb',
+      one: '1 Eintrag im Papierkorb',
+      zero: 'Papierkorb ist leer',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpStatusScreen =>
       'Schild-Symbol: Bildschirmschutz (grün = an, blass = aus)';
 
   @override
   String get helpStatusBackup =>
       'Backup-Symbol: Backup-Status (grün = aktuelles Backup, blass = Backup fällig)';
+
+  @override
+  String get helpStatusTrash =>
+      'Papierkorb-Symbol: Gelöschte Einträge (Zahl = wartende Einträge, Tippen öffnet)';
 
   @override
   String get helpTitle => 'Hilfe';

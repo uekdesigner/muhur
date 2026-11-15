@@ -1230,6 +1230,12 @@ abstract class AppLocalizations {
   /// **'{days, plural, =1{Backup overdue: last one was 1 day ago} other{Backup overdue: last one was {days} days ago}}'**
   String statusBackupOverdue(int days);
 
+  /// No description provided for @statusTrash.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{Trash is empty} =1{1 item in trash} other{{count} items in trash}}'**
+  String statusTrash(int count);
+
   /// No description provided for @helpStatusScreen.
   ///
   /// In en, this message translates to:
@@ -1241,6 +1247,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Backup icon: Backup status (green = recent backup, faded = backup due)'**
   String get helpStatusBackup;
+
+  /// No description provided for @helpStatusTrash.
+  ///
+  /// In en, this message translates to:
+  /// **'Trash icon: Deleted entries (number = items waiting, tap to open)'**
+  String get helpStatusTrash;
 
   /// No description provided for @helpTitle.
   ///

@@ -92,6 +92,17 @@ ThemeData buildMuhurTheme() {
         shape: shape,
       ),
     ),
+    tooltipTheme: TooltipThemeData(
+      decoration: BoxDecoration(
+        color: const Color(0xF0161B1F),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: MuhurColors.bronze, width: 1.2),
+      ),
+      textStyle: TextStyle(color: MuhurColors.cream, fontSize: 12.5),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      verticalOffset: 22,
+    ),
   );
 }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../core/utils/motion.dart';
+import '../../core/widgets/dialog_parts.dart';
 import '../auth/auth_service.dart';
 import '../auth/password_policy.dart';
 import '../auth/password_requirements.dart';
@@ -119,8 +120,19 @@ class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
     return AlertDialog(
-      title: Text(t.changeMasterPassword),
-      content: SingleChildScrollView(
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(t.changeMasterPassword),
+          const SizedBox(height: 10),
+          PasswordRuleChips(_new.text),
+        ],
+      ),
+      titlePadding: const EdgeInsets.fromLTRB(24, 20, 24, 12),
+      contentPadding: EdgeInsets.zero,
+      actionsPadding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+      content: DividedScroll(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,8 +151,10 @@ class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
                 autocorrect: false,
                 decoration: InputDecoration(
                   labelText: t.currentPassword,
-                  suffixIcon: IconButton(
-                    icon: Icon(_show ? Icons.visibility_off : Icons.visibility),
+                  isDense: true,
+                  contentPadding: kDenseFieldPadding,
+                  suffixIcon: PasswordToggleButton(
+                    shown: _show,
                     onPressed: () => setState(() => _show = !_show),
                   ),
                 ),
@@ -173,10 +187,13 @@ class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
               enableSuggestions: false,
               autocorrect: false,
               onChanged: (_) => setState(() {}),
-              decoration: InputDecoration(labelText: t.newPassword),
+              decoration: InputDecoration(
+                labelText: t.newPassword,
+                isDense: true,
+                contentPadding: kDenseFieldPadding,
+              ),
             ),
             StrengthBar(_new.text),
-            PasswordRequirements(_new.text),
             const SizedBox(height: 16),
             TextField(
               controller: _new2,
@@ -184,7 +201,11 @@ class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
               enabled: !_busy,
               enableSuggestions: false,
               autocorrect: false,
-              decoration: InputDecoration(labelText: t.confirmPassword),
+              decoration: InputDecoration(
+                labelText: t.confirmPassword,
+                isDense: true,
+                contentPadding: kDenseFieldPadding,
+              ),
             ),
             if (_error != null)
               Padding(
@@ -198,19 +219,17 @@ class _ChangePasswordDialogState extends State<_ChangePasswordDialog> {
         ),
       ),
       actions: [
-        TextButton(
+        RoundIconButton(
+          icon: Icons.close,
+          tooltip: t.cancel,
           onPressed: _busy ? null : () => Navigator.pop(context, false),
-          child: Text(t.cancel),
         ),
-        FilledButton(
+        RoundIconButton(
+          icon: Icons.check,
+          tooltip: t.change,
+          primary: true,
+          busy: _busy,
           onPressed: _busy ? null : _submit,
-          child: _busy
-              ? const SizedBox(
-                  width: 18,
-                  height: 18,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                )
-              : Text(t.change),
         ),
       ],
     );

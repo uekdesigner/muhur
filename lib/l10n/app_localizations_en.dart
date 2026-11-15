@@ -660,12 +660,28 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String statusTrash(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items in trash',
+      one: '1 item in trash',
+      zero: 'Trash is empty',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get helpStatusScreen =>
       'Shield icon: Screen protection (green = on, faded = off)';
 
   @override
   String get helpStatusBackup =>
       'Backup icon: Backup status (green = recent backup, faded = backup due)';
+
+  @override
+  String get helpStatusTrash =>
+      'Trash icon: Deleted entries (number = items waiting, tap to open)';
 
   @override
   String get helpTitle => 'Help';
