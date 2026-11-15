@@ -640,6 +640,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
               }
               return;
             }
+            if (!mounted) return;
             final v = await Navigator.push<String>(
               context,
               MaterialPageRoute(

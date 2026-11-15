@@ -69,6 +69,7 @@ class _AppRootState extends State<AppRoot> with WidgetsBindingObserver {
   final AuthService _auth = AuthService(CryptoService(), DatabaseManager());
   bool? _exists;
   bool _unlocked = false;
+  DateTime? _backgroundedAt;
   Future<int?>? _bgMono;
   Timer? _lockTimer;
 
@@ -95,6 +96,7 @@ class _AppRootState extends State<AppRoot> with WidgetsBindingObserver {
       case AppLifecycleState.hidden:
       case AppLifecycleState.paused:
         privacyCover.value = true;
+        _backgroundedAt ??= DateTime.now();
         _bgMono ??= MonoClock.elapsedMs();
         _scheduleLock();
       case AppLifecycleState.resumed:
@@ -131,7 +133,9 @@ class _AppRootState extends State<AppRoot> with WidgetsBindingObserver {
 
   Future<void> _onResumed() async {
     _lockTimer?.cancel();
+    final since = _backgroundedAt;
     final monoStart = _bgMono;
+    _backgroundedAt = null;
     _bgMono = null;
     if (_unlocked && since != null && !_auth.systemDialogActive) {
       final lockAfter = _lockDeadline(since).difference(since);
