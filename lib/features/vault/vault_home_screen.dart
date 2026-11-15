@@ -41,6 +41,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   late Future<List<VaultEntry>> _entries;
   VaultStats? _stats;
   int _trashCount = 0;
+  bool _bioEnabled = false;
   final Set<int> _selected = {};
   bool _searching = false;
 
@@ -76,10 +77,12 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     try {
       final s = await _repo.stats();
       final n = await _repo.trashCount();
+      final b = await widget.auth.biometricEnabled();
       if (mounted) {
         setState(() {
           _stats = s;
           _trashCount = n;
+          _bioEnabled = b;
         });
       }
     } catch (_) {
@@ -123,6 +126,8 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
   }
 
   void _openBackupSettings() => _openSettings(section: 2);
+
+  void _openSecuritySettings() => _openSettings(section: 1);
 
   Future<void> _openTrash() async {
     await Navigator.push(
@@ -238,6 +243,8 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
                 trashCount: _trashCount,
                 onTrash: _openTrash,
                 onBackup: _openBackupSettings,
+                bioEnabled: _bioEnabled,
+                onBio: _openSecuritySettings,
                 onLock: () {
                   Navigator.of(context).popUntil((r) => r.isFirst);
                   widget.onLock();

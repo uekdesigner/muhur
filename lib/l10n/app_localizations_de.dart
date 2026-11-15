@@ -86,7 +86,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get reqDigit => 'Eine Ziffer';
 
   @override
-  String get reqSpecial => 'Ein Sonderzeichen (!@#...)';
+  String get reqSpecial => 'Ein Sonderzeichen (!@#...) – optional';
+
+  @override
+  String get reqOptional => 'optional';
 
   @override
   String get passwordsDontMatch => 'Passwörter stimmen nicht überein.';
@@ -673,6 +676,13 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String get statusBiometricOn => 'Biometrische Entsperrung ist an';
+
+  @override
+  String get statusBiometricOff =>
+      'Biometrische Entsperrung ist aus (zum Einrichten tippen)';
+
+  @override
   String get helpStatusScreen =>
       'Schild-Symbol: Bildschirmschutz (grün = an, blass = aus)';
 
@@ -683,6 +693,10 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get helpStatusTrash =>
       'Papierkorb-Symbol: Gelöschte Einträge (Zahl = wartende Einträge, Tippen öffnet)';
+
+  @override
+  String get helpStatusBiometric =>
+      'Fingerabdruck-Symbol: Biometrische Entsperrung (grün = an, Tippen öffnet Einstellungen)';
 
   @override
   String get helpTitle => 'Hilfe';

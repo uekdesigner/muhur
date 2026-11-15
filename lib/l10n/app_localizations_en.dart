@@ -85,7 +85,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reqDigit => 'A digit';
 
   @override
-  String get reqSpecial => 'A special character (!@#...) – recommended';
+  String get reqSpecial => 'A special character (!@#...) – optional';
+
+  @override
+  String get reqOptional => 'optional';
 
   @override
   String get passwordsDontMatch => 'Passwords do not match.';
@@ -672,6 +675,12 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get statusBiometricOn => 'Biometric unlock is on';
+
+  @override
+  String get statusBiometricOff => 'Biometric unlock is off (tap to set up)';
+
+  @override
   String get helpStatusScreen =>
       'Shield icon: Screen protection (green = on, faded = off)';
 
@@ -682,6 +691,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get helpStatusTrash =>
       'Trash icon: Deleted entries (number = items waiting, tap to open)';
+
+  @override
+  String get helpStatusBiometric =>
+      'Fingerprint icon: Biometric unlock (green = on, tap to change)';
 
   @override
   String get helpTitle => 'Help';

@@ -3,58 +3,17 @@ import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import 'password_policy.dart';
 
-class PasswordRequirements extends StatelessWidget {
-  const PasswordRequirements(this.password, {super.key});
-  final String password;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppLocalizations.of(context)!;
-    final c = checkPassword(password);
-
-    Widget row(bool ok, String text) => Padding(
-      padding: const EdgeInsets.only(top: 2),
-      child: Row(
-        children: [
-          Icon(
-            ok ? Icons.check_circle : Icons.radio_button_unchecked,
-            size: 16,
-            color: ok ? Colors.greenAccent : Colors.white54,
-          ),
-          const SizedBox(width: 6),
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 12,
-              color: ok ? Colors.greenAccent : Colors.white70,
-            ),
-          ),
-        ],
-      ),
-    );
-
-    return Padding(
-      padding: const EdgeInsets.only(top: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          row(c.length, t.reqLength),
-          row(c.lower, t.reqLower),
-          row(c.upper, t.reqUpper),
-          row(c.digit, t.reqDigit),
-          row(c.special, t.reqSpecial),
-        ],
-      ),
-    );
-  }
-}
-
 /// Parola kurallarını kısa rozetler olarak gösterir (diyalog başlığının
 /// altında). Karşılanan rozet yeşil, karşılanmayan soluk görünür; rozete
 /// dokununca kuralın tam metni açıklama olarak çıkar.
 class PasswordRuleChips extends StatelessWidget {
-  const PasswordRuleChips(this.password, {super.key});
+  const PasswordRuleChips(
+    this.password, {
+    super.key,
+    this.alignment = WrapAlignment.start,
+  });
   final String password;
+  final WrapAlignment alignment;
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +61,7 @@ class PasswordRuleChips extends StatelessWidget {
     }
 
     return Wrap(
+      alignment: alignment,
       spacing: 6,
       runSpacing: 6,
       children: [
@@ -109,7 +69,7 @@ class PasswordRuleChips extends StatelessWidget {
         chip(c.lower, 'a-z', t.reqLower),
         chip(c.upper, 'A-Z', t.reqUpper),
         chip(c.digit, '0-9', t.reqDigit),
-        chip(c.special, '!@#', t.reqSpecial),
+        chip(c.special, '!@# ${t.reqOptional}', t.reqSpecial),
       ],
     );
   }

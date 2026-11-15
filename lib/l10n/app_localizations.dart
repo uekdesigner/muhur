@@ -249,8 +249,14 @@ abstract class AppLocalizations {
   /// No description provided for @reqSpecial.
   ///
   /// In en, this message translates to:
-  /// **'A special character (!@#...) – recommended'**
+  /// **'A special character (!@#...) – optional'**
   String get reqSpecial;
+
+  /// No description provided for @reqOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'optional'**
+  String get reqOptional;
 
   /// No description provided for @passwordsDontMatch.
   ///
@@ -1236,6 +1242,18 @@ abstract class AppLocalizations {
   /// **'{count, plural, =0{Trash is empty} =1{1 item in trash} other{{count} items in trash}}'**
   String statusTrash(int count);
 
+  /// No description provided for @statusBiometricOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric unlock is on'**
+  String get statusBiometricOn;
+
+  /// No description provided for @statusBiometricOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric unlock is off (tap to set up)'**
+  String get statusBiometricOff;
+
   /// No description provided for @helpStatusScreen.
   ///
   /// In en, this message translates to:
@@ -1253,6 +1271,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Trash icon: Deleted entries (number = items waiting, tap to open)'**
   String get helpStatusTrash;
+
+  /// No description provided for @helpStatusBiometric.
+  ///
+  /// In en, this message translates to:
+  /// **'Fingerprint icon: Biometric unlock (green = on, tap to change)'**
+  String get helpStatusBiometric;
 
   /// No description provided for @helpTitle.
   ///

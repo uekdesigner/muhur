@@ -67,7 +67,7 @@ class LanguageButton extends StatelessWidget {
           shape: BoxShape.circle,
           border: Border.all(color: MuhurColors.bronze, width: 1.2),
         ),
-        child: Icon(Icons.language, size: 22, color: MuhurColors.cream),
+        child: Icon(Icons.language, size: 22, color: MuhurColors.bronzeLight),
       ),
       tooltip: t.language,
       onSelected: (code) => AppSettings.instance.setLocale(

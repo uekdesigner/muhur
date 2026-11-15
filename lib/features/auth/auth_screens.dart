@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/utils/haptics.dart';
 import '../../core/utils/motion.dart';
+import '../../core/widgets/dialog_parts.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../password_gen/strength_bar.dart';
@@ -149,7 +150,9 @@ class _SetupScreenState extends State<SetupScreen> {
                       color: MuhurColors.cream,
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 14),
+                  PasswordRuleChips(_pw.text, alignment: WrapAlignment.center),
+                  const SizedBox(height: 18),
                   TextField(
                     controller: _pw,
                     obscureText: !_show,
@@ -158,23 +161,26 @@ class _SetupScreenState extends State<SetupScreen> {
                     onChanged: (_) => setState(() {}),
                     decoration: InputDecoration(
                       labelText: t.masterPassword,
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _show ? Icons.visibility_off : Icons.visibility,
-                        ),
+                      isDense: true,
+                      contentPadding: kDenseFieldPadding,
+                      suffixIcon: PasswordToggleButton(
+                        shown: _show,
                         onPressed: () => setState(() => _show = !_show),
                       ),
                     ),
                   ),
                   StrengthBar(_pw.text),
-                  PasswordRequirements(_pw.text),
                   const SizedBox(height: 16),
                   TextField(
                     controller: _pw2,
                     obscureText: !_show,
                     enableSuggestions: false,
                     autocorrect: false,
-                    decoration: InputDecoration(labelText: t.confirmPassword),
+                    decoration: InputDecoration(
+                      labelText: t.confirmPassword,
+                      isDense: true,
+                      contentPadding: kDenseFieldPadding,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   CheckboxListTile(

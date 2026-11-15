@@ -85,7 +85,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get reqDigit => 'Rakam';
 
   @override
-  String get reqSpecial => 'Özel karakter (!@#...)';
+  String get reqSpecial => 'Özel karakter (!@#...) – isteğe bağlı';
+
+  @override
+  String get reqOptional => 'isteğe bağlı';
 
   @override
   String get passwordsDontMatch => 'Parolalar eşleşmiyor.';
@@ -666,6 +669,13 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get statusBiometricOn => 'Biyometrik kilit açık';
+
+  @override
+  String get statusBiometricOff =>
+      'Biyometrik kilit kapalı (kurmak için dokunun)';
+
+  @override
   String get helpStatusScreen =>
       'Kalkan simgesi: Ekran koruması (yeşil = açık, soluk = kapalı)';
 
@@ -676,6 +686,10 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get helpStatusTrash =>
       'Çöp simgesi: Silinen kayıtlar (rakam = bekleyen kayıt, dokununca açılır)';
+
+  @override
+  String get helpStatusBiometric =>
+      'Parmak izi simgesi: Biyometrik kilit (yeşil = açık, dokununca ayarlar açılır)';
 
   @override
   String get helpTitle => 'Yardım';

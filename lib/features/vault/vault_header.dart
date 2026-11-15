@@ -20,6 +20,8 @@ class VaultHeader extends StatelessWidget {
     required this.trashCount,
     required this.onTrash,
     required this.onBackup,
+    required this.bioEnabled,
+    required this.onBio,
   });
 
   final int selectedCount;
@@ -31,6 +33,8 @@ class VaultHeader extends StatelessWidget {
   final int trashCount;
   final VoidCallback onTrash;
   final VoidCallback onBackup;
+  final bool bioEnabled;
+  final VoidCallback onBio;
 
   @override
   Widget build(BuildContext context) {
@@ -119,6 +123,14 @@ class VaultHeader extends StatelessWidget {
                         tooltip: on ? t.statusScreenOn : t.statusScreenOff,
                         active: on,
                       ),
+                    ),
+                    StatusPill(
+                      icon: Icons.fingerprint,
+                      tooltip: bioEnabled
+                          ? t.statusBiometricOn
+                          : t.statusBiometricOff,
+                      active: bioEnabled,
+                      onTap: onBio,
                     ),
                     ListenableBuilder(
                       listenable: AppSettings.instance.backupChanges,
@@ -433,6 +445,7 @@ class _HelpMenu extends StatelessWidget {
       (Icons.settings_outlined, t.helpSettings),
       (Icons.bar_chart_rounded, t.helpStats),
       (Icons.shield_outlined, t.helpStatusScreen),
+      (Icons.fingerprint, t.helpStatusBiometric),
       (Icons.settings_backup_restore, t.helpStatusBackup),
       (Icons.restore_from_trash_outlined, t.helpStatusTrash),
     ];

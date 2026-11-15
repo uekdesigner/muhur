@@ -86,7 +86,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reqDigit => 'رقم';
 
   @override
-  String get reqSpecial => 'رمز خاص (!@#...)';
+  String get reqSpecial => 'رمز خاص (!@#...) – اختياري';
+
+  @override
+  String get reqOptional => 'اختياري';
 
   @override
   String get passwordsDontMatch => 'كلمات المرور غير متطابقة.';
@@ -682,6 +685,12 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get statusBiometricOn => 'Biometric unlock is on';
+
+  @override
+  String get statusBiometricOff => 'Biometric unlock is off (tap to set up)';
+
+  @override
   String get helpStatusScreen =>
       'أيقونة الدرع: حماية الشاشة (أخضر = مفعّل، باهت = معطّل)';
 
@@ -692,6 +701,10 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get helpStatusTrash =>
       'Trash icon: Deleted entries (number = items waiting, tap to open)';
+
+  @override
+  String get helpStatusBiometric =>
+      'Fingerprint icon: Biometric unlock (green = on, tap to change)';
 
   @override
   String get helpTitle => 'المساعدة';
