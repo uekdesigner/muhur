@@ -1,0 +1,965 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Thai (`th`).
+class AppLocalizationsTh extends AppLocalizations {
+  AppLocalizationsTh([String locale = 'th']) : super(locale);
+
+  @override
+  String get appName => 'Muhur';
+
+  @override
+  String get catBanks => 'ธนาคาร';
+
+  @override
+  String get catWebsites => 'เว็บไซต์';
+
+  @override
+  String get catEmails => 'อีเมล';
+
+  @override
+  String get catSocial => 'โซเชียล';
+
+  @override
+  String get catBusiness => 'งาน';
+
+  @override
+  String get catOther => 'อื่นๆ';
+
+  @override
+  String get setupTitle => 'สร้างรหัสผ่านหลัก';
+
+  @override
+  String get setupInfo =>
+      'รหัสผ่านนี้กู้คืนไม่ได้ หากลืม ข้อมูลของคุณจะเปิดไม่ได้อีกเลย';
+
+  @override
+  String get masterPassword => 'รหัสผ่านหลัก';
+
+  @override
+  String get confirmPassword => 'ยืนยันรหัสผ่าน';
+
+  @override
+  String get changeMasterPassword => 'เปลี่ยนรหัสผ่านหลัก';
+
+  @override
+  String get currentPassword => 'รหัสผ่านปัจจุบัน';
+
+  @override
+  String get newPassword => 'รหัสผ่านใหม่';
+
+  @override
+  String get newPasswordSame => 'รหัสผ่านใหม่ต้องไม่ซ้ำกับรหัสผ่านปัจจุบัน';
+
+  @override
+  String get change => 'เปลี่ยน';
+
+  @override
+  String get masterPasswordChanged => 'เปลี่ยนรหัสผ่านหลักแล้ว';
+
+  @override
+  String get changePasswordFailed => 'เปลี่ยนรหัสผ่านไม่สำเร็จ โปรดลองอีกครั้ง';
+
+  @override
+  String get passwordTooShort => 'ใช้อย่างน้อย 8 ตัวอักษร';
+
+  @override
+  String get passwordNeedsMix => 'ใช้ตัวพิมพ์เล็ก ตัวพิมพ์ใหญ่ และตัวเลข';
+
+  @override
+  String get reqLength => 'อย่างน้อย 8 ตัวอักษร';
+
+  @override
+  String get reqLower => 'ตัวพิมพ์เล็ก';
+
+  @override
+  String get reqUpper => 'ตัวพิมพ์ใหญ่';
+
+  @override
+  String get reqDigit => 'ตัวเลข';
+
+  @override
+  String get reqSpecial => 'อักขระพิเศษ (!@#...) – ไม่บังคับ';
+
+  @override
+  String get reqOptional => 'ไม่บังคับ';
+
+  @override
+  String get passwordsDontMatch => 'รหัสผ่านไม่ตรงกัน';
+
+  @override
+  String get createVault => 'สร้าง';
+
+  @override
+  String get unlockTitle => 'Unlock';
+
+  @override
+  String get unlock => 'เปิด';
+
+  @override
+  String get wrongPassword => 'รหัสผ่านหลักไม่ถูกต้อง';
+
+  @override
+  String lockedOut(int seconds) {
+    return 'ลองหลายครั้งเกินไป โปรดลองอีกครั้งใน $seconds วินาที';
+  }
+
+  @override
+  String get useBiometrics => 'Biometrics';
+
+  @override
+  String get enableBiometricsQ => 'เปิดใช้การปลดล็อกด้วยไบโอเมตริกไหม';
+
+  @override
+  String get enable => 'เปิดใช้';
+
+  @override
+  String get notNow => 'ไว้ทีหลัง';
+
+  @override
+  String get biometricReason => 'ปลดล็อก Muhur';
+
+  @override
+  String get lockNow => 'ล็อก';
+
+  @override
+  String get vaultUnlocked => 'Vault unlocked';
+
+  @override
+  String get all => 'ทั้งหมด';
+
+  @override
+  String get noEntries => 'ยังไม่มีรายการ';
+
+  @override
+  String get searchHint => 'ค้นหาชื่อ โดเมน แท็ก';
+
+  @override
+  String get addEntry => 'เพิ่มรายการ';
+
+  @override
+  String get editEntry => 'แก้ไขรายการ';
+
+  @override
+  String get title => 'ชื่อ';
+
+  @override
+  String get category => 'หมวดหมู่';
+
+  @override
+  String get domain => 'โดเมน (เช่น example.com)';
+
+  @override
+  String get tags => 'แท็ก';
+
+  @override
+  String get fields => 'ช่องข้อมูล';
+
+  @override
+  String get addField => 'เพิ่มช่อง';
+
+  @override
+  String get fieldLabel => 'Label';
+
+  @override
+  String get fieldValue => 'Value';
+
+  @override
+  String get typeText => 'ข้อความ';
+
+  @override
+  String get typePassword => 'Password';
+
+  @override
+  String get typeUrl => 'URL';
+
+  @override
+  String get typeNotes => 'Notes';
+
+  @override
+  String get sensitive => 'ซ่อนค่า';
+
+  @override
+  String get save => 'บันทึก';
+
+  @override
+  String get delete => 'ลบ';
+
+  @override
+  String get moveToTrash => 'ย้ายไปถังขยะ';
+
+  @override
+  String get trash => 'ถังขยะ';
+
+  @override
+  String get trashKeepFor => 'เก็บในถังขยะนาน';
+
+  @override
+  String get trashHint =>
+      'รายการที่ลบยังคงถูกเข้ารหัสอยู่ในถังขยะและกู้คืนได้ เมื่อครบจำนวนวันนี้ รายการจะถูกลบถาวรในครั้งถัดไปที่ปลดล็อกตู้นิรภัย การลดระยะเวลาจะลบรายการที่เก่ากว่าออกจากถังขยะด้วย การล้างถังขยะไม่สามารถย้อนกลับได้';
+
+  @override
+  String daysCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count วัน',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get openTrash => 'ถังขยะ';
+
+  @override
+  String get trashEmpty => 'ถังขยะว่างเปล่า';
+
+  @override
+  String get restore => 'กู้คืน';
+
+  @override
+  String get deleteForever => 'ลบถาวร';
+
+  @override
+  String get deleteForeverConfirm =>
+      'ลบรายการนี้ถาวรไหม การกระทำนี้ย้อนกลับไม่ได้';
+
+  @override
+  String trashDaysLeft(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'เหลือ $count วัน',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get emptyTrashNow => 'ล้างถังขยะ';
+
+  @override
+  String emptyTrashConfirm(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count รายการ',
+    );
+    return 'ลบ $_temp0 ออกจากถังขยะถาวรไหม การกระทำนี้ย้อนกลับไม่ได้';
+  }
+
+  @override
+  String get cancel => 'ยกเลิก';
+
+  @override
+  String get deleteConfirm =>
+      'ย้ายรายการนี้ไปถังขยะไหม คุณกู้คืนได้จนกว่าจะล้างถังขยะ';
+
+  @override
+  String get titleRequired => 'ต้องระบุชื่อ';
+
+  @override
+  String get fieldUsername => 'ชื่อผู้ใช้';
+
+  @override
+  String get fieldPassword => 'รหัสผ่าน';
+
+  @override
+  String get fieldIban => 'IBAN';
+
+  @override
+  String get fieldNote => 'บันทึก';
+
+  @override
+  String get copy => 'คัดลอก';
+
+  @override
+  String copied(int seconds) {
+    return 'Copied. The clipboard clears in $seconds seconds.';
+  }
+
+  @override
+  String get settings => 'การตั้งค่า';
+
+  @override
+  String get settingsSecurity => 'ความปลอดภัย';
+
+  @override
+  String get settingsBackup => 'สำรอง';
+
+  @override
+  String get settingsGeneral => 'ทั่วไป';
+
+  @override
+  String get settingsAbout => 'เกี่ยวกับ';
+
+  @override
+  String get autoLock => 'ล็อกอัตโนมัติ';
+
+  @override
+  String get immediately => 'ทันที';
+
+  @override
+  String get seconds15 => '15 sec';
+
+  @override
+  String get minute1 => '1 min';
+
+  @override
+  String get copyTimer => 'เวลาคัดลอก';
+
+  @override
+  String get copyTimerHint =>
+      'ข้อมูลที่คัดลอกจะถูกล้างออกจากคลิปบอร์ดเมื่อครบเวลานี้ และตู้นิรภัยจะยังเปิดอยู่จนถึงตอนนั้น';
+
+  @override
+  String secondsShort(int seconds) {
+    return '$seconds วิ';
+  }
+
+  @override
+  String get biometricUnlock => 'ไบโอเมตริก';
+
+  @override
+  String get generator => 'ตัวสร้าง';
+
+  @override
+  String get generate => 'สร้าง';
+
+  @override
+  String get length => 'ความยาว';
+
+  @override
+  String get lowercase => 'ตัวพิมพ์เล็ก (a-z)';
+
+  @override
+  String get uppercase => 'ตัวพิมพ์ใหญ่ (A-Z)';
+
+  @override
+  String get digits => 'ตัวเลข (0-9)';
+
+  @override
+  String get symbols => 'สัญลักษณ์ (!@#...)';
+
+  @override
+  String get avoidAmbiguous => 'ไม่ใช้อักขระที่คล้ายกัน (O/0, l/1)';
+
+  @override
+  String get regenerate => 'สร้างใหม่';
+
+  @override
+  String get usePassword => 'ใช้';
+
+  @override
+  String get strengthWeak => 'อ่อน';
+
+  @override
+  String get strengthFair => 'พอใช้';
+
+  @override
+  String get strengthGood => 'ดี';
+
+  @override
+  String get strengthStrong => 'แข็งแรง';
+
+  @override
+  String get scan => 'สแกน';
+
+  @override
+  String get scanHint =>
+      'ถือกล้องให้นิ่งเหนือข้อความ ในโหมด IBAN ระบบจะตรวจจับให้อัตโนมัติ';
+
+  @override
+  String get scanRetake => 'Retake';
+
+  @override
+  String get scanning => 'กำลังสแกน...';
+
+  @override
+  String get ibanFound => 'IBAN found';
+
+  @override
+  String get ibanNotFound =>
+      'No valid IBAN found. Try again with better light, or pick a line below.';
+
+  @override
+  String get ibanCorrected => 'อาจถูกแก้ไขหลังจาก OCR ผิดพลาด โปรดตรวจสอบให้ดี';
+
+  @override
+  String get pickLine => 'Tap a line to use it';
+
+  @override
+  String get noTextFound => 'No text found.';
+
+  @override
+  String get cameraError => 'ใช้กล้องไม่ได้ โปรดตรวจสอบสิทธิ์การใช้กล้อง';
+
+  @override
+  String get editBeforeUse => 'ตรวจสอบและแก้ไข';
+
+  @override
+  String get useValue => 'ใช้';
+
+  @override
+  String get scanIsThis => 'ใช่อันนี้ไหม';
+
+  @override
+  String get scanNo => 'ไม่ใช่';
+
+  @override
+  String get scanYes => 'ใช่';
+
+  @override
+  String get brandName => 'MÜHÜR';
+
+  @override
+  String get brandSubtitle => 'ตัวจัดการรหัสผ่าน';
+
+  @override
+  String get tagline =>
+      'ผนึกข้อมูลดิจิทัลของคุณ\nไม่มีเซิร์ฟเวอร์ มีแค่คุณกับข้อมูลของคุณ\nMÜHÜR: กุญแจที่ปลอดภัยที่สุดสำหรับความทรงจำดิจิทัลของคุณ';
+
+  @override
+  String get login => 'เข้า';
+
+  @override
+  String get infoTitle => 'เกี่ยวกับ Muhur';
+
+  @override
+  String get infoBody =>
+      'Muhur เก็บรหัสผ่านของคุณแบบเข้ารหัสไว้ในอุปกรณ์นี้เท่านั้น ไม่มีบัญชีและไม่มีเซิร์ฟเวอร์\n\nรหัสผ่านหลักกู้คืนไม่ได้ หากลืม ข้อมูลของคุณจะเปิดไม่ได้ ดังนั้นโปรดเก็บข้อมูลสำรองที่เข้ารหัสไว้';
+
+  @override
+  String get understandNoRecovery =>
+      'ฉันเข้าใจว่ารหัสผ่านหลักที่ลืมไปแล้วจะกู้คืนไม่ได้';
+
+  @override
+  String get close => 'ปิด';
+
+  @override
+  String get language => 'ภาษา';
+
+  @override
+  String get languageSystem => 'ค่าเริ่มต้นของระบบ';
+
+  @override
+  String get sectionLanguage => 'ภาษา';
+
+  @override
+  String get sectionExperience => 'การใช้งาน';
+
+  @override
+  String get sectionAppearance => 'รูปลักษณ์';
+
+  @override
+  String get panelDarkness => 'ความเข้มของแผง';
+
+  @override
+  String get panelDarknessDesc => 'ทำให้แผงและการ์ดโปร่งใสมากขึ้นหรือน้อยลง';
+
+  @override
+  String get backgroundTitle => 'พื้นหลัง';
+
+  @override
+  String get backgroundDim => 'ลดความสว่าง';
+
+  @override
+  String get backgroundDimDesc => 'ทำให้ภาพพื้นหลังมืดลงหรือสว่างขึ้น';
+
+  @override
+  String get bgBronze => 'บรอนซ์';
+
+  @override
+  String get bgEmber => 'ถ่านแดง';
+
+  @override
+  String get bgSapphire => 'ไพลิน';
+
+  @override
+  String get bgObsidian => 'ออบซิเดียน';
+
+  @override
+  String get bgLumen => 'ลูเมน';
+
+  @override
+  String get smartGuide => 'เคล็ดลับอัจฉริยะ';
+
+  @override
+  String get smartGuideDesc => 'แสดงเคล็ดลับสั้นๆ เมื่อใช้ฟีเจอร์ครั้งแรก';
+
+  @override
+  String get haptics => 'การสั่น';
+
+  @override
+  String get hapticsDesc =>
+      'สั่นสั้นๆ เมื่อปลดล็อกด้วยลายนิ้วมือและเมื่อคัดลอก';
+
+  @override
+  String get reduceAnimations => 'ปิดแอนิเมชัน';
+
+  @override
+  String get reduceAnimationsDesc =>
+      'ปิดแอนิเมชันทั้งหมดในแอป: การสั่นและเรืองแสงของไอคอนช่วยเหลือ เมนูช่วยเหลือ การเปลี่ยนหน้า กล่องโต้ตอบ และเส้นสแกน เหมาะกับอุปกรณ์ที่ช้าและผู้ที่ไวต่อการเคลื่อนไหว';
+
+  @override
+  String get resetTips => 'รีเซ็ตเคล็ดลับ';
+
+  @override
+  String get resetTipsDesc =>
+      'แสดงแอนิเมชันช่วยเหลือและเคล็ดลับทั้งหมดอีกครั้ง';
+
+  @override
+  String get tipsResetDone => 'จะแสดงเคล็ดลับอีกครั้ง';
+
+  @override
+  String get tipLongPress =>
+      'เคล็ดลับ: กดค้างที่รายการเพื่อเลือก แล้วลบหลายรายการพร้อมกัน';
+
+  @override
+  String get statTotal => 'ทั้งหมด';
+
+  @override
+  String get statReused => 'ใช้ซ้ำ';
+
+  @override
+  String get planFree => 'ฟรี';
+
+  @override
+  String get statusScreen => 'Screen protection';
+
+  @override
+  String get screenshotAllow => 'อนุญาตให้จับภาพหน้าจอ';
+
+  @override
+  String get screenshotAllowHint =>
+      'การป้องกันหน้าจอจะปิดตามเวลาที่ตั้งไว้ด้านล่าง แล้วเปิดกลับเองโดยอัตโนมัติ';
+
+  @override
+  String get screenshotTimer => 'Screenshot time';
+
+  @override
+  String get backupSection => 'ข้อมูลสำรองที่เข้ารหัส';
+
+  @override
+  String get backupExport => 'สร้างข้อมูลสำรอง';
+
+  @override
+  String get backupExportDesc =>
+      'บันทึกทุกรายการ รวมถึงถังขยะ ลงในไฟล์ที่ป้องกันด้วยรหัสผ่านสำรอง โปรดเก็บไฟล์ไว้ในที่ปลอดภัย';
+
+  @override
+  String get backupImport => 'กู้คืน';
+
+  @override
+  String get backupImportDesc =>
+      'เพิ่มรายการจากไฟล์สำรอง รายการเดิมจะไม่ถูกเขียนทับหรือลบ';
+
+  @override
+  String get backupPasswordTitle => 'รหัสผ่านสำรอง';
+
+  @override
+  String get backupPasswordInfo =>
+      'รหัสผ่านนี้ป้องกันไฟล์สำรอง ซึ่งอาจต่างจากรหัสผ่านหลักได้ หากลืม จะเปิดไฟล์สำรองไม่ได้';
+
+  @override
+  String get backupEnterPassword => 'ป้อนรหัสผ่านสำรอง';
+
+  @override
+  String get backupContinue => 'ถัดไป';
+
+  @override
+  String get backupSaved => 'บันทึกข้อมูลสำรองแล้ว';
+
+  @override
+  String get backupFailed => 'สร้างข้อมูลสำรองไม่สำเร็จ';
+
+  @override
+  String backupRestored(int added, int skipped) {
+    return 'เพิ่ม $added รายการ, มีอยู่แล้ว $skipped รายการ';
+  }
+
+  @override
+  String get backupWrongPassword => 'รหัสผ่านสำรองไม่ถูกต้อง';
+
+  @override
+  String get backupInvalidFile => 'ไฟล์นี้ไม่ใช่ไฟล์สำรอง Muhur ที่ถูกต้อง';
+
+  @override
+  String get backupReminderTitle => 'เตือนให้สำรองข้อมูล';
+
+  @override
+  String get backupReminderDesc =>
+      'เตือนบนหน้าหลักเมื่อข้อมูลสำรองล่าสุดเก่ากว่านี้ ตั้งเป็น 0 เพื่อปิด';
+
+  @override
+  String get backupReminderOff => 'ปิด';
+
+  @override
+  String get backupReminderNever =>
+      'คุณยังไม่เคยสำรองข้อมูล สำรองตอนนี้เพื่อไม่ให้รหัสผ่านสูญหาย';
+
+  @override
+  String backupReminderAgo(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'สำรองข้อมูลล่าสุดเมื่อ $days วันก่อน',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get backupReminderNow => 'สำรอง';
+
+  @override
+  String get backupReminderLater => 'ไว้ทีหลัง';
+
+  @override
+  String get statusScreenOn =>
+      'การป้องกันหน้าจอเปิดอยู่: บล็อกการจับภาพและบันทึกหน้าจอ';
+
+  @override
+  String get statusScreenOff =>
+      'การป้องกันหน้าจอปิดชั่วคราว: อนุญาตให้จับภาพหน้าจอ';
+
+  @override
+  String get statusBackupNever =>
+      'ยังไม่มีข้อมูลสำรอง สร้างได้ที่ การตั้งค่า > สำรอง';
+
+  @override
+  String statusBackupOk(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'สำรองล่าสุด: $days วันก่อน',
+      one: 'สำรองล่าสุด: เมื่อวาน',
+      zero: 'สำรองแล้ววันนี้',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String statusBackupOverdue(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'เลยกำหนดสำรอง: ล่าสุด $days วันก่อน',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String statusTrash(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count รายการในถังขยะ',
+      zero: 'ถังขยะว่างเปล่า',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get statusBiometricOn => 'เปิดการปลดล็อกด้วยไบโอเมตริกอยู่';
+
+  @override
+  String get statusBiometricOff =>
+      'ปิดการปลดล็อกด้วยไบโอเมตริกอยู่ (แตะเพื่อตั้งค่า)';
+
+  @override
+  String get helpStatusScreen =>
+      'ไอคอนโล่: การป้องกันหน้าจอ (เขียว = เปิด, จาง = ปิด)';
+
+  @override
+  String get helpStatusBackup =>
+      'ไอคอนสำรอง: สถานะข้อมูลสำรอง (เขียว = สำรองล่าสุด, จาง = ถึงเวลาสำรอง)';
+
+  @override
+  String get helpStatusTrash =>
+      'ไอคอนถังขยะ: รายการที่ลบ (ตัวเลข = รายการที่รอ, แตะเพื่อเปิด)';
+
+  @override
+  String get helpStatusBiometric =>
+      'ไอคอนลายนิ้วมือ: ปลดล็อกด้วยไบโอเมตริก (เขียว = เปิด, แตะเพื่อเปลี่ยน)';
+
+  @override
+  String get helpTitle => 'ช่วยเหลือ';
+
+  @override
+  String get helpBody => 'Help content will be added here.';
+
+  @override
+  String get helpMenuTitle => 'ใช้งานอย่างไร';
+
+  @override
+  String get helpAdd => 'ปุ่ม +: เพิ่มรายการใหม่';
+
+  @override
+  String get helpTap => 'แตะการ์ด: ดูรายละเอียด';
+
+  @override
+  String get helpLongPress => 'กดค้าง: เลือกและลบ';
+
+  @override
+  String get helpSearch => 'ค้นหา: หาได้รวดเร็ว';
+
+  @override
+  String get helpCategories => 'หมวดหมู่: กรองรายการ';
+
+  @override
+  String get helpLock => 'ไอคอนแม่กุญแจ: ล็อกตู้นิรภัยทันที';
+
+  @override
+  String get helpSettings => 'การตั้งค่า: สำรองข้อมูล ล็อกอัตโนมัติ และอื่นๆ';
+
+  @override
+  String get helpStats => 'แผงด้านล่าง: สรุปตู้นิรภัย';
+
+  @override
+  String deleteSelectedConfirm(int count) {
+    return 'ย้าย $count รายการที่เลือกไปถังขยะไหม';
+  }
+
+  @override
+  String get fcBankName => 'ชื่อธนาคาร';
+
+  @override
+  String get fcTag => 'Tag';
+
+  @override
+  String get fcInternetBankingPassword => 'รหัสผ่านอินเทอร์เน็ตแบงก์กิ้ง';
+
+  @override
+  String get fcCardPin => 'PIN บัตร';
+
+  @override
+  String get fcCardNumber => 'หมายเลขบัตร';
+
+  @override
+  String get fcExpiryDate => 'วันหมดอายุ';
+
+  @override
+  String get fcCvv => 'CVV / CVC';
+
+  @override
+  String get fcCustomerServiceNo => 'เบอร์ฝ่ายบริการ';
+
+  @override
+  String get fcCustomerNoTc => 'รหัสลูกค้า / เลขบัตรประชาชน';
+
+  @override
+  String get fcBranchNameCode => 'Branch / Code';
+
+  @override
+  String get fcAccountType => 'ประเภทบัญชี';
+
+  @override
+  String get fcPhoneBankingPassword => 'รหัสผ่านโฟนแบงก์กิ้ง';
+
+  @override
+  String get fcSwiftBic => 'SWIFT / BIC';
+
+  @override
+  String get fcCardStatementDate => 'รอบบิล / ครบกำหนด';
+
+  @override
+  String get fcAccountTitle => 'ชื่อบัญชี';
+
+  @override
+  String get fcEmailAddress => 'ที่อยู่อีเมล';
+
+  @override
+  String get fcRecoveryEmail => 'อีเมลกู้คืน';
+
+  @override
+  String get fcRecoveryPhone => 'โทรศัพท์กู้คืน';
+
+  @override
+  String get fc2faBackupCodes => '2FA / รหัสสำรอง';
+
+  @override
+  String get fcLoginMethodProvider => 'Login Method';
+
+  @override
+  String get fcImapSmtp => 'IMAP / SMTP';
+
+  @override
+  String get fcSecurityQA => 'คำถามความปลอดภัย';
+
+  @override
+  String get fcPasswordChangeDate => 'วันที่เปลี่ยนรหัสผ่าน';
+
+  @override
+  String get fcPlatformTitle => 'แพลตฟอร์ม / ชื่อ';
+
+  @override
+  String get fcUsernameProfileId => 'ชื่อผู้ใช้ / ID โปรไฟล์';
+
+  @override
+  String get fcRegisteredEmail => 'อีเมลที่ลงทะเบียน';
+
+  @override
+  String get fcRegisteredPhone => 'โทรศัพท์ที่ลงทะเบียน';
+
+  @override
+  String get fcProfileUrl => 'URL โปรไฟล์';
+
+  @override
+  String get fcAccountTypeStatus => 'ประเภท / สถานะบัญชี';
+
+  @override
+  String get fcLinkedMainAccount => 'บัญชีที่เชื่อมโยง';
+
+  @override
+  String get fcProfileNumericId => 'Profile ID';
+
+  @override
+  String get fc2faSecretKey => 'คีย์ลับ 2FA';
+
+  @override
+  String get fcServiceName => 'หน่วยงาน';
+
+  @override
+  String get fcCompanyName => 'ชื่อบริษัท';
+
+  @override
+  String get fcCorporateUserId => 'ชื่อผู้ใช้ / รหัสพนักงาน';
+
+  @override
+  String get fcPanelUrl => 'URL แผงควบคุม';
+
+  @override
+  String get fcDepartmentPosition => 'แผนก / ตำแหน่ง';
+
+  @override
+  String get fcLicenseCode => 'ลูกค้า / ไลเซนส์';
+
+  @override
+  String get fcSupportContact => 'ผู้ติดต่อฝ่ายสนับสนุน';
+
+  @override
+  String get fcLoginMethodVerification => 'Verification';
+
+  @override
+  String get fcTaxOffice => 'Tax Office / No';
+
+  @override
+  String get fcRegistryNo => 'Registry / Dealer No';
+
+  @override
+  String get fcIpVpn => 'IP / VPN';
+
+  @override
+  String get fcLicenseExpiry => 'License Expiry';
+
+  @override
+  String get fcSiteName => 'ชื่อเว็บไซต์';
+
+  @override
+  String get fcWebAddress => 'URL เว็บไซต์';
+
+  @override
+  String get fcUsernameEmail => 'ชื่อผู้ใช้ / อีเมล';
+
+  @override
+  String get fcSubscriptionFee => 'Fee / Period';
+
+  @override
+  String get fcRegistrationDate => 'Sign-up Date';
+
+  @override
+  String get fcPaymentMethod => 'Payment Method';
+
+  @override
+  String get fcPinCode => 'PIN Code';
+
+  @override
+  String get fcLicenseCodeSimple => 'License Code';
+
+  @override
+  String get pickFieldTitle => 'เลือกช่องข้อมูล';
+
+  @override
+  String get allFieldsAdded => 'All fields added';
+
+  @override
+  String get generatorSettings => 'ตั้งค่าตัวสร้าง';
+
+  @override
+  String get saveAndExit => 'บันทึกและออก';
+
+  @override
+  String get customField => 'ช่องที่กำหนดเอง';
+
+  @override
+  String get customFieldName => 'ชื่อช่อง';
+
+  @override
+  String get customFieldType => 'ประเภทช่อง';
+
+  @override
+  String get customTypeText => 'ข้อความ';
+
+  @override
+  String get customTypeNote => 'บันทึก';
+
+  @override
+  String get customTypePassword => 'รหัสผ่าน';
+
+  @override
+  String get customTypeDate => 'วันที่';
+
+  @override
+  String get customTypePhone => 'โทรศัพท์';
+
+  @override
+  String get orphanVaultTitle => 'พบตู้นิรภัยเก่า';
+
+  @override
+  String get orphanVaultBody =>
+      'มีไฟล์ตู้นิรภัยเก่าอยู่ในอุปกรณ์นี้ แต่อ่านคีย์ของไฟล์ไม่ได้ จึงเปิดไม่ได้ หากดำเนินการต่อ ข้อมูลเก่านั้นจะถูกลบ หากคุณมีข้อมูลสำรอง ให้สร้างตู้นิรภัยใหม่แล้วกู้คืนภายหลัง';
+
+  @override
+  String get orphanVaultReplace => 'ลบและดำเนินการต่อ';
+
+  @override
+  String get forgotOldPassword => 'ฉันจำรหัสผ่านปัจจุบันไม่ได้';
+
+  @override
+  String get useCurrentPassword => 'ใช้รหัสผ่านปัจจุบันแทน';
+
+  @override
+  String get forgotPasswordBioHint =>
+      'ยืนยันด้วยลายนิ้วมือหรือใบหน้าเพื่อตั้งรหัสผ่านหลักใหม่ รายการของคุณจะยังอยู่เหมือนเดิม';
+
+  @override
+  String get bioConfirmFailed => 'การยืนยันด้วยไบโอเมตริกล้มเหลวหรือถูกยกเลิก';
+
+  @override
+  String get biometricChangedBody =>
+      'การตั้งค่าลายนิ้วมือหรือใบหน้าของคุณเปลี่ยนไป จึงปิดการเข้าสู่ระบบด้วยไบโอเมตริกเพื่อความปลอดภัย';
+
+  @override
+  String get limitReachedTitle => 'ถึงขีดจำกัดเวอร์ชันฟรีแล้ว';
+
+  @override
+  String limitReachedBody(int count) {
+    return 'เวอร์ชันฟรีเก็บได้สูงสุด $count รายการต่อหมวดหมู่ ลบรายการหรืออัปเกรดเป็น Pro เพื่อเก็บได้ไม่จำกัด';
+  }
+
+  @override
+  String get scanLimitTitle => 'ใช้สิทธิ์สแกนฟรีหมดแล้ว';
+
+  @override
+  String scanLimitBody(int count) {
+    return 'คุณใช้สิทธิ์สแกนฟรีครบ $count ครั้งแล้ว อัปเกรดเป็น Pro เพื่อสแกนได้ไม่จำกัด';
+  }
+
+  @override
+  String backupRestoreLimited(int added, int limited) {
+    return 'เพิ่ม $added รายการ, ไม่ได้กู้คืน $limited รายการ (ถึงขีดจำกัดเวอร์ชันฟรี) ไฟล์สำรองของคุณไม่เปลี่ยนแปลง';
+  }
+}
