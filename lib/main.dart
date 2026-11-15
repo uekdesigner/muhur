@@ -49,7 +49,11 @@ class MuhurApp extends StatelessWidget {
         valueListenable: AppSettings.instance.locale,
         builder: (context, loc, _) => MaterialApp(
           locale: loc,
-          onGenerateTitle: (c) => AppLocalizations.of(c)!.appName,
+          onGenerateTitle: (c) {
+            final t = AppLocalizations.of(c)!;
+            AuthService.bioCancelLabel = t.cancel;
+            return t.appName;
+          },
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           builder: (c, child) => PanelScope(child: privacyBuilder(c, child)),

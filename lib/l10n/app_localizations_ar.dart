@@ -16,16 +16,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get catBanks => 'البنوك';
 
   @override
-  String get catWebsites => 'مواقع الويب';
+  String get catWebsites => 'المواقع';
 
   @override
-  String get catEmails => 'البريد الإلكتروني';
+  String get catEmails => 'البريد';
 
   @override
-  String get catSocial => 'وسائل التواصل الاجتماعي';
+  String get catSocial => 'شبكات اجتماعية';
 
   @override
-  String get catBusiness => 'الأعمال';
+  String get catBusiness => 'العمل';
 
   @override
   String get catOther => 'أخرى';
@@ -35,7 +35,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get setupInfo =>
-      'لا يمكن استرداد كلمة المرور هذه. إذا نسيتها، فلن يمكن فتح بياناتك أبداً.';
+      'لا يمكن استرداد كلمة المرور هذه. إذا نسيتها، فلن يمكن فتح بياناتك أبدًا.';
 
   @override
   String get masterPassword => 'كلمة المرور الرئيسية';
@@ -53,8 +53,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get newPassword => 'كلمة المرور الجديدة';
 
   @override
-  String get newPasswordSame =>
-      'يجب أن تكون كلمة المرور الجديدة مختلفة عن الحالية.';
+  String get newPasswordSame => 'يجب أن تختلف كلمة المرور الجديدة عن الحالية.';
 
   @override
   String get change => 'تغيير';
@@ -63,15 +62,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get masterPasswordChanged => 'تم تغيير كلمة المرور الرئيسية.';
 
   @override
-  String get changePasswordFailed =>
-      'تعذر تغيير كلمة المرور. يرجى المحاولة مرة أخرى.';
+  String get changePasswordFailed => 'تعذّر تغيير كلمة المرور. حاول مرة أخرى.';
 
   @override
   String get passwordTooShort => 'استخدم 8 أحرف على الأقل.';
 
   @override
-  String get passwordNeedsMix =>
-      'استخدم أحرفاً صغيرة وكبيرة، رقماً، ورمزاً خاصاً.';
+  String get passwordNeedsMix => 'استخدم أحرفًا صغيرة وكبيرة ورقمًا.';
 
   @override
   String get reqLength => '8 أحرف على الأقل';
@@ -92,13 +89,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reqOptional => 'اختياري';
 
   @override
-  String get passwordsDontMatch => 'كلمات المرور غير متطابقة.';
+  String get passwordsDontMatch => 'كلمتا المرور غير متطابقتين.';
 
   @override
-  String get createVault => 'إنشاء الخزنة';
+  String get createVault => 'إنشاء';
 
   @override
-  String get unlockTitle => 'فتح القفل';
+  String get unlockTitle => 'Unlock';
 
   @override
   String get unlock => 'فتح';
@@ -108,14 +105,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String lockedOut(int seconds) {
-    return 'محاولات كثيرة جداً. حاول مرة أخرى بعد $seconds ثانية.';
+    return 'محاولات كثيرة جدًا. حاول مرة أخرى بعد $seconds ثانية.';
   }
 
   @override
-  String get useBiometrics => 'فتح القفل بالبصمة';
+  String get useBiometrics => 'Biometrics';
 
   @override
-  String get enableBiometricsQ => 'تفعيل فتح القفل الحيوي؟';
+  String get enableBiometricsQ => 'تفعيل الفتح بالبصمة أو الوجه؟';
 
   @override
   String get enable => 'تفعيل';
@@ -124,28 +121,28 @@ class AppLocalizationsAr extends AppLocalizations {
   String get notNow => 'ليس الآن';
 
   @override
-  String get biometricReason => 'فتح قفل مِهر';
+  String get biometricReason => 'فتح Muhur';
 
   @override
   String get lockNow => 'قفل';
 
   @override
-  String get vaultUnlocked => 'تم فتح الخزنة';
+  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'الكل';
 
   @override
-  String get noEntries => 'لا توجد إدخالات بعد';
+  String get noEntries => 'لا توجد عناصر بعد';
 
   @override
-  String get searchHint => 'ابحث عن العنوان، النطاق أو العلامة';
+  String get searchHint => 'ابحث بالعنوان أو النطاق أو الوسم';
 
   @override
-  String get addEntry => 'إضافة إدخال';
+  String get addEntry => 'إضافة عنصر';
 
   @override
-  String get editEntry => 'تعديل الإدخال';
+  String get editEntry => 'تعديل العنصر';
 
   @override
   String get title => 'العنوان';
@@ -157,7 +154,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get domain => 'النطاق (مثل example.com)';
 
   @override
-  String get tags => 'علامة';
+  String get tags => 'وسم';
 
   @override
   String get fields => 'الحقول';
@@ -166,22 +163,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addField => 'إضافة حقل';
 
   @override
-  String get fieldLabel => 'التسمية';
+  String get fieldLabel => 'Label';
 
   @override
-  String get fieldValue => 'القيمة';
+  String get fieldValue => 'Value';
 
   @override
   String get typeText => 'نص';
 
   @override
-  String get typePassword => 'كلمة المرور';
+  String get typePassword => 'Password';
 
   @override
-  String get typeUrl => 'رابط';
+  String get typeUrl => 'URL';
 
   @override
-  String get typeNotes => 'ملاحظات';
+  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'إخفاء القيمة';
@@ -193,17 +190,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get delete => 'حذف';
 
   @override
-  String get moveToTrash => 'نقل إلى سلة المهملات';
+  String get moveToTrash => 'نقل للمهملات';
 
   @override
-  String get trash => 'سلة المهملات';
+  String get trash => 'المهملات';
 
   @override
-  String get trashKeepFor => 'الاحتفاظ في سلة المهملات لمدة';
+  String get trashKeepFor => 'الاحتفاظ في المهملات لمدة';
 
   @override
   String get trashHint =>
-      'تظل الإدخالات المحذوفة في سلة المهملات مشفرة ويمكن استعادتها. يتم حذفها نهائياً بعد مرور هذا عدد الأيام، في المرة التالية التي يتم فيها فتح الخزنة. كما أن تقليل المدة يؤدي إلى إزالة العناصر الأقدم من سلة المهملات. لا يمكن التراجع عن إفرغ سلة المهملات.';
+      'تبقى العناصر المحذوفة في المهملات مشفّرة ويمكن استعادتها. تُحذف نهائيًا بعد هذا العدد من الأيام، عند فتح الخزنة في المرة التالية. تقصير المدة يحذف أيضًا العناصر الأقدم من المهملات. لا يمكن التراجع عن إفراغ المهملات.';
 
   @override
   String daysCount(int count) {
@@ -211,7 +208,7 @@ class AppLocalizationsAr extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count يوم',
-      many: '$count يوماً',
+      many: '$count يومًا',
       few: '$count أيام',
       two: 'يومان',
       one: 'يوم واحد',
@@ -221,10 +218,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get openTrash => 'فتح سلة المهملات';
+  String get openTrash => 'المهملات';
 
   @override
-  String get trashEmpty => 'سلة المهملات فارغة.';
+  String get trashEmpty => 'المهملات فارغة.';
 
   @override
   String get restore => 'استعادة';
@@ -234,25 +231,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteForeverConfirm =>
-      'هل تريد حذف هذا الإدخال نهائياً؟ لا يمكن التراجع عن هذا الإجراء.';
+      'حذف هذا العنصر نهائيًا؟ لا يمكن التراجع عن ذلك.';
 
   @override
   String trashDaysLeft(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'متبقي $count يوم',
-      many: 'متبقي $count يوماً',
-      few: 'متبقي $count أيام',
-      two: 'متبقي يومان',
-      one: 'متبقي يوم واحد',
-      zero: 'بقي أقل من يوم',
+      other: 'بقي $count يوم',
+      many: 'بقي $count يومًا',
+      few: 'بقي $count أيام',
+      two: 'بقي يومان',
+      one: 'بقي يوم واحد',
+      zero: 'أقل من يوم',
     );
     return '$_temp0';
   }
 
   @override
-  String get emptyTrashNow => 'إفراغ سلة المهملات الآن';
+  String get emptyTrashNow => 'إفراغ المهملات';
 
   @override
   String emptyTrashConfirm(int count) {
@@ -260,13 +257,13 @@ class AppLocalizationsAr extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count عنصر',
-      many: '$count عنصراً',
+      many: '$count عنصرًا',
       few: '$count عناصر',
       two: 'عنصرين',
       one: 'عنصر واحد',
-      zero: 'أقل من عنصر',
+      zero: 'لا شيء',
     );
-    return 'هل تريد حذف $_temp0 نهائياً من سلة المهملات؟ لا يمكن التراجع عن هذا الإجراء.';
+    return 'حذف $_temp0 نهائيًا من المهملات؟ لا يمكن التراجع عن ذلك.';
   }
 
   @override
@@ -274,7 +271,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteConfirm =>
-      'هل تريد نقل هذا الإدخال إلى سلة المهملات؟ يمكنك استعادته حتى يتم إفراغ سلة المهملات.';
+      'نقل هذا العنصر إلى المهملات؟ يمكنك استعادته ما لم تُفرَغ المهملات.';
 
   @override
   String get titleRequired => 'العنوان مطلوب.';
@@ -286,7 +283,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fieldPassword => 'كلمة المرور';
 
   @override
-  String get fieldIban => 'رقم الحساب المصرفي الدولي (IBAN)';
+  String get fieldIban => 'IBAN';
 
   @override
   String get fieldNote => 'ملاحظات';
@@ -296,7 +293,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String copied(int seconds) {
-    return 'تم النسخ. سيتم مسح الحافظة خلال $seconds ثانية.';
+    return 'Copied. The clipboard clears in $seconds seconds.';
   }
 
   @override
@@ -306,7 +303,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settingsSecurity => 'الأمان';
 
   @override
-  String get settingsBackup => 'النسخ الاحتياطي';
+  String get settingsBackup => 'نسخ احتياطي';
 
   @override
   String get settingsGeneral => 'عام';
@@ -318,31 +315,31 @@ class AppLocalizationsAr extends AppLocalizations {
   String get autoLock => 'القفل التلقائي';
 
   @override
-  String get immediately => 'فوري';
+  String get immediately => 'فورًا';
 
   @override
-  String get seconds15 => '15 ثانية';
+  String get seconds15 => '15 sec';
 
   @override
-  String get minute1 => 'دقيقة واحدة';
+  String get minute1 => '1 min';
 
   @override
-  String get copyTimer => 'مؤقت الحافظة';
+  String get copyTimer => 'مدة الحافظة';
 
   @override
   String get copyTimerHint =>
-      'تتم مسح البيانات المنسوخة من الحافظة بعد هذا الوقت، وتظل الخزنة مفتوحة حتى ذلك الحين.';
+      'تُمسح البيانات المنسوخة من الحافظة بعد هذه المدة، وتبقى الخزنة مفتوحة حتى ذلك الحين.';
 
   @override
   String secondsShort(int seconds) {
-    return '$seconds ثانية';
+    return '$seconds ث';
   }
 
   @override
-  String get biometricUnlock => 'فتح القفل الحيوي';
+  String get biometricUnlock => 'الفتح الحيوي';
 
   @override
-  String get generator => 'مولد كلمات المرور';
+  String get generator => 'المولّد';
 
   @override
   String get generate => 'توليد';
@@ -363,13 +360,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get symbols => 'رموز (!@#...)';
 
   @override
-  String get avoidAmbiguous => 'تجنب الأحرف المتشابهة (O/0, l/1)';
+  String get avoidAmbiguous => 'بلا أحرف متشابهة (O/0, l/1)';
 
   @override
-  String get regenerate => 'إعادة توليد';
+  String get regenerate => 'جديد';
 
   @override
-  String get usePassword => 'استخدام كلمة المرور هذه';
+  String get usePassword => 'استخدام';
 
   @override
   String get strengthWeak => 'ضعيف';
@@ -384,46 +381,46 @@ class AppLocalizationsAr extends AppLocalizations {
   String get strengthStrong => 'قوي';
 
   @override
-  String get scan => 'مسح بالكاميرا';
+  String get scan => 'مسح';
 
   @override
   String get scanHint =>
-      'اجتز الكاميرا ثابتة فوق النص. في وضع IBAN يتم اكتشافه تلقائياً.';
+      'أبقِ الكاميرا ثابتة فوق النص. في وضع IBAN يُكتشف تلقائيًا.';
 
   @override
-  String get scanRetake => 'إعادة التقاط';
+  String get scanRetake => 'Retake';
 
   @override
-  String get scanning => 'جاري المسح...';
+  String get scanning => 'جارٍ المسح...';
 
   @override
-  String get ibanFound => 'تم العثور على IBAN';
+  String get ibanFound => 'IBAN found';
 
   @override
   String get ibanNotFound =>
-      'لم يتم العثور على IBAN صالح. حاول مرة أخرى بإضاءة أفضل، أو اختر سطراً أدناه.';
+      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
-      'ربما تم تصحيحه بعد خطأ في التعرف الضوئي على الحروف (OCR). تحقق بعناية.';
+      'ربما صُحّح بعد خطأ في التعرّف على النص. تحقّق بعناية.';
 
   @override
-  String get pickLine => 'اضغط على سطر لاستخدامه';
+  String get pickLine => 'Tap a line to use it';
 
   @override
-  String get noTextFound => 'لم يتم العثور على نص.';
+  String get noTextFound => 'No text found.';
 
   @override
-  String get cameraError => 'الكاميرا غير متاحة. تحقق من إذن الكاميرا.';
+  String get cameraError => 'الكاميرا غير متاحة. تحقّق من إذن الكاميرا.';
 
   @override
-  String get editBeforeUse => 'تحقق وقم بالتعديل إذا لزم الأمر';
+  String get editBeforeUse => 'تحقّق وعدّل';
 
   @override
   String get useValue => 'استخدام';
 
   @override
-  String get scanIsThis => 'هل هذا هو النطاق المطلوبة؟';
+  String get scanIsThis => 'هل هذا هو؟';
 
   @override
   String get scanNo => 'لا';
@@ -439,21 +436,21 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get tagline =>
-      'اختم بياناتك الرقمية.\n لا خوادم. فقط أنت وبياناتك.\n MÜHÜR: خزنتك الرقمية التي لا يمكن لأحد سواك رؤيتها.';
+      'اختم بياناتك الرقمية.\nلا خوادم. أنت وبياناتك فقط.\nMÜHÜR: أكثر الأقفال أمانًا لذاكرتك الرقمية.';
 
   @override
   String get login => 'دخول';
 
   @override
-  String get infoTitle => 'حول مِهر';
+  String get infoTitle => 'حول Muhur';
 
   @override
   String get infoBody =>
-      'يحفظ مِهر كلمات المرور الخاصة بك مشفرة على هذا الجهاز فقط. لا توجد حسابات ولا خوادم.\n\nلا يمكن استرداد كلمة المرور الرئيسية الخاصة بك. إذا نسيتها، فلن يمكن فتح بياناتك، لذا احرص على الاحتفاظ بنسخة احتياطية مشفرة.';
+      'يحفظ Muhur كلمات مرورك مشفّرة على هذا الجهاز فقط. لا يوجد حساب ولا خادم.\n\nلا يمكن استرداد كلمة المرور الرئيسية. إذا نسيتها فلن يمكن فتح بياناتك، لذا احتفظ بنسخة احتياطية مشفّرة.';
 
   @override
   String get understandNoRecovery =>
-      'أتفهم أن كلمة المرور الرئيسية المنسية لا يمكن استردادها.';
+      'أفهم أن كلمة المرور الرئيسية المنسية لا يمكن استردادها.';
 
   @override
   String get close => 'إغلاق';
@@ -462,7 +459,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get language => 'اللغة';
 
   @override
-  String get languageSystem => 'اللغة الافتراضية للنظام';
+  String get languageSystem => 'لغة النظام';
 
   @override
   String get sectionLanguage => 'اللغة';
@@ -474,7 +471,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sectionAppearance => 'المظهر';
 
   @override
-  String get panelDarkness => 'درجة تعتيم اللوحة';
+  String get panelDarkness => 'تعتيم اللوحات';
 
   @override
   String get panelDarknessDesc => 'يجعل اللوحات والبطاقات أكثر أو أقل شفافية';
@@ -483,10 +480,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backgroundTitle => 'الخلفية';
 
   @override
-  String get backgroundDim => 'تعتيم الخلفية';
+  String get backgroundDim => 'التعتيم';
 
   @override
-  String get backgroundDimDesc => 'يجعل صورة الخلفية أكثر دكانة أو إضاءة';
+  String get backgroundDimDesc => 'يجعل صورة الخلفية أغمق أو أفتح';
 
   @override
   String get bgBronze => 'برونزي';
@@ -495,168 +492,172 @@ class AppLocalizationsAr extends AppLocalizations {
   String get bgEmber => 'جمر';
 
   @override
-  String get bgSapphire => 'ياقوتي';
+  String get bgSapphire => 'ياقوت';
 
   @override
-  String get bgObsidian => 'سبجي';
+  String get bgObsidian => 'سَبَج';
 
   @override
-  String get bgLumen => 'لومين';
+  String get bgLumen => 'لومن';
 
   @override
-  String get smartGuide => 'التوجيه الذكي';
+  String get smartGuide => 'تلميحات ذكية';
 
   @override
-  String get smartGuideDesc =>
-      'يعرض تلميحات قصيرة في المرة الأولى التي تستخدم فيها ميزة ما';
+  String get smartGuideDesc => 'يعرض تلميحات قصيرة عند استخدام ميزة لأول مرة';
 
   @override
   String get haptics => 'الاهتزاز';
 
   @override
-  String get hapticsDesc =>
-      'يعطي اهتزازاً قصيراً عند فتح القفل بالبصمة وعند النسخ';
+  String get hapticsDesc => 'اهتزاز قصير عند الفتح بالبصمة وعند النسخ';
 
   @override
-  String get reduceAnimations => 'تقليل الحركات';
+  String get reduceAnimations => 'بلا حركات';
 
   @override
   String get reduceAnimationsDesc =>
-      'يوقف حركة قائمة المساعدة وهز الأيقونات وانتقالات الصفحات. مناسب للأجهزة البطئية';
+      'يوقف كل الحركات في التطبيق: اهتزاز أيقونة المساعدة وتوهّجها، وقائمة المساعدة، وانتقالات الصفحات، والنوافذ، وخط الماسح. مفيد للأجهزة الأبطأ وللأشخاص الحساسين للحركة.';
 
   @override
-  String get resetTips => 'إعادة ضبط التلميحات';
+  String get resetTips => 'إعادة التلميحات';
 
   @override
-  String get resetTipsDesc => 'إظهار حركة المساعدة وجميع التلميحات مرة أخرى';
+  String get resetTipsDesc => 'إظهار حركة المساعدة وكل التلميحات مجددًا';
 
   @override
-  String get tipsResetDone => 'سيتم عرض التلميحات مرة أخرى';
+  String get tipsResetDone => 'ستظهر التلميحات مجددًا';
 
   @override
   String get tipLongPress =>
-      'تلميح: اضغط مطولاً على عنصر لتحديده، ثم احذف عدة عناصر في وقت واحد.';
+      'تلميح: اضغط مطولًا على عنصر لتحديده، ثم احذف عدة عناصر معًا.';
 
   @override
   String get statTotal => 'الإجمالي';
 
   @override
-  String get statReused => 'المعاد استخدامها';
+  String get statReused => 'مكرّرة';
 
   @override
   String get planFree => 'مجاني';
 
   @override
-  String get statusScreen => 'حماية الشاشة';
+  String get statusScreen => 'Screen protection';
 
   @override
   String get screenshotAllow => 'السماح بلقطات الشاشة';
 
   @override
   String get screenshotAllowHint =>
-      'يتم إيقاف حماية الشاشة للمدة المحددة أدناه، ثم تعود للعمل تلقائياً.';
+      'تُوقَف حماية الشاشة للمدة المحددة أدناه، ثم تعود تلقائيًا.';
 
   @override
-  String get screenshotTimer => 'وقت لقطة الشاشة';
+  String get screenshotTimer => 'Screenshot time';
 
   @override
-  String get backupSection => 'ENCRYPTED BACKUP';
+  String get backupSection => 'نسخة احتياطية مشفّرة';
 
   @override
-  String get backupExport => 'Create backup';
+  String get backupExport => 'إنشاء نسخة';
 
   @override
   String get backupExportDesc =>
-      'Saves all entries, including the trash, to a file protected by a backup password. Keep the file somewhere safe.';
+      'يحفظ كل العناصر، بما فيها المهملات، في ملف محمي بكلمة مرور النسخة الاحتياطية. احفظ الملف في مكان آمن.';
 
   @override
-  String get backupImport => 'Restore';
+  String get backupImport => 'استعادة';
 
   @override
   String get backupImportDesc =>
-      'Adds the entries from a backup file. Existing entries are never overwritten or deleted.';
+      'يضيف العناصر من ملف نسخة احتياطية. لا يُستبدل أي عنصر موجود ولا يُحذف.';
 
   @override
-  String get backupPasswordTitle => 'Backup password';
+  String get backupPasswordTitle => 'كلمة مرور النسخة';
 
   @override
   String get backupPasswordInfo =>
-      'This password protects the backup file. It can be different from your master password. If you forget it, the backup cannot be opened.';
+      'تحمي كلمة المرور هذه ملف النسخة الاحتياطية، ويمكن أن تختلف عن كلمة المرور الرئيسية. إذا نسيتها فلن يمكن فتح النسخة.';
 
   @override
-  String get backupEnterPassword => 'Enter the backup password';
+  String get backupEnterPassword => 'أدخل كلمة مرور النسخة';
 
   @override
-  String get backupContinue => 'Next';
+  String get backupContinue => 'التالي';
 
   @override
-  String get backupSaved => 'Backup saved';
+  String get backupSaved => 'تم حفظ النسخة';
 
   @override
-  String get backupFailed => 'The backup could not be created';
+  String get backupFailed => 'تعذّر إنشاء النسخة الاحتياطية';
 
   @override
   String backupRestored(int added, int skipped) {
-    return '$added added, $skipped already existed';
+    return 'أُضيف $added، و$skipped موجود مسبقًا';
   }
 
   @override
-  String get backupWrongPassword => 'Wrong backup password';
+  String get backupWrongPassword => 'كلمة مرور النسخة خاطئة';
 
   @override
-  String get backupInvalidFile => 'This is not a valid Muhur backup file';
+  String get backupInvalidFile => 'هذا ليس ملف نسخة احتياطية صالحًا من Muhur';
 
   @override
-  String get backupReminderTitle => 'Backup reminder';
+  String get backupReminderTitle => 'تذكير النسخ الاحتياطي';
 
   @override
   String get backupReminderDesc =>
-      'Reminds you on the home screen when your last backup is older than this. Set to 0 to turn it off.';
+      'يذكّرك في الشاشة الرئيسية عندما تصبح آخر نسخة أقدم من هذه المدة. اضبطه على 0 لإيقافه.';
 
   @override
-  String get backupReminderOff => 'Off';
+  String get backupReminderOff => 'إيقاف';
 
   @override
   String get backupReminderNever =>
-      'You have not made a backup yet. Back up now so you do not lose your passwords.';
+      'لم تُنشئ نسخة احتياطية بعد. أنشئ واحدة الآن حتى لا تفقد كلمات مرورك.';
 
   @override
   String backupReminderAgo(int days) {
     String _temp0 = intl.Intl.pluralLogic(
       days,
       locale: localeName,
-      other: 'Your last backup was $days days ago.',
-      one: 'Your last backup was 1 day ago.',
+      other: 'آخر نسخة احتياطية كانت قبل $days يوم.',
+      many: 'آخر نسخة احتياطية كانت قبل $days يومًا.',
+      few: 'آخر نسخة احتياطية كانت قبل $days أيام.',
+      two: 'آخر نسخة احتياطية كانت قبل يومين.',
+      one: 'آخر نسخة احتياطية كانت قبل يوم واحد.',
     );
     return '$_temp0';
   }
 
   @override
-  String get backupReminderNow => 'Back up';
+  String get backupReminderNow => 'نسخ الآن';
 
   @override
-  String get backupReminderLater => 'Later';
+  String get backupReminderLater => 'لاحقًا';
 
   @override
   String get statusScreenOn =>
-      'حماية الشاشة قيد التشغيل: تم حظر لقطات وتسجيل الشاشة';
+      'حماية الشاشة مفعّلة: لقطات الشاشة وتسجيلها محظورة';
 
   @override
   String get statusScreenOff =>
-      'حماية الشاشة متوقفة حالياً: يُسمح بلقطات الشاشة';
+      'حماية الشاشة متوقفة مؤقتًا: لقطات الشاشة مسموحة';
 
   @override
   String get statusBackupNever =>
-      'No backup yet. Create one in Settings > Backup';
+      'لا توجد نسخة احتياطية بعد. أنشئ واحدة من الإعدادات > نسخ احتياطي';
 
   @override
   String statusBackupOk(int days) {
     String _temp0 = intl.Intl.pluralLogic(
       days,
       locale: localeName,
-      other: 'Last backup: $days days ago',
-      one: 'Last backup: yesterday',
-      zero: 'Backed up today',
+      other: 'آخر نسخة: قبل $days يوم',
+      many: 'آخر نسخة: قبل $days يومًا',
+      few: 'آخر نسخة: قبل $days أيام',
+      two: 'آخر نسخة: قبل يومين',
+      one: 'آخر نسخة: أمس',
+      zero: 'نُسخ احتياطيًا اليوم',
     );
     return '$_temp0';
   }
@@ -666,8 +667,11 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       days,
       locale: localeName,
-      other: 'Backup overdue: last one was $days days ago',
-      one: 'Backup overdue: last one was 1 day ago',
+      other: 'النسخ متأخر: آخر نسخة قبل $days يوم',
+      many: 'النسخ متأخر: آخر نسخة قبل $days يومًا',
+      few: 'النسخ متأخر: آخر نسخة قبل $days أيام',
+      two: 'النسخ متأخر: آخر نسخة قبل يومين',
+      one: 'النسخ متأخر: آخر نسخة قبل يوم واحد',
     );
     return '$_temp0';
   }
@@ -677,58 +681,61 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count items in trash',
-      one: '1 item in trash',
-      zero: 'Trash is empty',
+      other: '$count عنصر في المهملات',
+      many: '$count عنصرًا في المهملات',
+      few: '$count عناصر في المهملات',
+      two: 'عنصران في المهملات',
+      one: 'عنصر واحد في المهملات',
+      zero: 'المهملات فارغة',
     );
     return '$_temp0';
   }
 
   @override
-  String get statusBiometricOn => 'Biometric unlock is on';
+  String get statusBiometricOn => 'الفتح الحيوي مفعّل';
 
   @override
-  String get statusBiometricOff => 'Biometric unlock is off (tap to set up)';
+  String get statusBiometricOff => 'الفتح الحيوي متوقف (اضغط للإعداد)';
 
   @override
   String get helpStatusScreen =>
-      'أيقونة الدرع: حماية الشاشة (أخضر = مفعّل، باهت = معطّل)';
+      'أيقونة الدرع: حماية الشاشة (أخضر = مفعّلة، باهت = متوقفة)';
 
   @override
   String get helpStatusBackup =>
-      'أيقونة النسخ الاحتياطي: النسخ الاحتياطي التلقائي (أخضر = مفعّل، باهت = معطّل)';
+      'أيقونة النسخ: حالة النسخ الاحتياطي (أخضر = نسخة حديثة، باهت = حان وقت النسخ)';
 
   @override
   String get helpStatusTrash =>
-      'Trash icon: Deleted entries (number = items waiting, tap to open)';
+      'أيقونة المهملات: العناصر المحذوفة (الرقم = العناصر المنتظرة، اضغط للفتح)';
 
   @override
   String get helpStatusBiometric =>
-      'Fingerprint icon: Biometric unlock (green = on, tap to change)';
+      'أيقونة البصمة: الفتح الحيوي (أخضر = مفعّل، اضغط للتغيير)';
 
   @override
   String get helpTitle => 'المساعدة';
 
   @override
-  String get helpBody => 'سيتم إتمام محتوى المساعدة هنا.';
+  String get helpBody => 'Help content will be added here.';
 
   @override
-  String get helpMenuTitle => 'كيفية الاستخدام؟';
+  String get helpMenuTitle => 'كيف أستخدمه؟';
 
   @override
   String get helpAdd => 'زر +: إضافة عنصر جديد';
 
   @override
-  String get helpTap => 'الضغط على بطاقة: عرض التفاصيل';
+  String get helpTap => 'اضغط على بطاقة: عرض التفاصيل';
 
   @override
-  String get helpLongPress => 'الضغط المطول: التحديد والحذف';
+  String get helpLongPress => 'ضغط مطوّل: تحديد وحذف';
 
   @override
-  String get helpSearch => 'البحث: العثور بسرعة';
+  String get helpSearch => 'البحث: عثور سريع';
 
   @override
-  String get helpCategories => 'الفئات: تصفية عناصرك';
+  String get helpCategories => 'الفئات: تصفية العناصر';
 
   @override
   String get helpLock => 'أيقونة القفل: قفل الخزنة الآن';
@@ -738,35 +745,33 @@ class AppLocalizationsAr extends AppLocalizations {
       'الإعدادات: النسخ الاحتياطي والقفل التلقائي والمزيد';
 
   @override
-  String get helpStats => 'اللوحة السفلى: ملخص الخزنة';
+  String get helpStats => 'اللوحة السفلية: ملخص الخزنة';
 
   @override
   String deleteSelectedConfirm(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count عنصر',
-      many: '$count عنصراً',
-      few: '$count عناصر',
-      two: 'عنصرين',
-      one: 'عنصر واحد',
-      zero: 'أقل من عنصر',
+      other: 'نقل $count عنصر محدد إلى المهملات؟',
+      many: 'نقل $count عنصرًا محددًا إلى المهملات؟',
+      few: 'نقل $count عناصر محددة إلى المهملات؟',
+      two: 'نقل العنصرين المحددين إلى المهملات؟',
+      one: 'نقل العنصر المحدد إلى المهملات؟',
     );
-    return 'هل تريد نقل $_temp0 المحدد إلى سلة المهملات؟';
+    return '$_temp0';
   }
 
   @override
   String get fcBankName => 'اسم البنك';
 
   @override
-  String get fcTag => 'علامة';
+  String get fcTag => 'Tag';
 
   @override
-  String get fcInternetBankingPassword =>
-      'كلمة مرور الخدمات المصرفية عبر الإنترنت';
+  String get fcInternetBankingPassword => 'كلمة مرور البنك';
 
   @override
-  String get fcCardPin => 'رمز PIN للبطاقة';
+  String get fcCardPin => 'رمز PIN';
 
   @override
   String get fcCardNumber => 'رقم البطاقة';
@@ -775,34 +780,34 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcExpiryDate => 'تاريخ الانتهاء';
 
   @override
-  String get fcCvv => 'رمز التحقق (CVV / CVC)';
+  String get fcCvv => 'CVV / CVC';
 
   @override
-  String get fcCustomerServiceNo => 'رقم خدمة العملاء';
+  String get fcCustomerServiceNo => 'رقم الدعم';
 
   @override
-  String get fcCustomerNoTc => 'رقم العميل / رقم الهوية الوطنية';
+  String get fcCustomerNoTc => 'رقم العميل / الهوية';
 
   @override
-  String get fcBranchNameCode => 'اسم ورقم الفرع';
+  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'نوع الحساب';
 
   @override
-  String get fcPhoneBankingPassword => 'كلمة مرور الخدمات المصرفية الهاتفية';
+  String get fcPhoneBankingPassword => 'كلمة مرور الهاتف';
 
   @override
-  String get fcSwiftBic => 'رمز السويفت (SWIFT / BIC)';
+  String get fcSwiftBic => 'SWIFT / BIC';
 
   @override
-  String get fcCardStatementDate => 'تاريخ كشف الحساب واستحقاق الدفع';
+  String get fcCardStatementDate => 'الكشف / الاستحقاق';
 
   @override
   String get fcAccountTitle => 'اسم الحساب';
 
   @override
-  String get fcEmailAddress => 'عنوان البريد الإلكتروني';
+  String get fcEmailAddress => 'البريد الإلكتروني';
 
   @override
   String get fcRecoveryEmail => 'بريد الاسترداد';
@@ -811,115 +816,115 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcRecoveryPhone => 'هاتف الاسترداد';
 
   @override
-  String get fc2faBackupCodes => 'رموز التحقق الثنائي / الاحتياطية';
+  String get fc2faBackupCodes => 'رموز 2FA الاحتياطية';
 
   @override
-  String get fcLoginMethodProvider => 'طريقة تسجيل الدخول / المزود';
+  String get fcLoginMethodProvider => 'Login Method';
 
   @override
-  String get fcImapSmtp => 'إعدادات خادم IMAP / SMTP';
+  String get fcImapSmtp => 'IMAP / SMTP';
 
   @override
-  String get fcSecurityQA => 'سؤال وجواب الأمان';
+  String get fcSecurityQA => 'سؤال الأمان';
 
   @override
-  String get fcPasswordChangeDate => 'تاريخ تغيير كلمة المرور';
+  String get fcPasswordChangeDate => 'تاريخ التغيير';
 
   @override
   String get fcPlatformTitle => 'المنصة / العنوان';
 
   @override
-  String get fcUsernameProfileId => 'اسم المستخدم / معرف الملف الشخصي';
+  String get fcUsernameProfileId => 'المستخدم / معرّف الملف';
 
   @override
   String get fcRegisteredEmail => 'البريد المسجل';
 
   @override
-  String get fcRegisteredPhone => 'رقم الهاتف المسجل';
+  String get fcRegisteredPhone => 'الهاتف المسجل';
 
   @override
-  String get fcProfileUrl => 'رابط الملف الشخصي (URL)';
+  String get fcProfileUrl => 'رابط الملف الشخصي';
 
   @override
   String get fcAccountTypeStatus => 'نوع الحساب / الحالة';
 
   @override
-  String get fcLinkedMainAccount => 'الحساب الرئيسي المرتبط';
+  String get fcLinkedMainAccount => 'الحساب المرتبط';
 
   @override
-  String get fcProfileNumericId => 'معرف الملف الشخصي / الرقمي';
+  String get fcProfileNumericId => 'Profile ID';
 
   @override
-  String get fc2faSecretKey => 'مفتاح التحقق الثنائي السري';
+  String get fc2faSecretKey => 'مفتاح 2FA السري';
 
   @override
-  String get fcServiceName => 'اسم المؤسسة / الخدمة';
+  String get fcServiceName => 'المؤسسة';
 
   @override
   String get fcCompanyName => 'اسم الشركة';
 
   @override
-  String get fcCorporateUserId => 'اسم المستخدم / المعرف المؤسسي';
+  String get fcCorporateUserId => 'المستخدم / المعرّف المؤسسي';
 
   @override
-  String get fcPanelUrl => 'عنوان الخدمة / اللوحة (URL)';
+  String get fcPanelUrl => 'رابط اللوحة';
 
   @override
-  String get fcDepartmentPosition => 'القسم / الوظيفة';
+  String get fcDepartmentPosition => 'القسم / المنصب';
 
   @override
-  String get fcLicenseCode => 'كود العميل / الترخيص';
+  String get fcLicenseCode => 'العميل / الترخيص';
 
   @override
-  String get fcSupportContact => 'جهة الاتصال المرخصة / الدعم';
+  String get fcSupportContact => 'جهة الدعم';
 
   @override
-  String get fcLoginMethodVerification => 'طريقة تسجيل الدخول / نوع التحقق';
+  String get fcLoginMethodVerification => 'Verification';
 
   @override
-  String get fcTaxOffice => 'مكتب الضرائب ورقم الضريبة';
+  String get fcTaxOffice => 'Tax Office / No';
 
   @override
-  String get fcRegistryNo => 'رقم السجل / كود الموزع';
+  String get fcRegistryNo => 'Registry / Dealer No';
 
   @override
-  String get fcIpVpn => 'قيود IP / عنوان VPN';
+  String get fcIpVpn => 'IP / VPN';
 
   @override
-  String get fcLicenseExpiry => 'تاريخ انتهاء البوابة / الترخيص';
+  String get fcLicenseExpiry => 'License Expiry';
 
   @override
-  String get fcSiteName => 'اسم الموقع / الخدمة';
+  String get fcSiteName => 'اسم الموقع';
 
   @override
-  String get fcWebAddress => 'عنوان الويب (URL)';
+  String get fcWebAddress => 'رابط الموقع';
 
   @override
-  String get fcUsernameEmail => 'اسم المستخدم / البريد الإلكتروني';
+  String get fcUsernameEmail => 'المستخدم / البريد';
 
   @override
-  String get fcSubscriptionFee => 'رسوم الاشتراك والفترة';
+  String get fcSubscriptionFee => 'Fee / Period';
 
   @override
-  String get fcRegistrationDate => 'تاريخ التسجيل';
+  String get fcRegistrationDate => 'Sign-up Date';
 
   @override
-  String get fcPaymentMethod => 'طريقة الفوترة / الدفع';
+  String get fcPaymentMethod => 'Payment Method';
 
   @override
-  String get fcPinCode => 'رمز PIN';
+  String get fcPinCode => 'PIN Code';
 
   @override
-  String get fcLicenseCodeSimple => 'رمز الترخيص';
+  String get fcLicenseCodeSimple => 'License Code';
 
   @override
   String get pickFieldTitle => 'اختر حقلًا';
 
   @override
-  String get allFieldsAdded => 'تم إضافة جميع الحقول';
+  String get allFieldsAdded => 'All fields added';
 
   @override
-  String get generatorSettings => 'إعدادات المولد';
+  String get generatorSettings => 'إعدادات المولّد';
 
   @override
   String get saveAndExit => 'حفظ وخروج';
@@ -940,7 +945,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get customTypeNote => 'ملاحظة';
 
   @override
-  String get customTypePassword => 'كلمة مرور مخفية';
+  String get customTypePassword => 'كلمة مرور';
 
   @override
   String get customTypeDate => 'تاريخ';
@@ -949,51 +954,50 @@ class AppLocalizationsAr extends AppLocalizations {
   String get customTypePhone => 'هاتف';
 
   @override
-  String get orphanVaultTitle => 'Old vault found';
+  String get orphanVaultTitle => 'تم العثور على خزنة قديمة';
 
   @override
   String get orphanVaultBody =>
-      'A vault file from before exists on this device, but its keys can\'t be read, so it can\'t be opened. If you continue, that old data will be deleted. If you have a backup, create a new vault and restore it afterwards.';
+      'يوجد على هذا الجهاز ملف خزنة قديم، لكن مفاتيحه غير قابلة للقراءة، لذا لا يمكن فتحه. إذا تابعت فستُحذف تلك البيانات القديمة. إذا كانت لديك نسخة احتياطية، فأنشئ خزنة جديدة ثم استعدها.';
 
   @override
-  String get orphanVaultReplace => 'Delete and continue';
+  String get orphanVaultReplace => 'حذف ومتابعة';
 
   @override
-  String get forgotOldPassword => 'I don\'t remember my current password';
+  String get forgotOldPassword => 'لا أتذكر كلمة المرور الحالية';
 
   @override
-  String get useCurrentPassword => 'Use my current password instead';
+  String get useCurrentPassword => 'استخدام كلمة المرور الحالية';
 
   @override
   String get forgotPasswordBioHint =>
-      'Confirm with your fingerprint or face to set a new master password. Your records stay as they are.';
+      'أكّد ببصمتك أو وجهك لتعيين كلمة مرور رئيسية جديدة. تبقى عناصرك كما هي.';
 
   @override
-  String get bioConfirmFailed =>
-      'Biometric confirmation failed or was cancelled.';
+  String get bioConfirmFailed => 'فشل التأكيد الحيوي أو أُلغي.';
 
   @override
   String get biometricChangedBody =>
-      'Your fingerprint or face settings changed, so biometric login was turned off for your safety.';
+      'تغيّرت إعدادات البصمة أو الوجه، لذا أُوقف الدخول الحيوي حفاظًا على أمانك.';
 
   @override
-  String get limitReachedTitle => 'Free limit reached';
+  String get limitReachedTitle => 'بلغت الحد المجاني';
 
   @override
   String limitReachedBody(int count) {
-    return 'The free version holds up to $count records per category. Delete a record or upgrade to Pro for unlimited records.';
+    return 'تتيح النسخة المجانية حتى $count عناصر في كل فئة. احذف عنصرًا أو انتقل إلى Pro لعناصر غير محدودة.';
   }
 
   @override
-  String get scanLimitTitle => 'Free scans used';
+  String get scanLimitTitle => 'انتهت عمليات المسح المجانية';
 
   @override
   String scanLimitBody(int count) {
-    return 'You\'ve used your $count free scans. Upgrade to Pro for unlimited scanning.';
+    return 'استخدمت عمليات المسح المجانية ($count). انتقل إلى Pro لمسح غير محدود.';
   }
 
   @override
   String backupRestoreLimited(int added, int limited) {
-    return '$added added, $limited not restored (free limit reached). Your backup file is unchanged.';
+    return 'أُضيف $added، ولم يُستعد $limited (بلغت الحد المجاني). ملف النسخة الاحتياطية لم يتغيّر.';
   }
 }

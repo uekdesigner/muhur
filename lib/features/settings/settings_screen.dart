@@ -13,6 +13,7 @@ import '../../core/utils/clipboard_service.dart';
 import '../../core/utils/motion.dart';
 import '../../core/utils/screen_capture_service.dart';
 import '../../core/widgets/muhur_widgets.dart';
+import '../../core/widgets/dialog_parts.dart';
 import '../../core/widgets/language_button.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
@@ -209,9 +210,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           title: Text(title),
           content: Text(body),
           actions: [
-            TextButton(
+            RoundIconButton(
+              icon: Icons.close,
+              tooltip: t.close,
               onPressed: () => Navigator.pop(ctx),
-              child: Text(t.close),
             ),
           ],
         ),
@@ -385,13 +387,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
       builder: (c) => AlertDialog(
         content: Text(t.emptyTrashConfirm(_trashCount)),
         actions: [
-          TextButton(
+          RoundIconButton(
+            icon: Icons.close,
+            tooltip: t.cancel,
             onPressed: () => Navigator.pop(c, false),
-            child: Text(t.cancel),
           ),
-          FilledButton(
+          RoundIconButton(
+            icon: Icons.delete_forever,
+            tooltip: t.delete,
+            danger: true,
             onPressed: () => Navigator.pop(c, true),
-            child: Text(t.delete),
           ),
         ],
       ),

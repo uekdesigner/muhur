@@ -69,8 +69,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get passwordTooShort => 'En az 8 karakter kullanın.';
 
   @override
-  String get passwordNeedsMix =>
-      'Küçük harf, büyük harf, rakam ve özel karakter kullanın.';
+  String get passwordNeedsMix => 'Küçük harf, büyük harf ve rakam kullanın.';
 
   @override
   String get reqLength => 'En az 8 karakter';
@@ -97,7 +96,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get createVault => 'Oluştur';
 
   @override
-  String get unlockTitle => 'Kilidi aç';
+  String get unlockTitle => 'Unlock';
 
   @override
   String get unlock => 'Aç';
@@ -111,7 +110,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get useBiometrics => 'Biyometrik';
+  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Biyometrik kilit açma etkinleştirilsin mi?';
@@ -129,7 +128,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get lockNow => 'Kilitle';
 
   @override
-  String get vaultUnlocked => 'Kasa açıldı';
+  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Tümü';
@@ -165,22 +164,22 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addField => 'Alan ekle';
 
   @override
-  String get fieldLabel => 'Ad';
+  String get fieldLabel => 'Label';
 
   @override
-  String get fieldValue => 'Değer';
+  String get fieldValue => 'Value';
 
   @override
   String get typeText => 'Metin';
 
   @override
-  String get typePassword => 'Parola';
+  String get typePassword => 'Password';
 
   @override
   String get typeUrl => 'URL';
 
   @override
-  String get typeNotes => 'Notlar';
+  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Değeri gizle';
@@ -202,7 +201,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get trashHint =>
-      'Silinen kayıtlar şifreli olarak çöp kutusunda kalır ve geri alınabilir. Bu kadar gün sonra, kasa bir sonraki açıldığında kalıcı olarak silinir. Süreyi kısaltmak daha eski kayıtları da çöp kutusundan kaldırır. Çöp kutusunu boşaltma geri alınamaz.';
+      'Silinen kayıtlar şifreli olarak çöp kutusunda kalır ve geri alınabilir. Bu kadar gün sonra, kasa bir sonraki açıldığında kalıcı olarak silinir. Süreyi kısaltmak daha eski kayıtları da çöp kutusundan kaldırır. Çöp kutusunu boşaltmak geri alınamaz.';
 
   @override
   String daysCount(int count) {
@@ -280,7 +279,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String copied(int seconds) {
-    return 'Kopyalandı. Pano $seconds saniye içinde temizlenir.';
+    return 'Copied. The clipboard clears in $seconds seconds.';
   }
 
   @override
@@ -305,10 +304,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get immediately => 'Anında';
 
   @override
-  String get seconds15 => '15 sn';
+  String get seconds15 => '15 sec';
 
   @override
-  String get minute1 => '1 dk';
+  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Kopyalama süresi';
@@ -375,27 +374,27 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kamerayı metnin üzerinde sabit tutun. IBAN modunda otomatik algılanır.';
 
   @override
-  String get scanRetake => 'Yeniden çek';
+  String get scanRetake => 'Retake';
 
   @override
   String get scanning => 'Taranıyor...';
 
   @override
-  String get ibanFound => 'IBAN bulundu';
+  String get ibanFound => 'IBAN found';
 
   @override
   String get ibanNotFound =>
-      'Geçerli IBAN bulunamadı. Daha iyi ışıkta tekrar deneyin veya aşağıdan bir satır seçin.';
+      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'OCR hatasından sonra düzeltilmiş olabilir. Dikkatle kontrol edin.';
 
   @override
-  String get pickLine => 'Kullanmak için bir satıra dokunun';
+  String get pickLine => 'Tap a line to use it';
 
   @override
-  String get noTextFound => 'Metin bulunamadı.';
+  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError =>
@@ -508,7 +507,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get reduceAnimationsDesc =>
-      'Uygulamadaki tüm animasyonları kapatır: yardım simgesinin sallanması ve parlaması, yardım menüsü, sayfa geçişleri, diyaloglar ve tarayıcı çizgisi. Yavaş cihazlar ve hassas kullanıcılar için uygundur';
+      'Uygulamadaki tüm animasyonları kapatır: yardım simgesinin sallanması ve parlaması, yardım menüsü, sayfa geçişleri, diyaloglar ve tarayıcı çizgisi. Yavaş cihazlarda ve harekete duyarlı kişiler için faydalıdır.';
 
   @override
   String get resetTips => 'İpuçlarını sıfırla';
@@ -522,7 +521,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get tipLongPress =>
-      'İpucu: Bir kaydı seçmek için uzun basın, sonra birden çoğunu silin.';
+      'İpucu: Bir kaydı seçmek için uzun basın, ardından birden fazlasını aynı anda silin.';
 
   @override
   String get statTotal => 'Toplam';
@@ -534,7 +533,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get planFree => 'ÜCRETSİZ';
 
   @override
-  String get statusScreen => 'Ekran koruması';
+  String get statusScreen => 'Screen protection';
 
   @override
   String get screenshotAllow => 'Ekran görüntüsüne izin ver';
@@ -544,7 +543,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Ekran koruması aşağıda ayarlanan süre boyunca kapatılır, sonra otomatik olarak yeniden açılır.';
 
   @override
-  String get screenshotTimer => 'Görüntü süresi';
+  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'ŞİFRELİ YEDEK';
@@ -695,7 +694,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get helpTitle => 'Yardım';
 
   @override
-  String get helpBody => 'Yardım içeriği buraya eklenecek.';
+  String get helpBody => 'Help content will be added here.';
 
   @override
   String get helpMenuTitle => 'Nasıl kullanılır?';
@@ -733,7 +732,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcBankName => 'Banka Adı';
 
   @override
-  String get fcTag => 'Etiket';
+  String get fcTag => 'Tag';
 
   @override
   String get fcInternetBankingPassword => 'Bankacılık Parolası';
@@ -757,7 +756,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcCustomerNoTc => 'Müşteri No / TC';
 
   @override
-  String get fcBranchNameCode => 'Şube / Kod';
+  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Hesap Türü';
@@ -787,7 +786,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Yedek Kodlar';
 
   @override
-  String get fcLoginMethodProvider => 'Giriş Yöntemi';
+  String get fcLoginMethodProvider => 'Login Method';
 
   @override
   String get fcImapSmtp => 'IMAP / SMTP';
@@ -820,7 +819,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcLinkedMainAccount => 'Bağlı Hesap';
 
   @override
-  String get fcProfileNumericId => 'Profil ID';
+  String get fcProfileNumericId => 'Profile ID';
 
   @override
   String get fc2faSecretKey => '2FA Gizli Anahtar';
@@ -847,19 +846,19 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcSupportContact => 'Destek Kişisi';
 
   @override
-  String get fcLoginMethodVerification => 'Doğrulama';
+  String get fcLoginMethodVerification => 'Verification';
 
   @override
-  String get fcTaxOffice => 'Vergi Dairesi / No';
+  String get fcTaxOffice => 'Tax Office / No';
 
   @override
-  String get fcRegistryNo => 'Sicil / Bayi No';
+  String get fcRegistryNo => 'Registry / Dealer No';
 
   @override
   String get fcIpVpn => 'IP / VPN';
 
   @override
-  String get fcLicenseExpiry => 'Lisans Bitişi';
+  String get fcLicenseExpiry => 'License Expiry';
 
   @override
   String get fcSiteName => 'Site Adı';
@@ -871,25 +870,25 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcUsernameEmail => 'Kullanıcı Adı / E-posta';
 
   @override
-  String get fcSubscriptionFee => 'Ücret / Dönem';
+  String get fcSubscriptionFee => 'Fee / Period';
 
   @override
-  String get fcRegistrationDate => 'Kayıt Tarihi';
+  String get fcRegistrationDate => 'Sign-up Date';
 
   @override
-  String get fcPaymentMethod => 'Ödeme Yöntemi';
+  String get fcPaymentMethod => 'Payment Method';
 
   @override
-  String get fcPinCode => 'PIN Kodu';
+  String get fcPinCode => 'PIN Code';
 
   @override
-  String get fcLicenseCodeSimple => 'Lisans Kodu';
+  String get fcLicenseCodeSimple => 'License Code';
 
   @override
   String get pickFieldTitle => 'Alan seç';
 
   @override
-  String get allFieldsAdded => 'Tüm alanlar eklendi';
+  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Üretici ayarları';
@@ -922,51 +921,51 @@ class AppLocalizationsTr extends AppLocalizations {
   String get customTypePhone => 'Telefon';
 
   @override
-  String get orphanVaultTitle => 'Old vault found';
+  String get orphanVaultTitle => 'Eski kasa bulundu';
 
   @override
   String get orphanVaultBody =>
-      'A vault file from before exists on this device, but its keys can\'t be read, so it can\'t be opened. If you continue, that old data will be deleted. If you have a backup, create a new vault and restore it afterwards.';
+      'Bu cihazda önceden kalma bir kasa dosyası var, ancak anahtarları okunamadığı için açılamıyor. Devam ederseniz bu eski veriler silinir. Yedeğiniz varsa yeni bir kasa oluşturup ardından yedeği geri yükleyin.';
 
   @override
-  String get orphanVaultReplace => 'Delete and continue';
+  String get orphanVaultReplace => 'Sil ve devam et';
 
   @override
-  String get forgotOldPassword => 'I don\'t remember my current password';
+  String get forgotOldPassword => 'Mevcut parolamı hatırlamıyorum';
 
   @override
-  String get useCurrentPassword => 'Use my current password instead';
+  String get useCurrentPassword => 'Bunun yerine mevcut parolamı kullan';
 
   @override
   String get forgotPasswordBioHint =>
-      'Confirm with your fingerprint or face to set a new master password. Your records stay as they are.';
+      'Yeni bir ana parola belirlemek için parmak izinizle veya yüzünüzle onaylayın. Kayıtlarınız olduğu gibi kalır.';
 
   @override
   String get bioConfirmFailed =>
-      'Biometric confirmation failed or was cancelled.';
+      'Biyometrik onay başarısız oldu veya iptal edildi.';
 
   @override
   String get biometricChangedBody =>
-      'Your fingerprint or face settings changed, so biometric login was turned off for your safety.';
+      'Parmak izi veya yüz ayarlarınız değiştiği için güvenliğiniz adına biyometrik giriş kapatıldı.';
 
   @override
-  String get limitReachedTitle => 'Free limit reached';
+  String get limitReachedTitle => 'Ücretsiz sınıra ulaşıldı';
 
   @override
   String limitReachedBody(int count) {
-    return 'The free version holds up to $count records per category. Delete a record or upgrade to Pro for unlimited records.';
+    return 'Ücretsiz sürümde her kategoride en fazla $count kayıt tutulabilir. Sınırsız kayıt için bir kaydı silin veya Pro\'ya geçin.';
   }
 
   @override
-  String get scanLimitTitle => 'Free scans used';
+  String get scanLimitTitle => 'Ücretsiz taramalar bitti';
 
   @override
   String scanLimitBody(int count) {
-    return 'You\'ve used your $count free scans. Upgrade to Pro for unlimited scanning.';
+    return '$count ücretsiz tarama hakkınızı kullandınız. Sınırsız tarama için Pro\'ya geçin.';
   }
 
   @override
   String backupRestoreLimited(int added, int limited) {
-    return '$added added, $limited not restored (free limit reached). Your backup file is unchanged.';
+    return '$added eklendi, $limited geri yüklenmedi (ücretsiz sınıra ulaşıldı). Yedek dosyanız değişmedi.';
   }
 }

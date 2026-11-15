@@ -66,13 +66,16 @@ class _SetupScreenState extends State<SetupScreen> {
             title: Text(t.orphanVaultTitle),
             content: Text(t.orphanVaultBody),
             actions: [
-              TextButton(
+              RoundIconButton(
+                icon: Icons.close,
+                tooltip: t.cancel,
                 onPressed: () => Navigator.pop(c, false),
-                child: Text(t.cancel),
               ),
-              FilledButton(
+              RoundIconButton(
+                icon: Icons.delete_forever,
+                tooltip: t.orphanVaultReplace,
+                danger: true,
                 onPressed: () => Navigator.pop(c, true),
-                child: Text(t.orphanVaultReplace),
               ),
             ],
           ),
@@ -336,7 +339,11 @@ class _UnlockScreenState extends State<UnlockScreen> {
         title: Text(t.infoTitle),
         content: Text(t.infoBody),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(c), child: Text(t.close)),
+          RoundIconButton(
+            icon: Icons.close,
+            tooltip: t.close,
+            onPressed: () => Navigator.pop(c),
+          ),
         ],
       ),
     );

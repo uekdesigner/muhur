@@ -70,7 +70,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordTooShort => 'Use at least 8 characters.';
 
   @override
-  String get passwordNeedsMix => 'Use lowercase, uppercase, a digit.';
+  String get passwordNeedsMix =>
+      'Use lowercase and uppercase letters and a digit.';
 
   @override
   String get reqLength => 'At least 8 characters';
@@ -192,7 +193,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get delete => 'Delete';
 
   @override
-  String get moveToTrash => 'To trash';
+  String get moveToTrash => 'Move to trash';
 
   @override
   String get trash => 'Trash';
@@ -353,7 +354,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get avoidAmbiguous => 'No look-alikes (O/0, l/1)';
 
   @override
-  String get regenerate => 'Redo';
+  String get regenerate => 'New';
 
   @override
   String get usePassword => 'Use';
@@ -427,7 +428,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tagline =>
-      'SEAL your digital data.\nNo servers. Just you and your data.\nSEAL the safest lock for your digital memory.';
+      'SEAL your digital data.\nNo servers. Just you and your data.\nSEAL: the safest lock for your digital memory.';
 
   @override
   String get login => 'ENTER';
@@ -512,7 +513,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reduceAnimationsDesc =>
-      'Turns off every animation in the app: the help icon wiggle and glow, the help menu, page transitions, dialogs and the scanner line. Good for slower devices and sensitive users';
+      'Turns off every animation in the app: the help icon wiggle and glow, the help menu, page transitions, dialogs and the scanner line. Useful on slower devices and for people sensitive to motion.';
 
   @override
   String get resetTips => 'Reset tips';
@@ -731,7 +732,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String deleteSelectedConfirm(int count) {
-    return 'Move $count selected entries to the trash?';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Move $count selected entries to the trash?',
+      one: 'Move 1 selected entry to the trash?',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -944,7 +951,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Confirm with your fingerprint or face to set a new master password. Your records stay as they are.';
+      'Confirm with your fingerprint or face to set a new master password. Your entries stay as they are.';
 
   @override
   String get bioConfirmFailed =>
@@ -959,7 +966,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String limitReachedBody(int count) {
-    return 'The free version holds up to $count records per category. Delete a record or upgrade to Pro for unlimited records.';
+    return 'The free version holds up to $count entries per category. Delete an entry or upgrade to Pro for unlimited entries.';
   }
 
   @override

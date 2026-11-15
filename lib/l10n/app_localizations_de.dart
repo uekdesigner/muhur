@@ -71,7 +71,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get passwordNeedsMix =>
-      'Klein- und Großbuchstaben, eine Ziffer und ein Sonderzeichen verwenden.';
+      'Klein- und Großbuchstaben und eine Ziffer verwenden.';
 
   @override
   String get reqLength => 'Mindestens 8 Zeichen';
@@ -98,7 +98,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get createVault => 'Erstellen';
 
   @override
-  String get unlockTitle => 'Entsperren';
+  String get unlockTitle => 'Unlock';
 
   @override
   String get unlock => 'Öffnen';
@@ -112,7 +112,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get useBiometrics => 'Biometrie';
+  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Biometrisches Entsperren aktivieren?';
@@ -130,7 +130,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get lockNow => 'Sperren';
 
   @override
-  String get vaultUnlocked => 'Tresor entsperrt';
+  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Alle';
@@ -166,22 +166,22 @@ class AppLocalizationsDe extends AppLocalizations {
   String get addField => 'Neues Feld';
 
   @override
-  String get fieldLabel => 'Name';
+  String get fieldLabel => 'Label';
 
   @override
-  String get fieldValue => 'Wert';
+  String get fieldValue => 'Value';
 
   @override
   String get typeText => 'Text';
 
   @override
-  String get typePassword => 'Passwort';
+  String get typePassword => 'Password';
 
   @override
   String get typeUrl => 'URL';
 
   @override
-  String get typeNotes => 'Notizen';
+  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Wert verbergen';
@@ -284,7 +284,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String copied(int seconds) {
-    return 'Kopiert. Die Zwischenablage wird in $seconds Sekunden geleert.';
+    return 'Copied. The clipboard clears in $seconds seconds.';
   }
 
   @override
@@ -309,10 +309,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get immediately => 'Sofort';
 
   @override
-  String get seconds15 => '15 Sek.';
+  String get seconds15 => '15 sec';
 
   @override
-  String get minute1 => '1 Min.';
+  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Kopier-Timer';
@@ -379,27 +379,27 @@ class AppLocalizationsDe extends AppLocalizations {
       'Halte die Kamera ruhig über den Text. Im IBAN-Modus wird er automatisch erkannt.';
 
   @override
-  String get scanRetake => 'Wiederholen';
+  String get scanRetake => 'Retake';
 
   @override
   String get scanning => 'Scannen...';
 
   @override
-  String get ibanFound => 'IBAN gefunden';
+  String get ibanFound => 'IBAN found';
 
   @override
   String get ibanNotFound =>
-      'Keine gültige IBAN gefunden. Versuche es mit besserem Licht erneut oder wähle unten eine Zeile.';
+      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'Möglicherweise nach einem OCR-Fehler korrigiert. Bitte genau prüfen.';
 
   @override
-  String get pickLine => 'Zeile antippen, um sie zu verwenden';
+  String get pickLine => 'Tap a line to use it';
 
   @override
-  String get noTextFound => 'Kein Text gefunden.';
+  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError =>
@@ -428,10 +428,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get tagline =>
-      'VERSIEGLE deine digitalen Daten.\nKeine Server. Nur du und deine Daten.\nVERSIEGLE das sicherste Schloss für dein digitales Gedächtnis.';
+      'VERSIEGLE deine digitalen Daten.\nKeine Server. Nur du und deine Daten.\nMÜHÜR: das sicherste Schloss für dein digitales Gedächtnis.';
 
   @override
-  String get login => 'EINTRETEN';
+  String get login => 'ÖFFNEN';
 
   @override
   String get infoTitle => 'Über Muhur';
@@ -513,7 +513,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get reduceAnimationsDesc =>
-      'Schaltet alle Animationen der App aus: Wackeln und Leuchten des Hilfe-Symbols, Hilfemenü, Seitenübergänge, Dialoge und die Scanlinie. Gut für langsamere Geräte und empfindliche Nutzer';
+      'Schaltet alle Animationen der App aus: Wackeln und Leuchten des Hilfe-Symbols, Hilfemenü, Seitenübergänge, Dialoge und die Scanlinie. Nützlich auf langsameren Geräten und für bewegungsempfindliche Menschen.';
 
   @override
   String get resetTips => 'Tipps zurücksetzen';
@@ -538,7 +538,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get planFree => 'GRATIS';
 
   @override
-  String get statusScreen => 'Bildschirmschutz';
+  String get statusScreen => 'Screen protection';
 
   @override
   String get screenshotAllow => 'Screenshots erlauben';
@@ -548,7 +548,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Der Bildschirmschutz wird für die unten eingestellte Zeit ausgeschaltet und danach automatisch wieder eingeschaltet.';
 
   @override
-  String get screenshotTimer => 'Screenshot-Zeit';
+  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'VERSCHLÜSSELTES BACKUP';
@@ -702,7 +702,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get helpTitle => 'Hilfe';
 
   @override
-  String get helpBody => 'Hilfeinhalt wird hier ergänzt.';
+  String get helpBody => 'Help content will be added here.';
 
   @override
   String get helpMenuTitle => 'Wie benutzen?';
@@ -733,7 +733,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String deleteSelectedConfirm(int count) {
-    return '$count ausgewählte Einträge in den Papierkorb verschieben?';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ausgewählte Einträge in den Papierkorb verschieben?',
+      one: '1 ausgewählten Eintrag in den Papierkorb verschieben?',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -764,7 +770,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcCustomerNoTc => 'Kundennr. / ID';
 
   @override
-  String get fcBranchNameCode => 'Filiale / Code';
+  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Kontoart';
@@ -794,7 +800,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Backup-Codes';
 
   @override
-  String get fcLoginMethodProvider => 'Anmeldeart';
+  String get fcLoginMethodProvider => 'Login Method';
 
   @override
   String get fcImapSmtp => 'IMAP / SMTP';
@@ -827,7 +833,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcLinkedMainAccount => 'Verknüpftes Konto';
 
   @override
-  String get fcProfileNumericId => 'Profil-ID';
+  String get fcProfileNumericId => 'Profile ID';
 
   @override
   String get fc2faSecretKey => '2FA-Schlüssel';
@@ -854,19 +860,19 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcSupportContact => 'Support-Kontakt';
 
   @override
-  String get fcLoginMethodVerification => 'Verifizierung';
+  String get fcLoginMethodVerification => 'Verification';
 
   @override
-  String get fcTaxOffice => 'Finanzamt / Steuernr.';
+  String get fcTaxOffice => 'Tax Office / No';
 
   @override
-  String get fcRegistryNo => 'Register- / Händlernr.';
+  String get fcRegistryNo => 'Registry / Dealer No';
 
   @override
   String get fcIpVpn => 'IP / VPN';
 
   @override
-  String get fcLicenseExpiry => 'Lizenz-Ablauf';
+  String get fcLicenseExpiry => 'License Expiry';
 
   @override
   String get fcSiteName => 'Seitenname';
@@ -878,25 +884,25 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcUsernameEmail => 'Benutzername / E-Mail';
 
   @override
-  String get fcSubscriptionFee => 'Gebühr / Zeitraum';
+  String get fcSubscriptionFee => 'Fee / Period';
 
   @override
-  String get fcRegistrationDate => 'Registriert am';
+  String get fcRegistrationDate => 'Sign-up Date';
 
   @override
-  String get fcPaymentMethod => 'Zahlungsart';
+  String get fcPaymentMethod => 'Payment Method';
 
   @override
-  String get fcPinCode => 'PIN-Code';
+  String get fcPinCode => 'PIN Code';
 
   @override
-  String get fcLicenseCodeSimple => 'Lizenzcode';
+  String get fcLicenseCodeSimple => 'License Code';
 
   @override
   String get pickFieldTitle => 'Feld wählen';
 
   @override
-  String get allFieldsAdded => 'Alle Felder hinzugefügt';
+  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Generator-Einstellungen';
@@ -929,51 +935,52 @@ class AppLocalizationsDe extends AppLocalizations {
   String get customTypePhone => 'Telefon';
 
   @override
-  String get orphanVaultTitle => 'Old vault found';
+  String get orphanVaultTitle => 'Alter Tresor gefunden';
 
   @override
   String get orphanVaultBody =>
-      'A vault file from before exists on this device, but its keys can\'t be read, so it can\'t be opened. If you continue, that old data will be deleted. If you have a backup, create a new vault and restore it afterwards.';
+      'Auf diesem Gerät gibt es noch eine alte Tresordatei, aber ihre Schlüssel können nicht gelesen werden, daher lässt sie sich nicht öffnen. Wenn du fortfährst, werden diese alten Daten gelöscht. Falls du ein Backup hast, erstelle einen neuen Tresor und spiele es danach ein.';
 
   @override
-  String get orphanVaultReplace => 'Delete and continue';
+  String get orphanVaultReplace => 'Löschen & weiter';
 
   @override
-  String get forgotOldPassword => 'I don\'t remember my current password';
+  String get forgotOldPassword =>
+      'Ich kenne mein aktuelles Passwort nicht mehr';
 
   @override
-  String get useCurrentPassword => 'Use my current password instead';
+  String get useCurrentPassword => 'Doch aktuelles Passwort verwenden';
 
   @override
   String get forgotPasswordBioHint =>
-      'Confirm with your fingerprint or face to set a new master password. Your records stay as they are.';
+      'Bestätige mit Fingerabdruck oder Gesicht, um ein neues Master-Passwort festzulegen. Deine Einträge bleiben erhalten.';
 
   @override
   String get bioConfirmFailed =>
-      'Biometric confirmation failed or was cancelled.';
+      'Biometrische Bestätigung fehlgeschlagen oder abgebrochen.';
 
   @override
   String get biometricChangedBody =>
-      'Your fingerprint or face settings changed, so biometric login was turned off for your safety.';
+      'Deine Fingerabdruck- oder Gesichtsdaten haben sich geändert. Zu deiner Sicherheit wurde die biometrische Anmeldung ausgeschaltet.';
 
   @override
-  String get limitReachedTitle => 'Free limit reached';
+  String get limitReachedTitle => 'Gratis-Limit erreicht';
 
   @override
   String limitReachedBody(int count) {
-    return 'The free version holds up to $count records per category. Delete a record or upgrade to Pro for unlimited records.';
+    return 'Die Gratisversion speichert bis zu $count Einträge pro Kategorie. Lösche einen Eintrag oder wechsle zu Pro für unbegrenzte Einträge.';
   }
 
   @override
-  String get scanLimitTitle => 'Free scans used';
+  String get scanLimitTitle => 'Gratis-Scans aufgebraucht';
 
   @override
   String scanLimitBody(int count) {
-    return 'You\'ve used your $count free scans. Upgrade to Pro for unlimited scanning.';
+    return 'Du hast deine $count Gratis-Scans genutzt. Mit Pro scannst du unbegrenzt.';
   }
 
   @override
   String backupRestoreLimited(int added, int limited) {
-    return '$added added, $limited not restored (free limit reached). Your backup file is unchanged.';
+    return '$added hinzugefügt, $limited nicht eingespielt (Gratis-Limit erreicht). Deine Backup-Datei bleibt unverändert.';
   }
 }

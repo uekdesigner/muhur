@@ -66,7 +66,7 @@
   "sensitive": "Hide value",
   "save": "Save",
   "delete": "Delete",
-  "moveToTrash": "Move to trash",,
+  "moveToTrash": "Move to trash",
   "trash": "Trash",
   "trashKeepFor": "Keep in trash for",
   "trashHint": "Deleted entries stay in the trash, still encrypted, and can be restored. They are permanently deleted after this many days, the next time the vault is unlocked. Shortening the period also removes older items from the trash. Emptying the trash cannot be undone.",

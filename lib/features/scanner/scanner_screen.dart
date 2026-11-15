@@ -9,6 +9,7 @@ import '../../l10n/app_localizations.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/utils/haptics.dart';
 import '../../core/utils/motion.dart';
+import '../../core/widgets/dialog_parts.dart';
 import 'iban_validator.dart';
 
 enum ScanMode { iban, text }
@@ -279,10 +280,16 @@ class _ScannerScreenState extends State<ScannerScreen>
           enableSuggestions: false,
         ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(c), child: Text(t.cancel)),
-          FilledButton(
+          RoundIconButton(
+            icon: Icons.close,
+            tooltip: t.cancel,
+            onPressed: () => Navigator.pop(c),
+          ),
+          RoundIconButton(
+            icon: Icons.check,
+            tooltip: t.useValue,
+            primary: true,
             onPressed: () => Navigator.pop(c, ctrl.text.trim()),
-            child: Text(t.useValue),
           ),
         ],
       ),

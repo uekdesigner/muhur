@@ -21,6 +21,9 @@ class LockedOutException implements Exception {
 class OrphanVaultException implements Exception {}
 
 class AuthService {
+  /// Sistem biyometri penceresindeki iptal düğmesi (Android sadece metin kabul eder).
+  /// Dil değişince main.dart'taki onGenerateTitle günceller.
+  static String bioCancelLabel = 'Cancel';
   AuthService(this._crypto, this._db);
 
   final CryptoService _crypto;
@@ -332,7 +335,7 @@ class AuthService {
         biometricPromptTitle: reason ?? 'Mühür',
         storageNamespace: 'bs$n',
         biometricType: AndroidBiometricType.strongBiometricOnly,
-        biometricPromptNegativeButton: 'İptal',
+        biometricPromptNegativeButton: bioCancelLabel,
       ),
       iOptions: const IOSOptions(
         accessibility: KeychainAccessibility.passcode,

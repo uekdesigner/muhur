@@ -8,6 +8,10 @@ import 'package:intl/intl.dart' as intl;
 import 'app_localizations_ar.dart';
 import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
+import 'app_localizations_fr.dart';
+import 'app_localizations_it.dart';
+import 'app_localizations_pt.dart';
 import 'app_localizations_tr.dart';
 
 // ignore_for_file: type=lint
@@ -99,6 +103,10 @@ abstract class AppLocalizations {
     Locale('ar'),
     Locale('de'),
     Locale('en'),
+    Locale('es'),
+    Locale('fr'),
+    Locale('it'),
+    Locale('pt'),
     Locale('tr'),
   ];
 
@@ -219,7 +227,7 @@ abstract class AppLocalizations {
   /// No description provided for @passwordNeedsMix.
   ///
   /// In en, this message translates to:
-  /// **'Use lowercase, uppercase, a digit.'**
+  /// **'Use lowercase and uppercase letters and a digit.'**
   String get passwordNeedsMix;
 
   /// No description provided for @reqLength.
@@ -459,7 +467,7 @@ abstract class AppLocalizations {
   /// No description provided for @moveToTrash.
   ///
   /// In en, this message translates to:
-  /// **'To trash'**
+  /// **'Move to trash'**
   String get moveToTrash;
 
   /// No description provided for @trash.
@@ -717,7 +725,7 @@ abstract class AppLocalizations {
   /// No description provided for @regenerate.
   ///
   /// In en, this message translates to:
-  /// **'Redo'**
+  /// **'New'**
   String get regenerate;
 
   /// No description provided for @usePassword.
@@ -855,7 +863,7 @@ abstract class AppLocalizations {
   /// No description provided for @tagline.
   ///
   /// In en, this message translates to:
-  /// **'SEAL your digital data.\nNo servers. Just you and your data.\nSEAL the safest lock for your digital memory.'**
+  /// **'SEAL your digital data.\nNo servers. Just you and your data.\nSEAL: the safest lock for your digital memory.'**
   String get tagline;
 
   /// No description provided for @login.
@@ -1011,7 +1019,7 @@ abstract class AppLocalizations {
   /// No description provided for @reduceAnimationsDesc.
   ///
   /// In en, this message translates to:
-  /// **'Turns off every animation in the app: the help icon wiggle and glow, the help menu, page transitions, dialogs and the scanner line. Good for slower devices and sensitive users'**
+  /// **'Turns off every animation in the app: the help icon wiggle and glow, the help menu, page transitions, dialogs and the scanner line. Useful on slower devices and for people sensitive to motion.'**
   String get reduceAnimationsDesc;
 
   /// No description provided for @resetTips.
@@ -1347,7 +1355,7 @@ abstract class AppLocalizations {
   /// No description provided for @deleteSelectedConfirm.
   ///
   /// In en, this message translates to:
-  /// **'Move {count} selected entries to the trash?'**
+  /// **'{count, plural, =1{Move 1 selected entry to the trash?} other{Move {count} selected entries to the trash?}}'**
   String deleteSelectedConfirm(int count);
 
   /// No description provided for @fcBankName.
@@ -1767,7 +1775,7 @@ abstract class AppLocalizations {
   /// No description provided for @forgotPasswordBioHint.
   ///
   /// In en, this message translates to:
-  /// **'Confirm with your fingerprint or face to set a new master password. Your records stay as they are.'**
+  /// **'Confirm with your fingerprint or face to set a new master password. Your entries stay as they are.'**
   String get forgotPasswordBioHint;
 
   /// No description provided for @bioConfirmFailed.
@@ -1791,7 +1799,7 @@ abstract class AppLocalizations {
   /// No description provided for @limitReachedBody.
   ///
   /// In en, this message translates to:
-  /// **'The free version holds up to {count} records per category. Delete a record or upgrade to Pro for unlimited records.'**
+  /// **'The free version holds up to {count} entries per category. Delete an entry or upgrade to Pro for unlimited entries.'**
   String limitReachedBody(int count);
 
   /// No description provided for @scanLimitTitle.
@@ -1823,8 +1831,16 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['ar', 'de', 'en', 'tr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'ar',
+    'de',
+    'en',
+    'es',
+    'fr',
+    'it',
+    'pt',
+    'tr',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -1839,6 +1855,14 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsDe();
     case 'en':
       return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
+    case 'fr':
+      return AppLocalizationsFr();
+    case 'it':
+      return AppLocalizationsIt();
+    case 'pt':
+      return AppLocalizationsPt();
     case 'tr':
       return AppLocalizationsTr();
   }
