@@ -10,7 +10,7 @@ Future<void> showProDialog(BuildContext context, String title, String body) {
   return showDialog<void>(
     context: context,
     animationStyle: Motion.style,
-    builder: (c) => AlertDialog(
+    builder: (c) => ScrollDialog(
       title: Text(title),
       content: Text(body),
       actions: [

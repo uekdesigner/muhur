@@ -98,9 +98,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get createVault => 'Erstellen';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'Öffnen';
 
   @override
@@ -110,9 +107,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'Zu viele Versuche. Erneut versuchen in $seconds Sekunden.';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Biometrisches Entsperren aktivieren?';
@@ -128,9 +122,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get lockNow => 'Sperren';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Alle';
@@ -166,22 +157,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get addField => 'Neues Feld';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'Text';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Wert verbergen';
@@ -283,11 +259,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get copy => 'Kopieren';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'Einstellungen';
 
   @override
@@ -307,12 +278,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get immediately => 'Sofort';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Kopier-Timer';
@@ -379,27 +344,11 @@ class AppLocalizationsDe extends AppLocalizations {
       'Halte die Kamera ruhig über den Text. Im IBAN-Modus wird er automatisch erkannt.';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'Scannen...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'Möglicherweise nach einem OCR-Fehler korrigiert. Bitte genau prüfen.';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError =>
@@ -538,17 +487,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get planFree => 'GRATIS';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'Screenshots erlauben';
 
   @override
   String get screenshotAllowHint =>
       'Der Bildschirmschutz wird für die unten eingestellte Zeit ausgeschaltet und danach automatisch wieder eingeschaltet.';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'VERSCHLÜSSELTES BACKUP';
@@ -702,9 +645,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get helpTitle => 'Hilfe';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'Wie benutzen?';
 
   @override
@@ -746,9 +686,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcBankName => 'Bankname';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'Banking-Passwort';
 
   @override
@@ -768,9 +705,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'Kundennr. / ID';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Kontoart';
@@ -800,12 +734,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Backup-Codes';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'Sicherheitsfrage';
 
   @override
@@ -833,9 +761,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcLinkedMainAccount => 'Verknüpftes Konto';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => '2FA-Schlüssel';
 
   @override
@@ -860,21 +785,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcSupportContact => 'Support-Kontakt';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'Seitenname';
 
   @override
@@ -884,25 +794,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get fcUsernameEmail => 'Benutzername / E-Mail';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'Feld wählen';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Generator-Einstellungen';
@@ -985,24 +877,18 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'ÜBER';
-
-  @override
-  String get aboutVersion => 'Version';
-
-  @override
   String get aboutProtectionTitle => 'So werden deine Daten geschützt';
 
   @override
   String get aboutProtectionBody =>
-      'Jeder Eintrag wird auf diesem Gerät mit AES-256 verschlüsselt. Der Schlüssel zum Tresor wird mit Argon2id aus deinem Master-Passwort abgeleitet; das Passwort selbst wird nirgends gespeichert.';
+      'Alles, was du speicherst, wird auf diesem Telefon stark verschlüsselt. Nur dein Master-Passwort öffnet es – und es wird nirgends gespeichert, nicht einmal von MÜHÜR. Ohne es sind die Daten unlesbar.';
 
   @override
   String get aboutOfflineTitle => 'Funktioniert offline';
 
   @override
   String get aboutOfflineBody =>
-      'Muhur hat keine Internetberechtigung, kein Konto und keinen Server. Deine Daten verlassen dieses Gerät nur, wenn du selbst ein verschlüsseltes Backup exportierst.';
+      'MÜHÜR verbindet sich nie mit dem Internet. Es gibt kein Konto, keinen Server und keine Cloud. Deine Passwörter bleiben auf diesem Telefon, außer du exportierst sie selbst – als verschlüsseltes Backup oder als Excel-Datei.';
 
   @override
   String get aboutLicenses => 'Open-Source-Lizenzen';
@@ -1022,4 +908,159 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'Zwischenablage-Symbol: Kopierter Wert (Zahl = Sekunden bis zum Löschen, Tippen löscht sofort)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'Versionshinweise';
+
+  @override
+  String get aboutHowTitle => 'So funktioniert es';
+
+  @override
+  String get aboutStoryTitle => 'Die Geschichte von MÜHÜR';
+
+  @override
+  String get aboutDeveloperTitle => 'Wer steckt hinter MÜHÜR';
+
+  @override
+  String get aboutPrivacySection => 'DATENSCHUTZERKLÄRUNG';
+
+  @override
+  String get aboutPermissionsTitle => 'Berechtigungen und Daten';
+
+  @override
+  String get aboutSupportSection => 'SUPPORT';
+
+  @override
+  String get aboutRate => 'Auf Google Play bewerten';
+
+  @override
+  String get aboutRateDesc =>
+      'Gib auf der Store-Seite eine Bewertung oder Rezension ab';
+
+  @override
+  String get aboutInBrief => 'Kurz gesagt';
+
+  @override
+  String get aboutTechnical => 'Technische Details';
+
+  @override
+  String get aboutProtectionTech =>
+      '• Der Tresor wird mit einem zufälligen 256-Bit-Schlüssel verschlüsselt. Dieser Schlüssel wird mit AES-256-GCM versiegelt – mit einem Schlüssel, der per Argon2id (32 MiB Speicher, 3 Durchläufe) aus deinem Master-Passwort abgeleitet wird. Die Ableitungseinstellungen sind an das Siegel gebunden, Manipulationen werden erkannt.\n• Die Datenbank ist mit SQLCipher verschlüsselt; ihr Schlüssel wird per HKDF-SHA256 aus dem Tresorschlüssel abgeleitet.\n• Sensible Felder werden zusätzlich mit AES-256-GCM verschlüsselt und an ihren Eintrag und ihr Feld gebunden.\n• Nach 5 falschen Passwörtern wartet die App 30 Sekunden, jedes Mal doppelt so lange, bis höchstens 1 Stunde. Das Verstellen der Uhr verkürzt die Wartezeit nicht.\n• Biometrisches Entsperren akzeptiert nur starke Biometrie (Klasse 3) und schaltet sich aus, wenn ein neuer Fingerabdruck oder ein neues Gesicht hinzukommt.\n• Screenshots und Bildschirmaufnahmen werden blockiert, der Tresor sperrt sich beim Verlassen der App, und kopierte Werte werden als sensibel markiert und automatisch gelöscht.';
+
+  @override
+  String get aboutOfflineTech =>
+      '• Die veröffentlichte Version der App hat keine Internet- oder Netzwerkberechtigung; sie wird entfernt, selbst wenn eine Bibliothek sie anfordert.\n• Cloud-Backup und Übertragung auf ein anderes Gerät sind ausgeschaltet; die Daten der App werden nicht vom Telefon kopiert.\n• Die Texterkennung nutzt ein in die App integriertes Modell und läuft auf dem Telefon; Kamerabilder werden im Speicher verarbeitet und nie gespeichert.\n• Daten verlassen das Telefon nur, wenn du sie selbst exportierst: als verschlüsselte Backup-Datei oder als unverschlüsselte Excel-Datei, für deren Sicherheit du verantwortlich bist.';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR sammelt keine personenbezogenen Daten, zeigt keine Werbung, nutzt keine Analysedienste und teilt nichts mit anderen. Die App fragt nur nach der Kamera (zum Scannen von Text) und der Biometrie (zum Entsperren). Abos verwaltet Google Play; die App sieht deine Zahlungsdaten nie. Wenn du die App löschst, werden alle ihre Daten gelöscht. Vorher kannst du deine Einträge nach Excel exportieren; für die Sicherheit dieser Datei bist du selbst verantwortlich.';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• Kamera: nur bei geöffnetem Scanner; es werden keine Fotos gespeichert und kein Ton aufgenommen.\n• Biometrie: Fingerabdruck oder Gesicht prüft das Systemfenster des Telefons; MÜHÜR erhält diese Daten nie.\n• Dateien: Zugriff nur, wenn du einen Ort zum Speichern oder Öffnen eines Backups oder einer Excel-Datei wählst.\n• Kein Konto, kein Server, keine Tracking- oder Werbe-IDs.\n• Download und Abo-Kauf wickelt Google Play gemäß Googles eigener Datenschutzerklärung ab.';
+
+  @override
+  String get how1T => 'Tresor und Master-Passwort';
+
+  @override
+  String get how1B =>
+      'Alles liegt in einem verschlüsselten Tresor auf diesem Telefon. Nur dein Master-Passwort öffnet ihn. Es lässt sich nicht wiederherstellen – wähle eines, das du dir merkst, und erstelle ein Backup.';
+
+  @override
+  String get how2T => 'Einträge und Kategorien';
+
+  @override
+  String get how2B =>
+      'Füge Banken, Websites, E-Mail-Konten und mehr hinzu. Jede Kategorie bietet fertige Felder, und du kannst eigene hinzufügen.';
+
+  @override
+  String get how3T => 'Sicher kopieren';
+
+  @override
+  String get how3B =>
+      'Tippe auf ein Feld, um es zu kopieren. Die Zwischenablage leert sich nach der eingestellten Zeit selbst. Das Symbol auf dem Startbildschirm zählt herunter; tippe darauf, um sofort zu leeren.';
+
+  @override
+  String get how4T => 'Mit der Kamera scannen';
+
+  @override
+  String get how4B =>
+      'Halte die Kamera auf eine Karte oder ein Dokument, um eine IBAN oder Text zu lesen, statt zu tippen. Prüfe das Ergebnis vor dem Speichern.';
+
+  @override
+  String get how5T => 'Papierkorb';
+
+  @override
+  String get how5B =>
+      'Gelöschte Einträge warten verschlüsselt im Papierkorb und lassen sich wiederherstellen, bis die eingestellte Frist abläuft.';
+
+  @override
+  String get how6T => 'Backup und Wiederherstellung';
+
+  @override
+  String get how6B =>
+      'Erstelle eine verschlüsselte Backup-Datei mit eigenem Passwort und bewahre sie sicher auf. Beim Einspielen werden nur Einträge hinzugefügt; vorhandene werden nie überschrieben.';
+
+  @override
+  String get how7T => 'Sperre und Biometrie';
+
+  @override
+  String get how7B =>
+      'Der Tresor sperrt sich, sobald du die App verlässt. Mit Biometrie öffnest du ihn per Fingerabdruck oder Gesicht.';
+
+  @override
+  String get storyBody =>
+      'Jede große Erfindung beginnt damit, dass jemand ein kleines Problem im eigenen Leben lösen will. Genau so ist die Geschichte von MÜHÜR: eine ehrliche, aber entschlossene Reise, geboren aus einem Gedächtnis, das sich im Chaos der digitalen Welt verliert, und aus dem Instinkt, das Eigene zu schützen.\n\nAlles begann mit der lästigen Pause, die ein einziges vergessenes Passwort auslöste. Ich habe MÜHÜR als persönlichen Zufluchtsort entworfen, der nur auf meinem eigenen Gerät läuft – ohne Abhängigkeit von fremden Cloud-Servern. Mit der Zeit wurde mir klar, dass nicht nur ich meine digitale Privatsphäre zurückhaben will.\n\nHeute ist MÜHÜR für alle da, die ihre Daten keinem Server anvertrauen, sondern vollständig selbst kontrollieren möchten.\n\nVersiegle das sicherste Schloss deines digitalen Gedächtnisses.';
+
+  @override
+  String get devBody =>
+      'MÜHÜR ist ein unabhängiges Projekt von uekdesigner, entworfen und entwickelt in der Türkei. Danke, dass du MÜHÜR nutzt.';
+
+  @override
+  String get rn100 =>
+      '• Erste Version.\n• Verschlüsselter Tresor auf dem Telefon, geöffnet mit einem Master-Passwort (Argon2id + AES-256).\n• Fertige Felder für Banken, Websites, E-Mail, soziale Medien und geschäftliche Konten.\n• Passwortgenerator mit Stärkeanzeige.\n• Scannen von IBANs und Text mit der Kamera.\n• Entsperren per Fingerabdruck und Gesicht.\n• Verschlüsseltes Backup und Wiederherstellung.\n• Export nach Excel (unverschlüsselt, auf eigene Verantwortung).\n• Papierkorb mit automatischer Bereinigung.\n• Tresor-Übersicht mit mehrfach verwendeten Passwörtern.\n• Automatische Sperre, Bildschirmschutz und Countdown für die Zwischenablage.\n• Funktioniert komplett offline.\n• 18 Sprachen.';
+
+  @override
+  String get excelExport => 'Nach Excel exportieren';
+
+  @override
+  String get excelExportDesc =>
+      'Unverschlüsselte .xlsx-Datei deiner Einträge, z. B. vor dem Löschen der App';
+
+  @override
+  String get excelExportWarnTitle => 'Unverschlüsselter Export';
+
+  @override
+  String get excelExportWarn =>
+      'Die Excel-Datei ist NICHT verschlüsselt. Wer die Datei bekommt, kann alle deine Passwörter lesen. Wo du sie aufbewahrst, mit wem du sie teilst und dass du sie danach löschst, liegt allein in deiner Verantwortung. Einträge im Papierkorb werden nicht exportiert.';
+
+  @override
+  String get excelExportAgree =>
+      'Verstanden – die Sicherheit der Datei liegt in meiner Verantwortung.';
+
+  @override
+  String get excelExportSaved =>
+      'Excel-Datei gespeichert. Lösche sie, sobald du sie nicht mehr brauchst.';
+
+  @override
+  String get excelExportFailed =>
+      'Die Excel-Datei konnte nicht erstellt werden.';
+
+  @override
+  String get excelColDomain => 'Domain';
+
+  @override
+  String get excelColUpdated => 'Zuletzt geändert';
+
+  @override
+  String get how8T => 'Export nach Excel';
+
+  @override
+  String get how8B =>
+      '„Nach Excel exportieren“ in den Backup-Einstellungen schreibt alle Einträge (ohne Papierkorb) in eine .xlsx-Datei, je Kategorie ein Tabellenblatt. Die Datei ist nicht verschlüsselt: Du bestätigst mit deinem Master-Passwort und akzeptierst, dass ihre Sicherheit in deiner Verantwortung liegt. Lösche sie, wenn du sie nicht mehr brauchst.';
 }

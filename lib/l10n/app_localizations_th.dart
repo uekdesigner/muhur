@@ -95,9 +95,6 @@ class AppLocalizationsTh extends AppLocalizations {
   String get createVault => 'สร้าง';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'เปิด';
 
   @override
@@ -107,9 +104,6 @@ class AppLocalizationsTh extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'ลองหลายครั้งเกินไป โปรดลองอีกครั้งใน $seconds วินาที';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'เปิดใช้การปลดล็อกด้วยไบโอเมตริกไหม';
@@ -125,9 +119,6 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get lockNow => 'ล็อก';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'ทั้งหมด';
@@ -163,22 +154,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get addField => 'เพิ่มช่อง';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'ข้อความ';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'ซ่อนค่า';
@@ -277,11 +253,6 @@ class AppLocalizationsTh extends AppLocalizations {
   String get copy => 'คัดลอก';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'การตั้งค่า';
 
   @override
@@ -301,12 +272,6 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get immediately => 'ทันที';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'เวลาคัดลอก';
@@ -373,26 +338,10 @@ class AppLocalizationsTh extends AppLocalizations {
       'ถือกล้องให้นิ่งเหนือข้อความ ในโหมด IBAN ระบบจะตรวจจับให้อัตโนมัติ';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'กำลังสแกน...';
 
   @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
-
-  @override
   String get ibanCorrected => 'อาจถูกแก้ไขหลังจาก OCR ผิดพลาด โปรดตรวจสอบให้ดี';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError => 'ใช้กล้องไม่ได้ โปรดตรวจสอบสิทธิ์การใช้กล้อง';
@@ -528,17 +477,11 @@ class AppLocalizationsTh extends AppLocalizations {
   String get planFree => 'ฟรี';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'อนุญาตให้จับภาพหน้าจอ';
 
   @override
   String get screenshotAllowHint =>
       'การป้องกันหน้าจอจะปิดตามเวลาที่ตั้งไว้ด้านล่าง แล้วเปิดกลับเองโดยอัตโนมัติ';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'ข้อมูลสำรองที่เข้ารหัส';
@@ -689,9 +632,6 @@ class AppLocalizationsTh extends AppLocalizations {
   String get helpTitle => 'ช่วยเหลือ';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'ใช้งานอย่างไร';
 
   @override
@@ -727,9 +667,6 @@ class AppLocalizationsTh extends AppLocalizations {
   String get fcBankName => 'ชื่อธนาคาร';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'รหัสผ่านอินเทอร์เน็ตแบงก์กิ้ง';
 
   @override
@@ -749,9 +686,6 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'รหัสลูกค้า / เลขบัตรประชาชน';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'ประเภทบัญชี';
@@ -781,12 +715,6 @@ class AppLocalizationsTh extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / รหัสสำรอง';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'คำถามความปลอดภัย';
 
   @override
@@ -814,9 +742,6 @@ class AppLocalizationsTh extends AppLocalizations {
   String get fcLinkedMainAccount => 'บัญชีที่เชื่อมโยง';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => 'คีย์ลับ 2FA';
 
   @override
@@ -841,21 +766,6 @@ class AppLocalizationsTh extends AppLocalizations {
   String get fcSupportContact => 'ผู้ติดต่อฝ่ายสนับสนุน';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'ชื่อเว็บไซต์';
 
   @override
@@ -865,25 +775,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get fcUsernameEmail => 'ชื่อผู้ใช้ / อีเมล';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'เลือกช่องข้อมูล';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'ตั้งค่าตัวสร้าง';
@@ -964,24 +856,18 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'เกี่ยวกับ';
-
-  @override
-  String get aboutVersion => 'เวอร์ชัน';
-
-  @override
   String get aboutProtectionTitle => 'วิธีปกป้องข้อมูลของคุณ';
 
   @override
   String get aboutProtectionBody =>
-      'ทุกรายการถูกเข้ารหัสด้วย AES-256 บนอุปกรณ์นี้ คีย์ที่ใช้เปิดตู้นิรภัยสร้างจากรหัสผ่านหลักด้วย Argon2id และไม่มีการบันทึกรหัสผ่านไว้ที่ใด';
+      'ทุกอย่างที่คุณบันทึกจะถูกล็อกด้วยการเข้ารหัสที่แข็งแรงบนโทรศัพท์เครื่องนี้ มีเพียงรหัสผ่านหลักของคุณเท่านั้นที่เปิดได้ และรหัสผ่านนั้นไม่ถูกเก็บไว้ที่ใดเลย แม้แต่ใน MÜHÜR หากไม่มีรหัสผ่าน ข้อมูลจะอ่านไม่ได้';
 
   @override
   String get aboutOfflineTitle => 'ใช้งานแบบออฟไลน์';
 
   @override
   String get aboutOfflineBody =>
-      'Muhur ไม่มีสิทธิ์เข้าถึงอินเทอร์เน็ต ไม่มีบัญชี และไม่มีเซิร์ฟเวอร์ ข้อมูลของคุณจะไม่ออกจากอุปกรณ์นี้ เว้นแต่คุณจะส่งออกข้อมูลสำรองที่เข้ารหัสด้วยตัวเอง';
+      'MÜHÜR ไม่เชื่อมต่ออินเทอร์เน็ตเลย ไม่มีบัญชี ไม่มีเซิร์ฟเวอร์ และไม่มีคลาวด์ รหัสผ่านของคุณจะอยู่ในโทรศัพท์เครื่องนี้ เว้นแต่คุณจะส่งออกเองเป็นข้อมูลสำรองที่เข้ารหัสหรือไฟล์ Excel';
 
   @override
   String get aboutLicenses => 'สัญญาอนุญาตโอเพนซอร์ส';
@@ -1001,4 +887,157 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'ไอคอนคลิปบอร์ด: ค่าที่คัดลอก (ตัวเลข = วินาทีที่เหลือก่อนล้าง, แตะเพื่อล้างทันที)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'เวอร์ชัน $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'บันทึกประจำรุ่น';
+
+  @override
+  String get aboutHowTitle => 'วิธีการทำงาน';
+
+  @override
+  String get aboutStoryTitle => 'เรื่องราวของ MÜHÜR';
+
+  @override
+  String get aboutDeveloperTitle => 'เกี่ยวกับผู้พัฒนา';
+
+  @override
+  String get aboutPrivacySection => 'นโยบายความเป็นส่วนตัว';
+
+  @override
+  String get aboutPermissionsTitle => 'สิทธิ์และข้อมูล';
+
+  @override
+  String get aboutSupportSection => 'การสนับสนุน';
+
+  @override
+  String get aboutRate => 'ให้คะแนนบน Google Play';
+
+  @override
+  String get aboutRateDesc => 'ให้คะแนนหรือเขียนรีวิวในหน้าร้านค้า';
+
+  @override
+  String get aboutInBrief => 'โดยสรุป';
+
+  @override
+  String get aboutTechnical => 'รายละเอียดทางเทคนิค';
+
+  @override
+  String get aboutProtectionTech =>
+      '• ตู้นิรภัยถูกเข้ารหัสด้วยคีย์สุ่มขนาด 256 บิต คีย์นี้ถูกผนึกด้วย AES-256-GCM โดยใช้คีย์ที่สร้างจากรหัสผ่านหลักด้วย Argon2id (หน่วยความจำ 32 MiB, 3 รอบ) ค่าตั้งการสร้างคีย์ผูกอยู่กับผนึก จึงตรวจพบการดัดแปลงได้\n• ฐานข้อมูลถูกเข้ารหัสด้วย SQLCipher และคีย์ของฐานข้อมูลสร้างจากคีย์ตู้นิรภัยด้วย HKDF-SHA256\n• ช่องข้อมูลที่ละเอียดอ่อนถูกเข้ารหัสซ้ำด้วย AES-256-GCM และผูกกับรายการและช่องของตัวเอง\n• หลังใส่รหัสผ่านผิด 5 ครั้ง แอปจะรอ 30 วินาที และเพิ่มเป็นสองเท่าทุกครั้งจนถึง 1 ชั่วโมง การเปลี่ยนเวลาบนโทรศัพท์ไม่ทำให้เวลารอสั้นลง\n• การปลดล็อกด้วยไบโอเมตริกยอมรับเฉพาะไบโอเมตริกที่แข็งแรง (Class 3) และจะปิดเองเมื่อมีการเพิ่มลายนิ้วมือหรือใบหน้าใหม่\n• การจับภาพและบันทึกหน้าจอถูกบล็อก ตู้นิรภัยจะล็อกเมื่อคุณออกจากแอป และค่าที่คัดลอกจะถูกทำเครื่องหมายว่าละเอียดอ่อนแล้วล้างให้อัตโนมัติ';
+
+  @override
+  String get aboutOfflineTech =>
+      '• แอปเวอร์ชันที่เผยแพร่ไม่มีสิทธิ์อินเทอร์เน็ตหรือเครือข่าย สิทธิ์เหล่านี้จะถูกลบออกแม้ไลบรารีใดจะขอก็ตาม\n• การสำรองข้อมูลบนคลาวด์และการย้ายไปยังอุปกรณ์อื่นถูกปิดไว้ ข้อมูลของแอปจึงไม่ถูกคัดลอกออกจากโทรศัพท์\n• การจดจำข้อความใช้โมเดลที่มาพร้อมแอปและทำงานบนโทรศัพท์ ภาพจากกล้องถูกประมวลผลในหน่วยความจำและไม่ถูกบันทึก\n• ข้อมูลจะออกจากโทรศัพท์ก็ต่อเมื่อคุณส่งออกเองเท่านั้น ทั้งในรูปไฟล์สำรองที่เข้ารหัส หรือไฟล์ Excel ที่ไม่เข้ารหัสซึ่งความปลอดภัยเป็นความรับผิดชอบของคุณ';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR ไม่เก็บข้อมูลส่วนบุคคล ไม่แสดงโฆษณา ไม่ใช้เครื่องมือวิเคราะห์ และไม่แชร์อะไรกับใคร แอปขอเพียงสิทธิ์กล้อง (สำหรับสแกนข้อความ) และไบโอเมตริก (สำหรับปลดล็อก) Google Play เป็นผู้จัดการการสมัครสมาชิก แอปไม่เคยเห็นข้อมูลการชำระเงินของคุณ การลบแอปจะลบข้อมูลทั้งหมดของแอปด้วย ก่อนลบแอป คุณส่งออกรายการเป็นไฟล์ Excel ได้ โดยความปลอดภัยของไฟล์นั้นเป็นความรับผิดชอบของคุณ';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• กล้อง: ใช้เฉพาะเมื่อเปิดตัวสแกน ไม่บันทึกรูปภาพและไม่บันทึกเสียง\n• ไบโอเมตริก: หน้าต่างระบบของโทรศัพท์เป็นผู้ตรวจลายนิ้วมือหรือใบหน้า MÜHÜR ไม่เคยได้รับข้อมูลนั้น\n• ไฟล์: เข้าถึงเฉพาะเมื่อคุณเลือกตำแหน่งบันทึกหรือเปิดข้อมูลสำรองหรือไฟล์ Excel เอง\n• ไม่มีบัญชี ไม่มีเซิร์ฟเวอร์ ไม่มีรหัสติดตามหรือรหัสโฆษณา\n• การดาวน์โหลดแอปและการซื้อการสมัครสมาชิกดำเนินการโดย Google Play ตามนโยบายความเป็นส่วนตัวของ Google';
+
+  @override
+  String get how1T => 'ตู้นิรภัยและรหัสผ่านหลัก';
+
+  @override
+  String get how1B =>
+      'ทุกอย่างถูกเก็บไว้ในตู้นิรภัยที่เข้ารหัสบนโทรศัพท์เครื่องนี้ มีเพียงรหัสผ่านหลักที่เปิดได้ รหัสผ่านนี้กู้คืนไม่ได้ จึงควรเลือกรหัสที่จำได้และสร้างข้อมูลสำรองไว้';
+
+  @override
+  String get how2T => 'รายการและหมวดหมู่';
+
+  @override
+  String get how2B =>
+      'เพิ่มธนาคาร เว็บไซต์ บัญชีอีเมล และอื่นๆ แต่ละหมวดหมู่มีช่องข้อมูลพร้อมใช้ และคุณเพิ่มช่องของคุณเองได้';
+
+  @override
+  String get how3T => 'คัดลอกอย่างปลอดภัย';
+
+  @override
+  String get how3B =>
+      'แตะช่องข้อมูลเพื่อคัดลอก คลิปบอร์ดจะล้างเองเมื่อครบเวลาที่ตั้งไว้ ไอคอนคลิปบอร์ดบนหน้าหลักจะนับถอยหลัง แตะเพื่อล้างทันที';
+
+  @override
+  String get how4T => 'สแกนด้วยกล้อง';
+
+  @override
+  String get how4B =>
+      'หันกล้องไปที่บัตรหรือเอกสารเพื่ออ่าน IBAN หรือข้อความแทนการพิมพ์ ตรวจสอบผลลัพธ์ก่อนบันทึก';
+
+  @override
+  String get how5T => 'ถังขยะ';
+
+  @override
+  String get how5B =>
+      'รายการที่ลบยังคงถูกเข้ารหัสอยู่ในถังขยะและกู้คืนได้จนกว่าจะครบระยะเวลาที่ตั้งไว้';
+
+  @override
+  String get how6T => 'สำรองและกู้คืน';
+
+  @override
+  String get how6B =>
+      'สร้างไฟล์สำรองที่เข้ารหัสพร้อมรหัสผ่านของตัวเองแล้วเก็บไว้ในที่ปลอดภัย การกู้คืนจะเพิ่มรายการเท่านั้น และไม่เขียนทับรายการเดิม';
+
+  @override
+  String get how7T => 'ล็อกและไบโอเมตริก';
+
+  @override
+  String get how7B =>
+      'ตู้นิรภัยจะล็อกเองเมื่อคุณออกจากแอป เปิดไบโอเมตริกเพื่อเปิดด้วยลายนิ้วมือหรือใบหน้า';
+
+  @override
+  String get storyBody =>
+      'สิ่งประดิษฐ์ยิ่งใหญ่ทุกชิ้นเริ่มต้นจากความพยายามแก้ปัญหาเล็กๆ ในชีวิตของใครสักคน เรื่องราวของ MÜHÜR ก็เป็นเช่นนั้น เป็นการเดินทางที่จริงใจแต่มุ่งมั่น ซึ่งเกิดจากความทรงจำที่หลงหายในความวุ่นวายของโลกดิจิทัล และจากสัญชาตญาณที่อยากปกป้องสิ่งที่เป็นของตัวเอง\n\nทุกอย่างเริ่มจากการชะงักอันน่าหงุดหงิดเพราะลืมรหัสผ่านเพียงตัวเดียว MÜHÜR จึงถูกออกแบบให้เป็นที่หลบภัยส่วนตัวที่ทำงานบนอุปกรณ์ของตัวเองเท่านั้น โดยไม่ต้องพึ่งเซิร์ฟเวอร์คลาวด์ของใคร เมื่อเวลาผ่านไปจึงได้รู้ว่าไม่ได้มีเพียงคนเดียวที่อยากได้ความเป็นส่วนตัวทางดิจิทัลกลับคืนมา\n\nวันนี้ MÜHÜR มีไว้สำหรับทุกคนที่อยากเก็บข้อมูลไว้ในการควบคุมของตัวเองทั้งหมด โดยไม่ต้องฝากไว้กับเซิร์ฟเวอร์ใด\n\nผนึกความทรงจำดิจิทัลของคุณด้วยกุญแจที่ปลอดภัยที่สุด';
+
+  @override
+  String get devBody =>
+      'MÜHÜR เป็นโปรเจกต์อิสระของ uekdesigner ออกแบบและพัฒนาในประเทศตุรกี ขอบคุณที่ใช้ MÜHÜR';
+
+  @override
+  String get rn100 =>
+      '• รุ่นแรก\n• ตู้นิรภัยที่เข้ารหัสบนโทรศัพท์ เปิดด้วยรหัสผ่านหลัก (Argon2id + AES-256)\n• ช่องข้อมูลพร้อมใช้สำหรับธนาคาร เว็บไซต์ อีเมล โซเชียลมีเดีย และบัญชีงาน\n• ตัวสร้างรหัสผ่านพร้อมตัวบอกความแข็งแรง\n• สแกน IBAN และข้อความด้วยกล้อง\n• ปลดล็อกด้วยลายนิ้วมือและใบหน้า\n• สำรองและกู้คืนแบบเข้ารหัส\n• ส่งออกเป็น Excel (ไม่เข้ารหัส ผู้ใช้รับผิดชอบเอง)\n• ถังขยะที่ล้างอัตโนมัติ\n• สรุปตู้นิรภัยที่แสดงรหัสผ่านที่ใช้ซ้ำ\n• ล็อกอัตโนมัติ ป้องกันหน้าจอ และนับถอยหลังคลิปบอร์ด\n• ทำงานแบบออฟไลน์ทั้งหมด\n• 18 ภาษา';
+
+  @override
+  String get excelExport => 'ส่งออกเป็น Excel';
+
+  @override
+  String get excelExportDesc =>
+      'ไฟล์ .xlsx ที่ไม่เข้ารหัสของรายการทั้งหมด เช่น ก่อนลบแอป';
+
+  @override
+  String get excelExportWarnTitle => 'การส่งออกแบบไม่เข้ารหัส';
+
+  @override
+  String get excelExportWarn =>
+      'ไฟล์ Excel จะไม่ถูกเข้ารหัส ใครก็ตามที่ได้ไฟล์นี้ไปจะอ่านรหัสผ่านทั้งหมดของคุณได้ การเลือกที่เก็บ การแชร์ให้ใคร และการลบไฟล์หลังใช้งานเป็นความรับผิดชอบของคุณทั้งหมด รายการในถังขยะจะไม่ถูกรวมไว้';
+
+  @override
+  String get excelExportAgree =>
+      'ฉันเข้าใจแล้ว ความปลอดภัยของไฟล์เป็นความรับผิดชอบของฉัน';
+
+  @override
+  String get excelExportSaved =>
+      'บันทึกไฟล์ Excel แล้ว ลบไฟล์เมื่อไม่ต้องการใช้อีก';
+
+  @override
+  String get excelExportFailed => 'สร้างไฟล์ Excel ไม่ได้';
+
+  @override
+  String get excelColDomain => 'โดเมน';
+
+  @override
+  String get excelColUpdated => 'แก้ไขล่าสุด';
+
+  @override
+  String get how8T => 'ส่งออกเป็น Excel';
+
+  @override
+  String get how8B =>
+      '\"ส่งออกเป็น Excel\" ในการตั้งค่าการสำรองข้อมูลจะเขียนรายการทั้งหมด (ยกเว้นถังขยะ) ลงในไฟล์ .xlsx โดยแยกแผ่นงานตามหมวดหมู่ ไฟล์นี้ไม่ถูกเข้ารหัส คุณต้องยืนยันด้วยรหัสผ่านหลักและยอมรับว่าความปลอดภัยของไฟล์เป็นความรับผิดชอบของคุณ ลบไฟล์เมื่อไม่ต้องการใช้อีก';
 }

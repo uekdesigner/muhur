@@ -4,10 +4,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/crypto/crypto_service.dart';
+import 'about_pages.dart';
 import 'backup_password_dialog.dart';
 import 'backup_service.dart';
+import 'excel_export.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/storage/app_settings.dart';
 import '../../core/utils/clipboard_service.dart';
@@ -211,7 +214,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       onPressed: () => showDialog<void>(
         context: context,
         animationStyle: Motion.style,
-        builder: (ctx) => AlertDialog(
+        builder: (ctx) => ScrollDialog(
           title: Text(title),
           content: Text(body),
           actions: [
@@ -784,6 +787,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  /// Şifresiz Excel dosyası: uyarı + sorumluluk onayı + ana parola istenir.
+  Future<void> _exportExcel() async {
+    final t = AppLocalizations.of(context)!;
+    final rtl = Directionality.of(context) == TextDirection.rtl;
+    final ok = await confirmPlainExport(context, widget.auth);
+    if (!ok || !mounted) return;
+    setState(() => _backupBusy = true);
+    try {
+      final exporter = ExcelExporter(widget.auth, CryptoService());
+      final bytes = await exporter.build(t, rtl: rtl);
+      final saved = await widget.auth.runExternal(
+        () => FilePicker.saveFile(
+          fileName: exporter.suggestedFileName(),
+          bytes: bytes,
+          dialogTitle: t.excelExport,
+        ),
+      );
+      if (saved != null) _toast(t.excelExportSaved);
+    } catch (_) {
+      _toast(t.excelExportFailed);
+    } finally {
+      if (mounted) setState(() => _backupBusy = false);
+    }
+  }
+
   Future<void> _importBackup() async {
     final t = AppLocalizations.of(context)!;
     final file = await widget.auth.runExternal(
@@ -831,6 +859,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: _desc(t.backupImportDesc),
           ),
         ),
+        InkWell(
+          onTap: _backupBusy ? null : _exportExcel,
+          child: _row(
+            icon: Icons.table_view_outlined,
+            title: t.excelExport,
+            child: _desc(t.excelExportDesc),
+          ),
+        ),
         _row(
           icon: Icons.notifications_active_outlined,
           title: t.backupReminderTitle,
@@ -863,46 +899,208 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   List<Widget> _aboutItems(AppLocalizations t) {
     final legal = '© 2026 MÜHÜR. ${t.aboutRights}';
+    void open(String title, List<AboutBlock> blocks) => AboutTextPage.open(
+      context,
+      AboutTextPage(
+        title: title,
+        blocks: blocks,
+        briefLabel: t.aboutInBrief,
+        techLabel: t.aboutTechnical,
+      ),
+    );
     return [
-      _sectionTitle(Icons.info_outline, t.aboutSection),
+      _aboutHeader(
+        t,
+        () => open(t.aboutReleaseNotes, [
+          AboutBlock(title: t.aboutVersionLine('1.0.0'), brief: t.rn100),
+        ]),
+      ),
+      _sectionTitle(Icons.verified_user_outlined, t.brandName),
       _panel([
-        _row(
-          icon: Icons.verified_outlined,
-          title: t.aboutVersion,
-          trailing: Text(
-            _version,
-            style: TextStyle(
-              color: MuhurColors.bronzeLight,
-              fontWeight: FontWeight.w600,
+        _aboutLink(
+          Icons.menu_book_outlined,
+          t.aboutHowTitle,
+          () => open(t.aboutHowTitle, [
+            AboutBlock(title: t.how1T, brief: t.how1B),
+            AboutBlock(title: t.how2T, brief: t.how2B),
+            AboutBlock(title: t.how3T, brief: t.how3B),
+            AboutBlock(title: t.how4T, brief: t.how4B),
+            AboutBlock(title: t.how5T, brief: t.how5B),
+            AboutBlock(title: t.how6T, brief: t.how6B),
+            AboutBlock(title: t.how7T, brief: t.how7B),
+            AboutBlock(title: t.how8T, brief: t.how8B),
+          ]),
+        ),
+        _aboutLink(
+          Icons.auto_stories_outlined,
+          t.aboutStoryTitle,
+          () => open(t.aboutStoryTitle, [AboutBlock(brief: t.storyBody)]),
+        ),
+        _aboutLink(
+          Icons.person_outline,
+          t.aboutDeveloperTitle,
+          () => open(t.aboutDeveloperTitle, [
+            AboutBlock(title: 'uekdesigner', brief: t.devBody),
+          ]),
+        ),
+      ]),
+      _sectionTitle(Icons.privacy_tip_outlined, t.aboutPrivacySection),
+      _panel([
+        _aboutLink(
+          Icons.shield_outlined,
+          t.aboutProtectionTitle,
+          () => open(t.aboutProtectionTitle, [
+            AboutBlock(
+              brief: t.aboutProtectionBody,
+              tech: t.aboutProtectionTech,
             ),
-          ),
+          ]),
         ),
-        _row(
-          icon: Icons.shield_outlined,
-          title: t.aboutProtectionTitle,
-          child: _desc(t.aboutProtectionBody),
+        _aboutLink(
+          Icons.wifi_off_outlined,
+          t.aboutOfflineTitle,
+          () => open(t.aboutOfflineTitle, [
+            AboutBlock(brief: t.aboutOfflineBody, tech: t.aboutOfflineTech),
+          ]),
         ),
-        _row(
-          icon: Icons.wifi_off_outlined,
-          title: t.aboutOfflineTitle,
-          child: _desc(t.aboutOfflineBody),
+        _aboutLink(
+          Icons.fact_check_outlined,
+          t.aboutPermissionsTitle,
+          () => open(t.aboutPermissionsTitle, [
+            AboutBlock(
+              brief: t.aboutPermissionsBody,
+              tech: t.aboutPermissionsTech,
+            ),
+          ]),
         ),
-        InkWell(
-          onTap: () => showLicensePage(
+      ]),
+      _sectionTitle(Icons.support_outlined, t.aboutSupportSection),
+      _panel([
+        _aboutLink(
+          Icons.star_outline,
+          t.aboutRate,
+          _rateApp,
+          subtitle: t.aboutRateDesc,
+        ),
+        _aboutLink(
+          Icons.description_outlined,
+          t.aboutLicenses,
+          () => showLicensePage(
             context: context,
             applicationName: t.brandName,
             applicationVersion: _version,
             applicationLegalese: legal,
           ),
-          child: _row(
-            icon: Icons.description_outlined,
-            title: t.aboutLicenses,
-            child: _desc(t.aboutLicensesDesc),
-          ),
+          subtitle: t.aboutLicensesDesc,
         ),
       ]),
-      _desc(legal),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+        child: Text(
+          legal,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: MuhurColors.cream.withValues(alpha: 0.5),
+            fontSize: 12,
+          ),
+        ),
+      ),
     ];
+  }
+
+  /// Logo, uygulama adı ve sürüm; dokununca sürüm notları açılır.
+  Widget _aboutHeader(AppLocalizations t, VoidCallback onTap) => Padding(
+    padding: const EdgeInsets.fromLTRB(12, 8, 12, 6),
+    child: Material(
+      color: panelColor(context, const Color(0xCC14181C)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+        side: BorderSide(color: MuhurColors.bronze.withValues(alpha: 0.6)),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Image.asset('assets/images/seal.webp', width: 56, height: 56),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${t.brandName} ${t.brandSubtitle}',
+                      style: TextStyle(
+                        color: MuhurColors.cream,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    if (_version.isNotEmpty)
+                      Text(
+                        t.aboutVersionLine(_version),
+                        style: TextStyle(
+                          color: MuhurColors.bronzeLight,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    const SizedBox(height: 2),
+                    Text(
+                      t.aboutReleaseNotes,
+                      style: TextStyle(
+                        color: MuhurColors.cream.withValues(alpha: 0.6),
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right, color: MuhurColors.bronzeLight),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+
+  Widget _aboutLink(
+    IconData icon,
+    String title,
+    VoidCallback onTap, {
+    String? subtitle,
+  }) => InkWell(
+    onTap: onTap,
+    child: _row(
+      icon: icon,
+      title: title,
+      trailing: Icon(
+        Icons.chevron_right,
+        color: MuhurColors.bronzeLight,
+        size: 20,
+      ),
+      child: subtitle == null ? null : _desc(subtitle),
+    ),
+  );
+
+  /// Play Store uygulamasında Mühür'ün sayfasını açar (internet izni gerekmez).
+  Future<void> _rateApp() async {
+    const id = 'com.muhur.app';
+    try {
+      final ok = await launchUrl(
+        Uri.parse('market://details?id=$id'),
+        mode: LaunchMode.externalApplication,
+      );
+      if (ok) return;
+    } catch (_) {}
+    try {
+      await launchUrl(
+        Uri.parse('https://play.google.com/store/apps/details?id=$id'),
+        mode: LaunchMode.externalApplication,
+      );
+    } catch (_) {}
   }
 
   List<Widget> _sectionItems(AppLocalizations t) {

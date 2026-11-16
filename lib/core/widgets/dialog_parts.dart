@@ -121,3 +121,39 @@ class PasswordToggleButton extends StatelessWidget {
     );
   }
 }
+
+/// Başlığı sabit, içeriği kayan pencere. Boyu ekranın [maxHeightFactor]
+/// kadarıyla sınırlıdır; uzun metinli bütün bilgi pencereleri bunu kullanır.
+class ScrollDialog extends StatelessWidget {
+  const ScrollDialog({
+    super.key,
+    required this.title,
+    required this.content,
+    this.actions = const [],
+    this.maxHeightFactor = 0.6,
+  });
+
+  final Widget title;
+  final Widget content;
+  final List<Widget> actions;
+  final double maxHeightFactor;
+
+  @override
+  Widget build(BuildContext context) {
+    final maxHeight = MediaQuery.sizeOf(context).height * maxHeightFactor;
+    return AlertDialog(
+      title: title,
+      titlePadding: const EdgeInsets.fromLTRB(24, 20, 24, 12),
+      contentPadding: EdgeInsets.zero,
+      actionsPadding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+      content: SizedBox(
+        width: double.maxFinite,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxHeight: maxHeight),
+          child: DividedScroll(child: content),
+        ),
+      ),
+      actions: actions,
+    );
+  }
+}

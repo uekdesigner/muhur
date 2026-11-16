@@ -62,7 +62,7 @@ class _SetupScreenState extends State<SetupScreen> {
         final replace = await showDialog<bool>(
           context: context,
           animationStyle: Motion.style,
-          builder: (c) => AlertDialog(
+          builder: (c) => ScrollDialog(
             title: Text(t.orphanVaultTitle),
             content: Text(t.orphanVaultBody),
             actions: [
@@ -289,7 +289,7 @@ class _UnlockScreenState extends State<UnlockScreen> {
     final enable = await showDialog<bool>(
       context: context,
       animationStyle: Motion.style,
-      builder: (c) => AlertDialog(
+      builder: (c) => ScrollDialog(
         title: Text(t.enableBiometricsQ),
         content: Text(t.biometricChangedBody),
         actions: [
@@ -335,7 +335,7 @@ class _UnlockScreenState extends State<UnlockScreen> {
     showDialog<void>(
       context: context,
       animationStyle: Motion.style,
-      builder: (c) => AlertDialog(
+      builder: (c) => ScrollDialog(
         title: Text(t.infoTitle),
         content: Text(t.infoBody),
         actions: [

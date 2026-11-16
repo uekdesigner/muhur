@@ -96,9 +96,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get createVault => 'Tạo';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'Mở';
 
   @override
@@ -108,9 +105,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'Thử quá nhiều lần. Hãy thử lại sau $seconds giây.';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Bật mở khóa sinh trắc học?';
@@ -126,9 +120,6 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get lockNow => 'Khóa';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Tất cả';
@@ -164,22 +155,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get addField => 'Thêm trường';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'Văn bản';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Ẩn giá trị';
@@ -278,11 +254,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get copy => 'Sao chép';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'Cài đặt';
 
   @override
@@ -302,12 +273,6 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get immediately => 'Ngay lập tức';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Thời gian sao chép';
@@ -374,27 +339,11 @@ class AppLocalizationsVi extends AppLocalizations {
       'Giữ máy ảnh yên trên văn bản. Ở chế độ IBAN, văn bản được nhận diện tự động.';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'Đang quét...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'Có thể đã được sửa sau lỗi OCR. Hãy kiểm tra kỹ.';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError =>
@@ -530,17 +479,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get planFree => 'MIỄN PHÍ';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'Cho phép chụp màn hình';
 
   @override
   String get screenshotAllowHint =>
       'Chế độ bảo vệ màn hình tắt trong khoảng thời gian đặt bên dưới, rồi tự bật lại.';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'SAO LƯU MÃ HÓA';
@@ -691,9 +634,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get helpTitle => 'Trợ giúp';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'Cách dùng?';
 
   @override
@@ -729,9 +669,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get fcBankName => 'Tên ngân hàng';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'Mật khẩu ngân hàng điện tử';
 
   @override
@@ -751,9 +688,6 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'Mã khách hàng / CCCD';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Loại tài khoản';
@@ -783,12 +717,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Mã dự phòng';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'Câu hỏi bảo mật';
 
   @override
@@ -816,9 +744,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get fcLinkedMainAccount => 'Tài khoản liên kết';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => 'Khóa bí mật 2FA';
 
   @override
@@ -843,21 +768,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get fcSupportContact => 'Liên hệ hỗ trợ';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'Tên trang';
 
   @override
@@ -867,25 +777,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get fcUsernameEmail => 'Tên người dùng / Email';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'Chọn trường';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Cài đặt trình tạo';
@@ -967,24 +859,18 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'GIỚI THIỆU';
-
-  @override
-  String get aboutVersion => 'Phiên bản';
-
-  @override
   String get aboutProtectionTitle => 'Cách dữ liệu của bạn được bảo vệ';
 
   @override
   String get aboutProtectionBody =>
-      'Mọi mục đều được mã hóa AES-256 trên thiết bị này. Khóa mở kho được tạo từ mật khẩu chính bằng Argon2id; bản thân mật khẩu không bao giờ được lưu.';
+      'Mọi thứ bạn lưu đều được khóa bằng mã hóa mạnh trên điện thoại này. Chỉ mật khẩu chính của bạn mới mở được; mật khẩu không được lưu ở bất kỳ đâu, kể cả trong MÜHÜR. Không có nó, dữ liệu không thể đọc được.';
 
   @override
   String get aboutOfflineTitle => 'Hoạt động ngoại tuyến';
 
   @override
   String get aboutOfflineBody =>
-      'Muhur không có quyền truy cập Internet, không có tài khoản và không có máy chủ. Dữ liệu không rời khỏi thiết bị này trừ khi bạn tự xuất bản sao lưu đã mã hóa.';
+      'MÜHÜR không bao giờ kết nối Internet. Không có tài khoản, máy chủ hay đám mây. Mật khẩu của bạn ở lại trên điện thoại này trừ khi bạn tự xuất ra, dưới dạng bản sao lưu đã mã hóa hoặc tệp Excel.';
 
   @override
   String get aboutLicenses => 'Giấy phép nguồn mở';
@@ -1004,4 +890,158 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'Biểu tượng bộ nhớ tạm: giá trị đã sao chép (số = số giây còn lại trước khi xóa, chạm để xóa ngay)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'Phiên bản $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'Ghi chú phát hành';
+
+  @override
+  String get aboutHowTitle => 'Cách hoạt động';
+
+  @override
+  String get aboutStoryTitle => 'Câu chuyện về MÜHÜR';
+
+  @override
+  String get aboutDeveloperTitle => 'Về nhà phát triển';
+
+  @override
+  String get aboutPrivacySection => 'CHÍNH SÁCH QUYỀN RIÊNG TƯ';
+
+  @override
+  String get aboutPermissionsTitle => 'Quyền và dữ liệu';
+
+  @override
+  String get aboutSupportSection => 'HỖ TRỢ';
+
+  @override
+  String get aboutRate => 'Đánh giá trên Google Play';
+
+  @override
+  String get aboutRateDesc =>
+      'Để lại xếp hạng hoặc nhận xét trên trang cửa hàng';
+
+  @override
+  String get aboutInBrief => 'Tóm tắt';
+
+  @override
+  String get aboutTechnical => 'Chi tiết kỹ thuật';
+
+  @override
+  String get aboutProtectionTech =>
+      '• Kho được mã hóa bằng một khóa ngẫu nhiên 256 bit. Khóa này được niêm phong bằng AES-256-GCM với một khóa tạo từ mật khẩu chính qua Argon2id (bộ nhớ 32 MiB, 3 vòng). Thiết lập tạo khóa được gắn với niêm phong, nên mọi can thiệp đều bị phát hiện.\n• Cơ sở dữ liệu được mã hóa bằng SQLCipher; khóa của nó được tạo từ khóa kho qua HKDF-SHA256.\n• Các trường nhạy cảm được mã hóa thêm bằng AES-256-GCM và gắn với mục và trường của chúng.\n• Sau 5 lần nhập sai mật khẩu, ứng dụng chờ 30 giây, mỗi lần tăng gấp đôi, tối đa 1 giờ. Đổi giờ trên điện thoại không rút ngắn thời gian chờ.\n• Mở khóa sinh trắc học chỉ chấp nhận sinh trắc học mạnh (Loại 3) và sẽ tự tắt khi thêm vân tay hoặc khuôn mặt mới.\n• Chụp và quay màn hình bị chặn, kho tự khóa khi bạn rời ứng dụng, và giá trị đã sao chép được đánh dấu nhạy cảm rồi tự động xóa.';
+
+  @override
+  String get aboutOfflineTech =>
+      '• Phiên bản phát hành của ứng dụng không có quyền Internet hay mạng; các quyền này bị gỡ bỏ kể cả khi một thư viện yêu cầu.\n• Sao lưu đám mây và chuyển sang thiết bị khác đều bị tắt, nên dữ liệu của ứng dụng không bị sao chép ra khỏi điện thoại.\n• Nhận dạng chữ dùng mô hình có sẵn trong ứng dụng và chạy trên điện thoại; hình ảnh từ máy ảnh được xử lý trong bộ nhớ và không bao giờ được lưu.\n• Dữ liệu chỉ rời điện thoại khi chính bạn xuất ra: dưới dạng tệp sao lưu đã mã hóa, hoặc tệp Excel không mã hóa mà sự an toàn là trách nhiệm của bạn.';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR không thu thập dữ liệu cá nhân, không hiển thị quảng cáo, không dùng công cụ phân tích và không chia sẻ gì với ai. Ứng dụng chỉ xin quyền máy ảnh (để quét chữ) và sinh trắc học (để mở khóa). Gói đăng ký do Google Play quản lý; ứng dụng không bao giờ thấy thông tin thanh toán của bạn. Xóa ứng dụng sẽ xóa toàn bộ dữ liệu của nó. Trước khi xóa, bạn có thể xuất các mục ra Excel; sự an toàn của tệp đó là trách nhiệm của bạn.';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• Máy ảnh: chỉ dùng khi trình quét đang mở; không lưu ảnh và không ghi âm.\n• Sinh trắc học: vân tay hoặc khuôn mặt do cửa sổ hệ thống của điện thoại kiểm tra; MÜHÜR không bao giờ nhận dữ liệu đó.\n• Tệp: chỉ truy cập khi bạn tự chọn nơi lưu hoặc mở bản sao lưu hay tệp Excel.\n• Không tài khoản, không máy chủ, không mã định danh theo dõi hay quảng cáo.\n• Việc tải ứng dụng và mua gói đăng ký do Google Play xử lý theo chính sách quyền riêng tư của Google.';
+
+  @override
+  String get how1T => 'Kho và mật khẩu chính';
+
+  @override
+  String get how1B =>
+      'Mọi thứ được giữ trong một kho mã hóa trên điện thoại này. Chỉ mật khẩu chính mới mở được kho. Mật khẩu không thể khôi phục, hãy chọn mật khẩu bạn nhớ được và tạo bản sao lưu.';
+
+  @override
+  String get how2T => 'Mục và danh mục';
+
+  @override
+  String get how2B =>
+      'Thêm ngân hàng, trang web, tài khoản email và nhiều hơn nữa. Mỗi danh mục có sẵn các trường, và bạn có thể thêm trường riêng.';
+
+  @override
+  String get how3T => 'Sao chép an toàn';
+
+  @override
+  String get how3B =>
+      'Chạm vào một trường để sao chép. Bộ nhớ tạm tự xóa sau khoảng thời gian bạn đặt. Biểu tượng trên màn hình chính đếm ngược; chạm vào để xóa ngay.';
+
+  @override
+  String get how4T => 'Quét bằng máy ảnh';
+
+  @override
+  String get how4B =>
+      'Hướng máy ảnh vào thẻ hoặc tài liệu để đọc IBAN hoặc chữ thay vì gõ. Kiểm tra kết quả trước khi lưu.';
+
+  @override
+  String get how5T => 'Thùng rác';
+
+  @override
+  String get how5B =>
+      'Các mục đã xóa vẫn được mã hóa trong thùng rác và có thể khôi phục cho đến khi hết thời hạn bạn đặt.';
+
+  @override
+  String get how6T => 'Sao lưu và khôi phục';
+
+  @override
+  String get how6B =>
+      'Tạo tệp sao lưu mã hóa với mật khẩu riêng và cất ở nơi an toàn. Khôi phục chỉ thêm mục; các mục hiện có không bao giờ bị ghi đè.';
+
+  @override
+  String get how7T => 'Khóa và sinh trắc học';
+
+  @override
+  String get how7B =>
+      'Kho tự khóa khi bạn rời ứng dụng. Bật sinh trắc học để mở bằng vân tay hoặc khuôn mặt.';
+
+  @override
+  String get storyBody =>
+      'Mọi phát minh lớn đều bắt đầu từ nỗ lực giải quyết một bế tắc nhỏ trong chính cuộc sống của ai đó. Câu chuyện của MÜHÜR cũng vậy: một hành trình chân thành nhưng mạnh mẽ, sinh ra từ ký ức thất lạc giữa sự hỗn loạn của thế giới số và từ bản năng muốn bảo vệ những gì thuộc về mình.\n\nMọi thứ bắt đầu từ khoảnh khắc khó chịu khi quên đúng một mật khẩu. Tôi thiết kế MÜHÜR như một nơi trú ẩn riêng chỉ chạy trên thiết bị của mình, không phụ thuộc vào máy chủ đám mây của người khác. Dần dần tôi nhận ra mình không phải người duy nhất muốn lấy lại quyền riêng tư số.\n\nNgày nay MÜHÜR dành cho tất cả những ai muốn giữ dữ liệu hoàn toàn trong tầm kiểm soát của mình mà không phải gửi gắm cho bất kỳ máy chủ nào.\n\nHãy niêm phong ký ức số của bạn bằng ổ khóa an toàn nhất.';
+
+  @override
+  String get devBody =>
+      'MÜHÜR là dự án độc lập của uekdesigner, được thiết kế và phát triển tại Thổ Nhĩ Kỳ. Cảm ơn bạn đã dùng MÜHÜR.';
+
+  @override
+  String get rn100 =>
+      '• Phiên bản đầu tiên.\n• Kho mã hóa trên điện thoại, mở bằng mật khẩu chính (Argon2id + AES-256).\n• Trường có sẵn cho ngân hàng, trang web, email, mạng xã hội và tài khoản công việc.\n• Trình tạo mật khẩu có chỉ báo độ mạnh.\n• Quét IBAN và chữ bằng máy ảnh.\n• Mở khóa bằng vân tay và khuôn mặt.\n• Sao lưu và khôi phục có mã hóa.\n• Xuất ra Excel (không mã hóa, bạn tự chịu trách nhiệm).\n• Thùng rác tự dọn dẹp.\n• Tóm tắt kho cho biết mật khẩu bị dùng lại.\n• Tự động khóa, bảo vệ màn hình và đếm ngược bộ nhớ tạm.\n• Hoạt động hoàn toàn ngoại tuyến.\n• 18 ngôn ngữ.';
+
+  @override
+  String get excelExport => 'Xuất ra Excel';
+
+  @override
+  String get excelExportDesc =>
+      'Tệp .xlsx không mã hóa chứa các mục của bạn, ví dụ trước khi xóa ứng dụng';
+
+  @override
+  String get excelExportWarnTitle => 'Xuất không mã hóa';
+
+  @override
+  String get excelExportWarn =>
+      'Tệp Excel KHÔNG được mã hóa. Bất kỳ ai có được tệp này đều đọc được toàn bộ mật khẩu của bạn. Việc cất giữ ở đâu, chia sẻ với ai và xóa tệp sau đó hoàn toàn là trách nhiệm của bạn. Các mục trong thùng rác không được đưa vào.';
+
+  @override
+  String get excelExportAgree =>
+      'Tôi hiểu, sự an toàn của tệp là trách nhiệm của tôi.';
+
+  @override
+  String get excelExportSaved =>
+      'Đã lưu tệp Excel. Hãy xóa tệp khi không cần nữa.';
+
+  @override
+  String get excelExportFailed => 'Không thể tạo tệp Excel.';
+
+  @override
+  String get excelColDomain => 'Tên miền';
+
+  @override
+  String get excelColUpdated => 'Cập nhật lần cuối';
+
+  @override
+  String get how8T => 'Xuất ra Excel';
+
+  @override
+  String get how8B =>
+      '\"Xuất ra Excel\" trong phần cài đặt sao lưu ghi toàn bộ mục của bạn (trừ thùng rác) vào một tệp .xlsx, mỗi danh mục một trang tính. Tệp không được mã hóa: bạn xác nhận bằng mật khẩu chính và đồng ý rằng sự an toàn của tệp là trách nhiệm của bạn. Hãy xóa tệp khi không cần nữa.';
 }

@@ -96,9 +96,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get createVault => 'Oluştur';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'Aç';
 
   @override
@@ -108,9 +105,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'Çok fazla deneme. $seconds saniye sonra tekrar deneyin.';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Biyometrik kilit açma etkinleştirilsin mi?';
@@ -126,9 +120,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get lockNow => 'Kilitle';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Tümü';
@@ -164,22 +155,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addField => 'Alan ekle';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'Metin';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Değeri gizle';
@@ -278,11 +254,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get copy => 'Kopyala';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'Ayarlar';
 
   @override
@@ -302,12 +273,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get immediately => 'Anında';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Kopyalama süresi';
@@ -374,27 +339,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kamerayı metnin üzerinde sabit tutun. IBAN modunda otomatik algılanır.';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'Taranıyor...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'OCR hatasından sonra düzeltilmiş olabilir. Dikkatle kontrol edin.';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError =>
@@ -533,17 +482,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get planFree => 'ÜCRETSİZ';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'Ekran görüntüsüne izin ver';
 
   @override
   String get screenshotAllowHint =>
       'Ekran koruması aşağıda ayarlanan süre boyunca kapatılır, sonra otomatik olarak yeniden açılır.';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'ŞİFRELİ YEDEK';
@@ -694,9 +637,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get helpTitle => 'Yardım';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'Nasıl kullanılır?';
 
   @override
@@ -732,9 +672,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcBankName => 'Banka Adı';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'Bankacılık Parolası';
 
   @override
@@ -754,9 +691,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'Müşteri No / TC';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Hesap Türü';
@@ -786,12 +720,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Yedek Kodlar';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'Güvenlik Sorusu';
 
   @override
@@ -819,9 +747,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcLinkedMainAccount => 'Bağlı Hesap';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => '2FA Gizli Anahtar';
 
   @override
@@ -846,21 +771,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcSupportContact => 'Destek Kişisi';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'Site Adı';
 
   @override
@@ -870,25 +780,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get fcUsernameEmail => 'Kullanıcı Adı / E-posta';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'Alan seç';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Üretici ayarları';
@@ -970,24 +862,18 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'HAKKINDA';
-
-  @override
-  String get aboutVersion => 'Sürüm';
-
-  @override
   String get aboutProtectionTitle => 'Verileriniz nasıl korunur';
 
   @override
   String get aboutProtectionBody =>
-      'Her kayıt bu cihazda AES-256 ile şifrelenir. Kasayı açan anahtar ana parolanızdan Argon2id ile türetilir; parolanın kendisi hiçbir yerde saklanmaz.';
+      'Kaydettiğiniz her şey bu telefonda güçlü bir şifrelemeyle kilitlenir. Kilidi yalnızca ana parolanız açar; parolanız hiçbir yerde, MÜHÜR\'ün kendisinde bile saklanmaz. O olmadan veriler okunamaz.';
 
   @override
   String get aboutOfflineTitle => 'İnternetsiz çalışır';
 
   @override
   String get aboutOfflineBody =>
-      'Muhur\'un internet izni, hesabı ve sunucusu yoktur. Şifreli bir yedeği kendiniz dışa aktarmadığınız sürece verileriniz bu cihazdan çıkmaz.';
+      'MÜHÜR internete hiç bağlanmaz. Hesap, sunucu ya da bulut yoktur. Parolalarınız, siz kendiniz şifreli bir yedek ya da Excel dosyası olarak dışa aktarmadıkça bu telefondan çıkmaz.';
 
   @override
   String get aboutLicenses => 'Açık kaynak lisansları';
@@ -1007,4 +893,157 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'Pano simgesi: Kopyalanan değer (rakam = silinmeye kalan saniye, dokununca hemen silinir)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'Sürüm $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'Sürüm notları';
+
+  @override
+  String get aboutHowTitle => 'Nasıl çalışır';
+
+  @override
+  String get aboutStoryTitle => 'MÜHÜR\'ün hikâyesi';
+
+  @override
+  String get aboutDeveloperTitle => 'Geliştirici hakkında';
+
+  @override
+  String get aboutPrivacySection => 'GİZLİLİK POLİTİKASI';
+
+  @override
+  String get aboutPermissionsTitle => 'İzinler ve veriler';
+
+  @override
+  String get aboutSupportSection => 'DESTEK';
+
+  @override
+  String get aboutRate => 'Google Play\'de değerlendir';
+
+  @override
+  String get aboutRateDesc => 'Mağaza sayfasında puan verin veya yorum bırakın';
+
+  @override
+  String get aboutInBrief => 'Kısaca';
+
+  @override
+  String get aboutTechnical => 'Teknik ayrıntı';
+
+  @override
+  String get aboutProtectionTech =>
+      '• Kasa, rastgele üretilen 256 bitlik bir anahtarla şifrelenir. Bu anahtar, ana parolanızdan Argon2id (32 MiB bellek, 3 tur) ile türetilen anahtarla AES-256-GCM kullanılarak mühürlenir. Anahtar türetme ayarları mühre bağlıdır; değiştirilirse fark edilir.\n• Veritabanı SQLCipher ile şifrelenir; anahtarı kasa anahtarından HKDF-SHA256 ile türetilir.\n• Hassas alanlar ayrıca AES-256-GCM ile şifrelenir ve ait oldukları kayda ve alana bağlanır.\n• 5 yanlış parolanın ardından uygulama 30 saniye bekletir; süre her seferinde ikiye katlanarak en çok 1 saate çıkar. Telefonun saatini değiştirmek bekleme süresini kısaltmaz.\n• Biyometrik açma yalnızca güçlü (Class 3) biyometriyi kabul eder; yeni bir parmak izi veya yüz eklenirse kendiliğinden kapanır.\n• Ekran görüntüsü ve ekran kaydı engellenir, uygulamadan çıkınca kasa kilitlenir, kopyalanan değerler hassas olarak işaretlenir ve kendiliğinden silinir.';
+
+  @override
+  String get aboutOfflineTech =>
+      '• Uygulamanın yayın sürümünde internet ve ağ izni yoktur; bir kütüphane istese bile kaldırılır.\n• Bulut yedeği ve cihazdan cihaza aktarım kapalıdır; uygulamanın verileri telefondan kopyalanmaz.\n• Metin tanıma, uygulamanın içinde gelen bir modelle telefonda çalışır; kamera görüntüleri bellekte işlenir ve kaydedilmez.\n• Veriler telefondan yalnızca sizin dışa aktarmanızla çıkar: şifreli bir yedek dosyası ya da güvenliği sizin sorumluluğunuzda olan şifresiz bir Excel dosyası olarak.';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR kişisel veri toplamaz, reklam göstermez, analiz aracı kullanmaz ve hiçbir şeyi kimseyle paylaşmaz. Yalnızca kamera (metin taramak için) ve biyometri (kilidi açmak için) izni ister. Abonelikleri Google Play yönetir; uygulama ödeme bilgilerinizi görmez. Uygulamayı silmek tüm verilerini de siler. Silmeden önce kayıtlarınızı Excel\'e aktarabilirsiniz; bu dosyanın güvenliği sizin sorumluluğunuzdadır.';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• Kamera: yalnızca tarayıcı açıkken kullanılır; fotoğraf kaydedilmez, ses kaydı yapılmaz.\n• Biyometri: parmak izinizi veya yüzünüzü telefonun sistem penceresi doğrular; MÜHÜR bu verileri hiç almaz.\n• Dosyalar: yalnızca bir yedeği veya Excel dosyasını kaydetmek ya da açmak için konum seçtiğinizde erişilir.\n• Hesap, sunucu, izleme veya reklam kimliği yoktur.\n• Uygulamanın indirilmesi ve abonelik satın alımı Google Play tarafından, Google\'ın kendi gizlilik politikasına göre yürütülür.';
+
+  @override
+  String get how1T => 'Kasa ve ana parola';
+
+  @override
+  String get how1B =>
+      'Her şey bu telefonda şifreli bir kasada durur. Kasayı yalnızca ana parolanız açar. Parola kurtarılamaz; hatırlayacağınız bir parola seçin ve yedek alın.';
+
+  @override
+  String get how2T => 'Kayıtlar ve kategoriler';
+
+  @override
+  String get how2B =>
+      'Bankalar, web siteleri, e-posta hesapları ve daha fazlasını ekleyin. Her kategori hazır alanlar sunar; kendi alanlarınızı da ekleyebilirsiniz.';
+
+  @override
+  String get how3T => 'Güvenli kopyalama';
+
+  @override
+  String get how3B =>
+      'Bir alanı kopyalamak için dokunun. Pano, ayarladığınız süre sonunda kendiliğinden temizlenir. Ana ekrandaki pano simgesi geri sayar; dokunursanız hemen temizler.';
+
+  @override
+  String get how4T => 'Kamerayla tarama';
+
+  @override
+  String get how4B =>
+      'IBAN\'ı veya metni elle yazmak yerine kamerayı karta ya da belgeye tutun. Kaydetmeden önce sonucu kontrol edin.';
+
+  @override
+  String get how5T => 'Çöp kutusu';
+
+  @override
+  String get how5B =>
+      'Silinen kayıtlar şifreli hâlde çöp kutusunda bekler ve ayarladığınız süre dolana kadar geri alınabilir.';
+
+  @override
+  String get how6T => 'Yedekleme ve geri yükleme';
+
+  @override
+  String get how6B =>
+      'Kendi parolası olan şifreli bir yedek dosyası oluşturun ve güvenli bir yerde saklayın. Geri yükleme yalnızca kayıt ekler; mevcut kayıtların üzerine asla yazmaz.';
+
+  @override
+  String get how7T => 'Kilit ve biyometri';
+
+  @override
+  String get how7B =>
+      'Uygulamadan çıktığınızda kasa kendiliğinden kilitlenir. Biyometriyi açarsanız parmak izinizle veya yüzünüzle açabilirsiniz.';
+
+  @override
+  String get storyBody =>
+      'Her büyük buluş, insanın kendi hayatındaki ufak bir çıkmazı çözme çabasıyla başlar. MÜHÜR\'ün hikâyesi de tam olarak böyle: dijital dünyanın karmaşası içinde kaybolan hafızanın ve \"kendine ait olanı koruma\" içgüdüsünün doğurduğu samimi ama güçlü bir yolculuk.\n\nHer şey, unutulan tek bir şifrenin yarattığı o can sıkıcı duraklamayla başladı. MÜHÜR\'ü yabancı bulut sunucularına bağımlı kalmadan, yalnızca kendi cihazımda çalışan kişisel bir sığınak olarak tasarladım. Zamanla fark ettim ki dijital mahremiyetini geri isteyen tek kişi ben değilim.\n\nBugün MÜHÜR, verilerini hiçbir sunucuya emanet etmeden tamamen kendi kontrolünde tutmak isteyen herkes için var.\n\nDijital hafızanın en güvenli kilidini MÜHÜR\'le.';
+
+  @override
+  String get devBody =>
+      'MÜHÜR, uekdesigner\'ın bağımsız bir projesidir; Türkiye\'de tasarlanıp geliştirilmektedir. MÜHÜR\'ü kullandığınız için teşekkürler.';
+
+  @override
+  String get rn100 =>
+      '• İlk sürüm.\n• Ana parolayla açılan, telefonda şifreli kasa (Argon2id + AES-256).\n• Banka, web sitesi, e-posta, sosyal medya ve iş hesapları için hazır alanlar.\n• Güç göstergeli parola üretici.\n• Kamerayla IBAN ve metin tarama.\n• Parmak izi ve yüzle açma.\n• Şifreli yedekleme ve geri yükleme.\n• Excel\'e aktarma (şifresiz; sorumluluk kullanıcıya aittir).\n• Kendiliğinden temizlenen çöp kutusu.\n• Tekrar kullanılan parolaları gösteren kasa özeti.\n• Otomatik kilit, ekran koruması ve pano geri sayımı.\n• Tamamen internetsiz çalışır.\n• 18 dil.';
+
+  @override
+  String get excelExport => 'Excel\'e aktar';
+
+  @override
+  String get excelExportDesc =>
+      'Kayıtlarınızın şifresiz .xlsx dosyası; örneğin uygulamayı silmeden önce';
+
+  @override
+  String get excelExportWarnTitle => 'Şifresiz dışa aktarma';
+
+  @override
+  String get excelExportWarn =>
+      'Excel dosyası ŞİFRELENMEZ. Dosyayı ele geçiren herkes tüm parolalarınızı okuyabilir. Dosyayı nerede sakladığınız, kimle paylaştığınız ve işiniz bitince silmeniz tamamen sizin sorumluluğunuzdadır. Çöp kutusundaki kayıtlar dahil edilmez.';
+
+  @override
+  String get excelExportAgree =>
+      'Anladım, dosyanın güvenliği benim sorumluluğumda.';
+
+  @override
+  String get excelExportSaved =>
+      'Excel dosyası kaydedildi. İşiniz bitince dosyayı silin.';
+
+  @override
+  String get excelExportFailed => 'Excel dosyası oluşturulamadı.';
+
+  @override
+  String get excelColDomain => 'Alan adı';
+
+  @override
+  String get excelColUpdated => 'Son güncelleme';
+
+  @override
+  String get how8T => 'Excel\'e aktarma';
+
+  @override
+  String get how8B =>
+      'Yedek ayarlarındaki \"Excel\'e aktar\", çöp kutusu dışındaki tüm kayıtlarınızı her kategori ayrı bir sayfada olacak şekilde .xlsx dosyasına yazar. Dosya şifrelenmez: ana parolanızla onaylarsınız ve dosyanın güvenliğinin sizin sorumluluğunuzda olduğunu kabul edersiniz. İşiniz bitince dosyayı silin.';
 }

@@ -96,9 +96,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get createVault => 'Utwórz';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'Otwórz';
 
   @override
@@ -108,9 +105,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'Zbyt wiele prób. Spróbuj ponownie za $seconds s.';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Włączyć odblokowanie biometryczne?';
@@ -126,9 +120,6 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get lockNow => 'Zablokuj';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Wszystkie';
@@ -164,22 +155,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get addField => 'Dodaj pole';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'Tekst';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Ukryj wartość';
@@ -287,11 +263,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get copy => 'Kopiuj';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'Ustawienia';
 
   @override
@@ -311,12 +282,6 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get immediately => 'Od razu';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Czas schowka';
@@ -383,27 +348,11 @@ class AppLocalizationsPl extends AppLocalizations {
       'Trzymaj aparat nieruchomo nad tekstem. W trybie IBAN jest wykrywany automatycznie.';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'Skanowanie...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'Możliwe, że poprawiono błąd OCR. Sprawdź dokładnie.';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError =>
@@ -542,17 +491,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get planFree => 'DARMOWY';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'Zezwalaj na zrzuty ekranu';
 
   @override
   String get screenshotAllowHint =>
       'Ochrona ekranu wyłącza się na ustawiony niżej czas, a potem włącza się automatycznie.';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'ZASZYFROWANA KOPIA';
@@ -713,9 +656,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get helpTitle => 'Pomoc';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'Jak używać?';
 
   @override
@@ -759,9 +699,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fcBankName => 'Nazwa banku';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'Hasło do bankowości';
 
   @override
@@ -781,9 +718,6 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'Nr klienta / PESEL';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Typ konta';
@@ -813,12 +747,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Kody zapasowe';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'Pytanie bezpieczeństwa';
 
   @override
@@ -846,9 +774,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fcLinkedMainAccount => 'Powiązane konto';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => 'Klucz tajny 2FA';
 
   @override
@@ -873,21 +798,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fcSupportContact => 'Kontakt do wsparcia';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'Nazwa strony';
 
   @override
@@ -897,25 +807,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fcUsernameEmail => 'Użytkownik / E-mail';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'Wybierz pole';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Ustawienia generatora';
@@ -997,24 +889,18 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'INFORMACJE';
-
-  @override
-  String get aboutVersion => 'Wersja';
-
-  @override
   String get aboutProtectionTitle => 'Jak chronione są Twoje dane';
 
   @override
   String get aboutProtectionBody =>
-      'Każdy wpis jest szyfrowany na tym urządzeniu algorytmem AES-256. Klucz otwierający sejf powstaje z hasła głównego za pomocą Argon2id; samo hasło nigdzie nie jest zapisywane.';
+      'Wszystko, co zapisujesz, jest zamknięte silnym szyfrowaniem na tym telefonie. Otworzyć to może tylko Twoje hasło główne – nie jest ono nigdzie zapisywane, nawet przez MÜHÜR. Bez niego dane są nieczytelne.';
 
   @override
   String get aboutOfflineTitle => 'Działa offline';
 
   @override
   String get aboutOfflineBody =>
-      'Muhur nie ma uprawnień do internetu, konta ani serwera. Twoje dane nie opuszczają tego urządzenia, chyba że sam wyeksportujesz zaszyfrowaną kopię.';
+      'MÜHÜR nigdy nie łączy się z internetem. Nie ma konta, serwera ani chmury. Twoje hasła zostają na tym telefonie, chyba że sam je wyeksportujesz jako zaszyfrowaną kopię lub plik Excela.';
 
   @override
   String get aboutLicenses => 'Licencje open source';
@@ -1034,4 +920,157 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'Ikona schowka: skopiowana wartość (liczba = sekundy do wyczyszczenia, dotknij, aby wyczyścić teraz)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'Wersja $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'Informacje o wersji';
+
+  @override
+  String get aboutHowTitle => 'Jak to działa';
+
+  @override
+  String get aboutStoryTitle => 'Historia MÜHÜR';
+
+  @override
+  String get aboutDeveloperTitle => 'Kto stoi za MÜHÜR';
+
+  @override
+  String get aboutPrivacySection => 'POLITYKA PRYWATNOŚCI';
+
+  @override
+  String get aboutPermissionsTitle => 'Uprawnienia i dane';
+
+  @override
+  String get aboutSupportSection => 'POMOC';
+
+  @override
+  String get aboutRate => 'Oceń w Google Play';
+
+  @override
+  String get aboutRateDesc => 'Wystaw ocenę lub opinię na stronie sklepu';
+
+  @override
+  String get aboutInBrief => 'W skrócie';
+
+  @override
+  String get aboutTechnical => 'Szczegóły techniczne';
+
+  @override
+  String get aboutProtectionTech =>
+      '• Sejf jest szyfrowany losowym kluczem 256-bitowym. Ten klucz jest pieczętowany algorytmem AES-256-GCM kluczem wyprowadzonym z hasła głównego za pomocą Argon2id (32 MiB pamięci, 3 przebiegi). Ustawienia wyprowadzania są powiązane z pieczęcią, więc każda manipulacja zostaje wykryta.\n• Baza danych jest szyfrowana przez SQLCipher; jej klucz powstaje z klucza sejfu za pomocą HKDF-SHA256.\n• Wrażliwe pola są dodatkowo szyfrowane AES-256-GCM i powiązane ze swoim wpisem i polem.\n• Po 5 błędnych hasłach aplikacja czeka 30 sekund, za każdym razem dwa razy dłużej, maksymalnie 1 godzinę. Zmiana zegara telefonu nie skraca oczekiwania.\n• Odblokowanie biometryczne akceptuje tylko silną biometrię (klasa 3) i wyłącza się po dodaniu nowego odcisku palca lub twarzy.\n• Zrzuty i nagrywanie ekranu są blokowane, sejf blokuje się po wyjściu z aplikacji, a skopiowane wartości są oznaczane jako wrażliwe i automatycznie usuwane.';
+
+  @override
+  String get aboutOfflineTech =>
+      '• Opublikowana wersja aplikacji nie ma uprawnień do internetu ani sieci; są usuwane, nawet jeśli poprosi o nie jakaś biblioteka.\n• Kopia w chmurze i przenoszenie na inne urządzenie są wyłączone, więc dane aplikacji nie są kopiowane poza telefon.\n• Rozpoznawanie tekstu używa modelu wbudowanego w aplikację i działa na telefonie; obrazy z aparatu są przetwarzane w pamięci i nigdy nie są zapisywane.\n• Dane opuszczają telefon tylko wtedy, gdy sam je wyeksportujesz: jako zaszyfrowany plik kopii lub niezaszyfrowany plik Excela, za którego bezpieczeństwo odpowiadasz Ty.';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR nie zbiera danych osobowych, nie wyświetla reklam, nie używa narzędzi analitycznych i niczego nikomu nie udostępnia. Prosi tylko o dostęp do aparatu (do skanowania tekstu) i biometrii (do odblokowania). Subskrypcjami zarządza Google Play; aplikacja nigdy nie widzi Twoich danych płatniczych. Usunięcie aplikacji usuwa wszystkie jej dane. Wcześniej możesz wyeksportować wpisy do Excela; za bezpieczeństwo tego pliku odpowiadasz Ty.';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• Aparat: używany tylko przy otwartym skanerze; zdjęcia nie są zapisywane, a dźwięk nie jest nagrywany.\n• Biometria: odcisk palca lub twarz sprawdza okno systemowe telefonu; MÜHÜR nigdy nie otrzymuje tych danych.\n• Pliki: dostęp tylko wtedy, gdy sam wybierasz miejsce zapisu lub otwarcia kopii albo pliku Excela.\n• Brak konta, serwera oraz identyfikatorów śledzących i reklamowych.\n• Pobieranie aplikacji i zakup subskrypcji obsługuje Google Play zgodnie z polityką prywatności Google.';
+
+  @override
+  String get how1T => 'Sejf i hasło główne';
+
+  @override
+  String get how1B =>
+      'Wszystko jest przechowywane w zaszyfrowanym sejfie na tym telefonie. Otwiera go tylko Twoje hasło główne. Nie da się go odzyskać – wybierz takie, które zapamiętasz, i zrób kopię zapasową.';
+
+  @override
+  String get how2T => 'Wpisy i kategorie';
+
+  @override
+  String get how2B =>
+      'Dodawaj banki, strony, konta e-mail i nie tylko. Każda kategoria ma gotowe pola, a możesz też dodać własne.';
+
+  @override
+  String get how3T => 'Bezpieczne kopiowanie';
+
+  @override
+  String get how3B =>
+      'Dotknij pola, aby je skopiować. Schowek czyści się sam po ustawionym czasie. Ikona na ekranie głównym odlicza czas; dotknij jej, aby wyczyścić od razu.';
+
+  @override
+  String get how4T => 'Skanowanie aparatem';
+
+  @override
+  String get how4B =>
+      'Skieruj aparat na kartę lub dokument, aby odczytać IBAN lub tekst zamiast go wpisywać. Sprawdź wynik przed zapisaniem.';
+
+  @override
+  String get how5T => 'Kosz';
+
+  @override
+  String get how5B =>
+      'Usunięte wpisy czekają zaszyfrowane w koszu i można je przywrócić do końca ustawionego okresu.';
+
+  @override
+  String get how6T => 'Kopia i przywracanie';
+
+  @override
+  String get how6B =>
+      'Utwórz zaszyfrowany plik kopii z osobnym hasłem i przechowuj go w bezpiecznym miejscu. Przywracanie tylko dodaje wpisy; istniejące nigdy nie są nadpisywane.';
+
+  @override
+  String get how7T => 'Blokada i biometria';
+
+  @override
+  String get how7B =>
+      'Sejf blokuje się, gdy tylko wyjdziesz z aplikacji. Włącz biometrię, aby otwierać go odciskiem palca lub twarzą.';
+
+  @override
+  String get storyBody =>
+      'Każdy wielki wynalazek zaczyna się od próby rozwiązania małego problemu z własnego życia. Historia MÜHÜR jest właśnie taka: to szczera, ale zdecydowana podróż, zrodzona z pamięci gubiącej się w chaosie cyfrowego świata i z instynktu ochrony tego, co własne.\n\nWszystko zaczęło się od irytującej przerwy spowodowanej jednym zapomnianym hasłem. MÜHÜR powstał jako osobista przystań, która działa tylko na moim własnym urządzeniu, bez zależności od cudzych serwerów w chmurze. Z czasem stało się jasne, że nie tylko ja chcę odzyskać swoją cyfrową prywatność.\n\nDziś MÜHÜR jest dla wszystkich, którzy chcą mieć pełną kontrolę nad swoimi danymi, nie powierzając ich żadnemu serwerowi.\n\nZapieczętuj najbezpieczniejszy zamek swojej cyfrowej pamięci.';
+
+  @override
+  String get devBody =>
+      'MÜHÜR to niezależny projekt uekdesigner, zaprojektowany i rozwijany w Turcji. Dziękujemy za korzystanie z MÜHÜR.';
+
+  @override
+  String get rn100 =>
+      '• Pierwsza wersja.\n• Zaszyfrowany sejf na telefonie, otwierany hasłem głównym (Argon2id + AES-256).\n• Gotowe pola dla banków, stron, poczty, mediów społecznościowych i kont firmowych.\n• Generator haseł ze wskaźnikiem siły.\n• Skanowanie IBAN i tekstu aparatem.\n• Odblokowanie odciskiem palca i twarzą.\n• Zaszyfrowana kopia zapasowa i przywracanie.\n• Eksport do Excela (bez szyfrowania, na własną odpowiedzialność).\n• Kosz z automatycznym czyszczeniem.\n• Podsumowanie sejfu z powtórzonymi hasłami.\n• Automatyczna blokada, ochrona ekranu i odliczanie schowka.\n• Działa całkowicie offline.\n• 18 języków.';
+
+  @override
+  String get excelExport => 'Eksportuj do Excela';
+
+  @override
+  String get excelExportDesc =>
+      'Niezaszyfrowany plik .xlsx z Twoimi wpisami, np. przed usunięciem aplikacji';
+
+  @override
+  String get excelExportWarnTitle => 'Eksport bez szyfrowania';
+
+  @override
+  String get excelExportWarn =>
+      'Plik Excela NIE jest zaszyfrowany. Każdy, kto go zdobędzie, odczyta wszystkie Twoje hasła. Za to, gdzie go przechowujesz, komu go udostępniasz i czy potem go usuniesz, odpowiadasz wyłącznie Ty. Wpisy z kosza nie są uwzględniane.';
+
+  @override
+  String get excelExportAgree =>
+      'Rozumiem – za bezpieczeństwo pliku odpowiadam ja.';
+
+  @override
+  String get excelExportSaved =>
+      'Zapisano plik Excela. Usuń go, gdy nie będzie już potrzebny.';
+
+  @override
+  String get excelExportFailed => 'Nie udało się utworzyć pliku Excela.';
+
+  @override
+  String get excelColDomain => 'Domena';
+
+  @override
+  String get excelColUpdated => 'Ostatnia zmiana';
+
+  @override
+  String get how8T => 'Eksport do Excela';
+
+  @override
+  String get how8B =>
+      '„Eksportuj do Excela” w ustawieniach kopii zapisuje wszystkie wpisy (bez kosza) w pliku .xlsx, z osobnym arkuszem dla każdej kategorii. Plik nie jest zaszyfrowany: potwierdzasz hasłem głównym i akceptujesz, że za jego bezpieczeństwo odpowiadasz Ty. Usuń go, gdy nie będzie już potrzebny.';
 }

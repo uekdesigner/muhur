@@ -97,9 +97,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get createVault => 'Создать';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'Открыть';
 
   @override
@@ -109,9 +106,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'Слишком много попыток. Повторите через $seconds с.';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Включить разблокировку по биометрии?';
@@ -127,9 +121,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get lockNow => 'Заблокировать';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Все';
@@ -165,22 +156,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get addField => 'Новое поле';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'Текст';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Скрыть значение';
@@ -288,11 +264,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get copy => 'Копировать';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'Настройки';
 
   @override
@@ -312,12 +283,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get immediately => 'Сразу';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Таймер буфера';
@@ -384,27 +349,11 @@ class AppLocalizationsRu extends AppLocalizations {
       'Держите камеру неподвижно над текстом. В режиме IBAN он распознаётся автоматически.';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'Сканирование...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'Возможно, исправлено после ошибки OCR. Проверьте внимательно.';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError =>
@@ -543,17 +492,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get planFree => 'БЕСПЛАТНО';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'Разрешить скриншоты';
 
   @override
   String get screenshotAllowHint =>
       'Защита экрана отключается на указанное ниже время, а затем снова включается автоматически.';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'ЗАШИФРОВАННАЯ КОПИЯ';
@@ -715,9 +658,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get helpTitle => 'Помощь';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'Как пользоваться?';
 
   @override
@@ -762,9 +702,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fcBankName => 'Название банка';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'Пароль интернет-банка';
 
   @override
@@ -784,9 +721,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'Номер клиента / ID';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Тип счёта';
@@ -816,12 +750,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Резервные коды';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'Контрольный вопрос';
 
   @override
@@ -849,9 +777,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fcLinkedMainAccount => 'Связанный аккаунт';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => 'Секретный ключ 2FA';
 
   @override
@@ -876,21 +801,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fcSupportContact => 'Контакт поддержки';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'Название сайта';
 
   @override
@@ -900,25 +810,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fcUsernameEmail => 'Логин / Почта';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'Выберите поле';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Настройки генератора';
@@ -1000,24 +892,18 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'О ПРИЛОЖЕНИИ';
-
-  @override
-  String get aboutVersion => 'Версия';
-
-  @override
   String get aboutProtectionTitle => 'Как защищены ваши данные';
 
   @override
   String get aboutProtectionBody =>
-      'Каждая запись шифруется на этом устройстве алгоритмом AES-256. Ключ, открывающий хранилище, создаётся из мастер-пароля с помощью Argon2id; сам пароль нигде не хранится.';
+      'Всё, что вы сохраняете, надёжно зашифровано на этом телефоне. Открыть это может только ваш мастер-пароль — он нигде не хранится, даже в самом MÜHÜR. Без него данные невозможно прочитать.';
 
   @override
   String get aboutOfflineTitle => 'Работает без интернета';
 
   @override
   String get aboutOfflineBody =>
-      'У Muhur нет доступа к интернету, аккаунта и сервера. Ваши данные не покидают устройство, если вы сами не экспортируете зашифрованную копию.';
+      'MÜHÜR никогда не подключается к интернету. Нет ни аккаунта, ни сервера, ни облака. Ваши пароли остаются на этом телефоне, если только вы сами не экспортируете их — в виде зашифрованной копии или файла Excel.';
 
   @override
   String get aboutLicenses => 'Лицензии open source';
@@ -1037,4 +923,157 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'Значок буфера: скопированное значение (число = секунды до очистки, нажмите, чтобы очистить сейчас)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'Версия $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'Что нового';
+
+  @override
+  String get aboutHowTitle => 'Как это работает';
+
+  @override
+  String get aboutStoryTitle => 'История MÜHÜR';
+
+  @override
+  String get aboutDeveloperTitle => 'Кто создаёт MÜHÜR';
+
+  @override
+  String get aboutPrivacySection => 'ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ';
+
+  @override
+  String get aboutPermissionsTitle => 'Разрешения и данные';
+
+  @override
+  String get aboutSupportSection => 'ПОДДЕРЖКА';
+
+  @override
+  String get aboutRate => 'Оценить в Google Play';
+
+  @override
+  String get aboutRateDesc =>
+      'Поставьте оценку или оставьте отзыв на странице магазина';
+
+  @override
+  String get aboutInBrief => 'Кратко';
+
+  @override
+  String get aboutTechnical => 'Технические подробности';
+
+  @override
+  String get aboutProtectionTech =>
+      '• Хранилище шифруется случайным 256-битным ключом. Этот ключ запечатывается алгоритмом AES-256-GCM с помощью ключа, полученного из мастер-пароля через Argon2id (32 МиБ памяти, 3 прохода). Параметры получения ключа привязаны к печати, поэтому любая подмена обнаруживается.\n• База данных зашифрована SQLCipher; её ключ получается из ключа хранилища через HKDF-SHA256.\n• Конфиденциальные поля дополнительно шифруются AES-256-GCM и привязываются к своей записи и полю.\n• После 5 неверных паролей приложение ждёт 30 секунд, каждый раз вдвое дольше, до 1 часа. Изменение часов телефона не сокращает ожидание.\n• Биометрическая разблокировка принимает только сильную биометрию (класс 3) и отключается при добавлении нового отпечатка или лица.\n• Снимки и запись экрана блокируются, хранилище закрывается при выходе из приложения, а скопированные значения помечаются как конфиденциальные и удаляются автоматически.';
+
+  @override
+  String get aboutOfflineTech =>
+      '• В опубликованной версии приложения нет разрешений на интернет и сеть; они удаляются, даже если их запрашивает какая-либо библиотека.\n• Облачное резервное копирование и перенос на другое устройство отключены, поэтому данные приложения не копируются с телефона.\n• Распознавание текста использует встроенную в приложение модель и работает на телефоне; кадры с камеры обрабатываются в памяти и никогда не сохраняются.\n• Данные покидают телефон, только если вы сами их экспортируете: в виде зашифрованного файла копии или незашифрованного файла Excel, за безопасность которого отвечаете вы.';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR не собирает персональные данные, не показывает рекламу, не использует аналитику и ничем ни с кем не делится. Приложение запрашивает только камеру (для сканирования текста) и биометрию (для разблокировки). Подписками управляет Google Play; приложение никогда не видит ваши платёжные данные. Удаление приложения удаляет все его данные. Перед этим можно экспортировать записи в Excel; за безопасность этого файла отвечаете вы.';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• Камера: используется только при открытом сканере; фото не сохраняются, звук не записывается.\n• Биометрия: отпечаток или лицо проверяет системное окно телефона; MÜHÜR никогда не получает эти данные.\n• Файлы: доступ только когда вы сами выбираете, куда сохранить или откуда открыть копию или файл Excel.\n• Нет аккаунта, сервера, идентификаторов отслеживания и рекламы.\n• Загрузку приложения и покупку подписки обрабатывает Google Play согласно политике конфиденциальности Google.';
+
+  @override
+  String get how1T => 'Хранилище и мастер-пароль';
+
+  @override
+  String get how1B =>
+      'Всё хранится в зашифрованном хранилище на этом телефоне. Открыть его может только мастер-пароль. Восстановить его нельзя — выберите тот, что запомните, и сделайте резервную копию.';
+
+  @override
+  String get how2T => 'Записи и категории';
+
+  @override
+  String get how2B =>
+      'Добавляйте банки, сайты, почтовые ящики и многое другое. В каждой категории есть готовые поля, можно добавлять и свои.';
+
+  @override
+  String get how3T => 'Безопасное копирование';
+
+  @override
+  String get how3B =>
+      'Нажмите на поле, чтобы скопировать его. Буфер обмена очищается сам через заданное время. Значок на главном экране показывает обратный отсчёт; нажмите на него, чтобы очистить сразу.';
+
+  @override
+  String get how4T => 'Сканирование камерой';
+
+  @override
+  String get how4B =>
+      'Наведите камеру на карту или документ, чтобы считать IBAN или текст вместо ручного ввода. Проверьте результат перед сохранением.';
+
+  @override
+  String get how5T => 'Корзина';
+
+  @override
+  String get how5B =>
+      'Удалённые записи хранятся в корзине в зашифрованном виде, и их можно восстановить до конца заданного срока.';
+
+  @override
+  String get how6T => 'Резервная копия и восстановление';
+
+  @override
+  String get how6B =>
+      'Создайте зашифрованный файл копии с отдельным паролем и храните его в надёжном месте. Восстановление только добавляет записи; существующие никогда не перезаписываются.';
+
+  @override
+  String get how7T => 'Блокировка и биометрия';
+
+  @override
+  String get how7B =>
+      'Хранилище блокируется, как только вы выходите из приложения. Включите биометрию, чтобы открывать его отпечатком пальца или лицом.';
+
+  @override
+  String get storyBody =>
+      'Любое большое изобретение начинается с попытки решить маленькую проблему в собственной жизни. История MÜHÜR именно такая: искреннее, но целеустремлённое путешествие, рождённое из памяти, теряющейся в хаосе цифрового мира, и из инстинкта беречь своё.\n\nВсё началось с досадной паузы из-за одного забытого пароля. MÜHÜR был задуман как личное убежище, которое работает только на моём собственном устройстве и не зависит от чужих облачных серверов. Со временем стало ясно, что вернуть себе цифровую приватность хочу не только я.\n\nСегодня MÜHÜR — для всех, кто хочет полностью контролировать свои данные, не доверяя их никакому серверу.\n\nЗапечатайте самый надёжный замок своей цифровой памяти.';
+
+  @override
+  String get devBody =>
+      'MÜHÜR — независимый проект uekdesigner, созданный и развиваемый в Турции. Спасибо, что пользуетесь MÜHÜR.';
+
+  @override
+  String get rn100 =>
+      '• Первая версия.\n• Зашифрованное хранилище на телефоне, открываемое мастер-паролем (Argon2id + AES-256).\n• Готовые поля для банков, сайтов, почты, соцсетей и рабочих аккаунтов.\n• Генератор паролей с индикатором надёжности.\n• Сканирование IBAN и текста камерой.\n• Разблокировка отпечатком пальца и лицом.\n• Зашифрованное резервное копирование и восстановление.\n• Экспорт в Excel (без шифрования, под вашу ответственность).\n• Корзина с автоматической очисткой.\n• Сводка хранилища с повторяющимися паролями.\n• Автоблокировка, защита экрана и обратный отсчёт буфера обмена.\n• Полностью работает без интернета.\n• 18 языков.';
+
+  @override
+  String get excelExport => 'Экспорт в Excel';
+
+  @override
+  String get excelExportDesc =>
+      'Незашифрованный файл .xlsx с вашими записями, например перед удалением приложения';
+
+  @override
+  String get excelExportWarnTitle => 'Экспорт без шифрования';
+
+  @override
+  String get excelExportWarn =>
+      'Файл Excel НЕ зашифрован. Любой, кто получит этот файл, сможет прочитать все ваши пароли. Где его хранить, кому передавать и удалить ли его потом — полностью ваша ответственность. Записи из корзины не включаются.';
+
+  @override
+  String get excelExportAgree => 'Понимаю: за безопасность файла отвечаю я.';
+
+  @override
+  String get excelExportSaved =>
+      'Файл Excel сохранён. Удалите его, когда он больше не нужен.';
+
+  @override
+  String get excelExportFailed => 'Не удалось создать файл Excel.';
+
+  @override
+  String get excelColDomain => 'Домен';
+
+  @override
+  String get excelColUpdated => 'Последнее изменение';
+
+  @override
+  String get how8T => 'Экспорт в Excel';
+
+  @override
+  String get how8B =>
+      '«Экспорт в Excel» в настройках резервного копирования записывает все ваши записи (кроме корзины) в файл .xlsx, по листу на каждую категорию. Файл не зашифрован: вы подтверждаете действие мастер-паролем и принимаете, что за его безопасность отвечаете вы. Удалите его, когда он больше не нужен.';
 }

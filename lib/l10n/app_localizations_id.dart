@@ -97,9 +97,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get createVault => 'Buat';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'Buka';
 
   @override
@@ -109,9 +106,6 @@ class AppLocalizationsId extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'Terlalu banyak percobaan. Coba lagi dalam $seconds detik.';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Aktifkan buka kunci biometrik?';
@@ -127,9 +121,6 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get lockNow => 'Kunci';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Semua';
@@ -165,22 +156,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get addField => 'Tambah kolom';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'Teks';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Sembunyikan nilai';
@@ -279,11 +255,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get copy => 'Salin';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'Pengaturan';
 
   @override
@@ -303,12 +274,6 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get immediately => 'Langsung';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Waktu salin';
@@ -375,27 +340,11 @@ class AppLocalizationsId extends AppLocalizations {
       'Tahan kamera tetap diam di atas teks. Dalam mode IBAN, teks terdeteksi otomatis.';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'Memindai...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'Mungkin dikoreksi setelah kesalahan OCR. Periksa dengan teliti.';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError => 'Kamera tidak tersedia. Periksa izin kamera.';
@@ -533,17 +482,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get planFree => 'GRATIS';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'Izinkan tangkapan layar';
 
   @override
   String get screenshotAllowHint =>
       'Perlindungan layar dimatikan selama waktu yang diatur di bawah, lalu aktif kembali secara otomatis.';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'CADANGAN TERENKRIPSI';
@@ -694,9 +637,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get helpTitle => 'Bantuan';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'Cara pakai?';
 
   @override
@@ -733,9 +673,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get fcBankName => 'Nama bank';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'Kata sandi internet banking';
 
   @override
@@ -755,9 +692,6 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'No. nasabah / NIK';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Jenis rekening';
@@ -787,12 +721,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Kode cadangan';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'Pertanyaan keamanan';
 
   @override
@@ -820,9 +748,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get fcLinkedMainAccount => 'Akun tertaut';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => 'Kunci rahasia 2FA';
 
   @override
@@ -847,21 +772,6 @@ class AppLocalizationsId extends AppLocalizations {
   String get fcSupportContact => 'Kontak dukungan';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'Nama situs';
 
   @override
@@ -871,25 +781,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get fcUsernameEmail => 'Nama pengguna / Email';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'Pilih kolom';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Pengaturan generator';
@@ -970,24 +862,18 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'TENTANG';
-
-  @override
-  String get aboutVersion => 'Versi';
-
-  @override
   String get aboutProtectionTitle => 'Cara data Anda dilindungi';
 
   @override
   String get aboutProtectionBody =>
-      'Setiap entri dienkripsi dengan AES-256 di perangkat ini. Kunci pembuka brankas diturunkan dari kata sandi utama Anda dengan Argon2id; kata sandinya sendiri tidak pernah disimpan.';
+      'Semua yang Anda simpan dikunci dengan enkripsi kuat di ponsel ini. Hanya kata sandi utama Anda yang bisa membukanya; kata sandi itu tidak disimpan di mana pun, bahkan oleh MÜHÜR. Tanpanya, data tidak bisa dibaca.';
 
   @override
   String get aboutOfflineTitle => 'Berfungsi offline';
 
   @override
   String get aboutOfflineBody =>
-      'Muhur tidak memiliki izin internet, akun, maupun server. Data Anda tidak pernah keluar dari perangkat ini kecuali Anda sendiri mengekspor cadangan terenkripsi.';
+      'MÜHÜR tidak pernah terhubung ke internet. Tidak ada akun, server, maupun cloud. Kata sandi Anda tetap di ponsel ini kecuali Anda sendiri mengekspornya, sebagai cadangan terenkripsi atau file Excel.';
 
   @override
   String get aboutLicenses => 'Lisensi sumber terbuka';
@@ -1007,4 +893,157 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'Ikon papan klip: nilai yang disalin (angka = detik sampai dibersihkan, ketuk untuk membersihkan sekarang)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'Versi $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'Catatan rilis';
+
+  @override
+  String get aboutHowTitle => 'Cara kerja';
+
+  @override
+  String get aboutStoryTitle => 'Kisah MÜHÜR';
+
+  @override
+  String get aboutDeveloperTitle => 'Tentang pengembang';
+
+  @override
+  String get aboutPrivacySection => 'KEBIJAKAN PRIVASI';
+
+  @override
+  String get aboutPermissionsTitle => 'Izin dan data';
+
+  @override
+  String get aboutSupportSection => 'DUKUNGAN';
+
+  @override
+  String get aboutRate => 'Beri nilai di Google Play';
+
+  @override
+  String get aboutRateDesc => 'Beri rating atau ulasan di halaman toko';
+
+  @override
+  String get aboutInBrief => 'Singkatnya';
+
+  @override
+  String get aboutTechnical => 'Detail teknis';
+
+  @override
+  String get aboutProtectionTech =>
+      '• Brankas dienkripsi dengan kunci acak 256-bit. Kunci itu disegel dengan AES-256-GCM menggunakan kunci yang diturunkan dari kata sandi utama Anda dengan Argon2id (memori 32 MiB, 3 putaran). Pengaturan penurunan kunci terikat pada segel, sehingga setiap perubahan terdeteksi.\n• Basis data dienkripsi dengan SQLCipher; kuncinya diturunkan dari kunci brankas dengan HKDF-SHA256.\n• Kolom sensitif dienkripsi lagi dengan AES-256-GCM dan terikat pada entri dan kolomnya.\n• Setelah 5 kata sandi salah, aplikasi menunggu 30 detik, berlipat dua setiap kali, hingga 1 jam. Mengubah jam ponsel tidak memperpendek waktu tunggu.\n• Buka kunci biometrik hanya menerima biometrik kuat (Kelas 3) dan mati sendiri jika sidik jari atau wajah baru ditambahkan.\n• Tangkapan dan rekaman layar diblokir, brankas terkunci saat Anda meninggalkan aplikasi, dan nilai yang disalin ditandai sensitif lalu dihapus otomatis.';
+
+  @override
+  String get aboutOfflineTech =>
+      '• Versi aplikasi yang dirilis tidak memiliki izin internet atau jaringan; izin itu dihapus meski ada pustaka yang memintanya.\n• Cadangan cloud dan transfer ke perangkat lain dimatikan, sehingga data aplikasi tidak disalin keluar dari ponsel.\n• Pengenalan teks memakai model yang tertanam di aplikasi dan berjalan di ponsel; gambar kamera diproses di memori dan tidak pernah disimpan.\n• Data hanya keluar dari ponsel jika Anda sendiri mengekspornya: sebagai file cadangan terenkripsi, atau file Excel tanpa enkripsi yang keamanannya menjadi tanggung jawab Anda.';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR tidak mengumpulkan data pribadi, tidak menampilkan iklan, tidak memakai alat analitik, dan tidak membagikan apa pun kepada siapa pun. Aplikasi hanya meminta kamera (untuk memindai teks) dan biometrik (untuk membuka kunci). Langganan dikelola Google Play; aplikasi tidak pernah melihat detail pembayaran Anda. Menghapus aplikasi juga menghapus semua datanya. Sebelum menghapusnya, Anda bisa mengekspor entri ke Excel; keamanan file itu tanggung jawab Anda.';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• Kamera: hanya dipakai saat pemindai terbuka; tidak ada foto yang disimpan dan tidak ada suara yang direkam.\n• Biometrik: sidik jari atau wajah Anda diperiksa oleh jendela sistem ponsel; MÜHÜR tidak pernah menerima data itu.\n• File: hanya diakses saat Anda sendiri memilih lokasi untuk menyimpan atau membuka cadangan atau file Excel.\n• Tidak ada akun, server, maupun ID pelacakan atau iklan.\n• Pengunduhan aplikasi dan pembelian langganan ditangani Google Play sesuai kebijakan privasi Google.';
+
+  @override
+  String get how1T => 'Brankas dan kata sandi utama';
+
+  @override
+  String get how1B =>
+      'Semuanya disimpan di brankas terenkripsi di ponsel ini. Hanya kata sandi utama yang bisa membukanya. Kata sandi ini tidak bisa dipulihkan, jadi pilih yang Anda ingat dan buat cadangan.';
+
+  @override
+  String get how2T => 'Entri dan kategori';
+
+  @override
+  String get how2B =>
+      'Tambahkan bank, situs web, akun email, dan lainnya. Setiap kategori punya kolom siap pakai, dan Anda bisa menambah kolom sendiri.';
+
+  @override
+  String get how3T => 'Menyalin dengan aman';
+
+  @override
+  String get how3B =>
+      'Ketuk kolom untuk menyalinnya. Papan klip bersih sendiri setelah waktu yang Anda atur. Ikon papan klip di layar utama menghitung mundur; ketuk untuk langsung membersihkannya.';
+
+  @override
+  String get how4T => 'Memindai dengan kamera';
+
+  @override
+  String get how4B =>
+      'Arahkan kamera ke kartu atau dokumen untuk membaca IBAN atau teks tanpa mengetik. Periksa hasilnya sebelum menyimpan.';
+
+  @override
+  String get how5T => 'Sampah';
+
+  @override
+  String get how5B =>
+      'Entri yang dihapus tetap terenkripsi di sampah dan bisa dipulihkan sampai periode yang Anda atur berakhir.';
+
+  @override
+  String get how6T => 'Cadangan dan pemulihan';
+
+  @override
+  String get how6B =>
+      'Buat file cadangan terenkripsi dengan kata sandi sendiri dan simpan di tempat aman. Pemulihan hanya menambah entri; entri yang ada tidak pernah ditimpa.';
+
+  @override
+  String get how7T => 'Kunci dan biometrik';
+
+  @override
+  String get how7B =>
+      'Brankas terkunci otomatis saat Anda meninggalkan aplikasi. Aktifkan biometrik untuk membukanya dengan sidik jari atau wajah.';
+
+  @override
+  String get storyBody =>
+      'Setiap penemuan besar berawal dari upaya seseorang memecahkan masalah kecil dalam hidupnya. Kisah MÜHÜR pun demikian: perjalanan yang tulus namun teguh, lahir dari ingatan yang hilang di tengah kekacauan dunia digital dan dari naluri untuk melindungi apa yang menjadi milik sendiri.\n\nSemuanya bermula dari jeda menjengkelkan akibat satu kata sandi yang terlupa. Saya merancang MÜHÜR sebagai tempat berlindung pribadi yang hanya berjalan di perangkat saya sendiri, tanpa bergantung pada server cloud milik orang lain. Seiring waktu, saya sadar bahwa bukan hanya saya yang ingin mendapatkan kembali privasi digital.\n\nKini MÜHÜR hadir untuk semua orang yang ingin menjaga datanya sepenuhnya dalam kendali sendiri, tanpa menitipkannya ke server mana pun.\n\nSegel memori digital Anda dengan kunci teraman.';
+
+  @override
+  String get devBody =>
+      'MÜHÜR adalah proyek independen dari uekdesigner, dirancang dan dikembangkan di Turki. Terima kasih telah menggunakan MÜHÜR.';
+
+  @override
+  String get rn100 =>
+      '• Rilis pertama.\n• Brankas terenkripsi di ponsel yang dibuka dengan kata sandi utama (Argon2id + AES-256).\n• Kolom siap pakai untuk bank, situs web, email, media sosial, dan akun kerja.\n• Pembuat kata sandi dengan indikator kekuatan.\n• Pindai IBAN dan teks dengan kamera.\n• Buka kunci dengan sidik jari dan wajah.\n• Cadangan dan pemulihan terenkripsi.\n• Ekspor ke Excel (tanpa enkripsi, tanggung jawab Anda).\n• Sampah yang dibersihkan otomatis.\n• Ringkasan brankas yang menunjukkan kata sandi yang dipakai ulang.\n• Kunci otomatis, perlindungan layar, dan hitung mundur papan klip.\n• Berfungsi sepenuhnya offline.\n• 18 bahasa.';
+
+  @override
+  String get excelExport => 'Ekspor ke Excel';
+
+  @override
+  String get excelExportDesc =>
+      'File .xlsx tanpa enkripsi berisi entri Anda, misalnya sebelum menghapus aplikasi';
+
+  @override
+  String get excelExportWarnTitle => 'Ekspor tanpa enkripsi';
+
+  @override
+  String get excelExportWarn =>
+      'File Excel TIDAK dienkripsi. Siapa pun yang mendapatkan file ini bisa membaca semua kata sandi Anda. Tempat menyimpannya, dengan siapa Anda membagikannya, dan menghapusnya setelah itu sepenuhnya menjadi tanggung jawab Anda. Entri di sampah tidak disertakan.';
+
+  @override
+  String get excelExportAgree =>
+      'Saya mengerti, keamanan file ini tanggung jawab saya.';
+
+  @override
+  String get excelExportSaved =>
+      'File Excel disimpan. Hapus file itu jika sudah tidak diperlukan.';
+
+  @override
+  String get excelExportFailed => 'File Excel tidak dapat dibuat.';
+
+  @override
+  String get excelColDomain => 'Domain';
+
+  @override
+  String get excelColUpdated => 'Terakhir diubah';
+
+  @override
+  String get how8T => 'Ekspor ke Excel';
+
+  @override
+  String get how8B =>
+      '\"Ekspor ke Excel\" di pengaturan cadangan menulis semua entri Anda (kecuali sampah) ke file .xlsx, dengan satu lembar per kategori. File tidak dienkripsi: Anda mengonfirmasi dengan kata sandi utama dan menyetujui bahwa keamanannya adalah tanggung jawab Anda. Hapus file itu jika sudah tidak diperlukan.';
 }

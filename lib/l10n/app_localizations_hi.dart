@@ -96,9 +96,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get createVault => 'बनाएं';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'खोलें';
 
   @override
@@ -108,9 +105,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'बहुत ज़्यादा कोशिशें। $seconds सेकंड बाद फिर से कोशिश करें।';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'बायोमेट्रिक से अनलॉक चालू करें?';
@@ -126,9 +120,6 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get lockNow => 'लॉक करें';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'सभी';
@@ -164,22 +155,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get addField => 'फ़ील्ड जोड़ें';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'टेक्स्ट';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'वैल्यू छिपाएं';
@@ -281,11 +257,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get copy => 'कॉपी करें';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'सेटिंग';
 
   @override
@@ -305,12 +276,6 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get immediately => 'तुरंत';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'कॉपी टाइमर';
@@ -377,27 +342,11 @@ class AppLocalizationsHi extends AppLocalizations {
       'कैमरे को टेक्स्ट के ऊपर स्थिर रखें। IBAN मोड में यह अपने आप पहचान लिया जाता है।';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'स्कैन हो रहा है...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'OCR गलती के बाद शायद सुधारा गया है। ध्यान से जांचें।';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError => 'कैमरा उपलब्ध नहीं है। कैमरे की अनुमति जांचें।';
@@ -534,17 +483,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get planFree => 'मुफ़्त';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'स्क्रीनशॉट की अनुमति दें';
 
   @override
   String get screenshotAllowHint =>
       'नीचे तय किए गए समय तक स्क्रीन सुरक्षा बंद रहती है, फिर अपने आप चालू हो जाती है।';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'एन्क्रिप्टेड बैकअप';
@@ -698,9 +641,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get helpTitle => 'मदद';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'कैसे इस्तेमाल करें?';
 
   @override
@@ -742,9 +682,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get fcBankName => 'बैंक का नाम';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'नेट बैंकिंग पासवर्ड';
 
   @override
@@ -764,9 +701,6 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'ग्राहक नंबर / ID';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'खाते का प्रकार';
@@ -796,12 +730,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / बैकअप कोड';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'सुरक्षा प्रश्न';
 
   @override
@@ -829,9 +757,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get fcLinkedMainAccount => 'जुड़ा हुआ खाता';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => '2FA सीक्रेट की';
 
   @override
@@ -856,21 +781,6 @@ class AppLocalizationsHi extends AppLocalizations {
   String get fcSupportContact => 'सपोर्ट संपर्क';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'साइट का नाम';
 
   @override
@@ -880,25 +790,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get fcUsernameEmail => 'यूज़रनेम / ईमेल';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'फ़ील्ड चुनें';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'जनरेटर सेटिंग';
@@ -980,24 +872,18 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'जानकारी';
-
-  @override
-  String get aboutVersion => 'वर्ज़न';
-
-  @override
   String get aboutProtectionTitle => 'आपका डेटा कैसे सुरक्षित रहता है';
 
   @override
   String get aboutProtectionBody =>
-      'हर एंट्री इसी डिवाइस पर AES-256 से एन्क्रिप्ट होती है। वॉल्ट खोलने वाली कुंजी आपके मास्टर पासवर्ड से Argon2id द्वारा बनाई जाती है; पासवर्ड खुद कहीं सेव नहीं होता।';
+      'आप जो कुछ भी सेव करते हैं, वह इस फ़ोन पर मज़बूत एन्क्रिप्शन से लॉक रहता है। उसे सिर्फ़ आपका मास्टर पासवर्ड खोल सकता है; वह कहीं भी सेव नहीं होता, MÜHÜR में भी नहीं। उसके बिना डेटा पढ़ा नहीं जा सकता।';
 
   @override
   String get aboutOfflineTitle => 'ऑफ़लाइन काम करता है';
 
   @override
   String get aboutOfflineBody =>
-      'Muhur के पास इंटरनेट की अनुमति, खाता या सर्वर नहीं है। जब तक आप खुद एन्क्रिप्टेड बैकअप एक्सपोर्ट न करें, आपका डेटा इस डिवाइस से बाहर नहीं जाता।';
+      'MÜHÜR कभी इंटरनेट से नहीं जुड़ता। कोई खाता, सर्वर या क्लाउड नहीं है। जब तक आप खुद एन्क्रिप्टेड बैकअप या Excel फ़ाइल के रूप में एक्सपोर्ट न करें, आपके पासवर्ड इसी फ़ोन पर रहते हैं।';
 
   @override
   String get aboutLicenses => 'ओपन-सोर्स लाइसेंस';
@@ -1017,4 +903,157 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'क्लिपबोर्ड आइकन: कॉपी की गई वैल्यू (संख्या = साफ़ होने में बचे सेकंड, अभी साफ़ करने के लिए टैप करें)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'वर्ज़न $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'रिलीज़ नोट्स';
+
+  @override
+  String get aboutHowTitle => 'यह कैसे काम करता है';
+
+  @override
+  String get aboutStoryTitle => 'MÜHÜR की कहानी';
+
+  @override
+  String get aboutDeveloperTitle => 'MÜHÜR के पीछे कौन है';
+
+  @override
+  String get aboutPrivacySection => 'निजता नीति';
+
+  @override
+  String get aboutPermissionsTitle => 'अनुमतियां और डेटा';
+
+  @override
+  String get aboutSupportSection => 'सहायता';
+
+  @override
+  String get aboutRate => 'Google Play पर रेटिंग दें';
+
+  @override
+  String get aboutRateDesc => 'स्टोर पेज पर रेटिंग दें या समीक्षा लिखें';
+
+  @override
+  String get aboutInBrief => 'संक्षेप में';
+
+  @override
+  String get aboutTechnical => 'तकनीकी जानकारी';
+
+  @override
+  String get aboutProtectionTech =>
+      '• वॉल्ट एक रैंडम 256-बिट कुंजी से एन्क्रिप्ट होता है। यह कुंजी AES-256-GCM से सील की जाती है, उस कुंजी से जो आपके मास्टर पासवर्ड से Argon2id (32 MiB मेमोरी, 3 पास) द्वारा बनाई जाती है। कुंजी बनाने की सेटिंग सील से जुड़ी होती हैं, इसलिए कोई भी छेड़छाड़ पकड़ में आ जाती है।\n• डेटाबेस SQLCipher से एन्क्रिप्ट है; इसकी कुंजी वॉल्ट कुंजी से HKDF-SHA256 द्वारा बनती है।\n• संवेदनशील फ़ील्ड AES-256-GCM से दोबारा एन्क्रिप्ट होते हैं और अपनी एंट्री व फ़ील्ड से जुड़े रहते हैं।\n• 5 गलत पासवर्ड के बाद ऐप 30 सेकंड रुकता है, हर बार दोगुना, अधिकतम 1 घंटे तक। फ़ोन की घड़ी बदलने से इंतज़ार कम नहीं होता।\n• बायोमेट्रिक अनलॉक सिर्फ़ मज़बूत (क्लास 3) बायोमेट्रिक स्वीकार करता है और नया फ़िंगरप्रिंट या चेहरा जोड़ने पर बंद हो जाता है।\n• स्क्रीनशॉट और स्क्रीन रिकॉर्डिंग ब्लॉक हैं, ऐप से बाहर जाते ही वॉल्ट लॉक हो जाता है, और कॉपी की गई वैल्यू संवेदनशील मार्क होकर अपने आप मिट जाती हैं।';
+
+  @override
+  String get aboutOfflineTech =>
+      '• ऐप के पब्लिश किए गए वर्ज़न में इंटरनेट या नेटवर्क की कोई अनुमति नहीं है; कोई लाइब्रेरी मांगे तब भी इन्हें हटा दिया जाता है।\n• क्लाउड बैकअप और दूसरे डिवाइस पर ट्रांसफ़र बंद हैं, इसलिए ऐप का डेटा फ़ोन से बाहर कॉपी नहीं होता।\n• टेक्स्ट पहचान ऐप में शामिल मॉडल से फ़ोन पर ही चलती है; कैमरे की तस्वीरें मेमोरी में प्रोसेस होती हैं और कभी सेव नहीं होतीं।\n• डेटा फ़ोन से तभी बाहर जाता है जब आप खुद उसे एक्सपोर्ट करें: एन्क्रिप्टेड बैकअप फ़ाइल के रूप में, या बिना एन्क्रिप्शन वाली Excel फ़ाइल के रूप में जिसकी सुरक्षा आपकी ज़िम्मेदारी है।';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR कोई निजी डेटा इकट्ठा नहीं करता, विज्ञापन नहीं दिखाता, एनालिटिक्स इस्तेमाल नहीं करता और किसी से कुछ भी साझा नहीं करता। यह सिर्फ़ कैमरा (टेक्स्ट स्कैन करने के लिए) और बायोमेट्रिक (अनलॉक करने के लिए) की अनुमति मांगता है। सब्सक्रिप्शन Google Play संभालता है; ऐप कभी आपकी भुगतान जानकारी नहीं देखता। ऐप हटाने पर उसका सारा डेटा भी हट जाता है। हटाने से पहले आप अपनी एंट्री Excel में एक्सपोर्ट कर सकते हैं; उस फ़ाइल की सुरक्षा आपकी ज़िम्मेदारी है।';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• कैमरा: सिर्फ़ स्कैनर खुला होने पर इस्तेमाल होता है; कोई फ़ोटो सेव नहीं होती और कोई आवाज़ रिकॉर्ड नहीं होती।\n• बायोमेट्रिक: आपका फ़िंगरप्रिंट या चेहरा फ़ोन की सिस्टम विंडो जांचती है; MÜHÜR को यह डेटा कभी नहीं मिलता।\n• फ़ाइलें: सिर्फ़ तब एक्सेस होती हैं जब आप खुद बैकअप या Excel फ़ाइल सेव करने या खोलने की जगह चुनते हैं।\n• कोई खाता, सर्वर, ट्रैकिंग या विज्ञापन ID नहीं।\n• ऐप डाउनलोड और सब्सक्रिप्शन की खरीद Google Play, Google की अपनी निजता नीति के अनुसार संभालता है।';
+
+  @override
+  String get how1T => 'वॉल्ट और मास्टर पासवर्ड';
+
+  @override
+  String get how1B =>
+      'सब कुछ इस फ़ोन पर एक एन्क्रिप्टेड वॉल्ट में रहता है। उसे सिर्फ़ आपका मास्टर पासवर्ड खोलता है। यह वापस नहीं मिल सकता, इसलिए ऐसा चुनें जो याद रहे और बैकअप बनाएं।';
+
+  @override
+  String get how2T => 'एंट्री और श्रेणियां';
+
+  @override
+  String get how2B =>
+      'बैंक, वेबसाइट, ईमेल खाते और बहुत कुछ जोड़ें। हर श्रेणी में तैयार फ़ील्ड हैं, और आप अपने फ़ील्ड भी जोड़ सकते हैं।';
+
+  @override
+  String get how3T => 'सुरक्षित कॉपी';
+
+  @override
+  String get how3B =>
+      'किसी फ़ील्ड को कॉपी करने के लिए टैप करें। तय समय के बाद क्लिपबोर्ड अपने आप साफ़ हो जाता है। होम स्क्रीन पर क्लिपबोर्ड आइकन उलटी गिनती दिखाता है; तुरंत साफ़ करने के लिए उसे टैप करें।';
+
+  @override
+  String get how4T => 'कैमरे से स्कैन';
+
+  @override
+  String get how4B =>
+      'IBAN या टेक्स्ट टाइप करने के बजाय कैमरे को कार्ड या दस्तावेज़ पर रखें। सेव करने से पहले नतीजा जांच लें।';
+
+  @override
+  String get how5T => 'ट्रैश';
+
+  @override
+  String get how5B =>
+      'हटाई गई एंट्री एन्क्रिप्टेड रूप में ट्रैश में रहती हैं और तय अवधि खत्म होने तक वापस लाई जा सकती हैं।';
+
+  @override
+  String get how6T => 'बैकअप और रीस्टोर';
+
+  @override
+  String get how6B =>
+      'अपने अलग पासवर्ड वाली एन्क्रिप्टेड बैकअप फ़ाइल बनाएं और उसे सुरक्षित जगह रखें। रीस्टोर सिर्फ़ एंट्री जोड़ता है; मौजूदा एंट्री कभी नहीं बदलतीं।';
+
+  @override
+  String get how7T => 'लॉक और बायोमेट्रिक';
+
+  @override
+  String get how7B =>
+      'ऐप से बाहर जाते ही वॉल्ट अपने आप लॉक हो जाता है। फ़िंगरप्रिंट या चेहरे से खोलने के लिए बायोमेट्रिक चालू करें।';
+
+  @override
+  String get storyBody =>
+      'हर बड़ा आविष्कार अपनी ज़िंदगी की किसी छोटी उलझन को सुलझाने की कोशिश से शुरू होता है। MÜHÜR की कहानी भी ठीक ऐसी ही है: डिजिटल दुनिया की भीड़ में खोती याददाश्त और \"जो अपना है उसे बचाने\" की सहज इच्छा से जन्मी एक सच्ची लेकिन मज़बूत यात्रा।\n\nसब कुछ एक भूले हुए पासवर्ड से आई उस खीझ भरी रुकावट से शुरू हुआ। मैंने MÜHÜR को एक निजी ठिकाने के रूप में बनाया, जो किसी और के क्लाउड सर्वर पर निर्भर हुए बिना सिर्फ़ मेरे अपने डिवाइस पर चलता है। समय के साथ मुझे एहसास हुआ कि अपनी डिजिटल निजता वापस चाहने वाले और लोग भी हैं।\n\nआज MÜHÜR उन सभी के लिए है जो अपना डेटा किसी सर्वर को सौंपे बिना पूरी तरह अपने नियंत्रण में रखना चाहते हैं।\n\nअपनी डिजिटल यादों पर सबसे सुरक्षित ताले की मुहर लगाएं।';
+
+  @override
+  String get devBody =>
+      'MÜHÜR, uekdesigner का एक स्वतंत्र प्रोजेक्ट है, जिसे तुर्किये में डिज़ाइन और डेवलप किया गया है। MÜHÜR इस्तेमाल करने के लिए धन्यवाद।';
+
+  @override
+  String get rn100 =>
+      '• पहला वर्ज़न।\n• फ़ोन पर एन्क्रिप्टेड वॉल्ट, जो मास्टर पासवर्ड से खुलता है (Argon2id + AES-256)।\n• बैंक, वेबसाइट, ईमेल, सोशल मीडिया और ऑफ़िस खातों के लिए तैयार फ़ील्ड।\n• मज़बूती बताने वाला पासवर्ड जनरेटर।\n• कैमरे से IBAN और टेक्स्ट स्कैन।\n• फ़िंगरप्रिंट और चेहरे से अनलॉक।\n• एन्क्रिप्टेड बैकअप और रीस्टोर।\n• Excel में एक्सपोर्ट (बिना एन्क्रिप्शन, आपकी ज़िम्मेदारी पर)।\n• अपने आप साफ़ होने वाला ट्रैश।\n• दोहराए गए पासवर्ड दिखाने वाला वॉल्ट सारांश।\n• ऑटो-लॉक, स्क्रीन सुरक्षा और क्लिपबोर्ड की उलटी गिनती।\n• पूरी तरह ऑफ़लाइन काम करता है।\n• 18 भाषाएं।';
+
+  @override
+  String get excelExport => 'Excel में एक्सपोर्ट करें';
+
+  @override
+  String get excelExportDesc =>
+      'आपकी एंट्री की बिना एन्क्रिप्शन वाली .xlsx फ़ाइल, जैसे ऐप हटाने से पहले';
+
+  @override
+  String get excelExportWarnTitle => 'बिना एन्क्रिप्शन का एक्सपोर्ट';
+
+  @override
+  String get excelExportWarn =>
+      'Excel फ़ाइल एन्क्रिप्टेड नहीं होती। जिसके पास भी यह फ़ाइल पहुंचेगी, वह आपके सारे पासवर्ड पढ़ सकेगा। फ़ाइल कहां रखनी है, किससे साझा करनी है और बाद में उसे हटाना पूरी तरह आपकी ज़िम्मेदारी है। ट्रैश की एंट्री शामिल नहीं होतीं।';
+
+  @override
+  String get excelExportAgree =>
+      'मुझे पता है कि फ़ाइल की सुरक्षा मेरी ज़िम्मेदारी है।';
+
+  @override
+  String get excelExportSaved =>
+      'Excel फ़ाइल सेव हो गई। ज़रूरत खत्म होने पर इसे हटा दें।';
+
+  @override
+  String get excelExportFailed => 'Excel फ़ाइल नहीं बन सकी।';
+
+  @override
+  String get excelColDomain => 'डोमेन';
+
+  @override
+  String get excelColUpdated => 'पिछला बदलाव';
+
+  @override
+  String get how8T => 'Excel में एक्सपोर्ट';
+
+  @override
+  String get how8B =>
+      'बैकअप सेटिंग में \"Excel में एक्सपोर्ट करें\" आपकी सारी एंट्री (ट्रैश को छोड़कर) एक .xlsx फ़ाइल में लिखता है, हर श्रेणी के लिए अलग शीट में। यह फ़ाइल एन्क्रिप्टेड नहीं होती: आप मास्टर पासवर्ड से पुष्टि करते हैं और मानते हैं कि इसकी सुरक्षा आपकी ज़िम्मेदारी है। ज़रूरत खत्म होने पर इसे हटा दें।';
 }

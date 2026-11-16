@@ -98,9 +98,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get createVault => 'Maken';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'Openen';
 
   @override
@@ -110,9 +107,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'Te veel pogingen. Probeer het over $seconds seconden opnieuw.';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Biometrisch ontgrendelen inschakelen?';
@@ -128,9 +122,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get lockNow => 'Vergrendel';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Alles';
@@ -166,22 +157,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get addField => 'Nieuw veld';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'Tekst';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Waarde verbergen';
@@ -283,11 +259,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get copy => 'Kopiëren';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'Instellingen';
 
   @override
@@ -307,12 +278,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get immediately => 'Direct';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Kopieertimer';
@@ -379,27 +344,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Houd de camera stil boven de tekst. In IBAN-modus wordt deze automatisch herkend.';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'Scannen...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'Mogelijk gecorrigeerd na een OCR-fout. Controleer zorgvuldig.';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError =>
@@ -538,17 +487,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get planFree => 'GRATIS';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'Screenshots toestaan';
 
   @override
   String get screenshotAllowHint =>
       'Schermbeveiliging wordt uitgeschakeld voor de hieronder ingestelde tijd en daarna automatisch weer ingeschakeld.';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'VERSLEUTELDE BACK-UP';
@@ -702,9 +645,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get helpTitle => 'Help';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'Hoe gebruik je het?';
 
   @override
@@ -747,9 +687,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fcBankName => 'Banknaam';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'Wachtwoord internetbankieren';
 
   @override
@@ -769,9 +706,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'Klantnr. / ID';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Rekeningtype';
@@ -801,12 +735,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Back-upcodes';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'Beveiligingsvraag';
 
   @override
@@ -834,9 +762,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fcLinkedMainAccount => 'Gekoppeld account';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => '2FA-geheime sleutel';
 
   @override
@@ -861,21 +786,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fcSupportContact => 'Supportcontact';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'Sitenaam';
 
   @override
@@ -885,25 +795,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fcUsernameEmail => 'Gebruikersnaam / E-mail';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'Kies een veld';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Generatorinstellingen';
@@ -985,24 +877,18 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'OVER';
-
-  @override
-  String get aboutVersion => 'Versie';
-
-  @override
   String get aboutProtectionTitle => 'Zo worden je gegevens beschermd';
 
   @override
   String get aboutProtectionBody =>
-      'Elk item wordt op dit apparaat versleuteld met AES-256. De sleutel die de kluis opent, wordt met Argon2id afgeleid van je hoofdwachtwoord; het wachtwoord zelf wordt nergens opgeslagen.';
+      'Alles wat je opslaat, wordt op deze telefoon met sterke versleuteling vergrendeld. Alleen je hoofdwachtwoord kan het openen; het wordt nergens opgeslagen, ook niet door MÜHÜR. Zonder dat wachtwoord zijn de gegevens onleesbaar.';
 
   @override
   String get aboutOfflineTitle => 'Werkt offline';
 
   @override
   String get aboutOfflineBody =>
-      'Muhur heeft geen internettoestemming, geen account en geen server. Je gegevens verlaten dit apparaat alleen als je zelf een versleutelde back-up exporteert.';
+      'MÜHÜR maakt nooit verbinding met internet. Er is geen account, geen server en geen cloud. Je wachtwoorden blijven op deze telefoon, tenzij je ze zelf exporteert, als versleutelde back-up of als Excel-bestand.';
 
   @override
   String get aboutLicenses => 'Opensourcelicenties';
@@ -1022,4 +908,158 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'Klembordicoon: gekopieerde waarde (getal = seconden tot wissen, tik om nu te wissen)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'Versie $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'Release-opmerkingen';
+
+  @override
+  String get aboutHowTitle => 'Zo werkt het';
+
+  @override
+  String get aboutStoryTitle => 'Het verhaal van MÜHÜR';
+
+  @override
+  String get aboutDeveloperTitle => 'Wie zit er achter MÜHÜR';
+
+  @override
+  String get aboutPrivacySection => 'PRIVACYBELEID';
+
+  @override
+  String get aboutPermissionsTitle => 'Toestemmingen en gegevens';
+
+  @override
+  String get aboutSupportSection => 'ONDERSTEUNING';
+
+  @override
+  String get aboutRate => 'Beoordelen op Google Play';
+
+  @override
+  String get aboutRateDesc =>
+      'Geef een beoordeling of schrijf een review op de Store-pagina';
+
+  @override
+  String get aboutInBrief => 'In het kort';
+
+  @override
+  String get aboutTechnical => 'Technische details';
+
+  @override
+  String get aboutProtectionTech =>
+      '• De kluis wordt versleuteld met een willekeurige sleutel van 256 bits. Die sleutel wordt verzegeld met AES-256-GCM, met een sleutel die met Argon2id (32 MiB geheugen, 3 rondes) uit je hoofdwachtwoord wordt afgeleid. De afleidingsinstellingen zijn aan het zegel gekoppeld, dus knoeien wordt opgemerkt.\n• De database is versleuteld met SQLCipher; de sleutel wordt met HKDF-SHA256 uit de kluissleutel afgeleid.\n• Gevoelige velden worden nogmaals versleuteld met AES-256-GCM en gekoppeld aan hun item en veld.\n• Na 5 verkeerde wachtwoorden wacht de app 30 seconden, telkens het dubbele, tot maximaal 1 uur. De klok van de telefoon verzetten maakt het wachten niet korter.\n• Biometrisch ontgrendelen accepteert alleen sterke biometrie (klasse 3) en schakelt zichzelf uit als er een nieuwe vingerafdruk of een nieuw gezicht wordt toegevoegd.\n• Screenshots en schermopnames worden geblokkeerd, de kluis vergrendelt zodra je de app verlaat, en gekopieerde waarden worden als gevoelig gemarkeerd en automatisch gewist.';
+
+  @override
+  String get aboutOfflineTech =>
+      '• De gepubliceerde versie van de app heeft geen internet- of netwerktoestemming; die wordt verwijderd, zelfs als een bibliotheek erom vraagt.\n• Cloudback-up en overzetten naar een ander apparaat staan uit: de gegevens van de app worden niet van de telefoon gekopieerd.\n• Tekstherkenning gebruikt een model dat in de app zit en draait op de telefoon; camerabeelden worden in het geheugen verwerkt en nooit opgeslagen.\n• Gegevens verlaten de telefoon alleen als je ze zelf exporteert: als versleuteld back-upbestand of als onversleuteld Excel-bestand waarvan de veiligheid jouw verantwoordelijkheid is.';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR verzamelt geen persoonsgegevens, toont geen advertenties, gebruikt geen analysetools en deelt niets met anderen. De app vraagt alleen om de camera (om tekst te scannen) en biometrie (om te ontgrendelen). Abonnementen worden door Google Play beheerd; de app ziet je betaalgegevens nooit. Als je de app verwijdert, worden al haar gegevens verwijderd. Daarvoor kun je je items naar Excel exporteren; de veiligheid van dat bestand is jouw verantwoordelijkheid.';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• Camera: alleen gebruikt als de scanner open is; er worden geen foto\'s bewaard en geen geluid opgenomen.\n• Biometrie: je vingerafdruk of gezicht wordt gecontroleerd door het systeemvenster van de telefoon; MÜHÜR krijgt die gegevens nooit.\n• Bestanden: alleen toegang als je zelf een plek kiest om een back-up of Excel-bestand op te slaan of te openen.\n• Geen account, geen server, geen tracking- of advertentie-ID\'s.\n• Downloaden en een abonnement kopen verloopt via Google Play, volgens het privacybeleid van Google.';
+
+  @override
+  String get how1T => 'Kluis en hoofdwachtwoord';
+
+  @override
+  String get how1B =>
+      'Alles staat in een versleutelde kluis op deze telefoon. Alleen je hoofdwachtwoord opent hem. Het is niet te herstellen: kies er een die je onthoudt en maak een back-up.';
+
+  @override
+  String get how2T => 'Items en categorieën';
+
+  @override
+  String get how2B =>
+      'Voeg banken, websites, e-mailaccounts en meer toe. Elke categorie biedt kant-en-klare velden en je kunt er zelf velden bij maken.';
+
+  @override
+  String get how3T => 'Veilig kopiëren';
+
+  @override
+  String get how3B =>
+      'Tik op een veld om het te kopiëren. Het klembord wist zichzelf na de ingestelde tijd. Het icoon op het startscherm telt af; tik erop om meteen te wissen.';
+
+  @override
+  String get how4T => 'Scannen met de camera';
+
+  @override
+  String get how4B =>
+      'Richt de camera op een kaart of document om een IBAN of tekst te lezen in plaats van te typen. Controleer het resultaat voordat je opslaat.';
+
+  @override
+  String get how5T => 'Prullenbak';
+
+  @override
+  String get how5B =>
+      'Verwijderde items wachten versleuteld in de prullenbak en zijn te herstellen tot de ingestelde periode voorbij is.';
+
+  @override
+  String get how6T => 'Back-up en herstel';
+
+  @override
+  String get how6B =>
+      'Maak een versleuteld back-upbestand met een eigen wachtwoord en bewaar het op een veilige plek. Herstellen voegt alleen items toe; bestaande worden nooit overschreven.';
+
+  @override
+  String get how7T => 'Vergrendeling en biometrie';
+
+  @override
+  String get how7B =>
+      'De kluis vergrendelt zodra je de app verlaat. Zet biometrie aan om hem met je vingerafdruk of gezicht te openen.';
+
+  @override
+  String get storyBody =>
+      'Elke grote uitvinding begint met iemand die een klein probleem in het eigen leven wil oplossen. Het verhaal van MÜHÜR is precies dat: een oprechte maar vastberaden reis, geboren uit een geheugen dat verdwaalt in de chaos van de digitale wereld en uit het instinct om te beschermen wat van jou is.\n\nHet begon allemaal met die vervelende pauze door één vergeten wachtwoord. Ik ontwierp MÜHÜR als een persoonlijke schuilplaats die alleen op mijn eigen apparaat draait, zonder afhankelijk te zijn van andermans cloudservers. Na verloop van tijd besefte ik dat meer mensen hun digitale privacy terug wilden.\n\nVandaag is MÜHÜR er voor iedereen die zijn gegevens volledig in eigen hand wil houden, zonder ze aan een server toe te vertrouwen.\n\nVerzegel het veiligste slot op je digitale geheugen.';
+
+  @override
+  String get devBody =>
+      'MÜHÜR is een onafhankelijk project van uekdesigner, ontworpen en ontwikkeld in Turkije. Bedankt dat je MÜHÜR gebruikt.';
+
+  @override
+  String get rn100 =>
+      '• Eerste versie.\n• Versleutelde kluis op de telefoon, geopend met een hoofdwachtwoord (Argon2id + AES-256).\n• Kant-en-klare velden voor banken, websites, e-mail, sociale media en zakelijke accounts.\n• Wachtwoordgenerator met sterkte-indicator.\n• IBAN\'s en tekst scannen met de camera.\n• Ontgrendelen met vingerafdruk en gezicht.\n• Versleutelde back-up en herstel.\n• Exporteren naar Excel (onversleuteld, op eigen verantwoordelijkheid).\n• Prullenbak die zichzelf opruimt.\n• Kluisoverzicht met hergebruikte wachtwoorden.\n• Automatische vergrendeling, schermbeveiliging en aftellen van het klembord.\n• Werkt volledig offline.\n• 18 talen.';
+
+  @override
+  String get excelExport => 'Exporteren naar Excel';
+
+  @override
+  String get excelExportDesc =>
+      'Onversleuteld .xlsx-bestand van je items, bijvoorbeeld voordat je de app verwijdert';
+
+  @override
+  String get excelExportWarnTitle => 'Onversleutelde export';
+
+  @override
+  String get excelExportWarn =>
+      'Het Excel-bestand is NIET versleuteld. Iedereen die het bestand in handen krijgt, kan al je wachtwoorden lezen. Waar je het bewaart, met wie je het deelt en het daarna verwijderen zijn volledig jouw verantwoordelijkheid. Items in de prullenbak worden niet meegenomen.';
+
+  @override
+  String get excelExportAgree =>
+      'Ik begrijp het: de veiligheid van het bestand is mijn verantwoordelijkheid.';
+
+  @override
+  String get excelExportSaved =>
+      'Excel-bestand opgeslagen. Verwijder het als je het niet meer nodig hebt.';
+
+  @override
+  String get excelExportFailed => 'Het Excel-bestand kon niet worden gemaakt.';
+
+  @override
+  String get excelColDomain => 'Domein';
+
+  @override
+  String get excelColUpdated => 'Laatst gewijzigd';
+
+  @override
+  String get how8T => 'Exporteren naar Excel';
+
+  @override
+  String get how8B =>
+      '\'Exporteren naar Excel\' in de back-upinstellingen schrijft al je items (behalve de prullenbak) naar een .xlsx-bestand, met één tabblad per categorie. Het bestand is niet versleuteld: je bevestigt met je hoofdwachtwoord en accepteert dat de veiligheid ervan jouw verantwoordelijkheid is. Verwijder het als je het niet meer nodig hebt.';
 }

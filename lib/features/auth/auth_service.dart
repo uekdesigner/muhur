@@ -296,6 +296,21 @@ class AuthService {
     });
   }
 
+  /// Kasa açıkken ana parolayı yeniden doğrular (şifresiz dışa aktarma gibi
+  /// hassas işlemlerden önce). Yanlış denemeler kilitleme sayacına işlenir.
+  Future<void> verifyPassword(String password) async {
+    final remaining = await lockoutRemaining();
+    if (remaining > Duration.zero) throw LockedOutException(remaining);
+    if (!isUnlocked) throw StateError('Kasa kilitli.');
+    try {
+      await _unwrap(password);
+    } catch (_) {
+      _registerFailure().catchError((_) {});
+      throw WrongPasswordException();
+    }
+    await _clearFailures();
+  }
+
   Future<void> lock() async {
     _dek = null;
     await _db.close();

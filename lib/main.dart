@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'core/constants/app_theme.dart';
 import 'core/crypto/crypto_service.dart';
@@ -20,6 +21,7 @@ import 'l10n/app_localizations.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await AppSettings.instance.load();
   await GeneratorSettings.instance.load();
   await Entitlements.instance.load();

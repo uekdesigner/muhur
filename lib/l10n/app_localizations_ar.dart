@@ -95,9 +95,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get createVault => 'إنشاء';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'فتح';
 
   @override
@@ -107,9 +104,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'محاولات كثيرة جدًا. حاول مرة أخرى بعد $seconds ثانية.';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'تفعيل الفتح بالبصمة أو الوجه؟';
@@ -125,9 +119,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get lockNow => 'قفل';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'الكل';
@@ -163,22 +154,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addField => 'إضافة حقل';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'نص';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'إخفاء القيمة';
@@ -292,11 +268,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get copy => 'نسخ';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'الإعدادات';
 
   @override
@@ -316,12 +287,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get immediately => 'فورًا';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'مدة الحافظة';
@@ -388,27 +353,11 @@ class AppLocalizationsAr extends AppLocalizations {
       'أبقِ الكاميرا ثابتة فوق النص. في وضع IBAN يُكتشف تلقائيًا.';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'جارٍ المسح...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'ربما صُحّح بعد خطأ في التعرّف على النص. تحقّق بعناية.';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError => 'الكاميرا غير متاحة. تحقّق من إذن الكاميرا.';
@@ -542,17 +491,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get planFree => 'مجاني';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'السماح بلقطات الشاشة';
 
   @override
   String get screenshotAllowHint =>
       'تُوقَف حماية الشاشة للمدة المحددة أدناه، ثم تعود تلقائيًا.';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'نسخة احتياطية مشفّرة';
@@ -717,9 +660,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get helpTitle => 'المساعدة';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'كيف أستخدمه؟';
 
   @override
@@ -765,9 +705,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcBankName => 'اسم البنك';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'كلمة مرور البنك';
 
   @override
@@ -787,9 +724,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'رقم العميل / الهوية';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'نوع الحساب';
@@ -819,12 +753,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fc2faBackupCodes => 'رموز 2FA الاحتياطية';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'سؤال الأمان';
 
   @override
@@ -852,9 +780,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcLinkedMainAccount => 'الحساب المرتبط';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => 'مفتاح 2FA السري';
 
   @override
@@ -879,21 +804,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcSupportContact => 'جهة الدعم';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'اسم الموقع';
 
   @override
@@ -903,25 +813,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fcUsernameEmail => 'المستخدم / البريد';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'اختر حقلًا';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'إعدادات المولّد';
@@ -1002,24 +894,18 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'حول';
-
-  @override
-  String get aboutVersion => 'الإصدار';
-
-  @override
   String get aboutProtectionTitle => 'كيف تُحمى بياناتك';
 
   @override
   String get aboutProtectionBody =>
-      'يُشفَّر كل عنصر على هذا الجهاز باستخدام AES-256. يُشتق المفتاح الذي يفتح الخزنة من كلمة المرور الرئيسية باستخدام Argon2id، ولا تُخزَّن كلمة المرور نفسها في أي مكان.';
+      'كل ما تحفظه يُقفل بتشفير قوي على هذا الهاتف. لا يفتحه إلا كلمة المرور الرئيسية، ولا تُخزَّن في أي مكان، ولا حتى لدى MÜHÜR. ومن دونها لا يمكن قراءة البيانات.';
 
   @override
   String get aboutOfflineTitle => 'يعمل دون إنترنت';
 
   @override
   String get aboutOfflineBody =>
-      'لا يملك Muhur إذن الوصول إلى الإنترنت، ولا حسابًا ولا خادمًا. لا تغادر بياناتك هذا الجهاز إلا إذا صدّرت بنفسك نسخة احتياطية مشفّرة.';
+      'لا يتصل MÜHÜR بالإنترنت أبدًا. لا حساب ولا خادم ولا سحابة. تبقى كلمات مرورك على هذا الهاتف ما لم تصدّرها بنفسك، كنسخة احتياطية مشفّرة أو كملف Excel.';
 
   @override
   String get aboutLicenses => 'تراخيص المصادر المفتوحة';
@@ -1039,4 +925,156 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'أيقونة الحافظة: قيمة منسوخة (الرقم = الثواني المتبقية حتى المسح، اضغط للمسح الآن)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'الإصدار $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'ملاحظات الإصدار';
+
+  @override
+  String get aboutHowTitle => 'كيف يعمل';
+
+  @override
+  String get aboutStoryTitle => 'قصة MÜHÜR';
+
+  @override
+  String get aboutDeveloperTitle => 'من وراء MÜHÜR';
+
+  @override
+  String get aboutPrivacySection => 'سياسة الخصوصية';
+
+  @override
+  String get aboutPermissionsTitle => 'الأذونات والبيانات';
+
+  @override
+  String get aboutSupportSection => 'الدعم';
+
+  @override
+  String get aboutRate => 'قيّم على Google Play';
+
+  @override
+  String get aboutRateDesc => 'اترك تقييمًا أو مراجعة في صفحة المتجر';
+
+  @override
+  String get aboutInBrief => 'باختصار';
+
+  @override
+  String get aboutTechnical => 'تفاصيل تقنية';
+
+  @override
+  String get aboutProtectionTech =>
+      '• تُشفَّر الخزنة بمفتاح عشوائي طوله 256 بت. ويُختَم هذا المفتاح باستخدام AES-256-GCM بمفتاح مشتق من كلمة المرور الرئيسية عبر Argon2id (ذاكرة 32 ميبيبايت، 3 تمريرات). إعدادات الاشتقاق مرتبطة بالختم، لذا يُكتشف أي عبث.\n• قاعدة البيانات مشفّرة بـ SQLCipher، ويُشتق مفتاحها من مفتاح الخزنة عبر HKDF-SHA256.\n• تُشفَّر الحقول الحساسة مرة أخرى بـ AES-256-GCM وتُربط بعنصرها وحقلها.\n• بعد 5 كلمات مرور خاطئة ينتظر التطبيق 30 ثانية، وتتضاعف المدة في كل مرة حتى ساعة واحدة. تغيير ساعة الهاتف لا يقصّر الانتظار.\n• لا يقبل الفتح الحيوي إلا القياسات الحيوية القوية (الفئة 3)، ويتوقف عند إضافة بصمة أو وجه جديد.\n• تُحظر لقطات الشاشة وتسجيلها، وتُقفل الخزنة عند مغادرة التطبيق، وتُعلَّم القيم المنسوخة كحساسة وتُمسح تلقائيًا.';
+
+  @override
+  String get aboutOfflineTech =>
+      '• لا يملك الإصدار المنشور من التطبيق أي إذن للإنترنت أو الشبكة، وتُزال هذه الأذونات حتى لو طلبتها مكتبة ما.\n• النسخ الاحتياطي السحابي والنقل إلى جهاز آخر معطّلان، فلا تُنسخ بيانات التطبيق خارج الهاتف.\n• يستخدم التعرّف على النص نموذجًا مدمجًا في التطبيق ويعمل على الهاتف، وتُعالَج صور الكاميرا في الذاكرة ولا تُحفظ أبدًا.\n• لا تغادر البيانات الهاتف إلا إذا صدّرتها بنفسك: كملف نسخة احتياطية مشفّر، أو كملف Excel غير مشفّر تقع مسؤولية أمانه عليك.';
+
+  @override
+  String get aboutPermissionsBody =>
+      'لا يجمع MÜHÜR أي بيانات شخصية، ولا يعرض إعلانات، ولا يستخدم أدوات تحليل، ولا يشارك شيئًا مع أحد. لا يطلب إلا الكاميرا (لمسح النص) والقياسات الحيوية (لفتح القفل). تدير Google Play الاشتراكات، ولا يرى التطبيق بيانات الدفع أبدًا. حذف التطبيق يحذف كل بياناته. وقبل الحذف يمكنك تصدير عناصرك إلى Excel، وأمان ذلك الملف مسؤوليتك.';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• الكاميرا: تُستخدم فقط عند فتح الماسح؛ لا تُحفظ صور ولا يُسجَّل صوت.\n• القياسات الحيوية: تتحقق نافذة النظام في الهاتف من بصمتك أو وجهك، ولا يتلقى MÜHÜR هذه البيانات أبدًا.\n• الملفات: لا يتم الوصول إليها إلا عندما تختار بنفسك مكان حفظ أو فتح نسخة احتياطية أو ملف Excel.\n• لا حساب ولا خادم ولا معرّفات تتبّع أو إعلانات.\n• تتولى Google Play تنزيل التطبيق وشراء الاشتراك وفق سياسة الخصوصية الخاصة بـ Google.';
+
+  @override
+  String get how1T => 'الخزنة وكلمة المرور الرئيسية';
+
+  @override
+  String get how1B =>
+      'يُحفظ كل شيء في خزنة مشفّرة على هذا الهاتف، ولا يفتحها إلا كلمة المرور الرئيسية. لا يمكن استردادها، فاختر كلمة تتذكرها واحتفظ بنسخة احتياطية.';
+
+  @override
+  String get how2T => 'العناصر والفئات';
+
+  @override
+  String get how2B =>
+      'أضف البنوك والمواقع وحسابات البريد وغيرها. توفّر كل فئة حقولًا جاهزة، ويمكنك إضافة حقولك الخاصة.';
+
+  @override
+  String get how3T => 'النسخ الآمن';
+
+  @override
+  String get how3B =>
+      'اضغط على حقل لنسخه. تُمسح الحافظة تلقائيًا بعد المدة التي تحددها. تعرض أيقونة الحافظة في الشاشة الرئيسية العدّ التنازلي؛ اضغط عليها للمسح فورًا.';
+
+  @override
+  String get how4T => 'المسح بالكاميرا';
+
+  @override
+  String get how4B =>
+      'وجّه الكاميرا إلى بطاقة أو مستند لقراءة رقم IBAN أو نص بدل كتابته. راجع النتيجة قبل الحفظ.';
+
+  @override
+  String get how5T => 'المهملات';
+
+  @override
+  String get how5B =>
+      'تبقى العناصر المحذوفة مشفّرة في المهملات ويمكن استعادتها حتى تنتهي المدة التي حددتها.';
+
+  @override
+  String get how6T => 'النسخ الاحتياطي والاستعادة';
+
+  @override
+  String get how6B =>
+      'أنشئ ملف نسخة احتياطية مشفّرًا بكلمة مرور خاصة واحفظه في مكان آمن. الاستعادة تضيف العناصر فقط ولا تستبدل الموجودة أبدًا.';
+
+  @override
+  String get how7T => 'القفل والقياسات الحيوية';
+
+  @override
+  String get how7B =>
+      'تُقفل الخزنة تلقائيًا عند مغادرة التطبيق. فعّل القياسات الحيوية لفتحها ببصمتك أو وجهك.';
+
+  @override
+  String get storyBody =>
+      'يبدأ كل اختراع عظيم بمحاولة إنسان حلّ مشكلة صغيرة في حياته. وقصة MÜHÜR كذلك تمامًا: رحلة صادقة لكنها عازمة، وُلدت من ذاكرة تضيع في فوضى العالم الرقمي ومن غريزة حماية ما يخصّك.\n\nبدأ كل شيء بتلك الوقفة المزعجة التي سببتها كلمة مرور واحدة منسية. صمّمت MÜHÜR ملاذًا شخصيًا يعمل على جهازي فقط، دون الاعتماد على خوادم سحابية لأحد. ومع الوقت أدركت أن غيري أيضًا يريدون استعادة خصوصيتهم الرقمية.\n\nواليوم وُجد MÜHÜR لكل من يريد أن يبقي بياناته تحت سيطرته الكاملة دون أن يأتمن عليها أي خادم.\n\nاختم أكثر الأقفال أمانًا على ذاكرتك الرقمية.';
+
+  @override
+  String get devBody =>
+      'MÜHÜR مشروع مستقل من uekdesigner، صُمّم وطُوّر في تركيا. شكرًا لاستخدامك MÜHÜR.';
+
+  @override
+  String get rn100 =>
+      '• الإصدار الأول.\n• خزنة مشفّرة على الهاتف تُفتح بكلمة مرور رئيسية (Argon2id + AES-256).\n• حقول جاهزة للبنوك والمواقع والبريد ووسائل التواصل وحسابات العمل.\n• مولّد كلمات مرور مع مؤشر للقوة.\n• مسح رقم IBAN والنصوص بالكاميرا.\n• الفتح بالبصمة والوجه.\n• نسخ احتياطي واستعادة مشفّران.\n• التصدير إلى Excel (غير مشفّر وعلى مسؤوليتك).\n• مهملات تُنظَّف تلقائيًا.\n• ملخص للخزنة يُظهر كلمات المرور المكررة.\n• قفل تلقائي وحماية للشاشة وعدّ تنازلي للحافظة.\n• يعمل دون إنترنت بالكامل.\n• 18 لغة.';
+
+  @override
+  String get excelExport => 'تصدير إلى Excel';
+
+  @override
+  String get excelExportDesc =>
+      'ملف xlsx غير مشفّر لعناصرك، مثلًا قبل حذف التطبيق';
+
+  @override
+  String get excelExportWarnTitle => 'تصدير غير مشفّر';
+
+  @override
+  String get excelExportWarn =>
+      'ملف Excel غير مشفّر. أي شخص يحصل على الملف يمكنه قراءة جميع كلمات مرورك. مكان حفظه ومن تشاركه معه وحذفه بعد ذلك مسؤوليتك وحدك بالكامل. لا تُضمَّن العناصر الموجودة في المهملات.';
+
+  @override
+  String get excelExportAgree => 'فهمت، أمان الملف مسؤوليتي.';
+
+  @override
+  String get excelExportSaved =>
+      'تم حفظ ملف Excel. احذفه عندما لا تعود بحاجة إليه.';
+
+  @override
+  String get excelExportFailed => 'تعذّر إنشاء ملف Excel.';
+
+  @override
+  String get excelColDomain => 'النطاق';
+
+  @override
+  String get excelColUpdated => 'آخر تعديل';
+
+  @override
+  String get how8T => 'التصدير إلى Excel';
+
+  @override
+  String get how8B =>
+      'يكتب خيار «تصدير إلى Excel» في إعدادات النسخ الاحتياطي جميع عناصرك (عدا المهملات) في ملف xlsx، مع ورقة لكل فئة. الملف غير مشفّر: تؤكد بكلمة المرور الرئيسية وتقبل أن أمانه مسؤوليتك. احذفه عندما لا تعود بحاجة إليه.';
 }

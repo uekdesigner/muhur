@@ -298,12 +298,6 @@ abstract class AppLocalizations {
   /// **'Create'**
   String get createVault;
 
-  /// No description provided for @unlockTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock'**
-  String get unlockTitle;
-
   /// No description provided for @unlock.
   ///
   /// In en, this message translates to:
@@ -321,12 +315,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Too many attempts. Try again in {seconds} seconds.'**
   String lockedOut(int seconds);
-
-  /// No description provided for @useBiometrics.
-  ///
-  /// In en, this message translates to:
-  /// **'Biometrics'**
-  String get useBiometrics;
 
   /// No description provided for @enableBiometricsQ.
   ///
@@ -357,12 +345,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Lock'**
   String get lockNow;
-
-  /// No description provided for @vaultUnlocked.
-  ///
-  /// In en, this message translates to:
-  /// **'Vault unlocked'**
-  String get vaultUnlocked;
 
   /// No description provided for @all.
   ///
@@ -430,41 +412,11 @@ abstract class AppLocalizations {
   /// **'Add field'**
   String get addField;
 
-  /// No description provided for @fieldLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Label'**
-  String get fieldLabel;
-
-  /// No description provided for @fieldValue.
-  ///
-  /// In en, this message translates to:
-  /// **'Value'**
-  String get fieldValue;
-
   /// No description provided for @typeText.
   ///
   /// In en, this message translates to:
   /// **'Text'**
   String get typeText;
-
-  /// No description provided for @typePassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Password'**
-  String get typePassword;
-
-  /// No description provided for @typeUrl.
-  ///
-  /// In en, this message translates to:
-  /// **'URL'**
-  String get typeUrl;
-
-  /// No description provided for @typeNotes.
-  ///
-  /// In en, this message translates to:
-  /// **'Notes'**
-  String get typeNotes;
 
   /// No description provided for @sensitive.
   ///
@@ -610,12 +562,6 @@ abstract class AppLocalizations {
   /// **'Copy'**
   String get copy;
 
-  /// No description provided for @copied.
-  ///
-  /// In en, this message translates to:
-  /// **'Copied. The clipboard clears in {seconds} seconds.'**
-  String copied(int seconds);
-
   /// No description provided for @settings.
   ///
   /// In en, this message translates to:
@@ -657,18 +603,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Instant'**
   String get immediately;
-
-  /// No description provided for @seconds15.
-  ///
-  /// In en, this message translates to:
-  /// **'15 sec'**
-  String get seconds15;
-
-  /// No description provided for @minute1.
-  ///
-  /// In en, this message translates to:
-  /// **'1 min'**
-  String get minute1;
 
   /// No description provided for @copyTimer.
   ///
@@ -790,47 +724,17 @@ abstract class AppLocalizations {
   /// **'Hold the camera steady over the text. In IBAN mode it is detected automatically.'**
   String get scanHint;
 
-  /// No description provided for @scanRetake.
-  ///
-  /// In en, this message translates to:
-  /// **'Retake'**
-  String get scanRetake;
-
   /// No description provided for @scanning.
   ///
   /// In en, this message translates to:
   /// **'Scanning...'**
   String get scanning;
 
-  /// No description provided for @ibanFound.
-  ///
-  /// In en, this message translates to:
-  /// **'IBAN found'**
-  String get ibanFound;
-
-  /// No description provided for @ibanNotFound.
-  ///
-  /// In en, this message translates to:
-  /// **'No valid IBAN found. Try again with better light, or pick a line below.'**
-  String get ibanNotFound;
-
   /// No description provided for @ibanCorrected.
   ///
   /// In en, this message translates to:
   /// **'Possibly corrected after an OCR error. Check carefully.'**
   String get ibanCorrected;
-
-  /// No description provided for @pickLine.
-  ///
-  /// In en, this message translates to:
-  /// **'Tap a line to use it'**
-  String get pickLine;
-
-  /// No description provided for @noTextFound.
-  ///
-  /// In en, this message translates to:
-  /// **'No text found.'**
-  String get noTextFound;
 
   /// No description provided for @cameraError.
   ///
@@ -1084,12 +988,6 @@ abstract class AppLocalizations {
   /// **'FREE'**
   String get planFree;
 
-  /// No description provided for @statusScreen.
-  ///
-  /// In en, this message translates to:
-  /// **'Screen protection'**
-  String get statusScreen;
-
   /// No description provided for @screenshotAllow.
   ///
   /// In en, this message translates to:
@@ -1101,12 +999,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Screen protection is switched off for the time set below, then turns back on automatically.'**
   String get screenshotAllowHint;
-
-  /// No description provided for @screenshotTimer.
-  ///
-  /// In en, this message translates to:
-  /// **'Screenshot time'**
-  String get screenshotTimer;
 
   /// No description provided for @backupSection.
   ///
@@ -1312,12 +1204,6 @@ abstract class AppLocalizations {
   /// **'Help'**
   String get helpTitle;
 
-  /// No description provided for @helpBody.
-  ///
-  /// In en, this message translates to:
-  /// **'Help content will be added here.'**
-  String get helpBody;
-
   /// No description provided for @helpMenuTitle.
   ///
   /// In en, this message translates to:
@@ -1384,12 +1270,6 @@ abstract class AppLocalizations {
   /// **'Bank Name'**
   String get fcBankName;
 
-  /// No description provided for @fcTag.
-  ///
-  /// In en, this message translates to:
-  /// **'Tag'**
-  String get fcTag;
-
   /// No description provided for @fcInternetBankingPassword.
   ///
   /// In en, this message translates to:
@@ -1431,12 +1311,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Customer No / ID'**
   String get fcCustomerNoTc;
-
-  /// No description provided for @fcBranchNameCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Branch / Code'**
-  String get fcBranchNameCode;
 
   /// No description provided for @fcAccountType.
   ///
@@ -1492,18 +1366,6 @@ abstract class AppLocalizations {
   /// **'2FA / Backup Codes'**
   String get fc2faBackupCodes;
 
-  /// No description provided for @fcLoginMethodProvider.
-  ///
-  /// In en, this message translates to:
-  /// **'Login Method'**
-  String get fcLoginMethodProvider;
-
-  /// No description provided for @fcImapSmtp.
-  ///
-  /// In en, this message translates to:
-  /// **'IMAP / SMTP'**
-  String get fcImapSmtp;
-
   /// No description provided for @fcSecurityQA.
   ///
   /// In en, this message translates to:
@@ -1558,12 +1420,6 @@ abstract class AppLocalizations {
   /// **'Linked Account'**
   String get fcLinkedMainAccount;
 
-  /// No description provided for @fcProfileNumericId.
-  ///
-  /// In en, this message translates to:
-  /// **'Profile ID'**
-  String get fcProfileNumericId;
-
   /// No description provided for @fc2faSecretKey.
   ///
   /// In en, this message translates to:
@@ -1612,36 +1468,6 @@ abstract class AppLocalizations {
   /// **'Support Contact'**
   String get fcSupportContact;
 
-  /// No description provided for @fcLoginMethodVerification.
-  ///
-  /// In en, this message translates to:
-  /// **'Verification'**
-  String get fcLoginMethodVerification;
-
-  /// No description provided for @fcTaxOffice.
-  ///
-  /// In en, this message translates to:
-  /// **'Tax Office / No'**
-  String get fcTaxOffice;
-
-  /// No description provided for @fcRegistryNo.
-  ///
-  /// In en, this message translates to:
-  /// **'Registry / Dealer No'**
-  String get fcRegistryNo;
-
-  /// No description provided for @fcIpVpn.
-  ///
-  /// In en, this message translates to:
-  /// **'IP / VPN'**
-  String get fcIpVpn;
-
-  /// No description provided for @fcLicenseExpiry.
-  ///
-  /// In en, this message translates to:
-  /// **'License Expiry'**
-  String get fcLicenseExpiry;
-
   /// No description provided for @fcSiteName.
   ///
   /// In en, this message translates to:
@@ -1660,47 +1486,11 @@ abstract class AppLocalizations {
   /// **'Username / Email'**
   String get fcUsernameEmail;
 
-  /// No description provided for @fcSubscriptionFee.
-  ///
-  /// In en, this message translates to:
-  /// **'Fee / Period'**
-  String get fcSubscriptionFee;
-
-  /// No description provided for @fcRegistrationDate.
-  ///
-  /// In en, this message translates to:
-  /// **'Sign-up Date'**
-  String get fcRegistrationDate;
-
-  /// No description provided for @fcPaymentMethod.
-  ///
-  /// In en, this message translates to:
-  /// **'Payment Method'**
-  String get fcPaymentMethod;
-
-  /// No description provided for @fcPinCode.
-  ///
-  /// In en, this message translates to:
-  /// **'PIN Code'**
-  String get fcPinCode;
-
-  /// No description provided for @fcLicenseCodeSimple.
-  ///
-  /// In en, this message translates to:
-  /// **'License Code'**
-  String get fcLicenseCodeSimple;
-
   /// No description provided for @pickFieldTitle.
   ///
   /// In en, this message translates to:
   /// **'Pick a field'**
   String get pickFieldTitle;
-
-  /// No description provided for @allFieldsAdded.
-  ///
-  /// In en, this message translates to:
-  /// **'All fields added'**
-  String get allFieldsAdded;
 
   /// No description provided for @generatorSettings.
   ///
@@ -1840,18 +1630,6 @@ abstract class AppLocalizations {
   /// **'{added} added, {limited} not restored (free limit reached). Your backup file is unchanged.'**
   String backupRestoreLimited(int added, int limited);
 
-  /// No description provided for @aboutSection.
-  ///
-  /// In en, this message translates to:
-  /// **'ABOUT'**
-  String get aboutSection;
-
-  /// No description provided for @aboutVersion.
-  ///
-  /// In en, this message translates to:
-  /// **'Version'**
-  String get aboutVersion;
-
   /// No description provided for @aboutProtectionTitle.
   ///
   /// In en, this message translates to:
@@ -1861,7 +1639,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutProtectionBody.
   ///
   /// In en, this message translates to:
-  /// **'Every entry is encrypted with AES-256 on this device. The key that opens the vault is derived from your master password with Argon2id; the password itself is never stored.'**
+  /// **'Everything you save is locked with strong encryption on this phone. Only your master password can open it, and it is never stored anywhere, not even by MÜHÜR. Without it, the data cannot be read.'**
   String get aboutProtectionBody;
 
   /// No description provided for @aboutOfflineTitle.
@@ -1873,7 +1651,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutOfflineBody.
   ///
   /// In en, this message translates to:
-  /// **'Muhur has no internet permission, no account and no server. Your data never leaves this device unless you export an encrypted backup yourself.'**
+  /// **'MÜHÜR never connects to the internet. There is no account, no server and no cloud. Your passwords stay on this phone unless you export them yourself, as an encrypted backup or as an Excel file.'**
   String get aboutOfflineBody;
 
   /// No description provided for @aboutLicenses.
@@ -1905,6 +1683,270 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Clipboard icon: Copied value (number = seconds until cleared, tap to clear now)'**
   String get helpStatusClipboard;
+
+  /// No description provided for @aboutVersionLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Version {version}'**
+  String aboutVersionLine(String version);
+
+  /// No description provided for @aboutReleaseNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Release notes'**
+  String get aboutReleaseNotes;
+
+  /// No description provided for @aboutHowTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How it works'**
+  String get aboutHowTitle;
+
+  /// No description provided for @aboutStoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The story of MÜHÜR'**
+  String get aboutStoryTitle;
+
+  /// No description provided for @aboutDeveloperTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About the developer'**
+  String get aboutDeveloperTitle;
+
+  /// No description provided for @aboutPrivacySection.
+  ///
+  /// In en, this message translates to:
+  /// **'PRIVACY POLICY'**
+  String get aboutPrivacySection;
+
+  /// No description provided for @aboutPermissionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Permissions and data'**
+  String get aboutPermissionsTitle;
+
+  /// No description provided for @aboutSupportSection.
+  ///
+  /// In en, this message translates to:
+  /// **'SUPPORT'**
+  String get aboutSupportSection;
+
+  /// No description provided for @aboutRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate on Google Play'**
+  String get aboutRate;
+
+  /// No description provided for @aboutRateDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave a rating or a review on the store page'**
+  String get aboutRateDesc;
+
+  /// No description provided for @aboutInBrief.
+  ///
+  /// In en, this message translates to:
+  /// **'In brief'**
+  String get aboutInBrief;
+
+  /// No description provided for @aboutTechnical.
+  ///
+  /// In en, this message translates to:
+  /// **'Technical details'**
+  String get aboutTechnical;
+
+  /// No description provided for @aboutProtectionTech.
+  ///
+  /// In en, this message translates to:
+  /// **'• Your vault is encrypted with a random 256-bit key. That key is sealed with AES-256-GCM using a key derived from your master password with Argon2id (32 MiB memory, 3 passes). The key-derivation settings are bound to the seal, so tampering is detected.\n• The database is encrypted with SQLCipher; its key is derived from the vault key with HKDF-SHA256.\n• Sensitive fields are encrypted again with AES-256-GCM and tied to their entry and field.\n• After 5 wrong passwords the app waits 30 seconds, doubling each time up to 1 hour. Changing the phone\'s clock does not shorten the wait.\n• Biometric unlock accepts only strong (Class 3) biometrics and turns itself off when a new fingerprint or face is added.\n• Screenshots and screen recording are blocked, the vault locks when you leave the app, and copied values are marked as sensitive and cleared automatically.'**
+  String get aboutProtectionTech;
+
+  /// No description provided for @aboutOfflineTech.
+  ///
+  /// In en, this message translates to:
+  /// **'• The released version of the app has no internet or network permission; they are removed even if a library asks for them.\n• Cloud backup and device-to-device transfer are turned off, so the app\'s data is never copied off the phone.\n• Text recognition uses a model built into the app and runs on the phone; camera frames are processed in memory and never saved.\n• Data leaves the phone only when you export it yourself: as an encrypted backup file, or as an unencrypted Excel file whose safety is your responsibility.'**
+  String get aboutOfflineTech;
+
+  /// No description provided for @aboutPermissionsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'MÜHÜR collects no personal data, shows no ads, uses no analytics and shares nothing with anyone. It asks only for the camera (to scan text) and biometrics (to unlock). Subscriptions are handled by Google Play; the app never sees your payment details. Deleting the app deletes all of its data. Before deleting it, you can export your entries to Excel; keeping that file safe is your responsibility.'**
+  String get aboutPermissionsBody;
+
+  /// No description provided for @aboutPermissionsTech.
+  ///
+  /// In en, this message translates to:
+  /// **'• Camera: used only while the scanner is open; no photos are saved and no sound is recorded.\n• Biometrics: your fingerprint or face is checked by the phone\'s system window; MÜHÜR never receives that data.\n• Files: accessed only when you choose where to save or open a backup or an Excel file.\n• No account, no server, no tracking or advertising identifiers.\n• Downloading the app and buying a subscription are handled by Google Play under Google\'s own privacy policy.'**
+  String get aboutPermissionsTech;
+
+  /// No description provided for @how1T.
+  ///
+  /// In en, this message translates to:
+  /// **'Vault and master password'**
+  String get how1T;
+
+  /// No description provided for @how1B.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything is kept in an encrypted vault on this phone. Only your master password opens it. It cannot be recovered, so choose one you will remember and keep a backup.'**
+  String get how1B;
+
+  /// No description provided for @how2T.
+  ///
+  /// In en, this message translates to:
+  /// **'Entries and categories'**
+  String get how2T;
+
+  /// No description provided for @how2B.
+  ///
+  /// In en, this message translates to:
+  /// **'Add banks, websites, e-mail accounts and more. Each category offers ready-made fields, and you can add your own.'**
+  String get how2B;
+
+  /// No description provided for @how3T.
+  ///
+  /// In en, this message translates to:
+  /// **'Copying safely'**
+  String get how3T;
+
+  /// No description provided for @how3B.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a field to copy it. The clipboard clears itself after the time you set. The clipboard icon on the home screen counts down; tap it to clear right away.'**
+  String get how3B;
+
+  /// No description provided for @how4T.
+  ///
+  /// In en, this message translates to:
+  /// **'Scanning with the camera'**
+  String get how4T;
+
+  /// No description provided for @how4B.
+  ///
+  /// In en, this message translates to:
+  /// **'Point the camera at a card or document to read an IBAN or text instead of typing it. Check the result before saving.'**
+  String get how4B;
+
+  /// No description provided for @how5T.
+  ///
+  /// In en, this message translates to:
+  /// **'Trash'**
+  String get how5T;
+
+  /// No description provided for @how5B.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted entries wait in the trash, still encrypted, and can be restored until the period you set ends.'**
+  String get how5B;
+
+  /// No description provided for @how6T.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup and restore'**
+  String get how6T;
+
+  /// No description provided for @how6B.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an encrypted backup file with its own password and keep it somewhere safe. Restoring only adds entries; existing ones are never overwritten.'**
+  String get how6B;
+
+  /// No description provided for @how7T.
+  ///
+  /// In en, this message translates to:
+  /// **'Locking and biometrics'**
+  String get how7T;
+
+  /// No description provided for @how7B.
+  ///
+  /// In en, this message translates to:
+  /// **'The vault locks itself when you leave the app. Turn on biometrics to open it with your fingerprint or face.'**
+  String get how7B;
+
+  /// No description provided for @storyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every great invention starts with someone trying to solve a small problem in their own life. The story of MÜHÜR is exactly that: a sincere but determined journey, born from a memory lost in the chaos of the digital world and from the instinct to protect what is your own.\n\nIt all began with the annoying pause caused by a single forgotten password. I designed MÜHÜR as a personal refuge that runs only on my own device, without depending on anyone else\'s cloud servers. Over time I realised I was not the only one who wanted their digital privacy back.\n\nToday MÜHÜR is for everyone who wants to keep their data fully under their own control, without entrusting it to any server.\n\nSeal the safest lock on your digital memory.'**
+  String get storyBody;
+
+  /// No description provided for @devBody.
+  ///
+  /// In en, this message translates to:
+  /// **'MÜHÜR is an independent project by uekdesigner, designed and developed in Türkiye. Thank you for using MÜHÜR.'**
+  String get devBody;
+
+  /// No description provided for @rn100.
+  ///
+  /// In en, this message translates to:
+  /// **'• First release.\n• Encrypted vault on the phone, opened with a master password (Argon2id + AES-256).\n• Ready-made fields for banks, websites, e-mail, social media and business accounts.\n• Password generator with strength indicator.\n• Camera scanning for IBANs and text.\n• Fingerprint and face unlock.\n• Encrypted backup and restore.\n• Excel export (unencrypted, at your own responsibility).\n• Trash with automatic clean-up.\n• Vault summary showing reused passwords.\n• Automatic lock, screen protection and clipboard countdown.\n• Works fully offline.\n• 18 languages.'**
+  String get rn100;
+
+  /// No description provided for @excelExport.
+  ///
+  /// In en, this message translates to:
+  /// **'Export to Excel'**
+  String get excelExport;
+
+  /// No description provided for @excelExportDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Unencrypted .xlsx file of your entries, e.g. before deleting the app'**
+  String get excelExportDesc;
+
+  /// No description provided for @excelExportWarnTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unencrypted export'**
+  String get excelExportWarnTitle;
+
+  /// No description provided for @excelExportWarn.
+  ///
+  /// In en, this message translates to:
+  /// **'The Excel file is NOT encrypted. Anyone who gets the file can read all your passwords. Where you keep it, who you share it with and deleting it afterwards are entirely your responsibility. Entries in the trash are not included.'**
+  String get excelExportWarn;
+
+  /// No description provided for @excelExportAgree.
+  ///
+  /// In en, this message translates to:
+  /// **'I understand; the file\'s safety is my responsibility.'**
+  String get excelExportAgree;
+
+  /// No description provided for @excelExportSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Excel file saved. Delete it when you no longer need it.'**
+  String get excelExportSaved;
+
+  /// No description provided for @excelExportFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The Excel file could not be created.'**
+  String get excelExportFailed;
+
+  /// No description provided for @excelColDomain.
+  ///
+  /// In en, this message translates to:
+  /// **'Domain'**
+  String get excelColDomain;
+
+  /// No description provided for @excelColUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated'**
+  String get excelColUpdated;
+
+  /// No description provided for @how8T.
+  ///
+  /// In en, this message translates to:
+  /// **'Exporting to Excel'**
+  String get how8T;
+
+  /// No description provided for @how8B.
+  ///
+  /// In en, this message translates to:
+  /// **'\"Export to Excel\" in the backup settings writes all your entries (except the trash) to an .xlsx file, one sheet per category. The file is not encrypted: you confirm with your master password and accept that keeping it safe is your responsibility. Delete it when you no longer need it.'**
+  String get how8B;
 }
 
 class _AppLocalizationsDelegate

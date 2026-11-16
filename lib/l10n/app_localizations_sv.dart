@@ -98,9 +98,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get createVault => 'Skapa';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => 'Öppna';
 
   @override
@@ -110,9 +107,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String lockedOut(int seconds) {
     return 'För många försök. Försök igen om $seconds sekunder.';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => 'Aktivera biometrisk upplåsning?';
@@ -128,9 +122,6 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get lockNow => 'Lås';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'Alla';
@@ -166,22 +157,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get addField => 'Nytt fält';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'Text';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => 'Dölj värde';
@@ -283,11 +259,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get copy => 'Kopiera';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => 'Inställningar';
 
   @override
@@ -307,12 +278,6 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get immediately => 'Direkt';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'Kopieringstid';
@@ -379,27 +344,11 @@ class AppLocalizationsSv extends AppLocalizations {
       'Håll kameran stilla över texten. I IBAN-läge känns det igen automatiskt.';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'Skannar...';
-
-  @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
 
   @override
   String get ibanCorrected =>
       'Kan ha rättats efter ett OCR-fel. Kontrollera noga.';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError =>
@@ -537,17 +486,11 @@ class AppLocalizationsSv extends AppLocalizations {
   String get planFree => 'GRATIS';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'Tillåt skärmbilder';
 
   @override
   String get screenshotAllowHint =>
       'Skärmskyddet stängs av under tiden som anges nedan och slås sedan på igen automatiskt.';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => 'KRYPTERAD BACKUP';
@@ -700,9 +643,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get helpTitle => 'Hjälp';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => 'Hur används den?';
 
   @override
@@ -744,9 +684,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fcBankName => 'Banknamn';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'Internetbankslösenord';
 
   @override
@@ -766,9 +703,6 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => 'Kundnr / Personnr';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => 'Kontotyp';
@@ -798,12 +732,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / Reservkoder';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => 'Säkerhetsfråga';
 
   @override
@@ -831,9 +759,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fcLinkedMainAccount => 'Länkat konto';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => '2FA-hemlig nyckel';
 
   @override
@@ -858,21 +783,6 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fcSupportContact => 'Supportkontakt';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'Webbplatsnamn';
 
   @override
@@ -882,25 +792,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fcUsernameEmail => 'Användarnamn / E-post';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'Välj ett fält';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => 'Generatorinställningar';
@@ -982,24 +874,18 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => 'OM';
-
-  @override
-  String get aboutVersion => 'Version';
-
-  @override
   String get aboutProtectionTitle => 'Så skyddas dina data';
 
   @override
   String get aboutProtectionBody =>
-      'Varje post krypteras med AES-256 på den här enheten. Nyckeln som öppnar valvet härleds från ditt huvudlösenord med Argon2id; själva lösenordet sparas aldrig.';
+      'Allt du sparar låses med stark kryptering på den här telefonen. Bara ditt huvudlösenord kan öppna det – det sparas ingenstans, inte ens av MÜHÜR. Utan det går data inte att läsa.';
 
   @override
   String get aboutOfflineTitle => 'Fungerar offline';
 
   @override
   String get aboutOfflineBody =>
-      'Muhur har ingen internetbehörighet, inget konto och ingen server. Dina data lämnar aldrig enheten om du inte själv exporterar en krypterad backup.';
+      'MÜHÜR ansluter aldrig till internet. Det finns inget konto, ingen server och inget moln. Dina lösenord stannar på den här telefonen, om du inte själv exporterar dem som en krypterad backup eller en Excel-fil.';
 
   @override
   String get aboutLicenses => 'Licenser för öppen källkod';
@@ -1019,4 +905,158 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get helpStatusClipboard =>
       'Urklippsikon: kopierat värde (siffra = sekunder tills det rensas, tryck för att rensa nu)';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'Versionsinformation';
+
+  @override
+  String get aboutHowTitle => 'Så fungerar det';
+
+  @override
+  String get aboutStoryTitle => 'Berättelsen om MÜHÜR';
+
+  @override
+  String get aboutDeveloperTitle => 'Vem står bakom MÜHÜR';
+
+  @override
+  String get aboutPrivacySection => 'INTEGRITETSPOLICY';
+
+  @override
+  String get aboutPermissionsTitle => 'Behörigheter och data';
+
+  @override
+  String get aboutSupportSection => 'SUPPORT';
+
+  @override
+  String get aboutRate => 'Betygsätt på Google Play';
+
+  @override
+  String get aboutRateDesc =>
+      'Lämna ett betyg eller en recension på butikssidan';
+
+  @override
+  String get aboutInBrief => 'I korthet';
+
+  @override
+  String get aboutTechnical => 'Tekniska detaljer';
+
+  @override
+  String get aboutProtectionTech =>
+      '• Valvet krypteras med en slumpmässig 256-bitarsnyckel. Den nyckeln förseglas med AES-256-GCM med en nyckel som härleds från ditt huvudlösenord med Argon2id (32 MiB minne, 3 varv). Härledningsinställningarna är bundna till förseglingen, så manipulation upptäcks.\n• Databasen krypteras med SQLCipher; dess nyckel härleds från valvnyckeln med HKDF-SHA256.\n• Känsliga fält krypteras ytterligare med AES-256-GCM och knyts till sin post och sitt fält.\n• Efter 5 felaktiga lösenord väntar appen 30 sekunder, dubbelt så länge varje gång, upp till 1 timme. Att ändra telefonens klocka förkortar inte väntan.\n• Biometrisk upplåsning godtar bara stark biometri (klass 3) och stängs av om ett nytt fingeravtryck eller ansikte läggs till.\n• Skärmbilder och skärminspelning blockeras, valvet låses när du lämnar appen och kopierade värden markeras som känsliga och rensas automatiskt.';
+
+  @override
+  String get aboutOfflineTech =>
+      '• Den publicerade versionen av appen har ingen internet- eller nätverksbehörighet; den tas bort även om ett bibliotek begär den.\n• Molnbackup och överföring till en annan enhet är avstängda, så appens data kopieras aldrig från telefonen.\n• Textigenkänningen använder en modell som följer med appen och körs på telefonen; kamerabilder behandlas i minnet och sparas aldrig.\n• Data lämnar bara telefonen om du själv exporterar dem: som en krypterad backupfil eller som en okrypterad Excel-fil vars säkerhet är ditt ansvar.';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜR samlar inte in personuppgifter, visar inga annonser, använder inga analysverktyg och delar inget med någon. Appen ber bara om kameran (för att skanna text) och biometri (för att låsa upp). Prenumerationer hanteras av Google Play; appen ser aldrig dina betalningsuppgifter. Om du tar bort appen raderas alla dess data. Innan dess kan du exportera dina poster till Excel; den filens säkerhet är ditt ansvar.';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• Kamera: används bara när skannern är öppen; inga foton sparas och inget ljud spelas in.\n• Biometri: ditt fingeravtryck eller ansikte kontrolleras av telefonens systemfönster; MÜHÜR får aldrig de uppgifterna.\n• Filer: åtkomst bara när du själv väljer var en backup eller Excel-fil ska sparas eller öppnas.\n• Inget konto, ingen server, inga spårnings- eller annons-ID:n.\n• Nedladdning och köp av prenumeration hanteras av Google Play enligt Googles integritetspolicy.';
+
+  @override
+  String get how1T => 'Valv och huvudlösenord';
+
+  @override
+  String get how1B =>
+      'Allt förvaras i ett krypterat valv på den här telefonen. Bara ditt huvudlösenord öppnar det. Det kan inte återställas – välj ett du kommer ihåg och gör en backup.';
+
+  @override
+  String get how2T => 'Poster och kategorier';
+
+  @override
+  String get how2B =>
+      'Lägg till banker, webbplatser, e-postkonton och mer. Varje kategori har färdiga fält, och du kan lägga till egna.';
+
+  @override
+  String get how3T => 'Kopiera säkert';
+
+  @override
+  String get how3B =>
+      'Tryck på ett fält för att kopiera det. Urklipp rensas automatiskt efter den tid du valt. Ikonen på startskärmen räknar ner; tryck på den för att rensa direkt.';
+
+  @override
+  String get how4T => 'Skanna med kameran';
+
+  @override
+  String get how4B =>
+      'Rikta kameran mot ett kort eller dokument för att läsa ett IBAN eller en text i stället för att skriva. Kontrollera resultatet innan du sparar.';
+
+  @override
+  String get how5T => 'Papperskorg';
+
+  @override
+  String get how5B =>
+      'Raderade poster väntar krypterade i papperskorgen och kan återställas tills perioden du valt löper ut.';
+
+  @override
+  String get how6T => 'Backup och återställning';
+
+  @override
+  String get how6B =>
+      'Skapa en krypterad backupfil med eget lösenord och förvara den säkert. Återställning lägger bara till poster; befintliga skrivs aldrig över.';
+
+  @override
+  String get how7T => 'Lås och biometri';
+
+  @override
+  String get how7B =>
+      'Valvet låses när du lämnar appen. Slå på biometri för att öppna det med fingeravtryck eller ansikte.';
+
+  @override
+  String get storyBody =>
+      'Varje stor uppfinning börjar med att någon försöker lösa ett litet problem i sitt eget liv. Berättelsen om MÜHÜR är precis så: en uppriktig men målmedveten resa, född ur ett minne som går vilse i den digitala världens kaos och ur instinkten att skydda det som är ens eget.\n\nAllt började med den irriterande pausen som ett enda glömt lösenord orsakade. Jag utformade MÜHÜR som en personlig fristad som bara körs på min egen enhet, utan att vara beroende av andras molnservrar. Med tiden insåg jag att jag inte var ensam om att vilja ha tillbaka min digitala integritet.\n\nI dag finns MÜHÜR för alla som vill ha full kontroll över sina data utan att anförtro dem åt någon server.\n\nFörsegla det säkraste låset för ditt digitala minne.';
+
+  @override
+  String get devBody =>
+      'MÜHÜR är ett oberoende projekt av uekdesigner, utformat och utvecklat i Turkiet. Tack för att du använder MÜHÜR.';
+
+  @override
+  String get rn100 =>
+      '• Första versionen.\n• Krypterat valv på telefonen som öppnas med ett huvudlösenord (Argon2id + AES-256).\n• Färdiga fält för banker, webbplatser, e-post, sociala medier och jobbkonton.\n• Lösenordsgenerator med styrkeindikator.\n• Skanning av IBAN och text med kameran.\n• Upplåsning med fingeravtryck och ansikte.\n• Krypterad backup och återställning.\n• Export till Excel (okrypterad, på eget ansvar).\n• Papperskorg som rensas automatiskt.\n• Valvöversikt som visar återanvända lösenord.\n• Automatiskt lås, skärmskydd och nedräkning för urklipp.\n• Fungerar helt offline.\n• 18 språk.';
+
+  @override
+  String get excelExport => 'Exportera till Excel';
+
+  @override
+  String get excelExportDesc =>
+      'Okrypterad .xlsx-fil med dina poster, t.ex. innan du tar bort appen';
+
+  @override
+  String get excelExportWarnTitle => 'Okrypterad export';
+
+  @override
+  String get excelExportWarn =>
+      'Excel-filen är INTE krypterad. Alla som får tag på filen kan läsa alla dina lösenord. Var du förvarar den, vem du delar den med och att du raderar den efteråt är helt ditt ansvar. Poster i papperskorgen tas inte med.';
+
+  @override
+  String get excelExportAgree =>
+      'Jag förstår – filens säkerhet är mitt ansvar.';
+
+  @override
+  String get excelExportSaved =>
+      'Excel-filen har sparats. Radera den när du inte behöver den längre.';
+
+  @override
+  String get excelExportFailed => 'Excel-filen kunde inte skapas.';
+
+  @override
+  String get excelColDomain => 'Domän';
+
+  @override
+  String get excelColUpdated => 'Senast ändrad';
+
+  @override
+  String get how8T => 'Exportera till Excel';
+
+  @override
+  String get how8B =>
+      '”Exportera till Excel” i backupinställningarna skriver alla dina poster (utom papperskorgen) till en .xlsx-fil, med ett blad per kategori. Filen är inte krypterad: du bekräftar med ditt huvudlösenord och godkänner att dess säkerhet är ditt ansvar. Radera den när du inte behöver den längre.';
 }

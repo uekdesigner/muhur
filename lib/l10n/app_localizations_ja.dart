@@ -94,9 +94,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get createVault => '作成';
 
   @override
-  String get unlockTitle => 'Unlock';
-
-  @override
   String get unlock => '開く';
 
   @override
@@ -106,9 +103,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String lockedOut(int seconds) {
     return '試行回数が多すぎます。$seconds秒後にもう一度お試しください。';
   }
-
-  @override
-  String get useBiometrics => 'Biometrics';
 
   @override
   String get enableBiometricsQ => '生体認証でのロック解除を有効にしますか？';
@@ -124,9 +118,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get lockNow => 'ロック';
-
-  @override
-  String get vaultUnlocked => 'Vault unlocked';
 
   @override
   String get all => 'すべて';
@@ -162,22 +153,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get addField => 'フィールドを追加';
 
   @override
-  String get fieldLabel => 'Label';
-
-  @override
-  String get fieldValue => 'Value';
-
-  @override
   String get typeText => 'テキスト';
-
-  @override
-  String get typePassword => 'Password';
-
-  @override
-  String get typeUrl => 'URL';
-
-  @override
-  String get typeNotes => 'Notes';
 
   @override
   String get sensitive => '値を隠す';
@@ -274,11 +250,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get copy => 'コピー';
 
   @override
-  String copied(int seconds) {
-    return 'Copied. The clipboard clears in $seconds seconds.';
-  }
-
-  @override
   String get settings => '設定';
 
   @override
@@ -298,12 +269,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get immediately => 'すぐに';
-
-  @override
-  String get seconds15 => '15 sec';
-
-  @override
-  String get minute1 => '1 min';
 
   @override
   String get copyTimer => 'コピー保持時間';
@@ -369,26 +334,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get scanHint => 'カメラを文字の上で動かさずに保持してください。IBANモードでは自動で検出されます。';
 
   @override
-  String get scanRetake => 'Retake';
-
-  @override
   String get scanning => 'スキャン中...';
 
   @override
-  String get ibanFound => 'IBAN found';
-
-  @override
-  String get ibanNotFound =>
-      'No valid IBAN found. Try again with better light, or pick a line below.';
-
-  @override
   String get ibanCorrected => 'OCRの誤りを修正した可能性があります。よく確認してください。';
-
-  @override
-  String get pickLine => 'Tap a line to use it';
-
-  @override
-  String get noTextFound => 'No text found.';
 
   @override
   String get cameraError => 'カメラを使用できません。カメラの権限を確認してください。';
@@ -520,16 +469,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get planFree => '無料';
 
   @override
-  String get statusScreen => 'Screen protection';
-
-  @override
   String get screenshotAllow => 'スクリーンショットを許可';
 
   @override
   String get screenshotAllowHint => '下で設定した時間だけ画面保護がオフになり、その後自動でオンに戻ります。';
-
-  @override
-  String get screenshotTimer => 'Screenshot time';
 
   @override
   String get backupSection => '暗号化バックアップ';
@@ -671,9 +614,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get helpTitle => 'ヘルプ';
 
   @override
-  String get helpBody => 'Help content will be added here.';
-
-  @override
   String get helpMenuTitle => '使い方';
 
   @override
@@ -709,9 +649,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fcBankName => '銀行名';
 
   @override
-  String get fcTag => 'Tag';
-
-  @override
   String get fcInternetBankingPassword => 'ネットバンキングのパスワード';
 
   @override
@@ -731,9 +668,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get fcCustomerNoTc => '顧客番号 / ID';
-
-  @override
-  String get fcBranchNameCode => 'Branch / Code';
 
   @override
   String get fcAccountType => '口座種別';
@@ -763,12 +697,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fc2faBackupCodes => '2FA / バックアップコード';
 
   @override
-  String get fcLoginMethodProvider => 'Login Method';
-
-  @override
-  String get fcImapSmtp => 'IMAP / SMTP';
-
-  @override
   String get fcSecurityQA => '秘密の質問';
 
   @override
@@ -796,9 +724,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fcLinkedMainAccount => '連携アカウント';
 
   @override
-  String get fcProfileNumericId => 'Profile ID';
-
-  @override
   String get fc2faSecretKey => '2FAシークレットキー';
 
   @override
@@ -823,21 +748,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fcSupportContact => 'サポート窓口';
 
   @override
-  String get fcLoginMethodVerification => 'Verification';
-
-  @override
-  String get fcTaxOffice => 'Tax Office / No';
-
-  @override
-  String get fcRegistryNo => 'Registry / Dealer No';
-
-  @override
-  String get fcIpVpn => 'IP / VPN';
-
-  @override
-  String get fcLicenseExpiry => 'License Expiry';
-
-  @override
   String get fcSiteName => 'サイト名';
 
   @override
@@ -847,25 +757,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fcUsernameEmail => 'ユーザー名 / メール';
 
   @override
-  String get fcSubscriptionFee => 'Fee / Period';
-
-  @override
-  String get fcRegistrationDate => 'Sign-up Date';
-
-  @override
-  String get fcPaymentMethod => 'Payment Method';
-
-  @override
-  String get fcPinCode => 'PIN Code';
-
-  @override
-  String get fcLicenseCodeSimple => 'License Code';
-
-  @override
   String get pickFieldTitle => 'フィールドを選択';
-
-  @override
-  String get allFieldsAdded => 'All fields added';
 
   @override
   String get generatorSettings => '生成の設定';
@@ -946,24 +838,18 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get aboutSection => '情報';
-
-  @override
-  String get aboutVersion => 'バージョン';
-
-  @override
   String get aboutProtectionTitle => 'データの保護方法';
 
   @override
   String get aboutProtectionBody =>
-      'すべての項目はこの端末上でAES-256により暗号化されます。保管庫を開く鍵はマスターパスワードからArgon2idで生成され、パスワード自体はどこにも保存されません。';
+      '保存したものはすべて、この端末上で強力な暗号化によって守られます。開けられるのはマスターパスワードだけで、そのパスワードはMÜHÜR自身も含めてどこにも保存されません。パスワードがなければデータは読めません。';
 
   @override
   String get aboutOfflineTitle => 'オフラインで動作';
 
   @override
   String get aboutOfflineBody =>
-      'Muhurにはインターネット権限、アカウント、サーバーがありません。暗号化バックアップを自分でエクスポートしない限り、データがこの端末の外に出ることはありません。';
+      'MÜHÜRはインターネットに一切接続しません。アカウントもサーバーもクラウドもありません。暗号化バックアップやExcelファイルとして自分で書き出さない限り、パスワードはこの端末から出ません。';
 
   @override
   String get aboutLicenses => 'オープンソースライセンス';
@@ -981,4 +867,151 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get helpStatusClipboard => 'クリップボードアイコン：コピーした値（数字＝消去までの秒数、タップで今すぐ消去）';
+
+  @override
+  String aboutVersionLine(String version) {
+    return 'バージョン $version';
+  }
+
+  @override
+  String get aboutReleaseNotes => 'リリースノート';
+
+  @override
+  String get aboutHowTitle => '使い方';
+
+  @override
+  String get aboutStoryTitle => 'MÜHÜRの物語';
+
+  @override
+  String get aboutDeveloperTitle => '開発者について';
+
+  @override
+  String get aboutPrivacySection => 'プライバシーポリシー';
+
+  @override
+  String get aboutPermissionsTitle => '権限とデータ';
+
+  @override
+  String get aboutSupportSection => 'サポート';
+
+  @override
+  String get aboutRate => 'Google Playで評価する';
+
+  @override
+  String get aboutRateDesc => 'ストアページで評価やレビューを残す';
+
+  @override
+  String get aboutInBrief => 'かんたんに言うと';
+
+  @override
+  String get aboutTechnical => '技術的な詳細';
+
+  @override
+  String get aboutProtectionTech =>
+      '• 保管庫はランダムな256ビットの鍵で暗号化されます。この鍵は、マスターパスワードからArgon2id（メモリ32 MiB、3回）で生成した鍵を使い、AES-256-GCMで封印されます。鍵生成の設定は封印に結び付いているため、改ざんは検出されます。\n• データベースはSQLCipherで暗号化され、その鍵は保管庫の鍵からHKDF-SHA256で生成されます。\n• 機密性の高いフィールドはさらにAES-256-GCMで暗号化され、その項目とフィールドに結び付けられます。\n• パスワードを5回間違えると30秒待つ必要があり、その後は毎回2倍になり最大1時間です。端末の時計を変えても待ち時間は短くなりません。\n• 生体認証は強力な生体認証（クラス3）のみを受け付け、新しい指紋や顔を登録するとオフになります。\n• スクリーンショットと画面録画はブロックされ、アプリを離れると保管庫はロックされます。コピーした値は機密として扱われ、自動で消去されます。';
+
+  @override
+  String get aboutOfflineTech =>
+      '• 公開版のアプリにはインターネットやネットワークの権限がありません。ライブラリが要求しても削除されます。\n• クラウドバックアップと別の端末への移行はオフになっているため、アプリのデータが端末の外にコピーされることはありません。\n• 文字認識はアプリに組み込まれたモデルで端末上で動作します。カメラの映像はメモリ上で処理され、保存されることはありません。\n• データが端末の外に出るのは、自分で書き出したときだけです。暗号化されたバックアップファイルか、安全管理が自分の責任となる暗号化されていないExcelファイルのどちらかです。';
+
+  @override
+  String get aboutPermissionsBody =>
+      'MÜHÜRは個人データを収集せず、広告を表示せず、分析ツールも使わず、誰とも何も共有しません。求める権限はカメラ（文字のスキャン用）と生体認証（ロック解除用）だけです。サブスクリプションはGoogle Playが管理し、アプリが支払い情報を見ることはありません。アプリを削除すると、すべてのデータも削除されます。削除する前に、項目をExcelに書き出せます。そのファイルの安全管理はご自身の責任です。';
+
+  @override
+  String get aboutPermissionsTech =>
+      '• カメラ：スキャナーを開いているときだけ使用し、写真は保存せず、音声も録音しません。\n• 生体認証：指紋や顔は端末のシステム画面が確認し、MÜHÜRがそのデータを受け取ることはありません。\n• ファイル：バックアップやExcelファイルの保存先・読み込み元を自分で選んだときだけアクセスします。\n• アカウント、サーバー、追跡用・広告用IDはありません。\n• アプリのダウンロードとサブスクリプションの購入は、Googleのプライバシーポリシーに基づきGoogle Playが処理します。';
+
+  @override
+  String get how1T => '保管庫とマスターパスワード';
+
+  @override
+  String get how1B =>
+      'すべてはこの端末上の暗号化された保管庫に保存されます。開けられるのはマスターパスワードだけです。復元できないため、覚えられるものを選び、バックアップを作成してください。';
+
+  @override
+  String get how2T => '項目とカテゴリ';
+
+  @override
+  String get how2B =>
+      '銀行、ウェブサイト、メールアカウントなどを追加できます。カテゴリごとに入力欄が用意されており、独自の欄も追加できます。';
+
+  @override
+  String get how3T => '安全なコピー';
+
+  @override
+  String get how3B =>
+      '欄をタップするとコピーされます。クリップボードは設定した時間が経つと自動で消去されます。ホーム画面のクリップボードアイコンが残り時間を表示し、タップするとすぐに消去されます。';
+
+  @override
+  String get how4T => 'カメラでスキャン';
+
+  @override
+  String get how4B => 'カードや書類にカメラを向けると、IBANや文字を入力せずに読み取れます。保存する前に結果を確認してください。';
+
+  @override
+  String get how5T => 'ゴミ箱';
+
+  @override
+  String get how5B => '削除した項目は暗号化されたままゴミ箱に残り、設定した期間が終わるまで復元できます。';
+
+  @override
+  String get how6T => 'バックアップと復元';
+
+  @override
+  String get how6B =>
+      '専用のパスワード付きの暗号化バックアップファイルを作成し、安全な場所に保管してください。復元は項目を追加するだけで、既存の項目が上書きされることはありません。';
+
+  @override
+  String get how7T => 'ロックと生体認証';
+
+  @override
+  String get how7B => 'アプリを離れると保管庫は自動でロックされます。生体認証をオンにすると、指紋や顔で開けられます。';
+
+  @override
+  String get storyBody =>
+      '偉大な発明はどれも、自分の暮らしの小さな行き詰まりを解決しようとするところから始まります。MÜHÜRの物語もまさにそうです。デジタル世界の混乱の中で失われていく記憶と、「自分のものを守りたい」という本能から生まれた、素朴でありながら力強い旅です。\n\nすべては、たった一つのパスワードを忘れたことで生じた、あのもどかしい足止めから始まりました。他人のクラウドサーバーに頼らず、自分の端末だけで動く個人的な避難所としてMÜHÜRを設計しました。やがて、デジタルのプライバシーを取り戻したいと願っているのは自分だけではないと気づきました。\n\n今、MÜHÜRは、データをどのサーバーにも預けず、完全に自分の管理下に置きたいすべての人のためにあります。\n\nデジタルの記憶に、最も安全な鍵で封印を。';
+
+  @override
+  String get devBody =>
+      'MÜHÜRは、uekdesignerによる独立したプロジェクトで、トルコで設計・開発されています。MÜHÜRをご利用いただきありがとうございます。';
+
+  @override
+  String get rn100 =>
+      '• 最初のリリースです。\n• マスターパスワードで開く、端末上の暗号化された保管庫（Argon2id + AES-256）。\n• 銀行、ウェブサイト、メール、SNS、仕事用アカウントのための入力欄。\n• 強度表示付きのパスワード生成。\n• カメラによるIBANと文字のスキャン。\n• 指紋と顔によるロック解除。\n• 暗号化バックアップと復元。\n• Excelへの書き出し（暗号化なし、自己責任）。\n• 自動で整理されるゴミ箱。\n• 使い回しのパスワードがわかる保管庫の概要。\n• 自動ロック、画面保護、クリップボードのカウントダウン。\n• 完全にオフラインで動作。\n• 18言語に対応。';
+
+  @override
+  String get excelExport => 'Excelに書き出す';
+
+  @override
+  String get excelExportDesc => '項目を暗号化せずに.xlsxファイルへ書き出します（アプリ削除前など）';
+
+  @override
+  String get excelExportWarnTitle => '暗号化されない書き出し';
+
+  @override
+  String get excelExportWarn =>
+      'Excelファイルは暗号化されません。ファイルを入手した人は誰でも、すべてのパスワードを読めます。保管場所、共有する相手、使用後の削除は、すべてご自身の責任となります。ゴミ箱の項目は含まれません。';
+
+  @override
+  String get excelExportAgree => '理解しました。ファイルの安全管理は自分の責任です。';
+
+  @override
+  String get excelExportSaved => 'Excelファイルを保存しました。不要になったら削除してください。';
+
+  @override
+  String get excelExportFailed => 'Excelファイルを作成できませんでした。';
+
+  @override
+  String get excelColDomain => 'ドメイン';
+
+  @override
+  String get excelColUpdated => '最終更新';
+
+  @override
+  String get how8T => 'Excelへの書き出し';
+
+  @override
+  String get how8B =>
+      'バックアップ設定の「Excelに書き出す」は、ゴミ箱以外のすべての項目を、カテゴリごとにシートを分けて.xlsxファイルに書き出します。ファイルは暗号化されません。マスターパスワードで確認し、ファイルの安全管理が自分の責任であることに同意したうえで実行されます。不要になったら削除してください。';
 }

@@ -97,7 +97,7 @@ class _ScannerScreenState extends State<ScannerScreen>
   @override
   void dispose() {
     _sweep.dispose();
-    SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+
     final c = _controller;
     _controller = null;
     () async {
