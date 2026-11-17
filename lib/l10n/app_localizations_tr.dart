@@ -1070,4 +1070,140 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get undo => 'Geri al';
+
+  @override
+  String get proStatusActive => 'Pro aboneliğiniz etkin';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Ücretsiz deneme: $days kaldı';
+  }
+
+  @override
+  String get proStatusFree => 'Ücretsiz plan';
+
+  @override
+  String get proTrialInfo =>
+      'Deneme bitince kendiliğinden ücretsiz plana geçersiniz. Kart bilgisi istenmez, hiçbir şey silinmez.';
+
+  @override
+  String get proFeatEntries => 'Sınırsız kayıt';
+
+  @override
+  String get proFeatEntriesDesc => 'Ücretsizde her kategoride 3';
+
+  @override
+  String get proFeatScan => 'Sınırsız kamerayla tarama';
+
+  @override
+  String get proFeatScanDesc => 'Ücretsizde 3 deneme';
+
+  @override
+  String get proFeatFields => 'Ek ve özel alanlar';
+
+  @override
+  String get proFeatFieldsDesc => 'Kayda ihtiyacınız olan her alanı ekleyin';
+
+  @override
+  String get proFeatBio => 'Parmak izi ve yüzle açma';
+
+  @override
+  String get proFeatBioDesc => 'Kasayı tek dokunuşla açın';
+
+  @override
+  String get proFeatBg => 'Tüm arka planlar';
+
+  @override
+  String get proFeatBgDesc => '5 arka planın hepsi';
+
+  @override
+  String get proFeatHealth => 'Kasa sağlığı';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Hangi parolaların zayıf ya da tekrar ettiğini görün, dokununca kayda gidin';
+
+  @override
+  String get proFeatTotp => 'İki adımlı doğrulama kodları';
+
+  @override
+  String get proFeatTotpDesc => 'Kodlar internetsiz, kasanın içinde üretilir';
+
+  @override
+  String get proFeatHistory => 'Parola geçmişi';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Eski parolalar saklanır, gerektiğinde geri bakarsınız';
+
+  @override
+  String get proYearly => 'Yıllık';
+
+  @override
+  String get proMonthly => 'Aylık';
+
+  @override
+  String get proPerYear => '/ yıl';
+
+  @override
+  String get proPerMonth => '/ ay';
+
+  @override
+  String get proBestValue => 'En avantajlı';
+
+  @override
+  String get proSubscribe => 'Abone ol';
+
+  @override
+  String get proRestore => 'Satın alımı geri yükle';
+
+  @override
+  String get proManage => 'Aboneliği yönet';
+
+  @override
+  String get proFinePrint =>
+      'Ödeme Google Play üzerinden alınır. Abonelik siz iptal edene kadar kendiliğinden yenilenir; istediğiniz zaman Google Play\'den iptal edebilirsiniz. Abonelik biterse kayıtlarınız silinmez.';
+
+  @override
+  String get proComingSoon =>
+      'Satın alma, MÜHÜR Google Play\'de yayınlandığında açılacak.';
+
+  @override
+  String get proSeePlans => 'Pro\'yu incele';
+
+  @override
+  String get proHealthBody =>
+      'Hangi kayıtlarda zayıf ya da tekrar eden parola olduğunu görmek Pro özelliğidir. Sayılar her zaman görünür.';
+
+  @override
+  String get healthWeakHint =>
+      'Kısa ya da tahmin edilmesi kolay. Parola oluşturucuyla değiştirin.';
+
+  @override
+  String get healthReusedHint =>
+      'Aynı parola birden çok kayıtta kullanılıyor. Biri sızarsa diğerleri de risk altında olur.';
+
+  @override
+  String get healthFairHint =>
+      'Kabul edilebilir, ama daha uzun ve karışık olabilir.';
+
+  @override
+  String get healthAllGood =>
+      'Zayıf ya da tekrar eden parola yok. Kasanız sağlıklı.';
+
+  @override
+  String get proHistoryBody =>
+      'Bir parolanın eski değerlerini görmek Pro özelliğidir. Pro\'dayken değiştirdiğiniz parolalar burada saklanır.';
+
+  @override
+  String get historyEmpty =>
+      'Bu parola henüz değiştirilmedi. Değiştirdiğinizde eski değeri burada görünür.';
+
+  @override
+  String get historyNote =>
+      'Her parola alanının son 10 değeri, kasanın geri kalanı gibi şifreli saklanır. Parola geçmişi yedeklere dahil edilmez.';
+
+  @override
+  String get historyClearQ =>
+      'Bu alanın parola geçmişini silmek için sil düğmesine bir kez daha dokunun.';
 }

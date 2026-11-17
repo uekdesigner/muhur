@@ -10,6 +10,7 @@ import '../../core/utils/screen_capture_service.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../core/widgets/pro_badge.dart';
 import '../../l10n/app_localizations.dart';
+import '../pro/pro_screen.dart';
 
 class VaultHeader extends StatelessWidget {
   const VaultHeader({
@@ -72,7 +73,10 @@ class VaultHeader extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 8),
-                        const PlanBadge(),
+                        GestureDetector(
+                          onTap: () => ProScreen.open(context),
+                          child: const PlanBadge(),
+                        ),
                       ],
                     ),
                     Text(

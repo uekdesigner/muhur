@@ -1097,4 +1097,140 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get undo => 'Cofnij';
+
+  @override
+  String get proStatusActive => 'Twoja subskrypcja Pro jest aktywna';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Darmowy okres próbny, pozostało: $days';
+  }
+
+  @override
+  String get proStatusFree => 'Plan darmowy';
+
+  @override
+  String get proTrialInfo =>
+      'Po okresie próbnym automatycznie przechodzisz na plan darmowy. Karta nie jest potrzebna i nic nie zostanie usunięte.';
+
+  @override
+  String get proFeatEntries => 'Nieograniczona liczba wpisów';
+
+  @override
+  String get proFeatEntriesDesc => 'Za darmo: 3 na kategorię';
+
+  @override
+  String get proFeatScan => 'Nieograniczone skanowanie aparatem';
+
+  @override
+  String get proFeatScanDesc => 'Za darmo: 3 skany';
+
+  @override
+  String get proFeatFields => 'Dodatkowe i własne pola';
+
+  @override
+  String get proFeatFieldsDesc => 'Dodaj do wpisu każde potrzebne pole';
+
+  @override
+  String get proFeatBio => 'Odblokowanie odciskiem palca i twarzą';
+
+  @override
+  String get proFeatBioDesc => 'Otwieraj sejf jednym dotknięciem';
+
+  @override
+  String get proFeatBg => 'Wszystkie tła';
+
+  @override
+  String get proFeatBgDesc => 'Wszystkie 5 teł';
+
+  @override
+  String get proFeatHealth => 'Kondycja sejfu';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Zobacz, które hasła są słabe lub powtórzone, i przejdź prosto do wpisu';
+
+  @override
+  String get proFeatTotp => 'Kody weryfikacji dwuetapowej';
+
+  @override
+  String get proFeatTotpDesc => 'Kody powstają offline w sejfie';
+
+  @override
+  String get proFeatHistory => 'Historia haseł';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Stare hasła są zachowane, aby można było do nich wrócić';
+
+  @override
+  String get proYearly => 'Rocznie';
+
+  @override
+  String get proMonthly => 'Miesięcznie';
+
+  @override
+  String get proPerYear => '/ rok';
+
+  @override
+  String get proPerMonth => '/ miesiąc';
+
+  @override
+  String get proBestValue => 'Najkorzystniej';
+
+  @override
+  String get proSubscribe => 'Subskrybuj';
+
+  @override
+  String get proRestore => 'Przywróć zakup';
+
+  @override
+  String get proManage => 'Zarządzaj subskrypcją';
+
+  @override
+  String get proFinePrint =>
+      'Płatność odbywa się przez Google Play. Subskrypcja odnawia się automatycznie, dopóki jej nie anulujesz – możesz to zrobić w każdej chwili w Google Play. Gdy subskrypcja wygaśnie, Twoje wpisy nie zostaną usunięte.';
+
+  @override
+  String get proComingSoon =>
+      'Zakupy będą dostępne, gdy MÜHÜR pojawi się w Google Play.';
+
+  @override
+  String get proSeePlans => 'Zobacz Pro';
+
+  @override
+  String get proHealthBody =>
+      'Podgląd wpisów ze słabymi lub powtórzonymi hasłami to funkcja Pro. Liczby są zawsze widoczne.';
+
+  @override
+  String get healthWeakHint =>
+      'Krótkie lub łatwe do odgadnięcia. Zmień je za pomocą generatora haseł.';
+
+  @override
+  String get healthReusedHint =>
+      'To samo hasło jest użyte w kilku wpisach. Jeśli jedno wycieknie, pozostałe też są zagrożone.';
+
+  @override
+  String get healthFairHint =>
+      'Do przyjęcia, ale mogłyby być dłuższe i bardziej zróżnicowane.';
+
+  @override
+  String get healthAllGood =>
+      'Brak słabych i powtórzonych haseł. Twój sejf jest w dobrej kondycji.';
+
+  @override
+  String get proHistoryBody =>
+      'Podgląd wcześniejszych wartości hasła to funkcja Pro. Hasła zmienione w Pro są tu przechowywane.';
+
+  @override
+  String get historyEmpty =>
+      'To hasło nie było jeszcze zmieniane. Gdy je zmienisz, poprzednia wartość pojawi się tutaj.';
+
+  @override
+  String get historyNote =>
+      'Dla każdego pola hasła przechowywanych jest 10 ostatnich wartości, zaszyfrowanych jak reszta sejfu. Historia nie trafia do kopii zapasowych.';
+
+  @override
+  String get historyClearQ =>
+      'Dotknij Usuń jeszcze raz, aby wyczyścić historię tego pola.';
 }

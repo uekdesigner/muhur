@@ -1080,4 +1080,139 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get undo => 'वापस लाएं';
+
+  @override
+  String get proStatusActive => 'आपकी Pro सदस्यता चालू है';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'मुफ़्त ट्रायल: $days बाकी';
+  }
+
+  @override
+  String get proStatusFree => 'मुफ़्त प्लान';
+
+  @override
+  String get proTrialInfo =>
+      'ट्रायल खत्म होने पर आप अपने आप मुफ़्त प्लान पर आ जाते हैं। कार्ड की ज़रूरत नहीं, कुछ भी नहीं हटता।';
+
+  @override
+  String get proFeatEntries => 'असीमित एंट्री';
+
+  @override
+  String get proFeatEntriesDesc => 'मुफ़्त: हर श्रेणी में 3';
+
+  @override
+  String get proFeatScan => 'कैमरे से असीमित स्कैन';
+
+  @override
+  String get proFeatScanDesc => 'मुफ़्त: 3 स्कैन';
+
+  @override
+  String get proFeatFields => 'अतिरिक्त और कस्टम फ़ील्ड';
+
+  @override
+  String get proFeatFieldsDesc => 'एंट्री में ज़रूरत का हर फ़ील्ड जोड़ें';
+
+  @override
+  String get proFeatBio => 'फ़िंगरप्रिंट और चेहरे से अनलॉक';
+
+  @override
+  String get proFeatBioDesc => 'एक टच में वॉल्ट खोलें';
+
+  @override
+  String get proFeatBg => 'सभी बैकग्राउंड';
+
+  @override
+  String get proFeatBgDesc => 'सभी 5 बैकग्राउंड';
+
+  @override
+  String get proFeatHealth => 'वॉल्ट हेल्थ';
+
+  @override
+  String get proFeatHealthDesc =>
+      'देखें कौन-से पासवर्ड कमज़ोर या दोहराए गए हैं और सीधे उस एंट्री पर जाएं';
+
+  @override
+  String get proFeatTotp => 'दो-चरणीय सत्यापन कोड';
+
+  @override
+  String get proFeatTotpDesc => 'कोड वॉल्ट के अंदर ऑफ़लाइन बनते हैं';
+
+  @override
+  String get proFeatHistory => 'पासवर्ड इतिहास';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'पुराने पासवर्ड सहेजे रहते हैं, ताकि आप उन्हें देख सकें';
+
+  @override
+  String get proYearly => 'सालाना';
+
+  @override
+  String get proMonthly => 'मासिक';
+
+  @override
+  String get proPerYear => '/ साल';
+
+  @override
+  String get proPerMonth => '/ महीना';
+
+  @override
+  String get proBestValue => 'सबसे फ़ायदेमंद';
+
+  @override
+  String get proSubscribe => 'सदस्यता लें';
+
+  @override
+  String get proRestore => 'खरीदारी बहाल करें';
+
+  @override
+  String get proManage => 'सदस्यता प्रबंधित करें';
+
+  @override
+  String get proFinePrint =>
+      'भुगतान Google Play से होता है। जब तक आप रद्द न करें, सदस्यता अपने आप रिन्यू होती है; आप इसे कभी भी Google Play में रद्द कर सकते हैं। सदस्यता खत्म होने पर आपकी एंट्री नहीं हटतीं।';
+
+  @override
+  String get proComingSoon =>
+      'MÜHÜR के Google Play पर आने के बाद खरीदारी शुरू होगी।';
+
+  @override
+  String get proSeePlans => 'Pro देखें';
+
+  @override
+  String get proHealthBody =>
+      'किन एंट्री में कमज़ोर या दोहराए गए पासवर्ड हैं, यह देखना Pro सुविधा है। गिनती हमेशा दिखती है।';
+
+  @override
+  String get healthWeakHint =>
+      'छोटे या आसानी से अंदाज़ा लगने वाले। पासवर्ड जनरेटर से बदलें।';
+
+  @override
+  String get healthReusedHint =>
+      'एक ही पासवर्ड कई एंट्री में इस्तेमाल हो रहा है। एक लीक हुआ तो बाकी भी खतरे में हैं।';
+
+  @override
+  String get healthFairHint => 'ठीक हैं, पर और लंबे और विविध हो सकते हैं।';
+
+  @override
+  String get healthAllGood =>
+      'कोई कमज़ोर या दोहराया गया पासवर्ड नहीं। आपका वॉल्ट ठीक हालत में है।';
+
+  @override
+  String get proHistoryBody =>
+      'किसी पासवर्ड के पुराने मान देखना Pro सुविधा है। Pro में बदले गए पासवर्ड यहां सहेजे जाते हैं।';
+
+  @override
+  String get historyEmpty =>
+      'यह पासवर्ड अभी तक नहीं बदला गया। बदलने पर पुराना मान यहां दिखेगा।';
+
+  @override
+  String get historyNote =>
+      'हर पासवर्ड फ़ील्ड के पिछले 10 मान, बाकी वॉल्ट की तरह एन्क्रिप्टेड, सहेजे जाते हैं। पासवर्ड इतिहास बैकअप में शामिल नहीं होता।';
+
+  @override
+  String get historyClearQ =>
+      'इस फ़ील्ड का इतिहास मिटाने के लिए हटाएं पर एक बार और टैप करें।';
 }

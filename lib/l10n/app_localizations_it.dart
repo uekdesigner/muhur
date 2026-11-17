@@ -1086,4 +1086,141 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get undo => 'Annulla';
+
+  @override
+  String get proStatusActive => 'Il tuo abbonamento Pro è attivo';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Prova gratuita: ancora $days';
+  }
+
+  @override
+  String get proStatusFree => 'Piano gratuito';
+
+  @override
+  String get proTrialInfo =>
+      'Alla fine della prova passi automaticamente al piano gratuito. Nessuna carta richiesta e nulla viene eliminato.';
+
+  @override
+  String get proFeatEntries => 'Voci illimitate';
+
+  @override
+  String get proFeatEntriesDesc => 'Gratis: 3 per categoria';
+
+  @override
+  String get proFeatScan => 'Scansioni illimitate con la fotocamera';
+
+  @override
+  String get proFeatScanDesc => 'Gratis: 3 scansioni';
+
+  @override
+  String get proFeatFields => 'Campi extra e personalizzati';
+
+  @override
+  String get proFeatFieldsDesc =>
+      'Aggiungi a una voce tutti i campi che ti servono';
+
+  @override
+  String get proFeatBio => 'Sblocco con impronta e volto';
+
+  @override
+  String get proFeatBioDesc => 'Apri la cassaforte con un tocco';
+
+  @override
+  String get proFeatBg => 'Tutti gli sfondi';
+
+  @override
+  String get proFeatBgDesc => 'Tutti e 5 gli sfondi';
+
+  @override
+  String get proFeatHealth => 'Salute della cassaforte';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Scopri quali password sono deboli o riutilizzate e apri subito la voce';
+
+  @override
+  String get proFeatTotp => 'Codici di verifica in due passaggi';
+
+  @override
+  String get proFeatTotpDesc => 'Codici generati offline nella cassaforte';
+
+  @override
+  String get proFeatHistory => 'Cronologia password';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Le vecchie password restano salvate per poterle rivedere';
+
+  @override
+  String get proYearly => 'Annuale';
+
+  @override
+  String get proMonthly => 'Mensile';
+
+  @override
+  String get proPerYear => '/ anno';
+
+  @override
+  String get proPerMonth => '/ mese';
+
+  @override
+  String get proBestValue => 'Il più conveniente';
+
+  @override
+  String get proSubscribe => 'Abbonati';
+
+  @override
+  String get proRestore => 'Ripristina acquisto';
+
+  @override
+  String get proManage => 'Gestisci abbonamento';
+
+  @override
+  String get proFinePrint =>
+      'Il pagamento avviene tramite Google Play. L\'abbonamento si rinnova automaticamente finché non lo annulli, in qualsiasi momento, da Google Play. Se l\'abbonamento termina, le tue voci non vengono eliminate.';
+
+  @override
+  String get proComingSoon =>
+      'Gli acquisti saranno disponibili quando MÜHÜR sarà pubblicato su Google Play.';
+
+  @override
+  String get proSeePlans => 'Scopri Pro';
+
+  @override
+  String get proHealthBody =>
+      'Vedere quali voci hanno password deboli o riutilizzate è una funzione Pro. I totali sono sempre visibili.';
+
+  @override
+  String get healthWeakHint =>
+      'Corte o facili da indovinare. Sostituiscile con il generatore di password.';
+
+  @override
+  String get healthReusedHint =>
+      'La stessa password è usata in più voci. Se una viene violata, anche le altre sono a rischio.';
+
+  @override
+  String get healthFairHint =>
+      'Accettabili, ma potrebbero essere più lunghe e varie.';
+
+  @override
+  String get healthAllGood =>
+      'Nessuna password debole o riutilizzata. La tua cassaforte è in buona salute.';
+
+  @override
+  String get proHistoryBody =>
+      'Vedere i valori precedenti di una password è una funzione Pro. Le password che modifichi con Pro vengono conservate qui.';
+
+  @override
+  String get historyEmpty =>
+      'Questa password non è ancora stata modificata. Quando la cambi, il valore precedente compare qui.';
+
+  @override
+  String get historyNote =>
+      'Per ogni campo password vengono conservati gli ultimi 10 valori, cifrati come il resto della cassaforte. La cronologia non è inclusa nei backup.';
+
+  @override
+  String get historyClearQ =>
+      'Tocca di nuovo Elimina per cancellare la cronologia di questo campo.';
 }

@@ -176,6 +176,114 @@ class VaultRepository {
     });
   }
 
+  /// Alan başına saklanan en fazla eski parola sayısı.
+  static const historyLimit = 10;
+
+  /// Parola alanının değeri değiştiyse eski değeri geçmişe yazar (alanlar
+  /// silinmeden önce, aynı işlemde). Kaldırılan alanlar kaydedilmez.
+  Future<void> _recordHistory(
+    Transaction txn,
+    int id,
+    List<FieldData> fields,
+    String now,
+  ) async {
+    final dek = _auth.dek;
+    final old = await txn.query(
+      'entry_fields',
+      columns: ['field_label', 'field_key', 'field_value'],
+      where: "entry_id = ? AND field_type = 'password'",
+      whereArgs: [id],
+    );
+    for (final r in old) {
+      final label = r['field_label'] as String;
+      final key = r['field_key'] as String?;
+      final match = fields.where(
+        (f) =>
+            f.type == 'password' &&
+            (key != null ? f.key == key : f.key == null && f.label == label),
+      );
+      if (match.isEmpty) continue;
+      final next = match.first.value;
+      final prev = await _crypto.decryptField(
+        r['field_value'] as String,
+        dek,
+        entryId: id,
+        label: label,
+      );
+      if (prev.isEmpty || next.isEmpty || next == prev) continue;
+      await txn.insert('password_history', {
+        'entry_id': id,
+        'field_label': label,
+        'field_key': key,
+        'value': await _crypto.encryptField(
+          prev,
+          dek,
+          entryId: id,
+          label: 'hist:$label',
+        ),
+        'changed_at': now,
+      });
+      final (w, a) = _histWhere(id, key, label);
+      await txn.delete(
+        'password_history',
+        where:
+            '$w AND id NOT IN (SELECT id FROM password_history WHERE $w '
+            'ORDER BY id DESC LIMIT $historyLimit)',
+        whereArgs: [...a, ...a],
+      );
+    }
+  }
+
+  static (String, List<Object?>) _histWhere(
+    int id,
+    String? key,
+    String label,
+  ) => key != null
+      ? ('entry_id = ? AND field_key = ?', [id, key])
+      : ('entry_id = ? AND field_key IS NULL AND field_label = ?', [id, label]);
+
+  /// Bir parola alanının eski değerleri, en yeni önce (çözülmüş).
+  Future<List<PasswordHistoryItem>> passwordHistory(
+    int entryId, {
+    String? key,
+    required String label,
+  }) async {
+    final (w, a) = _histWhere(entryId, key, label);
+    final rows = await _db.query(
+      'password_history',
+      where: w,
+      whereArgs: a,
+      orderBy: 'id DESC',
+    );
+    final dek = _auth.dek;
+    final out = <PasswordHistoryItem>[];
+    for (final r in rows) {
+      out.add(
+        PasswordHistoryItem(
+          r['id'] as int,
+          await _crypto.decryptField(
+            r['value'] as String,
+            dek,
+            entryId: entryId,
+            label: 'hist:${r['field_label']}',
+          ),
+          DateTime.tryParse(r['changed_at'] as String)?.toLocal() ??
+              DateTime.now(),
+        ),
+      );
+    }
+    return out;
+  }
+
+  Future<void> clearPasswordHistory(
+    int entryId, {
+    String? key,
+    required String label,
+  }) async {
+    final (w, a) = _histWhere(entryId, key, label);
+    await _db.delete('password_history', where: w, whereArgs: a);
+  }
+
   /// Kaydı çöp kutusuna taşır (kalıcı silmez).
   Future<void> moveToTrash(int id) async {
     await _db.update(
@@ -282,7 +390,11 @@ class VaultRepository {
     for (final h in hashes.values) {
       counts[h] = (counts[h] ?? 0) + 1;
     }
-    final duplicates = hashes.values.where((h) => counts[h]! > 1).length;
+    final reusedIds = {
+      for (final e in hashes.entries)
+        if (counts[e.value]! > 1) e.key,
+    };
+    final duplicates = reusedIds.length;
 
     var weak = 0, fair = 0, strong = 0;
     for (final l in levels.values) {
@@ -309,8 +421,16 @@ class VaultRepository {
       duplicates: duplicates,
       score: score,
       levels: levels,
+      reusedIds: reusedIds,
     );
   }
+}
+
+class PasswordHistoryItem {
+  const PasswordHistoryItem(this.id, this.value, this.changedAt);
+  final int id;
+  final String value;
+  final DateTime changedAt;
 }
 
 class VaultStats {
@@ -322,6 +442,7 @@ class VaultStats {
     required this.duplicates,
     required this.score,
     required this.levels,
+    required this.reusedIds,
   });
 
   final int total;
@@ -331,4 +452,5 @@ class VaultStats {
   final int duplicates;
   final int score; // 0-100
   final Map<int, Strength> levels; // kayıt id -> parola gücü
+  final Set<int> reusedIds;
 }

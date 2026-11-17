@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../core/utils/motion.dart';
 import '../../core/widgets/dialog_parts.dart';
 import '../../l10n/app_localizations.dart';
+import '../pro/pro_screen.dart';
 
 /// Ücretsiz sınır bildirimi. Satın alma düğmesi Play Billing adımında eklenecek.
 Future<void> showProDialog(BuildContext context, String title, String body) {
@@ -18,6 +19,15 @@ Future<void> showProDialog(BuildContext context, String title, String body) {
           icon: Icons.close,
           tooltip: t.close,
           onPressed: () => Navigator.pop(c),
+        ),
+        RoundIconButton(
+          icon: Icons.workspace_premium,
+          tooltip: t.proSeePlans,
+          primary: true,
+          onPressed: () {
+            Navigator.pop(c);
+            ProScreen.open(context);
+          },
         ),
       ],
     ),

@@ -1086,4 +1086,139 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get undo => 'Ongedaan maken';
+
+  @override
+  String get proStatusActive => 'Je Pro-abonnement is actief';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Gratis proefperiode: nog $days';
+  }
+
+  @override
+  String get proStatusFree => 'Gratis versie';
+
+  @override
+  String get proTrialInfo =>
+      'Na de proefperiode ga je automatisch naar de gratis versie. Geen kaart nodig en er wordt niets verwijderd.';
+
+  @override
+  String get proFeatEntries => 'Onbeperkt items';
+
+  @override
+  String get proFeatEntriesDesc => 'Gratis: 3 per categorie';
+
+  @override
+  String get proFeatScan => 'Onbeperkt scannen met de camera';
+
+  @override
+  String get proFeatScanDesc => 'Gratis: 3 scans';
+
+  @override
+  String get proFeatFields => 'Extra en eigen velden';
+
+  @override
+  String get proFeatFieldsDesc => 'Voeg elk veld toe dat je nodig hebt';
+
+  @override
+  String get proFeatBio => 'Ontgrendelen met vingerafdruk en gezicht';
+
+  @override
+  String get proFeatBioDesc => 'Open je kluis met één aanraking';
+
+  @override
+  String get proFeatBg => 'Alle achtergronden';
+
+  @override
+  String get proFeatBgDesc => 'Alle 5 achtergronden';
+
+  @override
+  String get proFeatHealth => 'Kluiscontrole';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Zie welke wachtwoorden zwak of hergebruikt zijn en ga direct naar het item';
+
+  @override
+  String get proFeatTotp => 'Codes voor tweestapsverificatie';
+
+  @override
+  String get proFeatTotpDesc => 'Codes worden offline in je kluis gemaakt';
+
+  @override
+  String get proFeatHistory => 'Wachtwoordgeschiedenis';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Oude wachtwoorden blijven bewaard om terug te kijken';
+
+  @override
+  String get proYearly => 'Jaarlijks';
+
+  @override
+  String get proMonthly => 'Maandelijks';
+
+  @override
+  String get proPerYear => '/ jaar';
+
+  @override
+  String get proPerMonth => '/ maand';
+
+  @override
+  String get proBestValue => 'Voordeligst';
+
+  @override
+  String get proSubscribe => 'Abonneren';
+
+  @override
+  String get proRestore => 'Aankoop herstellen';
+
+  @override
+  String get proManage => 'Abonnement beheren';
+
+  @override
+  String get proFinePrint =>
+      'Je betaalt via Google Play. Het abonnement wordt automatisch verlengd tot je het opzegt; dat kan altijd in Google Play. Als je abonnement afloopt, worden je items niet verwijderd.';
+
+  @override
+  String get proComingSoon =>
+      'Aankopen worden mogelijk zodra MÜHÜR in Google Play verschijnt.';
+
+  @override
+  String get proSeePlans => 'Bekijk Pro';
+
+  @override
+  String get proHealthBody =>
+      'Zien welke items zwakke of hergebruikte wachtwoorden hebben is een Pro-functie. De aantallen zijn altijd zichtbaar.';
+
+  @override
+  String get healthWeakHint =>
+      'Kort of makkelijk te raden. Vervang ze met de wachtwoordgenerator.';
+
+  @override
+  String get healthReusedHint =>
+      'Hetzelfde wachtwoord wordt in meerdere items gebruikt. Lekt er één uit, dan lopen de andere ook risico.';
+
+  @override
+  String get healthFairHint => 'Acceptabel, maar kan langer en gevarieerder.';
+
+  @override
+  String get healthAllGood =>
+      'Geen zwakke of hergebruikte wachtwoorden. Je kluis is in goede staat.';
+
+  @override
+  String get proHistoryBody =>
+      'Eerdere waarden van een wachtwoord bekijken is een Pro-functie. Wachtwoorden die je met Pro wijzigt, worden hier bewaard.';
+
+  @override
+  String get historyEmpty =>
+      'Dit wachtwoord is nog niet gewijzigd. Als je het wijzigt, verschijnt de oude waarde hier.';
+
+  @override
+  String get historyNote =>
+      'Per wachtwoordveld worden de laatste 10 waarden bewaard, versleuteld zoals de rest van je kluis. De geschiedenis zit niet in back-ups.';
+
+  @override
+  String get historyClearQ =>
+      'Tik nog een keer op Verwijderen om de geschiedenis van dit veld te wissen.';
 }

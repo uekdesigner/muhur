@@ -55,6 +55,8 @@ class DatabaseManager {
     batch.execute(DbSchema.categories);
     batch.execute(DbSchema.vaultEntries);
     batch.execute(DbSchema.entryFields);
+    batch.execute(DbSchema.passwordHistory);
+    batch.execute(DbSchema.historyIndex);
     for (final sql in DbSchema.indexes) {
       batch.execute(sql);
     }
@@ -68,6 +70,11 @@ class DatabaseManager {
     // v2: dilden bağımsız alan anahtarı (field_key).
     if (oldV < 2) {
       await db.execute('ALTER TABLE entry_fields ADD COLUMN field_key TEXT');
+    }
+    // v3: parola geçmişi.
+    if (oldV < 3) {
+      await db.execute(DbSchema.passwordHistory);
+      await db.execute(DbSchema.historyIndex);
     }
   }
 }

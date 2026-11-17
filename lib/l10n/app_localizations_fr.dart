@@ -1087,4 +1087,141 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get undo => 'Annuler';
+
+  @override
+  String get proStatusActive => 'Votre abonnement Pro est actif';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Essai gratuit : encore $days';
+  }
+
+  @override
+  String get proStatusFree => 'Formule gratuite';
+
+  @override
+  String get proTrialInfo =>
+      'À la fin de l\'essai, vous passez automatiquement à la formule gratuite. Aucune carte n\'est demandée et rien n\'est supprimé.';
+
+  @override
+  String get proFeatEntries => 'Entrées illimitées';
+
+  @override
+  String get proFeatEntriesDesc => 'Gratuit : 3 par catégorie';
+
+  @override
+  String get proFeatScan => 'Scan illimité avec la caméra';
+
+  @override
+  String get proFeatScanDesc => 'Gratuit : 3 scans';
+
+  @override
+  String get proFeatFields => 'Champs supplémentaires et personnalisés';
+
+  @override
+  String get proFeatFieldsDesc =>
+      'Ajoutez à une entrée tous les champs nécessaires';
+
+  @override
+  String get proFeatBio => 'Déverrouillage par empreinte et visage';
+
+  @override
+  String get proFeatBioDesc => 'Ouvrez votre coffre d\'un simple geste';
+
+  @override
+  String get proFeatBg => 'Tous les arrière-plans';
+
+  @override
+  String get proFeatBgDesc => 'Les 5 arrière-plans';
+
+  @override
+  String get proFeatHealth => 'Santé du coffre';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Voyez quels mots de passe sont faibles ou réutilisés et ouvrez directement l\'entrée';
+
+  @override
+  String get proFeatTotp => 'Codes de validation en deux étapes';
+
+  @override
+  String get proFeatTotpDesc => 'Codes générés hors ligne, dans votre coffre';
+
+  @override
+  String get proFeatHistory => 'Historique des mots de passe';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Les anciens mots de passe sont conservés pour y revenir';
+
+  @override
+  String get proYearly => 'Annuel';
+
+  @override
+  String get proMonthly => 'Mensuel';
+
+  @override
+  String get proPerYear => '/ an';
+
+  @override
+  String get proPerMonth => '/ mois';
+
+  @override
+  String get proBestValue => 'Le plus avantageux';
+
+  @override
+  String get proSubscribe => 'S\'abonner';
+
+  @override
+  String get proRestore => 'Restaurer l\'achat';
+
+  @override
+  String get proManage => 'Gérer l\'abonnement';
+
+  @override
+  String get proFinePrint =>
+      'Le paiement passe par Google Play. L\'abonnement se renouvelle automatiquement jusqu\'à ce que vous l\'annuliez, à tout moment, dans Google Play. Si l\'abonnement prend fin, vos entrées ne sont pas supprimées.';
+
+  @override
+  String get proComingSoon =>
+      'Les achats seront possibles dès la publication de MÜHÜR sur Google Play.';
+
+  @override
+  String get proSeePlans => 'Découvrir Pro';
+
+  @override
+  String get proHealthBody =>
+      'Voir quelles entrées ont des mots de passe faibles ou réutilisés est une fonction Pro. Les totaux restent toujours visibles.';
+
+  @override
+  String get healthWeakHint =>
+      'Courts ou faciles à deviner. Remplacez-les avec le générateur de mots de passe.';
+
+  @override
+  String get healthReusedHint =>
+      'Le même mot de passe sert dans plusieurs entrées. S\'il fuite, les autres sont aussi en danger.';
+
+  @override
+  String get healthFairHint =>
+      'Acceptables, mais ils pourraient être plus longs et plus variés.';
+
+  @override
+  String get healthAllGood =>
+      'Aucun mot de passe faible ou réutilisé. Votre coffre est en bonne santé.';
+
+  @override
+  String get proHistoryBody =>
+      'Voir les anciennes valeurs d\'un mot de passe est une fonction Pro. Les mots de passe que vous modifiez avec Pro sont conservés ici.';
+
+  @override
+  String get historyEmpty =>
+      'Ce mot de passe n\'a pas encore été modifié. Quand vous le modifierez, l\'ancienne valeur apparaîtra ici.';
+
+  @override
+  String get historyNote =>
+      'Les 10 dernières valeurs de chaque champ de mot de passe sont conservées, chiffrées comme le reste du coffre. L\'historique n\'est pas inclus dans les sauvegardes.';
+
+  @override
+  String get historyClearQ =>
+      'Touchez encore une fois Supprimer pour effacer l\'historique de ce champ.';
 }

@@ -1070,4 +1070,140 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get undo => 'Urungkan';
+
+  @override
+  String get proStatusActive => 'Langganan Pro Anda aktif';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Uji coba gratis: sisa $days';
+  }
+
+  @override
+  String get proStatusFree => 'Paket gratis';
+
+  @override
+  String get proTrialInfo =>
+      'Setelah uji coba berakhir, Anda otomatis beralih ke paket gratis. Tanpa kartu, dan tidak ada yang dihapus.';
+
+  @override
+  String get proFeatEntries => 'Entri tanpa batas';
+
+  @override
+  String get proFeatEntriesDesc => 'Gratis: 3 per kategori';
+
+  @override
+  String get proFeatScan => 'Pindai kamera tanpa batas';
+
+  @override
+  String get proFeatScanDesc => 'Gratis: 3 kali pindai';
+
+  @override
+  String get proFeatFields => 'Kolom tambahan dan kustom';
+
+  @override
+  String get proFeatFieldsDesc => 'Tambahkan kolom apa pun yang Anda perlukan';
+
+  @override
+  String get proFeatBio => 'Buka kunci dengan sidik jari dan wajah';
+
+  @override
+  String get proFeatBioDesc => 'Buka brankas dengan satu sentuhan';
+
+  @override
+  String get proFeatBg => 'Semua latar';
+
+  @override
+  String get proFeatBgDesc => 'Kelima latar';
+
+  @override
+  String get proFeatHealth => 'Kesehatan brankas';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Lihat kata sandi yang lemah atau berulang dan langsung buka entrinya';
+
+  @override
+  String get proFeatTotp => 'Kode verifikasi dua langkah';
+
+  @override
+  String get proFeatTotpDesc => 'Kode dibuat secara offline di dalam brankas';
+
+  @override
+  String get proFeatHistory => 'Riwayat kata sandi';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Kata sandi lama disimpan agar bisa dilihat lagi';
+
+  @override
+  String get proYearly => 'Tahunan';
+
+  @override
+  String get proMonthly => 'Bulanan';
+
+  @override
+  String get proPerYear => '/ tahun';
+
+  @override
+  String get proPerMonth => '/ bulan';
+
+  @override
+  String get proBestValue => 'Paling hemat';
+
+  @override
+  String get proSubscribe => 'Berlangganan';
+
+  @override
+  String get proRestore => 'Pulihkan pembelian';
+
+  @override
+  String get proManage => 'Kelola langganan';
+
+  @override
+  String get proFinePrint =>
+      'Pembayaran dilakukan melalui Google Play. Langganan diperpanjang otomatis sampai Anda membatalkannya, kapan saja, di Google Play. Jika langganan berakhir, entri Anda tidak dihapus.';
+
+  @override
+  String get proComingSoon =>
+      'Pembelian akan dibuka saat MÜHÜR terbit di Google Play.';
+
+  @override
+  String get proSeePlans => 'Lihat Pro';
+
+  @override
+  String get proHealthBody =>
+      'Melihat entri mana yang kata sandinya lemah atau berulang adalah fitur Pro. Jumlahnya selalu terlihat.';
+
+  @override
+  String get healthWeakHint =>
+      'Pendek atau mudah ditebak. Ganti dengan pembuat kata sandi.';
+
+  @override
+  String get healthReusedHint =>
+      'Kata sandi yang sama dipakai di beberapa entri. Jika satu bocor, yang lain ikut berisiko.';
+
+  @override
+  String get healthFairHint =>
+      'Cukup baik, tetapi bisa lebih panjang dan beragam.';
+
+  @override
+  String get healthAllGood =>
+      'Tidak ada kata sandi lemah atau berulang. Brankas Anda sehat.';
+
+  @override
+  String get proHistoryBody =>
+      'Melihat nilai lama sebuah kata sandi adalah fitur Pro. Kata sandi yang Anda ubah selama Pro disimpan di sini.';
+
+  @override
+  String get historyEmpty =>
+      'Kata sandi ini belum pernah diubah. Saat Anda mengubahnya, nilai lamanya muncul di sini.';
+
+  @override
+  String get historyNote =>
+      '10 nilai terakhir setiap kolom kata sandi disimpan, terenkripsi seperti isi brankas lainnya. Riwayat tidak disertakan dalam cadangan.';
+
+  @override
+  String get historyClearQ =>
+      'Ketuk Hapus sekali lagi untuk menghapus riwayat kolom ini.';
 }

@@ -12,6 +12,7 @@ import 'backup_reminder_banner.dart';
 import 'category_globe.dart';
 import 'entry_detail_screen.dart';
 import 'entry_edit_screen.dart';
+import 'health_dialog.dart';
 import 'stats_panel.dart';
 import 'trash_screen.dart';
 import 'vault_header.dart';
@@ -163,6 +164,13 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
     if (changed == true) _refreshAll();
   }
 
+  /// Kasa sağlığı listesi (Pro); ücretsiz planda Pro penceresi açılır.
+  Future<void> _openHealth() async {
+    final s = _stats;
+    if (s == null) return;
+    await showHealthDialog(context, stats: s, repo: _repo, onOpen: _open);
+  }
+
   void _toggleSelect(VaultEntry e) {
     setState(() {
       if (!_selected.remove(e.id!)) _selected.add(e.id!);
@@ -231,7 +239,7 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
             ),
             child: const Icon(Icons.add),
           ),
-          bottomNavigationBar: StatsPanel(stats: _stats),
+          bottomNavigationBar: StatsPanel(stats: _stats, onHealth: _openHealth),
           body: Column(
             children: [
               VaultHeader(

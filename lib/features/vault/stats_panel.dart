@@ -6,10 +6,15 @@ import '../../l10n/app_localizations.dart';
 
 import 'vault_repository.dart';
 import '../../core/widgets/panel_style.dart';
+import '../../core/widgets/pro_badge.dart';
 
 class StatsPanel extends StatefulWidget {
-  const StatsPanel({super.key, required this.stats});
+  const StatsPanel({super.key, required this.stats, this.onHealth});
   final VaultStats? stats;
+
+  /// Kasa sağlığı listesi (Pro). Simgeye ve zayıf/orta/tekrar sayılarına
+  /// dokununca açılır.
+  final VoidCallback? onHealth;
 
   @override
   State<StatsPanel> createState() => _StatsPanelState();
@@ -56,6 +61,19 @@ class _StatsPanelState extends State<StatsPanel> {
                     ),
                   ),
                 ],
+                if (s != null && s.total > 0 && widget.onHealth != null)
+                  IconButton(
+                    visualDensity: VisualDensity.compact,
+                    tooltip: t.proFeatHealth,
+                    icon: ProCorner(
+                      child: Icon(
+                        Icons.health_and_safety_outlined,
+                        color: MuhurColors.bronzeLight,
+                        size: 20,
+                      ),
+                    ),
+                    onPressed: widget.onHealth,
+                  ),
                 // Aşağı ok: paneli şeride küçült, yukarı ok: eski haline döndür.
                 IconButton(
                   visualDensity: VisualDensity.compact,
@@ -76,13 +94,24 @@ class _StatsPanelState extends State<StatsPanel> {
                 child: Row(
                   children: [
                     _Stat(t.statTotal, s?.total ?? 0, MuhurColors.cream),
-                    _Stat(t.strengthWeak, s?.weak ?? 0, Colors.redAccent),
-                    _Stat(t.strengthFair, s?.fair ?? 0, Colors.orangeAccent),
+                    _Stat(
+                      t.strengthWeak,
+                      s?.weak ?? 0,
+                      Colors.redAccent,
+                      onTap: widget.onHealth,
+                    ),
+                    _Stat(
+                      t.strengthFair,
+                      s?.fair ?? 0,
+                      Colors.orangeAccent,
+                      onTap: widget.onHealth,
+                    ),
                     _Stat(t.strengthStrong, s?.strong ?? 0, Colors.greenAccent),
                     _Stat(
                       t.statReused,
                       s?.duplicates ?? 0,
                       MuhurColors.bronzeLight,
+                      onTap: widget.onHealth,
                     ),
                   ],
                 ),
@@ -96,40 +125,47 @@ class _StatsPanelState extends State<StatsPanel> {
 }
 
 class _Stat extends StatelessWidget {
-  const _Stat(this.label, this.value, this.color);
+  const _Stat(this.label, this.value, this.color, {this.onTap});
   final String label;
   final int value;
   final Color color;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 3),
-        padding: const EdgeInsets.symmetric(vertical: 3),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: MuhurColors.bronze.withValues(alpha: 0.7)),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              '$value',
-              style: TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w800,
-                color: color,
-              ),
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: value > 0 ? onTap : null,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 3),
+          padding: const EdgeInsets.symmetric(vertical: 3),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: MuhurColors.bronze.withValues(alpha: 0.7),
             ),
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                label,
-                style: TextStyle(fontSize: 10, color: MuhurColors.cream),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                '$value',
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w800,
+                  color: color,
+                ),
               ),
-            ),
-          ],
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  label,
+                  style: TextStyle(fontSize: 10, color: MuhurColors.cream),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

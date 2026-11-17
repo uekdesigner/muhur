@@ -1086,4 +1086,141 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get undo => 'Desfazer';
+
+  @override
+  String get proStatusActive => 'Sua assinatura Pro está ativa';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Teste grátis: faltam $days';
+  }
+
+  @override
+  String get proStatusFree => 'Plano gratuito';
+
+  @override
+  String get proTrialInfo =>
+      'Quando o teste acabar, você passa automaticamente para o plano gratuito. Nenhum cartão é pedido e nada é apagado.';
+
+  @override
+  String get proFeatEntries => 'Itens ilimitados';
+
+  @override
+  String get proFeatEntriesDesc => 'Grátis: 3 por categoria';
+
+  @override
+  String get proFeatScan => 'Leitura ilimitada com a câmera';
+
+  @override
+  String get proFeatScanDesc => 'Grátis: 3 leituras';
+
+  @override
+  String get proFeatFields => 'Campos extras e personalizados';
+
+  @override
+  String get proFeatFieldsDesc =>
+      'Adicione a um item todos os campos de que precisar';
+
+  @override
+  String get proFeatBio => 'Desbloqueio com digital e rosto';
+
+  @override
+  String get proFeatBioDesc => 'Abra seu cofre com um toque';
+
+  @override
+  String get proFeatBg => 'Todos os fundos';
+
+  @override
+  String get proFeatBgDesc => 'Os 5 fundos';
+
+  @override
+  String get proFeatHealth => 'Saúde do cofre';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Veja quais senhas são fracas ou repetidas e vá direto ao item';
+
+  @override
+  String get proFeatTotp => 'Códigos de verificação em duas etapas';
+
+  @override
+  String get proFeatTotpDesc => 'Códigos gerados offline dentro do cofre';
+
+  @override
+  String get proFeatHistory => 'Histórico de senhas';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Senhas antigas ficam guardadas para consulta';
+
+  @override
+  String get proYearly => 'Anual';
+
+  @override
+  String get proMonthly => 'Mensal';
+
+  @override
+  String get proPerYear => '/ ano';
+
+  @override
+  String get proPerMonth => '/ mês';
+
+  @override
+  String get proBestValue => 'Melhor custo-benefício';
+
+  @override
+  String get proSubscribe => 'Assinar';
+
+  @override
+  String get proRestore => 'Restaurar compra';
+
+  @override
+  String get proManage => 'Gerenciar assinatura';
+
+  @override
+  String get proFinePrint =>
+      'O pagamento é feito pelo Google Play. A assinatura é renovada automaticamente até você cancelar, o que pode ser feito a qualquer momento no Google Play. Se a assinatura terminar, seus itens não são apagados.';
+
+  @override
+  String get proComingSoon =>
+      'As compras serão liberadas quando o MÜHÜR for publicado no Google Play.';
+
+  @override
+  String get proSeePlans => 'Conhecer o Pro';
+
+  @override
+  String get proHealthBody =>
+      'Ver quais itens têm senhas fracas ou repetidas é um recurso Pro. Os totais ficam sempre visíveis.';
+
+  @override
+  String get healthWeakHint =>
+      'Curtas ou fáceis de adivinhar. Troque-as usando o gerador de senhas.';
+
+  @override
+  String get healthReusedHint =>
+      'A mesma senha é usada em mais de um item. Se uma vazar, as outras também ficam em risco.';
+
+  @override
+  String get healthFairHint =>
+      'Aceitáveis, mas poderiam ser mais longas e variadas.';
+
+  @override
+  String get healthAllGood =>
+      'Nenhuma senha fraca ou repetida. Seu cofre está saudável.';
+
+  @override
+  String get proHistoryBody =>
+      'Ver os valores anteriores de uma senha é um recurso Pro. As senhas que você altera no Pro ficam guardadas aqui.';
+
+  @override
+  String get historyEmpty =>
+      'Esta senha ainda não foi alterada. Quando você alterá-la, o valor antigo aparecerá aqui.';
+
+  @override
+  String get historyNote =>
+      'Os últimos 10 valores de cada campo de senha são guardados, criptografados como o resto do cofre. O histórico não entra nos backups.';
+
+  @override
+  String get historyClearQ =>
+      'Toque em Excluir mais uma vez para apagar o histórico deste campo.';
 }

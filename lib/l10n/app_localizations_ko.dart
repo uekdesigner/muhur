@@ -1040,4 +1040,132 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get undo => '실행 취소';
+
+  @override
+  String get proStatusActive => 'Pro 구독이 활성화되어 있습니다';
+
+  @override
+  String proStatusTrial(String days) {
+    return '무료 체험: $days 남음';
+  }
+
+  @override
+  String get proStatusFree => '무료 플랜';
+
+  @override
+  String get proTrialInfo =>
+      '체험이 끝나면 자동으로 무료 플랜으로 전환됩니다. 카드가 필요 없고 아무것도 삭제되지 않습니다.';
+
+  @override
+  String get proFeatEntries => '항목 무제한';
+
+  @override
+  String get proFeatEntriesDesc => '무료: 카테고리당 3개';
+
+  @override
+  String get proFeatScan => '카메라 스캔 무제한';
+
+  @override
+  String get proFeatScanDesc => '무료: 3회';
+
+  @override
+  String get proFeatFields => '추가 필드 및 사용자 지정 필드';
+
+  @override
+  String get proFeatFieldsDesc => '항목에 필요한 필드를 모두 추가하세요';
+
+  @override
+  String get proFeatBio => '지문 및 얼굴 잠금 해제';
+
+  @override
+  String get proFeatBioDesc => '한 번의 터치로 보관함 열기';
+
+  @override
+  String get proFeatBg => '모든 배경';
+
+  @override
+  String get proFeatBgDesc => '배경 5개 모두';
+
+  @override
+  String get proFeatHealth => '보관함 상태 점검';
+
+  @override
+  String get proFeatHealthDesc => '약하거나 재사용된 비밀번호를 확인하고 바로 해당 항목으로 이동하세요';
+
+  @override
+  String get proFeatTotp => '2단계 인증 코드';
+
+  @override
+  String get proFeatTotpDesc => '코드가 보관함 안에서 오프라인으로 생성됩니다';
+
+  @override
+  String get proFeatHistory => '비밀번호 기록';
+
+  @override
+  String get proFeatHistoryDesc => '이전 비밀번호가 저장되어 다시 확인할 수 있습니다';
+
+  @override
+  String get proYearly => '연간';
+
+  @override
+  String get proMonthly => '월간';
+
+  @override
+  String get proPerYear => '/ 년';
+
+  @override
+  String get proPerMonth => '/ 월';
+
+  @override
+  String get proBestValue => '가장 알뜰';
+
+  @override
+  String get proSubscribe => '구독하기';
+
+  @override
+  String get proRestore => '구매 복원';
+
+  @override
+  String get proManage => '구독 관리';
+
+  @override
+  String get proFinePrint =>
+      '결제는 Google Play를 통해 이루어집니다. 구독은 해지할 때까지 자동으로 갱신되며 Google Play에서 언제든지 해지할 수 있습니다. 구독이 끝나도 항목은 삭제되지 않습니다.';
+
+  @override
+  String get proComingSoon => 'MÜHÜR가 Google Play에 출시되면 구매할 수 있습니다.';
+
+  @override
+  String get proSeePlans => 'Pro 살펴보기';
+
+  @override
+  String get proHealthBody =>
+      '어떤 항목에 약하거나 재사용된 비밀번호가 있는지 보는 것은 Pro 기능입니다. 개수는 항상 표시됩니다.';
+
+  @override
+  String get healthWeakHint => '짧거나 추측하기 쉬운 비밀번호입니다. 비밀번호 생성기로 바꾸세요.';
+
+  @override
+  String get healthReusedHint =>
+      '같은 비밀번호가 여러 항목에서 쓰이고 있습니다. 하나가 유출되면 나머지도 위험합니다.';
+
+  @override
+  String get healthFairHint => '괜찮지만 더 길고 다양하게 만들 수 있습니다.';
+
+  @override
+  String get healthAllGood => '약하거나 재사용된 비밀번호가 없습니다. 보관함이 건강합니다.';
+
+  @override
+  String get proHistoryBody =>
+      '비밀번호의 이전 값을 보는 것은 Pro 기능입니다. Pro에서 변경한 비밀번호가 여기에 보관됩니다.';
+
+  @override
+  String get historyEmpty => '이 비밀번호는 아직 변경되지 않았습니다. 변경하면 이전 값이 여기에 표시됩니다.';
+
+  @override
+  String get historyNote =>
+      '비밀번호 필드마다 최근 10개의 값이 보관함의 다른 데이터처럼 암호화되어 저장됩니다. 비밀번호 기록은 백업에 포함되지 않습니다.';
+
+  @override
+  String get historyClearQ => '이 필드의 기록을 지우려면 삭제를 한 번 더 누르세요.';
 }

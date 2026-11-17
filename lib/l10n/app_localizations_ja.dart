@@ -1038,4 +1038,130 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get undo => '元に戻す';
+
+  @override
+  String get proStatusActive => 'Proサブスクリプションは有効です';
+
+  @override
+  String proStatusTrial(String days) {
+    return '無料体験：残り$days';
+  }
+
+  @override
+  String get proStatusFree => '無料プラン';
+
+  @override
+  String get proTrialInfo => '体験期間が終わると自動的に無料プランに切り替わります。カードは不要で、何も削除されません。';
+
+  @override
+  String get proFeatEntries => '項目数無制限';
+
+  @override
+  String get proFeatEntriesDesc => '無料プラン：各カテゴリ3件まで';
+
+  @override
+  String get proFeatScan => 'カメラスキャン無制限';
+
+  @override
+  String get proFeatScanDesc => '無料プラン：3回まで';
+
+  @override
+  String get proFeatFields => '追加フィールドとカスタムフィールド';
+
+  @override
+  String get proFeatFieldsDesc => '必要なフィールドを自由に追加できます';
+
+  @override
+  String get proFeatBio => '指紋・顔でロック解除';
+
+  @override
+  String get proFeatBioDesc => 'ワンタッチで保管庫を開けます';
+
+  @override
+  String get proFeatBg => 'すべての背景';
+
+  @override
+  String get proFeatBgDesc => '5種類の背景すべて';
+
+  @override
+  String get proFeatHealth => '保管庫の健康状態';
+
+  @override
+  String get proFeatHealthDesc => '弱いパスワードや使い回しを確認し、その項目へすぐ移動できます';
+
+  @override
+  String get proFeatTotp => '2段階認証コード';
+
+  @override
+  String get proFeatTotpDesc => 'コードは保管庫の中でオフライン生成';
+
+  @override
+  String get proFeatHistory => 'パスワード履歴';
+
+  @override
+  String get proFeatHistoryDesc => '以前のパスワードも保存され、後から確認できます';
+
+  @override
+  String get proYearly => '年額';
+
+  @override
+  String get proMonthly => '月額';
+
+  @override
+  String get proPerYear => '/ 年';
+
+  @override
+  String get proPerMonth => '/ 月';
+
+  @override
+  String get proBestValue => 'いちばんお得';
+
+  @override
+  String get proSubscribe => '登録する';
+
+  @override
+  String get proRestore => '購入を復元';
+
+  @override
+  String get proManage => 'サブスクリプションを管理';
+
+  @override
+  String get proFinePrint =>
+      'お支払いはGoogle Playを通じて行われます。解約するまで自動更新され、Google Playからいつでも解約できます。サブスクリプションが終了しても項目は削除されません。';
+
+  @override
+  String get proComingSoon => '購入はMÜHÜRがGoogle Playで公開されると利用できるようになります。';
+
+  @override
+  String get proSeePlans => 'Proを見る';
+
+  @override
+  String get proHealthBody =>
+      'どの項目のパスワードが弱いか・使い回しかを確認できるのはPro機能です。件数はいつでも表示されます。';
+
+  @override
+  String get healthWeakHint => '短い、または推測されやすいパスワードです。パスワード生成で置き換えましょう。';
+
+  @override
+  String get healthReusedHint => '同じパスワードが複数の項目で使われています。1つが漏れると、ほかも危険にさらされます。';
+
+  @override
+  String get healthFairHint => '問題はありませんが、もっと長く複雑にできます。';
+
+  @override
+  String get healthAllGood => '弱いパスワードや使い回しはありません。保管庫は良好です。';
+
+  @override
+  String get proHistoryBody =>
+      'パスワードの以前の値を表示するのはPro機能です。Proで変更したパスワードがここに保存されます。';
+
+  @override
+  String get historyEmpty => 'このパスワードはまだ変更されていません。変更すると、以前の値がここに表示されます。';
+
+  @override
+  String get historyNote =>
+      '各パスワード欄の直近10件の値が、保管庫のほかのデータと同じく暗号化して保存されます。パスワード履歴はバックアップに含まれません。';
+
+  @override
+  String get historyClearQ => 'この欄の履歴を消去するには、削除をもう一度タップしてください。';
 }

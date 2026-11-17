@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
 import 'entry_edit_screen.dart';
+import 'password_history_dialog.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
 import '../../core/utils/clipboard_service.dart';
@@ -9,6 +10,7 @@ import '../../core/utils/motion.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/widgets/panel_style.dart';
+import '../../core/widgets/pro_badge.dart';
 
 class EntryDetailScreen extends StatefulWidget {
   const EntryDetailScreen({
@@ -134,7 +136,21 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
+
                               children: [
+                                if (fields[i].type == 'password')
+                                  IconButton(
+                                    icon: const ProCorner(
+                                      child: Icon(Icons.history),
+                                    ),
+                                    tooltip: t.proFeatHistory,
+                                    onPressed: () => showPasswordHistory(
+                                      context,
+                                      repo: widget.repo,
+                                      entryId: widget.entry.id!,
+                                      field: fields[i],
+                                    ),
+                                  ),
                                 if (fields[i].sensitive)
                                   IconButton(
                                     icon: Icon(

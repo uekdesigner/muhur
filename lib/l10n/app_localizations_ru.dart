@@ -1100,4 +1100,140 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get undo => 'Отменить';
+
+  @override
+  String get proStatusActive => 'Ваша подписка Pro активна';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Бесплатный период, осталось: $days';
+  }
+
+  @override
+  String get proStatusFree => 'Бесплатная версия';
+
+  @override
+  String get proTrialInfo =>
+      'Когда пробный период закончится, вы автоматически перейдёте на бесплатную версию. Карта не нужна, ничего не удаляется.';
+
+  @override
+  String get proFeatEntries => 'Неограниченное число записей';
+
+  @override
+  String get proFeatEntriesDesc => 'Бесплатно: 3 в каждой категории';
+
+  @override
+  String get proFeatScan => 'Неограниченное сканирование камерой';
+
+  @override
+  String get proFeatScanDesc => 'Бесплатно: 3 сканирования';
+
+  @override
+  String get proFeatFields => 'Дополнительные и свои поля';
+
+  @override
+  String get proFeatFieldsDesc => 'Добавляйте в запись любые нужные поля';
+
+  @override
+  String get proFeatBio => 'Разблокировка отпечатком и лицом';
+
+  @override
+  String get proFeatBioDesc => 'Открывайте хранилище одним касанием';
+
+  @override
+  String get proFeatBg => 'Все фоны';
+
+  @override
+  String get proFeatBgDesc => 'Все 5 фонов';
+
+  @override
+  String get proFeatHealth => 'Проверка хранилища';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Узнайте, какие пароли слабые или повторяются, и сразу откройте нужную запись';
+
+  @override
+  String get proFeatTotp => 'Коды двухэтапной проверки';
+
+  @override
+  String get proFeatTotpDesc => 'Коды создаются офлайн прямо в хранилище';
+
+  @override
+  String get proFeatHistory => 'История паролей';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Старые пароли сохраняются, чтобы к ним можно было вернуться';
+
+  @override
+  String get proYearly => 'Ежегодно';
+
+  @override
+  String get proMonthly => 'Ежемесячно';
+
+  @override
+  String get proPerYear => '/ год';
+
+  @override
+  String get proPerMonth => '/ месяц';
+
+  @override
+  String get proBestValue => 'Выгоднее всего';
+
+  @override
+  String get proSubscribe => 'Оформить подписку';
+
+  @override
+  String get proRestore => 'Восстановить покупку';
+
+  @override
+  String get proManage => 'Управлять подпиской';
+
+  @override
+  String get proFinePrint =>
+      'Оплата проходит через Google Play. Подписка продлевается автоматически, пока вы её не отмените; отменить можно в любой момент в Google Play. Если подписка закончится, ваши записи не удаляются.';
+
+  @override
+  String get proComingSoon =>
+      'Покупки станут доступны, когда MÜHÜR появится в Google Play.';
+
+  @override
+  String get proSeePlans => 'Подробнее о Pro';
+
+  @override
+  String get proHealthBody =>
+      'Просмотр записей со слабыми или повторяющимися паролями — функция Pro. Количество видно всегда.';
+
+  @override
+  String get healthWeakHint =>
+      'Короткие или легко угадываемые. Замените их с помощью генератора паролей.';
+
+  @override
+  String get healthReusedHint =>
+      'Один и тот же пароль используется в нескольких записях. Если он утечёт, под угрозой окажутся и остальные.';
+
+  @override
+  String get healthFairHint =>
+      'Допустимые, но могли бы быть длиннее и разнообразнее.';
+
+  @override
+  String get healthAllGood =>
+      'Нет слабых или повторяющихся паролей. Хранилище в порядке.';
+
+  @override
+  String get proHistoryBody =>
+      'Просмотр прежних значений пароля — функция Pro. Пароли, которые вы меняете с Pro, сохраняются здесь.';
+
+  @override
+  String get historyEmpty =>
+      'Этот пароль ещё не меняли. Когда вы его измените, старое значение появится здесь.';
+
+  @override
+  String get historyNote =>
+      'Для каждого поля пароля хранятся последние 10 значений, зашифрованных как и всё хранилище. История не входит в резервные копии.';
+
+  @override
+  String get historyClearQ =>
+      'Нажмите «Удалить» ещё раз, чтобы очистить историю этого поля.';
 }

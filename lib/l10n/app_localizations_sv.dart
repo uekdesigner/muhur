@@ -1083,4 +1083,140 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get undo => 'Ångra';
+
+  @override
+  String get proStatusActive => 'Ditt Pro-abonnemang är aktivt';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Gratis provperiod: $days kvar';
+  }
+
+  @override
+  String get proStatusFree => 'Gratisversion';
+
+  @override
+  String get proTrialInfo =>
+      'När provperioden är slut går du automatiskt över till gratisversionen. Inget kort behövs och inget raderas.';
+
+  @override
+  String get proFeatEntries => 'Obegränsat antal poster';
+
+  @override
+  String get proFeatEntriesDesc => 'Gratis: 3 per kategori';
+
+  @override
+  String get proFeatScan => 'Obegränsad skanning med kameran';
+
+  @override
+  String get proFeatScanDesc => 'Gratis: 3 skanningar';
+
+  @override
+  String get proFeatFields => 'Extra och egna fält';
+
+  @override
+  String get proFeatFieldsDesc => 'Lägg till alla fält du behöver i en post';
+
+  @override
+  String get proFeatBio => 'Upplåsning med fingeravtryck och ansikte';
+
+  @override
+  String get proFeatBioDesc => 'Öppna valvet med en beröring';
+
+  @override
+  String get proFeatBg => 'Alla bakgrunder';
+
+  @override
+  String get proFeatBgDesc => 'Alla 5 bakgrunder';
+
+  @override
+  String get proFeatHealth => 'Valvkontroll';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Se vilka lösenord som är svaga eller återanvända och gå direkt till posten';
+
+  @override
+  String get proFeatTotp => 'Koder för tvåstegsverifiering';
+
+  @override
+  String get proFeatTotpDesc => 'Koderna skapas offline i valvet';
+
+  @override
+  String get proFeatHistory => 'Lösenordshistorik';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Gamla lösenord sparas så att du kan titta tillbaka';
+
+  @override
+  String get proYearly => 'Årsvis';
+
+  @override
+  String get proMonthly => 'Månadsvis';
+
+  @override
+  String get proPerYear => '/ år';
+
+  @override
+  String get proPerMonth => '/ månad';
+
+  @override
+  String get proBestValue => 'Bäst värde';
+
+  @override
+  String get proSubscribe => 'Prenumerera';
+
+  @override
+  String get proRestore => 'Återställ köp';
+
+  @override
+  String get proManage => 'Hantera prenumeration';
+
+  @override
+  String get proFinePrint =>
+      'Betalningen sker via Google Play. Prenumerationen förnyas automatiskt tills du säger upp den, vilket du kan göra när som helst i Google Play. Om prenumerationen upphör raderas inte dina poster.';
+
+  @override
+  String get proComingSoon =>
+      'Köp blir möjliga när MÜHÜR publiceras på Google Play.';
+
+  @override
+  String get proSeePlans => 'Visa Pro';
+
+  @override
+  String get proHealthBody =>
+      'Att se vilka poster som har svaga eller återanvända lösenord är en Pro-funktion. Antalen syns alltid.';
+
+  @override
+  String get healthWeakHint =>
+      'Korta eller lätta att gissa. Byt ut dem med lösenordsgeneratorn.';
+
+  @override
+  String get healthReusedHint =>
+      'Samma lösenord används i flera poster. Läcker ett, är de andra också i fara.';
+
+  @override
+  String get healthFairHint =>
+      'Godtagbara, men kunde vara längre och mer varierade.';
+
+  @override
+  String get healthAllGood =>
+      'Inga svaga eller återanvända lösenord. Ditt valv mår bra.';
+
+  @override
+  String get proHistoryBody =>
+      'Att se tidigare värden för ett lösenord är en Pro-funktion. Lösenord som du ändrar med Pro sparas här.';
+
+  @override
+  String get historyEmpty =>
+      'Lösenordet har inte ändrats ännu. När du ändrar det visas det gamla värdet här.';
+
+  @override
+  String get historyNote =>
+      'De 10 senaste värdena för varje lösenordsfält sparas, krypterade som resten av valvet. Historiken ingår inte i backuper.';
+
+  @override
+  String get historyClearQ =>
+      'Tryck på Ta bort en gång till för att rensa fältets historik.';
 }

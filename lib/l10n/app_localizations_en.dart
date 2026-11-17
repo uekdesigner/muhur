@@ -1083,4 +1083,141 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get undo => 'Undo';
+
+  @override
+  String get proStatusActive => 'Your Pro subscription is active';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Free trial: $days left';
+  }
+
+  @override
+  String get proStatusFree => 'Free plan';
+
+  @override
+  String get proTrialInfo =>
+      'When the trial ends you move to the free plan automatically. No card needed, and nothing is deleted.';
+
+  @override
+  String get proFeatEntries => 'Unlimited entries';
+
+  @override
+  String get proFeatEntriesDesc => 'Free plan: 3 per category';
+
+  @override
+  String get proFeatScan => 'Unlimited camera scanning';
+
+  @override
+  String get proFeatScanDesc => 'Free plan: 3 scans';
+
+  @override
+  String get proFeatFields => 'Extra and custom fields';
+
+  @override
+  String get proFeatFieldsDesc => 'Add any field you need to an entry';
+
+  @override
+  String get proFeatBio => 'Fingerprint and face unlock';
+
+  @override
+  String get proFeatBioDesc => 'Open your vault with a touch';
+
+  @override
+  String get proFeatBg => 'All backgrounds';
+
+  @override
+  String get proFeatBgDesc => 'Choose from all 5 backgrounds';
+
+  @override
+  String get proFeatHealth => 'Vault health';
+
+  @override
+  String get proFeatHealthDesc =>
+      'See which passwords are weak or reused and jump straight to them';
+
+  @override
+  String get proFeatTotp => 'Two-step verification codes';
+
+  @override
+  String get proFeatTotpDesc =>
+      'Codes are generated inside your vault, offline';
+
+  @override
+  String get proFeatHistory => 'Password history';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Old passwords are kept so you can look back';
+
+  @override
+  String get proYearly => 'Yearly';
+
+  @override
+  String get proMonthly => 'Monthly';
+
+  @override
+  String get proPerYear => '/ year';
+
+  @override
+  String get proPerMonth => '/ month';
+
+  @override
+  String get proBestValue => 'Best value';
+
+  @override
+  String get proSubscribe => 'Subscribe';
+
+  @override
+  String get proRestore => 'Restore purchase';
+
+  @override
+  String get proManage => 'Manage subscription';
+
+  @override
+  String get proFinePrint =>
+      'Payment is made through Google Play. The subscription renews automatically until you cancel it, which you can do at any time in Google Play. If your subscription ends, your entries are not deleted.';
+
+  @override
+  String get proComingSoon =>
+      'Purchases will open when MÜHÜR is published on Google Play.';
+
+  @override
+  String get proSeePlans => 'See Pro';
+
+  @override
+  String get proHealthBody =>
+      'Seeing which entries have weak or reused passwords is a Pro feature. The counts are always visible.';
+
+  @override
+  String get healthWeakHint =>
+      'Short or easy to guess. Replace them using the password generator.';
+
+  @override
+  String get healthReusedHint =>
+      'The same password is used in more than one entry. If one leaks, the others are at risk too.';
+
+  @override
+  String get healthFairHint =>
+      'Acceptable, but could be longer and more varied.';
+
+  @override
+  String get healthAllGood =>
+      'No weak or reused passwords. Your vault is in good shape.';
+
+  @override
+  String get proHistoryBody =>
+      'Seeing a password\'s previous values is a Pro feature. Passwords you change while on Pro are kept here.';
+
+  @override
+  String get historyEmpty =>
+      'This password hasn\'t been changed yet. When you change it, the old value appears here.';
+
+  @override
+  String get historyNote =>
+      'The last 10 values of each password field are kept, encrypted like the rest of your vault. Password history is not included in backups.';
+
+  @override
+  String get historyClearQ =>
+      'Tap delete again to clear this field\'s password history.';
 }

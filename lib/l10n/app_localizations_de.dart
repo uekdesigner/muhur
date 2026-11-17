@@ -1087,4 +1087,141 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get undo => 'Rückgängig';
+
+  @override
+  String get proStatusActive => 'Dein Pro-Abo ist aktiv';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Gratis-Test: noch $days';
+  }
+
+  @override
+  String get proStatusFree => 'Gratis-Plan';
+
+  @override
+  String get proTrialInfo =>
+      'Nach dem Test wechselst du automatisch in den Gratis-Plan. Keine Karte nötig, nichts wird gelöscht.';
+
+  @override
+  String get proFeatEntries => 'Unbegrenzte Einträge';
+
+  @override
+  String get proFeatEntriesDesc => 'Gratis: 3 pro Kategorie';
+
+  @override
+  String get proFeatScan => 'Unbegrenztes Scannen mit der Kamera';
+
+  @override
+  String get proFeatScanDesc => 'Gratis: 3 Scans';
+
+  @override
+  String get proFeatFields => 'Zusätzliche und eigene Felder';
+
+  @override
+  String get proFeatFieldsDesc =>
+      'Füge einem Eintrag jedes Feld hinzu, das du brauchst';
+
+  @override
+  String get proFeatBio => 'Entsperren per Fingerabdruck und Gesicht';
+
+  @override
+  String get proFeatBioDesc => 'Öffne deinen Tresor mit einer Berührung';
+
+  @override
+  String get proFeatBg => 'Alle Hintergründe';
+
+  @override
+  String get proFeatBgDesc => 'Alle 5 Hintergründe';
+
+  @override
+  String get proFeatHealth => 'Tresor-Check';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Sieh, welche Passwörter schwach oder mehrfach genutzt sind, und spring direkt zum Eintrag';
+
+  @override
+  String get proFeatTotp => 'Codes für die Zwei-Faktor-Anmeldung';
+
+  @override
+  String get proFeatTotpDesc => 'Codes entstehen offline in deinem Tresor';
+
+  @override
+  String get proFeatHistory => 'Passwortverlauf';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Alte Passwörter bleiben gespeichert, falls du nachsehen musst';
+
+  @override
+  String get proYearly => 'Jährlich';
+
+  @override
+  String get proMonthly => 'Monatlich';
+
+  @override
+  String get proPerYear => '/ Jahr';
+
+  @override
+  String get proPerMonth => '/ Monat';
+
+  @override
+  String get proBestValue => 'Bestes Angebot';
+
+  @override
+  String get proSubscribe => 'Abonnieren';
+
+  @override
+  String get proRestore => 'Kauf wiederherstellen';
+
+  @override
+  String get proManage => 'Abo verwalten';
+
+  @override
+  String get proFinePrint =>
+      'Die Zahlung läuft über Google Play. Das Abo verlängert sich automatisch, bis du es kündigst – jederzeit in Google Play. Endet dein Abo, werden deine Einträge nicht gelöscht.';
+
+  @override
+  String get proComingSoon =>
+      'Käufe sind möglich, sobald MÜHÜR bei Google Play erscheint.';
+
+  @override
+  String get proSeePlans => 'Pro ansehen';
+
+  @override
+  String get proHealthBody =>
+      'Zu sehen, welche Einträge schwache oder mehrfach genutzte Passwörter haben, ist eine Pro-Funktion. Die Zahlen sind immer sichtbar.';
+
+  @override
+  String get healthWeakHint =>
+      'Kurz oder leicht zu erraten. Ersetze sie mit dem Passwortgenerator.';
+
+  @override
+  String get healthReusedHint =>
+      'Dasselbe Passwort wird in mehreren Einträgen verwendet. Gelangt eines nach außen, sind auch die anderen in Gefahr.';
+
+  @override
+  String get healthFairHint =>
+      'In Ordnung, könnte aber länger und vielfältiger sein.';
+
+  @override
+  String get healthAllGood =>
+      'Keine schwachen oder mehrfach genutzten Passwörter. Dein Tresor ist in gutem Zustand.';
+
+  @override
+  String get proHistoryBody =>
+      'Frühere Werte eines Passworts zu sehen ist eine Pro-Funktion. Passwörter, die du mit Pro änderst, werden hier aufbewahrt.';
+
+  @override
+  String get historyEmpty =>
+      'Dieses Passwort wurde noch nicht geändert. Wenn du es änderst, erscheint der alte Wert hier.';
+
+  @override
+  String get historyNote =>
+      'Pro Passwortfeld werden die letzten 10 Werte gespeichert – verschlüsselt wie der Rest deines Tresors. Der Passwortverlauf ist nicht in Backups enthalten.';
+
+  @override
+  String get historyClearQ =>
+      'Tippe noch einmal auf Löschen, um den Passwortverlauf dieses Felds zu leeren.';
 }

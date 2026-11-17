@@ -1068,4 +1068,139 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get undo => 'Hoàn tác';
+
+  @override
+  String get proStatusActive => 'Gói Pro của bạn đang hoạt động';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Dùng thử miễn phí: còn $days';
+  }
+
+  @override
+  String get proStatusFree => 'Gói miễn phí';
+
+  @override
+  String get proTrialInfo =>
+      'Khi hết thời gian dùng thử, bạn tự động chuyển sang gói miễn phí. Không cần thẻ và không có gì bị xóa.';
+
+  @override
+  String get proFeatEntries => 'Không giới hạn mục';
+
+  @override
+  String get proFeatEntriesDesc => 'Miễn phí: 3 mục mỗi danh mục';
+
+  @override
+  String get proFeatScan => 'Quét bằng máy ảnh không giới hạn';
+
+  @override
+  String get proFeatScanDesc => 'Miễn phí: 3 lần quét';
+
+  @override
+  String get proFeatFields => 'Trường bổ sung và tùy chỉnh';
+
+  @override
+  String get proFeatFieldsDesc => 'Thêm bất kỳ trường nào bạn cần vào mục';
+
+  @override
+  String get proFeatBio => 'Mở khóa bằng vân tay và khuôn mặt';
+
+  @override
+  String get proFeatBioDesc => 'Mở kho chỉ với một chạm';
+
+  @override
+  String get proFeatBg => 'Tất cả hình nền';
+
+  @override
+  String get proFeatBgDesc => 'Cả 5 hình nền';
+
+  @override
+  String get proFeatHealth => 'Sức khỏe kho';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Xem mật khẩu nào yếu hoặc bị dùng lại và đi thẳng tới mục đó';
+
+  @override
+  String get proFeatTotp => 'Mã xác minh hai bước';
+
+  @override
+  String get proFeatTotpDesc => 'Mã được tạo ngoại tuyến ngay trong kho';
+
+  @override
+  String get proFeatHistory => 'Lịch sử mật khẩu';
+
+  @override
+  String get proFeatHistoryDesc => 'Mật khẩu cũ được lưu lại để xem khi cần';
+
+  @override
+  String get proYearly => 'Hằng năm';
+
+  @override
+  String get proMonthly => 'Hằng tháng';
+
+  @override
+  String get proPerYear => '/ năm';
+
+  @override
+  String get proPerMonth => '/ tháng';
+
+  @override
+  String get proBestValue => 'Tiết kiệm nhất';
+
+  @override
+  String get proSubscribe => 'Đăng ký';
+
+  @override
+  String get proRestore => 'Khôi phục giao dịch mua';
+
+  @override
+  String get proManage => 'Quản lý gói đăng ký';
+
+  @override
+  String get proFinePrint =>
+      'Thanh toán qua Google Play. Gói đăng ký tự động gia hạn cho đến khi bạn hủy, bạn có thể hủy bất cứ lúc nào trong Google Play. Khi gói đăng ký kết thúc, các mục của bạn không bị xóa.';
+
+  @override
+  String get proComingSoon =>
+      'Tính năng mua sẽ mở khi MÜHÜR được phát hành trên Google Play.';
+
+  @override
+  String get proSeePlans => 'Xem Pro';
+
+  @override
+  String get proHealthBody =>
+      'Xem mục nào có mật khẩu yếu hoặc bị dùng lại là tính năng Pro. Số lượng luôn hiển thị.';
+
+  @override
+  String get healthWeakHint =>
+      'Ngắn hoặc dễ đoán. Hãy thay bằng trình tạo mật khẩu.';
+
+  @override
+  String get healthReusedHint =>
+      'Cùng một mật khẩu được dùng ở nhiều mục. Nếu một mục bị lộ, các mục khác cũng gặp nguy hiểm.';
+
+  @override
+  String get healthFairHint =>
+      'Chấp nhận được, nhưng có thể dài và đa dạng hơn.';
+
+  @override
+  String get healthAllGood =>
+      'Không có mật khẩu yếu hoặc bị dùng lại. Kho của bạn đang ổn.';
+
+  @override
+  String get proHistoryBody =>
+      'Xem các giá trị cũ của mật khẩu là tính năng Pro. Mật khẩu bạn đổi khi dùng Pro sẽ được lưu ở đây.';
+
+  @override
+  String get historyEmpty =>
+      'Mật khẩu này chưa được đổi. Khi bạn đổi, giá trị cũ sẽ hiện ở đây.';
+
+  @override
+  String get historyNote =>
+      'Mỗi trường mật khẩu lưu 10 giá trị gần nhất, được mã hóa như phần còn lại của kho. Lịch sử không có trong bản sao lưu.';
+
+  @override
+  String get historyClearQ =>
+      'Chạm Xóa thêm một lần để xóa lịch sử của trường này.';
 }

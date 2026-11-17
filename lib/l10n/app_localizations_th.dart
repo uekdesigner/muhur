@@ -1064,4 +1064,135 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get undo => 'เลิกทำ';
+
+  @override
+  String get proStatusActive => 'การสมัครสมาชิก Pro ของคุณใช้งานอยู่';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'ทดลองใช้ฟรี: เหลืออีก $days';
+  }
+
+  @override
+  String get proStatusFree => 'แผนฟรี';
+
+  @override
+  String get proTrialInfo =>
+      'เมื่อสิ้นสุดช่วงทดลอง ระบบจะเปลี่ยนเป็นแผนฟรีให้อัตโนมัติ ไม่ต้องใช้บัตร และไม่มีข้อมูลใดถูกลบ';
+
+  @override
+  String get proFeatEntries => 'รายการไม่จำกัด';
+
+  @override
+  String get proFeatEntriesDesc => 'ฟรี: หมวดหมู่ละ 3 รายการ';
+
+  @override
+  String get proFeatScan => 'สแกนด้วยกล้องไม่จำกัด';
+
+  @override
+  String get proFeatScanDesc => 'ฟรี: 3 ครั้ง';
+
+  @override
+  String get proFeatFields => 'ช่องเพิ่มเติมและช่องที่กำหนดเอง';
+
+  @override
+  String get proFeatFieldsDesc => 'เพิ่มช่องที่ต้องการลงในรายการได้';
+
+  @override
+  String get proFeatBio => 'ปลดล็อกด้วยลายนิ้วมือและใบหน้า';
+
+  @override
+  String get proFeatBioDesc => 'เปิดตู้นิรภัยได้ในแตะเดียว';
+
+  @override
+  String get proFeatBg => 'พื้นหลังทั้งหมด';
+
+  @override
+  String get proFeatBgDesc => 'พื้นหลังครบทั้ง 5 แบบ';
+
+  @override
+  String get proFeatHealth => 'สุขภาพตู้นิรภัย';
+
+  @override
+  String get proFeatHealthDesc =>
+      'ดูว่ารหัสผ่านใดอ่อนหรือใช้ซ้ำ แล้วไปที่รายการนั้นได้ทันที';
+
+  @override
+  String get proFeatTotp => 'รหัสยืนยันแบบสองขั้นตอน';
+
+  @override
+  String get proFeatTotpDesc => 'สร้างรหัสแบบออฟไลน์ภายในตู้นิรภัย';
+
+  @override
+  String get proFeatHistory => 'ประวัติรหัสผ่าน';
+
+  @override
+  String get proFeatHistoryDesc => 'เก็บรหัสผ่านเก่าไว้ให้ย้อนดูได้';
+
+  @override
+  String get proYearly => 'รายปี';
+
+  @override
+  String get proMonthly => 'รายเดือน';
+
+  @override
+  String get proPerYear => '/ ปี';
+
+  @override
+  String get proPerMonth => '/ เดือน';
+
+  @override
+  String get proBestValue => 'คุ้มที่สุด';
+
+  @override
+  String get proSubscribe => 'สมัครสมาชิก';
+
+  @override
+  String get proRestore => 'กู้คืนการซื้อ';
+
+  @override
+  String get proManage => 'จัดการการสมัครสมาชิก';
+
+  @override
+  String get proFinePrint =>
+      'ชำระเงินผ่าน Google Play การสมัครสมาชิกจะต่ออายุอัตโนมัติจนกว่าคุณจะยกเลิก ซึ่งยกเลิกได้ทุกเมื่อใน Google Play หากการสมัครสมาชิกสิ้นสุด รายการของคุณจะไม่ถูกลบ';
+
+  @override
+  String get proComingSoon => 'จะซื้อได้เมื่อ MÜHÜR เผยแพร่บน Google Play';
+
+  @override
+  String get proSeePlans => 'ดู Pro';
+
+  @override
+  String get proHealthBody =>
+      'การดูว่ารายการใดมีรหัสผ่านที่อ่อนหรือใช้ซ้ำเป็นฟีเจอร์ Pro ส่วนจำนวนจะแสดงเสมอ';
+
+  @override
+  String get healthWeakHint => 'สั้นหรือเดาง่าย เปลี่ยนด้วยตัวสร้างรหัสผ่าน';
+
+  @override
+  String get healthReusedHint =>
+      'รหัสผ่านเดียวกันถูกใช้ในหลายรายการ หากรายการหนึ่งรั่วไหล รายการอื่นก็เสี่ยงด้วย';
+
+  @override
+  String get healthFairHint => 'พอใช้ได้ แต่อาจยาวและหลากหลายกว่านี้';
+
+  @override
+  String get healthAllGood =>
+      'ไม่มีรหัสผ่านที่อ่อนหรือใช้ซ้ำ ตู้นิรภัยของคุณอยู่ในสภาพดี';
+
+  @override
+  String get proHistoryBody =>
+      'การดูค่าเก่าของรหัสผ่านเป็นฟีเจอร์ Pro รหัสผ่านที่คุณเปลี่ยนขณะใช้ Pro จะถูกเก็บไว้ที่นี่';
+
+  @override
+  String get historyEmpty =>
+      'รหัสผ่านนี้ยังไม่เคยเปลี่ยน เมื่อคุณเปลี่ยน ค่าเก่าจะแสดงที่นี่';
+
+  @override
+  String get historyNote =>
+      'ระบบเก็บ 10 ค่าล่าสุดของแต่ละช่องรหัสผ่าน โดยเข้ารหัสเหมือนข้อมูลอื่นในตู้นิรภัย ประวัติจะไม่รวมอยู่ในข้อมูลสำรอง';
+
+  @override
+  String get historyClearQ => 'แตะลบอีกครั้งเพื่อล้างประวัติของช่องนี้';
 }

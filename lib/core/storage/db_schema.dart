@@ -1,5 +1,5 @@
 class DbSchema {
-  static const int version = 2;
+  static const int version = 3;
   static const String fileName = 'muhur.db';
 
   static const String categories = '''
@@ -34,6 +34,21 @@ class DbSchema {
       is_sensitive INTEGER NOT NULL DEFAULT 0,
       FOREIGN KEY (entry_id) REFERENCES vault_entries(id) ON DELETE CASCADE
     )''';
+
+  /// v3: parola geçmişi (Pro). Değer, alan gibi şifrelidir.
+  static const String passwordHistory = '''
+    CREATE TABLE password_history (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      entry_id INTEGER NOT NULL,
+      field_label TEXT NOT NULL,
+      field_key TEXT,
+      value TEXT NOT NULL,
+      changed_at TEXT NOT NULL,
+      FOREIGN KEY (entry_id) REFERENCES vault_entries(id) ON DELETE CASCADE
+    )''';
+
+  static const String historyIndex =
+      'CREATE INDEX idx_history_entry ON password_history(entry_id)';
 
   static const List<String> indexes = [
     'CREATE INDEX idx_entries_domain ON vault_entries(domain)',

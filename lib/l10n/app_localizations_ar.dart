@@ -1101,4 +1101,136 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get undo => 'تراجع';
+
+  @override
+  String get proStatusActive => 'اشتراك Pro مفعّل';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'التجربة المجانية، المتبقي: $days';
+  }
+
+  @override
+  String get proStatusFree => 'الخطة المجانية';
+
+  @override
+  String get proTrialInfo =>
+      'عند انتهاء التجربة تنتقل تلقائيًا إلى الخطة المجانية. لا حاجة إلى بطاقة، ولا يُحذف أي شيء.';
+
+  @override
+  String get proFeatEntries => 'عناصر غير محدودة';
+
+  @override
+  String get proFeatEntriesDesc => 'مجانًا: 3 لكل فئة';
+
+  @override
+  String get proFeatScan => 'مسح غير محدود بالكاميرا';
+
+  @override
+  String get proFeatScanDesc => 'مجانًا: 3 عمليات مسح';
+
+  @override
+  String get proFeatFields => 'حقول إضافية ومخصصة';
+
+  @override
+  String get proFeatFieldsDesc => 'أضف إلى العنصر أي حقل تحتاجه';
+
+  @override
+  String get proFeatBio => 'الفتح بالبصمة والوجه';
+
+  @override
+  String get proFeatBioDesc => 'افتح خزنتك بلمسة واحدة';
+
+  @override
+  String get proFeatBg => 'كل الخلفيات';
+
+  @override
+  String get proFeatBgDesc => 'الخلفيات الخمس كلها';
+
+  @override
+  String get proFeatHealth => 'صحة الخزنة';
+
+  @override
+  String get proFeatHealthDesc =>
+      'اعرف كلمات المرور الضعيفة أو المكررة وانتقل مباشرة إلى العنصر';
+
+  @override
+  String get proFeatTotp => 'رموز التحقق بخطوتين';
+
+  @override
+  String get proFeatTotpDesc => 'تُنشأ الرموز داخل خزنتك دون إنترنت';
+
+  @override
+  String get proFeatHistory => 'سجل كلمات المرور';
+
+  @override
+  String get proFeatHistoryDesc => 'تُحفظ كلمات المرور القديمة لتعود إليها';
+
+  @override
+  String get proYearly => 'سنوي';
+
+  @override
+  String get proMonthly => 'شهري';
+
+  @override
+  String get proPerYear => '/ سنة';
+
+  @override
+  String get proPerMonth => '/ شهر';
+
+  @override
+  String get proBestValue => 'الأوفر';
+
+  @override
+  String get proSubscribe => 'اشترك';
+
+  @override
+  String get proRestore => 'استعادة الشراء';
+
+  @override
+  String get proManage => 'إدارة الاشتراك';
+
+  @override
+  String get proFinePrint =>
+      'يتم الدفع عبر Google Play. يتجدد الاشتراك تلقائيًا حتى تلغيه، ويمكنك إلغاؤه في أي وقت من Google Play. إذا انتهى الاشتراك فلن تُحذف عناصرك.';
+
+  @override
+  String get proComingSoon => 'سيتاح الشراء عند نشر MÜHÜR على Google Play.';
+
+  @override
+  String get proSeePlans => 'تعرّف على Pro';
+
+  @override
+  String get proHealthBody =>
+      'معرفة العناصر التي تحتوي على كلمات مرور ضعيفة أو مكررة ميزة Pro. الأعداد ظاهرة دائمًا.';
+
+  @override
+  String get healthWeakHint =>
+      'قصيرة أو سهلة التخمين. استبدلها باستخدام مولّد كلمات المرور.';
+
+  @override
+  String get healthReusedHint =>
+      'كلمة المرور نفسها مستخدمة في أكثر من عنصر. إذا تسرّبت إحداها أصبحت البقية في خطر أيضًا.';
+
+  @override
+  String get healthFairHint => 'مقبولة، لكن يمكن أن تكون أطول وأكثر تنوعًا.';
+
+  @override
+  String get healthAllGood =>
+      'لا توجد كلمات مرور ضعيفة أو مكررة. خزنتك في حالة جيدة.';
+
+  @override
+  String get proHistoryBody =>
+      'عرض القيم السابقة لكلمة المرور ميزة Pro. تُحفظ هنا كلمات المرور التي تغيّرها أثناء اشتراك Pro.';
+
+  @override
+  String get historyEmpty =>
+      'لم تُغيَّر كلمة المرور هذه بعد. عند تغييرها ستظهر القيمة القديمة هنا.';
+
+  @override
+  String get historyNote =>
+      'تُحفظ آخر 10 قيم لكل حقل كلمة مرور، مشفّرة مثل بقية الخزنة. لا يُضمَّن السجل في النسخ الاحتياطية.';
+
+  @override
+  String get historyClearQ => 'اضغط حذف مرة أخرى لمسح سجل هذا الحقل.';
 }

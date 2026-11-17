@@ -29,6 +29,7 @@ import '../../core/widgets/pro_badge.dart';
 import '../../core/constants/backgrounds.dart';
 import '../../core/entitlements/entitlements.dart';
 import '../vault/pro_dialog.dart';
+import '../pro/pro_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({
@@ -645,6 +646,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
   List<Widget> _generalItems(AppLocalizations t) {
     final s = AppSettings.instance;
     return [
+      _panel([
+        InkWell(
+          onTap: () async {
+            await ProScreen.open(context);
+            if (mounted) setState(() {});
+          },
+          child: _row(
+            icon: Icons.workspace_premium,
+            title: '${t.brandName} Pro',
+            trailing: Icon(Icons.chevron_right, color: MuhurColors.bronzeLight),
+            child: _desc(proStatusText(t)),
+          ),
+        ),
+      ]),
       _sectionTitle(Icons.palette_outlined, t.sectionAppearance),
       _panel([
         ValueListenableBuilder<String>(

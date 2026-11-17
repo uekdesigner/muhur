@@ -1983,6 +1983,246 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Undo'**
   String get undo;
+
+  /// No description provided for @proStatusActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Pro subscription is active'**
+  String get proStatusActive;
+
+  /// No description provided for @proStatusTrial.
+  ///
+  /// In en, this message translates to:
+  /// **'Free trial: {days} left'**
+  String proStatusTrial(String days);
+
+  /// No description provided for @proStatusFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Free plan'**
+  String get proStatusFree;
+
+  /// No description provided for @proTrialInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'When the trial ends you move to the free plan automatically. No card needed, and nothing is deleted.'**
+  String get proTrialInfo;
+
+  /// No description provided for @proFeatEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited entries'**
+  String get proFeatEntries;
+
+  /// No description provided for @proFeatEntriesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Free plan: 3 per category'**
+  String get proFeatEntriesDesc;
+
+  /// No description provided for @proFeatScan.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited camera scanning'**
+  String get proFeatScan;
+
+  /// No description provided for @proFeatScanDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Free plan: 3 scans'**
+  String get proFeatScanDesc;
+
+  /// No description provided for @proFeatFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra and custom fields'**
+  String get proFeatFields;
+
+  /// No description provided for @proFeatFieldsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Add any field you need to an entry'**
+  String get proFeatFieldsDesc;
+
+  /// No description provided for @proFeatBio.
+  ///
+  /// In en, this message translates to:
+  /// **'Fingerprint and face unlock'**
+  String get proFeatBio;
+
+  /// No description provided for @proFeatBioDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Open your vault with a touch'**
+  String get proFeatBioDesc;
+
+  /// No description provided for @proFeatBg.
+  ///
+  /// In en, this message translates to:
+  /// **'All backgrounds'**
+  String get proFeatBg;
+
+  /// No description provided for @proFeatBgDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose from all 5 backgrounds'**
+  String get proFeatBgDesc;
+
+  /// No description provided for @proFeatHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Vault health'**
+  String get proFeatHealth;
+
+  /// No description provided for @proFeatHealthDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'See which passwords are weak or reused and jump straight to them'**
+  String get proFeatHealthDesc;
+
+  /// No description provided for @proFeatTotp.
+  ///
+  /// In en, this message translates to:
+  /// **'Two-step verification codes'**
+  String get proFeatTotp;
+
+  /// No description provided for @proFeatTotpDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Codes are generated inside your vault, offline'**
+  String get proFeatTotpDesc;
+
+  /// No description provided for @proFeatHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Password history'**
+  String get proFeatHistory;
+
+  /// No description provided for @proFeatHistoryDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Old passwords are kept so you can look back'**
+  String get proFeatHistoryDesc;
+
+  /// No description provided for @proYearly.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly'**
+  String get proYearly;
+
+  /// No description provided for @proMonthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get proMonthly;
+
+  /// No description provided for @proPerYear.
+  ///
+  /// In en, this message translates to:
+  /// **'/ year'**
+  String get proPerYear;
+
+  /// No description provided for @proPerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'/ month'**
+  String get proPerMonth;
+
+  /// No description provided for @proBestValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Best value'**
+  String get proBestValue;
+
+  /// No description provided for @proSubscribe.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe'**
+  String get proSubscribe;
+
+  /// No description provided for @proRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore purchase'**
+  String get proRestore;
+
+  /// No description provided for @proManage.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage subscription'**
+  String get proManage;
+
+  /// No description provided for @proFinePrint.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment is made through Google Play. The subscription renews automatically until you cancel it, which you can do at any time in Google Play. If your subscription ends, your entries are not deleted.'**
+  String get proFinePrint;
+
+  /// No description provided for @proComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchases will open when MÜHÜR is published on Google Play.'**
+  String get proComingSoon;
+
+  /// No description provided for @proSeePlans.
+  ///
+  /// In en, this message translates to:
+  /// **'See Pro'**
+  String get proSeePlans;
+
+  /// No description provided for @proHealthBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Seeing which entries have weak or reused passwords is a Pro feature. The counts are always visible.'**
+  String get proHealthBody;
+
+  /// No description provided for @healthWeakHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Short or easy to guess. Replace them using the password generator.'**
+  String get healthWeakHint;
+
+  /// No description provided for @healthReusedHint.
+  ///
+  /// In en, this message translates to:
+  /// **'The same password is used in more than one entry. If one leaks, the others are at risk too.'**
+  String get healthReusedHint;
+
+  /// No description provided for @healthFairHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Acceptable, but could be longer and more varied.'**
+  String get healthFairHint;
+
+  /// No description provided for @healthAllGood.
+  ///
+  /// In en, this message translates to:
+  /// **'No weak or reused passwords. Your vault is in good shape.'**
+  String get healthAllGood;
+
+  /// No description provided for @proHistoryBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Seeing a password\'s previous values is a Pro feature. Passwords you change while on Pro are kept here.'**
+  String get proHistoryBody;
+
+  /// No description provided for @historyEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'This password hasn\'t been changed yet. When you change it, the old value appears here.'**
+  String get historyEmpty;
+
+  /// No description provided for @historyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'The last 10 values of each password field are kept, encrypted like the rest of your vault. Password history is not included in backups.'**
+  String get historyNote;
+
+  /// No description provided for @historyClearQ.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap delete again to clear this field\'s password history.'**
+  String get historyClearQ;
 }
 
 class _AppLocalizationsDelegate

@@ -1086,4 +1086,142 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get undo => 'Deshacer';
+
+  @override
+  String get proStatusActive => 'Tu suscripción Pro está activa';
+
+  @override
+  String proStatusTrial(String days) {
+    return 'Prueba gratis: quedan $days';
+  }
+
+  @override
+  String get proStatusFree => 'Plan gratuito';
+
+  @override
+  String get proTrialInfo =>
+      'Al terminar la prueba pasas automáticamente al plan gratuito. No se pide tarjeta y no se borra nada.';
+
+  @override
+  String get proFeatEntries => 'Entradas ilimitadas';
+
+  @override
+  String get proFeatEntriesDesc => 'Gratis: 3 por categoría';
+
+  @override
+  String get proFeatScan => 'Escaneo ilimitado con la cámara';
+
+  @override
+  String get proFeatScanDesc => 'Gratis: 3 escaneos';
+
+  @override
+  String get proFeatFields => 'Campos extra y personalizados';
+
+  @override
+  String get proFeatFieldsDesc =>
+      'Añade a una entrada todos los campos que necesites';
+
+  @override
+  String get proFeatBio => 'Desbloqueo con huella y cara';
+
+  @override
+  String get proFeatBioDesc => 'Abre tu bóveda con un toque';
+
+  @override
+  String get proFeatBg => 'Todos los fondos';
+
+  @override
+  String get proFeatBgDesc => 'Los 5 fondos';
+
+  @override
+  String get proFeatHealth => 'Salud de la bóveda';
+
+  @override
+  String get proFeatHealthDesc =>
+      'Mira qué contraseñas son débiles o repetidas y ve directo a la entrada';
+
+  @override
+  String get proFeatTotp => 'Códigos de verificación en dos pasos';
+
+  @override
+  String get proFeatTotpDesc =>
+      'Códigos generados sin conexión dentro de tu bóveda';
+
+  @override
+  String get proFeatHistory => 'Historial de contraseñas';
+
+  @override
+  String get proFeatHistoryDesc =>
+      'Las contraseñas antiguas se guardan para consultarlas';
+
+  @override
+  String get proYearly => 'Anual';
+
+  @override
+  String get proMonthly => 'Mensual';
+
+  @override
+  String get proPerYear => '/ año';
+
+  @override
+  String get proPerMonth => '/ mes';
+
+  @override
+  String get proBestValue => 'La mejor opción';
+
+  @override
+  String get proSubscribe => 'Suscribirse';
+
+  @override
+  String get proRestore => 'Restaurar compra';
+
+  @override
+  String get proManage => 'Gestionar suscripción';
+
+  @override
+  String get proFinePrint =>
+      'El pago se hace a través de Google Play. La suscripción se renueva automáticamente hasta que la canceles, cuando quieras, en Google Play. Si la suscripción termina, tus entradas no se borran.';
+
+  @override
+  String get proComingSoon =>
+      'Las compras se activarán cuando MÜHÜR se publique en Google Play.';
+
+  @override
+  String get proSeePlans => 'Ver Pro';
+
+  @override
+  String get proHealthBody =>
+      'Ver qué entradas tienen contraseñas débiles o repetidas es una función Pro. Los totales siempre están visibles.';
+
+  @override
+  String get healthWeakHint =>
+      'Cortas o fáciles de adivinar. Cámbialas con el generador de contraseñas.';
+
+  @override
+  String get healthReusedHint =>
+      'La misma contraseña se usa en varias entradas. Si una se filtra, las demás también corren riesgo.';
+
+  @override
+  String get healthFairHint =>
+      'Aceptables, pero podrían ser más largas y variadas.';
+
+  @override
+  String get healthAllGood =>
+      'No hay contraseñas débiles ni repetidas. Tu bóveda está en buen estado.';
+
+  @override
+  String get proHistoryBody =>
+      'Ver los valores anteriores de una contraseña es una función Pro. Las contraseñas que cambies con Pro se guardan aquí.';
+
+  @override
+  String get historyEmpty =>
+      'Esta contraseña aún no se ha cambiado. Cuando la cambies, el valor anterior aparecerá aquí.';
+
+  @override
+  String get historyNote =>
+      'Se guardan los últimos 10 valores de cada campo de contraseña, cifrados como el resto de tu bóveda. El historial no se incluye en las copias de seguridad.';
+
+  @override
+  String get historyClearQ =>
+      'Toca Eliminar otra vez para borrar el historial de este campo.';
 }
