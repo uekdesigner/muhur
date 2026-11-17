@@ -891,13 +891,6 @@ class AppLocalizationsPt extends AppLocalizations {
       'O MÜHÜR nunca se conecta à internet. Não há conta, servidor nem nuvem. Suas senhas ficam neste celular, a menos que você mesmo as exporte, como backup criptografado ou como arquivo do Excel.';
 
   @override
-  String get aboutLicenses => 'Licenças de código aberto';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Licenças dos componentes de código aberto usados no Muhur';
-
-  @override
   String get aboutRights => 'Todos os direitos reservados.';
 
   @override
@@ -976,7 +969,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Adicione bancos, sites, contas de e-mail e mais. Cada categoria oferece campos prontos, e você pode adicionar os seus.';
+      'As categorias são fixas: Bancos, Sites, E-mails, Redes sociais, Trabalho e Outros. Ao adicionar um item com o botão +, você escolhe a categoria dele, que traz os campos adequados. Não é possível criar novas categorias, mas com \"Novo campo\" você adiciona campos a um item: escolha um da lista ou crie um \"Campo personalizado\" com o nome que quiser.';
 
   @override
   String get how3T => 'Copiar com segurança';
@@ -1019,7 +1012,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get devBody =>
-      'O MÜHÜR é um projeto independente de uekdesigner, criado e desenvolvido na Turquia. Obrigado por usar o MÜHÜR.';
+      'O MÜHÜR é um projeto independente de UEK DESIGNER, criado e desenvolvido na Turquia. Obrigado por usar o MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1062,4 +1055,35 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get how8B =>
       '\"Exportar para Excel\", nas configurações de backup, grava todos os seus itens (exceto a lixeira) em um arquivo .xlsx, com uma planilha por categoria. O arquivo não é criptografado: você confirma com a senha mestra e aceita que a segurança dele é sua responsabilidade. Exclua-o quando não precisar mais.';
+
+  @override
+  String get proFeatureTitle => 'Recurso Pro';
+
+  @override
+  String get proFieldsBody =>
+      'Adicionar campos extras a um item é um recurso Pro. Os campos que você já adicionou continuam e podem ser editados.';
+
+  @override
+  String get proBiometricBody =>
+      'Desbloquear com digital ou rosto é um recurso Pro. Você sempre pode desbloquear com a senha mestra.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Fundos extras são um recurso Pro. O fundo padrão está sempre disponível.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'O desbloqueio com digital e rosto continua ativo por mais $days e depois é desativado. Confira se você lembra da sua senha mestra. Se esqueceu, crie uma nova com a digital em Configurações, em \"Alterar senha mestra\".';
+  }
+
+  @override
+  String get genNewPassword => 'Gerar nova senha';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Campo \"$label\" removido';
+  }
+
+  @override
+  String get undo => 'Desfazer';
 }

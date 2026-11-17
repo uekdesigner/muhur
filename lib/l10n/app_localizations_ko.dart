@@ -851,12 +851,6 @@ class AppLocalizationsKo extends AppLocalizations {
       'MÜHÜR는 인터넷에 전혀 연결되지 않습니다. 계정도, 서버도, 클라우드도 없습니다. 암호화된 백업이나 Excel 파일로 직접 내보내지 않는 한 비밀번호는 이 휴대폰을 벗어나지 않습니다.';
 
   @override
-  String get aboutLicenses => '오픈소스 라이선스';
-
-  @override
-  String get aboutLicensesDesc => 'Muhur에 사용된 오픈소스 구성 요소의 라이선스';
-
-  @override
   String get aboutRights => '모든 권리 보유.';
 
   @override
@@ -934,7 +928,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get how2B =>
-      '은행, 웹사이트, 이메일 계정 등을 추가하세요. 카테고리마다 준비된 필드가 있고, 직접 필드를 추가할 수도 있습니다.';
+      '카테고리는 고정되어 있습니다: 은행, 웹사이트, 이메일, SNS, 업무, 기타. + 버튼으로 항목을 추가할 때 카테고리를 고르면 그에 맞는 필드가 준비됩니다. 새 카테고리는 만들 수 없지만, \'필드 추가\'로 항목에 필드를 더할 수 있습니다. 목록에서 고르거나 원하는 이름으로 \'사용자 지정 필드\'를 만드세요.';
 
   @override
   String get how3T => '안전한 복사';
@@ -976,7 +970,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR는 uekdesigner의 독립 프로젝트로, 튀르키예에서 설계하고 개발했습니다. MÜHÜR를 사용해 주셔서 감사합니다.';
+      'MÜHÜR는 UEK DESIGNER의 독립 프로젝트로, 튀르키예에서 설계하고 개발했습니다. MÜHÜR를 사용해 주셔서 감사합니다.';
 
   @override
   String get rn100 =>
@@ -1016,4 +1010,34 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get how8B =>
       '백업 설정의 \'Excel로 내보내기\'는 휴지통을 제외한 모든 항목을 카테고리별 시트로 나누어 .xlsx 파일에 기록합니다. 파일은 암호화되지 않습니다. 마스터 비밀번호로 확인하고, 파일의 보안이 사용자의 책임임에 동의해야 합니다. 더 이상 필요 없으면 삭제하세요.';
+
+  @override
+  String get proFeatureTitle => 'Pro 기능';
+
+  @override
+  String get proFieldsBody =>
+      '항목에 필드를 추가하는 것은 Pro 기능입니다. 이미 추가한 필드는 그대로 남고 계속 수정할 수 있습니다.';
+
+  @override
+  String get proBiometricBody =>
+      '지문이나 얼굴로 잠금 해제하는 것은 Pro 기능입니다. 마스터 비밀번호로는 언제든지 잠금 해제할 수 있습니다.';
+
+  @override
+  String get proBackgroundsBody => '추가 배경은 Pro 기능입니다. 기본 배경은 언제든지 사용할 수 있습니다.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return '지문 및 얼굴 잠금 해제는 앞으로 $days 동안 켜져 있다가 꺼집니다. 마스터 비밀번호를 기억하고 있는지 확인하세요. 잊어버렸다면 설정의 \'마스터 비밀번호 변경\'에서 지문으로 새 비밀번호를 설정하세요.';
+  }
+
+  @override
+  String get genNewPassword => '새 비밀번호 생성';
+
+  @override
+  String fieldRemoved(String label) {
+    return '\'$label\' 필드를 삭제했습니다';
+  }
+
+  @override
+  String get undo => '실행 취소';
 }

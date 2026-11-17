@@ -870,13 +870,6 @@ class AppLocalizationsTh extends AppLocalizations {
       'MÜHÜR ไม่เชื่อมต่ออินเทอร์เน็ตเลย ไม่มีบัญชี ไม่มีเซิร์ฟเวอร์ และไม่มีคลาวด์ รหัสผ่านของคุณจะอยู่ในโทรศัพท์เครื่องนี้ เว้นแต่คุณจะส่งออกเองเป็นข้อมูลสำรองที่เข้ารหัสหรือไฟล์ Excel';
 
   @override
-  String get aboutLicenses => 'สัญญาอนุญาตโอเพนซอร์ส';
-
-  @override
-  String get aboutLicensesDesc =>
-      'สัญญาอนุญาตของส่วนประกอบโอเพนซอร์สที่ใช้ใน Muhur';
-
-  @override
   String get aboutRights => 'สงวนลิขสิทธิ์';
 
   @override
@@ -954,7 +947,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get how2B =>
-      'เพิ่มธนาคาร เว็บไซต์ บัญชีอีเมล และอื่นๆ แต่ละหมวดหมู่มีช่องข้อมูลพร้อมใช้ และคุณเพิ่มช่องของคุณเองได้';
+      'หมวดหมู่เป็นแบบคงที่ ได้แก่ ธนาคาร เว็บไซต์ อีเมล โซเชียล งาน และอื่นๆ เมื่อเพิ่มรายการด้วยปุ่ม + คุณจะเลือกหมวดหมู่ของรายการ และหมวดหมู่นั้นจะเตรียมช่องข้อมูลที่เหมาะสมให้ คุณสร้างหมวดหมู่ใหม่ไม่ได้ แต่เพิ่มช่องในรายการได้ด้วย \"เพิ่มช่อง\" โดยเลือกจากรายการหรือสร้าง \"ช่องที่กำหนดเอง\" ด้วยชื่อที่ต้องการ';
 
   @override
   String get how3T => 'คัดลอกอย่างปลอดภัย';
@@ -997,7 +990,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR เป็นโปรเจกต์อิสระของ uekdesigner ออกแบบและพัฒนาในประเทศตุรกี ขอบคุณที่ใช้ MÜHÜR';
+      'MÜHÜR เป็นโปรเจกต์อิสระของ UEK DESIGNER ออกแบบและพัฒนาในประเทศตุรกี ขอบคุณที่ใช้ MÜHÜR';
 
   @override
   String get rn100 =>
@@ -1040,4 +1033,35 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get how8B =>
       '\"ส่งออกเป็น Excel\" ในการตั้งค่าการสำรองข้อมูลจะเขียนรายการทั้งหมด (ยกเว้นถังขยะ) ลงในไฟล์ .xlsx โดยแยกแผ่นงานตามหมวดหมู่ ไฟล์นี้ไม่ถูกเข้ารหัส คุณต้องยืนยันด้วยรหัสผ่านหลักและยอมรับว่าความปลอดภัยของไฟล์เป็นความรับผิดชอบของคุณ ลบไฟล์เมื่อไม่ต้องการใช้อีก';
+
+  @override
+  String get proFeatureTitle => 'ฟีเจอร์ Pro';
+
+  @override
+  String get proFieldsBody =>
+      'การเพิ่มช่องในรายการเป็นฟีเจอร์ Pro ช่องที่เพิ่มไว้แล้วจะยังอยู่และแก้ไขได้';
+
+  @override
+  String get proBiometricBody =>
+      'การปลดล็อกด้วยลายนิ้วมือหรือใบหน้าเป็นฟีเจอร์ Pro คุณปลดล็อกด้วยรหัสผ่านหลักได้เสมอ';
+
+  @override
+  String get proBackgroundsBody =>
+      'พื้นหลังเพิ่มเติมเป็นฟีเจอร์ Pro พื้นหลังเริ่มต้นใช้ได้เสมอ';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'การปลดล็อกด้วยลายนิ้วมือและใบหน้าจะยังเปิดอยู่อีก $days แล้วจะปิด โปรดตรวจสอบว่าคุณจำรหัสผ่านหลักได้ หากลืม ให้ตั้งรหัสผ่านใหม่ด้วยลายนิ้วมือที่ \"เปลี่ยนรหัสผ่านหลัก\" ในการตั้งค่า';
+  }
+
+  @override
+  String get genNewPassword => 'สร้างรหัสผ่านใหม่';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'ลบช่อง \"$label\" แล้ว';
+  }
+
+  @override
+  String get undo => 'เลิกทำ';
 }

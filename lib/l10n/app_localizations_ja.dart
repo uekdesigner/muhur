@@ -852,12 +852,6 @@ class AppLocalizationsJa extends AppLocalizations {
       'MÜHÜRはインターネットに一切接続しません。アカウントもサーバーもクラウドもありません。暗号化バックアップやExcelファイルとして自分で書き出さない限り、パスワードはこの端末から出ません。';
 
   @override
-  String get aboutLicenses => 'オープンソースライセンス';
-
-  @override
-  String get aboutLicensesDesc => 'Muhurで使用しているオープンソース部品のライセンス';
-
-  @override
   String get aboutRights => '無断複製・転載を禁じます。';
 
   @override
@@ -934,7 +928,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get how2B =>
-      '銀行、ウェブサイト、メールアカウントなどを追加できます。カテゴリごとに入力欄が用意されており、独自の欄も追加できます。';
+      'カテゴリは固定です（銀行、ウェブサイト、メール、SNS、仕事、その他）。＋ボタンで項目を追加するときにカテゴリを選ぶと、そのカテゴリに合ったフィールドが用意されます。新しいカテゴリは作成できませんが、「フィールドを追加」で項目にフィールドを加えられます。一覧から選ぶか、好きな名前で「カスタムフィールド」を作成してください。';
 
   @override
   String get how3T => '安全なコピー';
@@ -974,7 +968,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜRは、uekdesignerによる独立したプロジェクトで、トルコで設計・開発されています。MÜHÜRをご利用いただきありがとうございます。';
+      'MÜHÜRは、UEK DESIGNERによる独立したプロジェクトで、トルコで設計・開発されています。MÜHÜRをご利用いただきありがとうございます。';
 
   @override
   String get rn100 =>
@@ -1014,4 +1008,34 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get how8B =>
       'バックアップ設定の「Excelに書き出す」は、ゴミ箱以外のすべての項目を、カテゴリごとにシートを分けて.xlsxファイルに書き出します。ファイルは暗号化されません。マスターパスワードで確認し、ファイルの安全管理が自分の責任であることに同意したうえで実行されます。不要になったら削除してください。';
+
+  @override
+  String get proFeatureTitle => 'Pro機能';
+
+  @override
+  String get proFieldsBody =>
+      '項目にフィールドを追加するのはPro機能です。すでに追加したフィールドはそのまま残り、編集もできます。';
+
+  @override
+  String get proBiometricBody =>
+      '指紋や顔でのロック解除はPro機能です。マスターパスワードでならいつでもロック解除できます。';
+
+  @override
+  String get proBackgroundsBody => '追加の背景はPro機能です。標準の背景はいつでも使えます。';
+
+  @override
+  String bioGraceWarn(String days) {
+    return '指紋と顔でのロック解除は、あと$days使えますが、その後オフになります。マスターパスワードを覚えているか確認してください。忘れた場合は、設定の「マスターパスワードを変更」から指紋を使って新しいパスワードを設定できます。';
+  }
+
+  @override
+  String get genNewPassword => '新しいパスワードを生成';
+
+  @override
+  String fieldRemoved(String label) {
+    return '「$label」を削除しました';
+  }
+
+  @override
+  String get undo => '元に戻す';
 }

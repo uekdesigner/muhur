@@ -891,13 +891,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'MÜHÜR nunca se conecta a Internet. No hay cuenta, ni servidor, ni nube. Tus contraseñas se quedan en este teléfono, salvo que las exportes tú mismo, como copia cifrada o como archivo de Excel.';
 
   @override
-  String get aboutLicenses => 'Licencias de código abierto';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Licencias de los componentes de código abierto que usa Muhur';
-
-  @override
   String get aboutRights => 'Todos los derechos reservados.';
 
   @override
@@ -976,7 +969,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Añade bancos, sitios web, cuentas de correo y más. Cada categoría ofrece campos listos para usar y puedes añadir los tuyos.';
+      'Las categorías son fijas: Bancos, Sitios web, Correos, Redes sociales, Trabajo y Otros. Al añadir una entrada con el botón +, eliges su categoría, que trae los campos adecuados. No se pueden crear categorías nuevas, pero con «Nuevo campo» puedes añadir campos a una entrada: elige uno de la lista o crea un «Campo personalizado» con el nombre que quieras.';
 
   @override
   String get how3T => 'Copiar con seguridad';
@@ -1019,7 +1012,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR es un proyecto independiente de uekdesigner, diseñado y desarrollado en Turquía. Gracias por usar MÜHÜR.';
+      'MÜHÜR es un proyecto independiente de UEK DESIGNER, diseñado y desarrollado en Turquía. Gracias por usar MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1062,4 +1055,35 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get how8B =>
       '«Exportar a Excel», en los ajustes de copia de seguridad, guarda todas tus entradas (salvo la papelera) en un archivo .xlsx, con una hoja por categoría. El archivo no está cifrado: confirmas con tu contraseña maestra y aceptas que su seguridad es tu responsabilidad. Bórralo cuando ya no lo necesites.';
+
+  @override
+  String get proFeatureTitle => 'Función Pro';
+
+  @override
+  String get proFieldsBody =>
+      'Añadir campos extra a una entrada es una función Pro. Los campos que ya añadiste se mantienen y se pueden seguir editando.';
+
+  @override
+  String get proBiometricBody =>
+      'Desbloquear con huella o cara es una función Pro. Siempre puedes desbloquear con tu contraseña maestra.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Los fondos adicionales son una función Pro. El fondo predeterminado siempre está disponible.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'El desbloqueo con huella y cara seguirá activo $days más y luego se desactivará. Asegúrate de recordar tu contraseña maestra. Si la olvidaste, crea una nueva con tu huella en Ajustes, en «Cambiar contraseña maestra».';
+  }
+
+  @override
+  String get genNewPassword => 'Generar contraseña nueva';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Campo «$label» eliminado';
+  }
+
+  @override
+  String get undo => 'Deshacer';
 }

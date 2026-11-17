@@ -25,7 +25,10 @@ import 'change_password_dialog.dart';
 import '../vault/vault_repository.dart';
 import '../vault/trash_screen.dart';
 import '../../core/widgets/panel_style.dart';
+import '../../core/widgets/pro_badge.dart';
 import '../../core/constants/backgrounds.dart';
+import '../../core/entitlements/entitlements.dart';
+import '../vault/pro_dialog.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({
@@ -172,7 +175,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required String title,
     Widget? trailing,
     Widget? child,
+    bool pro = false,
   }) {
+    final ico = Icon(icon, color: MuhurColors.bronzeLight);
     return Padding(
       padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
       child: Column(
@@ -180,7 +185,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           Row(
             children: [
-              Icon(icon, color: MuhurColors.bronzeLight),
+              pro ? ProCorner(child: ico) : ico,
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
@@ -317,6 +322,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _setBio(bool v, AppLocalizations t) async {
+    if (v && !Entitlements.instance.isPro) {
+      await showProDialog(context, t.proFeatureTitle, t.proBiometricBody);
+      return;
+    }
     if (v) {
       final ok = await widget.auth.enableBiometrics(t.biometricReason);
       if (mounted) setState(() => _bioEnabled = ok);
@@ -520,6 +529,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _row(
             icon: Icons.fingerprint,
             title: t.biometricUnlock,
+            pro: true,
             trailing: _switch(_bioEnabled, (v) => _setBio(v, t)),
           ),
         Material(
@@ -579,8 +589,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
   };
 
   Widget _bgThumb(AppLocalizations t, MuhurBg b, bool selected, AppSettings s) {
+    final locked =
+        b.id != muhurBackgrounds.first.id && !Entitlements.instance.isPro;
     return GestureDetector(
-      onTap: () => s.setBackground(b.id),
+      onTap: () => locked
+          ? showProDialog(context, t.proFeatureTitle, t.proBackgroundsBody)
+          : s.setBackground(b.id),
       child: Container(
         width: 64,
         margin: const EdgeInsets.only(right: 10),
@@ -606,6 +620,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               child: selected
                   ? Icon(Icons.check, color: MuhurColors.bronzeLight, size: 22)
+                  : locked
+                  ? Icon(Icons.lock_outline, color: MuhurColors.cream, size: 20)
                   : null,
             ),
             const SizedBox(height: 4),
@@ -636,6 +652,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           builder: (context, sel, _) => _row(
             icon: Icons.wallpaper,
             title: t.backgroundTitle,
+            pro: true,
             child: Padding(
               padding: const EdgeInsets.only(top: 10),
               child: SizedBox(
@@ -982,17 +999,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _rateApp,
           subtitle: t.aboutRateDesc,
         ),
-        _aboutLink(
-          Icons.description_outlined,
-          t.aboutLicenses,
-          () => showLicensePage(
-            context: context,
-            applicationName: t.brandName,
-            applicationVersion: _version,
-            applicationLegalese: legal,
-          ),
-          subtitle: t.aboutLicensesDesc,
-        ),
       ]),
       Padding(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -1031,30 +1037,50 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${t.brandName} ${t.brandSubtitle}',
+                      t.brandName,
                       style: TextStyle(
                         color: MuhurColors.cream,
-                        fontSize: 16,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 1.5,
+                      ),
+                    ),
+                    Text(
+                      t.brandSubtitle,
+                      style: TextStyle(
+                        color: MuhurColors.cream.withValues(alpha: 0.90),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 1.5,
+                      ),
+                    ),
+
+                    Text(
+                      t.aboutReleaseNotes,
+                      style: TextStyle(
+                        color: MuhurColors.cream.withValues(alpha: 0.90),
+                        fontSize: 18,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 2),
+                    Text(
+                      'UEK DESIGNER',
+                      style: TextStyle(
+                        color: MuhurColors.bronzeLight,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
                     if (_version.isNotEmpty)
                       Text(
                         t.aboutVersionLine(_version),
                         style: TextStyle(
                           color: MuhurColors.bronzeLight,
+                          fontSize: 12,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                    const SizedBox(height: 2),
-                    Text(
-                      t.aboutReleaseNotes,
-                      style: TextStyle(
-                        color: MuhurColors.cream.withValues(alpha: 0.6),
-                        fontSize: 12,
-                      ),
-                    ),
                   ],
                 ),
               ),

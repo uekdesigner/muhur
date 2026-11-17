@@ -873,13 +873,6 @@ class AppLocalizationsVi extends AppLocalizations {
       'MÜHÜR không bao giờ kết nối Internet. Không có tài khoản, máy chủ hay đám mây. Mật khẩu của bạn ở lại trên điện thoại này trừ khi bạn tự xuất ra, dưới dạng bản sao lưu đã mã hóa hoặc tệp Excel.';
 
   @override
-  String get aboutLicenses => 'Giấy phép nguồn mở';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Giấy phép của các thành phần nguồn mở dùng trong Muhur';
-
-  @override
   String get aboutRights => 'Bảo lưu mọi quyền.';
 
   @override
@@ -958,7 +951,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Thêm ngân hàng, trang web, tài khoản email và nhiều hơn nữa. Mỗi danh mục có sẵn các trường, và bạn có thể thêm trường riêng.';
+      'Các danh mục là cố định: Ngân hàng, Trang web, Email, Mạng xã hội, Công việc và Khác. Khi thêm mục bằng nút +, bạn chọn danh mục cho mục đó và danh mục sẽ mang theo các trường phù hợp. Không thể tạo danh mục mới, nhưng với \"Thêm trường\" bạn có thể thêm trường vào mục: chọn từ danh sách hoặc tạo \"Trường tùy chỉnh\" với tên bạn muốn.';
 
   @override
   String get how3T => 'Sao chép an toàn';
@@ -1001,7 +994,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR là dự án độc lập của uekdesigner, được thiết kế và phát triển tại Thổ Nhĩ Kỳ. Cảm ơn bạn đã dùng MÜHÜR.';
+      'MÜHÜR là dự án độc lập của UEK DESIGNER, được thiết kế và phát triển tại Thổ Nhĩ Kỳ. Cảm ơn bạn đã dùng MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1044,4 +1037,35 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get how8B =>
       '\"Xuất ra Excel\" trong phần cài đặt sao lưu ghi toàn bộ mục của bạn (trừ thùng rác) vào một tệp .xlsx, mỗi danh mục một trang tính. Tệp không được mã hóa: bạn xác nhận bằng mật khẩu chính và đồng ý rằng sự an toàn của tệp là trách nhiệm của bạn. Hãy xóa tệp khi không cần nữa.';
+
+  @override
+  String get proFeatureTitle => 'Tính năng Pro';
+
+  @override
+  String get proFieldsBody =>
+      'Thêm trường bổ sung vào mục là tính năng Pro. Các trường đã thêm vẫn được giữ và vẫn chỉnh sửa được.';
+
+  @override
+  String get proBiometricBody =>
+      'Mở khóa bằng vân tay hoặc khuôn mặt là tính năng Pro. Bạn luôn có thể mở khóa bằng mật khẩu chính.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Hình nền bổ sung là tính năng Pro. Hình nền mặc định luôn dùng được.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Mở khóa bằng vân tay và khuôn mặt sẽ còn bật thêm $days rồi tắt. Hãy chắc chắn bạn nhớ mật khẩu chính. Nếu đã quên, hãy đặt mật khẩu mới bằng vân tay trong Cài đặt, mục \"Đổi mật khẩu chính\".';
+  }
+
+  @override
+  String get genNewPassword => 'Tạo mật khẩu mới';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Đã xóa trường \"$label\"';
+  }
+
+  @override
+  String get undo => 'Hoàn tác';
 }

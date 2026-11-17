@@ -38,7 +38,7 @@ class PasswordGenerator {
   static const _lower = 'abcdefghijklmnopqrstuvwxyz';
   static const _upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   static const _digits = '0123456789';
-  static const _symbols = '!@#\$%^&*()-_=+[]{};:,.?';
+  static const _symbols = '!@&*-_+.?#';
   static const _ambiguous = 'O0oIl1|';
 
   final Random _rnd = Random.secure();

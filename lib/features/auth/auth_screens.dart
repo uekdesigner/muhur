@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_theme.dart';
+import '../../core/entitlements/entitlements.dart';
 import '../../core/utils/haptics.dart';
 import '../../core/utils/motion.dart';
 import '../../core/widgets/dialog_parts.dart';
@@ -87,7 +88,9 @@ class _SetupScreenState extends State<SetupScreen> {
         await widget.auth.createVault(_pw.text, replaceExisting: true);
       }
 
-      if (await widget.auth.biometricAvailable() && mounted) {
+      if (Entitlements.instance.isPro &&
+          await widget.auth.biometricAvailable() &&
+          mounted) {
         final enable = await showDialog<bool>(
           context: context,
           animationStyle: Motion.style,
@@ -245,6 +248,7 @@ class _UnlockScreenState extends State<UnlockScreen> {
   bool _show = false;
   bool _busy = false;
   bool _bioEnabled = false;
+  int? _bioGraceDays; // Pro bitti, biyometri ek sürede: kalan gün
   String? _error;
   bool get _canSubmit =>
       !_busy && _pw.text.runes.length >= kMinMasterPasswordLength;
@@ -262,9 +266,18 @@ class _UnlockScreenState extends State<UnlockScreen> {
   }
 
   Future<void> _initBio() async {
-    final enabled = await widget.auth.biometricEnabled();
+    final ent = Entitlements.instance;
+    var enabled = await widget.auth.biometricEnabled();
+    if (enabled && !ent.biometricAllowed) {
+      // Pro ve 7 günlük ek süre bitti: biyometrik anahtar silinir.
+      await widget.auth.disableBiometrics();
+      enabled = false;
+    }
     if (!mounted) return;
-    setState(() => _bioEnabled = enabled);
+    setState(() {
+      _bioEnabled = enabled;
+      _bioGraceDays = enabled ? ent.biometricGraceDaysLeft : null;
+    });
     // Biyometrik sorgu artık otomatik açılmaz; kullanıcı parmak izi
     // butonuna dokununca başlar.
   }
@@ -315,7 +328,9 @@ class _UnlockScreenState extends State<UnlockScreen> {
     });
     try {
       await widget.auth.unlockWithPassword(_pw.text);
-      if (mounted && await widget.auth.takeBiometricResetFlag()) {
+      if (mounted &&
+          await widget.auth.takeBiometricResetFlag() &&
+          Entitlements.instance.isPro) {
         await _offerBiometrics();
       }
       if (mounted) widget.onDone();
@@ -438,7 +453,20 @@ class _UnlockScreenState extends State<UnlockScreen> {
                       ],
                     ],
                   ),
+                  if (_bioGraceDays != null) ...[
+                    const SizedBox(height: 12),
+                    Text(
+                      t.bioGraceWarn(t.daysCount(_bioGraceDays!)),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.amber.shade200,
+                        fontSize: 12.5,
+                        height: 1.4,
+                      ),
+                    ),
+                  ],
                   const SizedBox(height: 32),
+
                   Text(
                     '${t.brandName} ${t.brandSubtitle}',
                     textAlign: TextAlign.center,

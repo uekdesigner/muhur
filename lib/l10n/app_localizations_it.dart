@@ -891,13 +891,6 @@ class AppLocalizationsIt extends AppLocalizations {
       'MÜHÜR non si collega mai a Internet. Niente account, niente server, niente cloud. Le tue password restano su questo telefono, a meno che non le esporti tu stesso, come backup cifrato o come file Excel.';
 
   @override
-  String get aboutLicenses => 'Licenze open source';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Licenze dei componenti open source usati in Muhur';
-
-  @override
   String get aboutRights => 'Tutti i diritti riservati.';
 
   @override
@@ -976,7 +969,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Aggiungi banche, siti web, account email e altro. Ogni categoria offre campi pronti e puoi aggiungerne di tuoi.';
+      'Le categorie sono fisse: Banche, Siti web, Email, Social, Lavoro e Altro. Quando aggiungi una voce con il pulsante +, ne scegli la categoria, che porta con sé i campi adatti. Non puoi creare nuove categorie, ma con «Nuovo campo» puoi aggiungere campi a una voce: scegline uno dall\'elenco o crea un «Campo personalizzato» con il nome che preferisci.';
 
   @override
   String get how3T => 'Copiare in sicurezza';
@@ -1019,7 +1012,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR è un progetto indipendente di uekdesigner, progettato e sviluppato in Turchia. Grazie per usare MÜHÜR.';
+      'MÜHÜR è un progetto indipendente di UEK DESIGNER, progettato e sviluppato in Turchia. Grazie per usare MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1062,4 +1055,35 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get how8B =>
       '«Esporta in Excel», nelle impostazioni di backup, scrive tutte le tue voci (escluso il cestino) in un file .xlsx, con un foglio per categoria. Il file non è cifrato: confermi con la password principale e accetti che la sua sicurezza sia una tua responsabilità. Eliminalo quando non ti serve più.';
+
+  @override
+  String get proFeatureTitle => 'Funzione Pro';
+
+  @override
+  String get proFieldsBody =>
+      'Aggiungere campi extra a una voce è una funzione Pro. I campi già aggiunti restano e si possono ancora modificare.';
+
+  @override
+  String get proBiometricBody =>
+      'Lo sblocco con impronta o volto è una funzione Pro. Puoi sempre sbloccare con la password principale.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Gli sfondi aggiuntivi sono una funzione Pro. Lo sfondo predefinito è sempre disponibile.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Lo sblocco con impronta e volto resta attivo ancora per $days, poi si disattiva. Assicurati di ricordare la password principale. Se l\'hai dimenticata, impostane una nuova con l\'impronta in Impostazioni, da «Cambia password principale».';
+  }
+
+  @override
+  String get genNewPassword => 'Genera nuova password';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Campo «$label» rimosso';
+  }
+
+  @override
+  String get undo => 'Annulla';
 }

@@ -1654,18 +1654,6 @@ abstract class AppLocalizations {
   /// **'MÜHÜR never connects to the internet. There is no account, no server and no cloud. Your passwords stay on this phone unless you export them yourself, as an encrypted backup or as an Excel file.'**
   String get aboutOfflineBody;
 
-  /// No description provided for @aboutLicenses.
-  ///
-  /// In en, this message translates to:
-  /// **'Open-source licenses'**
-  String get aboutLicenses;
-
-  /// No description provided for @aboutLicensesDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Licenses of the open-source components used in Muhur'**
-  String get aboutLicensesDesc;
-
   /// No description provided for @aboutRights.
   ///
   /// In en, this message translates to:
@@ -1801,7 +1789,7 @@ abstract class AppLocalizations {
   /// No description provided for @how2B.
   ///
   /// In en, this message translates to:
-  /// **'Add banks, websites, e-mail accounts and more. Each category offers ready-made fields, and you can add your own.'**
+  /// **'Categories are fixed: Banks, Websites, Emails, Social Media, Business and Other. When you add an entry with the + button, you choose its category, and the category brings the fields that suit it. You cannot add new categories, but you can add fields to an entry with \"Add field\": pick one from the list or create a \"Custom field\" with a name of your choice.'**
   String get how2B;
 
   /// No description provided for @how3T.
@@ -1873,7 +1861,7 @@ abstract class AppLocalizations {
   /// No description provided for @devBody.
   ///
   /// In en, this message translates to:
-  /// **'MÜHÜR is an independent project by uekdesigner, designed and developed in Türkiye. Thank you for using MÜHÜR.'**
+  /// **'MÜHÜR is an independent project by UEK DESIGNER, designed and developed in Türkiye. Thank you for using MÜHÜR.'**
   String get devBody;
 
   /// No description provided for @rn100.
@@ -1947,6 +1935,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'\"Export to Excel\" in the backup settings writes all your entries (except the trash) to an .xlsx file, one sheet per category. The file is not encrypted: you confirm with your master password and accept that keeping it safe is your responsibility. Delete it when you no longer need it.'**
   String get how8B;
+
+  /// No description provided for @proFeatureTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Pro feature'**
+  String get proFeatureTitle;
+
+  /// No description provided for @proFieldsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Adding extra fields to an entry is a Pro feature. Fields you have already added stay and can still be edited.'**
+  String get proFieldsBody;
+
+  /// No description provided for @proBiometricBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocking with fingerprint or face is a Pro feature. You can always unlock with your master password.'**
+  String get proBiometricBody;
+
+  /// No description provided for @proBackgroundsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra backgrounds are a Pro feature. The default background is always available.'**
+  String get proBackgroundsBody;
+
+  /// No description provided for @bioGraceWarn.
+  ///
+  /// In en, this message translates to:
+  /// **'Fingerprint and face unlock stays on for {days} more, then turns off. Make sure you remember your master password. If you have forgotten it, set a new one with your fingerprint in Settings under \"Change master password\".'**
+  String bioGraceWarn(String days);
+
+  /// No description provided for @genNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate new password'**
+  String get genNewPassword;
+
+  /// No description provided for @fieldRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{label}\" removed'**
+  String fieldRemoved(String label);
+
+  /// No description provided for @undo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get undo;
 }
 
 class _AppLocalizationsDelegate

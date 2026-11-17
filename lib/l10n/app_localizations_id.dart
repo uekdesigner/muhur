@@ -876,13 +876,6 @@ class AppLocalizationsId extends AppLocalizations {
       'MÜHÜR tidak pernah terhubung ke internet. Tidak ada akun, server, maupun cloud. Kata sandi Anda tetap di ponsel ini kecuali Anda sendiri mengekspornya, sebagai cadangan terenkripsi atau file Excel.';
 
   @override
-  String get aboutLicenses => 'Lisensi sumber terbuka';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Lisensi komponen sumber terbuka yang digunakan di Muhur';
-
-  @override
   String get aboutRights => 'Hak cipta dilindungi undang-undang.';
 
   @override
@@ -960,7 +953,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Tambahkan bank, situs web, akun email, dan lainnya. Setiap kategori punya kolom siap pakai, dan Anda bisa menambah kolom sendiri.';
+      'Kategori bersifat tetap: Bank, Situs web, Email, Media sosial, Kerja, dan Lainnya. Saat menambah entri dengan tombol +, Anda memilih kategorinya, dan kategori itu menyiapkan kolom yang sesuai. Kategori baru tidak bisa dibuat, tetapi dengan \"Tambah kolom\" Anda bisa menambah kolom ke entri: pilih dari daftar atau buat \"Kolom kustom\" dengan nama pilihan Anda.';
 
   @override
   String get how3T => 'Menyalin dengan aman';
@@ -1003,7 +996,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR adalah proyek independen dari uekdesigner, dirancang dan dikembangkan di Turki. Terima kasih telah menggunakan MÜHÜR.';
+      'MÜHÜR adalah proyek independen dari UEK DESIGNER, dirancang dan dikembangkan di Turki. Terima kasih telah menggunakan MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1046,4 +1039,35 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get how8B =>
       '\"Ekspor ke Excel\" di pengaturan cadangan menulis semua entri Anda (kecuali sampah) ke file .xlsx, dengan satu lembar per kategori. File tidak dienkripsi: Anda mengonfirmasi dengan kata sandi utama dan menyetujui bahwa keamanannya adalah tanggung jawab Anda. Hapus file itu jika sudah tidak diperlukan.';
+
+  @override
+  String get proFeatureTitle => 'Fitur Pro';
+
+  @override
+  String get proFieldsBody =>
+      'Menambah kolom tambahan ke entri adalah fitur Pro. Kolom yang sudah ditambahkan tetap ada dan masih bisa diubah.';
+
+  @override
+  String get proBiometricBody =>
+      'Buka kunci dengan sidik jari atau wajah adalah fitur Pro. Anda selalu bisa membuka kunci dengan kata sandi utama.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Latar tambahan adalah fitur Pro. Latar bawaan selalu tersedia.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Buka kunci dengan sidik jari dan wajah tetap aktif $days lagi, lalu dimatikan. Pastikan Anda ingat kata sandi utama. Jika lupa, buat kata sandi baru dengan sidik jari melalui \"Ubah kata sandi utama\" di Pengaturan.';
+  }
+
+  @override
+  String get genNewPassword => 'Buat kata sandi baru';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Kolom \"$label\" dihapus';
+  }
+
+  @override
+  String get undo => 'Urungkan';
 }

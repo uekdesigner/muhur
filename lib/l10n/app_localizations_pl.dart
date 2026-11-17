@@ -903,13 +903,6 @@ class AppLocalizationsPl extends AppLocalizations {
       'MÜHÜR nigdy nie łączy się z internetem. Nie ma konta, serwera ani chmury. Twoje hasła zostają na tym telefonie, chyba że sam je wyeksportujesz jako zaszyfrowaną kopię lub plik Excela.';
 
   @override
-  String get aboutLicenses => 'Licencje open source';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Licencje komponentów open source używanych w Muhur';
-
-  @override
   String get aboutRights => 'Wszelkie prawa zastrzeżone.';
 
   @override
@@ -987,7 +980,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Dodawaj banki, strony, konta e-mail i nie tylko. Każda kategoria ma gotowe pola, a możesz też dodać własne.';
+      'Kategorie są stałe: Banki, Strony WWW, E-maile, Social media, Praca i Inne. Dodając wpis przyciskiem +, wybierasz jego kategorię, a ona dodaje pasujące pola. Nie można tworzyć nowych kategorii, ale przyciskiem „Dodaj pole” dodasz do wpisu kolejne pola: wybierz jedno z listy albo utwórz „Własne pole” z dowolną nazwą.';
 
   @override
   String get how3T => 'Bezpieczne kopiowanie';
@@ -1030,7 +1023,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR to niezależny projekt uekdesigner, zaprojektowany i rozwijany w Turcji. Dziękujemy za korzystanie z MÜHÜR.';
+      'MÜHÜR to niezależny projekt UEK DESIGNER, zaprojektowany i rozwijany w Turcji. Dziękujemy za korzystanie z MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1073,4 +1066,35 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get how8B =>
       '„Eksportuj do Excela” w ustawieniach kopii zapisuje wszystkie wpisy (bez kosza) w pliku .xlsx, z osobnym arkuszem dla każdej kategorii. Plik nie jest zaszyfrowany: potwierdzasz hasłem głównym i akceptujesz, że za jego bezpieczeństwo odpowiadasz Ty. Usuń go, gdy nie będzie już potrzebny.';
+
+  @override
+  String get proFeatureTitle => 'Funkcja Pro';
+
+  @override
+  String get proFieldsBody =>
+      'Dodawanie dodatkowych pól do wpisu to funkcja Pro. Pola dodane wcześniej zostają i nadal można je edytować.';
+
+  @override
+  String get proBiometricBody =>
+      'Odblokowanie odciskiem palca lub twarzą to funkcja Pro. Zawsze możesz odblokować hasłem głównym.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Dodatkowe tła to funkcja Pro. Tło domyślne jest zawsze dostępne.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Odblokowanie odciskiem palca i twarzą pozostanie włączone jeszcze przez $days, a potem się wyłączy. Upewnij się, że pamiętasz hasło główne. Jeśli go nie pamiętasz, ustaw nowe odciskiem palca w Ustawieniach, w „Zmień hasło główne”.';
+  }
+
+  @override
+  String get genNewPassword => 'Wygeneruj nowe hasło';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Usunięto pole „$label”';
+  }
+
+  @override
+  String get undo => 'Cofnij';
 }

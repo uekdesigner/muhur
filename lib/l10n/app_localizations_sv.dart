@@ -888,13 +888,6 @@ class AppLocalizationsSv extends AppLocalizations {
       'MÜHÜR ansluter aldrig till internet. Det finns inget konto, ingen server och inget moln. Dina lösenord stannar på den här telefonen, om du inte själv exporterar dem som en krypterad backup eller en Excel-fil.';
 
   @override
-  String get aboutLicenses => 'Licenser för öppen källkod';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Licenser för komponenter med öppen källkod som används i Muhur';
-
-  @override
   String get aboutRights => 'Med ensamrätt.';
 
   @override
@@ -973,7 +966,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Lägg till banker, webbplatser, e-postkonton och mer. Varje kategori har färdiga fält, och du kan lägga till egna.';
+      'Kategorierna är fasta: Banker, Webbplatser, E-post, Sociala medier, Jobb och Övrigt. När du lägger till en post med +-knappen väljer du dess kategori, som ger passande fält. Du kan inte skapa nya kategorier, men med ”Nytt fält” lägger du till fält i en post: välj ett i listan eller skapa ett ”Eget fält” med valfritt namn.';
 
   @override
   String get how3T => 'Kopiera säkert';
@@ -1016,7 +1009,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR är ett oberoende projekt av uekdesigner, utformat och utvecklat i Turkiet. Tack för att du använder MÜHÜR.';
+      'MÜHÜR är ett oberoende projekt av UEK DESIGNER, utformat och utvecklat i Turkiet. Tack för att du använder MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1059,4 +1052,35 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get how8B =>
       '”Exportera till Excel” i backupinställningarna skriver alla dina poster (utom papperskorgen) till en .xlsx-fil, med ett blad per kategori. Filen är inte krypterad: du bekräftar med ditt huvudlösenord och godkänner att dess säkerhet är ditt ansvar. Radera den när du inte behöver den längre.';
+
+  @override
+  String get proFeatureTitle => 'Pro-funktion';
+
+  @override
+  String get proFieldsBody =>
+      'Att lägga till extra fält i en post är en Pro-funktion. Fält som du redan har lagt till finns kvar och kan fortfarande redigeras.';
+
+  @override
+  String get proBiometricBody =>
+      'Upplåsning med fingeravtryck eller ansikte är en Pro-funktion. Du kan alltid låsa upp med ditt huvudlösenord.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Extra bakgrunder är en Pro-funktion. Standardbakgrunden finns alltid tillgänglig.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Upplåsning med fingeravtryck och ansikte är på i $days till och stängs sedan av. Se till att du kommer ihåg ditt huvudlösenord. Om du har glömt det kan du ange ett nytt med fingeravtrycket under ”Byt huvudlösenord” i Inställningar.';
+  }
+
+  @override
+  String get genNewPassword => 'Generera nytt lösenord';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Fältet ”$label” togs bort';
+  }
+
+  @override
+  String get undo => 'Ångra';
 }

@@ -8,6 +8,7 @@ import '../../core/storage/app_settings.dart';
 import '../../core/utils/clipboard_service.dart';
 import '../../core/utils/screen_capture_service.dart';
 import '../../core/widgets/muhur_widgets.dart';
+import '../../core/widgets/pro_badge.dart';
 import '../../l10n/app_localizations.dart';
 
 class VaultHeader extends StatelessWidget {
@@ -71,7 +72,7 @@ class VaultHeader extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 8),
-                        _FreeBadge(t.planFree),
+                        const PlanBadge(),
                       ],
                     ),
                     Text(
@@ -184,32 +185,6 @@ class VaultHeader extends StatelessWidget {
             ],
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _FreeBadge extends StatelessWidget {
-  const _FreeBadge(this.label);
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-      decoration: BoxDecoration(
-        color: Colors.black54,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: MuhurColors.bronze.withValues(alpha: 0.8)),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(
-          color: MuhurColors.bronzeLight,
-          fontSize: 7.8,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 0.5,
-        ),
       ),
     );
   }
@@ -463,69 +438,97 @@ class _HelpMenu extends StatelessWidget {
           ? Duration.zero
           : const Duration(milliseconds: 250),
       pageBuilder: (ctx, anim, secondary) {
+        // Gezinme çubuğunun üstünde kalacak en büyük boy; sığmazsa liste kayar.
+        final maxH =
+            (MediaQuery.sizeOf(ctx).height -
+                    top -
+                    MediaQuery.viewPaddingOf(ctx).bottom -
+                    12)
+                .clamp(120.0, double.infinity)
+                .toDouble();
         return Stack(
           children: [
             Positioned(
               top: top,
               right: 12,
               width: _panelW,
-              child: Material(
-                color: const Color(0xF0161B1F),
-                elevation: 8,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  side: BorderSide(color: MuhurColors.bronze, width: 1.2),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(14, 12, 14, 8),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        t.helpMenuTitle,
-                        style: TextStyle(
-                          color: MuhurColors.cream,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w800,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: maxH),
+                child: Material(
+                  color: const Color(0xF0161B1F),
+                  elevation: 8,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    side: BorderSide(color: MuhurColors.bronze, width: 1.2),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(14, 12, 14, 8),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          t.helpMenuTitle,
+                          style: TextStyle(
+                            color: MuhurColors.cream,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 8),
-                      Divider(color: MuhurColors.bronze, height: 1),
-                      const SizedBox(height: 4),
-                      for (var i = 0; i < items.length; i++)
-                        _stagger(
-                          anim,
-                          i,
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  items[i].$1,
-                                  size: 19,
-                                  color:
-                                      (items[i].$1 == Icons.shield_outlined ||
-                                          items[i].$1 ==
-                                              Icons.settings_backup_restore)
-                                      ? Colors.greenAccent
-                                      : MuhurColors.bronzeLight,
-                                ),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: Text(
-                                    items[i].$2,
-                                    style: TextStyle(
-                                      color: MuhurColors.cream,
-                                      fontSize: 13,
+                        const SizedBox(height: 8),
+                        Divider(color: MuhurColors.bronze, height: 1),
+                        const SizedBox(height: 4),
+                        Flexible(
+                          child: Scrollbar(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  for (var i = 0; i < items.length; i++)
+                                    _stagger(
+                                      anim,
+                                      i,
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 8,
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              items[i].$1,
+                                              size: 19,
+                                              color:
+                                                  (items[i].$1 ==
+                                                          Icons
+                                                              .shield_outlined ||
+                                                      items[i].$1 ==
+                                                          Icons
+                                                              .settings_backup_restore)
+                                                  ? Colors.greenAccent
+                                                  : MuhurColors.bronzeLight,
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Expanded(
+                                              child: Text(
+                                                items[i].$2,
+                                                style: TextStyle(
+                                                  color: MuhurColors.cream,
+                                                  fontSize: 13,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

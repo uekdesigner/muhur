@@ -892,13 +892,6 @@ class AppLocalizationsFr extends AppLocalizations {
       'MÜHÜR ne se connecte jamais à Internet. Pas de compte, pas de serveur, pas de cloud. Vos mots de passe restent sur ce téléphone, sauf si vous les exportez vous-même, sous forme de sauvegarde chiffrée ou de fichier Excel.';
 
   @override
-  String get aboutLicenses => 'Licences open source';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Licences des composants open source utilisés dans Muhur';
-
-  @override
   String get aboutRights => 'Tous droits réservés.';
 
   @override
@@ -977,7 +970,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Ajoutez banques, sites web, comptes e-mail et plus encore. Chaque catégorie propose des champs prêts à l\'emploi, et vous pouvez ajouter les vôtres.';
+      'Les catégories sont fixes : Banques, Sites web, E-mails, Réseaux sociaux, Travail et Autres. Quand vous ajoutez une entrée avec le bouton +, vous choisissez sa catégorie, qui apporte les champs adaptés. Vous ne pouvez pas créer de catégorie, mais « Nouveau champ » permet d\'ajouter des champs à une entrée : choisissez-en un dans la liste ou créez un « Champ personnalisé » avec le nom de votre choix.';
 
   @override
   String get how3T => 'Copier en toute sécurité';
@@ -1020,7 +1013,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR est un projet indépendant de uekdesigner, conçu et développé en Turquie. Merci d\'utiliser MÜHÜR.';
+      'MÜHÜR est un projet indépendant de UEK DESIGNER, conçu et développé en Turquie. Merci d\'utiliser MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1063,4 +1056,35 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get how8B =>
       '« Exporter vers Excel », dans les réglages de sauvegarde, écrit toutes vos entrées (hors corbeille) dans un fichier .xlsx, avec une feuille par catégorie. Le fichier n\'est pas chiffré : vous confirmez avec votre mot de passe principal et acceptez que sa sécurité relève de votre responsabilité. Supprimez-le quand vous n\'en avez plus besoin.';
+
+  @override
+  String get proFeatureTitle => 'Fonction Pro';
+
+  @override
+  String get proFieldsBody =>
+      'Ajouter des champs supplémentaires à une entrée est une fonction Pro. Les champs déjà ajoutés restent et peuvent toujours être modifiés.';
+
+  @override
+  String get proBiometricBody =>
+      'Le déverrouillage par empreinte ou par visage est une fonction Pro. Vous pouvez toujours déverrouiller avec votre mot de passe principal.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Les arrière-plans supplémentaires sont une fonction Pro. L\'arrière-plan par défaut reste toujours disponible.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Le déverrouillage par empreinte et par visage reste actif encore $days, puis se désactive. Assurez-vous de connaître votre mot de passe principal. Si vous l\'avez oublié, définissez-en un nouveau avec votre empreinte dans Réglages, via « Changer le mot de passe principal ».';
+  }
+
+  @override
+  String get genNewPassword => 'Générer un nouveau mot de passe';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Champ « $label » supprimé';
+  }
+
+  @override
+  String get undo => 'Annuler';
 }

@@ -906,13 +906,6 @@ class AppLocalizationsRu extends AppLocalizations {
       'MÜHÜR никогда не подключается к интернету. Нет ни аккаунта, ни сервера, ни облака. Ваши пароли остаются на этом телефоне, если только вы сами не экспортируете их — в виде зашифрованной копии или файла Excel.';
 
   @override
-  String get aboutLicenses => 'Лицензии open source';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Лицензии компонентов с открытым исходным кодом, используемых в Muhur';
-
-  @override
   String get aboutRights => 'Все права защищены.';
 
   @override
@@ -991,7 +984,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Добавляйте банки, сайты, почтовые ящики и многое другое. В каждой категории есть готовые поля, можно добавлять и свои.';
+      'Категории фиксированы: Банки, Сайты, Почта, Соцсети, Работа и Другое. Добавляя запись кнопкой +, вы выбираете её категорию, и она подставляет подходящие поля. Новые категории создать нельзя, но кнопкой «Новое поле» к записи можно добавить поля: выберите из списка или создайте «Своё поле» с любым названием.';
 
   @override
   String get how3T => 'Безопасное копирование';
@@ -1034,7 +1027,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR — независимый проект uekdesigner, созданный и развиваемый в Турции. Спасибо, что пользуетесь MÜHÜR.';
+      'MÜHÜR — независимый проект UEK DESIGNER, созданный и развиваемый в Турции. Спасибо, что пользуетесь MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1076,4 +1069,35 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get how8B =>
       '«Экспорт в Excel» в настройках резервного копирования записывает все ваши записи (кроме корзины) в файл .xlsx, по листу на каждую категорию. Файл не зашифрован: вы подтверждаете действие мастер-паролем и принимаете, что за его безопасность отвечаете вы. Удалите его, когда он больше не нужен.';
+
+  @override
+  String get proFeatureTitle => 'Функция Pro';
+
+  @override
+  String get proFieldsBody =>
+      'Добавление дополнительных полей в запись — функция Pro. Уже добавленные поля остаются, и их можно редактировать.';
+
+  @override
+  String get proBiometricBody =>
+      'Разблокировка отпечатком или лицом — функция Pro. Вы всегда можете разблокировать хранилище мастер-паролем.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Дополнительные фоны — функция Pro. Стандартный фон доступен всегда.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Разблокировка отпечатком и лицом останется включённой ещё $days, затем отключится. Убедитесь, что помните мастер-пароль. Если вы его забыли, задайте новый с помощью отпечатка в настройках, в разделе «Сменить мастер-пароль».';
+  }
+
+  @override
+  String get genNewPassword => 'Создать новый пароль';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Поле «$label» удалено';
+  }
+
+  @override
+  String get undo => 'Отменить';
 }

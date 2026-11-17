@@ -889,13 +889,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'MÜHÜR never connects to the internet. There is no account, no server and no cloud. Your passwords stay on this phone unless you export them yourself, as an encrypted backup or as an Excel file.';
 
   @override
-  String get aboutLicenses => 'Open-source licenses';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Licenses of the open-source components used in Muhur';
-
-  @override
   String get aboutRights => 'All rights reserved.';
 
   @override
@@ -973,7 +966,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Add banks, websites, e-mail accounts and more. Each category offers ready-made fields, and you can add your own.';
+      'Categories are fixed: Banks, Websites, Emails, Social Media, Business and Other. When you add an entry with the + button, you choose its category, and the category brings the fields that suit it. You cannot add new categories, but you can add fields to an entry with \"Add field\": pick one from the list or create a \"Custom field\" with a name of your choice.';
 
   @override
   String get how3T => 'Copying safely';
@@ -1016,7 +1009,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR is an independent project by uekdesigner, designed and developed in Türkiye. Thank you for using MÜHÜR.';
+      'MÜHÜR is an independent project by UEK DESIGNER, designed and developed in Türkiye. Thank you for using MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1059,4 +1052,35 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get how8B =>
       '\"Export to Excel\" in the backup settings writes all your entries (except the trash) to an .xlsx file, one sheet per category. The file is not encrypted: you confirm with your master password and accept that keeping it safe is your responsibility. Delete it when you no longer need it.';
+
+  @override
+  String get proFeatureTitle => 'Pro feature';
+
+  @override
+  String get proFieldsBody =>
+      'Adding extra fields to an entry is a Pro feature. Fields you have already added stay and can still be edited.';
+
+  @override
+  String get proBiometricBody =>
+      'Unlocking with fingerprint or face is a Pro feature. You can always unlock with your master password.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Extra backgrounds are a Pro feature. The default background is always available.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Fingerprint and face unlock stays on for $days more, then turns off. Make sure you remember your master password. If you have forgotten it, set a new one with your fingerprint in Settings under \"Change master password\".';
+  }
+
+  @override
+  String get genNewPassword => 'Generate new password';
+
+  @override
+  String fieldRemoved(String label) {
+    return '\"$label\" removed';
+  }
+
+  @override
+  String get undo => 'Undo';
 }

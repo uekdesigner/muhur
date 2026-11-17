@@ -4,10 +4,11 @@ import 'package:flutter/services.dart';
 import '../../core/constants/app_theme.dart';
 import '../../core/utils/motion.dart';
 import '../../core/widgets/muhur_widgets.dart';
+import '../../core/widgets/pro_badge.dart';
 import '../../l10n/app_localizations.dart';
 import '../password_gen/generator_settings.dart';
 import '../password_gen/password_generator.dart';
-import '../password_gen/password_generator_screen.dart';
+
 import '../scanner/scanner_screen.dart';
 import 'field_catalog.dart';
 import 'vault_models.dart';
@@ -17,7 +18,7 @@ import '../../core/entitlements/entitlements.dart';
 import '../../core/storage/app_settings.dart';
 
 /// Tek bir text field'ın yaklaşık yüksekliği; "Not" alanı bunun 5 katıdır.
-const double _kFieldHeight = 56;
+const double _kFieldHeight = 48;
 
 /// Son kullanma tarihi: rakamları AA/YY biçimine sokar (0528 -> 05/28).
 class _ExpiryDateFormatter extends TextInputFormatter {
@@ -89,6 +90,7 @@ class _FieldDraft {
   final bool removable;
   final String? group;
   bool reveal = false;
+  bool generated = false;
 
   /// Veritabanına yazılan, dilden bağımsız alan anahtarı (özel alanda null).
   String? get fieldKey => spec?.key;
@@ -258,6 +260,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       widget.categories.first.id;
   late bool _favorite = widget.entry?.isFavorite ?? false;
   final List<_FieldDraft> _drafts = [];
+  final List<_FieldDraft> _removed = [];
   bool _initialized = false;
   bool _saving = false;
   List<String> _titleHints = [];
@@ -378,6 +381,10 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
   /// katalog alanları listelenir.
   Future<void> _addField() async {
     final t = AppLocalizations.of(context)!;
+    if (!Entitlements.instance.isPro) {
+      await showProDialog(context, t.proFeatureTitle, t.proFieldsBody);
+      return;
+    }
     final cat = widget.categories.firstWhere((c) => c.id == _categoryId);
     final added = _drafts.map((d) => d.fieldKey).whereType<String>().toSet();
     final available = FieldCatalog.forCategory(cat.nameKey)
@@ -445,7 +452,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     _title.dispose();
     _domain.dispose();
     _tags.dispose();
-    for (final d in _drafts) {
+    for (final d in [..._drafts, ..._removed]) {
       d.dispose();
     }
     super.dispose();
@@ -557,16 +564,77 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     setState(() {
       d.value.text = pw;
       d.reveal = true;
+      d.generated = true;
     });
   }
 
-  /// Ayarlar ikonu: şifre oluşturucuyu "ayarla, kaydet ve çık" modunda açar.
-  Future<void> _openGeneratorSettings() async {
-    await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) =>
-            const PasswordGeneratorScreen(mode: GeneratorScreenMode.settings),
+  /// Listeden ayar değişti: kaydet; alan boşsa ya da parolayı oluşturucu
+  /// ürettiyse yeni ayarla hemen yenisini üret (elle yazılana dokunma).
+  Future<void> _applyGenOptions(_FieldDraft d, GeneratorOptions o) async {
+    await GeneratorSettings.instance.save(o);
+    if (!mounted) return;
+    if (d.value.text.isEmpty || d.generated) {
+      _quickGenerate(d);
+    } else {
+      setState(() {});
+    }
+  }
+
+  /// Parola alanındaki liste: yeni parola, uzunluk ve karakter seçenekleri.
+  Widget _genMenu(AppLocalizations t, _FieldDraft d) {
+    final o = GeneratorSettings.instance.options;
+    Widget check(String label, bool on, GeneratorOptions Function(bool) next) =>
+        CheckboxMenuButton(
+          value: on,
+          closeOnActivate: false,
+          onChanged: (v) {
+            final n = next(v ?? false);
+            // En az bir karakter türü açık kalmalı.
+            if (!(n.lower || n.upper || n.digits || n.symbols)) return;
+            _applyGenOptions(d, n);
+          },
+          child: Text(label),
+        );
+    return MenuAnchor(
+      style: MenuStyle(
+        backgroundColor: const WidgetStatePropertyAll(Color(0xF21E2428)),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: BorderSide(color: MuhurColors.bronze),
+          ),
+        ),
+      ),
+      menuChildren: [
+        MenuItemButton(
+          leadingIcon: Icon(Icons.refresh, color: MuhurColors.bronzeLight),
+          onPressed: () => _quickGenerate(d),
+          child: Text(t.genNewPassword),
+        ),
+        const Divider(height: 8),
+        _GenLengthSlider(
+          label: t.length,
+          initial: o.length,
+          onChanged: (len) => _applyGenOptions(
+            d,
+            GeneratorSettings.instance.options.copyWith(length: len),
+          ),
+        ),
+        check(t.uppercase, o.upper, (v) => o.copyWith(upper: v)),
+        check(t.digits, o.digits, (v) => o.copyWith(digits: v)),
+        check(t.symbols, o.symbols, (v) => o.copyWith(symbols: v)),
+        check(
+          t.avoidAmbiguous,
+          o.avoidAmbiguous,
+          (v) => o.copyWith(avoidAmbiguous: v),
+        ),
+      ],
+      builder: (context, controller, _) => IconButton(
+        icon: Icon(controller.isOpen ? Icons.expand_less : Icons.expand_more),
+        tooltip: t.generatorSettings,
+        visualDensity: VisualDensity.compact,
+        onPressed: () =>
+            controller.isOpen ? controller.close() : controller.open(),
       ),
     );
   }
@@ -610,10 +678,31 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     }
   }
 
+  /// Alanı kaldırır; birkaç saniye "Geri al" ile aynı yerine döndürülebilir.
+  /// Denetleyici ekran kapanınca atılır (geri alma için saklanır).
   void _removeDraft(_FieldDraft d) {
+    final i = _drafts.indexOf(d);
+    final cat = _categoryId;
     setState(() => _drafts.remove(d));
-    // Alan bu çerçevede hâlâ çiziliyor; denetleyiciyi çerçeveden sonra at.
-    WidgetsBinding.instance.addPostFrameCallback((_) => d.dispose());
+    _removed.add(d);
+    final t = AppLocalizations.of(context)!;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text(t.fieldRemoved(d.label)),
+          action: SnackBarAction(
+            label: t.undo,
+            onPressed: () {
+              if (!mounted || _categoryId != cat || _drafts.contains(d)) return;
+              setState(() {
+                _removed.remove(d);
+                _drafts.insert(i.clamp(0, _drafts.length), d);
+              });
+            },
+          ),
+        ),
+      );
   }
 
   Widget _fieldCard(AppLocalizations t, _FieldDraft d) {
@@ -621,11 +710,13 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
     final isDate = d.type == 'date';
     // Not alanı: 5 text field yüksekliğinde (maskeliyken tek satır).
     final tall = d.type == 'notes' && !masked;
+    final empty = d.value.text.isEmpty;
     final suffixIcons = <Widget>[
       if (d.scan != null)
         IconButton(
           icon: const Icon(Icons.document_scanner),
           tooltip: t.scan,
+          visualDensity: VisualDensity.compact,
           onPressed: () async {
             final pro = Entitlements.instance.isPro;
             if (!pro &&
@@ -661,31 +752,24 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       if (isDate)
         IconButton(
           icon: const Icon(Icons.calendar_today),
+          visualDensity: VisualDensity.compact,
           onPressed: () => _pickDate(d),
         ),
-      if (d.generatable) ...[
+      // Parola: boşken "oluştur", doluyken "göster/gizle"; ayarlar listede.
+      if (d.generatable && empty)
         IconButton(
-          icon: Icon(Icons.add_moderator, color: _shieldColor(d.value.text)),
+          icon: Icon(Icons.add_moderator, color: MuhurColors.bronzeLight),
           tooltip: t.generate,
+          visualDensity: VisualDensity.compact,
           onPressed: () => _quickGenerate(d),
-        ),
-        IconButton(
-          icon: const Icon(Icons.settings),
-          tooltip: t.generatorSettings,
-          onPressed: _openGeneratorSettings,
-        ),
-      ],
-      if (d.sensitive)
+        )
+      else if (d.sensitive)
         IconButton(
           icon: Icon(d.reveal ? Icons.visibility_off : Icons.visibility),
+          visualDensity: VisualDensity.compact,
           onPressed: () => setState(() => d.reveal = !d.reveal),
         ),
-      // X yalnızca opsiyonel (eklenebilir) alanlarda.
-      if (d.removable)
-        IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => _removeDraft(d),
-        ),
+      if (d.generatable) _genMenu(t, d),
     ];
 
     final field = TextField(
@@ -702,12 +786,41 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       textAlignVertical: tall ? TextAlignVertical.top : null,
       maxLines: tall ? null : 1,
       expands: tall,
-      onChanged: d.generatable ? (_) => setState(() {}) : null,
+      // Elle yazılan parola artık "oluşturucudan gelmiş" sayılmaz.
+      onChanged: d.generatable
+          ? (_) => setState(() => d.generated = false)
+          : null,
       decoration: InputDecoration(
         labelText: d.label,
         alignLabelWithHint: tall,
-        suffixIcon: Row(mainAxisSize: MainAxisSize.min, children: suffixIcons),
+        isDense: true,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 14,
+        ),
+        suffixIcon: suffixIcons.isEmpty
+            ? null
+            : Row(mainAxisSize: MainAxisSize.min, children: suffixIcons),
       ),
+    );
+
+    final body = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        tall ? SizedBox(height: _kFieldHeight * 5, child: field) : field,
+        // Parola gücü: oluştur simgesi kalkınca alanın altında ince çizgi.
+        if (d.generatable && !empty)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
+            child: LinearProgressIndicator(
+              value: estimateStrength(d.value.text).fraction,
+              color: _shieldColor(d.value.text),
+              backgroundColor: MuhurColors.line,
+              minHeight: 3,
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+      ],
     );
 
     return Card(
@@ -717,12 +830,44 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       shadowColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       margin: const EdgeInsets.symmetric(vertical: 2),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6),
-        child: tall ? SizedBox(height: _kFieldHeight * 5, child: field) : field,
+      child: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: d.removable ? 10 : 4, bottom: 4),
+            child: body,
+          ),
+          if (d.removable)
+            Positioned(top: 0, right: 0, child: _removeDot(t, d)),
+        ],
       ),
     );
   }
+
+  /// Kaldırılabilir alanın sağ üst köşesindeki küçük X.
+  Widget _removeDot(AppLocalizations t, _FieldDraft d) => Tooltip(
+    message: t.delete,
+    child: GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => _removeDraft(d),
+      child: SizedBox(
+        width: 34,
+        height: 20,
+        child: Align(
+          alignment: Alignment.topRight,
+          child: Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+              color: const Color(0xFF14181C),
+              shape: BoxShape.circle,
+              border: Border.all(color: MuhurColors.bronzeLight),
+            ),
+            child: Icon(Icons.close, size: 13, color: MuhurColors.cream),
+          ),
+        ),
+      ),
+    ),
+  );
 
   /// Aynı gruptaki alanları (örn. Son K.T. / CVV) tek satırda yan yana
   /// gösterir; diğerleri tam genişlikte sıralanır.
@@ -806,7 +951,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: TextButton.icon(
-                    icon: const Icon(Icons.add),
+                    icon: const ProCorner(child: Icon(Icons.add)),
                     label: Text(t.addField),
                     onPressed: _addField,
                   ),
@@ -905,6 +1050,52 @@ class _HintFieldState extends State<_HintField> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Listedeki uzunluk kaydırıcısı (8–64). Bırakınca seçilen değer bildirilir.
+class _GenLengthSlider extends StatefulWidget {
+  const _GenLengthSlider({
+    required this.label,
+    required this.initial,
+    required this.onChanged,
+  });
+  final String label;
+  final int initial;
+  final ValueChanged<int> onChanged;
+
+  @override
+  State<_GenLengthSlider> createState() => _GenLengthSliderState();
+}
+
+class _GenLengthSliderState extends State<_GenLengthSlider> {
+  late double _v = widget.initial.clamp(8, 64).toDouble();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 260,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 6, 8, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '${widget.label}: ${_v.round()}',
+              style: TextStyle(color: MuhurColors.cream, fontSize: 14),
+            ),
+            Slider(
+              value: _v,
+              min: 8,
+              max: 64,
+              divisions: 56,
+              onChanged: (x) => setState(() => _v = x),
+              onChangeEnd: (x) => widget.onChanged(x.round()),
+            ),
+          ],
         ),
       ),
     );

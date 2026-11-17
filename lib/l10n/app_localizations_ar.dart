@@ -908,13 +908,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'لا يتصل MÜHÜR بالإنترنت أبدًا. لا حساب ولا خادم ولا سحابة. تبقى كلمات مرورك على هذا الهاتف ما لم تصدّرها بنفسك، كنسخة احتياطية مشفّرة أو كملف Excel.';
 
   @override
-  String get aboutLicenses => 'تراخيص المصادر المفتوحة';
-
-  @override
-  String get aboutLicensesDesc =>
-      'تراخيص المكونات مفتوحة المصدر المستخدمة في Muhur';
-
-  @override
   String get aboutRights => 'جميع الحقوق محفوظة.';
 
   @override
@@ -992,7 +985,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get how2B =>
-      'أضف البنوك والمواقع وحسابات البريد وغيرها. توفّر كل فئة حقولًا جاهزة، ويمكنك إضافة حقولك الخاصة.';
+      'الفئات ثابتة: البنوك، المواقع، البريد، شبكات اجتماعية، العمل، أخرى. عند إضافة عنصر بزر + تختار فئته، فتأتي معه الحقول المناسبة. لا يمكن إنشاء فئات جديدة، لكن يمكنك إضافة حقول إلى العنصر عبر «إضافة حقل»: اختر حقلًا من القائمة أو أنشئ «حقل مخصص» بالاسم الذي تريده.';
 
   @override
   String get how3T => 'النسخ الآمن';
@@ -1035,7 +1028,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR مشروع مستقل من uekdesigner، صُمّم وطُوّر في تركيا. شكرًا لاستخدامك MÜHÜR.';
+      'MÜHÜR مشروع مستقل من UEK DESIGNER، صُمّم وطُوّر في تركيا. شكرًا لاستخدامك MÜHÜR.';
 
   @override
   String get rn100 =>
@@ -1077,4 +1070,35 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get how8B =>
       'يكتب خيار «تصدير إلى Excel» في إعدادات النسخ الاحتياطي جميع عناصرك (عدا المهملات) في ملف xlsx، مع ورقة لكل فئة. الملف غير مشفّر: تؤكد بكلمة المرور الرئيسية وتقبل أن أمانه مسؤوليتك. احذفه عندما لا تعود بحاجة إليه.';
+
+  @override
+  String get proFeatureTitle => 'ميزة Pro';
+
+  @override
+  String get proFieldsBody =>
+      'إضافة حقول إضافية إلى العنصر ميزة Pro. تبقى الحقول التي أضفتها من قبل ويمكنك تعديلها.';
+
+  @override
+  String get proBiometricBody =>
+      'الفتح بالبصمة أو الوجه ميزة Pro. يمكنك دائمًا الفتح بكلمة المرور الرئيسية.';
+
+  @override
+  String get proBackgroundsBody =>
+      'الخلفيات الإضافية ميزة Pro. الخلفية الافتراضية متاحة دائمًا.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'المدة المتبقية للفتح بالبصمة والوجه: $days، ثم سيتوقف. تأكد من أنك تتذكر كلمة المرور الرئيسية. إذا نسيتها، فعيّن كلمة جديدة ببصمتك من الإعدادات عبر «تغيير كلمة المرور الرئيسية».';
+  }
+
+  @override
+  String get genNewPassword => 'إنشاء كلمة مرور جديدة';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'تمت إزالة الحقل «$label»';
+  }
+
+  @override
+  String get undo => 'تراجع';
 }

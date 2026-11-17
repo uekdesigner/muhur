@@ -891,13 +891,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'MÜHÜR verbindet sich nie mit dem Internet. Es gibt kein Konto, keinen Server und keine Cloud. Deine Passwörter bleiben auf diesem Telefon, außer du exportierst sie selbst – als verschlüsseltes Backup oder als Excel-Datei.';
 
   @override
-  String get aboutLicenses => 'Open-Source-Lizenzen';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Lizenzen der in Muhur verwendeten Open-Source-Komponenten';
-
-  @override
   String get aboutRights => 'Alle Rechte vorbehalten.';
 
   @override
@@ -976,7 +969,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Füge Banken, Websites, E-Mail-Konten und mehr hinzu. Jede Kategorie bietet fertige Felder, und du kannst eigene hinzufügen.';
+      'Die Kategorien sind fest: Banken, Websites, E-Mails, Social Media, Geschäftlich und Sonstige. Wenn du mit der +-Taste einen Eintrag anlegst, wählst du seine Kategorie; sie bringt die passenden Felder mit. Neue Kategorien kannst du nicht anlegen, aber mit „Neues Feld“ fügst du einem Eintrag Felder hinzu: aus der Liste oder als „Eigenes Feld“ mit selbst gewähltem Namen.';
 
   @override
   String get how3T => 'Sicher kopieren';
@@ -1019,7 +1012,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR ist ein unabhängiges Projekt von uekdesigner, entworfen und entwickelt in der Türkei. Danke, dass du MÜHÜR nutzt.';
+      'MÜHÜR ist ein unabhängiges Projekt von UEK DESIGNER, entworfen und entwickelt in der Türkei. Danke, dass du MÜHÜR nutzt.';
 
   @override
   String get rn100 =>
@@ -1063,4 +1056,35 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get how8B =>
       '„Nach Excel exportieren“ in den Backup-Einstellungen schreibt alle Einträge (ohne Papierkorb) in eine .xlsx-Datei, je Kategorie ein Tabellenblatt. Die Datei ist nicht verschlüsselt: Du bestätigst mit deinem Master-Passwort und akzeptierst, dass ihre Sicherheit in deiner Verantwortung liegt. Lösche sie, wenn du sie nicht mehr brauchst.';
+
+  @override
+  String get proFeatureTitle => 'Pro-Funktion';
+
+  @override
+  String get proFieldsBody =>
+      'Zusätzliche Felder in einem Eintrag sind eine Pro-Funktion. Bereits hinzugefügte Felder bleiben erhalten und lassen sich weiter bearbeiten.';
+
+  @override
+  String get proBiometricBody =>
+      'Entsperren per Fingerabdruck oder Gesicht ist eine Pro-Funktion. Mit deinem Master-Passwort kannst du jederzeit entsperren.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Weitere Hintergründe sind eine Pro-Funktion. Der Standardhintergrund ist immer verfügbar.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Entsperren per Fingerabdruck und Gesicht bleibt noch $days aktiv und wird dann ausgeschaltet. Achte darauf, dass du dein Master-Passwort kennst. Falls du es vergessen hast, lege in den Einstellungen unter „Master-Passwort ändern“ mit deinem Fingerabdruck ein neues fest.';
+  }
+
+  @override
+  String get genNewPassword => 'Neues Passwort erzeugen';
+
+  @override
+  String fieldRemoved(String label) {
+    return '„$label“ entfernt';
+  }
+
+  @override
+  String get undo => 'Rückgängig';
 }

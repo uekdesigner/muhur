@@ -891,13 +891,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'MÜHÜR maakt nooit verbinding met internet. Er is geen account, geen server en geen cloud. Je wachtwoorden blijven op deze telefoon, tenzij je ze zelf exporteert, als versleutelde back-up of als Excel-bestand.';
 
   @override
-  String get aboutLicenses => 'Opensourcelicenties';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Licenties van de opensourcecomponenten in Muhur';
-
-  @override
   String get aboutRights => 'Alle rechten voorbehouden.';
 
   @override
@@ -976,7 +969,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Voeg banken, websites, e-mailaccounts en meer toe. Elke categorie biedt kant-en-klare velden en je kunt er zelf velden bij maken.';
+      'De categorieën liggen vast: Banken, Websites, E-mails, Social media, Werk en Overig. Als je met de +-knop een item toevoegt, kies je de categorie; die brengt de passende velden mee. Nieuwe categorieën kun je niet maken, maar met \'Nieuw veld\' voeg je velden aan een item toe: kies er een uit de lijst of maak een \'Eigen veld\' met een zelfgekozen naam.';
 
   @override
   String get how3T => 'Veilig kopiëren';
@@ -1019,7 +1012,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR is een onafhankelijk project van uekdesigner, ontworpen en ontwikkeld in Turkije. Bedankt dat je MÜHÜR gebruikt.';
+      'MÜHÜR is een onafhankelijk project van UEK DESIGNER, ontworpen en ontwikkeld in Turkije. Bedankt dat je MÜHÜR gebruikt.';
 
   @override
   String get rn100 =>
@@ -1062,4 +1055,35 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get how8B =>
       '\'Exporteren naar Excel\' in de back-upinstellingen schrijft al je items (behalve de prullenbak) naar een .xlsx-bestand, met één tabblad per categorie. Het bestand is niet versleuteld: je bevestigt met je hoofdwachtwoord en accepteert dat de veiligheid ervan jouw verantwoordelijkheid is. Verwijder het als je het niet meer nodig hebt.';
+
+  @override
+  String get proFeatureTitle => 'Pro-functie';
+
+  @override
+  String get proFieldsBody =>
+      'Extra velden aan een item toevoegen is een Pro-functie. Velden die je al hebt toegevoegd blijven staan en kun je nog bewerken.';
+
+  @override
+  String get proBiometricBody =>
+      'Ontgrendelen met vingerafdruk of gezicht is een Pro-functie. Je kunt altijd ontgrendelen met je hoofdwachtwoord.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Extra achtergronden zijn een Pro-functie. De standaardachtergrond is altijd beschikbaar.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Ontgrendelen met vingerafdruk en gezicht blijft nog $days aan en wordt daarna uitgeschakeld. Zorg dat je je hoofdwachtwoord weet. Ben je het vergeten, stel dan met je vingerafdruk een nieuw in via \'Hoofdwachtwoord wijzigen\' in Instellingen.';
+  }
+
+  @override
+  String get genNewPassword => 'Nieuw wachtwoord genereren';
+
+  @override
+  String fieldRemoved(String label) {
+    return 'Veld \'$label\' verwijderd';
+  }
+
+  @override
+  String get undo => 'Ongedaan maken';
 }

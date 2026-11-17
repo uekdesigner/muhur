@@ -886,13 +886,6 @@ class AppLocalizationsHi extends AppLocalizations {
       'MÜHÜR कभी इंटरनेट से नहीं जुड़ता। कोई खाता, सर्वर या क्लाउड नहीं है। जब तक आप खुद एन्क्रिप्टेड बैकअप या Excel फ़ाइल के रूप में एक्सपोर्ट न करें, आपके पासवर्ड इसी फ़ोन पर रहते हैं।';
 
   @override
-  String get aboutLicenses => 'ओपन-सोर्स लाइसेंस';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Muhur में इस्तेमाल किए गए ओपन-सोर्स घटकों के लाइसेंस';
-
-  @override
   String get aboutRights => 'सर्वाधिकार सुरक्षित।';
 
   @override
@@ -970,7 +963,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get how2B =>
-      'बैंक, वेबसाइट, ईमेल खाते और बहुत कुछ जोड़ें। हर श्रेणी में तैयार फ़ील्ड हैं, और आप अपने फ़ील्ड भी जोड़ सकते हैं।';
+      'श्रेणियां तय हैं: बैंक, वेबसाइट, ईमेल, सोशल मीडिया, काम और अन्य। + बटन से एंट्री जोड़ते समय आप उसकी श्रेणी चुनते हैं, और श्रेणी उसके लिए सही फ़ील्ड ले आती है। नई श्रेणी नहीं बनाई जा सकती, लेकिन \"फ़ील्ड जोड़ें\" से एंट्री में फ़ील्ड जोड़े जा सकते हैं: सूची से कोई फ़ील्ड चुनें या अपने चुने नाम से \"कस्टम फ़ील्ड\" बनाएं।';
 
   @override
   String get how3T => 'सुरक्षित कॉपी';
@@ -1013,7 +1006,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR, uekdesigner का एक स्वतंत्र प्रोजेक्ट है, जिसे तुर्किये में डिज़ाइन और डेवलप किया गया है। MÜHÜR इस्तेमाल करने के लिए धन्यवाद।';
+      'MÜHÜR, UEK DESIGNER का एक स्वतंत्र प्रोजेक्ट है, जिसे तुर्किये में डिज़ाइन और डेवलप किया गया है। MÜHÜR इस्तेमाल करने के लिए धन्यवाद।';
 
   @override
   String get rn100 =>
@@ -1056,4 +1049,35 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get how8B =>
       'बैकअप सेटिंग में \"Excel में एक्सपोर्ट करें\" आपकी सारी एंट्री (ट्रैश को छोड़कर) एक .xlsx फ़ाइल में लिखता है, हर श्रेणी के लिए अलग शीट में। यह फ़ाइल एन्क्रिप्टेड नहीं होती: आप मास्टर पासवर्ड से पुष्टि करते हैं और मानते हैं कि इसकी सुरक्षा आपकी ज़िम्मेदारी है। ज़रूरत खत्म होने पर इसे हटा दें।';
+
+  @override
+  String get proFeatureTitle => 'Pro सुविधा';
+
+  @override
+  String get proFieldsBody =>
+      'एंट्री में अतिरिक्त फ़ील्ड जोड़ना Pro सुविधा है। पहले से जोड़े गए फ़ील्ड बने रहते हैं और उन्हें बदला जा सकता है।';
+
+  @override
+  String get proBiometricBody =>
+      'फ़िंगरप्रिंट या चेहरे से अनलॉक करना Pro सुविधा है। आप हमेशा मास्टर पासवर्ड से अनलॉक कर सकते हैं।';
+
+  @override
+  String get proBackgroundsBody =>
+      'अतिरिक्त बैकग्राउंड Pro सुविधा हैं। डिफ़ॉल्ट बैकग्राउंड हमेशा उपलब्ध रहता है।';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'फ़िंगरप्रिंट और चेहरे से अनलॉक $days और चालू रहेगा, फिर बंद हो जाएगा। पक्का करें कि आपको मास्टर पासवर्ड याद है। अगर भूल गए हैं, तो सेटिंग में \"मास्टर पासवर्ड बदलें\" से फ़िंगरप्रिंट की मदद से नया पासवर्ड सेट करें।';
+  }
+
+  @override
+  String get genNewPassword => 'नया पासवर्ड बनाएं';
+
+  @override
+  String fieldRemoved(String label) {
+    return '\"$label\" फ़ील्ड हटाया गया';
+  }
+
+  @override
+  String get undo => 'वापस लाएं';
 }

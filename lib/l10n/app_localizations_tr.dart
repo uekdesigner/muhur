@@ -876,13 +876,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'MÜHÜR internete hiç bağlanmaz. Hesap, sunucu ya da bulut yoktur. Parolalarınız, siz kendiniz şifreli bir yedek ya da Excel dosyası olarak dışa aktarmadıkça bu telefondan çıkmaz.';
 
   @override
-  String get aboutLicenses => 'Açık kaynak lisansları';
-
-  @override
-  String get aboutLicensesDesc =>
-      'Muhur\'da kullanılan açık kaynak bileşenlerin lisansları';
-
-  @override
   String get aboutRights => 'Tüm hakları saklıdır.';
 
   @override
@@ -960,7 +953,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get how2B =>
-      'Bankalar, web siteleri, e-posta hesapları ve daha fazlasını ekleyin. Her kategori hazır alanlar sunar; kendi alanlarınızı da ekleyebilirsiniz.';
+      'Kategoriler sabittir: Bankalar, Web Siteleri, E-postalar, Sosyal Medya, İş ve Diğer. + düğmesiyle kayıt eklerken kategorisini seçersiniz; kategori o kayda uygun hazır alanları getirir. Yeni kategori eklenemez, ancak \"Alan ekle\" ile kayda alan ekleyebilirsiniz: listeden bir alan seçin ya da adını kendiniz verdiğiniz bir \"Özel alan\" oluşturun.';
 
   @override
   String get how3T => 'Güvenli kopyalama';
@@ -1003,7 +996,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get devBody =>
-      'MÜHÜR, uekdesigner\'ın bağımsız bir projesidir; Türkiye\'de tasarlanıp geliştirilmektedir. MÜHÜR\'ü kullandığınız için teşekkürler.';
+      'MÜHÜR, UEK DESIGNER\'ın bağımsız bir projesidir; Türkiye\'de tasarlanıp geliştirilmektedir. MÜHÜR\'ü kullandığınız için teşekkürler.';
 
   @override
   String get rn100 =>
@@ -1046,4 +1039,35 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get how8B =>
       'Yedek ayarlarındaki \"Excel\'e aktar\", çöp kutusu dışındaki tüm kayıtlarınızı her kategori ayrı bir sayfada olacak şekilde .xlsx dosyasına yazar. Dosya şifrelenmez: ana parolanızla onaylarsınız ve dosyanın güvenliğinin sizin sorumluluğunuzda olduğunu kabul edersiniz. İşiniz bitince dosyayı silin.';
+
+  @override
+  String get proFeatureTitle => 'Pro özelliği';
+
+  @override
+  String get proFieldsBody =>
+      'Kayda ek alan eklemek Pro özelliğidir. Daha önce eklediğiniz alanlar yerinde kalır ve düzenlenebilir.';
+
+  @override
+  String get proBiometricBody =>
+      'Parmak izi veya yüzle açma Pro özelliğidir. Kasayı her zaman ana parolanızla açabilirsiniz.';
+
+  @override
+  String get proBackgroundsBody =>
+      'Ek arka planlar Pro özelliğidir. Varsayılan arka plan her zaman kullanılabilir.';
+
+  @override
+  String bioGraceWarn(String days) {
+    return 'Parmak izi ve yüzle açma $days daha açık kalacak, sonra kapanacak. Ana parolanızı hatırladığınızdan emin olun. Unuttuysanız Ayarlar\'daki \"Ana parolayı değiştir\" ile parmak izinizle yeni bir ana parola belirleyin.';
+  }
+
+  @override
+  String get genNewPassword => 'Yeni parola oluştur';
+
+  @override
+  String fieldRemoved(String label) {
+    return '\"$label\" kaldırıldı';
+  }
+
+  @override
+  String get undo => 'Geri al';
 }
