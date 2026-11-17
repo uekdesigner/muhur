@@ -324,15 +324,16 @@ class AuthService {
 
   // ---- Biyometrik ----
 
-  /// Kasa yalnızca güçlü biyometriyle açılır (Android Class 3, iOS Face ID /
-  /// Touch ID). Kayıtlı parmak izi/yüz yoksa veya sadece zayıf yüz tanıma varsa false.
+  /// Telefonda biyometri donanımı var mı? (Ayarlar satırı bunu kullanır.)
+  /// Asıl kontrol etkinleştirmede yapılır: kasa yalnızca güçlü biyometriyle
+  /// (Android Class 3, iOS Face ID / Touch ID) açılır; yoksa etkinleştirme
+  /// başarısız olur ve kullanıcıya söylenir.
   Future<bool> biometricAvailable() async {
     try {
-      if (!await _localAuth.isDeviceSupported()) return false;
-      final list = await _localAuth.getAvailableBiometrics();
-      return list.contains(BiometricType.strong) ||
-          list.contains(BiometricType.fingerprint) ||
-          list.contains(BiometricType.face);
+      if (await _localAuth.canCheckBiometrics) return true;
+    } catch (_) {}
+    try {
+      return (await _localAuth.getAvailableBiometrics()).isNotEmpty;
     } catch (_) {
       return false;
     }

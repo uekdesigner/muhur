@@ -348,5 +348,7 @@
   "proHistoryBody": "Melihat nilai lama sebuah kata sandi adalah fitur Pro. Kata sandi yang Anda ubah selama Pro disimpan di sini.",
   "historyEmpty": "Kata sandi ini belum pernah diubah. Saat Anda mengubahnya, nilai lamanya muncul di sini.",
   "historyNote": "10 nilai terakhir setiap kolom kata sandi disimpan, terenkripsi seperti isi brankas lainnya. Riwayat tidak disertakan dalam cadangan.",
-  "historyClearQ": "Ketuk Hapus sekali lagi untuk menghapus riwayat kolom ini."
+  "historyClearQ": "Ketuk Hapus sekali lagi untuk menghapus riwayat kolom ini.",
+  "totpHint": "Kunci penyiapan atau tautan otpauth://",
+  "totpInvalid": "Kunci ini tidak valid. Tempel kunci penyiapan dari situs."
 }

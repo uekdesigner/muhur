@@ -348,5 +348,7 @@
   "proHistoryBody": "Att se tidigare värden för ett lösenord är en Pro-funktion. Lösenord som du ändrar med Pro sparas här.",
   "historyEmpty": "Lösenordet har inte ändrats ännu. När du ändrar det visas det gamla värdet här.",
   "historyNote": "De 10 senaste värdena för varje lösenordsfält sparas, krypterade som resten av valvet. Historiken ingår inte i backuper.",
-  "historyClearQ": "Tryck på Ta bort en gång till för att rensa fältets historik."
+  "historyClearQ": "Tryck på Ta bort en gång till för att rensa fältets historik.",
+  "totpHint": "Konfigurationsnyckel eller otpauth://-länk",
+  "totpInvalid": "Nyckeln är ogiltig. Klistra in konfigurationsnyckeln från webbplatsen."
 }

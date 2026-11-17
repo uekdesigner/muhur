@@ -1223,4 +1223,11 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Toque em Excluir mais uma vez para apagar o histórico deste campo.';
+
+  @override
+  String get totpHint => 'Chave de configuração ou link otpauth://';
+
+  @override
+  String get totpInvalid =>
+      'Esta chave não é válida. Cole a chave de configuração fornecida pelo site.';
 }

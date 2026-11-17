@@ -1233,4 +1233,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get historyClearQ => 'اضغط حذف مرة أخرى لمسح سجل هذا الحقل.';
+
+  @override
+  String get totpHint => 'مفتاح الإعداد أو رابط otpauth://';
+
+  @override
+  String get totpInvalid =>
+      'هذا المفتاح غير صالح. الصق مفتاح الإعداد الذي قدّمه الموقع.';
 }

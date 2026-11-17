@@ -348,5 +348,7 @@
   "proHistoryBody": "Ver los valores anteriores de una contraseña es una función Pro. Las contraseñas que cambies con Pro se guardan aquí.",
   "historyEmpty": "Esta contraseña aún no se ha cambiado. Cuando la cambies, el valor anterior aparecerá aquí.",
   "historyNote": "Se guardan los últimos 10 valores de cada campo de contraseña, cifrados como el resto de tu bóveda. El historial no se incluye en las copias de seguridad.",
-  "historyClearQ": "Toca Eliminar otra vez para borrar el historial de este campo."
+  "historyClearQ": "Toca Eliminar otra vez para borrar el historial de este campo.",
+  "totpHint": "Clave de configuración o enlace otpauth://",
+  "totpInvalid": "Esta clave no es válida. Pega la clave de configuración que te dio el sitio."
 }

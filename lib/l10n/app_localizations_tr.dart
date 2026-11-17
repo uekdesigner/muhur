@@ -1206,4 +1206,11 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Bu alanın parola geçmişini silmek için sil düğmesine bir kez daha dokunun.';
+
+  @override
+  String get totpHint => 'Kurulum anahtarı veya otpauth:// bağlantısı';
+
+  @override
+  String get totpInvalid =>
+      'Bu anahtar geçerli değil. Sitenin verdiği kurulum anahtarını yapıştırın.';
 }

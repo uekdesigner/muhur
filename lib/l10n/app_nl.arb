@@ -348,5 +348,7 @@
   "proHistoryBody": "Eerdere waarden van een wachtwoord bekijken is een Pro-functie. Wachtwoorden die je met Pro wijzigt, worden hier bewaard.",
   "historyEmpty": "Dit wachtwoord is nog niet gewijzigd. Als je het wijzigt, verschijnt de oude waarde hier.",
   "historyNote": "Per wachtwoordveld worden de laatste 10 waarden bewaard, versleuteld zoals de rest van je kluis. De geschiedenis zit niet in back-ups.",
-  "historyClearQ": "Tik nog een keer op Verwijderen om de geschiedenis van dit veld te wissen."
+  "historyClearQ": "Tik nog een keer op Verwijderen om de geschiedenis van dit veld te wissen.",
+  "totpHint": "Instelsleutel of otpauth://-link",
+  "totpInvalid": "Deze sleutel is ongeldig. Plak de instelsleutel van de website."
 }

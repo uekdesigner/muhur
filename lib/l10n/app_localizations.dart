@@ -2223,6 +2223,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap delete again to clear this field\'s password history.'**
   String get historyClearQ;
+
+  /// No description provided for @totpHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Setup key or otpauth:// link'**
+  String get totpHint;
+
+  /// No description provided for @totpInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'This key isn\'t valid. Paste the setup key the site gave you.'**
+  String get totpInvalid;
 }
 
 class _AppLocalizationsDelegate

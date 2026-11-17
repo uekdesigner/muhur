@@ -1206,4 +1206,11 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Ketuk Hapus sekali lagi untuk menghapus riwayat kolom ini.';
+
+  @override
+  String get totpHint => 'Kunci penyiapan atau tautan otpauth://';
+
+  @override
+  String get totpInvalid =>
+      'Kunci ini tidak valid. Tempel kunci penyiapan dari situs.';
 }

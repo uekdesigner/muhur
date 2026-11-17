@@ -330,6 +330,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (v) {
       final ok = await widget.auth.enableBiometrics(t.biometricReason);
       if (mounted) setState(() => _bioEnabled = ok);
+      if (!ok && mounted) _toast(t.bioConfirmFailed);
     } else {
       await widget.auth.disableBiometrics();
       if (mounted) setState(() => _bioEnabled = false);

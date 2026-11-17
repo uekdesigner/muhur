@@ -348,5 +348,7 @@
   "proHistoryBody": "Xem các giá trị cũ của mật khẩu là tính năng Pro. Mật khẩu bạn đổi khi dùng Pro sẽ được lưu ở đây.",
   "historyEmpty": "Mật khẩu này chưa được đổi. Khi bạn đổi, giá trị cũ sẽ hiện ở đây.",
   "historyNote": "Mỗi trường mật khẩu lưu 10 giá trị gần nhất, được mã hóa như phần còn lại của kho. Lịch sử không có trong bản sao lưu.",
-  "historyClearQ": "Chạm Xóa thêm một lần để xóa lịch sử của trường này."
+  "historyClearQ": "Chạm Xóa thêm một lần để xóa lịch sử của trường này.",
+  "totpHint": "Khóa thiết lập hoặc liên kết otpauth://",
+  "totpInvalid": "Khóa này không hợp lệ. Hãy dán khóa thiết lập mà trang web cung cấp."
 }

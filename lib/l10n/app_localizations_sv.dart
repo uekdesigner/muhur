@@ -1219,4 +1219,11 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Tryck på Ta bort en gång till för att rensa fältets historik.';
+
+  @override
+  String get totpHint => 'Konfigurationsnyckel eller otpauth://-länk';
+
+  @override
+  String get totpInvalid =>
+      'Nyckeln är ogiltig. Klistra in konfigurationsnyckeln från webbplatsen.';
 }

@@ -348,5 +348,7 @@
   "proHistoryBody": "Podgląd wcześniejszych wartości hasła to funkcja Pro. Hasła zmienione w Pro są tu przechowywane.",
   "historyEmpty": "To hasło nie było jeszcze zmieniane. Gdy je zmienisz, poprzednia wartość pojawi się tutaj.",
   "historyNote": "Dla każdego pola hasła przechowywanych jest 10 ostatnich wartości, zaszyfrowanych jak reszta sejfu. Historia nie trafia do kopii zapasowych.",
-  "historyClearQ": "Dotknij Usuń jeszcze raz, aby wyczyścić historię tego pola."
+  "historyClearQ": "Dotknij Usuń jeszcze raz, aby wyczyścić historię tego pola.",
+  "totpHint": "Klucz konfiguracyjny lub link otpauth://",
+  "totpInvalid": "Ten klucz jest nieprawidłowy. Wklej klucz konfiguracyjny podany przez stronę."
 }

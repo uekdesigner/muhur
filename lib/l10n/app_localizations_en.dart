@@ -1220,4 +1220,11 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Tap delete again to clear this field\'s password history.';
+
+  @override
+  String get totpHint => 'Setup key or otpauth:// link';
+
+  @override
+  String get totpInvalid =>
+      'This key isn\'t valid. Paste the setup key the site gave you.';
 }

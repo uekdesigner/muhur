@@ -1221,4 +1221,11 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Tik nog een keer op Verwijderen om de geschiedenis van dit veld te wissen.';
+
+  @override
+  String get totpHint => 'Instelsleutel of otpauth://-link';
+
+  @override
+  String get totpInvalid =>
+      'Deze sleutel is ongeldig. Plak de instelsleutel van de website.';
 }

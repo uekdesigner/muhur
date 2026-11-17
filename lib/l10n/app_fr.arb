@@ -348,5 +348,7 @@
   "proHistoryBody": "Voir les anciennes valeurs d'un mot de passe est une fonction Pro. Les mots de passe que vous modifiez avec Pro sont conservés ici.",
   "historyEmpty": "Ce mot de passe n'a pas encore été modifié. Quand vous le modifierez, l'ancienne valeur apparaîtra ici.",
   "historyNote": "Les 10 dernières valeurs de chaque champ de mot de passe sont conservées, chiffrées comme le reste du coffre. L'historique n'est pas inclus dans les sauvegardes.",
-  "historyClearQ": "Touchez encore une fois Supprimer pour effacer l'historique de ce champ."
+  "historyClearQ": "Touchez encore une fois Supprimer pour effacer l'historique de ce champ.",
+  "totpHint": "Clé de configuration ou lien otpauth://",
+  "totpInvalid": "Cette clé n'est pas valide. Collez la clé de configuration fournie par le site."
 }

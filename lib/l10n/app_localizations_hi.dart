@@ -1215,4 +1215,11 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get historyClearQ =>
       'इस फ़ील्ड का इतिहास मिटाने के लिए हटाएं पर एक बार और टैप करें।';
+
+  @override
+  String get totpHint => 'सेटअप कुंजी या otpauth:// लिंक';
+
+  @override
+  String get totpInvalid =>
+      'यह कुंजी मान्य नहीं है। साइट से मिली सेटअप कुंजी पेस्ट करें।';
 }

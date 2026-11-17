@@ -1203,4 +1203,11 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Chạm Xóa thêm một lần để xóa lịch sử của trường này.';
+
+  @override
+  String get totpHint => 'Khóa thiết lập hoặc liên kết otpauth://';
+
+  @override
+  String get totpInvalid =>
+      'Khóa này không hợp lệ. Hãy dán khóa thiết lập mà trang web cung cấp.';
 }

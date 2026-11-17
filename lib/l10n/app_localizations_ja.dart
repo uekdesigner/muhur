@@ -1164,4 +1164,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get historyClearQ => 'この欄の履歴を消去するには、削除をもう一度タップしてください。';
+
+  @override
+  String get totpHint => 'セットアップキーまたは otpauth:// リンク';
+
+  @override
+  String get totpInvalid => 'このキーは無効です。サイトで表示されたセットアップキーを貼り付けてください。';
 }

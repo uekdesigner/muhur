@@ -1224,4 +1224,11 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Tippe noch einmal auf Löschen, um den Passwortverlauf dieses Felds zu leeren.';
+
+  @override
+  String get totpHint => 'Einrichtungsschlüssel oder otpauth://-Link';
+
+  @override
+  String get totpInvalid =>
+      'Dieser Schlüssel ist ungültig. Füge den Einrichtungsschlüssel der Website ein.';
 }

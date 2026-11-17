@@ -394,5 +394,7 @@
   "proHistoryBody": "Seeing a password's previous values is a Pro feature. Passwords you change while on Pro are kept here.",
   "historyEmpty": "This password hasn't been changed yet. When you change it, the old value appears here.",
   "historyNote": "The last 10 values of each password field are kept, encrypted like the rest of your vault. Password history is not included in backups.",
-  "historyClearQ": "Tap delete again to clear this field's password history."
+  "historyClearQ": "Tap delete again to clear this field's password history.",
+  "totpHint": "Setup key or otpauth:// link",
+  "totpInvalid": "This key isn't valid. Paste the setup key the site gave you."
 }

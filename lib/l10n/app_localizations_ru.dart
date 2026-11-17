@@ -1236,4 +1236,11 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Нажмите «Удалить» ещё раз, чтобы очистить историю этого поля.';
+
+  @override
+  String get totpHint => 'Ключ настройки или ссылка otpauth://';
+
+  @override
+  String get totpInvalid =>
+      'Ключ недействителен. Вставьте ключ настройки, который дал сайт.';
 }

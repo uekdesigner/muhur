@@ -1224,4 +1224,11 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Toca Eliminar otra vez para borrar el historial de este campo.';
+
+  @override
+  String get totpHint => 'Clave de configuración o enlace otpauth://';
+
+  @override
+  String get totpInvalid =>
+      'Esta clave no es válida. Pega la clave de configuración que te dio el sitio.';
 }

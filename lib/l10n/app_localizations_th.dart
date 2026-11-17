@@ -1195,4 +1195,10 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get historyClearQ => 'แตะลบอีกครั้งเพื่อล้างประวัติของช่องนี้';
+
+  @override
+  String get totpHint => 'คีย์ตั้งค่าหรือลิงก์ otpauth://';
+
+  @override
+  String get totpInvalid => 'คีย์นี้ไม่ถูกต้อง วางคีย์ตั้งค่าที่เว็บไซต์ให้มา';
 }

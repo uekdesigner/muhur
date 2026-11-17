@@ -348,5 +348,7 @@
   "proHistoryBody": "Ver os valores anteriores de uma senha é um recurso Pro. As senhas que você altera no Pro ficam guardadas aqui.",
   "historyEmpty": "Esta senha ainda não foi alterada. Quando você alterá-la, o valor antigo aparecerá aqui.",
   "historyNote": "Os últimos 10 valores de cada campo de senha são guardados, criptografados como o resto do cofre. O histórico não entra nos backups.",
-  "historyClearQ": "Toque em Excluir mais uma vez para apagar o histórico deste campo."
+  "historyClearQ": "Toque em Excluir mais uma vez para apagar o histórico deste campo.",
+  "totpHint": "Chave de configuração ou link otpauth://",
+  "totpInvalid": "Esta chave não é válida. Cole a chave de configuração fornecida pelo site."
 }

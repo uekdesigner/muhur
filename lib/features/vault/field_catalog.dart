@@ -189,6 +189,12 @@ class FieldCatalog {
       (t) => t.fcPasswordChangeDate,
       type: 'date',
     ),
+    FieldSpec(
+      '2faSecretKey',
+      (t) => t.fc2faSecretKey,
+      type: 'totp',
+      sensitive: true,
+    ),
     FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
 
@@ -235,7 +241,12 @@ class FieldCatalog {
     ),
     FieldSpec('accountTypeStatus', (t) => t.fcAccountTypeStatus),
     FieldSpec('linkedMainAccount', (t) => t.fcLinkedMainAccount),
-    FieldSpec('2faSecretKey', (t) => t.fc2faSecretKey, sensitive: true),
+    FieldSpec(
+      '2faSecretKey',
+      (t) => t.fc2faSecretKey,
+      type: 'totp',
+      sensitive: true,
+    ),
     FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
 
@@ -270,6 +281,12 @@ class FieldCatalog {
       type: 'notes',
       sensitive: true,
     ),
+    FieldSpec(
+      '2faSecretKey',
+      (t) => t.fc2faSecretKey,
+      type: 'totp',
+      sensitive: true,
+    ),
     FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
 
@@ -297,6 +314,12 @@ class FieldCatalog {
     FieldSpec('departmentPosition', (t) => t.fcDepartmentPosition),
     FieldSpec('licenseCode', (t) => t.fcLicenseCode),
     FieldSpec('supportContact', (t) => t.fcSupportContact),
+    FieldSpec(
+      '2faSecretKey',
+      (t) => t.fc2faSecretKey,
+      type: 'totp',
+      sensitive: true,
+    ),
     FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];
 

@@ -348,5 +348,7 @@
   "proHistoryBody": "Vedere i valori precedenti di una password è una funzione Pro. Le password che modifichi con Pro vengono conservate qui.",
   "historyEmpty": "Questa password non è ancora stata modificata. Quando la cambi, il valore precedente compare qui.",
   "historyNote": "Per ogni campo password vengono conservati gli ultimi 10 valori, cifrati come il resto della cassaforte. La cronologia non è inclusa nei backup.",
-  "historyClearQ": "Tocca di nuovo Elimina per cancellare la cronologia di questo campo."
+  "historyClearQ": "Tocca di nuovo Elimina per cancellare la cronologia di questo campo.",
+  "totpHint": "Chiave di configurazione o link otpauth://",
+  "totpInvalid": "Questa chiave non è valida. Incolla la chiave di configurazione fornita dal sito."
 }

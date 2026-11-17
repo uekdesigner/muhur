@@ -1233,4 +1233,11 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get historyClearQ =>
       'Dotknij Usuń jeszcze raz, aby wyczyścić historię tego pola.';
+
+  @override
+  String get totpHint => 'Klucz konfiguracyjny lub link otpauth://';
+
+  @override
+  String get totpInvalid =>
+      'Ten klucz jest nieprawidłowy. Wklej klucz konfiguracyjny podany przez stronę.';
 }

@@ -1168,4 +1168,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get historyClearQ => '이 필드의 기록을 지우려면 삭제를 한 번 더 누르세요.';
+
+  @override
+  String get totpHint => '설정 키 또는 otpauth:// 링크';
+
+  @override
+  String get totpInvalid => '유효하지 않은 키입니다. 사이트에서 받은 설정 키를 붙여 넣으세요.';
 }

@@ -348,5 +348,7 @@
   "proHistoryBody": "Bir parolanın eski değerlerini görmek Pro özelliğidir. Pro'dayken değiştirdiğiniz parolalar burada saklanır.",
   "historyEmpty": "Bu parola henüz değiştirilmedi. Değiştirdiğinizde eski değeri burada görünür.",
   "historyNote": "Her parola alanının son 10 değeri, kasanın geri kalanı gibi şifreli saklanır. Parola geçmişi yedeklere dahil edilmez.",
-  "historyClearQ": "Bu alanın parola geçmişini silmek için sil düğmesine bir kez daha dokunun."
+  "historyClearQ": "Bu alanın parola geçmişini silmek için sil düğmesine bir kez daha dokunun.",
+  "totpHint": "Kurulum anahtarı veya otpauth:// bağlantısı",
+  "totpInvalid": "Bu anahtar geçerli değil. Sitenin verdiği kurulum anahtarını yapıştırın."
 }

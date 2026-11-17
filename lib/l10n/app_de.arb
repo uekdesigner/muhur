@@ -348,5 +348,7 @@
   "proHistoryBody": "Frühere Werte eines Passworts zu sehen ist eine Pro-Funktion. Passwörter, die du mit Pro änderst, werden hier aufbewahrt.",
   "historyEmpty": "Dieses Passwort wurde noch nicht geändert. Wenn du es änderst, erscheint der alte Wert hier.",
   "historyNote": "Pro Passwortfeld werden die letzten 10 Werte gespeichert – verschlüsselt wie der Rest deines Tresors. Der Passwortverlauf ist nicht in Backups enthalten.",
-  "historyClearQ": "Tippe noch einmal auf Löschen, um den Passwortverlauf dieses Felds zu leeren."
+  "historyClearQ": "Tippe noch einmal auf Löschen, um den Passwortverlauf dieses Felds zu leeren.",
+  "totpHint": "Einrichtungsschlüssel oder otpauth://-Link",
+  "totpInvalid": "Dieser Schlüssel ist ungültig. Füge den Einrichtungsschlüssel der Website ein."
 }

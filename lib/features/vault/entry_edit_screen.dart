@@ -74,7 +74,7 @@ class _FieldDraft {
   factory _FieldDraft.custom(String name, String type) => _FieldDraft(
     label: name,
     type: type,
-    sensitive: type == 'password',
+    sensitive: type == 'password' || type == 'totp',
     generatable: type == 'password',
     keyboard: type == 'phone' ? TextInputType.phone : null,
   );
@@ -134,6 +134,7 @@ class _CustomFieldDialogState extends State<_CustomFieldDialog> {
       'password': t.customTypePassword,
       'phone': t.customTypePhone,
       'date': t.customTypeDate,
+      'totp': t.fc2faSecretKey,
     };
     return AlertDialog(
       // Klavye açılınca içerik kaydırılabilsin (sarı-siyah taşma şeridi olmasın).
@@ -792,6 +793,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
           : null,
       decoration: InputDecoration(
         labelText: d.label,
+        hintText: d.type == 'totp' ? t.totpHint : null,
         alignLabelWithHint: tall,
         isDense: true,
         contentPadding: const EdgeInsets.symmetric(

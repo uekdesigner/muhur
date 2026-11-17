@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import 'entry_edit_screen.dart';
 import 'password_history_dialog.dart';
+import 'totp_tile.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
 import '../../core/utils/clipboard_service.dart';
@@ -127,55 +128,58 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
                     child: Column(
                       children: [
                         for (var i = 0; i < fields.length; i++)
-                          ListTile(
-                            title: Text(fields[i].label),
-                            subtitle: Text(
-                              fields[i].sensitive && !_revealed.contains(i)
-                                  ? '••••••••'
-                                  : fields[i].value,
-                            ),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
+                          if (isTotpField(fields[i]))
+                            TotpTile(field: fields[i])
+                          else
+                            ListTile(
+                              title: Text(fields[i].label),
+                              subtitle: Text(
+                                fields[i].sensitive && !_revealed.contains(i)
+                                    ? '••••••••'
+                                    : fields[i].value,
+                              ),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
 
-                              children: [
-                                if (fields[i].type == 'password')
+                                children: [
+                                  if (fields[i].type == 'password')
+                                    IconButton(
+                                      icon: const ProCorner(
+                                        child: Icon(Icons.history),
+                                      ),
+                                      tooltip: t.proFeatHistory,
+                                      onPressed: () => showPasswordHistory(
+                                        context,
+                                        repo: widget.repo,
+                                        entryId: widget.entry.id!,
+                                        field: fields[i],
+                                      ),
+                                    ),
+                                  if (fields[i].sensitive)
+                                    IconButton(
+                                      icon: Icon(
+                                        _revealed.contains(i)
+                                            ? Icons.visibility_off
+                                            : Icons.visibility,
+                                      ),
+                                      onPressed: () => setState(() {
+                                        if (!_revealed.remove(i)) {
+                                          _revealed.add(i);
+                                        }
+                                      }),
+                                    ),
                                   IconButton(
-                                    icon: const ProCorner(
-                                      child: Icon(Icons.history),
-                                    ),
-                                    tooltip: t.proFeatHistory,
-                                    onPressed: () => showPasswordHistory(
-                                      context,
-                                      repo: widget.repo,
-                                      entryId: widget.entry.id!,
-                                      field: fields[i],
-                                    ),
+                                    icon: const Icon(Icons.copy),
+                                    tooltip: t.copy,
+                                    onPressed: () async {
+                                      await ClipboardService.instance.copy(
+                                        fields[i].value,
+                                      );
+                                    },
                                   ),
-                                if (fields[i].sensitive)
-                                  IconButton(
-                                    icon: Icon(
-                                      _revealed.contains(i)
-                                          ? Icons.visibility_off
-                                          : Icons.visibility,
-                                    ),
-                                    onPressed: () => setState(() {
-                                      if (!_revealed.remove(i)) {
-                                        _revealed.add(i);
-                                      }
-                                    }),
-                                  ),
-                                IconButton(
-                                  icon: const Icon(Icons.copy),
-                                  tooltip: t.copy,
-                                  onPressed: () async {
-                                    await ClipboardService.instance.copy(
-                                      fields[i].value,
-                                    );
-                                  },
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
                         if (fields.isEmpty) ListTile(title: Text(t.noEntries)),
                       ],
                     ),
