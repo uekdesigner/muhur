@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/entitlements/entitlements.dart';
+import '../../core/entitlements/pro_prices.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../core/widgets/panel_style.dart';
 import '../../l10n/app_localizations.dart';
@@ -34,9 +35,6 @@ class ProScreen extends StatefulWidget {
 
 class _ProScreenState extends State<ProScreen> {
   static const _packageId = 'com.muhur.app';
-  // TODO(play): Play Billing'den gelen yerel fiyatlarla değişecek.
-  static const _priceYearly = '299,99 TL';
-  static const _priceMonthly = '39,99 TL';
 
   ProPlan _plan = ProPlan.yearly;
 
@@ -58,6 +56,7 @@ class _ProScreenState extends State<ProScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
+    final lang = Localizations.localeOf(context).languageCode;
     return MuhurBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -81,7 +80,7 @@ class _ProScreenState extends State<ProScreen> {
                   _planCard(
                     ProPlan.yearly,
                     t.proYearly,
-                    _priceYearly,
+                    ProPrices.instance.yearly(lang) ?? '—',
                     t.proPerYear,
                     badge: t.proBestValue,
                   ),
@@ -89,7 +88,7 @@ class _ProScreenState extends State<ProScreen> {
                   _planCard(
                     ProPlan.monthly,
                     t.proMonthly,
-                    _priceMonthly,
+                    ProPrices.instance.monthly(lang) ?? '—',
                     t.proPerMonth,
                   ),
                   const SizedBox(height: 16),

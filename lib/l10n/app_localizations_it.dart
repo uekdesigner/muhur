@@ -1016,7 +1016,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Prima versione.\n• Cassaforte cifrata sul telefono, aperta con una password principale (Argon2id + AES-256).\n• Campi pronti per banche, siti web, email, social e account di lavoro.\n• Generatore di password con indicatore di robustezza.\n• Scansione di IBAN e testo con la fotocamera.\n• Sblocco con impronta (e volto sui telefoni compatibili).\n• Backup e ripristino cifrati.\n• Esportazione in Excel (non cifrata, sotto la tua responsabilità).\n• Cestino con pulizia automatica.\n• Riepilogo della cassaforte con le password riutilizzate.\n• Blocco automatico, protezione dello schermo e conto alla rovescia degli appunti.\n• Funziona completamente offline.\n• 18 lingue.';
+      '• Prima versione.\n• Cassaforte cifrata sul telefono, aperta con una password principale (Argon2id + AES-256).\n• Campi pronti per banche, siti web, email, social e account di lavoro.\n• Generatore di password con indicatore di robustezza.\n• Scansione di IBAN e testo con la fotocamera.\n• Sblocco con impronta (e volto sui telefoni compatibili).\n• Backup e ripristino cifrati.\n• Esportazione in Excel (non cifrata, sotto la tua responsabilità).\n• Cestino con pulizia automatica.\n• Riepilogo della cassaforte con le password riutilizzate.\n• Codici di verifica in due passaggi, aggiunti tramite codice QR.\n• Cronologia password e salute della cassaforte.\n• Prova gratuita di Pro per 14 giorni, senza carta.\n• Blocco automatico, protezione dello schermo e conto alla rovescia degli appunti.\n• Funziona completamente offline.\n• 18 lingue.';
 
   @override
   String get excelExport => 'Esporta in Excel';
@@ -1249,4 +1249,37 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get totpEmpty =>
       'Nessuna chiave per ora. Scansiona il codice QR per aggiungerla.';
+
+  @override
+  String get how9T => 'Verifica in due passaggi (2FA)';
+
+  @override
+  String get how9B =>
+      'In una voce, tocca «Nuovo campo» e scegli «Chiave segreta 2FA». Scansiona con l\'icona accanto al campo il codice QR che il sito mostra durante la configurazione della 2FA, oppure incolla la chiave di configurazione. Se salvi il campo vuoto, resta nei dettagli della voce e puoi scansionare il codice QR da lì. I dettagli mostrano un codice di 6 cifre e il tempo rimanente; copialo e inseriscilo nel sito. I codici vengono generati offline in base all\'orologio del telefono: se l\'ora è sbagliata, i codici non funzionano. I codici esistenti continuano a funzionare anche dopo la fine di Pro.';
+
+  @override
+  String get how10T => 'Cronologia password e salute della cassaforte';
+
+  @override
+  String get how10B =>
+      'Con Pro, quando cambi una password la precedente viene conservata cifrata; l\'icona della cronologia nei dettagli della voce mostra le ultime 10. L\'icona a scudo nel pannello di riepilogo della schermata principale apre la salute della cassaforte: vengono elencate le password deboli e riutilizzate, e toccandone una si apre la voce.';
+
+  @override
+  String get how11T => 'Pro e la prova gratuita';
+
+  @override
+  String get how11B =>
+      'Dopo la prima configurazione, tutte le funzioni Pro sono gratuite per 14 giorni, senza carta. Alla fine della prova passi al piano gratuito: fino a 3 voci per categoria e 3 scansioni con la fotocamera. Non viene eliminato nulla, i codici 2FA esistenti continuano a funzionare e lo sblocco con impronta resta attivo per altri 7 giorni. Riconosci le funzioni Pro dalla piccola etichetta PRO nell\'angolo.';
+
+  @override
+  String get showValue => 'Mostra';
+
+  @override
+  String get hideValue => 'Nascondi';
+
+  @override
+  String get favoriteAdd => 'Aggiungi ai preferiti';
+
+  @override
+  String get favoriteRemove => 'Rimuovi dai preferiti';
 }

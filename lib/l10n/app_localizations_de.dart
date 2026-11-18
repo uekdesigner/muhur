@@ -1016,7 +1016,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Erste Version.\n• Verschlüsselter Tresor auf dem Telefon, geöffnet mit einem Master-Passwort (Argon2id + AES-256).\n• Fertige Felder für Banken, Websites, E-Mail, soziale Medien und geschäftliche Konten.\n• Passwortgenerator mit Stärkeanzeige.\n• Scannen von IBANs und Text mit der Kamera.\n• Entsperren per Fingerabdruck (auf unterstützten Handys auch per Gesicht).\n• Verschlüsseltes Backup und Wiederherstellung.\n• Export nach Excel (unverschlüsselt, auf eigene Verantwortung).\n• Papierkorb mit automatischer Bereinigung.\n• Tresor-Übersicht mit mehrfach verwendeten Passwörtern.\n• Automatische Sperre, Bildschirmschutz und Countdown für die Zwischenablage.\n• Funktioniert komplett offline.\n• 18 Sprachen.';
+      '• Erste Version.\n• Verschlüsselter Tresor auf dem Telefon, geöffnet mit einem Master-Passwort (Argon2id + AES-256).\n• Fertige Felder für Banken, Websites, E-Mail, soziale Medien und geschäftliche Konten.\n• Passwortgenerator mit Stärkeanzeige.\n• Scannen von IBANs und Text mit der Kamera.\n• Entsperren per Fingerabdruck (auf unterstützten Handys auch per Gesicht).\n• Verschlüsseltes Backup und Wiederherstellung.\n• Export nach Excel (unverschlüsselt, auf eigene Verantwortung).\n• Papierkorb mit automatischer Bereinigung.\n• Tresor-Übersicht mit mehrfach verwendeten Passwörtern.\n• Codes für die Zwei-Faktor-Anmeldung, per QR-Code hinzufügen.\n• Passwortverlauf und Tresor-Check.\n• 14 Tage Pro gratis testen, ohne Karte.\n• Automatische Sperre, Bildschirmschutz und Countdown für die Zwischenablage.\n• Funktioniert komplett offline.\n• 18 Sprachen.';
 
   @override
   String get excelExport => 'Nach Excel exportieren';
@@ -1249,4 +1249,37 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get totpEmpty =>
       'Noch kein Schlüssel. Scanne den QR-Code, um ihn hinzuzufügen.';
+
+  @override
+  String get how9T => 'Zwei-Faktor-Anmeldung (2FA)';
+
+  @override
+  String get how9B =>
+      'Tippe in einem Eintrag auf „Neues Feld“ und wähle „2FA-Schlüssel“. Scanne den QR-Code, den die Website bei der 2FA-Einrichtung zeigt, mit dem Symbol neben dem Feld, oder füge den Einrichtungsschlüssel ein. Speicherst du das Feld leer, bleibt es in den Details des Eintrags, und du kannst den QR-Code von dort scannen. Die Details zeigen einen 6-stelligen Code und die verbleibende Zeit; kopiere ihn und gib ihn auf der Website ein. Die Codes entstehen offline anhand der Handyuhr; geht die Uhr falsch, stimmen die Codes nicht. Vorhandene Codes funktionieren auch nach dem Ende von Pro weiter.';
+
+  @override
+  String get how10T => 'Passwortverlauf und Tresor-Check';
+
+  @override
+  String get how10B =>
+      'Mit Pro wird beim Ändern eines Passworts das alte verschlüsselt aufbewahrt; das Verlaufssymbol in den Details des Eintrags zeigt die letzten 10. Das Schildsymbol im Übersichtsfeld des Startbildschirms öffnet den Tresor-Check: Schwache und mehrfach verwendete Passwörter werden aufgelistet, ein Tippen führt zum Eintrag.';
+
+  @override
+  String get how11T => 'Pro und Testzeitraum';
+
+  @override
+  String get how11B =>
+      'Nach der ersten Einrichtung sind alle Pro-Funktionen 14 Tage lang kostenlos, ohne Karte. Danach wechselst du in den Gratis-Plan: bis zu 3 Einträge pro Kategorie und 3 Kamera-Scans. Nichts wird gelöscht, vorhandene 2FA-Codes funktionieren weiter und das Entsperren per Fingerabdruck bleibt noch 7 Tage aktiv. Pro-Funktionen erkennst du am kleinen PRO-Etikett in ihrer Ecke.';
+
+  @override
+  String get showValue => 'Anzeigen';
+
+  @override
+  String get hideValue => 'Ausblenden';
+
+  @override
+  String get favoriteAdd => 'Zu Favoriten hinzufügen';
+
+  @override
+  String get favoriteRemove => 'Aus Favoriten entfernen';
 }

@@ -1013,7 +1013,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Första versionen.\n• Krypterat valv på telefonen som öppnas med ett huvudlösenord (Argon2id + AES-256).\n• Färdiga fält för banker, webbplatser, e-post, sociala medier och jobbkonton.\n• Lösenordsgenerator med styrkeindikator.\n• Skanning av IBAN och text med kameran.\n• Upplåsning med fingeravtryck (och ansikte på telefoner som stöder det).\n• Krypterad backup och återställning.\n• Export till Excel (okrypterad, på eget ansvar).\n• Papperskorg som rensas automatiskt.\n• Valvöversikt som visar återanvända lösenord.\n• Automatiskt lås, skärmskydd och nedräkning för urklipp.\n• Fungerar helt offline.\n• 18 språk.';
+      '• Första versionen.\n• Krypterat valv på telefonen som öppnas med ett huvudlösenord (Argon2id + AES-256).\n• Färdiga fält för banker, webbplatser, e-post, sociala medier och jobbkonton.\n• Lösenordsgenerator med styrkeindikator.\n• Skanning av IBAN och text med kameran.\n• Upplåsning med fingeravtryck (och ansikte på telefoner som stöder det).\n• Krypterad backup och återställning.\n• Export till Excel (okrypterad, på eget ansvar).\n• Papperskorg som rensas automatiskt.\n• Valvöversikt som visar återanvända lösenord.\n• Koder för tvåstegsverifiering, läggs till med QR-kod.\n• Lösenordshistorik och valvkontroll.\n• Prova Pro gratis i 14 dagar, utan kort.\n• Automatiskt lås, skärmskydd och nedräkning för urklipp.\n• Fungerar helt offline.\n• 18 språk.';
 
   @override
   String get excelExport => 'Exportera till Excel';
@@ -1244,4 +1244,37 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get totpEmpty =>
       'Ingen nyckel än. Skanna QR-koden för att lägga till den.';
+
+  @override
+  String get how9T => 'Tvåstegsverifiering (2FA)';
+
+  @override
+  String get how9B =>
+      'Tryck på ”Nytt fält” i en post och välj ”2FA-hemlig nyckel”. Skanna QR-koden som webbplatsen visar vid 2FA-konfigurationen med ikonen bredvid fältet, eller klistra in konfigurationsnyckeln. Om du sparar fältet tomt finns det kvar i postens detaljer och du kan skanna QR-koden därifrån. Detaljerna visar en 6-siffrig kod och återstående tid; kopiera den och ange den på webbplatsen. Koderna skapas offline utifrån telefonens klocka, så om klockan går fel stämmer inte koderna. Befintliga koder fortsätter att fungera även när Pro har gått ut.';
+
+  @override
+  String get how10T => 'Lösenordshistorik och valvkontroll';
+
+  @override
+  String get how10B =>
+      'Med Pro sparas det gamla lösenordet krypterat när du byter lösenord; historikikonen i postens detaljer visar de 10 senaste. Sköldikonen i översiktspanelen på startskärmen öppnar valvkontrollen: svaga och återanvända lösenord listas, och ett tryck tar dig till posten.';
+
+  @override
+  String get how11T => 'Pro och den kostnadsfria provperioden';
+
+  @override
+  String get how11B =>
+      'Efter den första konfigurationen är alla Pro-funktioner gratis i 14 dagar, utan kort. När provperioden är slut går du över till gratisplanen: upp till 3 poster per kategori och 3 kameraskanningar. Inget raderas, befintliga 2FA-koder fortsätter att fungera och upplåsning med fingeravtryck är på i 7 dagar till. Pro-funktioner känner du igen på den lilla PRO-etiketten i hörnet.';
+
+  @override
+  String get showValue => 'Visa';
+
+  @override
+  String get hideValue => 'Dölj';
+
+  @override
+  String get favoriteAdd => 'Lägg till i favoriter';
+
+  @override
+  String get favoriteRemove => 'Ta bort från favoriter';
 }

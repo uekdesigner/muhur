@@ -738,6 +738,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
         ),
       if (isDate)
         IconButton(
+          tooltip: MaterialLocalizations.of(context).datePickerHelpText,
           icon: const Icon(Icons.calendar_today),
           visualDensity: VisualDensity.compact,
           onPressed: () => _pickDate(d),
@@ -759,6 +760,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
         )
       else if (d.sensitive)
         IconButton(
+          tooltip: d.reveal ? t.hideValue : t.showValue,
           icon: Icon(d.reveal ? Icons.visibility_off : Icons.visibility),
           visualDensity: VisualDensity.compact,
           onPressed: () => setState(() => d.reveal = !d.reveal),
@@ -905,6 +907,7 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
           backgroundColor: Colors.transparent,
           actions: [
             IconButton(
+              tooltip: _favorite ? t.favoriteRemove : t.favoriteAdd,
               icon: Icon(_favorite ? Icons.star : Icons.star_border),
               onPressed: () => setState(() => _favorite = !_favorite),
             ),

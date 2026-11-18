@@ -1000,7 +1000,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Rilis pertama.\n• Brankas terenkripsi di ponsel yang dibuka dengan kata sandi utama (Argon2id + AES-256).\n• Kolom siap pakai untuk bank, situs web, email, media sosial, dan akun kerja.\n• Pembuat kata sandi dengan indikator kekuatan.\n• Pindai IBAN dan teks dengan kamera.\n• Buka kunci dengan sidik jari (dan wajah di ponsel yang mendukung).\n• Cadangan dan pemulihan terenkripsi.\n• Ekspor ke Excel (tanpa enkripsi, tanggung jawab Anda).\n• Sampah yang dibersihkan otomatis.\n• Ringkasan brankas yang menunjukkan kata sandi yang dipakai ulang.\n• Kunci otomatis, perlindungan layar, dan hitung mundur papan klip.\n• Berfungsi sepenuhnya offline.\n• 18 bahasa.';
+      '• Rilis pertama.\n• Brankas terenkripsi di ponsel yang dibuka dengan kata sandi utama (Argon2id + AES-256).\n• Kolom siap pakai untuk bank, situs web, email, media sosial, dan akun kerja.\n• Pembuat kata sandi dengan indikator kekuatan.\n• Pindai IBAN dan teks dengan kamera.\n• Buka kunci dengan sidik jari (dan wajah di ponsel yang mendukung).\n• Cadangan dan pemulihan terenkripsi.\n• Ekspor ke Excel (tanpa enkripsi, tanggung jawab Anda).\n• Sampah yang dibersihkan otomatis.\n• Ringkasan brankas yang menunjukkan kata sandi yang dipakai ulang.\n• Kode verifikasi dua langkah, ditambahkan lewat kode QR.\n• Riwayat kata sandi dan kesehatan brankas.\n• Uji coba Pro gratis 14 hari tanpa kartu.\n• Kunci otomatis, perlindungan layar, dan hitung mundur papan klip.\n• Berfungsi sepenuhnya offline.\n• 18 bahasa.';
 
   @override
   String get excelExport => 'Ekspor ke Excel';
@@ -1231,4 +1231,37 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get totpEmpty =>
       'Belum ada kunci. Pindai kode QR untuk menambahkannya.';
+
+  @override
+  String get how9T => 'Verifikasi dua langkah (2FA)';
+
+  @override
+  String get how9B =>
+      'Di sebuah entri, ketuk \"Tambah kolom\" lalu pilih \"Kunci rahasia 2FA\". Pindai kode QR yang ditampilkan situs saat penyiapan 2FA dengan ikon di samping kolom, atau tempel kunci penyiapan. Jika kolom disimpan kosong, kolom tetap ada di detail entri dan Anda bisa memindai kode QR dari sana. Detail menampilkan kode 6 digit dan sisa waktu; salin lalu masukkan di situs. Kode dibuat tanpa internet berdasarkan jam ponsel, jadi jika jam salah, kode tidak akan cocok. Kode yang sudah ada tetap berfungsi meski Pro berakhir.';
+
+  @override
+  String get how10T => 'Riwayat kata sandi dan kesehatan brankas';
+
+  @override
+  String get how10B =>
+      'Dengan Pro, saat Anda mengganti kata sandi, yang lama disimpan terenkripsi; ikon riwayat di detail entri menampilkan 10 terakhir. Ikon perisai di panel ringkasan layar utama membuka kesehatan brankas: kata sandi lemah dan yang dipakai ulang ditampilkan, ketuk salah satunya untuk membuka entrinya.';
+
+  @override
+  String get how11T => 'Pro dan uji coba gratis';
+
+  @override
+  String get how11B =>
+      'Setelah penyiapan pertama, semua fitur Pro gratis selama 14 hari tanpa kartu. Saat uji coba berakhir, Anda pindah ke paket gratis: maksimal 3 entri per kategori dan 3 pindaian kamera. Tidak ada yang dihapus, kode 2FA yang ada tetap berfungsi, dan buka kunci dengan sidik jari tetap aktif 7 hari lagi. Fitur Pro bisa dikenali dari label PRO kecil di sudutnya.';
+
+  @override
+  String get showValue => 'Tampilkan';
+
+  @override
+  String get hideValue => 'Sembunyikan';
+
+  @override
+  String get favoriteAdd => 'Tambahkan ke favorit';
+
+  @override
+  String get favoriteRemove => 'Hapus dari favorit';
 }

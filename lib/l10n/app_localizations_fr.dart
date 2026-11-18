@@ -1017,7 +1017,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Première version.\n• Coffre chiffré sur le téléphone, ouvert avec un mot de passe principal (Argon2id + AES-256).\n• Champs prêts à l\'emploi pour banques, sites web, e-mail, réseaux sociaux et comptes professionnels.\n• Générateur de mots de passe avec indicateur de robustesse.\n• Scan d\'IBAN et de texte avec la caméra.\n• Déverrouillage par empreinte (et visage sur les téléphones compatibles).\n• Sauvegarde et restauration chiffrées.\n• Export vers Excel (non chiffré, sous votre responsabilité).\n• Corbeille avec nettoyage automatique.\n• Résumé du coffre indiquant les mots de passe réutilisés.\n• Verrouillage automatique, protection d\'écran et compte à rebours du presse-papiers.\n• Fonctionne entièrement hors ligne.\n• 18 langues.';
+      '• Première version.\n• Coffre chiffré sur le téléphone, ouvert avec un mot de passe principal (Argon2id + AES-256).\n• Champs prêts à l\'emploi pour banques, sites web, e-mail, réseaux sociaux et comptes professionnels.\n• Générateur de mots de passe avec indicateur de robustesse.\n• Scan d\'IBAN et de texte avec la caméra.\n• Déverrouillage par empreinte (et visage sur les téléphones compatibles).\n• Sauvegarde et restauration chiffrées.\n• Export vers Excel (non chiffré, sous votre responsabilité).\n• Corbeille avec nettoyage automatique.\n• Résumé du coffre indiquant les mots de passe réutilisés.\n• Codes de validation en deux étapes, ajoutés par code QR.\n• Historique des mots de passe et santé du coffre.\n• Essai gratuit de Pro pendant 14 jours, sans carte.\n• Verrouillage automatique, protection d\'écran et compte à rebours du presse-papiers.\n• Fonctionne entièrement hors ligne.\n• 18 langues.';
 
   @override
   String get excelExport => 'Exporter vers Excel';
@@ -1249,4 +1249,37 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get totpEmpty =>
       'Pas encore de clé. Scannez le code QR pour l\'ajouter.';
+
+  @override
+  String get how9T => 'Validation en deux étapes (2FA)';
+
+  @override
+  String get how9B =>
+      'Dans une entrée, touchez « Nouveau champ » et choisissez « Clé secrète 2FA ». Scannez avec l\'icône à côté du champ le code QR que le site affiche lors de la configuration de la 2FA, ou collez la clé de configuration. Si vous enregistrez le champ vide, il reste dans les détails de l\'entrée et vous pouvez scanner le code QR depuis cet écran. Les détails affichent un code à 6 chiffres et le temps restant ; copiez-le et saisissez-le sur le site. Les codes sont générés hors ligne à partir de l\'horloge du téléphone ; si l\'heure est fausse, les codes ne fonctionnent pas. Les codes existants continuent de fonctionner même après la fin de Pro.';
+
+  @override
+  String get how10T => 'Historique des mots de passe et santé du coffre';
+
+  @override
+  String get how10B =>
+      'Avec Pro, quand vous changez un mot de passe, l\'ancien est conservé chiffré ; l\'icône d\'historique dans les détails de l\'entrée affiche les 10 derniers. L\'icône de bouclier du panneau de résumé de l\'écran d\'accueil ouvre la santé du coffre : les mots de passe faibles et réutilisés y sont listés, et un appui ouvre l\'entrée.';
+
+  @override
+  String get how11T => 'Pro et l\'essai gratuit';
+
+  @override
+  String get how11B =>
+      'Après la première configuration, toutes les fonctions Pro sont gratuites pendant 14 jours, sans carte bancaire. À la fin de l\'essai, vous passez au plan gratuit : jusqu\'à 3 entrées par catégorie et 3 scans avec la caméra. Rien n\'est supprimé, les codes 2FA existants continuent de fonctionner et le déverrouillage par empreinte reste actif encore 7 jours. Les fonctions Pro se reconnaissent à la petite étiquette PRO dans leur coin.';
+
+  @override
+  String get showValue => 'Afficher';
+
+  @override
+  String get hideValue => 'Masquer';
+
+  @override
+  String get favoriteAdd => 'Ajouter aux favoris';
+
+  @override
+  String get favoriteRemove => 'Retirer des favoris';
 }

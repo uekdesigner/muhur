@@ -289,7 +289,7 @@
   "how7B": "La bóveda se bloquea sola al salir de la app. Activa la biometría para abrirla con tu huella (o con tu cara en los teléfonos compatibles).",
   "storyBody": "Todo gran invento empieza cuando alguien intenta resolver un pequeño problema de su propia vida. La historia de MÜHÜR es exactamente eso: un viaje sincero pero decidido, nacido de una memoria que se pierde en el caos del mundo digital y del instinto de proteger lo que es tuyo.\n\nTodo empezó con esa molesta pausa que provoca una sola contraseña olvidada. Diseñé MÜHÜR como un refugio personal que funciona solo en mi propio dispositivo, sin depender de servidores en la nube ajenos. Con el tiempo me di cuenta de que otras personas también querían recuperar su privacidad digital.\n\nHoy MÜHÜR es para todos los que quieren mantener sus datos totalmente bajo su control, sin confiarlos a ningún servidor.\n\nSella el candado más seguro de tu memoria digital.",
   "devBody": "MÜHÜR es un proyecto independiente de UEK DESIGNER, diseñado y desarrollado en Turquía. Gracias por usar MÜHÜR.",
-  "rn100": "• Primera versión.\n• Bóveda cifrada en el teléfono, abierta con una contraseña maestra (Argon2id + AES-256).\n• Campos listos para bancos, sitios web, correo, redes sociales y cuentas de trabajo.\n• Generador de contraseñas con indicador de seguridad.\n• Escaneo de IBAN y texto con la cámara.\n• Desbloqueo con huella (y cara en teléfonos compatibles).\n• Copia de seguridad y restauración cifradas.\n• Exportación a Excel (sin cifrar, bajo tu responsabilidad).\n• Papelera con limpieza automática.\n• Resumen de la bóveda con las contraseñas repetidas.\n• Bloqueo automático, protección de pantalla y cuenta atrás del portapapeles.\n• Funciona totalmente sin conexión.\n• 18 idiomas.",
+  "rn100": "• Primera versión.\n• Bóveda cifrada en el teléfono, abierta con una contraseña maestra (Argon2id + AES-256).\n• Campos listos para bancos, sitios web, correo, redes sociales y cuentas de trabajo.\n• Generador de contraseñas con indicador de seguridad.\n• Escaneo de IBAN y texto con la cámara.\n• Desbloqueo con huella (y cara en teléfonos compatibles).\n• Copia de seguridad y restauración cifradas.\n• Exportación a Excel (sin cifrar, bajo tu responsabilidad).\n• Papelera con limpieza automática.\n• Resumen de la bóveda con las contraseñas repetidas.\n• Códigos de verificación en dos pasos, añadidos con código QR.\n• Historial de contraseñas y salud de la bóveda.\n• Prueba gratuita de Pro de 14 días, sin tarjeta.\n• Bloqueo automático, protección de pantalla y cuenta atrás del portapapeles.\n• Funciona totalmente sin conexión.\n• 18 idiomas.",
   "excelExport": "Exportar a Excel",
   "excelExportDesc": "Archivo .xlsx sin cifrar con tus entradas, por ejemplo antes de borrar la app",
   "excelExportWarnTitle": "Exportación sin cifrar",
@@ -355,5 +355,15 @@
   "qrScanHint": "Apunta la cámara al código QR que muestra el sitio al configurar la verificación en dos pasos.",
   "qrNot2fa": "Este código QR no es un código de configuración 2FA.",
   "qrMigration": "Este es un código de transferencia de Google Authenticator. Escanea en su lugar el código QR de configuración de cada sitio.",
-  "totpEmpty": "Aún no hay clave. Escanea el código QR para añadirla."
+  "totpEmpty": "Aún no hay clave. Escanea el código QR para añadirla.",
+  "how9T": "Verificación en dos pasos (2FA)",
+  "how9B": "En una entrada, toca «Nuevo campo» y elige «Clave secreta 2FA». Escanea con el icono junto al campo el código QR que muestra el sitio al configurar la 2FA, o pega la clave de configuración. Si guardas el campo vacío, se queda en los detalles de la entrada y puedes escanear el código QR desde allí. Los detalles muestran un código de 6 dígitos y el tiempo restante; cópialo e introdúcelo en el sitio. Los códigos se generan sin internet según el reloj del teléfono; si la hora es incorrecta, los códigos no coincidirán. Los códigos existentes siguen funcionando aunque termine Pro.",
+  "how10T": "Historial de contraseñas y salud de la bóveda",
+  "how10B": "Con Pro, al cambiar una contraseña la anterior se guarda cifrada; el icono de historial en los detalles de la entrada muestra las 10 últimas. El icono del escudo en el panel de resumen de la pantalla principal abre la salud de la bóveda: se listan las contraseñas débiles y repetidas, y al tocar una vas a su entrada.",
+  "how11T": "Pro y la prueba gratuita",
+  "how11B": "Tras la primera configuración, todas las funciones Pro son gratis durante 14 días, sin tarjeta. Al terminar la prueba pasas al plan gratuito: hasta 3 entradas por categoría y 3 escaneos con la cámara. No se borra nada, los códigos 2FA existentes siguen funcionando y el desbloqueo con huella sigue activo 7 días más. Reconocerás las funciones Pro por la pequeña etiqueta PRO en su esquina.",
+  "showValue": "Mostrar",
+  "hideValue": "Ocultar",
+  "favoriteAdd": "Añadir a favoritos",
+  "favoriteRemove": "Quitar de favoritos"
 }

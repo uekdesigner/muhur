@@ -289,7 +289,7 @@
   "how7B": "O cofre é bloqueado assim que você sai do app. Ative a biometria para abri-lo com a digital (ou com o rosto nos celulares compatíveis).",
   "storyBody": "Toda grande invenção começa com alguém tentando resolver um pequeno problema da própria vida. A história do MÜHÜR é exatamente assim: uma jornada sincera, mas determinada, nascida de uma memória que se perde no caos do mundo digital e do instinto de proteger o que é seu.\n\nTudo começou com aquela pausa irritante causada por uma única senha esquecida. Projetei o MÜHÜR como um refúgio pessoal que funciona só no meu próprio aparelho, sem depender de servidores de nuvem de terceiros. Com o tempo, percebi que outras pessoas também queriam a privacidade digital de volta.\n\nHoje o MÜHÜR existe para todos que querem manter seus dados totalmente sob o próprio controle, sem confiá-los a nenhum servidor.\n\nSele o cadeado mais seguro da sua memória digital.",
   "devBody": "O MÜHÜR é um projeto independente de UEK DESIGNER, criado e desenvolvido na Turquia. Obrigado por usar o MÜHÜR.",
-  "rn100": "• Primeira versão.\n• Cofre criptografado no celular, aberto com uma senha mestra (Argon2id + AES-256).\n• Campos prontos para bancos, sites, e-mail, redes sociais e contas de trabalho.\n• Gerador de senhas com indicador de força.\n• Leitura de IBAN e texto com a câmera.\n• Desbloqueio com digital (e rosto nos celulares compatíveis).\n• Backup e restauração criptografados.\n• Exportação para Excel (sem criptografia, sob sua responsabilidade).\n• Lixeira com limpeza automática.\n• Resumo do cofre mostrando senhas repetidas.\n• Bloqueio automático, proteção de tela e contagem regressiva da área de transferência.\n• Funciona totalmente offline.\n• 18 idiomas.",
+  "rn100": "• Primeira versão.\n• Cofre criptografado no celular, aberto com uma senha mestra (Argon2id + AES-256).\n• Campos prontos para bancos, sites, e-mail, redes sociais e contas de trabalho.\n• Gerador de senhas com indicador de força.\n• Leitura de IBAN e texto com a câmera.\n• Desbloqueio com digital (e rosto nos celulares compatíveis).\n• Backup e restauração criptografados.\n• Exportação para Excel (sem criptografia, sob sua responsabilidade).\n• Lixeira com limpeza automática.\n• Resumo do cofre mostrando senhas repetidas.\n• Códigos de verificação em duas etapas, adicionados por código QR.\n• Histórico de senhas e saúde do cofre.\n• Teste grátis do Pro por 14 dias, sem cartão.\n• Bloqueio automático, proteção de tela e contagem regressiva da área de transferência.\n• Funciona totalmente offline.\n• 18 idiomas.",
   "excelExport": "Exportar para Excel",
   "excelExportDesc": "Arquivo .xlsx sem criptografia com seus itens, por exemplo antes de excluir o app",
   "excelExportWarnTitle": "Exportação sem criptografia",
@@ -355,5 +355,15 @@
   "qrScanHint": "Aponte a câmera para o código QR que o site mostra ao configurar a verificação em duas etapas.",
   "qrNot2fa": "Este código QR não é um código de configuração 2FA.",
   "qrMigration": "Este é um código de transferência do Google Authenticator. Escaneie o código QR de configuração de cada site.",
-  "totpEmpty": "Ainda não há chave. Escaneie o código QR para adicioná-la."
+  "totpEmpty": "Ainda não há chave. Escaneie o código QR para adicioná-la.",
+  "how9T": "Verificação em duas etapas (2FA)",
+  "how9B": "Em um item, toque em \"Novo campo\" e escolha \"Chave secreta 2FA\". Escaneie com o ícone ao lado do campo o código QR que o site mostra ao configurar a 2FA, ou cole a chave de configuração. Se você salvar o campo vazio, ele continua nos detalhes do item e você pode escanear o código QR por lá. Os detalhes mostram um código de 6 dígitos e o tempo restante; copie-o e digite no site. Os códigos são gerados sem internet a partir do relógio do celular; se o horário estiver errado, os códigos não vão funcionar. Os códigos existentes continuam funcionando mesmo depois que o Pro termina.",
+  "how10T": "Histórico de senhas e saúde do cofre",
+  "how10B": "Com o Pro, ao trocar uma senha a antiga é guardada criptografada; o ícone de histórico nos detalhes do item mostra as 10 últimas. O ícone de escudo no painel de resumo da tela inicial abre a saúde do cofre: as senhas fracas e repetidas são listadas, e ao tocar em uma você vai para o item.",
+  "how11T": "Pro e o teste grátis",
+  "how11B": "Depois da primeira configuração, todos os recursos Pro ficam grátis por 14 dias, sem cartão. Quando o teste termina, você passa para o plano grátis: até 3 itens por categoria e 3 escaneamentos com a câmera. Nada é apagado, os códigos 2FA existentes continuam funcionando e o desbloqueio com digital fica ativo por mais 7 dias. Você reconhece os recursos Pro pela pequena etiqueta PRO no canto.",
+  "showValue": "Mostrar",
+  "hideValue": "Ocultar",
+  "favoriteAdd": "Adicionar aos favoritos",
+  "favoriteRemove": "Remover dos favoritos"
 }

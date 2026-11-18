@@ -98,8 +98,16 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
           backgroundColor: Colors.transparent,
           title: Text(e.title),
           actions: [
-            IconButton(icon: const Icon(Icons.edit), onPressed: _edit),
-            IconButton(icon: const Icon(Icons.delete), onPressed: _delete),
+            IconButton(
+              icon: const Icon(Icons.edit),
+              tooltip: t.editEntry,
+              onPressed: _edit,
+            ),
+            IconButton(
+              icon: const Icon(Icons.delete),
+              tooltip: t.moveToTrash,
+              onPressed: _delete,
+            ),
           ],
         ),
         body: FutureBuilder<List<FieldData>>(
@@ -169,6 +177,9 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
                                     ),
                                   if (fields[i].sensitive)
                                     IconButton(
+                                      tooltip: _revealed.contains(i)
+                                          ? t.hideValue
+                                          : t.showValue,
                                       icon: Icon(
                                         _revealed.contains(i)
                                             ? Icons.visibility_off

@@ -134,6 +134,9 @@ class _HistoryDialogState extends State<_HistoryDialog> {
                     ),
                   ),
                   IconButton(
+                    tooltip: _shown.contains(item.id)
+                        ? t.hideValue
+                        : t.showValue,
                     visualDensity: VisualDensity.compact,
                     icon: Icon(
                       _shown.contains(item.id)

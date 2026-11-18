@@ -289,7 +289,7 @@
   "how7B": "De kluis vergrendelt zodra je de app verlaat. Zet biometrie aan om hem met je vingerafdruk te openen (of met je gezicht op telefoons die dat ondersteunen).",
   "storyBody": "Elke grote uitvinding begint met iemand die een klein probleem in het eigen leven wil oplossen. Het verhaal van MÜHÜR is precies dat: een oprechte maar vastberaden reis, geboren uit een geheugen dat verdwaalt in de chaos van de digitale wereld en uit het instinct om te beschermen wat van jou is.\n\nHet begon allemaal met die vervelende pauze door één vergeten wachtwoord. Ik ontwierp MÜHÜR als een persoonlijke schuilplaats die alleen op mijn eigen apparaat draait, zonder afhankelijk te zijn van andermans cloudservers. Na verloop van tijd besefte ik dat meer mensen hun digitale privacy terug wilden.\n\nVandaag is MÜHÜR er voor iedereen die zijn gegevens volledig in eigen hand wil houden, zonder ze aan een server toe te vertrouwen.\n\nVerzegel het veiligste slot op je digitale geheugen.",
   "devBody": "MÜHÜR is een onafhankelijk project van UEK DESIGNER, ontworpen en ontwikkeld in Turkije. Bedankt dat je MÜHÜR gebruikt.",
-  "rn100": "• Eerste versie.\n• Versleutelde kluis op de telefoon, geopend met een hoofdwachtwoord (Argon2id + AES-256).\n• Kant-en-klare velden voor banken, websites, e-mail, sociale media en zakelijke accounts.\n• Wachtwoordgenerator met sterkte-indicator.\n• IBAN's en tekst scannen met de camera.\n• Ontgrendelen met vingerafdruk (en gezicht op ondersteunde telefoons).\n• Versleutelde back-up en herstel.\n• Exporteren naar Excel (onversleuteld, op eigen verantwoordelijkheid).\n• Prullenbak die zichzelf opruimt.\n• Kluisoverzicht met hergebruikte wachtwoorden.\n• Automatische vergrendeling, schermbeveiliging en aftellen van het klembord.\n• Werkt volledig offline.\n• 18 talen.",
+  "rn100": "• Eerste versie.\n• Versleutelde kluis op de telefoon, geopend met een hoofdwachtwoord (Argon2id + AES-256).\n• Kant-en-klare velden voor banken, websites, e-mail, sociale media en zakelijke accounts.\n• Wachtwoordgenerator met sterkte-indicator.\n• IBAN's en tekst scannen met de camera.\n• Ontgrendelen met vingerafdruk (en gezicht op ondersteunde telefoons).\n• Versleutelde back-up en herstel.\n• Exporteren naar Excel (onversleuteld, op eigen verantwoordelijkheid).\n• Prullenbak die zichzelf opruimt.\n• Kluisoverzicht met hergebruikte wachtwoorden.\n• Codes voor tweestapsverificatie, toe te voegen via QR-code.\n• Wachtwoordgeschiedenis en kluiscontrole.\n• 14 dagen Pro gratis proberen, zonder kaart.\n• Automatische vergrendeling, schermbeveiliging en aftellen van het klembord.\n• Werkt volledig offline.\n• 18 talen.",
   "excelExport": "Exporteren naar Excel",
   "excelExportDesc": "Onversleuteld .xlsx-bestand van je items, bijvoorbeeld voordat je de app verwijdert",
   "excelExportWarnTitle": "Onversleutelde export",
@@ -355,5 +355,15 @@
   "qrScanHint": "Richt de camera op de QR-code die de site toont bij het instellen van tweestapsverificatie.",
   "qrNot2fa": "Deze QR-code is geen 2FA-instelcode.",
   "qrMigration": "Dit is een overdrachtscode van Google Authenticator. Scan in plaats daarvan de instel-QR-code van elke site.",
-  "totpEmpty": "Nog geen sleutel. Scan de QR-code om hem toe te voegen."
+  "totpEmpty": "Nog geen sleutel. Scan de QR-code om hem toe te voegen.",
+  "how9T": "Tweestapsverificatie (2FA)",
+  "how9B": "Tik in een item op 'Nieuw veld' en kies '2FA-geheime sleutel'. Scan met het pictogram naast het veld de QR-code die de site toont bij het instellen van 2FA, of plak de instelsleutel. Sla je het veld leeg op, dan blijft het in de details van het item staan en kun je de QR-code daar scannen. De details tonen een code van 6 cijfers en de resterende tijd; kopieer hem en vul hem in op de site. Codes worden offline gemaakt op basis van de klok van je telefoon; klopt de klok niet, dan kloppen de codes ook niet. Bestaande codes blijven werken, ook als Pro afloopt.",
+  "how10T": "Wachtwoordgeschiedenis en kluiscontrole",
+  "how10B": "Met Pro wordt bij het wijzigen van een wachtwoord het oude versleuteld bewaard; het geschiedenispictogram in de details van het item toont de laatste 10. Het schildpictogram in het overzichtspaneel van het startscherm opent de kluiscontrole: zwakke en hergebruikte wachtwoorden worden getoond en met een tik ga je naar het item.",
+  "how11T": "Pro en de gratis proefperiode",
+  "how11B": "Na de eerste installatie zijn alle Pro-functies 14 dagen gratis, zonder kaart. Na de proefperiode ga je naar het gratis abonnement: maximaal 3 items per categorie en 3 camerascans. Er wordt niets verwijderd, bestaande 2FA-codes blijven werken en ontgrendelen met vingerafdruk blijft nog 7 dagen aan. Pro-functies herken je aan het kleine PRO-label in de hoek.",
+  "showValue": "Tonen",
+  "hideValue": "Verbergen",
+  "favoriteAdd": "Toevoegen aan favorieten",
+  "favoriteRemove": "Verwijderen uit favorieten"
 }

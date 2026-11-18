@@ -1013,7 +1013,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• First release.\n• Encrypted vault on the phone, opened with a master password (Argon2id + AES-256).\n• Ready-made fields for banks, websites, e-mail, social media and business accounts.\n• Password generator with strength indicator.\n• Camera scanning for IBANs and text.\n• Fingerprint unlock (face on supported phones).\n• Encrypted backup and restore.\n• Excel export (unencrypted, at your own responsibility).\n• Trash with automatic clean-up.\n• Vault summary showing reused passwords.\n• Automatic lock, screen protection and clipboard countdown.\n• Works fully offline.\n• 18 languages.';
+      '• First release.\n• Encrypted vault on the phone, opened with a master password (Argon2id + AES-256).\n• Ready-made fields for banks, websites, e-mail, social media and business accounts.\n• Password generator with strength indicator.\n• Camera scanning for IBANs and text.\n• Fingerprint unlock (face on supported phones).\n• Encrypted backup and restore.\n• Excel export (unencrypted, at your own responsibility).\n• Trash with automatic clean-up.\n• Vault summary showing reused passwords.\n• Two-step verification codes, added by QR code.\n• Password history and vault health.\n• 14-day free Pro trial, no card needed.\n• Automatic lock, screen protection and clipboard countdown.\n• Works fully offline.\n• 18 languages.';
 
   @override
   String get excelExport => 'Export to Excel';
@@ -1244,4 +1244,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get totpEmpty => 'No key yet. Scan the QR code to add it.';
+
+  @override
+  String get how9T => 'Two-step verification (2FA)';
+
+  @override
+  String get how9B =>
+      'In an entry, tap \"Add field\" and choose \"2FA Secret Key\". Scan the QR code the site shows during 2FA setup with the icon next to the field, or paste the setup key. If you save the field empty, it stays in the entry details and you can scan the QR code from there. The details show a 6-digit code and the time left; copy it and enter it on the site. Codes are made offline from the phone\'s clock, so a wrong clock gives wrong codes. Existing codes keep working even after Pro ends.';
+
+  @override
+  String get how10T => 'Password history and vault health';
+
+  @override
+  String get how10B =>
+      'With Pro, when you change a password the old one is kept encrypted; the history icon in the entry details shows the last 10. The shield icon on the summary panel of the home screen opens vault health: weak and reused passwords are listed, and tapping one takes you to the entry.';
+
+  @override
+  String get how11T => 'Pro and the free trial';
+
+  @override
+  String get how11B =>
+      'After the first setup, all Pro features are free for 14 days, with no card needed. When the trial ends you move to the free plan: up to 3 entries per category and 3 camera scans. Nothing is deleted, existing 2FA codes keep working and fingerprint unlock stays on for 7 more days. You can spot Pro features by the small PRO tag in their corner.';
+
+  @override
+  String get showValue => 'Show';
+
+  @override
+  String get hideValue => 'Hide';
+
+  @override
+  String get favoriteAdd => 'Add to favorites';
+
+  @override
+  String get favoriteRemove => 'Remove from favorites';
 }

@@ -1016,7 +1016,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Eerste versie.\n• Versleutelde kluis op de telefoon, geopend met een hoofdwachtwoord (Argon2id + AES-256).\n• Kant-en-klare velden voor banken, websites, e-mail, sociale media en zakelijke accounts.\n• Wachtwoordgenerator met sterkte-indicator.\n• IBAN\'s en tekst scannen met de camera.\n• Ontgrendelen met vingerafdruk (en gezicht op ondersteunde telefoons).\n• Versleutelde back-up en herstel.\n• Exporteren naar Excel (onversleuteld, op eigen verantwoordelijkheid).\n• Prullenbak die zichzelf opruimt.\n• Kluisoverzicht met hergebruikte wachtwoorden.\n• Automatische vergrendeling, schermbeveiliging en aftellen van het klembord.\n• Werkt volledig offline.\n• 18 talen.';
+      '• Eerste versie.\n• Versleutelde kluis op de telefoon, geopend met een hoofdwachtwoord (Argon2id + AES-256).\n• Kant-en-klare velden voor banken, websites, e-mail, sociale media en zakelijke accounts.\n• Wachtwoordgenerator met sterkte-indicator.\n• IBAN\'s en tekst scannen met de camera.\n• Ontgrendelen met vingerafdruk (en gezicht op ondersteunde telefoons).\n• Versleutelde back-up en herstel.\n• Exporteren naar Excel (onversleuteld, op eigen verantwoordelijkheid).\n• Prullenbak die zichzelf opruimt.\n• Kluisoverzicht met hergebruikte wachtwoorden.\n• Codes voor tweestapsverificatie, toe te voegen via QR-code.\n• Wachtwoordgeschiedenis en kluiscontrole.\n• 14 dagen Pro gratis proberen, zonder kaart.\n• Automatische vergrendeling, schermbeveiliging en aftellen van het klembord.\n• Werkt volledig offline.\n• 18 talen.';
 
   @override
   String get excelExport => 'Exporteren naar Excel';
@@ -1246,4 +1246,37 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get totpEmpty =>
       'Nog geen sleutel. Scan de QR-code om hem toe te voegen.';
+
+  @override
+  String get how9T => 'Tweestapsverificatie (2FA)';
+
+  @override
+  String get how9B =>
+      'Tik in een item op \'Nieuw veld\' en kies \'2FA-geheime sleutel\'. Scan met het pictogram naast het veld de QR-code die de site toont bij het instellen van 2FA, of plak de instelsleutel. Sla je het veld leeg op, dan blijft het in de details van het item staan en kun je de QR-code daar scannen. De details tonen een code van 6 cijfers en de resterende tijd; kopieer hem en vul hem in op de site. Codes worden offline gemaakt op basis van de klok van je telefoon; klopt de klok niet, dan kloppen de codes ook niet. Bestaande codes blijven werken, ook als Pro afloopt.';
+
+  @override
+  String get how10T => 'Wachtwoordgeschiedenis en kluiscontrole';
+
+  @override
+  String get how10B =>
+      'Met Pro wordt bij het wijzigen van een wachtwoord het oude versleuteld bewaard; het geschiedenispictogram in de details van het item toont de laatste 10. Het schildpictogram in het overzichtspaneel van het startscherm opent de kluiscontrole: zwakke en hergebruikte wachtwoorden worden getoond en met een tik ga je naar het item.';
+
+  @override
+  String get how11T => 'Pro en de gratis proefperiode';
+
+  @override
+  String get how11B =>
+      'Na de eerste installatie zijn alle Pro-functies 14 dagen gratis, zonder kaart. Na de proefperiode ga je naar het gratis abonnement: maximaal 3 items per categorie en 3 camerascans. Er wordt niets verwijderd, bestaande 2FA-codes blijven werken en ontgrendelen met vingerafdruk blijft nog 7 dagen aan. Pro-functies herken je aan het kleine PRO-label in de hoek.';
+
+  @override
+  String get showValue => 'Tonen';
+
+  @override
+  String get hideValue => 'Verbergen';
+
+  @override
+  String get favoriteAdd => 'Toevoegen aan favorieten';
+
+  @override
+  String get favoriteRemove => 'Verwijderen uit favorieten';
 }

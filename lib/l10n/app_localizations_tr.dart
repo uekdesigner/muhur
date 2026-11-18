@@ -1000,7 +1000,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• İlk sürüm.\n• Ana parolayla açılan, telefonda şifreli kasa (Argon2id + AES-256).\n• Banka, web sitesi, e-posta, sosyal medya ve iş hesapları için hazır alanlar.\n• Güç göstergeli parola üretici.\n• Kamerayla IBAN ve metin tarama.\n• Parmak iziyle açma (destekleyen telefonlarda yüzle).\n• Şifreli yedekleme ve geri yükleme.\n• Excel\'e aktarma (şifresiz; sorumluluk kullanıcıya aittir).\n• Kendiliğinden temizlenen çöp kutusu.\n• Tekrar kullanılan parolaları gösteren kasa özeti.\n• Otomatik kilit, ekran koruması ve pano geri sayımı.\n• Tamamen internetsiz çalışır.\n• 18 dil.';
+      '• İlk sürüm.\n• Ana parolayla açılan, telefonda şifreli kasa (Argon2id + AES-256).\n• Banka, web sitesi, e-posta, sosyal medya ve iş hesapları için hazır alanlar.\n• Güç göstergeli parola üretici.\n• Kamerayla IBAN ve metin tarama.\n• Parmak iziyle açma (destekleyen telefonlarda yüzle).\n• Şifreli yedekleme ve geri yükleme.\n• Excel\'e aktarma (şifresiz; sorumluluk kullanıcıya aittir).\n• Kendiliğinden temizlenen çöp kutusu.\n• Tekrar kullanılan parolaları gösteren kasa özeti.\n• İki adımlı doğrulama kodları, QR koduyla ekleme.\n• Parola geçmişi ve kasa sağlığı.\n• Kart bilgisi istemeyen 14 günlük ücretsiz Pro denemesi.\n• Otomatik kilit, ekran koruması ve pano geri sayımı.\n• Tamamen internetsiz çalışır.\n• 18 dil.';
 
   @override
   String get excelExport => 'Excel\'e aktar';
@@ -1230,4 +1230,37 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get totpEmpty => 'Henüz anahtar yok. Eklemek için QR kodunu tarayın.';
+
+  @override
+  String get how9T => 'İki adımlı doğrulama (2FA)';
+
+  @override
+  String get how9B =>
+      'Kayıtta \"Alan ekle\" düğmesine dokunup \"2FA Gizli Anahtar\" alanını seçin. Sitenin 2FA kurulumunda gösterdiği QR kodu alanın yanındaki simgeyle tarayın ya da kurulum anahtarını yapıştırın. Alanı boş kaydederseniz kayıt detayında durur; QR kodu oradan da tarayabilirsiniz. Detayda 6 haneli kod ve kalan süre görünür; kodu kopyalayıp sitede girin. Kodlar internetsiz, telefonun saatine göre üretilir; saat yanlışsa kodlar tutmaz. Pro bitse de mevcut kodlar çalışmaya devam eder.';
+
+  @override
+  String get how10T => 'Parola geçmişi ve kasa sağlığı';
+
+  @override
+  String get how10B =>
+      'Pro\'da bir parolayı değiştirdiğinizde eskisi şifreli olarak saklanır; kayıt detayındaki geçmiş simgesi son 10 değeri gösterir. Ana ekrandaki özet panelinin kalkan simgesi kasa sağlığını açar: zayıf ve tekrar kullanılan parolalar listelenir, birine dokununca o kayda gidersiniz.';
+
+  @override
+  String get how11T => 'Pro ve deneme süresi';
+
+  @override
+  String get how11B =>
+      'İlk kurulumdan sonra 14 gün boyunca tüm Pro özellikleri ücretsizdir; kart bilgisi istenmez. Deneme bitince ücretsiz plana geçersiniz: her kategoride en çok 3 kayıt ve toplam 3 kamerayla tarama hakkı. Hiçbir şey silinmez, mevcut 2FA kodları çalışmaya devam eder ve parmak iziyle açma 7 gün daha açık kalır. Pro özelliklerini köşelerindeki küçük PRO etiketinden tanıyabilirsiniz.';
+
+  @override
+  String get showValue => 'Göster';
+
+  @override
+  String get hideValue => 'Gizle';
+
+  @override
+  String get favoriteAdd => 'Favorilere ekle';
+
+  @override
+  String get favoriteRemove => 'Favorilerden çıkar';
 }

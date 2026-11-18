@@ -998,7 +998,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Phiên bản đầu tiên.\n• Kho mã hóa trên điện thoại, mở bằng mật khẩu chính (Argon2id + AES-256).\n• Trường có sẵn cho ngân hàng, trang web, email, mạng xã hội và tài khoản công việc.\n• Trình tạo mật khẩu có chỉ báo độ mạnh.\n• Quét IBAN và chữ bằng máy ảnh.\n• Mở khóa bằng vân tay (và khuôn mặt trên điện thoại hỗ trợ).\n• Sao lưu và khôi phục có mã hóa.\n• Xuất ra Excel (không mã hóa, bạn tự chịu trách nhiệm).\n• Thùng rác tự dọn dẹp.\n• Tóm tắt kho cho biết mật khẩu bị dùng lại.\n• Tự động khóa, bảo vệ màn hình và đếm ngược bộ nhớ tạm.\n• Hoạt động hoàn toàn ngoại tuyến.\n• 18 ngôn ngữ.';
+      '• Phiên bản đầu tiên.\n• Kho mã hóa trên điện thoại, mở bằng mật khẩu chính (Argon2id + AES-256).\n• Trường có sẵn cho ngân hàng, trang web, email, mạng xã hội và tài khoản công việc.\n• Trình tạo mật khẩu có chỉ báo độ mạnh.\n• Quét IBAN và chữ bằng máy ảnh.\n• Mở khóa bằng vân tay (và khuôn mặt trên điện thoại hỗ trợ).\n• Sao lưu và khôi phục có mã hóa.\n• Xuất ra Excel (không mã hóa, bạn tự chịu trách nhiệm).\n• Thùng rác tự dọn dẹp.\n• Tóm tắt kho cho biết mật khẩu bị dùng lại.\n• Mã xác minh hai bước, thêm bằng mã QR.\n• Lịch sử mật khẩu và sức khỏe kho.\n• Dùng thử Pro miễn phí 14 ngày, không cần thẻ.\n• Tự động khóa, bảo vệ màn hình và đếm ngược bộ nhớ tạm.\n• Hoạt động hoàn toàn ngoại tuyến.\n• 18 ngôn ngữ.';
 
   @override
   String get excelExport => 'Xuất ra Excel';
@@ -1227,4 +1227,37 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get totpEmpty => 'Chưa có khóa. Quét mã QR để thêm.';
+
+  @override
+  String get how9T => 'Xác minh hai bước (2FA)';
+
+  @override
+  String get how9B =>
+      'Trong một mục, chạm \"Thêm trường\" rồi chọn \"Khóa bí mật 2FA\". Quét mã QR mà trang web hiển thị khi thiết lập 2FA bằng biểu tượng cạnh trường, hoặc dán khóa thiết lập. Nếu lưu trường để trống, trường vẫn nằm trong chi tiết mục và bạn có thể quét mã QR từ đó. Chi tiết hiển thị mã 6 chữ số và thời gian còn lại; sao chép rồi nhập vào trang web. Mã được tạo không cần internet theo đồng hồ điện thoại, nên nếu giờ sai thì mã sẽ không khớp. Các mã hiện có vẫn hoạt động ngay cả khi Pro kết thúc.';
+
+  @override
+  String get how10T => 'Lịch sử mật khẩu và sức khỏe kho';
+
+  @override
+  String get how10B =>
+      'Với Pro, khi bạn đổi mật khẩu, mật khẩu cũ được lưu ở dạng mã hóa; biểu tượng lịch sử trong chi tiết mục hiển thị 10 mật khẩu gần nhất. Biểu tượng khiên trên bảng tóm tắt ở màn hình chính mở sức khỏe kho: mật khẩu yếu và dùng lại được liệt kê, chạm vào một mục để mở mục đó.';
+
+  @override
+  String get how11T => 'Pro và thời gian dùng thử';
+
+  @override
+  String get how11B =>
+      'Sau lần thiết lập đầu tiên, mọi tính năng Pro đều miễn phí trong 14 ngày, không cần thẻ. Khi hết thời gian dùng thử, bạn chuyển sang gói miễn phí: tối đa 3 mục mỗi danh mục và 3 lần quét bằng camera. Không có gì bị xóa, các mã 2FA hiện có vẫn hoạt động và mở khóa bằng vân tay vẫn bật thêm 7 ngày. Bạn có thể nhận ra tính năng Pro nhờ nhãn PRO nhỏ ở góc.';
+
+  @override
+  String get showValue => 'Hiện';
+
+  @override
+  String get hideValue => 'Ẩn';
+
+  @override
+  String get favoriteAdd => 'Thêm vào yêu thích';
+
+  @override
+  String get favoriteRemove => 'Xóa khỏi yêu thích';
 }

@@ -1016,7 +1016,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Primeira versão.\n• Cofre criptografado no celular, aberto com uma senha mestra (Argon2id + AES-256).\n• Campos prontos para bancos, sites, e-mail, redes sociais e contas de trabalho.\n• Gerador de senhas com indicador de força.\n• Leitura de IBAN e texto com a câmera.\n• Desbloqueio com digital (e rosto nos celulares compatíveis).\n• Backup e restauração criptografados.\n• Exportação para Excel (sem criptografia, sob sua responsabilidade).\n• Lixeira com limpeza automática.\n• Resumo do cofre mostrando senhas repetidas.\n• Bloqueio automático, proteção de tela e contagem regressiva da área de transferência.\n• Funciona totalmente offline.\n• 18 idiomas.';
+      '• Primeira versão.\n• Cofre criptografado no celular, aberto com uma senha mestra (Argon2id + AES-256).\n• Campos prontos para bancos, sites, e-mail, redes sociais e contas de trabalho.\n• Gerador de senhas com indicador de força.\n• Leitura de IBAN e texto com a câmera.\n• Desbloqueio com digital (e rosto nos celulares compatíveis).\n• Backup e restauração criptografados.\n• Exportação para Excel (sem criptografia, sob sua responsabilidade).\n• Lixeira com limpeza automática.\n• Resumo do cofre mostrando senhas repetidas.\n• Códigos de verificação em duas etapas, adicionados por código QR.\n• Histórico de senhas e saúde do cofre.\n• Teste grátis do Pro por 14 dias, sem cartão.\n• Bloqueio automático, proteção de tela e contagem regressiva da área de transferência.\n• Funciona totalmente offline.\n• 18 idiomas.';
 
   @override
   String get excelExport => 'Exportar para Excel';
@@ -1248,4 +1248,37 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get totpEmpty =>
       'Ainda não há chave. Escaneie o código QR para adicioná-la.';
+
+  @override
+  String get how9T => 'Verificação em duas etapas (2FA)';
+
+  @override
+  String get how9B =>
+      'Em um item, toque em \"Novo campo\" e escolha \"Chave secreta 2FA\". Escaneie com o ícone ao lado do campo o código QR que o site mostra ao configurar a 2FA, ou cole a chave de configuração. Se você salvar o campo vazio, ele continua nos detalhes do item e você pode escanear o código QR por lá. Os detalhes mostram um código de 6 dígitos e o tempo restante; copie-o e digite no site. Os códigos são gerados sem internet a partir do relógio do celular; se o horário estiver errado, os códigos não vão funcionar. Os códigos existentes continuam funcionando mesmo depois que o Pro termina.';
+
+  @override
+  String get how10T => 'Histórico de senhas e saúde do cofre';
+
+  @override
+  String get how10B =>
+      'Com o Pro, ao trocar uma senha a antiga é guardada criptografada; o ícone de histórico nos detalhes do item mostra as 10 últimas. O ícone de escudo no painel de resumo da tela inicial abre a saúde do cofre: as senhas fracas e repetidas são listadas, e ao tocar em uma você vai para o item.';
+
+  @override
+  String get how11T => 'Pro e o teste grátis';
+
+  @override
+  String get how11B =>
+      'Depois da primeira configuração, todos os recursos Pro ficam grátis por 14 dias, sem cartão. Quando o teste termina, você passa para o plano grátis: até 3 itens por categoria e 3 escaneamentos com a câmera. Nada é apagado, os códigos 2FA existentes continuam funcionando e o desbloqueio com digital fica ativo por mais 7 dias. Você reconhece os recursos Pro pela pequena etiqueta PRO no canto.';
+
+  @override
+  String get showValue => 'Mostrar';
+
+  @override
+  String get hideValue => 'Ocultar';
+
+  @override
+  String get favoriteAdd => 'Adicionar aos favoritos';
+
+  @override
+  String get favoriteRemove => 'Remover dos favoritos';
 }

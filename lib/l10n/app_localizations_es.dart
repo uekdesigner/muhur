@@ -1016,7 +1016,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Primera versión.\n• Bóveda cifrada en el teléfono, abierta con una contraseña maestra (Argon2id + AES-256).\n• Campos listos para bancos, sitios web, correo, redes sociales y cuentas de trabajo.\n• Generador de contraseñas con indicador de seguridad.\n• Escaneo de IBAN y texto con la cámara.\n• Desbloqueo con huella (y cara en teléfonos compatibles).\n• Copia de seguridad y restauración cifradas.\n• Exportación a Excel (sin cifrar, bajo tu responsabilidad).\n• Papelera con limpieza automática.\n• Resumen de la bóveda con las contraseñas repetidas.\n• Bloqueo automático, protección de pantalla y cuenta atrás del portapapeles.\n• Funciona totalmente sin conexión.\n• 18 idiomas.';
+      '• Primera versión.\n• Bóveda cifrada en el teléfono, abierta con una contraseña maestra (Argon2id + AES-256).\n• Campos listos para bancos, sitios web, correo, redes sociales y cuentas de trabajo.\n• Generador de contraseñas con indicador de seguridad.\n• Escaneo de IBAN y texto con la cámara.\n• Desbloqueo con huella (y cara en teléfonos compatibles).\n• Copia de seguridad y restauración cifradas.\n• Exportación a Excel (sin cifrar, bajo tu responsabilidad).\n• Papelera con limpieza automática.\n• Resumen de la bóveda con las contraseñas repetidas.\n• Códigos de verificación en dos pasos, añadidos con código QR.\n• Historial de contraseñas y salud de la bóveda.\n• Prueba gratuita de Pro de 14 días, sin tarjeta.\n• Bloqueo automático, protección de pantalla y cuenta atrás del portapapeles.\n• Funciona totalmente sin conexión.\n• 18 idiomas.';
 
   @override
   String get excelExport => 'Exportar a Excel';
@@ -1249,4 +1249,37 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get totpEmpty =>
       'Aún no hay clave. Escanea el código QR para añadirla.';
+
+  @override
+  String get how9T => 'Verificación en dos pasos (2FA)';
+
+  @override
+  String get how9B =>
+      'En una entrada, toca «Nuevo campo» y elige «Clave secreta 2FA». Escanea con el icono junto al campo el código QR que muestra el sitio al configurar la 2FA, o pega la clave de configuración. Si guardas el campo vacío, se queda en los detalles de la entrada y puedes escanear el código QR desde allí. Los detalles muestran un código de 6 dígitos y el tiempo restante; cópialo e introdúcelo en el sitio. Los códigos se generan sin internet según el reloj del teléfono; si la hora es incorrecta, los códigos no coincidirán. Los códigos existentes siguen funcionando aunque termine Pro.';
+
+  @override
+  String get how10T => 'Historial de contraseñas y salud de la bóveda';
+
+  @override
+  String get how10B =>
+      'Con Pro, al cambiar una contraseña la anterior se guarda cifrada; el icono de historial en los detalles de la entrada muestra las 10 últimas. El icono del escudo en el panel de resumen de la pantalla principal abre la salud de la bóveda: se listan las contraseñas débiles y repetidas, y al tocar una vas a su entrada.';
+
+  @override
+  String get how11T => 'Pro y la prueba gratuita';
+
+  @override
+  String get how11B =>
+      'Tras la primera configuración, todas las funciones Pro son gratis durante 14 días, sin tarjeta. Al terminar la prueba pasas al plan gratuito: hasta 3 entradas por categoría y 3 escaneos con la cámara. No se borra nada, los códigos 2FA existentes siguen funcionando y el desbloqueo con huella sigue activo 7 días más. Reconocerás las funciones Pro por la pequeña etiqueta PRO en su esquina.';
+
+  @override
+  String get showValue => 'Mostrar';
+
+  @override
+  String get hideValue => 'Ocultar';
+
+  @override
+  String get favoriteAdd => 'Añadir a favoritos';
+
+  @override
+  String get favoriteRemove => 'Quitar de favoritos';
 }

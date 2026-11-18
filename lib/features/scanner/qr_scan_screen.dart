@@ -27,7 +27,6 @@ class _QrScanScreenState extends State<QrScanScreen> {
   );
   CameraController? _controller;
   bool _failed = false;
-  String? _error;
   bool _busy = false;
   bool _done = false;
   _Warn _warn = _Warn.none;
@@ -59,13 +58,8 @@ class _QrScanScreenState extends State<QrScanScreen> {
       }
       setState(() => _controller = c);
       await c.startImageStream(_onFrame);
-    } catch (e) {
-      if (mounted) {
-        setState(() {
-          _failed = true;
-          _error = '$e';
-        });
-      }
+    } catch (_) {
+      if (mounted) setState(() => _failed = true);
     }
   }
 
@@ -195,7 +189,7 @@ class _QrScanScreenState extends State<QrScanScreen> {
       body = Center(
         child: Padding(
           padding: const EdgeInsets.all(24),
-          child: Text('${t.cameraError}\n\n${_error ?? ''}'),
+          child: Text(t.cameraError, textAlign: TextAlign.center),
         ),
       );
     } else if (c == null || !c.value.isInitialized) {

@@ -289,7 +289,7 @@
   "how7B": "Valvet låses när du lämnar appen. Slå på biometri för att öppna det med fingeravtryck (eller ansikte på telefoner som stöder det).",
   "storyBody": "Varje stor uppfinning börjar med att någon försöker lösa ett litet problem i sitt eget liv. Berättelsen om MÜHÜR är precis så: en uppriktig men målmedveten resa, född ur ett minne som går vilse i den digitala världens kaos och ur instinkten att skydda det som är ens eget.\n\nAllt började med den irriterande pausen som ett enda glömt lösenord orsakade. Jag utformade MÜHÜR som en personlig fristad som bara körs på min egen enhet, utan att vara beroende av andras molnservrar. Med tiden insåg jag att jag inte var ensam om att vilja ha tillbaka min digitala integritet.\n\nI dag finns MÜHÜR för alla som vill ha full kontroll över sina data utan att anförtro dem åt någon server.\n\nFörsegla det säkraste låset för ditt digitala minne.",
   "devBody": "MÜHÜR är ett oberoende projekt av UEK DESIGNER, utformat och utvecklat i Turkiet. Tack för att du använder MÜHÜR.",
-  "rn100": "• Första versionen.\n• Krypterat valv på telefonen som öppnas med ett huvudlösenord (Argon2id + AES-256).\n• Färdiga fält för banker, webbplatser, e-post, sociala medier och jobbkonton.\n• Lösenordsgenerator med styrkeindikator.\n• Skanning av IBAN och text med kameran.\n• Upplåsning med fingeravtryck (och ansikte på telefoner som stöder det).\n• Krypterad backup och återställning.\n• Export till Excel (okrypterad, på eget ansvar).\n• Papperskorg som rensas automatiskt.\n• Valvöversikt som visar återanvända lösenord.\n• Automatiskt lås, skärmskydd och nedräkning för urklipp.\n• Fungerar helt offline.\n• 18 språk.",
+  "rn100": "• Första versionen.\n• Krypterat valv på telefonen som öppnas med ett huvudlösenord (Argon2id + AES-256).\n• Färdiga fält för banker, webbplatser, e-post, sociala medier och jobbkonton.\n• Lösenordsgenerator med styrkeindikator.\n• Skanning av IBAN och text med kameran.\n• Upplåsning med fingeravtryck (och ansikte på telefoner som stöder det).\n• Krypterad backup och återställning.\n• Export till Excel (okrypterad, på eget ansvar).\n• Papperskorg som rensas automatiskt.\n• Valvöversikt som visar återanvända lösenord.\n• Koder för tvåstegsverifiering, läggs till med QR-kod.\n• Lösenordshistorik och valvkontroll.\n• Prova Pro gratis i 14 dagar, utan kort.\n• Automatiskt lås, skärmskydd och nedräkning för urklipp.\n• Fungerar helt offline.\n• 18 språk.",
   "excelExport": "Exportera till Excel",
   "excelExportDesc": "Okrypterad .xlsx-fil med dina poster, t.ex. innan du tar bort appen",
   "excelExportWarnTitle": "Okrypterad export",
@@ -355,5 +355,15 @@
   "qrScanHint": "Rikta kameran mot QR-koden som webbplatsen visar när du konfigurerar tvåstegsverifiering.",
   "qrNot2fa": "Den här QR-koden är ingen 2FA-konfigurationskod.",
   "qrMigration": "Det här är en överföringskod från Google Authenticator. Skanna i stället varje webbplats egen konfigurations-QR-kod.",
-  "totpEmpty": "Ingen nyckel än. Skanna QR-koden för att lägga till den."
+  "totpEmpty": "Ingen nyckel än. Skanna QR-koden för att lägga till den.",
+  "how9T": "Tvåstegsverifiering (2FA)",
+  "how9B": "Tryck på ”Nytt fält” i en post och välj ”2FA-hemlig nyckel”. Skanna QR-koden som webbplatsen visar vid 2FA-konfigurationen med ikonen bredvid fältet, eller klistra in konfigurationsnyckeln. Om du sparar fältet tomt finns det kvar i postens detaljer och du kan skanna QR-koden därifrån. Detaljerna visar en 6-siffrig kod och återstående tid; kopiera den och ange den på webbplatsen. Koderna skapas offline utifrån telefonens klocka, så om klockan går fel stämmer inte koderna. Befintliga koder fortsätter att fungera även när Pro har gått ut.",
+  "how10T": "Lösenordshistorik och valvkontroll",
+  "how10B": "Med Pro sparas det gamla lösenordet krypterat när du byter lösenord; historikikonen i postens detaljer visar de 10 senaste. Sköldikonen i översiktspanelen på startskärmen öppnar valvkontrollen: svaga och återanvända lösenord listas, och ett tryck tar dig till posten.",
+  "how11T": "Pro och den kostnadsfria provperioden",
+  "how11B": "Efter den första konfigurationen är alla Pro-funktioner gratis i 14 dagar, utan kort. När provperioden är slut går du över till gratisplanen: upp till 3 poster per kategori och 3 kameraskanningar. Inget raderas, befintliga 2FA-koder fortsätter att fungera och upplåsning med fingeravtryck är på i 7 dagar till. Pro-funktioner känner du igen på den lilla PRO-etiketten i hörnet.",
+  "showValue": "Visa",
+  "hideValue": "Dölj",
+  "favoriteAdd": "Lägg till i favoriter",
+  "favoriteRemove": "Ta bort från favoriter"
 }

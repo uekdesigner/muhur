@@ -289,7 +289,7 @@
   "how7B": "Der Tresor sperrt sich, sobald du die App verlässt. Mit Biometrie öffnest du ihn per Fingerabdruck (auf unterstützten Handys auch per Gesicht).",
   "storyBody": "Jede große Erfindung beginnt damit, dass jemand ein kleines Problem im eigenen Leben lösen will. Genau so ist die Geschichte von MÜHÜR: eine ehrliche, aber entschlossene Reise, geboren aus einem Gedächtnis, das sich im Chaos der digitalen Welt verliert, und aus dem Instinkt, das Eigene zu schützen.\n\nAlles begann mit der lästigen Pause, die ein einziges vergessenes Passwort auslöste. Ich habe MÜHÜR als persönlichen Zufluchtsort entworfen, der nur auf meinem eigenen Gerät läuft – ohne Abhängigkeit von fremden Cloud-Servern. Mit der Zeit wurde mir klar, dass nicht nur ich meine digitale Privatsphäre zurückhaben will.\n\nHeute ist MÜHÜR für alle da, die ihre Daten keinem Server anvertrauen, sondern vollständig selbst kontrollieren möchten.\n\nVersiegle das sicherste Schloss deines digitalen Gedächtnisses.",
   "devBody": "MÜHÜR ist ein unabhängiges Projekt von UEK DESIGNER, entworfen und entwickelt in der Türkei. Danke, dass du MÜHÜR nutzt.",
-  "rn100": "• Erste Version.\n• Verschlüsselter Tresor auf dem Telefon, geöffnet mit einem Master-Passwort (Argon2id + AES-256).\n• Fertige Felder für Banken, Websites, E-Mail, soziale Medien und geschäftliche Konten.\n• Passwortgenerator mit Stärkeanzeige.\n• Scannen von IBANs und Text mit der Kamera.\n• Entsperren per Fingerabdruck (auf unterstützten Handys auch per Gesicht).\n• Verschlüsseltes Backup und Wiederherstellung.\n• Export nach Excel (unverschlüsselt, auf eigene Verantwortung).\n• Papierkorb mit automatischer Bereinigung.\n• Tresor-Übersicht mit mehrfach verwendeten Passwörtern.\n• Automatische Sperre, Bildschirmschutz und Countdown für die Zwischenablage.\n• Funktioniert komplett offline.\n• 18 Sprachen.",
+  "rn100": "• Erste Version.\n• Verschlüsselter Tresor auf dem Telefon, geöffnet mit einem Master-Passwort (Argon2id + AES-256).\n• Fertige Felder für Banken, Websites, E-Mail, soziale Medien und geschäftliche Konten.\n• Passwortgenerator mit Stärkeanzeige.\n• Scannen von IBANs und Text mit der Kamera.\n• Entsperren per Fingerabdruck (auf unterstützten Handys auch per Gesicht).\n• Verschlüsseltes Backup und Wiederherstellung.\n• Export nach Excel (unverschlüsselt, auf eigene Verantwortung).\n• Papierkorb mit automatischer Bereinigung.\n• Tresor-Übersicht mit mehrfach verwendeten Passwörtern.\n• Codes für die Zwei-Faktor-Anmeldung, per QR-Code hinzufügen.\n• Passwortverlauf und Tresor-Check.\n• 14 Tage Pro gratis testen, ohne Karte.\n• Automatische Sperre, Bildschirmschutz und Countdown für die Zwischenablage.\n• Funktioniert komplett offline.\n• 18 Sprachen.",
   "excelExport": "Nach Excel exportieren",
   "excelExportDesc": "Unverschlüsselte .xlsx-Datei deiner Einträge, z. B. vor dem Löschen der App",
   "excelExportWarnTitle": "Unverschlüsselter Export",
@@ -355,5 +355,15 @@
   "qrScanHint": "Richte die Kamera auf den QR-Code, den die Website beim Einrichten der Zwei-Faktor-Authentifizierung anzeigt.",
   "qrNot2fa": "Dieser QR-Code ist kein 2FA-Einrichtungscode.",
   "qrMigration": "Das ist ein Übertragungscode von Google Authenticator. Scanne stattdessen den Einrichtungs-QR-Code der jeweiligen Website.",
-  "totpEmpty": "Noch kein Schlüssel. Scanne den QR-Code, um ihn hinzuzufügen."
+  "totpEmpty": "Noch kein Schlüssel. Scanne den QR-Code, um ihn hinzuzufügen.",
+  "how9T": "Zwei-Faktor-Anmeldung (2FA)",
+  "how9B": "Tippe in einem Eintrag auf „Neues Feld“ und wähle „2FA-Schlüssel“. Scanne den QR-Code, den die Website bei der 2FA-Einrichtung zeigt, mit dem Symbol neben dem Feld, oder füge den Einrichtungsschlüssel ein. Speicherst du das Feld leer, bleibt es in den Details des Eintrags, und du kannst den QR-Code von dort scannen. Die Details zeigen einen 6-stelligen Code und die verbleibende Zeit; kopiere ihn und gib ihn auf der Website ein. Die Codes entstehen offline anhand der Handyuhr; geht die Uhr falsch, stimmen die Codes nicht. Vorhandene Codes funktionieren auch nach dem Ende von Pro weiter.",
+  "how10T": "Passwortverlauf und Tresor-Check",
+  "how10B": "Mit Pro wird beim Ändern eines Passworts das alte verschlüsselt aufbewahrt; das Verlaufssymbol in den Details des Eintrags zeigt die letzten 10. Das Schildsymbol im Übersichtsfeld des Startbildschirms öffnet den Tresor-Check: Schwache und mehrfach verwendete Passwörter werden aufgelistet, ein Tippen führt zum Eintrag.",
+  "how11T": "Pro und Testzeitraum",
+  "how11B": "Nach der ersten Einrichtung sind alle Pro-Funktionen 14 Tage lang kostenlos, ohne Karte. Danach wechselst du in den Gratis-Plan: bis zu 3 Einträge pro Kategorie und 3 Kamera-Scans. Nichts wird gelöscht, vorhandene 2FA-Codes funktionieren weiter und das Entsperren per Fingerabdruck bleibt noch 7 Tage aktiv. Pro-Funktionen erkennst du am kleinen PRO-Etikett in ihrer Ecke.",
+  "showValue": "Anzeigen",
+  "hideValue": "Ausblenden",
+  "favoriteAdd": "Zu Favoriten hinzufügen",
+  "favoriteRemove": "Aus Favoriten entfernen"
 }

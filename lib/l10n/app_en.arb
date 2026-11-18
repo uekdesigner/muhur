@@ -332,7 +332,7 @@
   "how7B": "The vault locks itself when you leave the app. Turn on biometrics to open it with your fingerprint (or your face on phones that support it).",
   "storyBody": "Every great invention starts with someone trying to solve a small problem in their own life. The story of MÜHÜR is exactly that: a sincere but determined journey, born from a memory lost in the chaos of the digital world and from the instinct to protect what is your own.\n\nIt all began with the annoying pause caused by a single forgotten password. I designed MÜHÜR as a personal refuge that runs only on my own device, without depending on anyone else's cloud servers. Over time I realised I was not the only one who wanted their digital privacy back.\n\nToday MÜHÜR is for everyone who wants to keep their data fully under their own control, without entrusting it to any server.\n\nSeal the safest lock on your digital memory.",
   "devBody": "MÜHÜR is an independent project by UEK DESIGNER, designed and developed in Türkiye. Thank you for using MÜHÜR.",
-  "rn100": "• First release.\n• Encrypted vault on the phone, opened with a master password (Argon2id + AES-256).\n• Ready-made fields for banks, websites, e-mail, social media and business accounts.\n• Password generator with strength indicator.\n• Camera scanning for IBANs and text.\n• Fingerprint unlock (face on supported phones).\n• Encrypted backup and restore.\n• Excel export (unencrypted, at your own responsibility).\n• Trash with automatic clean-up.\n• Vault summary showing reused passwords.\n• Automatic lock, screen protection and clipboard countdown.\n• Works fully offline.\n• 18 languages.",
+  "rn100": "• First release.\n• Encrypted vault on the phone, opened with a master password (Argon2id + AES-256).\n• Ready-made fields for banks, websites, e-mail, social media and business accounts.\n• Password generator with strength indicator.\n• Camera scanning for IBANs and text.\n• Fingerprint unlock (face on supported phones).\n• Encrypted backup and restore.\n• Excel export (unencrypted, at your own responsibility).\n• Trash with automatic clean-up.\n• Vault summary showing reused passwords.\n• Two-step verification codes, added by QR code.\n• Password history and vault health.\n• 14-day free Pro trial, no card needed.\n• Automatic lock, screen protection and clipboard countdown.\n• Works fully offline.\n• 18 languages.",
   "excelExport": "Export to Excel",
   "excelExportDesc": "Unencrypted .xlsx file of your entries, e.g. before deleting the app",
   "excelExportWarnTitle": "Unencrypted export",
@@ -401,5 +401,15 @@
   "qrScanHint": "Point the camera at the QR code the site shows when you set up two-step verification.",
   "qrNot2fa": "This QR code is not a 2FA setup code.",
   "qrMigration": "This is a Google Authenticator transfer code. Scan each site's own setup QR code instead.",
-  "totpEmpty": "No key yet. Scan the QR code to add it."
+  "totpEmpty": "No key yet. Scan the QR code to add it.",
+  "how9T": "Two-step verification (2FA)",
+  "how9B": "In an entry, tap \"Add field\" and choose \"2FA Secret Key\". Scan the QR code the site shows during 2FA setup with the icon next to the field, or paste the setup key. If you save the field empty, it stays in the entry details and you can scan the QR code from there. The details show a 6-digit code and the time left; copy it and enter it on the site. Codes are made offline from the phone's clock, so a wrong clock gives wrong codes. Existing codes keep working even after Pro ends.",
+  "how10T": "Password history and vault health",
+  "how10B": "With Pro, when you change a password the old one is kept encrypted; the history icon in the entry details shows the last 10. The shield icon on the summary panel of the home screen opens vault health: weak and reused passwords are listed, and tapping one takes you to the entry.",
+  "how11T": "Pro and the free trial",
+  "how11B": "After the first setup, all Pro features are free for 14 days, with no card needed. When the trial ends you move to the free plan: up to 3 entries per category and 3 camera scans. Nothing is deleted, existing 2FA codes keep working and fingerprint unlock stays on for 7 more days. You can spot Pro features by the small PRO tag in their corner.",
+  "showValue": "Show",
+  "hideValue": "Hide",
+  "favoriteAdd": "Add to favorites",
+  "favoriteRemove": "Remove from favorites"
 }

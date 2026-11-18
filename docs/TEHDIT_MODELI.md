@@ -65,8 +65,8 @@ Sürüm 1.1 · Kasım 2026 · Kodla birlikte güncel tutulmalıdır.
 
 ## 6. İyileştirme fikirleri
 
-- Yedek parolası için de ana parola kuralını uygulamak.
-- Yedek dosyası için birim testleri: dışa aktar → geri yükle, yanlış parola, bozulmuş dosya.
+- Yedek geri yüklemenin gerçek veritabanıyla uçtan uca testi (şifreleme, yanlış parola ve bozulmuş dosya zaten birim testlerle denetleniyor).
+- Android otomatik doldurma eklenirse tehdit modelinin yeniden değerlendirilmesi.
 
 ## 7. Her yayından önce kontrol
 

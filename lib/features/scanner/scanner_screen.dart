@@ -529,7 +529,7 @@ class _ScannerScreenState extends State<ScannerScreen>
       body = Center(
         child: Padding(
           padding: const EdgeInsets.all(24),
-          child: Text('${t.cameraError}\n\n${_error ?? ''}'),
+          child: Text(t.cameraError, textAlign: TextAlign.center),
         ),
       );
     } else if (c == null || !c.value.isInitialized) {

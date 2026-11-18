@@ -400,6 +400,7 @@ class _UnlockScreenState extends State<UnlockScreen> {
                     decoration: InputDecoration(
                       labelText: t.masterPassword,
                       suffixIcon: IconButton(
+                        tooltip: _show ? t.hideValue : t.showValue,
                         icon: Icon(
                           _show ? Icons.visibility_off : Icons.visibility,
                         ),

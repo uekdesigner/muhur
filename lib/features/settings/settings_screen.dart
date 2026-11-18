@@ -851,6 +851,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
       () => FilePicker.pickFile(dialogTitle: t.backupImport),
     );
     if (file == null || !mounted) return;
+    // Dosya belleğe okunmadan önce boyutu denetlenir.
+    final size = await file.length();
+    if (!mounted) return;
+    if (size != null && size > BackupService.maxBackupBytes) {
+      _toast(t.backupInvalidFile);
+      return;
+    }
     final bytes = await file.readAsBytes();
     if (!mounted) return;
     final pw = await askBackupPassword(context, confirm: false);
@@ -962,6 +969,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             AboutBlock(title: t.how6T, brief: t.how6B),
             AboutBlock(title: t.how7T, brief: t.how7B),
             AboutBlock(title: t.how8T, brief: t.how8B),
+            AboutBlock(title: t.how9T, brief: t.how9B),
+            AboutBlock(title: t.how10T, brief: t.how10B),
+            AboutBlock(title: t.how11T, brief: t.how11B),
           ]),
         ),
         _aboutLink(

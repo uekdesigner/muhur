@@ -1027,7 +1027,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Pierwsza wersja.\n• Zaszyfrowany sejf na telefonie, otwierany hasłem głównym (Argon2id + AES-256).\n• Gotowe pola dla banków, stron, poczty, mediów społecznościowych i kont firmowych.\n• Generator haseł ze wskaźnikiem siły.\n• Skanowanie IBAN i tekstu aparatem.\n• Odblokowanie odciskiem palca (i twarzą na obsługiwanych telefonach).\n• Zaszyfrowana kopia zapasowa i przywracanie.\n• Eksport do Excela (bez szyfrowania, na własną odpowiedzialność).\n• Kosz z automatycznym czyszczeniem.\n• Podsumowanie sejfu z powtórzonymi hasłami.\n• Automatyczna blokada, ochrona ekranu i odliczanie schowka.\n• Działa całkowicie offline.\n• 18 języków.';
+      '• Pierwsza wersja.\n• Zaszyfrowany sejf na telefonie, otwierany hasłem głównym (Argon2id + AES-256).\n• Gotowe pola dla banków, stron, poczty, mediów społecznościowych i kont firmowych.\n• Generator haseł ze wskaźnikiem siły.\n• Skanowanie IBAN i tekstu aparatem.\n• Odblokowanie odciskiem palca (i twarzą na obsługiwanych telefonach).\n• Zaszyfrowana kopia zapasowa i przywracanie.\n• Eksport do Excela (bez szyfrowania, na własną odpowiedzialność).\n• Kosz z automatycznym czyszczeniem.\n• Podsumowanie sejfu z powtórzonymi hasłami.\n• Kody weryfikacji dwuetapowej dodawane kodem QR.\n• Historia haseł i kondycja sejfu.\n• 14-dniowy bezpłatny okres próbny Pro bez karty.\n• Automatyczna blokada, ochrona ekranu i odliczanie schowka.\n• Działa całkowicie offline.\n• 18 języków.';
 
   @override
   String get excelExport => 'Eksportuj do Excela';
@@ -1257,4 +1257,37 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get totpEmpty => 'Brak klucza. Zeskanuj kod QR, aby go dodać.';
+
+  @override
+  String get how9T => 'Weryfikacja dwuetapowa (2FA)';
+
+  @override
+  String get how9B =>
+      'We wpisie dotknij „Dodaj pole” i wybierz „Klucz tajny 2FA”. Zeskanuj ikoną obok pola kod QR, który strona pokazuje podczas konfiguracji 2FA, albo wklej klucz konfiguracji. Jeśli zapiszesz puste pole, zostanie ono w szczegółach wpisu i stamtąd zeskanujesz kod QR. Szczegóły pokazują 6-cyfrowy kod i pozostały czas; skopiuj go i wpisz na stronie. Kody powstają offline na podstawie zegara telefonu, więc przy złej godzinie nie zadziałają. Istniejące kody działają dalej także po zakończeniu Pro.';
+
+  @override
+  String get how10T => 'Historia haseł i kondycja sejfu';
+
+  @override
+  String get how10B =>
+      'W Pro po zmianie hasła poprzednie jest przechowywane w postaci zaszyfrowanej; ikona historii w szczegółach wpisu pokazuje 10 ostatnich. Ikona tarczy w panelu podsumowania na ekranie głównym otwiera kondycję sejfu: wyświetla słabe i powtarzające się hasła, a dotknięcie jednego z nich otwiera wpis.';
+
+  @override
+  String get how11T => 'Pro i bezpłatny okres próbny';
+
+  @override
+  String get how11B =>
+      'Po pierwszej konfiguracji wszystkie funkcje Pro są darmowe przez 14 dni, bez karty. Po zakończeniu okresu próbnego przechodzisz na plan darmowy: do 3 wpisów w każdej kategorii i 3 skanowania aparatem. Nic nie zostaje usunięte, istniejące kody 2FA działają dalej, a odblokowanie odciskiem palca pozostaje włączone jeszcze przez 7 dni. Funkcje Pro rozpoznasz po małej etykiecie PRO w rogu.';
+
+  @override
+  String get showValue => 'Pokaż';
+
+  @override
+  String get hideValue => 'Ukryj';
+
+  @override
+  String get favoriteAdd => 'Dodaj do ulubionych';
+
+  @override
+  String get favoriteRemove => 'Usuń z ulubionych';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/app_theme.dart';
+import '../../l10n/app_localizations.dart';
 
 /// Diyalog alanlarında kullanılan dar (alçak) iç boşluk.
 const kDenseFieldPadding = EdgeInsets.symmetric(horizontal: 12, vertical: 10);
@@ -110,6 +111,9 @@ class PasswordToggleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      tooltip: shown
+          ? AppLocalizations.of(context)!.hideValue
+          : AppLocalizations.of(context)!.showValue,
       iconSize: 20,
       style: IconButton.styleFrom(
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,

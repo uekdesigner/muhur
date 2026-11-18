@@ -289,7 +289,7 @@
   "how7B": "La cassaforte si blocca appena esci dall'app. Attiva la biometria per aprirla con l'impronta (o con il volto sui telefoni compatibili).",
   "storyBody": "Ogni grande invenzione nasce dal tentativo di risolvere un piccolo problema della propria vita. La storia di MÜHÜR è proprio questa: un viaggio sincero ma deciso, nato da una memoria che si perde nel caos del mondo digitale e dall'istinto di proteggere ciò che è nostro.\n\nTutto è cominciato con quella fastidiosa pausa causata da una sola password dimenticata. Ho progettato MÜHÜR come un rifugio personale che funziona solo sul mio dispositivo, senza dipendere dai server cloud di altri. Col tempo ho capito che anche altri volevano riavere la propria privacy digitale.\n\nOggi MÜHÜR è per chiunque voglia tenere i propri dati completamente sotto il proprio controllo, senza affidarli a nessun server.\n\nSigilla il lucchetto più sicuro della tua memoria digitale.",
   "devBody": "MÜHÜR è un progetto indipendente di UEK DESIGNER, progettato e sviluppato in Turchia. Grazie per usare MÜHÜR.",
-  "rn100": "• Prima versione.\n• Cassaforte cifrata sul telefono, aperta con una password principale (Argon2id + AES-256).\n• Campi pronti per banche, siti web, email, social e account di lavoro.\n• Generatore di password con indicatore di robustezza.\n• Scansione di IBAN e testo con la fotocamera.\n• Sblocco con impronta (e volto sui telefoni compatibili).\n• Backup e ripristino cifrati.\n• Esportazione in Excel (non cifrata, sotto la tua responsabilità).\n• Cestino con pulizia automatica.\n• Riepilogo della cassaforte con le password riutilizzate.\n• Blocco automatico, protezione dello schermo e conto alla rovescia degli appunti.\n• Funziona completamente offline.\n• 18 lingue.",
+  "rn100": "• Prima versione.\n• Cassaforte cifrata sul telefono, aperta con una password principale (Argon2id + AES-256).\n• Campi pronti per banche, siti web, email, social e account di lavoro.\n• Generatore di password con indicatore di robustezza.\n• Scansione di IBAN e testo con la fotocamera.\n• Sblocco con impronta (e volto sui telefoni compatibili).\n• Backup e ripristino cifrati.\n• Esportazione in Excel (non cifrata, sotto la tua responsabilità).\n• Cestino con pulizia automatica.\n• Riepilogo della cassaforte con le password riutilizzate.\n• Codici di verifica in due passaggi, aggiunti tramite codice QR.\n• Cronologia password e salute della cassaforte.\n• Prova gratuita di Pro per 14 giorni, senza carta.\n• Blocco automatico, protezione dello schermo e conto alla rovescia degli appunti.\n• Funziona completamente offline.\n• 18 lingue.",
   "excelExport": "Esporta in Excel",
   "excelExportDesc": "File .xlsx non cifrato delle tue voci, ad esempio prima di disinstallare l'app",
   "excelExportWarnTitle": "Esportazione non cifrata",
@@ -355,5 +355,15 @@
   "qrScanHint": "Inquadra il codice QR che il sito mostra quando configuri la verifica in due passaggi.",
   "qrNot2fa": "Questo codice QR non è un codice di configurazione 2FA.",
   "qrMigration": "Questo è un codice di trasferimento di Google Authenticator. Scansiona invece il codice QR di configurazione di ciascun sito.",
-  "totpEmpty": "Nessuna chiave per ora. Scansiona il codice QR per aggiungerla."
+  "totpEmpty": "Nessuna chiave per ora. Scansiona il codice QR per aggiungerla.",
+  "how9T": "Verifica in due passaggi (2FA)",
+  "how9B": "In una voce, tocca «Nuovo campo» e scegli «Chiave segreta 2FA». Scansiona con l'icona accanto al campo il codice QR che il sito mostra durante la configurazione della 2FA, oppure incolla la chiave di configurazione. Se salvi il campo vuoto, resta nei dettagli della voce e puoi scansionare il codice QR da lì. I dettagli mostrano un codice di 6 cifre e il tempo rimanente; copialo e inseriscilo nel sito. I codici vengono generati offline in base all'orologio del telefono: se l'ora è sbagliata, i codici non funzionano. I codici esistenti continuano a funzionare anche dopo la fine di Pro.",
+  "how10T": "Cronologia password e salute della cassaforte",
+  "how10B": "Con Pro, quando cambi una password la precedente viene conservata cifrata; l'icona della cronologia nei dettagli della voce mostra le ultime 10. L'icona a scudo nel pannello di riepilogo della schermata principale apre la salute della cassaforte: vengono elencate le password deboli e riutilizzate, e toccandone una si apre la voce.",
+  "how11T": "Pro e la prova gratuita",
+  "how11B": "Dopo la prima configurazione, tutte le funzioni Pro sono gratuite per 14 giorni, senza carta. Alla fine della prova passi al piano gratuito: fino a 3 voci per categoria e 3 scansioni con la fotocamera. Non viene eliminato nulla, i codici 2FA esistenti continuano a funzionare e lo sblocco con impronta resta attivo per altri 7 giorni. Riconosci le funzioni Pro dalla piccola etichetta PRO nell'angolo.",
+  "showValue": "Mostra",
+  "hideValue": "Nascondi",
+  "favoriteAdd": "Aggiungi ai preferiti",
+  "favoriteRemove": "Rimuovi dai preferiti"
 }
