@@ -1227,4 +1227,7 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get qrMigration =>
       'Bu, Google Authenticator\'ın aktarma kodu. Bunun yerine her sitenin kendi kurulum QR kodunu tarayın.';
+
+  @override
+  String get totpEmpty => 'Henüz anahtar yok. Eklemek için QR kodunu tarayın.';
 }

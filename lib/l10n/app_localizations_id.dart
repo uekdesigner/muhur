@@ -1227,4 +1227,8 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get qrMigration =>
       'Ini adalah kode transfer Google Authenticator. Pindai kode QR penyiapan dari masing-masing situs.';
+
+  @override
+  String get totpEmpty =>
+      'Belum ada kunci. Pindai kode QR untuk menambahkannya.';
 }

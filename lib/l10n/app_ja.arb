@@ -354,5 +354,6 @@
   "qrScan": "QRコードをスキャン",
   "qrScanHint": "2段階認証の設定時にサイトに表示されるQRコードにカメラを向けてください。",
   "qrNot2fa": "このQRコードは2FAの設定コードではありません。",
-  "qrMigration": "これはGoogle Authenticatorの移行用コードです。代わりに各サイトの設定用QRコードをスキャンしてください。"
+  "qrMigration": "これはGoogle Authenticatorの移行用コードです。代わりに各サイトの設定用QRコードをスキャンしてください。",
+  "totpEmpty": "キーはまだありません。QRコードをスキャンして追加してください。"
 }

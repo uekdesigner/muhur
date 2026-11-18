@@ -354,5 +354,6 @@
   "qrScan": "QR 코드 스캔",
   "qrScanHint": "2단계 인증을 설정할 때 사이트에 표시되는 QR 코드에 카메라를 맞추세요.",
   "qrNot2fa": "이 QR 코드는 2FA 설정 코드가 아닙니다.",
-  "qrMigration": "Google Authenticator 내보내기 코드입니다. 대신 각 사이트의 설정 QR 코드를 스캔하세요."
+  "qrMigration": "Google Authenticator 내보내기 코드입니다. 대신 각 사이트의 설정 QR 코드를 스캔하세요.",
+  "totpEmpty": "아직 키가 없습니다. QR 코드를 스캔해 추가하세요."
 }

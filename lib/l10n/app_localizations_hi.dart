@@ -1236,4 +1236,8 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get qrMigration =>
       'यह Google Authenticator का ट्रांसफ़र कोड है। इसके बजाय हर साइट का अपना सेटअप QR कोड स्कैन करें।';
+
+  @override
+  String get totpEmpty =>
+      'अभी कोई कुंजी नहीं है। जोड़ने के लिए QR कोड स्कैन करें।';
 }

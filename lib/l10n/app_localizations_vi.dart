@@ -1224,4 +1224,7 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get qrMigration =>
       'Đây là mã chuyển dữ liệu của Google Authenticator. Hãy quét mã QR thiết lập riêng của từng trang web.';
+
+  @override
+  String get totpEmpty => 'Chưa có khóa. Quét mã QR để thêm.';
 }

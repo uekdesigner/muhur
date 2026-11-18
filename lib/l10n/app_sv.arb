@@ -354,5 +354,6 @@
   "qrScan": "Skanna QR-kod",
   "qrScanHint": "Rikta kameran mot QR-koden som webbplatsen visar när du konfigurerar tvåstegsverifiering.",
   "qrNot2fa": "Den här QR-koden är ingen 2FA-konfigurationskod.",
-  "qrMigration": "Det här är en överföringskod från Google Authenticator. Skanna i stället varje webbplats egen konfigurations-QR-kod."
+  "qrMigration": "Det här är en överföringskod från Google Authenticator. Skanna i stället varje webbplats egen konfigurations-QR-kod.",
+  "totpEmpty": "Ingen nyckel än. Skanna QR-koden för att lägga till den."
 }

@@ -9,13 +9,13 @@ import '../../l10n/app_localizations.dart';
 import '../password_gen/generator_settings.dart';
 import '../password_gen/password_generator.dart';
 import '../scanner/qr_scan_screen.dart';
+import '../scanner/scan_launcher.dart';
 import '../scanner/scanner_screen.dart';
 import 'field_catalog.dart';
 import 'vault_models.dart';
 import 'vault_repository.dart';
 import 'pro_dialog.dart';
 import '../../core/entitlements/entitlements.dart';
-import '../../core/storage/app_settings.dart';
 
 /// Tek bir text field'ın yaklaşık yüksekliği; "Not" alanı bunun 5 katıdır.
 const double _kFieldHeight = 48;
@@ -706,30 +706,10 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       );
   }
 
-  /// Tarayıcıyı açar; ücretsiz planda tarama hakkını denetler ve düşer.
+  /// Tarayıcıyı açar ve okunan değeri alana yazar.
   Future<void> _scanInto(_FieldDraft d, Widget screen) async {
-    final t = AppLocalizations.of(context)!;
-    final pro = Entitlements.instance.isPro;
-    if (!pro &&
-        await AppSettings.instance.scanTrialsUsed() >=
-            Entitlements.freeScanTrials) {
-      if (mounted) {
-        await showProDialog(
-          context,
-          t.scanLimitTitle,
-          t.scanLimitBody(Entitlements.freeScanTrials),
-        );
-      }
-      return;
-    }
-    if (!mounted) return;
-    final v = await Navigator.push<String>(
-      context,
-      MaterialPageRoute(builder: (_) => screen),
-    );
+    final v = await openScanner(context, screen);
     if (v == null || !mounted) return;
-    if (!pro) await AppSettings.instance.useScanTrial();
-    if (!mounted) return;
     setState(() {
       d.value.text = v;
       // 2FA anahtarı gizli kalır; diğer taranan değerler görünür olur.

@@ -354,5 +354,6 @@
   "qrScan": "Scansiona codice QR",
   "qrScanHint": "Inquadra il codice QR che il sito mostra quando configuri la verifica in due passaggi.",
   "qrNot2fa": "Questo codice QR non è un codice di configurazione 2FA.",
-  "qrMigration": "Questo è un codice di trasferimento di Google Authenticator. Scansiona invece il codice QR di configurazione di ciascun sito."
+  "qrMigration": "Questo è un codice di trasferimento di Google Authenticator. Scansiona invece il codice QR di configurazione di ciascun sito.",
+  "totpEmpty": "Nessuna chiave per ora. Scansiona il codice QR per aggiungerla."
 }

@@ -354,5 +354,6 @@
   "qrScan": "Pindai kode QR",
   "qrScanHint": "Arahkan kamera ke kode QR yang ditampilkan situs saat Anda menyiapkan verifikasi dua langkah.",
   "qrNot2fa": "Kode QR ini bukan kode penyiapan 2FA.",
-  "qrMigration": "Ini adalah kode transfer Google Authenticator. Pindai kode QR penyiapan dari masing-masing situs."
+  "qrMigration": "Ini adalah kode transfer Google Authenticator. Pindai kode QR penyiapan dari masing-masing situs.",
+  "totpEmpty": "Belum ada kunci. Pindai kode QR untuk menambahkannya."
 }

@@ -2259,6 +2259,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This is a Google Authenticator transfer code. Scan each site\'s own setup QR code instead.'**
   String get qrMigration;
+
+  /// No description provided for @totpEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No key yet. Scan the QR code to add it.'**
+  String get totpEmpty;
 }
 
 class _AppLocalizationsDelegate

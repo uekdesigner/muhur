@@ -1257,4 +1257,8 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get qrMigration =>
       'Это код переноса из Google Authenticator. Вместо него отсканируйте QR-код настройки каждого сайта.';
+
+  @override
+  String get totpEmpty =>
+      'Ключа пока нет. Отсканируйте QR-код, чтобы добавить его.';
 }

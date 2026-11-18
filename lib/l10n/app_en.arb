@@ -400,5 +400,6 @@
   "qrScan": "Scan QR code",
   "qrScanHint": "Point the camera at the QR code the site shows when you set up two-step verification.",
   "qrNot2fa": "This QR code is not a 2FA setup code.",
-  "qrMigration": "This is a Google Authenticator transfer code. Scan each site's own setup QR code instead."
+  "qrMigration": "This is a Google Authenticator transfer code. Scan each site's own setup QR code instead.",
+  "totpEmpty": "No key yet. Scan the QR code to add it."
 }

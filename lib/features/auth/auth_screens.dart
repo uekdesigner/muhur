@@ -94,16 +94,20 @@ class _SetupScreenState extends State<SetupScreen> {
         final enable = await showDialog<bool>(
           context: context,
           animationStyle: Motion.style,
-          builder: (c) => AlertDialog(
+          builder: (c) => ScrollDialog(
             title: Text(t.enableBiometricsQ),
+            content: Text(t.how7B),
             actions: [
-              TextButton(
+              RoundIconButton(
+                icon: Icons.close,
+                tooltip: t.notNow,
                 onPressed: () => Navigator.pop(c, false),
-                child: Text(t.notNow),
               ),
-              FilledButton(
+              RoundIconButton(
+                icon: Icons.fingerprint,
+                tooltip: t.enable,
+                primary: true,
                 onPressed: () => Navigator.pop(c, true),
-                child: Text(t.enable),
               ),
             ],
           ),
@@ -306,13 +310,16 @@ class _UnlockScreenState extends State<UnlockScreen> {
         title: Text(t.enableBiometricsQ),
         content: Text(t.biometricChangedBody),
         actions: [
-          TextButton(
+          RoundIconButton(
+            icon: Icons.close,
+            tooltip: t.notNow,
             onPressed: () => Navigator.pop(c, false),
-            child: Text(t.notNow),
           ),
-          FilledButton(
+          RoundIconButton(
+            icon: Icons.fingerprint,
+            tooltip: t.enable,
+            primary: true,
             onPressed: () => Navigator.pop(c, true),
-            child: Text(t.enable),
           ),
         ],
       ),

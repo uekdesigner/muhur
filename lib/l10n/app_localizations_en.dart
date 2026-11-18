@@ -1241,4 +1241,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get qrMigration =>
       'This is a Google Authenticator transfer code. Scan each site\'s own setup QR code instead.';
+
+  @override
+  String get totpEmpty => 'No key yet. Scan the QR code to add it.';
 }

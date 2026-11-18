@@ -1242,4 +1242,8 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get qrMigration =>
       'Dit is een overdrachtscode van Google Authenticator. Scan in plaats daarvan de instel-QR-code van elke site.';
+
+  @override
+  String get totpEmpty =>
+      'Nog geen sleutel. Scan de QR-code om hem toe te voegen.';
 }

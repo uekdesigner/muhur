@@ -1183,4 +1183,7 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get qrMigration =>
       'これはGoogle Authenticatorの移行用コードです。代わりに各サイトの設定用QRコードをスキャンしてください。';
+
+  @override
+  String get totpEmpty => 'キーはまだありません。QRコードをスキャンして追加してください。';
 }

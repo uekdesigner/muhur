@@ -354,5 +354,6 @@
   "qrScan": "Escanear código QR",
   "qrScanHint": "Apunta la cámara al código QR que muestra el sitio al configurar la verificación en dos pasos.",
   "qrNot2fa": "Este código QR no es un código de configuración 2FA.",
-  "qrMigration": "Este es un código de transferencia de Google Authenticator. Escanea en su lugar el código QR de configuración de cada sitio."
+  "qrMigration": "Este es un código de transferencia de Google Authenticator. Escanea en su lugar el código QR de configuración de cada sitio.",
+  "totpEmpty": "Aún no hay clave. Escanea el código QR para añadirla."
 }

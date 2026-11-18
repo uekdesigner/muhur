@@ -354,5 +354,6 @@
   "qrScan": "Quét mã QR",
   "qrScanHint": "Hướng camera vào mã QR mà trang web hiển thị khi bạn thiết lập xác minh hai bước.",
   "qrNot2fa": "Mã QR này không phải mã thiết lập 2FA.",
-  "qrMigration": "Đây là mã chuyển dữ liệu của Google Authenticator. Hãy quét mã QR thiết lập riêng của từng trang web."
+  "qrMigration": "Đây là mã chuyển dữ liệu của Google Authenticator. Hãy quét mã QR thiết lập riêng của từng trang web.",
+  "totpEmpty": "Chưa có khóa. Quét mã QR để thêm."
 }

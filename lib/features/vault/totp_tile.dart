@@ -14,16 +14,18 @@ bool isTotpField(FieldData f) => f.type == 'totp' || f.key == '2faSecretKey';
 /// Kayıt detayında 2FA alanı: sırrı değil, o anki kodu ve kalan süreyi gösterir.
 /// Kopyala düğmesi kodu kopyalar. Abonelik bitse de çalışmaya devam eder;
 /// aksi hâlde kullanıcı hesaplarına giremez.
+/// Alan boşsa ya da anahtar geçersizse [onScan] ile QR kodu taranabilir.
 class TotpTile extends StatefulWidget {
-  const TotpTile({super.key, required this.field});
+  const TotpTile({super.key, required this.field, this.onScan});
   final FieldData field;
+  final VoidCallback? onScan;
 
   @override
   State<TotpTile> createState() => _TotpTileState();
 }
 
 class _TotpTileState extends State<TotpTile> {
-  late final Totp? _totp = Totp.parse(widget.field.value);
+  Totp? _totp;
   Timer? _timer;
   String _code = '';
   int _counter = -1;
@@ -32,6 +34,22 @@ class _TotpTileState extends State<TotpTile> {
   @override
   void initState() {
     super.initState();
+    _setup();
+  }
+
+  @override
+  void didUpdateWidget(TotpTile old) {
+    super.didUpdateWidget(old);
+    if (old.field.value != widget.field.value) _setup();
+  }
+
+  /// Anahtarı (yeniden) okur ve sayacı başlatır.
+  void _setup() {
+    _timer?.cancel();
+    _timer = null;
+    _totp = Totp.parse(widget.field.value);
+    _code = '';
+    _counter = -1;
     if (_totp != null) {
       _tick();
       _timer = Timer.periodic(const Duration(seconds: 1), (_) => _tick());
@@ -45,12 +63,13 @@ class _TotpTileState extends State<TotpTile> {
   }
 
   Future<void> _tick() async {
-    final totp = _totp!;
+    final totp = _totp;
+    if (totp == null) return;
     final now = DateTime.now();
     final counter = totp.counterAt(now);
     if (counter != _counter) {
       final code = await totp.codeAt(counter);
-      if (!mounted) return;
+      if (!mounted || !identical(totp, _totp)) return;
       _counter = counter;
       _code = code;
     }
@@ -62,12 +81,24 @@ class _TotpTileState extends State<TotpTile> {
     final t = AppLocalizations.of(context)!;
     final totp = _totp;
     if (totp == null) {
+      final empty = widget.field.value.trim().isEmpty;
       return ListTile(
         title: Text(widget.field.label),
         subtitle: Text(
-          t.totpInvalid,
-          style: const TextStyle(color: Colors.redAccent),
+          empty ? t.totpEmpty : t.totpInvalid,
+          style: empty ? null : const TextStyle(color: Colors.redAccent),
         ),
+        onTap: widget.onScan,
+        trailing: widget.onScan == null
+            ? null
+            : IconButton(
+                icon: Icon(
+                  Icons.qr_code_scanner,
+                  color: MuhurColors.bronzeLight,
+                ),
+                tooltip: t.qrScan,
+                onPressed: widget.onScan,
+              ),
       );
     }
     final urgent = _left <= 5;

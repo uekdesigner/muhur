@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
+import '../scanner/qr_scan_screen.dart';
+import '../scanner/scan_launcher.dart';
 import 'entry_edit_screen.dart';
 import 'password_history_dialog.dart';
 import 'totp_tile.dart';
@@ -29,9 +31,7 @@ class EntryDetailScreen extends StatefulWidget {
 }
 
 class _EntryDetailScreenState extends State<EntryDetailScreen> {
-  late final Future<List<FieldData>> _fields = widget.repo.fields(
-    widget.entry.id!,
-  );
+  late Future<List<FieldData>> _fields = widget.repo.fields(widget.entry.id!);
   final Set<int> _revealed = {};
 
   Future<void> _edit() async {
@@ -49,6 +49,15 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
       ),
     );
     if (ok == true && mounted) Navigator.pop(context, true);
+  }
+
+  /// Boş ya da geçersiz 2FA alanını QR ile doldurur ve hemen kaydeder.
+  Future<void> _scanTotp(FieldData f) async {
+    final v = await openScanner(context, const QrScanScreen());
+    if (v == null || !mounted) return;
+    await widget.repo.setFieldValue(widget.entry.id!, f.label, v);
+    if (!mounted) return;
+    setState(() => _fields = widget.repo.fields(widget.entry.id!));
   }
 
   Future<void> _delete() async {
@@ -101,7 +110,7 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
               return const Center(child: CircularProgressIndicator());
             }
             final fields = snap.data!
-                .where((f) => f.value.trim().isNotEmpty)
+                .where((f) => f.value.trim().isNotEmpty || isTotpField(f))
                 .toList();
             return ListView(
               children: [
@@ -129,7 +138,10 @@ class _EntryDetailScreenState extends State<EntryDetailScreen> {
                       children: [
                         for (var i = 0; i < fields.length; i++)
                           if (isTotpField(fields[i]))
-                            TotpTile(field: fields[i])
+                            TotpTile(
+                              field: fields[i],
+                              onScan: () => _scanTotp(fields[i]),
+                            )
                           else
                             ListTile(
                               title: Text(fields[i].label),

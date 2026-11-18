@@ -179,6 +179,31 @@ class VaultRepository {
     });
   }
 
+  /// Tek bir alanın değerini günceller (ör. detay ekranında QR ile 2FA anahtarı).
+  Future<void> setFieldValue(int entryId, String label, String value) async {
+    final enc = await _crypto.encryptField(
+      value,
+      _auth.dek,
+      entryId: entryId,
+      label: label,
+    );
+    final now = DateTime.now().toUtc().toIso8601String();
+    await _db.transaction((txn) async {
+      await txn.update(
+        'entry_fields',
+        {'field_value': enc},
+        where: 'entry_id = ? AND field_label = ?',
+        whereArgs: [entryId, label],
+      );
+      await txn.update(
+        'vault_entries',
+        {'updated_at': now},
+        where: 'id = ?',
+        whereArgs: [entryId],
+      );
+    });
+  }
+
   /// Alan başına saklanan en fazla eski parola sayısı.
   static const historyLimit = 10;
 

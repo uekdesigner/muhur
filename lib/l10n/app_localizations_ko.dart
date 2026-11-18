@@ -1188,4 +1188,7 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get qrMigration =>
       'Google Authenticator 내보내기 코드입니다. 대신 각 사이트의 설정 QR 코드를 스캔하세요.';
+
+  @override
+  String get totpEmpty => '아직 키가 없습니다. QR 코드를 스캔해 추가하세요.';
 }

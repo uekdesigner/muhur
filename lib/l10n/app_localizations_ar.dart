@@ -1254,4 +1254,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get qrMigration =>
       'هذا رمز نقل من Google Authenticator. امسح بدلًا منه رمز QR الخاص بإعداد كل موقع.';
+
+  @override
+  String get totpEmpty => 'لا يوجد مفتاح بعد. امسح رمز QR لإضافته.';
 }

@@ -354,5 +354,6 @@
   "qrScan": "QR-Code scannen",
   "qrScanHint": "Richte die Kamera auf den QR-Code, den die Website beim Einrichten der Zwei-Faktor-Authentifizierung anzeigt.",
   "qrNot2fa": "Dieser QR-Code ist kein 2FA-Einrichtungscode.",
-  "qrMigration": "Das ist ein Übertragungscode von Google Authenticator. Scanne stattdessen den Einrichtungs-QR-Code der jeweiligen Website."
+  "qrMigration": "Das ist ein Übertragungscode von Google Authenticator. Scanne stattdessen den Einrichtungs-QR-Code der jeweiligen Website.",
+  "totpEmpty": "Noch kein Schlüssel. Scanne den QR-Code, um ihn hinzuzufügen."
 }

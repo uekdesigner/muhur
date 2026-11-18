@@ -354,5 +354,6 @@
   "qrScan": "QR-code scannen",
   "qrScanHint": "Richt de camera op de QR-code die de site toont bij het instellen van tweestapsverificatie.",
   "qrNot2fa": "Deze QR-code is geen 2FA-instelcode.",
-  "qrMigration": "Dit is een overdrachtscode van Google Authenticator. Scan in plaats daarvan de instel-QR-code van elke site."
+  "qrMigration": "Dit is een overdrachtscode van Google Authenticator. Scan in plaats daarvan de instel-QR-code van elke site.",
+  "totpEmpty": "Nog geen sleutel. Scan de QR-code om hem toe te voegen."
 }

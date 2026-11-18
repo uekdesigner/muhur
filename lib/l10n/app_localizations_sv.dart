@@ -1240,4 +1240,8 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get qrMigration =>
       'Det här är en överföringskod från Google Authenticator. Skanna i stället varje webbplats egen konfigurations-QR-kod.';
+
+  @override
+  String get totpEmpty =>
+      'Ingen nyckel än. Skanna QR-koden för att lägga till den.';
 }

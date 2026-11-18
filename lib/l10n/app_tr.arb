@@ -354,5 +354,6 @@
   "qrScan": "QR kodu tara",
   "qrScanHint": "Sitenin iki adımlı doğrulama kurulumunda gösterdiği QR kodu kameraya tutun.",
   "qrNot2fa": "Bu QR kodu bir 2FA kurulum kodu değil.",
-  "qrMigration": "Bu, Google Authenticator'ın aktarma kodu. Bunun yerine her sitenin kendi kurulum QR kodunu tarayın."
+  "qrMigration": "Bu, Google Authenticator'ın aktarma kodu. Bunun yerine her sitenin kendi kurulum QR kodunu tarayın.",
+  "totpEmpty": "Henüz anahtar yok. Eklemek için QR kodunu tarayın."
 }

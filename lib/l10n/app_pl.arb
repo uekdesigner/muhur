@@ -354,5 +354,6 @@
   "qrScan": "Zeskanuj kod QR",
   "qrScanHint": "Skieruj aparat na kod QR wyświetlany przez stronę podczas konfiguracji weryfikacji dwuetapowej.",
   "qrNot2fa": "Ten kod QR nie jest kodem konfiguracji 2FA.",
-  "qrMigration": "To kod przenoszenia z Google Authenticator. Zamiast tego zeskanuj konfiguracyjny kod QR każdej strony."
+  "qrMigration": "To kod przenoszenia z Google Authenticator. Zamiast tego zeskanuj konfiguracyjny kod QR każdej strony.",
+  "totpEmpty": "Brak klucza. Zeskanuj kod QR, aby go dodać."
 }

@@ -1215,4 +1215,7 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get qrMigration =>
       'นี่คือโค้ดสำหรับย้ายข้อมูลของ Google Authenticator โปรดสแกนคิวอาร์โค้ดตั้งค่าของแต่ละเว็บไซต์แทน';
+
+  @override
+  String get totpEmpty => 'ยังไม่มีคีย์ สแกนคิวอาร์โค้ดเพื่อเพิ่ม';
 }
