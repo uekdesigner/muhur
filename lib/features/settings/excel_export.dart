@@ -22,16 +22,16 @@ class ExcelExporter {
   String suggestedFileName() {
     final n = DateTime.now();
     String two(int v) => v.toString().padLeft(2, '0');
-    return 'muhur-excel-${n.year}${two(n.month)}${two(n.day)}-'
-        '${two(n.hour)}${two(n.minute)}.xlsx';
+    return '${n.year}-${two(n.month)}-${two(n.day)}.xlsx';
   }
 
   Future<Uint8List> build(AppLocalizations t, {bool rtl = false}) async {
     final db = _auth.database.db;
     final dek = _auth.dek;
-    final cats = (await db.query('categories', orderBy: 'id'))
-        .map(Category.fromRow)
-        .toList();
+    final cats = (await db.query(
+      'categories',
+      orderBy: 'id',
+    )).map(Category.fromRow).toList();
     final sheets = <XlsxSheet>[];
 
     for (final cat in cats) {
@@ -67,7 +67,9 @@ class ExcelExporter {
             label: label,
           );
           if (value.isEmpty) continue;
-          final col = key != null ? 'k:$key' : 'l:${label.trim().toLowerCase()}';
+          final col = key != null
+              ? 'k:$key'
+              : 'l:${label.trim().toLowerCase()}';
           if (!heads.containsKey(col)) {
             heads[col] = _fieldHeader(t, specs, key, label);
             cols.add(col);
@@ -263,7 +265,10 @@ class _PlainExportDialogState extends State<_PlainExportDialog> {
             onChanged: _busy
                 ? null
                 : (v) => setState(() => _agree = v ?? false),
-            title: Text(t.excelExportAgree, style: const TextStyle(fontSize: 14)),
+            title: Text(
+              t.excelExportAgree,
+              style: const TextStyle(fontSize: 14),
+            ),
             controlAffinity: ListTileControlAffinity.leading,
             contentPadding: EdgeInsets.zero,
             dense: true,

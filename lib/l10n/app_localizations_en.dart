@@ -10,7 +10,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Banks';
@@ -118,7 +118,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notNow => 'Not now';
 
   @override
-  String get biometricReason => 'Unlock Muhur';
+  String get biometricReason => 'Unlock MÜHÜR';
 
   @override
   String get lockNow => 'Lock';
@@ -383,11 +383,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'ENTER';
 
   @override
-  String get infoTitle => 'About Muhur';
+  String get infoTitle => 'About MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur keeps your passwords encrypted on this device only. There is no account and no server.\n\nYour master password cannot be recovered. If you forget it, your data cannot be opened, so keep an encrypted backup.';
+      'MÜHÜR keeps your passwords encrypted on this device only. There is no account and no server.\n\nYour master password cannot be recovered. If you forget it, your data cannot be opened, so keep an encrypted backup.';
 
   @override
   String get understandNoRecovery =>
@@ -538,7 +538,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backupWrongPassword => 'Wrong backup password';
 
   @override
-  String get backupInvalidFile => 'This is not a valid Muhur backup file';
+  String get backupInvalidFile => 'This is not a valid MÜHÜR backup file';
 
   @override
   String get backupReminderTitle => 'Backup reminder';
@@ -843,7 +843,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Confirm with your fingerprint or face to set a new master password. Your entries stay as they are.';
+      'Confirm with your fingerprint to set a new master password. Your entries stay as they are.';
 
   @override
   String get bioConfirmFailed =>
@@ -940,7 +940,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• Your vault is encrypted with a random 256-bit key. That key is sealed with AES-256-GCM using a key derived from your master password with Argon2id (32 MiB memory, 3 passes). The key-derivation settings are bound to the seal, so tampering is detected.\n• The database is encrypted with SQLCipher; its key is derived from the vault key with HKDF-SHA256.\n• Sensitive fields are encrypted again with AES-256-GCM and tied to their entry and field.\n• After 5 wrong passwords the app waits 30 seconds, doubling each time up to 1 hour. Changing the phone\'s clock does not shorten the wait.\n• Biometric unlock accepts only strong (Class 3) biometrics and turns itself off when a new fingerprint or face is added.\n• Screenshots and screen recording are blocked, the vault locks when you leave the app, and copied values are marked as sensitive and cleared automatically.';
+      '• Your vault is encrypted with a random 256-bit key. That key is sealed with AES-256-GCM using a key derived from your master password with Argon2id (32 MiB memory, 3 passes). The key-derivation settings are bound to the seal, so tampering is detected.\n• The database is encrypted with SQLCipher; its key is derived from the vault key with HKDF-SHA256.\n• Sensitive fields are encrypted again with AES-256-GCM and tied to their entry and field.\n• After 5 wrong passwords the app waits 30 seconds, doubling each time up to 1 hour. Changing the phone\'s clock does not shorten the wait.\n• Biometric unlock accepts only strong (Class 3) biometrics and turns itself off when a new fingerprint or face is added. On most phones face unlock does not reach this level, so usually only the fingerprint can be used.\n• Screenshots and screen recording are blocked, the vault locks when you leave the app, and copied values are marked as sensitive and cleared automatically.';
 
   @override
   String get aboutOfflineTech =>
@@ -1001,7 +1001,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get how7B =>
-      'The vault locks itself when you leave the app. Turn on biometrics to open it with your fingerprint or face.';
+      'The vault locks itself when you leave the app. Turn on biometrics to open it with your fingerprint (or your face on phones that support it).';
 
   @override
   String get storyBody =>
@@ -1013,7 +1013,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• First release.\n• Encrypted vault on the phone, opened with a master password (Argon2id + AES-256).\n• Ready-made fields for banks, websites, e-mail, social media and business accounts.\n• Password generator with strength indicator.\n• Camera scanning for IBANs and text.\n• Fingerprint and face unlock.\n• Encrypted backup and restore.\n• Excel export (unencrypted, at your own responsibility).\n• Trash with automatic clean-up.\n• Vault summary showing reused passwords.\n• Automatic lock, screen protection and clipboard countdown.\n• Works fully offline.\n• 18 languages.';
+      '• First release.\n• Encrypted vault on the phone, opened with a master password (Argon2id + AES-256).\n• Ready-made fields for banks, websites, e-mail, social media and business accounts.\n• Password generator with strength indicator.\n• Camera scanning for IBANs and text.\n• Fingerprint unlock (face on supported phones).\n• Encrypted backup and restore.\n• Excel export (unencrypted, at your own responsibility).\n• Trash with automatic clean-up.\n• Vault summary showing reused passwords.\n• Automatic lock, screen protection and clipboard countdown.\n• Works fully offline.\n• 18 languages.';
 
   @override
   String get excelExport => 'Export to Excel';
@@ -1062,7 +1062,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Unlocking with fingerprint or face is a Pro feature. You can always unlock with your master password.';
+      'Fingerprint unlock is a Pro feature. You can always unlock with your master password.';
 
   @override
   String get proBackgroundsBody =>
@@ -1070,7 +1070,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Fingerprint and face unlock stays on for $days more, then turns off. Make sure you remember your master password. If you have forgotten it, set a new one with your fingerprint in Settings under \"Change master password\".';
+    return 'Fingerprint unlock stays on for $days more, then turns off. Make sure you remember your master password. If you have forgotten it, set a new one with your fingerprint in Settings under \"Change master password\".';
   }
 
   @override
@@ -1118,7 +1118,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get proFeatFieldsDesc => 'Add any field you need to an entry';
 
   @override
-  String get proFeatBio => 'Fingerprint and face unlock';
+  String get proFeatBio => 'Fingerprint unlock';
 
   @override
   String get proFeatBioDesc => 'Open your vault with a touch';
@@ -1227,4 +1227,18 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get totpInvalid =>
       'This key isn\'t valid. Paste the setup key the site gave you.';
+
+  @override
+  String get qrScan => 'Scan QR code';
+
+  @override
+  String get qrScanHint =>
+      'Point the camera at the QR code the site shows when you set up two-step verification.';
+
+  @override
+  String get qrNot2fa => 'This QR code is not a 2FA setup code.';
+
+  @override
+  String get qrMigration =>
+      'This is a Google Authenticator transfer code. Scan each site\'s own setup QR code instead.';
 }

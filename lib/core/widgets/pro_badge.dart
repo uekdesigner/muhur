@@ -46,9 +46,7 @@ TextStyle _engraved(double size, double spacing) => TextStyle(
   fontWeight: FontWeight.w900,
   letterSpacing: spacing,
   height: 1.2,
-  shadows: const [
-    Shadow(color: Color(0x80FFFFFF), offset: Offset(0, 0.6)),
-  ],
+  shadows: const [Shadow(color: Color(0x80FFFFFF), offset: Offset(0, 0.6))],
 );
 
 /// Pro özelliğinin simgesine köşe etiketi ("PRO"). Ücretsiz planda ve
@@ -133,9 +131,7 @@ class PlanBadge extends StatelessWidget {
           );
         }
         final soon = days > 0 && days <= 3;
-        final label = paid
-            ? 'PRO'
-            : 'PRO · ${t.daysCount(days).toUpperCase()}';
+        final label = paid ? 'PRO' : 'PRO · ${t.daysCount(days).toUpperCase()}';
         return _Shine(
           child: Container(
             decoration: _embossed(soon ? _amber : _gold, 10),

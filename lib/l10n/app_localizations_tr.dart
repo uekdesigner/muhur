@@ -10,7 +10,7 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Bankalar';
@@ -116,7 +116,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get notNow => 'Şimdi değil';
 
   @override
-  String get biometricReason => 'Muhur\'un kilidini aç';
+  String get biometricReason => 'MÜHÜR\'ün kilidini aç';
 
   @override
   String get lockNow => 'Kilitle';
@@ -378,11 +378,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get login => 'GİRİŞ';
 
   @override
-  String get infoTitle => 'Muhur Hakkında';
+  String get infoTitle => 'MÜHÜR Hakkında';
 
   @override
   String get infoBody =>
-      'Muhur, parolalarınızı yalnızca bu cihazda şifreli olarak saklar. Hesap ve sunucu yoktur.\n\nAna parolanız kurtarılamaz. Unutursanız verileriniz açılamaz, bu yüzden şifreli bir yedek tutun.';
+      'MÜHÜR, parolalarınızı yalnızca bu cihazda şifreli olarak saklar. Hesap ve sunucu yoktur.\n\nAna parolanız kurtarılamaz. Unutursanız verileriniz açılamaz, bu yüzden şifreli bir yedek tutun.';
 
   @override
   String get understandNoRecovery =>
@@ -533,7 +533,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get backupWrongPassword => 'Yedek parolası yanlış';
 
   @override
-  String get backupInvalidFile => 'Bu geçerli bir Muhur yedek dosyası değil';
+  String get backupInvalidFile => 'Bu geçerli bir MÜHÜR yedek dosyası değil';
 
   @override
   String get backupReminderTitle => 'Yedek hatırlatıcı';
@@ -830,7 +830,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Yeni bir ana parola belirlemek için parmak izinizle veya yüzünüzle onaylayın. Kayıtlarınız olduğu gibi kalır.';
+      'Yeni bir ana parola belirlemek için parmak izinizle onaylayın. Kayıtlarınız olduğu gibi kalır.';
 
   @override
   String get bioConfirmFailed =>
@@ -927,7 +927,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• Kasa, rastgele üretilen 256 bitlik bir anahtarla şifrelenir. Bu anahtar, ana parolanızdan Argon2id (32 MiB bellek, 3 tur) ile türetilen anahtarla AES-256-GCM kullanılarak mühürlenir. Anahtar türetme ayarları mühre bağlıdır; değiştirilirse fark edilir.\n• Veritabanı SQLCipher ile şifrelenir; anahtarı kasa anahtarından HKDF-SHA256 ile türetilir.\n• Hassas alanlar ayrıca AES-256-GCM ile şifrelenir ve ait oldukları kayda ve alana bağlanır.\n• 5 yanlış parolanın ardından uygulama 30 saniye bekletir; süre her seferinde ikiye katlanarak en çok 1 saate çıkar. Telefonun saatini değiştirmek bekleme süresini kısaltmaz.\n• Biyometrik açma yalnızca güçlü (Class 3) biyometriyi kabul eder; yeni bir parmak izi veya yüz eklenirse kendiliğinden kapanır.\n• Ekran görüntüsü ve ekran kaydı engellenir, uygulamadan çıkınca kasa kilitlenir, kopyalanan değerler hassas olarak işaretlenir ve kendiliğinden silinir.';
+      '• Kasa, rastgele üretilen 256 bitlik bir anahtarla şifrelenir. Bu anahtar, ana parolanızdan Argon2id (32 MiB bellek, 3 tur) ile türetilen anahtarla AES-256-GCM kullanılarak mühürlenir. Anahtar türetme ayarları mühre bağlıdır; değiştirilirse fark edilir.\n• Veritabanı SQLCipher ile şifrelenir; anahtarı kasa anahtarından HKDF-SHA256 ile türetilir.\n• Hassas alanlar ayrıca AES-256-GCM ile şifrelenir ve ait oldukları kayda ve alana bağlanır.\n• 5 yanlış parolanın ardından uygulama 30 saniye bekletir; süre her seferinde ikiye katlanarak en çok 1 saate çıkar. Telefonun saatini değiştirmek bekleme süresini kısaltmaz.\n• Biyometrik açma yalnızca güçlü (Class 3) biyometriyi kabul eder; yeni bir parmak izi veya yüz eklenirse kendiliğinden kapanır. Çoğu telefonda yüz tanıma bu düzeye ulaşmadığından genellikle yalnızca parmak izi kullanılabilir.\n• Ekran görüntüsü ve ekran kaydı engellenir, uygulamadan çıkınca kasa kilitlenir, kopyalanan değerler hassas olarak işaretlenir ve kendiliğinden silinir.';
 
   @override
   String get aboutOfflineTech =>
@@ -988,7 +988,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get how7B =>
-      'Uygulamadan çıktığınızda kasa kendiliğinden kilitlenir. Biyometriyi açarsanız parmak izinizle veya yüzünüzle açabilirsiniz.';
+      'Uygulamadan çıktığınızda kasa kendiliğinden kilitlenir. Biyometriyi açarsanız parmak izinizle (destekleyen telefonlarda yüzünüzle de) açabilirsiniz.';
 
   @override
   String get storyBody =>
@@ -1000,7 +1000,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• İlk sürüm.\n• Ana parolayla açılan, telefonda şifreli kasa (Argon2id + AES-256).\n• Banka, web sitesi, e-posta, sosyal medya ve iş hesapları için hazır alanlar.\n• Güç göstergeli parola üretici.\n• Kamerayla IBAN ve metin tarama.\n• Parmak izi ve yüzle açma.\n• Şifreli yedekleme ve geri yükleme.\n• Excel\'e aktarma (şifresiz; sorumluluk kullanıcıya aittir).\n• Kendiliğinden temizlenen çöp kutusu.\n• Tekrar kullanılan parolaları gösteren kasa özeti.\n• Otomatik kilit, ekran koruması ve pano geri sayımı.\n• Tamamen internetsiz çalışır.\n• 18 dil.';
+      '• İlk sürüm.\n• Ana parolayla açılan, telefonda şifreli kasa (Argon2id + AES-256).\n• Banka, web sitesi, e-posta, sosyal medya ve iş hesapları için hazır alanlar.\n• Güç göstergeli parola üretici.\n• Kamerayla IBAN ve metin tarama.\n• Parmak iziyle açma (destekleyen telefonlarda yüzle).\n• Şifreli yedekleme ve geri yükleme.\n• Excel\'e aktarma (şifresiz; sorumluluk kullanıcıya aittir).\n• Kendiliğinden temizlenen çöp kutusu.\n• Tekrar kullanılan parolaları gösteren kasa özeti.\n• Otomatik kilit, ekran koruması ve pano geri sayımı.\n• Tamamen internetsiz çalışır.\n• 18 dil.';
 
   @override
   String get excelExport => 'Excel\'e aktar';
@@ -1049,7 +1049,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Parmak izi veya yüzle açma Pro özelliğidir. Kasayı her zaman ana parolanızla açabilirsiniz.';
+      'Parmak iziyle açma Pro özelliğidir. Kasayı her zaman ana parolanızla açabilirsiniz.';
 
   @override
   String get proBackgroundsBody =>
@@ -1057,7 +1057,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Parmak izi ve yüzle açma $days daha açık kalacak, sonra kapanacak. Ana parolanızı hatırladığınızdan emin olun. Unuttuysanız Ayarlar\'daki \"Ana parolayı değiştir\" ile parmak izinizle yeni bir ana parola belirleyin.';
+    return 'Parmak iziyle açma $days daha açık kalacak, sonra kapanacak. Ana parolanızı hatırladığınızdan emin olun. Unuttuysanız Ayarlar\'daki \"Ana parolayı değiştir\" ile parmak izinizle yeni bir ana parola belirleyin.';
   }
 
   @override
@@ -1105,7 +1105,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get proFeatFieldsDesc => 'Kayda ihtiyacınız olan her alanı ekleyin';
 
   @override
-  String get proFeatBio => 'Parmak izi ve yüzle açma';
+  String get proFeatBio => 'Parmak iziyle açma';
 
   @override
   String get proFeatBioDesc => 'Kasayı tek dokunuşla açın';
@@ -1213,4 +1213,18 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Bu anahtar geçerli değil. Sitenin verdiği kurulum anahtarını yapıştırın.';
+
+  @override
+  String get qrScan => 'QR kodu tara';
+
+  @override
+  String get qrScanHint =>
+      'Sitenin iki adımlı doğrulama kurulumunda gösterdiği QR kodu kameraya tutun.';
+
+  @override
+  String get qrNot2fa => 'Bu QR kodu bir 2FA kurulum kodu değil.';
+
+  @override
+  String get qrMigration =>
+      'Bu, Google Authenticator\'ın aktarma kodu. Bunun yerine her sitenin kendi kurulum QR kodunu tarayın.';
 }

@@ -147,6 +147,9 @@ class VaultRepository {
           where: 'id = ?',
           whereArgs: [id],
         );
+        if (Entitlements.instance.isPro) {
+          await _recordHistory(txn, id, fields, now);
+        }
         await txn.delete(
           'entry_fields',
           where: 'entry_id = ?',

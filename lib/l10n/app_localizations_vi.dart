@@ -10,7 +10,7 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Ngân hàng';
@@ -116,7 +116,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get notNow => 'Để sau';
 
   @override
-  String get biometricReason => 'Mở khóa Muhur';
+  String get biometricReason => 'Mở khóa MÜHÜR';
 
   @override
   String get lockNow => 'Khóa';
@@ -378,11 +378,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get login => 'VÀO';
 
   @override
-  String get infoTitle => 'Về Muhur';
+  String get infoTitle => 'Về MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur lưu mật khẩu của bạn ở dạng mã hóa, chỉ trên thiết bị này. Không có tài khoản, không có máy chủ.\n\nMật khẩu chính không thể khôi phục. Nếu quên, dữ liệu sẽ không mở được, vì vậy hãy giữ một bản sao lưu đã mã hóa.';
+      'MÜHÜR lưu mật khẩu của bạn ở dạng mã hóa, chỉ trên thiết bị này. Không có tài khoản, không có máy chủ.\n\nMật khẩu chính không thể khôi phục. Nếu quên, dữ liệu sẽ không mở được, vì vậy hãy giữ một bản sao lưu đã mã hóa.';
 
   @override
   String get understandNoRecovery =>
@@ -530,7 +530,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get backupWrongPassword => 'Sai mật khẩu sao lưu';
 
   @override
-  String get backupInvalidFile => 'Đây không phải tệp sao lưu Muhur hợp lệ';
+  String get backupInvalidFile => 'Đây không phải tệp sao lưu MÜHÜR hợp lệ';
 
   @override
   String get backupReminderTitle => 'Nhắc sao lưu';
@@ -827,7 +827,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Xác nhận bằng vân tay hoặc khuôn mặt để đặt mật khẩu chính mới. Các mục của bạn vẫn giữ nguyên.';
+      'Xác nhận bằng vân tay để đặt mật khẩu chính mới. Các mục của bạn vẫn giữ nguyên.';
 
   @override
   String get bioConfirmFailed =>
@@ -925,7 +925,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• Kho được mã hóa bằng một khóa ngẫu nhiên 256 bit. Khóa này được niêm phong bằng AES-256-GCM với một khóa tạo từ mật khẩu chính qua Argon2id (bộ nhớ 32 MiB, 3 vòng). Thiết lập tạo khóa được gắn với niêm phong, nên mọi can thiệp đều bị phát hiện.\n• Cơ sở dữ liệu được mã hóa bằng SQLCipher; khóa của nó được tạo từ khóa kho qua HKDF-SHA256.\n• Các trường nhạy cảm được mã hóa thêm bằng AES-256-GCM và gắn với mục và trường của chúng.\n• Sau 5 lần nhập sai mật khẩu, ứng dụng chờ 30 giây, mỗi lần tăng gấp đôi, tối đa 1 giờ. Đổi giờ trên điện thoại không rút ngắn thời gian chờ.\n• Mở khóa sinh trắc học chỉ chấp nhận sinh trắc học mạnh (Loại 3) và sẽ tự tắt khi thêm vân tay hoặc khuôn mặt mới.\n• Chụp và quay màn hình bị chặn, kho tự khóa khi bạn rời ứng dụng, và giá trị đã sao chép được đánh dấu nhạy cảm rồi tự động xóa.';
+      '• Kho được mã hóa bằng một khóa ngẫu nhiên 256 bit. Khóa này được niêm phong bằng AES-256-GCM với một khóa tạo từ mật khẩu chính qua Argon2id (bộ nhớ 32 MiB, 3 vòng). Thiết lập tạo khóa được gắn với niêm phong, nên mọi can thiệp đều bị phát hiện.\n• Cơ sở dữ liệu được mã hóa bằng SQLCipher; khóa của nó được tạo từ khóa kho qua HKDF-SHA256.\n• Các trường nhạy cảm được mã hóa thêm bằng AES-256-GCM và gắn với mục và trường của chúng.\n• Sau 5 lần nhập sai mật khẩu, ứng dụng chờ 30 giây, mỗi lần tăng gấp đôi, tối đa 1 giờ. Đổi giờ trên điện thoại không rút ngắn thời gian chờ.\n• Mở khóa sinh trắc học chỉ chấp nhận sinh trắc học mạnh (Loại 3) và sẽ tự tắt khi thêm vân tay hoặc khuôn mặt mới. Trên hầu hết điện thoại, nhận diện khuôn mặt chưa đạt mức này nên thường chỉ dùng được vân tay.\n• Chụp và quay màn hình bị chặn, kho tự khóa khi bạn rời ứng dụng, và giá trị đã sao chép được đánh dấu nhạy cảm rồi tự động xóa.';
 
   @override
   String get aboutOfflineTech =>
@@ -986,7 +986,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get how7B =>
-      'Kho tự khóa khi bạn rời ứng dụng. Bật sinh trắc học để mở bằng vân tay hoặc khuôn mặt.';
+      'Kho tự khóa khi bạn rời ứng dụng. Bật sinh trắc học để mở bằng vân tay (hoặc khuôn mặt trên điện thoại hỗ trợ).';
 
   @override
   String get storyBody =>
@@ -998,7 +998,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Phiên bản đầu tiên.\n• Kho mã hóa trên điện thoại, mở bằng mật khẩu chính (Argon2id + AES-256).\n• Trường có sẵn cho ngân hàng, trang web, email, mạng xã hội và tài khoản công việc.\n• Trình tạo mật khẩu có chỉ báo độ mạnh.\n• Quét IBAN và chữ bằng máy ảnh.\n• Mở khóa bằng vân tay và khuôn mặt.\n• Sao lưu và khôi phục có mã hóa.\n• Xuất ra Excel (không mã hóa, bạn tự chịu trách nhiệm).\n• Thùng rác tự dọn dẹp.\n• Tóm tắt kho cho biết mật khẩu bị dùng lại.\n• Tự động khóa, bảo vệ màn hình và đếm ngược bộ nhớ tạm.\n• Hoạt động hoàn toàn ngoại tuyến.\n• 18 ngôn ngữ.';
+      '• Phiên bản đầu tiên.\n• Kho mã hóa trên điện thoại, mở bằng mật khẩu chính (Argon2id + AES-256).\n• Trường có sẵn cho ngân hàng, trang web, email, mạng xã hội và tài khoản công việc.\n• Trình tạo mật khẩu có chỉ báo độ mạnh.\n• Quét IBAN và chữ bằng máy ảnh.\n• Mở khóa bằng vân tay (và khuôn mặt trên điện thoại hỗ trợ).\n• Sao lưu và khôi phục có mã hóa.\n• Xuất ra Excel (không mã hóa, bạn tự chịu trách nhiệm).\n• Thùng rác tự dọn dẹp.\n• Tóm tắt kho cho biết mật khẩu bị dùng lại.\n• Tự động khóa, bảo vệ màn hình và đếm ngược bộ nhớ tạm.\n• Hoạt động hoàn toàn ngoại tuyến.\n• 18 ngôn ngữ.';
 
   @override
   String get excelExport => 'Xuất ra Excel';
@@ -1047,7 +1047,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Mở khóa bằng vân tay hoặc khuôn mặt là tính năng Pro. Bạn luôn có thể mở khóa bằng mật khẩu chính.';
+      'Mở khóa bằng vân tay là tính năng Pro. Bạn luôn có thể mở khóa bằng mật khẩu chính.';
 
   @override
   String get proBackgroundsBody =>
@@ -1055,7 +1055,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Mở khóa bằng vân tay và khuôn mặt sẽ còn bật thêm $days rồi tắt. Hãy chắc chắn bạn nhớ mật khẩu chính. Nếu đã quên, hãy đặt mật khẩu mới bằng vân tay trong Cài đặt, mục \"Đổi mật khẩu chính\".';
+    return 'Mở khóa bằng vân tay sẽ còn bật thêm $days rồi tắt. Hãy chắc chắn bạn nhớ mật khẩu chính. Nếu đã quên, hãy đặt mật khẩu mới bằng vân tay trong Cài đặt, mục \"Đổi mật khẩu chính\".';
   }
 
   @override
@@ -1103,7 +1103,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get proFeatFieldsDesc => 'Thêm bất kỳ trường nào bạn cần vào mục';
 
   @override
-  String get proFeatBio => 'Mở khóa bằng vân tay và khuôn mặt';
+  String get proFeatBio => 'Mở khóa bằng vân tay';
 
   @override
   String get proFeatBioDesc => 'Mở kho chỉ với một chạm';
@@ -1210,4 +1210,18 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Khóa này không hợp lệ. Hãy dán khóa thiết lập mà trang web cung cấp.';
+
+  @override
+  String get qrScan => 'Quét mã QR';
+
+  @override
+  String get qrScanHint =>
+      'Hướng camera vào mã QR mà trang web hiển thị khi bạn thiết lập xác minh hai bước.';
+
+  @override
+  String get qrNot2fa => 'Mã QR này không phải mã thiết lập 2FA.';
+
+  @override
+  String get qrMigration =>
+      'Đây là mã chuyển dữ liệu của Google Authenticator. Hãy quét mã QR thiết lập riêng của từng trang web.';
 }

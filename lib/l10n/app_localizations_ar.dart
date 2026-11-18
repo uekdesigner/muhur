@@ -10,7 +10,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'البنوك';
@@ -115,7 +115,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get notNow => 'ليس الآن';
 
   @override
-  String get biometricReason => 'فتح Muhur';
+  String get biometricReason => 'فتح MÜHÜR';
 
   @override
   String get lockNow => 'قفل';
@@ -391,11 +391,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get login => 'دخول';
 
   @override
-  String get infoTitle => 'حول Muhur';
+  String get infoTitle => 'حول MÜHÜR';
 
   @override
   String get infoBody =>
-      'يحفظ Muhur كلمات مرورك مشفّرة على هذا الجهاز فقط. لا يوجد حساب ولا خادم.\n\nلا يمكن استرداد كلمة المرور الرئيسية. إذا نسيتها فلن يمكن فتح بياناتك، لذا احتفظ بنسخة احتياطية مشفّرة.';
+      'يحفظ MÜHÜR كلمات مرورك مشفّرة على هذا الجهاز فقط. لا يوجد حساب ولا خادم.\n\nلا يمكن استرداد كلمة المرور الرئيسية. إذا نسيتها فلن يمكن فتح بياناتك، لذا احتفظ بنسخة احتياطية مشفّرة.';
 
   @override
   String get understandNoRecovery =>
@@ -542,7 +542,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backupWrongPassword => 'كلمة مرور النسخة خاطئة';
 
   @override
-  String get backupInvalidFile => 'هذا ليس ملف نسخة احتياطية صالحًا من Muhur';
+  String get backupInvalidFile => 'هذا ليس ملف نسخة احتياطية صالحًا من MÜHÜR';
 
   @override
   String get backupReminderTitle => 'تذكير النسخ الاحتياطي';
@@ -863,7 +863,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'أكّد ببصمتك أو وجهك لتعيين كلمة مرور رئيسية جديدة. تبقى عناصرك كما هي.';
+      'أكّد ببصمتك لتعيين كلمة مرور رئيسية جديدة. تبقى عناصرك كما هي.';
 
   @override
   String get bioConfirmFailed => 'فشل التأكيد الحيوي أو أُلغي.';
@@ -959,7 +959,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• تُشفَّر الخزنة بمفتاح عشوائي طوله 256 بت. ويُختَم هذا المفتاح باستخدام AES-256-GCM بمفتاح مشتق من كلمة المرور الرئيسية عبر Argon2id (ذاكرة 32 ميبيبايت، 3 تمريرات). إعدادات الاشتقاق مرتبطة بالختم، لذا يُكتشف أي عبث.\n• قاعدة البيانات مشفّرة بـ SQLCipher، ويُشتق مفتاحها من مفتاح الخزنة عبر HKDF-SHA256.\n• تُشفَّر الحقول الحساسة مرة أخرى بـ AES-256-GCM وتُربط بعنصرها وحقلها.\n• بعد 5 كلمات مرور خاطئة ينتظر التطبيق 30 ثانية، وتتضاعف المدة في كل مرة حتى ساعة واحدة. تغيير ساعة الهاتف لا يقصّر الانتظار.\n• لا يقبل الفتح الحيوي إلا القياسات الحيوية القوية (الفئة 3)، ويتوقف عند إضافة بصمة أو وجه جديد.\n• تُحظر لقطات الشاشة وتسجيلها، وتُقفل الخزنة عند مغادرة التطبيق، وتُعلَّم القيم المنسوخة كحساسة وتُمسح تلقائيًا.';
+      '• تُشفَّر الخزنة بمفتاح عشوائي طوله 256 بت. ويُختَم هذا المفتاح باستخدام AES-256-GCM بمفتاح مشتق من كلمة المرور الرئيسية عبر Argon2id (ذاكرة 32 ميبيبايت، 3 تمريرات). إعدادات الاشتقاق مرتبطة بالختم، لذا يُكتشف أي عبث.\n• قاعدة البيانات مشفّرة بـ SQLCipher، ويُشتق مفتاحها من مفتاح الخزنة عبر HKDF-SHA256.\n• تُشفَّر الحقول الحساسة مرة أخرى بـ AES-256-GCM وتُربط بعنصرها وحقلها.\n• بعد 5 كلمات مرور خاطئة ينتظر التطبيق 30 ثانية، وتتضاعف المدة في كل مرة حتى ساعة واحدة. تغيير ساعة الهاتف لا يقصّر الانتظار.\n• لا يقبل الفتح الحيوي إلا القياسات الحيوية القوية (الفئة 3)، ويتوقف عند إضافة بصمة أو وجه جديد. في معظم الهواتف لا يبلغ التعرّف على الوجه هذا المستوى، لذا تُستخدم البصمة فقط عادةً.\n• تُحظر لقطات الشاشة وتسجيلها، وتُقفل الخزنة عند مغادرة التطبيق، وتُعلَّم القيم المنسوخة كحساسة وتُمسح تلقائيًا.';
 
   @override
   String get aboutOfflineTech =>
@@ -1020,7 +1020,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get how7B =>
-      'تُقفل الخزنة تلقائيًا عند مغادرة التطبيق. فعّل القياسات الحيوية لفتحها ببصمتك أو وجهك.';
+      'تُقفل الخزنة تلقائيًا عند مغادرة التطبيق. فعّل القياسات الحيوية لفتحها ببصمتك (أو بوجهك في الهواتف التي تدعم ذلك).';
 
   @override
   String get storyBody =>
@@ -1032,7 +1032,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• الإصدار الأول.\n• خزنة مشفّرة على الهاتف تُفتح بكلمة مرور رئيسية (Argon2id + AES-256).\n• حقول جاهزة للبنوك والمواقع والبريد ووسائل التواصل وحسابات العمل.\n• مولّد كلمات مرور مع مؤشر للقوة.\n• مسح رقم IBAN والنصوص بالكاميرا.\n• الفتح بالبصمة والوجه.\n• نسخ احتياطي واستعادة مشفّران.\n• التصدير إلى Excel (غير مشفّر وعلى مسؤوليتك).\n• مهملات تُنظَّف تلقائيًا.\n• ملخص للخزنة يُظهر كلمات المرور المكررة.\n• قفل تلقائي وحماية للشاشة وعدّ تنازلي للحافظة.\n• يعمل دون إنترنت بالكامل.\n• 18 لغة.';
+      '• الإصدار الأول.\n• خزنة مشفّرة على الهاتف تُفتح بكلمة مرور رئيسية (Argon2id + AES-256).\n• حقول جاهزة للبنوك والمواقع والبريد ووسائل التواصل وحسابات العمل.\n• مولّد كلمات مرور مع مؤشر للقوة.\n• مسح رقم IBAN والنصوص بالكاميرا.\n• الفتح بالبصمة (وبالوجه في الهواتف الداعمة).\n• نسخ احتياطي واستعادة مشفّران.\n• التصدير إلى Excel (غير مشفّر وعلى مسؤوليتك).\n• مهملات تُنظَّف تلقائيًا.\n• ملخص للخزنة يُظهر كلمات المرور المكررة.\n• قفل تلقائي وحماية للشاشة وعدّ تنازلي للحافظة.\n• يعمل دون إنترنت بالكامل.\n• 18 لغة.';
 
   @override
   String get excelExport => 'تصدير إلى Excel';
@@ -1080,7 +1080,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'الفتح بالبصمة أو الوجه ميزة Pro. يمكنك دائمًا الفتح بكلمة المرور الرئيسية.';
+      'الفتح بالبصمة ميزة Pro. يمكنك دائمًا الفتح بكلمة المرور الرئيسية.';
 
   @override
   String get proBackgroundsBody =>
@@ -1088,7 +1088,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'المدة المتبقية للفتح بالبصمة والوجه: $days، ثم سيتوقف. تأكد من أنك تتذكر كلمة المرور الرئيسية. إذا نسيتها، فعيّن كلمة جديدة ببصمتك من الإعدادات عبر «تغيير كلمة المرور الرئيسية».';
+    return 'المدة المتبقية للفتح بالبصمة: $days، ثم سيتوقف. تأكد من أنك تتذكر كلمة المرور الرئيسية. إذا نسيتها، فعيّن كلمة جديدة ببصمتك من الإعدادات عبر «تغيير كلمة المرور الرئيسية».';
   }
 
   @override
@@ -1136,7 +1136,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get proFeatFieldsDesc => 'أضف إلى العنصر أي حقل تحتاجه';
 
   @override
-  String get proFeatBio => 'الفتح بالبصمة والوجه';
+  String get proFeatBio => 'الفتح بالبصمة';
 
   @override
   String get proFeatBioDesc => 'افتح خزنتك بلمسة واحدة';
@@ -1240,4 +1240,18 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get totpInvalid =>
       'هذا المفتاح غير صالح. الصق مفتاح الإعداد الذي قدّمه الموقع.';
+
+  @override
+  String get qrScan => 'مسح رمز QR';
+
+  @override
+  String get qrScanHint =>
+      'وجّه الكاميرا إلى رمز QR الذي يعرضه الموقع عند إعداد التحقق بخطوتين.';
+
+  @override
+  String get qrNot2fa => 'رمز QR هذا ليس رمز إعداد للتحقق بخطوتين.';
+
+  @override
+  String get qrMigration =>
+      'هذا رمز نقل من Google Authenticator. امسح بدلًا منه رمز QR الخاص بإعداد كل موقع.';
 }

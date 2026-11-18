@@ -10,7 +10,7 @@ class AppLocalizationsPl extends AppLocalizations {
   AppLocalizationsPl([String locale = 'pl']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Banki';
@@ -116,7 +116,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get notNow => 'Nie teraz';
 
   @override
-  String get biometricReason => 'Odblokuj Muhur';
+  String get biometricReason => 'Odblokuj MÜHÜR';
 
   @override
   String get lockNow => 'Zablokuj';
@@ -387,11 +387,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get login => 'WEJDŹ';
 
   @override
-  String get infoTitle => 'O Muhur';
+  String get infoTitle => 'O MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur przechowuje Twoje hasła zaszyfrowane wyłącznie na tym urządzeniu. Bez konta i bez serwera.\n\nHasła głównego nie da się odzyskać. Jeśli je zapomnisz, Twoich danych nie będzie można otworzyć, dlatego trzymaj zaszyfrowaną kopię zapasową.';
+      'MÜHÜR przechowuje Twoje hasła zaszyfrowane wyłącznie na tym urządzeniu. Bez konta i bez serwera.\n\nHasła głównego nie da się odzyskać. Jeśli je zapomnisz, Twoich danych nie będzie można otworzyć, dlatego trzymaj zaszyfrowaną kopię zapasową.';
 
   @override
   String get understandNoRecovery =>
@@ -542,7 +542,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get backupWrongPassword => 'Nieprawidłowe hasło kopii';
 
   @override
-  String get backupInvalidFile => 'To nie jest prawidłowy plik kopii Muhur';
+  String get backupInvalidFile => 'To nie jest prawidłowy plik kopii MÜHÜR';
 
   @override
   String get backupReminderTitle => 'Przypomnienie o kopii';
@@ -857,7 +857,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Potwierdź odciskiem palca lub twarzą, aby ustawić nowe hasło główne. Twoje wpisy pozostaną bez zmian.';
+      'Potwierdź odciskiem palca, aby ustawić nowe hasło główne. Twoje wpisy pozostaną bez zmian.';
 
   @override
   String get bioConfirmFailed =>
@@ -954,7 +954,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• Sejf jest szyfrowany losowym kluczem 256-bitowym. Ten klucz jest pieczętowany algorytmem AES-256-GCM kluczem wyprowadzonym z hasła głównego za pomocą Argon2id (32 MiB pamięci, 3 przebiegi). Ustawienia wyprowadzania są powiązane z pieczęcią, więc każda manipulacja zostaje wykryta.\n• Baza danych jest szyfrowana przez SQLCipher; jej klucz powstaje z klucza sejfu za pomocą HKDF-SHA256.\n• Wrażliwe pola są dodatkowo szyfrowane AES-256-GCM i powiązane ze swoim wpisem i polem.\n• Po 5 błędnych hasłach aplikacja czeka 30 sekund, za każdym razem dwa razy dłużej, maksymalnie 1 godzinę. Zmiana zegara telefonu nie skraca oczekiwania.\n• Odblokowanie biometryczne akceptuje tylko silną biometrię (klasa 3) i wyłącza się po dodaniu nowego odcisku palca lub twarzy.\n• Zrzuty i nagrywanie ekranu są blokowane, sejf blokuje się po wyjściu z aplikacji, a skopiowane wartości są oznaczane jako wrażliwe i automatycznie usuwane.';
+      '• Sejf jest szyfrowany losowym kluczem 256-bitowym. Ten klucz jest pieczętowany algorytmem AES-256-GCM kluczem wyprowadzonym z hasła głównego za pomocą Argon2id (32 MiB pamięci, 3 przebiegi). Ustawienia wyprowadzania są powiązane z pieczęcią, więc każda manipulacja zostaje wykryta.\n• Baza danych jest szyfrowana przez SQLCipher; jej klucz powstaje z klucza sejfu za pomocą HKDF-SHA256.\n• Wrażliwe pola są dodatkowo szyfrowane AES-256-GCM i powiązane ze swoim wpisem i polem.\n• Po 5 błędnych hasłach aplikacja czeka 30 sekund, za każdym razem dwa razy dłużej, maksymalnie 1 godzinę. Zmiana zegara telefonu nie skraca oczekiwania.\n• Odblokowanie biometryczne akceptuje tylko silną biometrię (klasa 3) i wyłącza się po dodaniu nowego odcisku palca lub twarzy. Na większości telefonów rozpoznawanie twarzy nie osiąga tego poziomu, więc zwykle można użyć tylko odcisku palca.\n• Zrzuty i nagrywanie ekranu są blokowane, sejf blokuje się po wyjściu z aplikacji, a skopiowane wartości są oznaczane jako wrażliwe i automatycznie usuwane.';
 
   @override
   String get aboutOfflineTech =>
@@ -1015,7 +1015,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get how7B =>
-      'Sejf blokuje się, gdy tylko wyjdziesz z aplikacji. Włącz biometrię, aby otwierać go odciskiem palca lub twarzą.';
+      'Sejf blokuje się, gdy tylko wyjdziesz z aplikacji. Włącz biometrię, aby otwierać go odciskiem palca (lub twarzą na obsługiwanych telefonach).';
 
   @override
   String get storyBody =>
@@ -1027,7 +1027,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Pierwsza wersja.\n• Zaszyfrowany sejf na telefonie, otwierany hasłem głównym (Argon2id + AES-256).\n• Gotowe pola dla banków, stron, poczty, mediów społecznościowych i kont firmowych.\n• Generator haseł ze wskaźnikiem siły.\n• Skanowanie IBAN i tekstu aparatem.\n• Odblokowanie odciskiem palca i twarzą.\n• Zaszyfrowana kopia zapasowa i przywracanie.\n• Eksport do Excela (bez szyfrowania, na własną odpowiedzialność).\n• Kosz z automatycznym czyszczeniem.\n• Podsumowanie sejfu z powtórzonymi hasłami.\n• Automatyczna blokada, ochrona ekranu i odliczanie schowka.\n• Działa całkowicie offline.\n• 18 języków.';
+      '• Pierwsza wersja.\n• Zaszyfrowany sejf na telefonie, otwierany hasłem głównym (Argon2id + AES-256).\n• Gotowe pola dla banków, stron, poczty, mediów społecznościowych i kont firmowych.\n• Generator haseł ze wskaźnikiem siły.\n• Skanowanie IBAN i tekstu aparatem.\n• Odblokowanie odciskiem palca (i twarzą na obsługiwanych telefonach).\n• Zaszyfrowana kopia zapasowa i przywracanie.\n• Eksport do Excela (bez szyfrowania, na własną odpowiedzialność).\n• Kosz z automatycznym czyszczeniem.\n• Podsumowanie sejfu z powtórzonymi hasłami.\n• Automatyczna blokada, ochrona ekranu i odliczanie schowka.\n• Działa całkowicie offline.\n• 18 języków.';
 
   @override
   String get excelExport => 'Eksportuj do Excela';
@@ -1076,7 +1076,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Odblokowanie odciskiem palca lub twarzą to funkcja Pro. Zawsze możesz odblokować hasłem głównym.';
+      'Odblokowanie odciskiem palca to funkcja Pro. Zawsze możesz odblokować hasłem głównym.';
 
   @override
   String get proBackgroundsBody =>
@@ -1084,7 +1084,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Odblokowanie odciskiem palca i twarzą pozostanie włączone jeszcze przez $days, a potem się wyłączy. Upewnij się, że pamiętasz hasło główne. Jeśli go nie pamiętasz, ustaw nowe odciskiem palca w Ustawieniach, w „Zmień hasło główne”.';
+    return 'Odblokowanie odciskiem palca pozostanie włączone jeszcze przez $days, a potem się wyłączy. Upewnij się, że pamiętasz hasło główne. Jeśli go nie pamiętasz, ustaw nowe odciskiem palca w Ustawieniach, w „Zmień hasło główne”.';
   }
 
   @override
@@ -1132,7 +1132,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get proFeatFieldsDesc => 'Dodaj do wpisu każde potrzebne pole';
 
   @override
-  String get proFeatBio => 'Odblokowanie odciskiem palca i twarzą';
+  String get proFeatBio => 'Odblokowanie odciskiem palca';
 
   @override
   String get proFeatBioDesc => 'Otwieraj sejf jednym dotknięciem';
@@ -1240,4 +1240,18 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Ten klucz jest nieprawidłowy. Wklej klucz konfiguracyjny podany przez stronę.';
+
+  @override
+  String get qrScan => 'Zeskanuj kod QR';
+
+  @override
+  String get qrScanHint =>
+      'Skieruj aparat na kod QR wyświetlany przez stronę podczas konfiguracji weryfikacji dwuetapowej.';
+
+  @override
+  String get qrNot2fa => 'Ten kod QR nie jest kodem konfiguracji 2FA.';
+
+  @override
+  String get qrMigration =>
+      'To kod przenoszenia z Google Authenticator. Zamiast tego zeskanuj konfiguracyjny kod QR każdej strony.';
 }

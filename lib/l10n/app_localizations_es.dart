@@ -10,7 +10,7 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Bancos';
@@ -117,7 +117,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get notNow => 'Ahora no';
 
   @override
-  String get biometricReason => 'Desbloquear Muhur';
+  String get biometricReason => 'Desbloquear MÜHÜR';
 
   @override
   String get lockNow => 'Bloquear';
@@ -382,11 +382,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get login => 'ENTRAR';
 
   @override
-  String get infoTitle => 'Acerca de Muhur';
+  String get infoTitle => 'Acerca de MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur guarda tus contraseñas cifradas solo en este dispositivo. No hay cuenta ni servidor.\n\nTu contraseña maestra no se puede recuperar. Si la olvidas, tus datos no podrán abrirse, así que guarda una copia de seguridad cifrada.';
+      'MÜHÜR guarda tus contraseñas cifradas solo en este dispositivo. No hay cuenta ni servidor.\n\nTu contraseña maestra no se puede recuperar. Si la olvidas, tus datos no podrán abrirse, así que guarda una copia de seguridad cifrada.';
 
   @override
   String get understandNoRecovery =>
@@ -539,7 +539,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get backupInvalidFile =>
-      'Este no es un archivo de copia de Muhur válido';
+      'Este no es un archivo de copia de MÜHÜR válido';
 
   @override
   String get backupReminderTitle => 'Recordatorio de copia';
@@ -845,7 +845,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Confirma con tu huella o tu cara para crear una nueva contraseña maestra. Tus entradas no cambian.';
+      'Confirma con tu huella para crear una nueva contraseña maestra. Tus entradas no cambian.';
 
   @override
   String get bioConfirmFailed =>
@@ -943,7 +943,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• La bóveda se cifra con una clave aleatoria de 256 bits. Esa clave se sella con AES-256-GCM usando una clave derivada de tu contraseña maestra con Argon2id (32 MiB de memoria, 3 pasadas). Los ajustes de derivación van ligados al sello, así que cualquier manipulación se detecta.\n• La base de datos se cifra con SQLCipher; su clave se deriva de la clave de la bóveda con HKDF-SHA256.\n• Los campos sensibles se cifran de nuevo con AES-256-GCM y quedan ligados a su entrada y su campo.\n• Tras 5 contraseñas incorrectas, la app espera 30 segundos y duplica la espera cada vez, hasta 1 hora. Cambiar la hora del teléfono no acorta la espera.\n• El desbloqueo biométrico solo acepta biometría fuerte (clase 3) y se desactiva si se añade una huella o una cara nueva.\n• Se bloquean las capturas y grabaciones de pantalla, la bóveda se bloquea al salir de la app y los valores copiados se marcan como sensibles y se borran solos.';
+      '• La bóveda se cifra con una clave aleatoria de 256 bits. Esa clave se sella con AES-256-GCM usando una clave derivada de tu contraseña maestra con Argon2id (32 MiB de memoria, 3 pasadas). Los ajustes de derivación van ligados al sello, así que cualquier manipulación se detecta.\n• La base de datos se cifra con SQLCipher; su clave se deriva de la clave de la bóveda con HKDF-SHA256.\n• Los campos sensibles se cifran de nuevo con AES-256-GCM y quedan ligados a su entrada y su campo.\n• Tras 5 contraseñas incorrectas, la app espera 30 segundos y duplica la espera cada vez, hasta 1 hora. Cambiar la hora del teléfono no acorta la espera.\n• El desbloqueo biométrico solo acepta biometría fuerte (clase 3) y se desactiva si se añade una huella o una cara nueva. En la mayoría de los teléfonos el reconocimiento facial no alcanza este nivel, por lo que normalmente solo se puede usar la huella.\n• Se bloquean las capturas y grabaciones de pantalla, la bóveda se bloquea al salir de la app y los valores copiados se marcan como sensibles y se borran solos.';
 
   @override
   String get aboutOfflineTech =>
@@ -1004,7 +1004,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get how7B =>
-      'La bóveda se bloquea sola al salir de la app. Activa la biometría para abrirla con tu huella o tu cara.';
+      'La bóveda se bloquea sola al salir de la app. Activa la biometría para abrirla con tu huella (o con tu cara en los teléfonos compatibles).';
 
   @override
   String get storyBody =>
@@ -1016,7 +1016,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Primera versión.\n• Bóveda cifrada en el teléfono, abierta con una contraseña maestra (Argon2id + AES-256).\n• Campos listos para bancos, sitios web, correo, redes sociales y cuentas de trabajo.\n• Generador de contraseñas con indicador de seguridad.\n• Escaneo de IBAN y texto con la cámara.\n• Desbloqueo con huella y cara.\n• Copia de seguridad y restauración cifradas.\n• Exportación a Excel (sin cifrar, bajo tu responsabilidad).\n• Papelera con limpieza automática.\n• Resumen de la bóveda con las contraseñas repetidas.\n• Bloqueo automático, protección de pantalla y cuenta atrás del portapapeles.\n• Funciona totalmente sin conexión.\n• 18 idiomas.';
+      '• Primera versión.\n• Bóveda cifrada en el teléfono, abierta con una contraseña maestra (Argon2id + AES-256).\n• Campos listos para bancos, sitios web, correo, redes sociales y cuentas de trabajo.\n• Generador de contraseñas con indicador de seguridad.\n• Escaneo de IBAN y texto con la cámara.\n• Desbloqueo con huella (y cara en teléfonos compatibles).\n• Copia de seguridad y restauración cifradas.\n• Exportación a Excel (sin cifrar, bajo tu responsabilidad).\n• Papelera con limpieza automática.\n• Resumen de la bóveda con las contraseñas repetidas.\n• Bloqueo automático, protección de pantalla y cuenta atrás del portapapeles.\n• Funciona totalmente sin conexión.\n• 18 idiomas.';
 
   @override
   String get excelExport => 'Exportar a Excel';
@@ -1065,7 +1065,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Desbloquear con huella o cara es una función Pro. Siempre puedes desbloquear con tu contraseña maestra.';
+      'Desbloquear con huella es una función Pro. Siempre puedes desbloquear con tu contraseña maestra.';
 
   @override
   String get proBackgroundsBody =>
@@ -1073,7 +1073,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'El desbloqueo con huella y cara seguirá activo $days más y luego se desactivará. Asegúrate de recordar tu contraseña maestra. Si la olvidaste, crea una nueva con tu huella en Ajustes, en «Cambiar contraseña maestra».';
+    return 'El desbloqueo con huella seguirá activo $days más y luego se desactivará. Asegúrate de recordar tu contraseña maestra. Si la olvidaste, crea una nueva con tu huella en Ajustes, en «Cambiar contraseña maestra».';
   }
 
   @override
@@ -1122,7 +1122,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Añade a una entrada todos los campos que necesites';
 
   @override
-  String get proFeatBio => 'Desbloqueo con huella y cara';
+  String get proFeatBio => 'Desbloqueo con huella';
 
   @override
   String get proFeatBioDesc => 'Abre tu bóveda con un toque';
@@ -1231,4 +1231,18 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Esta clave no es válida. Pega la clave de configuración que te dio el sitio.';
+
+  @override
+  String get qrScan => 'Escanear código QR';
+
+  @override
+  String get qrScanHint =>
+      'Apunta la cámara al código QR que muestra el sitio al configurar la verificación en dos pasos.';
+
+  @override
+  String get qrNot2fa => 'Este código QR no es un código de configuración 2FA.';
+
+  @override
+  String get qrMigration =>
+      'Este es un código de transferencia de Google Authenticator. Escanea en su lugar el código QR de configuración de cada sitio.';
 }

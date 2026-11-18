@@ -10,7 +10,7 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Banques';
@@ -118,7 +118,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get notNow => 'Plus tard';
 
   @override
-  String get biometricReason => 'Déverrouiller Muhur';
+  String get biometricReason => 'Déverrouiller MÜHÜR';
 
   @override
   String get lockNow => 'Verrouiller';
@@ -383,11 +383,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get login => 'ENTRER';
 
   @override
-  String get infoTitle => 'À propos de Muhur';
+  String get infoTitle => 'À propos de MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur conserve vos mots de passe chiffrés uniquement sur cet appareil. Pas de compte, pas de serveur.\n\nVotre mot de passe principal est irrécupérable. Si vous l\'oubliez, vos données ne pourront pas être ouvertes : gardez donc une sauvegarde chiffrée.';
+      'MÜHÜR conserve vos mots de passe chiffrés uniquement sur cet appareil. Pas de compte, pas de serveur.\n\nVotre mot de passe principal est irrécupérable. Si vous l\'oubliez, vos données ne pourront pas être ouvertes : gardez donc une sauvegarde chiffrée.';
 
   @override
   String get understandNoRecovery =>
@@ -540,7 +540,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get backupInvalidFile =>
-      'Ce n\'est pas un fichier de sauvegarde Muhur valide';
+      'Ce n\'est pas un fichier de sauvegarde MÜHÜR valide';
 
   @override
   String get backupReminderTitle => 'Rappel de sauvegarde';
@@ -847,7 +847,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Confirmez avec votre empreinte ou votre visage pour définir un nouveau mot de passe principal. Vos entrées restent intactes.';
+      'Confirmez avec votre empreinte pour définir un nouveau mot de passe principal. Vos entrées restent intactes.';
 
   @override
   String get bioConfirmFailed => 'Confirmation biométrique échouée ou annulée.';
@@ -944,7 +944,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• Le coffre est chiffré avec une clé aléatoire de 256 bits. Cette clé est scellée en AES-256-GCM avec une clé dérivée de votre mot de passe principal par Argon2id (32 Mio de mémoire, 3 passes). Les paramètres de dérivation sont liés au sceau : toute modification est détectée.\n• La base de données est chiffrée avec SQLCipher ; sa clé est dérivée de la clé du coffre par HKDF-SHA256.\n• Les champs sensibles sont chiffrés une seconde fois en AES-256-GCM et liés à leur entrée et à leur champ.\n• Après 5 mots de passe erronés, l\'application attend 30 secondes, puis deux fois plus à chaque fois, jusqu\'à 1 heure. Changer l\'heure du téléphone ne raccourcit pas l\'attente.\n• Le déverrouillage biométrique n\'accepte que la biométrie forte (classe 3) et se désactive si une nouvelle empreinte ou un nouveau visage est ajouté.\n• Les captures et enregistrements d\'écran sont bloqués, le coffre se verrouille quand vous quittez l\'application, et les valeurs copiées sont marquées comme sensibles puis effacées automatiquement.';
+      '• Le coffre est chiffré avec une clé aléatoire de 256 bits. Cette clé est scellée en AES-256-GCM avec une clé dérivée de votre mot de passe principal par Argon2id (32 Mio de mémoire, 3 passes). Les paramètres de dérivation sont liés au sceau : toute modification est détectée.\n• La base de données est chiffrée avec SQLCipher ; sa clé est dérivée de la clé du coffre par HKDF-SHA256.\n• Les champs sensibles sont chiffrés une seconde fois en AES-256-GCM et liés à leur entrée et à leur champ.\n• Après 5 mots de passe erronés, l\'application attend 30 secondes, puis deux fois plus à chaque fois, jusqu\'à 1 heure. Changer l\'heure du téléphone ne raccourcit pas l\'attente.\n• Le déverrouillage biométrique n\'accepte que la biométrie forte (classe 3) et se désactive si une nouvelle empreinte ou un nouveau visage est ajouté. Sur la plupart des téléphones, la reconnaissance faciale n\'atteint pas ce niveau ; seule l\'empreinte est donc généralement utilisable.\n• Les captures et enregistrements d\'écran sont bloqués, le coffre se verrouille quand vous quittez l\'application, et les valeurs copiées sont marquées comme sensibles puis effacées automatiquement.';
 
   @override
   String get aboutOfflineTech =>
@@ -1005,7 +1005,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get how7B =>
-      'Le coffre se verrouille dès que vous quittez l\'application. Activez la biométrie pour l\'ouvrir avec votre empreinte ou votre visage.';
+      'Le coffre se verrouille dès que vous quittez l\'application. Activez la biométrie pour l\'ouvrir avec votre empreinte (ou votre visage sur les téléphones compatibles).';
 
   @override
   String get storyBody =>
@@ -1017,7 +1017,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Première version.\n• Coffre chiffré sur le téléphone, ouvert avec un mot de passe principal (Argon2id + AES-256).\n• Champs prêts à l\'emploi pour banques, sites web, e-mail, réseaux sociaux et comptes professionnels.\n• Générateur de mots de passe avec indicateur de robustesse.\n• Scan d\'IBAN et de texte avec la caméra.\n• Déverrouillage par empreinte et visage.\n• Sauvegarde et restauration chiffrées.\n• Export vers Excel (non chiffré, sous votre responsabilité).\n• Corbeille avec nettoyage automatique.\n• Résumé du coffre indiquant les mots de passe réutilisés.\n• Verrouillage automatique, protection d\'écran et compte à rebours du presse-papiers.\n• Fonctionne entièrement hors ligne.\n• 18 langues.';
+      '• Première version.\n• Coffre chiffré sur le téléphone, ouvert avec un mot de passe principal (Argon2id + AES-256).\n• Champs prêts à l\'emploi pour banques, sites web, e-mail, réseaux sociaux et comptes professionnels.\n• Générateur de mots de passe avec indicateur de robustesse.\n• Scan d\'IBAN et de texte avec la caméra.\n• Déverrouillage par empreinte (et visage sur les téléphones compatibles).\n• Sauvegarde et restauration chiffrées.\n• Export vers Excel (non chiffré, sous votre responsabilité).\n• Corbeille avec nettoyage automatique.\n• Résumé du coffre indiquant les mots de passe réutilisés.\n• Verrouillage automatique, protection d\'écran et compte à rebours du presse-papiers.\n• Fonctionne entièrement hors ligne.\n• 18 langues.';
 
   @override
   String get excelExport => 'Exporter vers Excel';
@@ -1066,7 +1066,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Le déverrouillage par empreinte ou par visage est une fonction Pro. Vous pouvez toujours déverrouiller avec votre mot de passe principal.';
+      'Le déverrouillage par empreinte est une fonction Pro. Vous pouvez toujours déverrouiller avec votre mot de passe principal.';
 
   @override
   String get proBackgroundsBody =>
@@ -1074,7 +1074,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Le déverrouillage par empreinte et par visage reste actif encore $days, puis se désactive. Assurez-vous de connaître votre mot de passe principal. Si vous l\'avez oublié, définissez-en un nouveau avec votre empreinte dans Réglages, via « Changer le mot de passe principal ».';
+    return 'Le déverrouillage par empreinte reste actif encore $days, puis se désactive. Assurez-vous de connaître votre mot de passe principal. Si vous l\'avez oublié, définissez-en un nouveau avec votre empreinte dans Réglages, via « Changer le mot de passe principal ».';
   }
 
   @override
@@ -1123,7 +1123,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Ajoutez à une entrée tous les champs nécessaires';
 
   @override
-  String get proFeatBio => 'Déverrouillage par empreinte et visage';
+  String get proFeatBio => 'Déverrouillage par empreinte';
 
   @override
   String get proFeatBioDesc => 'Ouvrez votre coffre d\'un simple geste';
@@ -1231,4 +1231,18 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Cette clé n\'est pas valide. Collez la clé de configuration fournie par le site.';
+
+  @override
+  String get qrScan => 'Scanner un code QR';
+
+  @override
+  String get qrScanHint =>
+      'Dirigez la caméra vers le code QR affiché par le site lors de la configuration de la validation en deux étapes.';
+
+  @override
+  String get qrNot2fa => 'Ce code QR n\'est pas un code de configuration 2FA.';
+
+  @override
+  String get qrMigration =>
+      'Il s\'agit d\'un code de transfert Google Authenticator. Scannez plutôt le code QR de configuration de chaque site.';
 }

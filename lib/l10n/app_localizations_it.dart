@@ -10,7 +10,7 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Banche';
@@ -118,7 +118,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get notNow => 'Non ora';
 
   @override
-  String get biometricReason => 'Sblocca Muhur';
+  String get biometricReason => 'Sblocca MÜHÜR';
 
   @override
   String get lockNow => 'Blocca';
@@ -383,11 +383,11 @@ class AppLocalizationsIt extends AppLocalizations {
   String get login => 'ENTRA';
 
   @override
-  String get infoTitle => 'Info su Muhur';
+  String get infoTitle => 'Info su MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur conserva le tue password cifrate solo su questo dispositivo. Nessun account, nessun server.\n\nLa password principale non può essere recuperata. Se la dimentichi, i tuoi dati non potranno essere aperti: conserva quindi un backup cifrato.';
+      'MÜHÜR conserva le tue password cifrate solo su questo dispositivo. Nessun account, nessun server.\n\nLa password principale non può essere recuperata. Se la dimentichi, i tuoi dati non potranno essere aperti: conserva quindi un backup cifrato.';
 
   @override
   String get understandNoRecovery =>
@@ -539,7 +539,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get backupWrongPassword => 'Password del backup errata';
 
   @override
-  String get backupInvalidFile => 'Questo non è un file di backup Muhur valido';
+  String get backupInvalidFile => 'Questo non è un file di backup MÜHÜR valido';
 
   @override
   String get backupReminderTitle => 'Promemoria backup';
@@ -845,7 +845,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Conferma con impronta o volto per impostare una nuova password principale. Le tue voci restano invariate.';
+      'Conferma con l\'impronta per impostare una nuova password principale. Le tue voci restano invariate.';
 
   @override
   String get bioConfirmFailed =>
@@ -943,7 +943,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• La cassaforte è cifrata con una chiave casuale a 256 bit. Questa chiave è sigillata con AES-256-GCM usando una chiave derivata dalla password principale con Argon2id (32 MiB di memoria, 3 passaggi). I parametri di derivazione sono legati al sigillo: ogni manomissione viene rilevata.\n• Il database è cifrato con SQLCipher; la sua chiave deriva da quella della cassaforte tramite HKDF-SHA256.\n• I campi sensibili sono cifrati una seconda volta con AES-256-GCM e legati alla loro voce e al loro campo.\n• Dopo 5 password errate l\'app attende 30 secondi, raddoppiando ogni volta fino a 1 ora. Cambiare l\'ora del telefono non accorcia l\'attesa.\n• Lo sblocco biometrico accetta solo biometria forte (classe 3) e si disattiva se viene aggiunta una nuova impronta o un nuovo volto.\n• Screenshot e registrazioni dello schermo sono bloccati, la cassaforte si blocca quando esci dall\'app e i valori copiati sono contrassegnati come sensibili e cancellati automaticamente.';
+      '• La cassaforte è cifrata con una chiave casuale a 256 bit. Questa chiave è sigillata con AES-256-GCM usando una chiave derivata dalla password principale con Argon2id (32 MiB di memoria, 3 passaggi). I parametri di derivazione sono legati al sigillo: ogni manomissione viene rilevata.\n• Il database è cifrato con SQLCipher; la sua chiave deriva da quella della cassaforte tramite HKDF-SHA256.\n• I campi sensibili sono cifrati una seconda volta con AES-256-GCM e legati alla loro voce e al loro campo.\n• Dopo 5 password errate l\'app attende 30 secondi, raddoppiando ogni volta fino a 1 ora. Cambiare l\'ora del telefono non accorcia l\'attesa.\n• Lo sblocco biometrico accetta solo biometria forte (classe 3) e si disattiva se viene aggiunta una nuova impronta o un nuovo volto. Sulla maggior parte dei telefoni il riconoscimento del volto non raggiunge questo livello, quindi di solito si può usare solo l\'impronta.\n• Screenshot e registrazioni dello schermo sono bloccati, la cassaforte si blocca quando esci dall\'app e i valori copiati sono contrassegnati come sensibili e cancellati automaticamente.';
 
   @override
   String get aboutOfflineTech =>
@@ -1004,7 +1004,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get how7B =>
-      'La cassaforte si blocca appena esci dall\'app. Attiva la biometria per aprirla con l\'impronta o il volto.';
+      'La cassaforte si blocca appena esci dall\'app. Attiva la biometria per aprirla con l\'impronta (o con il volto sui telefoni compatibili).';
 
   @override
   String get storyBody =>
@@ -1016,7 +1016,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Prima versione.\n• Cassaforte cifrata sul telefono, aperta con una password principale (Argon2id + AES-256).\n• Campi pronti per banche, siti web, email, social e account di lavoro.\n• Generatore di password con indicatore di robustezza.\n• Scansione di IBAN e testo con la fotocamera.\n• Sblocco con impronta e volto.\n• Backup e ripristino cifrati.\n• Esportazione in Excel (non cifrata, sotto la tua responsabilità).\n• Cestino con pulizia automatica.\n• Riepilogo della cassaforte con le password riutilizzate.\n• Blocco automatico, protezione dello schermo e conto alla rovescia degli appunti.\n• Funziona completamente offline.\n• 18 lingue.';
+      '• Prima versione.\n• Cassaforte cifrata sul telefono, aperta con una password principale (Argon2id + AES-256).\n• Campi pronti per banche, siti web, email, social e account di lavoro.\n• Generatore di password con indicatore di robustezza.\n• Scansione di IBAN e testo con la fotocamera.\n• Sblocco con impronta (e volto sui telefoni compatibili).\n• Backup e ripristino cifrati.\n• Esportazione in Excel (non cifrata, sotto la tua responsabilità).\n• Cestino con pulizia automatica.\n• Riepilogo della cassaforte con le password riutilizzate.\n• Blocco automatico, protezione dello schermo e conto alla rovescia degli appunti.\n• Funziona completamente offline.\n• 18 lingue.';
 
   @override
   String get excelExport => 'Esporta in Excel';
@@ -1065,7 +1065,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Lo sblocco con impronta o volto è una funzione Pro. Puoi sempre sbloccare con la password principale.';
+      'Lo sblocco con impronta è una funzione Pro. Puoi sempre sbloccare con la password principale.';
 
   @override
   String get proBackgroundsBody =>
@@ -1073,7 +1073,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Lo sblocco con impronta e volto resta attivo ancora per $days, poi si disattiva. Assicurati di ricordare la password principale. Se l\'hai dimenticata, impostane una nuova con l\'impronta in Impostazioni, da «Cambia password principale».';
+    return 'Lo sblocco con impronta resta attivo ancora per $days, poi si disattiva. Assicurati di ricordare la password principale. Se l\'hai dimenticata, impostane una nuova con l\'impronta in Impostazioni, da «Cambia password principale».';
   }
 
   @override
@@ -1122,7 +1122,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Aggiungi a una voce tutti i campi che ti servono';
 
   @override
-  String get proFeatBio => 'Sblocco con impronta e volto';
+  String get proFeatBio => 'Sblocco con impronta';
 
   @override
   String get proFeatBioDesc => 'Apri la cassaforte con un tocco';
@@ -1230,4 +1230,19 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Questa chiave non è valida. Incolla la chiave di configurazione fornita dal sito.';
+
+  @override
+  String get qrScan => 'Scansiona codice QR';
+
+  @override
+  String get qrScanHint =>
+      'Inquadra il codice QR che il sito mostra quando configuri la verifica in due passaggi.';
+
+  @override
+  String get qrNot2fa =>
+      'Questo codice QR non è un codice di configurazione 2FA.';
+
+  @override
+  String get qrMigration =>
+      'Questo è un codice di trasferimento di Google Authenticator. Scansiona invece il codice QR di configurazione di ciascun sito.';
 }

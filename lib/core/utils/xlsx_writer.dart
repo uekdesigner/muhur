@@ -20,7 +20,8 @@ class XlsxSheet {
 class XlsxWriter {
   const XlsxWriter._();
 
-  static const _xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+  static const _xml =
+      '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
   static const _ns = 'http://schemas.openxmlformats.org';
 
   static Uint8List build(List<XlsxSheet> sheets, {bool rtl = false}) {
@@ -143,7 +144,9 @@ class XlsxWriter {
       b.write('<cols>');
       for (var i = 0; i < s.header.length; i++) {
         final w = i < s.widths.length ? s.widths[i] : XlsxSheet.defaultWidth;
-        b.write('<col min="${i + 1}" max="${i + 1}" width="$w" customWidth="1"/>');
+        b.write(
+          '<col min="${i + 1}" max="${i + 1}" width="$w" customWidth="1"/>',
+        );
       }
       b.write('</cols>');
     }

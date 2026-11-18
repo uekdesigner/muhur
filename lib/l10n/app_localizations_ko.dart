@@ -10,7 +10,7 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => '은행';
@@ -114,7 +114,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get notNow => '나중에';
 
   @override
-  String get biometricReason => 'Muhur 잠금 해제';
+  String get biometricReason => 'MÜHÜR 잠금 해제';
 
   @override
   String get lockNow => '잠금';
@@ -371,11 +371,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get login => '열기';
 
   @override
-  String get infoTitle => 'Muhur 정보';
+  String get infoTitle => 'MÜHÜR 정보';
 
   @override
   String get infoBody =>
-      'Muhur는 비밀번호를 암호화하여 이 기기에만 저장합니다. 계정도 서버도 없습니다.\n\n마스터 비밀번호는 복구할 수 없습니다. 잊어버리면 데이터를 열 수 없으니 암호화된 백업을 보관하세요.';
+      'MÜHÜR는 비밀번호를 암호화하여 이 기기에만 저장합니다. 계정도 서버도 없습니다.\n\n마스터 비밀번호는 복구할 수 없습니다. 잊어버리면 데이터를 열 수 없으니 암호화된 백업을 보관하세요.';
 
   @override
   String get understandNoRecovery => '잊어버린 마스터 비밀번호는 복구할 수 없다는 것을 이해합니다.';
@@ -518,7 +518,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get backupWrongPassword => '백업 비밀번호가 틀렸습니다';
 
   @override
-  String get backupInvalidFile => '올바른 Muhur 백업 파일이 아닙니다';
+  String get backupInvalidFile => '올바른 MÜHÜR 백업 파일이 아닙니다';
 
   @override
   String get backupReminderTitle => '백업 알림';
@@ -806,7 +806,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      '지문이나 얼굴로 확인하면 새 마스터 비밀번호를 설정할 수 있습니다. 항목은 그대로 유지됩니다.';
+      '지문으로 확인하면 새 마스터 비밀번호를 설정할 수 있습니다. 항목은 그대로 유지됩니다.';
 
   @override
   String get bioConfirmFailed => '생체 인식 확인에 실패했거나 취소되었습니다.';
@@ -902,7 +902,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• 보관함은 무작위로 생성한 256비트 키로 암호화됩니다. 이 키는 마스터 비밀번호에서 Argon2id(메모리 32 MiB, 3회)로 만든 키를 사용해 AES-256-GCM으로 봉인됩니다. 키 생성 설정이 봉인에 묶여 있어 변조가 감지됩니다.\n• 데이터베이스는 SQLCipher로 암호화되며, 그 키는 보관함 키에서 HKDF-SHA256으로 생성됩니다.\n• 민감한 필드는 AES-256-GCM으로 한 번 더 암호화되고 해당 항목과 필드에 묶입니다.\n• 비밀번호를 5번 틀리면 30초를 기다려야 하며, 매번 두 배씩 늘어나 최대 1시간까지 기다립니다. 휴대폰 시계를 바꿔도 대기 시간은 줄지 않습니다.\n• 생체 인식 잠금 해제는 강력한 생체 인식(클래스 3)만 허용하며, 새 지문이나 얼굴을 등록하면 꺼집니다.\n• 스크린샷과 화면 녹화가 차단되고, 앱을 벗어나면 보관함이 잠기며, 복사한 값은 민감 정보로 표시되어 자동으로 지워집니다.';
+      '• 보관함은 무작위로 생성한 256비트 키로 암호화됩니다. 이 키는 마스터 비밀번호에서 Argon2id(메모리 32 MiB, 3회)로 만든 키를 사용해 AES-256-GCM으로 봉인됩니다. 키 생성 설정이 봉인에 묶여 있어 변조가 감지됩니다.\n• 데이터베이스는 SQLCipher로 암호화되며, 그 키는 보관함 키에서 HKDF-SHA256으로 생성됩니다.\n• 민감한 필드는 AES-256-GCM으로 한 번 더 암호화되고 해당 항목과 필드에 묶입니다.\n• 비밀번호를 5번 틀리면 30초를 기다려야 하며, 매번 두 배씩 늘어나 최대 1시간까지 기다립니다. 휴대폰 시계를 바꿔도 대기 시간은 줄지 않습니다.\n• 생체 인식 잠금 해제는 강력한 생체 인식(클래스 3)만 허용하며, 새 지문이나 얼굴을 등록하면 꺼집니다. 대부분의 휴대폰에서는 얼굴 인식이 이 수준에 미치지 못하므로 보통 지문만 사용할 수 있습니다.\n• 스크린샷과 화면 녹화가 차단되고, 앱을 벗어나면 보관함이 잠기며, 복사한 값은 민감 정보로 표시되어 자동으로 지워집니다.';
 
   @override
   String get aboutOfflineTech =>
@@ -962,7 +962,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get how7T => '잠금과 생체 인식';
 
   @override
-  String get how7B => '앱을 벗어나면 보관함이 자동으로 잠깁니다. 생체 인식을 켜면 지문이나 얼굴로 열 수 있습니다.';
+  String get how7B =>
+      '앱을 벗어나면 보관함이 자동으로 잠깁니다. 생체 인식을 켜면 지문으로 열 수 있습니다(지원되는 휴대폰에서는 얼굴로도 가능).';
 
   @override
   String get storyBody =>
@@ -974,7 +975,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• 첫 번째 버전입니다.\n• 마스터 비밀번호로 여는 휴대폰 속 암호화 보관함(Argon2id + AES-256).\n• 은행, 웹사이트, 이메일, SNS, 업무 계정을 위한 기본 필드.\n• 강도 표시가 있는 비밀번호 생성기.\n• 카메라로 IBAN과 텍스트 스캔.\n• 지문과 얼굴로 잠금 해제.\n• 암호화 백업과 복원.\n• Excel로 내보내기(암호화 없음, 사용자 책임).\n• 자동으로 정리되는 휴지통.\n• 재사용된 비밀번호를 보여 주는 보관함 요약.\n• 자동 잠금, 화면 보호, 클립보드 카운트다운.\n• 완전한 오프라인 동작.\n• 18개 언어 지원.';
+      '• 첫 번째 버전입니다.\n• 마스터 비밀번호로 여는 휴대폰 속 암호화 보관함(Argon2id + AES-256).\n• 은행, 웹사이트, 이메일, SNS, 업무 계정을 위한 기본 필드.\n• 강도 표시가 있는 비밀번호 생성기.\n• 카메라로 IBAN과 텍스트 스캔.\n• 지문으로 잠금 해제(지원되는 휴대폰에서는 얼굴도).\n• 암호화 백업과 복원.\n• Excel로 내보내기(암호화 없음, 사용자 책임).\n• 자동으로 정리되는 휴지통.\n• 재사용된 비밀번호를 보여 주는 보관함 요약.\n• 자동 잠금, 화면 보호, 클립보드 카운트다운.\n• 완전한 오프라인 동작.\n• 18개 언어 지원.';
 
   @override
   String get excelExport => 'Excel로 내보내기';
@@ -1020,14 +1021,14 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      '지문이나 얼굴로 잠금 해제하는 것은 Pro 기능입니다. 마스터 비밀번호로는 언제든지 잠금 해제할 수 있습니다.';
+      '지문으로 잠금 해제하는 것은 Pro 기능입니다. 마스터 비밀번호로는 언제든지 잠금 해제할 수 있습니다.';
 
   @override
   String get proBackgroundsBody => '추가 배경은 Pro 기능입니다. 기본 배경은 언제든지 사용할 수 있습니다.';
 
   @override
   String bioGraceWarn(String days) {
-    return '지문 및 얼굴 잠금 해제는 앞으로 $days 동안 켜져 있다가 꺼집니다. 마스터 비밀번호를 기억하고 있는지 확인하세요. 잊어버렸다면 설정의 \'마스터 비밀번호 변경\'에서 지문으로 새 비밀번호를 설정하세요.';
+    return '지문 잠금 해제는 앞으로 $days 동안 켜져 있다가 꺼집니다. 마스터 비밀번호를 기억하고 있는지 확인하세요. 잊어버렸다면 설정의 \'마스터 비밀번호 변경\'에서 지문으로 새 비밀번호를 설정하세요.';
   }
 
   @override
@@ -1075,7 +1076,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get proFeatFieldsDesc => '항목에 필요한 필드를 모두 추가하세요';
 
   @override
-  String get proFeatBio => '지문 및 얼굴 잠금 해제';
+  String get proFeatBio => '지문 잠금 해제';
 
   @override
   String get proFeatBioDesc => '한 번의 터치로 보관함 열기';
@@ -1174,4 +1175,17 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get totpInvalid => '유효하지 않은 키입니다. 사이트에서 받은 설정 키를 붙여 넣으세요.';
+
+  @override
+  String get qrScan => 'QR 코드 스캔';
+
+  @override
+  String get qrScanHint => '2단계 인증을 설정할 때 사이트에 표시되는 QR 코드에 카메라를 맞추세요.';
+
+  @override
+  String get qrNot2fa => '이 QR 코드는 2FA 설정 코드가 아닙니다.';
+
+  @override
+  String get qrMigration =>
+      'Google Authenticator 내보내기 코드입니다. 대신 각 사이트의 설정 QR 코드를 스캔하세요.';
 }

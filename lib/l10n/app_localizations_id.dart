@@ -10,7 +10,7 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Bank';
@@ -117,7 +117,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get notNow => 'Nanti saja';
 
   @override
-  String get biometricReason => 'Buka kunci Muhur';
+  String get biometricReason => 'Buka kunci MÜHÜR';
 
   @override
   String get lockNow => 'Kunci';
@@ -378,11 +378,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get login => 'MASUK';
 
   @override
-  String get infoTitle => 'Tentang Muhur';
+  String get infoTitle => 'Tentang MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur menyimpan kata sandi Anda secara terenkripsi hanya di perangkat ini. Tidak ada akun dan tidak ada server.\n\nKata sandi utama Anda tidak bisa dipulihkan. Jika lupa, data Anda tidak bisa dibuka, jadi simpan cadangan terenkripsi.';
+      'MÜHÜR menyimpan kata sandi Anda secara terenkripsi hanya di perangkat ini. Tidak ada akun dan tidak ada server.\n\nKata sandi utama Anda tidak bisa dipulihkan. Jika lupa, data Anda tidak bisa dibuka, jadi simpan cadangan terenkripsi.';
 
   @override
   String get understandNoRecovery =>
@@ -533,7 +533,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get backupWrongPassword => 'Kata sandi cadangan salah';
 
   @override
-  String get backupInvalidFile => 'Ini bukan file cadangan Muhur yang valid';
+  String get backupInvalidFile => 'Ini bukan file cadangan MÜHÜR yang valid';
 
   @override
   String get backupReminderTitle => 'Pengingat cadangan';
@@ -831,7 +831,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Konfirmasi dengan sidik jari atau wajah untuk menetapkan kata sandi utama baru. Entri Anda tetap seperti semula.';
+      'Konfirmasi dengan sidik jari untuk menetapkan kata sandi utama baru. Entri Anda tetap seperti semula.';
 
   @override
   String get bioConfirmFailed => 'Konfirmasi biometrik gagal atau dibatalkan.';
@@ -927,7 +927,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• Brankas dienkripsi dengan kunci acak 256-bit. Kunci itu disegel dengan AES-256-GCM menggunakan kunci yang diturunkan dari kata sandi utama Anda dengan Argon2id (memori 32 MiB, 3 putaran). Pengaturan penurunan kunci terikat pada segel, sehingga setiap perubahan terdeteksi.\n• Basis data dienkripsi dengan SQLCipher; kuncinya diturunkan dari kunci brankas dengan HKDF-SHA256.\n• Kolom sensitif dienkripsi lagi dengan AES-256-GCM dan terikat pada entri dan kolomnya.\n• Setelah 5 kata sandi salah, aplikasi menunggu 30 detik, berlipat dua setiap kali, hingga 1 jam. Mengubah jam ponsel tidak memperpendek waktu tunggu.\n• Buka kunci biometrik hanya menerima biometrik kuat (Kelas 3) dan mati sendiri jika sidik jari atau wajah baru ditambahkan.\n• Tangkapan dan rekaman layar diblokir, brankas terkunci saat Anda meninggalkan aplikasi, dan nilai yang disalin ditandai sensitif lalu dihapus otomatis.';
+      '• Brankas dienkripsi dengan kunci acak 256-bit. Kunci itu disegel dengan AES-256-GCM menggunakan kunci yang diturunkan dari kata sandi utama Anda dengan Argon2id (memori 32 MiB, 3 putaran). Pengaturan penurunan kunci terikat pada segel, sehingga setiap perubahan terdeteksi.\n• Basis data dienkripsi dengan SQLCipher; kuncinya diturunkan dari kunci brankas dengan HKDF-SHA256.\n• Kolom sensitif dienkripsi lagi dengan AES-256-GCM dan terikat pada entri dan kolomnya.\n• Setelah 5 kata sandi salah, aplikasi menunggu 30 detik, berlipat dua setiap kali, hingga 1 jam. Mengubah jam ponsel tidak memperpendek waktu tunggu.\n• Buka kunci biometrik hanya menerima biometrik kuat (Kelas 3) dan mati sendiri jika sidik jari atau wajah baru ditambahkan. Di sebagian besar ponsel, pengenalan wajah tidak mencapai tingkat ini, jadi biasanya hanya sidik jari yang bisa digunakan.\n• Tangkapan dan rekaman layar diblokir, brankas terkunci saat Anda meninggalkan aplikasi, dan nilai yang disalin ditandai sensitif lalu dihapus otomatis.';
 
   @override
   String get aboutOfflineTech =>
@@ -988,7 +988,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get how7B =>
-      'Brankas terkunci otomatis saat Anda meninggalkan aplikasi. Aktifkan biometrik untuk membukanya dengan sidik jari atau wajah.';
+      'Brankas terkunci otomatis saat Anda meninggalkan aplikasi. Aktifkan biometrik untuk membukanya dengan sidik jari (atau wajah di ponsel yang mendukung).';
 
   @override
   String get storyBody =>
@@ -1000,7 +1000,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Rilis pertama.\n• Brankas terenkripsi di ponsel yang dibuka dengan kata sandi utama (Argon2id + AES-256).\n• Kolom siap pakai untuk bank, situs web, email, media sosial, dan akun kerja.\n• Pembuat kata sandi dengan indikator kekuatan.\n• Pindai IBAN dan teks dengan kamera.\n• Buka kunci dengan sidik jari dan wajah.\n• Cadangan dan pemulihan terenkripsi.\n• Ekspor ke Excel (tanpa enkripsi, tanggung jawab Anda).\n• Sampah yang dibersihkan otomatis.\n• Ringkasan brankas yang menunjukkan kata sandi yang dipakai ulang.\n• Kunci otomatis, perlindungan layar, dan hitung mundur papan klip.\n• Berfungsi sepenuhnya offline.\n• 18 bahasa.';
+      '• Rilis pertama.\n• Brankas terenkripsi di ponsel yang dibuka dengan kata sandi utama (Argon2id + AES-256).\n• Kolom siap pakai untuk bank, situs web, email, media sosial, dan akun kerja.\n• Pembuat kata sandi dengan indikator kekuatan.\n• Pindai IBAN dan teks dengan kamera.\n• Buka kunci dengan sidik jari (dan wajah di ponsel yang mendukung).\n• Cadangan dan pemulihan terenkripsi.\n• Ekspor ke Excel (tanpa enkripsi, tanggung jawab Anda).\n• Sampah yang dibersihkan otomatis.\n• Ringkasan brankas yang menunjukkan kata sandi yang dipakai ulang.\n• Kunci otomatis, perlindungan layar, dan hitung mundur papan klip.\n• Berfungsi sepenuhnya offline.\n• 18 bahasa.';
 
   @override
   String get excelExport => 'Ekspor ke Excel';
@@ -1049,7 +1049,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Buka kunci dengan sidik jari atau wajah adalah fitur Pro. Anda selalu bisa membuka kunci dengan kata sandi utama.';
+      'Buka kunci dengan sidik jari adalah fitur Pro. Anda selalu bisa membuka kunci dengan kata sandi utama.';
 
   @override
   String get proBackgroundsBody =>
@@ -1057,7 +1057,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Buka kunci dengan sidik jari dan wajah tetap aktif $days lagi, lalu dimatikan. Pastikan Anda ingat kata sandi utama. Jika lupa, buat kata sandi baru dengan sidik jari melalui \"Ubah kata sandi utama\" di Pengaturan.';
+    return 'Buka kunci dengan sidik jari tetap aktif $days lagi, lalu dimatikan. Pastikan Anda ingat kata sandi utama. Jika lupa, buat kata sandi baru dengan sidik jari melalui \"Ubah kata sandi utama\" di Pengaturan.';
   }
 
   @override
@@ -1105,7 +1105,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get proFeatFieldsDesc => 'Tambahkan kolom apa pun yang Anda perlukan';
 
   @override
-  String get proFeatBio => 'Buka kunci dengan sidik jari dan wajah';
+  String get proFeatBio => 'Buka kunci dengan sidik jari';
 
   @override
   String get proFeatBioDesc => 'Buka brankas dengan satu sentuhan';
@@ -1213,4 +1213,18 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Kunci ini tidak valid. Tempel kunci penyiapan dari situs.';
+
+  @override
+  String get qrScan => 'Pindai kode QR';
+
+  @override
+  String get qrScanHint =>
+      'Arahkan kamera ke kode QR yang ditampilkan situs saat Anda menyiapkan verifikasi dua langkah.';
+
+  @override
+  String get qrNot2fa => 'Kode QR ini bukan kode penyiapan 2FA.';
+
+  @override
+  String get qrMigration =>
+      'Ini adalah kode transfer Google Authenticator. Pindai kode QR penyiapan dari masing-masing situs.';
 }

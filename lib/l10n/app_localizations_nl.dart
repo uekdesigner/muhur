@@ -10,7 +10,7 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Banken';
@@ -118,7 +118,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get notNow => 'Niet nu';
 
   @override
-  String get biometricReason => 'Muhur ontgrendelen';
+  String get biometricReason => 'MÜHÜR ontgrendelen';
 
   @override
   String get lockNow => 'Vergrendel';
@@ -383,11 +383,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get login => 'OPENEN';
 
   @override
-  String get infoTitle => 'Over Muhur';
+  String get infoTitle => 'Over MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur bewaart je wachtwoorden versleuteld, alleen op dit apparaat. Er is geen account en geen server.\n\nJe hoofdwachtwoord kan niet worden hersteld. Als je het vergeet, kunnen je gegevens niet worden geopend, dus bewaar een versleutelde back-up.';
+      'MÜHÜR bewaart je wachtwoorden versleuteld, alleen op dit apparaat. Er is geen account en geen server.\n\nJe hoofdwachtwoord kan niet worden hersteld. Als je het vergeet, kunnen je gegevens niet worden geopend, dus bewaar een versleutelde back-up.';
 
   @override
   String get understandNoRecovery =>
@@ -538,7 +538,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get backupWrongPassword => 'Onjuist back-upwachtwoord';
 
   @override
-  String get backupInvalidFile => 'Dit is geen geldig Muhur-back-upbestand';
+  String get backupInvalidFile => 'Dit is geen geldig MÜHÜR-back-upbestand';
 
   @override
   String get backupReminderTitle => 'Back-upherinnering';
@@ -845,7 +845,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Bevestig met je vingerafdruk of gezicht om een nieuw hoofdwachtwoord in te stellen. Je items blijven zoals ze zijn.';
+      'Bevestig met je vingerafdruk om een nieuw hoofdwachtwoord in te stellen. Je items blijven zoals ze zijn.';
 
   @override
   String get bioConfirmFailed =>
@@ -943,7 +943,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• De kluis wordt versleuteld met een willekeurige sleutel van 256 bits. Die sleutel wordt verzegeld met AES-256-GCM, met een sleutel die met Argon2id (32 MiB geheugen, 3 rondes) uit je hoofdwachtwoord wordt afgeleid. De afleidingsinstellingen zijn aan het zegel gekoppeld, dus knoeien wordt opgemerkt.\n• De database is versleuteld met SQLCipher; de sleutel wordt met HKDF-SHA256 uit de kluissleutel afgeleid.\n• Gevoelige velden worden nogmaals versleuteld met AES-256-GCM en gekoppeld aan hun item en veld.\n• Na 5 verkeerde wachtwoorden wacht de app 30 seconden, telkens het dubbele, tot maximaal 1 uur. De klok van de telefoon verzetten maakt het wachten niet korter.\n• Biometrisch ontgrendelen accepteert alleen sterke biometrie (klasse 3) en schakelt zichzelf uit als er een nieuwe vingerafdruk of een nieuw gezicht wordt toegevoegd.\n• Screenshots en schermopnames worden geblokkeerd, de kluis vergrendelt zodra je de app verlaat, en gekopieerde waarden worden als gevoelig gemarkeerd en automatisch gewist.';
+      '• De kluis wordt versleuteld met een willekeurige sleutel van 256 bits. Die sleutel wordt verzegeld met AES-256-GCM, met een sleutel die met Argon2id (32 MiB geheugen, 3 rondes) uit je hoofdwachtwoord wordt afgeleid. De afleidingsinstellingen zijn aan het zegel gekoppeld, dus knoeien wordt opgemerkt.\n• De database is versleuteld met SQLCipher; de sleutel wordt met HKDF-SHA256 uit de kluissleutel afgeleid.\n• Gevoelige velden worden nogmaals versleuteld met AES-256-GCM en gekoppeld aan hun item en veld.\n• Na 5 verkeerde wachtwoorden wacht de app 30 seconden, telkens het dubbele, tot maximaal 1 uur. De klok van de telefoon verzetten maakt het wachten niet korter.\n• Biometrisch ontgrendelen accepteert alleen sterke biometrie (klasse 3) en schakelt zichzelf uit als er een nieuwe vingerafdruk of een nieuw gezicht wordt toegevoegd. Op de meeste telefoons haalt gezichtsherkenning dit niveau niet, dus meestal kan alleen de vingerafdruk worden gebruikt.\n• Screenshots en schermopnames worden geblokkeerd, de kluis vergrendelt zodra je de app verlaat, en gekopieerde waarden worden als gevoelig gemarkeerd en automatisch gewist.';
 
   @override
   String get aboutOfflineTech =>
@@ -1004,7 +1004,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get how7B =>
-      'De kluis vergrendelt zodra je de app verlaat. Zet biometrie aan om hem met je vingerafdruk of gezicht te openen.';
+      'De kluis vergrendelt zodra je de app verlaat. Zet biometrie aan om hem met je vingerafdruk te openen (of met je gezicht op telefoons die dat ondersteunen).';
 
   @override
   String get storyBody =>
@@ -1016,7 +1016,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Eerste versie.\n• Versleutelde kluis op de telefoon, geopend met een hoofdwachtwoord (Argon2id + AES-256).\n• Kant-en-klare velden voor banken, websites, e-mail, sociale media en zakelijke accounts.\n• Wachtwoordgenerator met sterkte-indicator.\n• IBAN\'s en tekst scannen met de camera.\n• Ontgrendelen met vingerafdruk en gezicht.\n• Versleutelde back-up en herstel.\n• Exporteren naar Excel (onversleuteld, op eigen verantwoordelijkheid).\n• Prullenbak die zichzelf opruimt.\n• Kluisoverzicht met hergebruikte wachtwoorden.\n• Automatische vergrendeling, schermbeveiliging en aftellen van het klembord.\n• Werkt volledig offline.\n• 18 talen.';
+      '• Eerste versie.\n• Versleutelde kluis op de telefoon, geopend met een hoofdwachtwoord (Argon2id + AES-256).\n• Kant-en-klare velden voor banken, websites, e-mail, sociale media en zakelijke accounts.\n• Wachtwoordgenerator met sterkte-indicator.\n• IBAN\'s en tekst scannen met de camera.\n• Ontgrendelen met vingerafdruk (en gezicht op ondersteunde telefoons).\n• Versleutelde back-up en herstel.\n• Exporteren naar Excel (onversleuteld, op eigen verantwoordelijkheid).\n• Prullenbak die zichzelf opruimt.\n• Kluisoverzicht met hergebruikte wachtwoorden.\n• Automatische vergrendeling, schermbeveiliging en aftellen van het klembord.\n• Werkt volledig offline.\n• 18 talen.';
 
   @override
   String get excelExport => 'Exporteren naar Excel';
@@ -1065,7 +1065,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Ontgrendelen met vingerafdruk of gezicht is een Pro-functie. Je kunt altijd ontgrendelen met je hoofdwachtwoord.';
+      'Ontgrendelen met vingerafdruk is een Pro-functie. Je kunt altijd ontgrendelen met je hoofdwachtwoord.';
 
   @override
   String get proBackgroundsBody =>
@@ -1073,7 +1073,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Ontgrendelen met vingerafdruk en gezicht blijft nog $days aan en wordt daarna uitgeschakeld. Zorg dat je je hoofdwachtwoord weet. Ben je het vergeten, stel dan met je vingerafdruk een nieuw in via \'Hoofdwachtwoord wijzigen\' in Instellingen.';
+    return 'Ontgrendelen met vingerafdruk blijft nog $days aan en wordt daarna uitgeschakeld. Zorg dat je je hoofdwachtwoord weet. Ben je het vergeten, stel dan met je vingerafdruk een nieuw in via \'Hoofdwachtwoord wijzigen\' in Instellingen.';
   }
 
   @override
@@ -1121,7 +1121,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get proFeatFieldsDesc => 'Voeg elk veld toe dat je nodig hebt';
 
   @override
-  String get proFeatBio => 'Ontgrendelen met vingerafdruk en gezicht';
+  String get proFeatBio => 'Ontgrendelen met vingerafdruk';
 
   @override
   String get proFeatBioDesc => 'Open je kluis met één aanraking';
@@ -1228,4 +1228,18 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Deze sleutel is ongeldig. Plak de instelsleutel van de website.';
+
+  @override
+  String get qrScan => 'QR-code scannen';
+
+  @override
+  String get qrScanHint =>
+      'Richt de camera op de QR-code die de site toont bij het instellen van tweestapsverificatie.';
+
+  @override
+  String get qrNot2fa => 'Deze QR-code is geen 2FA-instelcode.';
+
+  @override
+  String get qrMigration =>
+      'Dit is een overdrachtscode van Google Authenticator. Scan in plaats daarvan de instel-QR-code van elke site.';
 }

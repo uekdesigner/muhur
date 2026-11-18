@@ -348,7 +348,7 @@ class AuthService {
       aOptions: AndroidOptions.biometric(
         enforceBiometrics: true,
         requireBiometricsPerOperation: true,
-        biometricPromptTitle: reason ?? 'Mühür',
+        biometricPromptTitle: reason ?? 'MÜHÜR',
         storageNamespace: 'bs$n',
         biometricType: AndroidBiometricType.strongBiometricOnly,
         biometricPromptNegativeButton: bioCancelLabel,

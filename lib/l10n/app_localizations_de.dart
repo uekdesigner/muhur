@@ -10,7 +10,7 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Banken';
@@ -118,7 +118,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get notNow => 'Später';
 
   @override
-  String get biometricReason => 'Muhur entsperren';
+  String get biometricReason => 'MÜHÜR entsperren';
 
   @override
   String get lockNow => 'Sperren';
@@ -383,11 +383,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get login => 'ÖFFNEN';
 
   @override
-  String get infoTitle => 'Über Muhur';
+  String get infoTitle => 'Über MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur speichert deine Passwörter verschlüsselt nur auf diesem Gerät. Es gibt kein Konto und keinen Server.\n\nDein Master-Passwort kann nicht wiederhergestellt werden. Wenn du es vergisst, lassen sich deine Daten nicht öffnen – bewahre daher ein verschlüsseltes Backup auf.';
+      'MÜHÜR speichert deine Passwörter verschlüsselt nur auf diesem Gerät. Es gibt kein Konto und keinen Server.\n\nDein Master-Passwort kann nicht wiederhergestellt werden. Wenn du es vergisst, lassen sich deine Daten nicht öffnen – bewahre daher ein verschlüsseltes Backup auf.';
 
   @override
   String get understandNoRecovery =>
@@ -538,7 +538,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get backupWrongPassword => 'Falsches Backup-Passwort';
 
   @override
-  String get backupInvalidFile => 'Das ist keine gültige Muhur-Backup-Datei';
+  String get backupInvalidFile => 'Das ist keine gültige MÜHÜR-Backup-Datei';
 
   @override
   String get backupReminderTitle => 'Backup-Erinnerung';
@@ -845,7 +845,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Bestätige mit Fingerabdruck oder Gesicht, um ein neues Master-Passwort festzulegen. Deine Einträge bleiben erhalten.';
+      'Bestätige mit deinem Fingerabdruck, um ein neues Master-Passwort festzulegen. Deine Einträge bleiben erhalten.';
 
   @override
   String get bioConfirmFailed =>
@@ -943,7 +943,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• Der Tresor wird mit einem zufälligen 256-Bit-Schlüssel verschlüsselt. Dieser Schlüssel wird mit AES-256-GCM versiegelt – mit einem Schlüssel, der per Argon2id (32 MiB Speicher, 3 Durchläufe) aus deinem Master-Passwort abgeleitet wird. Die Ableitungseinstellungen sind an das Siegel gebunden, Manipulationen werden erkannt.\n• Die Datenbank ist mit SQLCipher verschlüsselt; ihr Schlüssel wird per HKDF-SHA256 aus dem Tresorschlüssel abgeleitet.\n• Sensible Felder werden zusätzlich mit AES-256-GCM verschlüsselt und an ihren Eintrag und ihr Feld gebunden.\n• Nach 5 falschen Passwörtern wartet die App 30 Sekunden, jedes Mal doppelt so lange, bis höchstens 1 Stunde. Das Verstellen der Uhr verkürzt die Wartezeit nicht.\n• Biometrisches Entsperren akzeptiert nur starke Biometrie (Klasse 3) und schaltet sich aus, wenn ein neuer Fingerabdruck oder ein neues Gesicht hinzukommt.\n• Screenshots und Bildschirmaufnahmen werden blockiert, der Tresor sperrt sich beim Verlassen der App, und kopierte Werte werden als sensibel markiert und automatisch gelöscht.';
+      '• Der Tresor wird mit einem zufälligen 256-Bit-Schlüssel verschlüsselt. Dieser Schlüssel wird mit AES-256-GCM versiegelt – mit einem Schlüssel, der per Argon2id (32 MiB Speicher, 3 Durchläufe) aus deinem Master-Passwort abgeleitet wird. Die Ableitungseinstellungen sind an das Siegel gebunden, Manipulationen werden erkannt.\n• Die Datenbank ist mit SQLCipher verschlüsselt; ihr Schlüssel wird per HKDF-SHA256 aus dem Tresorschlüssel abgeleitet.\n• Sensible Felder werden zusätzlich mit AES-256-GCM verschlüsselt und an ihren Eintrag und ihr Feld gebunden.\n• Nach 5 falschen Passwörtern wartet die App 30 Sekunden, jedes Mal doppelt so lange, bis höchstens 1 Stunde. Das Verstellen der Uhr verkürzt die Wartezeit nicht.\n• Biometrisches Entsperren akzeptiert nur starke Biometrie (Klasse 3) und schaltet sich aus, wenn ein neuer Fingerabdruck oder ein neues Gesicht hinzukommt. Auf den meisten Handys erreicht die Gesichtserkennung diese Stufe nicht, daher ist meist nur der Fingerabdruck nutzbar.\n• Screenshots und Bildschirmaufnahmen werden blockiert, der Tresor sperrt sich beim Verlassen der App, und kopierte Werte werden als sensibel markiert und automatisch gelöscht.';
 
   @override
   String get aboutOfflineTech =>
@@ -1004,7 +1004,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get how7B =>
-      'Der Tresor sperrt sich, sobald du die App verlässt. Mit Biometrie öffnest du ihn per Fingerabdruck oder Gesicht.';
+      'Der Tresor sperrt sich, sobald du die App verlässt. Mit Biometrie öffnest du ihn per Fingerabdruck (auf unterstützten Handys auch per Gesicht).';
 
   @override
   String get storyBody =>
@@ -1016,7 +1016,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Erste Version.\n• Verschlüsselter Tresor auf dem Telefon, geöffnet mit einem Master-Passwort (Argon2id + AES-256).\n• Fertige Felder für Banken, Websites, E-Mail, soziale Medien und geschäftliche Konten.\n• Passwortgenerator mit Stärkeanzeige.\n• Scannen von IBANs und Text mit der Kamera.\n• Entsperren per Fingerabdruck und Gesicht.\n• Verschlüsseltes Backup und Wiederherstellung.\n• Export nach Excel (unverschlüsselt, auf eigene Verantwortung).\n• Papierkorb mit automatischer Bereinigung.\n• Tresor-Übersicht mit mehrfach verwendeten Passwörtern.\n• Automatische Sperre, Bildschirmschutz und Countdown für die Zwischenablage.\n• Funktioniert komplett offline.\n• 18 Sprachen.';
+      '• Erste Version.\n• Verschlüsselter Tresor auf dem Telefon, geöffnet mit einem Master-Passwort (Argon2id + AES-256).\n• Fertige Felder für Banken, Websites, E-Mail, soziale Medien und geschäftliche Konten.\n• Passwortgenerator mit Stärkeanzeige.\n• Scannen von IBANs und Text mit der Kamera.\n• Entsperren per Fingerabdruck (auf unterstützten Handys auch per Gesicht).\n• Verschlüsseltes Backup und Wiederherstellung.\n• Export nach Excel (unverschlüsselt, auf eigene Verantwortung).\n• Papierkorb mit automatischer Bereinigung.\n• Tresor-Übersicht mit mehrfach verwendeten Passwörtern.\n• Automatische Sperre, Bildschirmschutz und Countdown für die Zwischenablage.\n• Funktioniert komplett offline.\n• 18 Sprachen.';
 
   @override
   String get excelExport => 'Nach Excel exportieren';
@@ -1066,7 +1066,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Entsperren per Fingerabdruck oder Gesicht ist eine Pro-Funktion. Mit deinem Master-Passwort kannst du jederzeit entsperren.';
+      'Entsperren per Fingerabdruck ist eine Pro-Funktion. Mit deinem Master-Passwort kannst du jederzeit entsperren.';
 
   @override
   String get proBackgroundsBody =>
@@ -1074,7 +1074,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Entsperren per Fingerabdruck und Gesicht bleibt noch $days aktiv und wird dann ausgeschaltet. Achte darauf, dass du dein Master-Passwort kennst. Falls du es vergessen hast, lege in den Einstellungen unter „Master-Passwort ändern“ mit deinem Fingerabdruck ein neues fest.';
+    return 'Entsperren per Fingerabdruck bleibt noch $days aktiv und wird dann ausgeschaltet. Achte darauf, dass du dein Master-Passwort kennst. Falls du es vergessen hast, lege in den Einstellungen unter „Master-Passwort ändern“ mit deinem Fingerabdruck ein neues fest.';
   }
 
   @override
@@ -1123,7 +1123,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Füge einem Eintrag jedes Feld hinzu, das du brauchst';
 
   @override
-  String get proFeatBio => 'Entsperren per Fingerabdruck und Gesicht';
+  String get proFeatBio => 'Entsperren per Fingerabdruck';
 
   @override
   String get proFeatBioDesc => 'Öffne deinen Tresor mit einer Berührung';
@@ -1231,4 +1231,18 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Dieser Schlüssel ist ungültig. Füge den Einrichtungsschlüssel der Website ein.';
+
+  @override
+  String get qrScan => 'QR-Code scannen';
+
+  @override
+  String get qrScanHint =>
+      'Richte die Kamera auf den QR-Code, den die Website beim Einrichten der Zwei-Faktor-Authentifizierung anzeigt.';
+
+  @override
+  String get qrNot2fa => 'Dieser QR-Code ist kein 2FA-Einrichtungscode.';
+
+  @override
+  String get qrMigration =>
+      'Das ist ein Übertragungscode von Google Authenticator. Scanne stattdessen den Einrichtungs-QR-Code der jeweiligen Website.';
 }

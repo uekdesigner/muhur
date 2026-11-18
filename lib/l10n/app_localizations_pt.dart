@@ -10,7 +10,7 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Bancos';
@@ -117,7 +117,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get notNow => 'Agora não';
 
   @override
-  String get biometricReason => 'Desbloquear o Muhur';
+  String get biometricReason => 'Desbloquear o MÜHÜR';
 
   @override
   String get lockNow => 'Bloquear';
@@ -382,11 +382,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get login => 'ENTRAR';
 
   @override
-  String get infoTitle => 'Sobre o Muhur';
+  String get infoTitle => 'Sobre o MÜHÜR';
 
   @override
   String get infoBody =>
-      'O Muhur guarda suas senhas criptografadas somente neste dispositivo. Não há conta nem servidor.\n\nSua senha mestra não pode ser recuperada. Se você esquecê-la, seus dados não poderão ser abertos, então mantenha um backup criptografado.';
+      'O MÜHÜR guarda suas senhas criptografadas somente neste dispositivo. Não há conta nem servidor.\n\nSua senha mestra não pode ser recuperada. Se você esquecê-la, seus dados não poderão ser abertos, então mantenha um backup criptografado.';
 
   @override
   String get understandNoRecovery =>
@@ -539,7 +539,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get backupInvalidFile =>
-      'Este não é um arquivo de backup válido do Muhur';
+      'Este não é um arquivo de backup válido do MÜHÜR';
 
   @override
   String get backupReminderTitle => 'Lembrete de backup';
@@ -845,7 +845,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Confirme com sua digital ou seu rosto para definir uma nova senha mestra. Seus itens continuam como estão.';
+      'Confirme com sua digital para definir uma nova senha mestra. Seus itens continuam como estão.';
 
   @override
   String get bioConfirmFailed =>
@@ -943,7 +943,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• O cofre é criptografado com uma chave aleatória de 256 bits. Essa chave é selada com AES-256-GCM usando uma chave derivada da sua senha mestra com Argon2id (32 MiB de memória, 3 passagens). As configurações de derivação ficam ligadas ao selo, então qualquer adulteração é detectada.\n• O banco de dados é criptografado com SQLCipher; a chave dele é derivada da chave do cofre com HKDF-SHA256.\n• Campos sensíveis são criptografados de novo com AES-256-GCM e ligados ao seu item e campo.\n• Depois de 5 senhas erradas, o app espera 30 segundos, dobrando a cada vez, até 1 hora. Mudar o relógio do celular não encurta a espera.\n• O desbloqueio biométrico só aceita biometria forte (classe 3) e é desativado se uma nova digital ou um novo rosto for cadastrado.\n• Capturas e gravações de tela são bloqueadas, o cofre é bloqueado quando você sai do app e os valores copiados são marcados como sensíveis e apagados automaticamente.';
+      '• O cofre é criptografado com uma chave aleatória de 256 bits. Essa chave é selada com AES-256-GCM usando uma chave derivada da sua senha mestra com Argon2id (32 MiB de memória, 3 passagens). As configurações de derivação ficam ligadas ao selo, então qualquer adulteração é detectada.\n• O banco de dados é criptografado com SQLCipher; a chave dele é derivada da chave do cofre com HKDF-SHA256.\n• Campos sensíveis são criptografados de novo com AES-256-GCM e ligados ao seu item e campo.\n• Depois de 5 senhas erradas, o app espera 30 segundos, dobrando a cada vez, até 1 hora. Mudar o relógio do celular não encurta a espera.\n• O desbloqueio biométrico só aceita biometria forte (classe 3) e é desativado se uma nova digital ou um novo rosto for cadastrado. Na maioria dos celulares, o reconhecimento facial não atinge esse nível, por isso normalmente só a digital pode ser usada.\n• Capturas e gravações de tela são bloqueadas, o cofre é bloqueado quando você sai do app e os valores copiados são marcados como sensíveis e apagados automaticamente.';
 
   @override
   String get aboutOfflineTech =>
@@ -1004,7 +1004,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get how7B =>
-      'O cofre é bloqueado assim que você sai do app. Ative a biometria para abri-lo com a digital ou o rosto.';
+      'O cofre é bloqueado assim que você sai do app. Ative a biometria para abri-lo com a digital (ou com o rosto nos celulares compatíveis).';
 
   @override
   String get storyBody =>
@@ -1016,7 +1016,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Primeira versão.\n• Cofre criptografado no celular, aberto com uma senha mestra (Argon2id + AES-256).\n• Campos prontos para bancos, sites, e-mail, redes sociais e contas de trabalho.\n• Gerador de senhas com indicador de força.\n• Leitura de IBAN e texto com a câmera.\n• Desbloqueio com digital e rosto.\n• Backup e restauração criptografados.\n• Exportação para Excel (sem criptografia, sob sua responsabilidade).\n• Lixeira com limpeza automática.\n• Resumo do cofre mostrando senhas repetidas.\n• Bloqueio automático, proteção de tela e contagem regressiva da área de transferência.\n• Funciona totalmente offline.\n• 18 idiomas.';
+      '• Primeira versão.\n• Cofre criptografado no celular, aberto com uma senha mestra (Argon2id + AES-256).\n• Campos prontos para bancos, sites, e-mail, redes sociais e contas de trabalho.\n• Gerador de senhas com indicador de força.\n• Leitura de IBAN e texto com a câmera.\n• Desbloqueio com digital (e rosto nos celulares compatíveis).\n• Backup e restauração criptografados.\n• Exportação para Excel (sem criptografia, sob sua responsabilidade).\n• Lixeira com limpeza automática.\n• Resumo do cofre mostrando senhas repetidas.\n• Bloqueio automático, proteção de tela e contagem regressiva da área de transferência.\n• Funciona totalmente offline.\n• 18 idiomas.';
 
   @override
   String get excelExport => 'Exportar para Excel';
@@ -1065,7 +1065,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Desbloquear com digital ou rosto é um recurso Pro. Você sempre pode desbloquear com a senha mestra.';
+      'Desbloquear com digital é um recurso Pro. Você sempre pode desbloquear com a senha mestra.';
 
   @override
   String get proBackgroundsBody =>
@@ -1073,7 +1073,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'O desbloqueio com digital e rosto continua ativo por mais $days e depois é desativado. Confira se você lembra da sua senha mestra. Se esqueceu, crie uma nova com a digital em Configurações, em \"Alterar senha mestra\".';
+    return 'O desbloqueio com digital continua ativo por mais $days e depois é desativado. Confira se você lembra da sua senha mestra. Se esqueceu, crie uma nova com a digital em Configurações, em \"Alterar senha mestra\".';
   }
 
   @override
@@ -1122,7 +1122,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Adicione a um item todos os campos de que precisar';
 
   @override
-  String get proFeatBio => 'Desbloqueio com digital e rosto';
+  String get proFeatBio => 'Desbloqueio com digital';
 
   @override
   String get proFeatBioDesc => 'Abra seu cofre com um toque';
@@ -1230,4 +1230,18 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Esta chave não é válida. Cole a chave de configuração fornecida pelo site.';
+
+  @override
+  String get qrScan => 'Escanear código QR';
+
+  @override
+  String get qrScanHint =>
+      'Aponte a câmera para o código QR que o site mostra ao configurar a verificação em duas etapas.';
+
+  @override
+  String get qrNot2fa => 'Este código QR não é um código de configuração 2FA.';
+
+  @override
+  String get qrMigration =>
+      'Este é um código de transferência do Google Authenticator. Escaneie o código QR de configuração de cada site.';
 }

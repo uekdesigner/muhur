@@ -8,7 +8,7 @@ import '../../core/widgets/pro_badge.dart';
 import '../../l10n/app_localizations.dart';
 import '../password_gen/generator_settings.dart';
 import '../password_gen/password_generator.dart';
-
+import '../scanner/qr_scan_screen.dart';
 import '../scanner/scanner_screen.dart';
 import 'field_catalog.dart';
 import 'vault_models.dart';
@@ -706,6 +706,37 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
       );
   }
 
+  /// Tarayıcıyı açar; ücretsiz planda tarama hakkını denetler ve düşer.
+  Future<void> _scanInto(_FieldDraft d, Widget screen) async {
+    final t = AppLocalizations.of(context)!;
+    final pro = Entitlements.instance.isPro;
+    if (!pro &&
+        await AppSettings.instance.scanTrialsUsed() >=
+            Entitlements.freeScanTrials) {
+      if (mounted) {
+        await showProDialog(
+          context,
+          t.scanLimitTitle,
+          t.scanLimitBody(Entitlements.freeScanTrials),
+        );
+      }
+      return;
+    }
+    if (!mounted) return;
+    final v = await Navigator.push<String>(
+      context,
+      MaterialPageRoute(builder: (_) => screen),
+    );
+    if (v == null || !mounted) return;
+    if (!pro) await AppSettings.instance.useScanTrial();
+    if (!mounted) return;
+    setState(() {
+      d.value.text = v;
+      // 2FA anahtarı gizli kalır; diğer taranan değerler görünür olur.
+      d.reveal = d.type != 'totp';
+    });
+  }
+
   Widget _fieldCard(AppLocalizations t, _FieldDraft d) {
     final masked = d.sensitive && !d.reveal;
     final isDate = d.type == 'date';
@@ -718,37 +749,12 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
           icon: const Icon(Icons.document_scanner),
           tooltip: t.scan,
           visualDensity: VisualDensity.compact,
-          onPressed: () async {
-            final pro = Entitlements.instance.isPro;
-            if (!pro &&
-                await AppSettings.instance.scanTrialsUsed() >=
-                    Entitlements.freeScanTrials) {
-              if (mounted) {
-                await showProDialog(
-                  context,
-                  t.scanLimitTitle,
-                  t.scanLimitBody(Entitlements.freeScanTrials),
-                );
-              }
-              return;
-            }
-            if (!mounted) return;
-            final v = await Navigator.push<String>(
-              context,
-              MaterialPageRoute(
-                builder: (_) => ScannerScreen(
-                  initialMode: d.scan == 'iban' ? ScanMode.iban : ScanMode.text,
-                ),
-              ),
-            );
-            if (v != null) {
-              if (!pro) await AppSettings.instance.useScanTrial();
-              setState(() {
-                d.value.text = v;
-                d.reveal = true;
-              });
-            }
-          },
+          onPressed: () => _scanInto(
+            d,
+            ScannerScreen(
+              initialMode: d.scan == 'iban' ? ScanMode.iban : ScanMode.text,
+            ),
+          ),
         ),
       if (isDate)
         IconButton(
@@ -763,6 +769,13 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
           tooltip: t.generate,
           visualDensity: VisualDensity.compact,
           onPressed: () => _quickGenerate(d),
+        )
+      else if (d.type == 'totp' && empty)
+        IconButton(
+          icon: Icon(Icons.qr_code_scanner, color: MuhurColors.bronzeLight),
+          tooltip: t.qrScan,
+          visualDensity: VisualDensity.compact,
+          onPressed: () => _scanInto(d, const QrScanScreen()),
         )
       else if (d.sensitive)
         IconButton(

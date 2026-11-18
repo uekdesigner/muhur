@@ -10,7 +10,7 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => 'Banker';
@@ -118,7 +118,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get notNow => 'Inte nu';
 
   @override
-  String get biometricReason => 'Lås upp Muhur';
+  String get biometricReason => 'Lås upp MÜHÜR';
 
   @override
   String get lockNow => 'Lås';
@@ -383,11 +383,11 @@ class AppLocalizationsSv extends AppLocalizations {
   String get login => 'ÖPPNA';
 
   @override
-  String get infoTitle => 'Om Muhur';
+  String get infoTitle => 'Om MÜHÜR';
 
   @override
   String get infoBody =>
-      'Muhur sparar dina lösenord krypterade, bara på den här enheten. Det finns inget konto och ingen server.\n\nDitt huvudlösenord kan inte återställas. Om du glömmer det kan dina data inte öppnas, så spara en krypterad backup.';
+      'MÜHÜR sparar dina lösenord krypterade, bara på den här enheten. Det finns inget konto och ingen server.\n\nDitt huvudlösenord kan inte återställas. Om du glömmer det kan dina data inte öppnas, så spara en krypterad backup.';
 
   @override
   String get understandNoRecovery =>
@@ -537,7 +537,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get backupWrongPassword => 'Fel backup-lösenord';
 
   @override
-  String get backupInvalidFile => 'Det här är ingen giltig Muhur-backupfil';
+  String get backupInvalidFile => 'Det här är ingen giltig MÜHÜR-backupfil';
 
   @override
   String get backupReminderTitle => 'Backup-påminnelse';
@@ -842,7 +842,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      'Bekräfta med fingeravtryck eller ansikte för att ange ett nytt huvudlösenord. Dina poster förblir som de är.';
+      'Bekräfta med fingeravtryck för att ange ett nytt huvudlösenord. Dina poster förblir som de är.';
 
   @override
   String get bioConfirmFailed =>
@@ -940,7 +940,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• Valvet krypteras med en slumpmässig 256-bitarsnyckel. Den nyckeln förseglas med AES-256-GCM med en nyckel som härleds från ditt huvudlösenord med Argon2id (32 MiB minne, 3 varv). Härledningsinställningarna är bundna till förseglingen, så manipulation upptäcks.\n• Databasen krypteras med SQLCipher; dess nyckel härleds från valvnyckeln med HKDF-SHA256.\n• Känsliga fält krypteras ytterligare med AES-256-GCM och knyts till sin post och sitt fält.\n• Efter 5 felaktiga lösenord väntar appen 30 sekunder, dubbelt så länge varje gång, upp till 1 timme. Att ändra telefonens klocka förkortar inte väntan.\n• Biometrisk upplåsning godtar bara stark biometri (klass 3) och stängs av om ett nytt fingeravtryck eller ansikte läggs till.\n• Skärmbilder och skärminspelning blockeras, valvet låses när du lämnar appen och kopierade värden markeras som känsliga och rensas automatiskt.';
+      '• Valvet krypteras med en slumpmässig 256-bitarsnyckel. Den nyckeln förseglas med AES-256-GCM med en nyckel som härleds från ditt huvudlösenord med Argon2id (32 MiB minne, 3 varv). Härledningsinställningarna är bundna till förseglingen, så manipulation upptäcks.\n• Databasen krypteras med SQLCipher; dess nyckel härleds från valvnyckeln med HKDF-SHA256.\n• Känsliga fält krypteras ytterligare med AES-256-GCM och knyts till sin post och sitt fält.\n• Efter 5 felaktiga lösenord väntar appen 30 sekunder, dubbelt så länge varje gång, upp till 1 timme. Att ändra telefonens klocka förkortar inte väntan.\n• Biometrisk upplåsning godtar bara stark biometri (klass 3) och stängs av om ett nytt fingeravtryck eller ansikte läggs till. På de flesta telefoner når ansiktsigenkänning inte den nivån, så oftast kan bara fingeravtrycket användas.\n• Skärmbilder och skärminspelning blockeras, valvet låses när du lämnar appen och kopierade värden markeras som känsliga och rensas automatiskt.';
 
   @override
   String get aboutOfflineTech =>
@@ -1001,7 +1001,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get how7B =>
-      'Valvet låses när du lämnar appen. Slå på biometri för att öppna det med fingeravtryck eller ansikte.';
+      'Valvet låses när du lämnar appen. Slå på biometri för att öppna det med fingeravtryck (eller ansikte på telefoner som stöder det).';
 
   @override
   String get storyBody =>
@@ -1013,7 +1013,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• Första versionen.\n• Krypterat valv på telefonen som öppnas med ett huvudlösenord (Argon2id + AES-256).\n• Färdiga fält för banker, webbplatser, e-post, sociala medier och jobbkonton.\n• Lösenordsgenerator med styrkeindikator.\n• Skanning av IBAN och text med kameran.\n• Upplåsning med fingeravtryck och ansikte.\n• Krypterad backup och återställning.\n• Export till Excel (okrypterad, på eget ansvar).\n• Papperskorg som rensas automatiskt.\n• Valvöversikt som visar återanvända lösenord.\n• Automatiskt lås, skärmskydd och nedräkning för urklipp.\n• Fungerar helt offline.\n• 18 språk.';
+      '• Första versionen.\n• Krypterat valv på telefonen som öppnas med ett huvudlösenord (Argon2id + AES-256).\n• Färdiga fält för banker, webbplatser, e-post, sociala medier och jobbkonton.\n• Lösenordsgenerator med styrkeindikator.\n• Skanning av IBAN och text med kameran.\n• Upplåsning med fingeravtryck (och ansikte på telefoner som stöder det).\n• Krypterad backup och återställning.\n• Export till Excel (okrypterad, på eget ansvar).\n• Papperskorg som rensas automatiskt.\n• Valvöversikt som visar återanvända lösenord.\n• Automatiskt lås, skärmskydd och nedräkning för urklipp.\n• Fungerar helt offline.\n• 18 språk.';
 
   @override
   String get excelExport => 'Exportera till Excel';
@@ -1062,7 +1062,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get proBiometricBody =>
-      'Upplåsning med fingeravtryck eller ansikte är en Pro-funktion. Du kan alltid låsa upp med ditt huvudlösenord.';
+      'Upplåsning med fingeravtryck är en Pro-funktion. Du kan alltid låsa upp med ditt huvudlösenord.';
 
   @override
   String get proBackgroundsBody =>
@@ -1070,7 +1070,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String bioGraceWarn(String days) {
-    return 'Upplåsning med fingeravtryck och ansikte är på i $days till och stängs sedan av. Se till att du kommer ihåg ditt huvudlösenord. Om du har glömt det kan du ange ett nytt med fingeravtrycket under ”Byt huvudlösenord” i Inställningar.';
+    return 'Upplåsning med fingeravtryck är på i $days till och stängs sedan av. Se till att du kommer ihåg ditt huvudlösenord. Om du har glömt det kan du ange ett nytt med fingeravtrycket under ”Byt huvudlösenord” i Inställningar.';
   }
 
   @override
@@ -1118,7 +1118,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get proFeatFieldsDesc => 'Lägg till alla fält du behöver i en post';
 
   @override
-  String get proFeatBio => 'Upplåsning med fingeravtryck och ansikte';
+  String get proFeatBio => 'Upplåsning med fingeravtryck';
 
   @override
   String get proFeatBioDesc => 'Öppna valvet med en beröring';
@@ -1226,4 +1226,18 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get totpInvalid =>
       'Nyckeln är ogiltig. Klistra in konfigurationsnyckeln från webbplatsen.';
+
+  @override
+  String get qrScan => 'Skanna QR-kod';
+
+  @override
+  String get qrScanHint =>
+      'Rikta kameran mot QR-koden som webbplatsen visar när du konfigurerar tvåstegsverifiering.';
+
+  @override
+  String get qrNot2fa => 'Den här QR-koden är ingen 2FA-konfigurationskod.';
+
+  @override
+  String get qrMigration =>
+      'Det här är en överföringskod från Google Authenticator. Skanna i stället varje webbplats egen konfigurations-QR-kod.';
 }

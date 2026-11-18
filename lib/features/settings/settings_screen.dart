@@ -1018,12 +1018,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ]),
       Padding(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-        child: Text(
-          legal,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: MuhurColors.cream.withValues(alpha: 0.5),
-            fontSize: 12,
+        child: GestureDetector(
+          onTap: () => showLicensePage(
+            context: context,
+            applicationName: t.brandName,
+            applicationVersion: _version,
+          ),
+          child: Text(
+            legal,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: MuhurColors.cream.withValues(alpha: 0.5),
+              fontSize: 12,
+            ),
           ),
         ),
       ),

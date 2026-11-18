@@ -68,7 +68,8 @@ class Totp {
   int counterAt(DateTime t) => t.millisecondsSinceEpoch ~/ 1000 ~/ period;
 
   /// Geçerli koda kalan saniye.
-  int secondsLeft(DateTime t) => period - (t.millisecondsSinceEpoch ~/ 1000) % period;
+  int secondsLeft(DateTime t) =>
+      period - (t.millisecondsSinceEpoch ~/ 1000) % period;
 
   Future<String> codeAt(int counter) async {
     final msg = ByteData(8)..setUint64(0, counter);
@@ -84,10 +85,7 @@ class Totp {
     final h = mac.bytes;
     final o = h.last & 0x0f;
     final bin =
-        ((h[o] & 0x7f) << 24) |
-        (h[o + 1] << 16) |
-        (h[o + 2] << 8) |
-        h[o + 3];
+        ((h[o] & 0x7f) << 24) | (h[o + 1] << 16) | (h[o + 2] << 8) | h[o + 3];
     var mod = 1;
     for (var i = 0; i < digits; i++) {
       mod *= 10;

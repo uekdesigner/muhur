@@ -10,7 +10,7 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get appName => 'Muhur';
+  String get appName => 'MÜHÜR';
 
   @override
   String get catBanks => '銀行';
@@ -114,7 +114,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get notNow => '後で';
 
   @override
-  String get biometricReason => 'Muhurのロックを解除';
+  String get biometricReason => 'MÜHÜRのロックを解除';
 
   @override
   String get lockNow => 'ロック';
@@ -371,11 +371,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get login => '開く';
 
   @override
-  String get infoTitle => 'Muhurについて';
+  String get infoTitle => 'MÜHÜRについて';
 
   @override
   String get infoBody =>
-      'Muhurはパスワードを暗号化して、この端末にだけ保存します。アカウントもサーバーもありません。\n\nマスターパスワードは復元できません。忘れるとデータを開けなくなるため、暗号化バックアップを保管してください。';
+      'MÜHÜRはパスワードを暗号化して、この端末にだけ保存します。アカウントもサーバーもありません。\n\nマスターパスワードは復元できません。忘れるとデータを開けなくなるため、暗号化バックアップを保管してください。';
 
   @override
   String get understandNoRecovery => '忘れたマスターパスワードは復元できないことを理解しました。';
@@ -518,7 +518,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get backupWrongPassword => 'バックアップのパスワードが違います';
 
   @override
-  String get backupInvalidFile => '有効なMuhurバックアップファイルではありません';
+  String get backupInvalidFile => '有効なMÜHÜRバックアップファイルではありません';
 
   @override
   String get backupReminderTitle => 'バックアップのリマインダー';
@@ -807,7 +807,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get forgotPasswordBioHint =>
-      '指紋または顔で確認すると、新しいマスターパスワードを設定できます。項目はそのまま残ります。';
+      '指紋で確認すると、新しいマスターパスワードを設定できます。項目はそのまま残ります。';
 
   @override
   String get bioConfirmFailed => '生体認証での確認に失敗したか、キャンセルされました。';
@@ -902,7 +902,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get aboutProtectionTech =>
-      '• 保管庫はランダムな256ビットの鍵で暗号化されます。この鍵は、マスターパスワードからArgon2id（メモリ32 MiB、3回）で生成した鍵を使い、AES-256-GCMで封印されます。鍵生成の設定は封印に結び付いているため、改ざんは検出されます。\n• データベースはSQLCipherで暗号化され、その鍵は保管庫の鍵からHKDF-SHA256で生成されます。\n• 機密性の高いフィールドはさらにAES-256-GCMで暗号化され、その項目とフィールドに結び付けられます。\n• パスワードを5回間違えると30秒待つ必要があり、その後は毎回2倍になり最大1時間です。端末の時計を変えても待ち時間は短くなりません。\n• 生体認証は強力な生体認証（クラス3）のみを受け付け、新しい指紋や顔を登録するとオフになります。\n• スクリーンショットと画面録画はブロックされ、アプリを離れると保管庫はロックされます。コピーした値は機密として扱われ、自動で消去されます。';
+      '• 保管庫はランダムな256ビットの鍵で暗号化されます。この鍵は、マスターパスワードからArgon2id（メモリ32 MiB、3回）で生成した鍵を使い、AES-256-GCMで封印されます。鍵生成の設定は封印に結び付いているため、改ざんは検出されます。\n• データベースはSQLCipherで暗号化され、その鍵は保管庫の鍵からHKDF-SHA256で生成されます。\n• 機密性の高いフィールドはさらにAES-256-GCMで暗号化され、その項目とフィールドに結び付けられます。\n• パスワードを5回間違えると30秒待つ必要があり、その後は毎回2倍になり最大1時間です。端末の時計を変えても待ち時間は短くなりません。\n• 生体認証は強力な生体認証（クラス3）のみを受け付け、新しい指紋や顔を登録するとオフになります。ほとんどの機種では顔認証がこのレベルに達していないため、通常は指紋のみ使用できます。\n• スクリーンショットと画面録画はブロックされ、アプリを離れると保管庫はロックされます。コピーした値は機密として扱われ、自動で消去されます。';
 
   @override
   String get aboutOfflineTech =>
@@ -960,7 +960,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get how7T => 'ロックと生体認証';
 
   @override
-  String get how7B => 'アプリを離れると保管庫は自動でロックされます。生体認証をオンにすると、指紋や顔で開けられます。';
+  String get how7B =>
+      'アプリを離れると保管庫は自動でロックされます。生体認証をオンにすると、指紋で開けられます（対応機種では顔でも開けられます）。';
 
   @override
   String get storyBody =>
@@ -972,7 +973,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get rn100 =>
-      '• 最初のリリースです。\n• マスターパスワードで開く、端末上の暗号化された保管庫（Argon2id + AES-256）。\n• 銀行、ウェブサイト、メール、SNS、仕事用アカウントのための入力欄。\n• 強度表示付きのパスワード生成。\n• カメラによるIBANと文字のスキャン。\n• 指紋と顔によるロック解除。\n• 暗号化バックアップと復元。\n• Excelへの書き出し（暗号化なし、自己責任）。\n• 自動で整理されるゴミ箱。\n• 使い回しのパスワードがわかる保管庫の概要。\n• 自動ロック、画面保護、クリップボードのカウントダウン。\n• 完全にオフラインで動作。\n• 18言語に対応。';
+      '• 最初のリリースです。\n• マスターパスワードで開く、端末上の暗号化された保管庫（Argon2id + AES-256）。\n• 銀行、ウェブサイト、メール、SNS、仕事用アカウントのための入力欄。\n• 強度表示付きのパスワード生成。\n• カメラによるIBANと文字のスキャン。\n• 指紋によるロック解除（対応機種では顔も）。\n• 暗号化バックアップと復元。\n• Excelへの書き出し（暗号化なし、自己責任）。\n• 自動で整理されるゴミ箱。\n• 使い回しのパスワードがわかる保管庫の概要。\n• 自動ロック、画面保護、クリップボードのカウントダウン。\n• 完全にオフラインで動作。\n• 18言語に対応。';
 
   @override
   String get excelExport => 'Excelに書き出す';
@@ -1017,15 +1018,14 @@ class AppLocalizationsJa extends AppLocalizations {
       '項目にフィールドを追加するのはPro機能です。すでに追加したフィールドはそのまま残り、編集もできます。';
 
   @override
-  String get proBiometricBody =>
-      '指紋や顔でのロック解除はPro機能です。マスターパスワードでならいつでもロック解除できます。';
+  String get proBiometricBody => '指紋でのロック解除はPro機能です。マスターパスワードでならいつでもロック解除できます。';
 
   @override
   String get proBackgroundsBody => '追加の背景はPro機能です。標準の背景はいつでも使えます。';
 
   @override
   String bioGraceWarn(String days) {
-    return '指紋と顔でのロック解除は、あと$days使えますが、その後オフになります。マスターパスワードを覚えているか確認してください。忘れた場合は、設定の「マスターパスワードを変更」から指紋を使って新しいパスワードを設定できます。';
+    return '指紋でのロック解除は、あと$days使えますが、その後オフになります。マスターパスワードを覚えているか確認してください。忘れた場合は、設定の「マスターパスワードを変更」から指紋を使って新しいパスワードを設定できます。';
   }
 
   @override
@@ -1072,7 +1072,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get proFeatFieldsDesc => '必要なフィールドを自由に追加できます';
 
   @override
-  String get proFeatBio => '指紋・顔でロック解除';
+  String get proFeatBio => '指紋でロック解除';
 
   @override
   String get proFeatBioDesc => 'ワンタッチで保管庫を開けます';
@@ -1170,4 +1170,17 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get totpInvalid => 'このキーは無効です。サイトで表示されたセットアップキーを貼り付けてください。';
+
+  @override
+  String get qrScan => 'QRコードをスキャン';
+
+  @override
+  String get qrScanHint => '2段階認証の設定時にサイトに表示されるQRコードにカメラを向けてください。';
+
+  @override
+  String get qrNot2fa => 'このQRコードは2FAの設定コードではありません。';
+
+  @override
+  String get qrMigration =>
+      'これはGoogle Authenticatorの移行用コードです。代わりに各サイトの設定用QRコードをスキャンしてください。';
 }

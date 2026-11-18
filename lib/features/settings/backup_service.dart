@@ -27,8 +27,7 @@ class BackupService {
   String suggestedFileName() {
     final n = DateTime.now();
     String two(int v) => v.toString().padLeft(2, '0');
-    return 'muhur-yedek-${n.year}${two(n.month)}${two(n.day)}-'
-        '${two(n.hour)}${two(n.minute)}.$fileExtension';
+    return '${n.year}-${two(n.month)}-${two(n.day)}.$fileExtension';
   }
 
   /// Tüm kasayı (çöp kutusu dahil) çözer ve [password] ile şifrelenmiş dosya baytlarını üretir.
