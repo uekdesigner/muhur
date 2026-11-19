@@ -12,9 +12,9 @@ class ProPrices extends ChangeNotifier {
   // TODO(play): Play Billing bağlanınca yer tutucular kaldırılacak.
   // Yıllık fiyat Play Console'da tam 299 TL olarak girilmeli; ana ekran
   // etiketi kuruşsuz gösterdiği için böylece iki yer birbirini tutar.
-  static const _trYearly = '299 TL';
+  static const _trYearly = '299 ₺';
   static const _trYearlyShort = '299 ₺';
-  static const _trMonthly = '39,99 TL';
+  static const _trMonthly = '39 ₺';
 
   String? _yearly;
   String? _yearlyShort;

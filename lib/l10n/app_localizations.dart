@@ -2325,6 +2325,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove from favorites'**
   String get favoriteRemove;
+
+  /// No description provided for @proRedeem.
+  ///
+  /// In en, this message translates to:
+  /// **'Redeem a gift code'**
+  String get proRedeem;
+
+  /// No description provided for @proThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you! MÜHÜR Pro is active.'**
+  String get proThanks;
+
+  /// No description provided for @proPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Your payment is pending. Pro turns on by itself once it completes.'**
+  String get proPending;
+
+  /// No description provided for @proBuyError.
+  ///
+  /// In en, this message translates to:
+  /// **'The purchase couldn\'t be completed. Please try again later.'**
+  String get proBuyError;
+
+  /// No description provided for @proRestoreDone.
+  ///
+  /// In en, this message translates to:
+  /// **'MÜHÜR Pro is active.'**
+  String get proRestoreDone;
+
+  /// No description provided for @proRestoreNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No active Pro was found on this Google account.'**
+  String get proRestoreNone;
+
+  /// No description provided for @proStoreUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t reach Google Play. Make sure the Play Store is installed and you\'re signed in.'**
+  String get proStoreUnavailable;
+
+  /// No description provided for @proStatusGift.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift Pro: {days} left'**
+  String proStatusGift(String days);
+
+  /// No description provided for @proStatusGiftLife.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift Pro: no expiry'**
+  String get proStatusGiftLife;
+
+  /// No description provided for @scanCodesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan backup codes'**
+  String get scanCodesTitle;
+
+  /// No description provided for @scanCodesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Point the camera at the backup code list the site gave you. Codes collect here as they are read; confirm when all of them are in.'**
+  String get scanCodesHint;
+
+  /// No description provided for @scanCodesCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Codes read: {count}'**
+  String scanCodesCount(int count);
+
+  /// No description provided for @scanCodesClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear list'**
+  String get scanCodesClear;
+
+  /// No description provided for @totpRemoveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the 2FA key?'**
+  String get totpRemoveTitle;
+
+  /// No description provided for @totpRemoveBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If two-step verification is still on at the site, you may not be able to sign in to that account without this key. Turn it off at the site first, or make sure your backup codes are saved.'**
+  String get totpRemoveBody;
 }
 
 class _AppLocalizationsDelegate

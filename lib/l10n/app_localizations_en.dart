@@ -1277,4 +1277,59 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Remove from favorites';
+
+  @override
+  String get proRedeem => 'Redeem a gift code';
+
+  @override
+  String get proThanks => 'Thank you! MÜHÜR Pro is active.';
+
+  @override
+  String get proPending =>
+      'Your payment is pending. Pro turns on by itself once it completes.';
+
+  @override
+  String get proBuyError =>
+      'The purchase couldn\'t be completed. Please try again later.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro is active.';
+
+  @override
+  String get proRestoreNone =>
+      'No active Pro was found on this Google account.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Couldn\'t reach Google Play. Make sure the Play Store is installed and you\'re signed in.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Gift Pro: $days left';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Gift Pro: no expiry';
+
+  @override
+  String get scanCodesTitle => 'Scan backup codes';
+
+  @override
+  String get scanCodesHint =>
+      'Point the camera at the backup code list the site gave you. Codes collect here as they are read; confirm when all of them are in.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Codes read: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Clear list';
+
+  @override
+  String get totpRemoveTitle => 'Delete the 2FA key?';
+
+  @override
+  String get totpRemoveBody =>
+      'If two-step verification is still on at the site, you may not be able to sign in to that account without this key. Turn it off at the site first, or make sure your backup codes are saved.';
 }

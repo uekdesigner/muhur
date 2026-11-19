@@ -1263,4 +1263,58 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Favorilerden çıkar';
+
+  @override
+  String get proRedeem => 'Hediye kodu kullan';
+
+  @override
+  String get proThanks => 'Teşekkürler! MÜHÜR Pro etkin.';
+
+  @override
+  String get proPending =>
+      'Ödeme onay bekliyor. Tamamlanınca Pro kendiliğinden açılır.';
+
+  @override
+  String get proBuyError =>
+      'Satın alma tamamlanamadı. Daha sonra tekrar deneyin.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro etkin.';
+
+  @override
+  String get proRestoreNone => 'Bu Google hesabında etkin bir Pro bulunamadı.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Google Play\'e ulaşılamadı. Play Store\'un yüklü ve hesabınızın açık olduğundan emin olun.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Hediye Pro: $days kaldı';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Hediye Pro: süresiz';
+
+  @override
+  String get scanCodesTitle => 'Yedek kodları tara';
+
+  @override
+  String get scanCodesHint =>
+      'Sitenin verdiği yedek kod listesini kameraya tutun. Okunan kodlar burada birikir; hepsi gelince onaylayın.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Okunan kod: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Listeyi temizle';
+
+  @override
+  String get totpRemoveTitle => '2FA anahtarı silinsin mi?';
+
+  @override
+  String get totpRemoveBody =>
+      'Sitede iki adımlı doğrulamayı kapatmadıysanız, bu anahtar olmadan o hesaba giremeyebilirsiniz. Önce sitede kapatın ya da yedek kodlarınızın kayıtlı olduğundan emin olun.';
 }

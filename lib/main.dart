@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'core/constants/app_theme.dart';
 import 'core/constants/backgrounds.dart';
 import 'core/crypto/crypto_service.dart';
+import 'core/entitlements/billing_service.dart';
 import 'core/entitlements/entitlements.dart';
 import 'core/storage/app_settings.dart';
 import 'core/storage/database_manager.dart';
@@ -26,6 +27,7 @@ Future<void> main() async {
   await AppSettings.instance.load();
   await GeneratorSettings.instance.load();
   await Entitlements.instance.load();
+  unawaited(BillingService.instance.init());
   // Ek arka planlar Pro: Pro yoksa varsayılan arka plana dönülür.
   if (!Entitlements.instance.isPro &&
       AppSettings.instance.background.value != muhurBackgrounds.first.id) {

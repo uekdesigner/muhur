@@ -1273,4 +1273,57 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'पसंदीदा से हटाएँ';
+
+  @override
+  String get proRedeem => 'गिफ़्ट कोड रिडीम करें';
+
+  @override
+  String get proThanks => 'धन्यवाद! MÜHÜR Pro चालू है।';
+
+  @override
+  String get proPending =>
+      'भुगतान लंबित है। पूरा होते ही Pro अपने आप चालू हो जाएगा।';
+
+  @override
+  String get proBuyError => 'खरीदारी पूरी नहीं हो सकी। बाद में फिर कोशिश करें।';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro चालू है।';
+
+  @override
+  String get proRestoreNone => 'इस Google खाते में कोई सक्रिय Pro नहीं मिला।';
+
+  @override
+  String get proStoreUnavailable =>
+      'Google Play तक नहीं पहुँच सके। पक्का करें कि Play Store इंस्टॉल है और आप साइन इन हैं।';
+
+  @override
+  String proStatusGift(String days) {
+    return 'गिफ़्ट Pro: $days बाकी';
+  }
+
+  @override
+  String get proStatusGiftLife => 'गिफ़्ट Pro: बिना समय-सीमा';
+
+  @override
+  String get scanCodesTitle => 'बैकअप कोड स्कैन करें';
+
+  @override
+  String get scanCodesHint =>
+      'साइट से मिली बैकअप कोड सूची पर कैमरा रखें। पढ़े गए कोड यहाँ जुड़ते जाते हैं; सब आ जाएँ तो पुष्टि करें।';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'पढ़े गए कोड: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'सूची साफ़ करें';
+
+  @override
+  String get totpRemoveTitle => '2FA कुंजी हटाएँ?';
+
+  @override
+  String get totpRemoveBody =>
+      'अगर साइट पर दो-चरणीय सत्यापन अभी चालू है, तो इस कुंजी के बिना आप उस खाते में साइन इन नहीं कर पाएँगे। पहले साइट पर इसे बंद करें या पक्का करें कि आपके बैकअप कोड सेव हैं।';
 }

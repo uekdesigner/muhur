@@ -365,5 +365,20 @@
   "showValue": "Tampilkan",
   "hideValue": "Sembunyikan",
   "favoriteAdd": "Tambahkan ke favorit",
-  "favoriteRemove": "Hapus dari favorit"
+  "favoriteRemove": "Hapus dari favorit",
+  "proRedeem": "Tukarkan kode hadiah",
+  "proThanks": "Terima kasih! MÜHÜR Pro sudah aktif.",
+  "proPending": "Pembayaran tertunda. Pro akan aktif dengan sendirinya setelah selesai.",
+  "proBuyError": "Pembelian tidak dapat diselesaikan. Coba lagi nanti.",
+  "proRestoreDone": "MÜHÜR Pro aktif.",
+  "proRestoreNone": "Tidak ditemukan Pro aktif di akun Google ini.",
+  "proStoreUnavailable": "Tidak dapat menjangkau Google Play. Pastikan Play Store terpasang dan Anda sudah masuk.",
+  "proStatusGift": "Pro hadiah: sisa {days}",
+  "proStatusGiftLife": "Pro hadiah: tanpa batas waktu",
+  "scanCodesTitle": "Pindai kode cadangan",
+  "scanCodesHint": "Arahkan kamera ke daftar kode cadangan dari situs. Kode yang terbaca terkumpul di sini; konfirmasi setelah semuanya masuk.",
+  "scanCodesCount": "Kode terbaca: {count}",
+  "scanCodesClear": "Kosongkan daftar",
+  "totpRemoveTitle": "Hapus kunci 2FA?",
+  "totpRemoveBody": "Jika verifikasi dua langkah masih aktif di situs, Anda mungkin tidak bisa masuk ke akun itu tanpa kunci ini. Matikan dulu di situs, atau pastikan kode cadangan Anda sudah tersimpan."
 }

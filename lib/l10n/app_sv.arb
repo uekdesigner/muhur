@@ -365,5 +365,20 @@
   "showValue": "Visa",
   "hideValue": "Dölj",
   "favoriteAdd": "Lägg till i favoriter",
-  "favoriteRemove": "Ta bort från favoriter"
+  "favoriteRemove": "Ta bort från favoriter",
+  "proRedeem": "Lös in presentkod",
+  "proThanks": "Tack! MÜHÜR Pro är aktivt.",
+  "proPending": "Betalningen väntar. Pro aktiveras av sig själv när den är klar.",
+  "proBuyError": "Köpet kunde inte slutföras. Försök igen senare.",
+  "proRestoreDone": "MÜHÜR Pro är aktivt.",
+  "proRestoreNone": "Inget aktivt Pro hittades på det här Google-kontot.",
+  "proStoreUnavailable": "Det gick inte att nå Google Play. Kontrollera att Play Butik är installerat och att du är inloggad.",
+  "proStatusGift": "Present-Pro: {days} kvar",
+  "proStatusGiftLife": "Present-Pro: utan tidsgräns",
+  "scanCodesTitle": "Skanna reservkoder",
+  "scanCodesHint": "Rikta kameran mot listan med reservkoder som webbplatsen gav dig. Lästa koder samlas här; bekräfta när alla är med.",
+  "scanCodesCount": "Lästa koder: {count}",
+  "scanCodesClear": "Rensa listan",
+  "totpRemoveTitle": "Ta bort 2FA-nyckeln?",
+  "totpRemoveBody": "Om tvåstegsverifiering fortfarande är på för webbplatsen kan du kanske inte logga in på kontot utan den här nyckeln. Stäng av den på webbplatsen först eller se till att dina reservkoder är sparade."
 }

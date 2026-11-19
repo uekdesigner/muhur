@@ -1251,4 +1251,58 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'นำออกจากรายการโปรด';
+
+  @override
+  String get proRedeem => 'แลกรหัสของขวัญ';
+
+  @override
+  String get proThanks => 'ขอบคุณ! MÜHÜR Pro เปิดใช้งานแล้ว';
+
+  @override
+  String get proPending =>
+      'การชำระเงินอยู่ระหว่างรอดำเนินการ Pro จะเปิดใช้เองเมื่อเสร็จสิ้น';
+
+  @override
+  String get proBuyError =>
+      'ไม่สามารถทำการซื้อให้เสร็จได้ โปรดลองอีกครั้งภายหลัง';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro เปิดใช้งานอยู่';
+
+  @override
+  String get proRestoreNone => 'ไม่พบ Pro ที่ใช้งานอยู่ในบัญชี Google นี้';
+
+  @override
+  String get proStoreUnavailable =>
+      'เชื่อมต่อ Google Play ไม่ได้ ตรวจสอบว่าได้ติดตั้ง Play Store และลงชื่อเข้าใช้แล้ว';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Pro ของขวัญ: เหลือ $days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Pro ของขวัญ: ไม่มีวันหมดอายุ';
+
+  @override
+  String get scanCodesTitle => 'สแกนรหัสสำรอง';
+
+  @override
+  String get scanCodesHint =>
+      'หันกล้องไปที่รายการรหัสสำรองที่เว็บไซต์ให้มา รหัสที่อ่านได้จะสะสมที่นี่ ยืนยันเมื่อครบทั้งหมด';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'รหัสที่อ่านได้: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'ล้างรายการ';
+
+  @override
+  String get totpRemoveTitle => 'ลบคีย์ 2FA หรือไม่';
+
+  @override
+  String get totpRemoveBody =>
+      'หากการยืนยันแบบสองขั้นตอนยังเปิดอยู่ในเว็บไซต์ คุณอาจเข้าสู่ระบบบัญชีนั้นไม่ได้หากไม่มีคีย์นี้ ปิดในเว็บไซต์ก่อน หรือตรวจสอบว่าบันทึกรหัสสำรองไว้แล้ว';
 }

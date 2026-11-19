@@ -1224,4 +1224,56 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get favoriteRemove => '즐겨찾기에서 삭제';
+
+  @override
+  String get proRedeem => '선물 코드 사용';
+
+  @override
+  String get proThanks => '감사합니다! MÜHÜR Pro가 활성화되었습니다.';
+
+  @override
+  String get proPending => '결제가 대기 중입니다. 완료되면 Pro가 자동으로 켜집니다.';
+
+  @override
+  String get proBuyError => '구매를 완료하지 못했습니다. 나중에 다시 시도하세요.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro가 활성 상태입니다.';
+
+  @override
+  String get proRestoreNone => '이 Google 계정에서 활성화된 Pro를 찾지 못했습니다.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Google Play에 연결할 수 없습니다. Play 스토어가 설치되어 있고 로그인되어 있는지 확인하세요.';
+
+  @override
+  String proStatusGift(String days) {
+    return '선물 Pro: $days 남음';
+  }
+
+  @override
+  String get proStatusGiftLife => '선물 Pro: 기간 제한 없음';
+
+  @override
+  String get scanCodesTitle => '백업 코드 스캔';
+
+  @override
+  String get scanCodesHint =>
+      '사이트에서 받은 백업 코드 목록에 카메라를 맞추세요. 읽은 코드가 여기에 쌓이며, 모두 들어오면 확인을 누르세요.';
+
+  @override
+  String scanCodesCount(int count) {
+    return '읽은 코드: $count';
+  }
+
+  @override
+  String get scanCodesClear => '목록 지우기';
+
+  @override
+  String get totpRemoveTitle => '2FA 키를 삭제할까요?';
+
+  @override
+  String get totpRemoveBody =>
+      '사이트에서 2단계 인증이 아직 켜져 있다면 이 키 없이는 그 계정에 로그인하지 못할 수 있습니다. 먼저 사이트에서 끄거나 백업 코드가 저장되어 있는지 확인하세요.';
 }

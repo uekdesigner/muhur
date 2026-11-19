@@ -1279,4 +1279,59 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Verwijderen uit favorieten';
+
+  @override
+  String get proRedeem => 'Cadeaucode inwisselen';
+
+  @override
+  String get proThanks => 'Bedankt! MÜHÜR Pro is actief.';
+
+  @override
+  String get proPending =>
+      'De betaling is in behandeling. Pro gaat vanzelf aan zodra die rond is.';
+
+  @override
+  String get proBuyError =>
+      'De aankoop kon niet worden voltooid. Probeer het later opnieuw.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro is actief.';
+
+  @override
+  String get proRestoreNone =>
+      'Er is geen actief Pro gevonden voor dit Google-account.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Google Play is niet bereikbaar. Controleer of de Play Store is geïnstalleerd en je bent ingelogd.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Cadeau-Pro: nog $days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Cadeau-Pro: onbeperkt';
+
+  @override
+  String get scanCodesTitle => 'Back-upcodes scannen';
+
+  @override
+  String get scanCodesHint =>
+      'Richt de camera op de lijst met back-upcodes van de site. Gelezen codes verzamelen zich hier; bevestig als ze er allemaal zijn.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Gelezen codes: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Lijst wissen';
+
+  @override
+  String get totpRemoveTitle => '2FA-sleutel verwijderen?';
+
+  @override
+  String get totpRemoveBody =>
+      'Als tweestapsverificatie op de site nog aan staat, kun je zonder deze sleutel mogelijk niet meer inloggen op dat account. Zet het eerst uit op de site of controleer of je back-upcodes zijn opgeslagen.';
 }

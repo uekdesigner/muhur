@@ -365,5 +365,20 @@
   "showValue": "Pokaż",
   "hideValue": "Ukryj",
   "favoriteAdd": "Dodaj do ulubionych",
-  "favoriteRemove": "Usuń z ulubionych"
+  "favoriteRemove": "Usuń z ulubionych",
+  "proRedeem": "Zrealizuj kod prezentowy",
+  "proThanks": "Dziękujemy! MÜHÜR Pro jest aktywny.",
+  "proPending": "Płatność oczekuje. Pro włączy się samo po jej zakończeniu.",
+  "proBuyError": "Nie udało się dokończyć zakupu. Spróbuj ponownie później.",
+  "proRestoreDone": "MÜHÜR Pro jest aktywny.",
+  "proRestoreNone": "Na tym koncie Google nie znaleziono aktywnego Pro.",
+  "proStoreUnavailable": "Nie można połączyć się z Google Play. Upewnij się, że Sklep Play jest zainstalowany i jesteś zalogowany.",
+  "proStatusGift": "Pro w prezencie: zostało {days}",
+  "proStatusGiftLife": "Pro w prezencie: bezterminowo",
+  "scanCodesTitle": "Zeskanuj kody zapasowe",
+  "scanCodesHint": "Skieruj aparat na listę kodów zapasowych od strony. Odczytane kody zbierają się tutaj; zatwierdź, gdy pojawią się wszystkie.",
+  "scanCodesCount": "Odczytane kody: {count}",
+  "scanCodesClear": "Wyczyść listę",
+  "totpRemoveTitle": "Usunąć klucz 2FA?",
+  "totpRemoveBody": "Jeśli weryfikacja dwuetapowa jest nadal włączona na stronie, bez tego klucza możesz nie zalogować się do tego konta. Najpierw wyłącz ją na stronie albo upewnij się, że kody zapasowe są zapisane."
 }

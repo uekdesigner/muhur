@@ -1219,4 +1219,56 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'お気に入りから削除';
+
+  @override
+  String get proRedeem => 'ギフトコードを使う';
+
+  @override
+  String get proThanks => 'ありがとうございます！MÜHÜR Proが有効になりました。';
+
+  @override
+  String get proPending => '支払いは保留中です。完了すると自動でProが有効になります。';
+
+  @override
+  String get proBuyError => '購入を完了できませんでした。しばらくしてからもう一度お試しください。';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Proは有効です。';
+
+  @override
+  String get proRestoreNone => 'このGoogleアカウントに有効なProは見つかりませんでした。';
+
+  @override
+  String get proStoreUnavailable =>
+      'Google Playに接続できませんでした。Playストアがインストールされ、ログインしていることを確認してください。';
+
+  @override
+  String proStatusGift(String days) {
+    return 'ギフトPro: 残り$days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'ギフトPro: 無期限';
+
+  @override
+  String get scanCodesTitle => 'バックアップコードをスキャン';
+
+  @override
+  String get scanCodesHint =>
+      'サイトから受け取ったバックアップコードの一覧にカメラを向けてください。読み取ったコードはここにたまります。すべてそろったら確定してください。';
+
+  @override
+  String scanCodesCount(int count) {
+    return '読み取ったコード: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'リストをクリア';
+
+  @override
+  String get totpRemoveTitle => '2FAキーを削除しますか？';
+
+  @override
+  String get totpRemoveBody =>
+      'サイトで2段階認証がまだ有効な場合、このキーがないとそのアカウントにログインできなくなるおそれがあります。先にサイトで無効にするか、バックアップコードが保存されていることを確認してください。';
 }

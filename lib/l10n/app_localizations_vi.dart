@@ -1260,4 +1260,59 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Xóa khỏi yêu thích';
+
+  @override
+  String get proRedeem => 'Đổi mã quà tặng';
+
+  @override
+  String get proThanks => 'Cảm ơn bạn! MÜHÜR Pro đã được kích hoạt.';
+
+  @override
+  String get proPending =>
+      'Thanh toán đang chờ xử lý. Pro sẽ tự bật khi hoàn tất.';
+
+  @override
+  String get proBuyError =>
+      'Không thể hoàn tất giao dịch mua. Vui lòng thử lại sau.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro đang hoạt động.';
+
+  @override
+  String get proRestoreNone =>
+      'Không tìm thấy Pro đang hoạt động trên tài khoản Google này.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Không thể kết nối Google Play. Hãy đảm bảo đã cài Cửa hàng Play và đã đăng nhập.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Pro quà tặng: còn $days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Pro quà tặng: không giới hạn thời gian';
+
+  @override
+  String get scanCodesTitle => 'Quét mã dự phòng';
+
+  @override
+  String get scanCodesHint =>
+      'Hướng camera vào danh sách mã dự phòng mà trang web cung cấp. Các mã đọc được sẽ dồn vào đây; xác nhận khi đã đủ.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Mã đã đọc: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Xóa danh sách';
+
+  @override
+  String get totpRemoveTitle => 'Xóa khóa 2FA?';
+
+  @override
+  String get totpRemoveBody =>
+      'Nếu xác minh hai bước vẫn đang bật trên trang web, bạn có thể không đăng nhập được vào tài khoản đó khi thiếu khóa này. Hãy tắt nó trên trang web trước, hoặc chắc chắn rằng mã dự phòng của bạn đã được lưu.';
 }

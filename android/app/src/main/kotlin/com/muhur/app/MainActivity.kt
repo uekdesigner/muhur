@@ -91,5 +91,39 @@ class MainActivity : FlutterFragmentActivity() {
                     else -> result.notImplemented()
                 }
             }
+            
+        // Play satın alma imzası: Google'ın genel anahtarıyla cihazda doğrulanır.
+        MethodChannel(messenger, "com.muhur.app/billing")
+            .setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "verify" -> result.success(
+                        verifyPurchase(
+                            call.argument<String>("key") ?: "",
+                            call.argument<String>("data") ?: "",
+                            call.argument<String>("signature") ?: ""
+                        )
+                    )
+                    else -> result.notImplemented()
+                }
+            }
+    }
+    
+    /** Play satın alma verisinin imzasını (SHA1withRSA) genel anahtarla doğrular. */
+    private fun verifyPurchase(key: String, data: String, signature: String): Boolean {
+        if (key.isEmpty() || data.isEmpty() || signature.isEmpty()) return false
+        return try {
+            val pub = java.security.KeyFactory.getInstance("RSA").generatePublic(
+                java.security.spec.X509EncodedKeySpec(
+                    android.util.Base64.decode(key, android.util.Base64.DEFAULT)
+                )
+            )
+            java.security.Signature.getInstance("SHA1withRSA").run {
+                initVerify(pub)
+                update(data.toByteArray(Charsets.UTF_8))
+                verify(android.util.Base64.decode(signature, android.util.Base64.DEFAULT))
+            }
+        } catch (e: Exception) {
+            false
+        }
     }
 }

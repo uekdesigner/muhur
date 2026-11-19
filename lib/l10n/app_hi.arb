@@ -365,5 +365,20 @@
   "showValue": "दिखाएँ",
   "hideValue": "छिपाएँ",
   "favoriteAdd": "पसंदीदा में जोड़ें",
-  "favoriteRemove": "पसंदीदा से हटाएँ"
+  "favoriteRemove": "पसंदीदा से हटाएँ",
+  "proRedeem": "गिफ़्ट कोड रिडीम करें",
+  "proThanks": "धन्यवाद! MÜHÜR Pro चालू है।",
+  "proPending": "भुगतान लंबित है। पूरा होते ही Pro अपने आप चालू हो जाएगा।",
+  "proBuyError": "खरीदारी पूरी नहीं हो सकी। बाद में फिर कोशिश करें।",
+  "proRestoreDone": "MÜHÜR Pro चालू है।",
+  "proRestoreNone": "इस Google खाते में कोई सक्रिय Pro नहीं मिला।",
+  "proStoreUnavailable": "Google Play तक नहीं पहुँच सके। पक्का करें कि Play Store इंस्टॉल है और आप साइन इन हैं।",
+  "proStatusGift": "गिफ़्ट Pro: {days} बाकी",
+  "proStatusGiftLife": "गिफ़्ट Pro: बिना समय-सीमा",
+  "scanCodesTitle": "बैकअप कोड स्कैन करें",
+  "scanCodesHint": "साइट से मिली बैकअप कोड सूची पर कैमरा रखें। पढ़े गए कोड यहाँ जुड़ते जाते हैं; सब आ जाएँ तो पुष्टि करें।",
+  "scanCodesCount": "पढ़े गए कोड: {count}",
+  "scanCodesClear": "सूची साफ़ करें",
+  "totpRemoveTitle": "2FA कुंजी हटाएँ?",
+  "totpRemoveBody": "अगर साइट पर दो-चरणीय सत्यापन अभी चालू है, तो इस कुंजी के बिना आप उस खाते में साइन इन नहीं कर पाएँगे। पहले साइट पर इसे बंद करें या पक्का करें कि आपके बैकअप कोड सेव हैं।"
 }

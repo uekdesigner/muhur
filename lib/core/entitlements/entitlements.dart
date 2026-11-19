@@ -36,6 +36,8 @@ class Entitlements extends ChangeNotifier {
     return _seen;
   }
 
+  /// Saat geri alınmaya karşı korunan "şimdi" (hediye süreleri için).
+  DateTime get now => _now;
   bool get isSubscribed => _devPro || _subscribed;
 
   DateTime? get trialEnd => _trialStart?.add(trialPeriod);

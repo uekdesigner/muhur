@@ -1277,4 +1277,58 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Ta bort från favoriter';
+
+  @override
+  String get proRedeem => 'Lös in presentkod';
+
+  @override
+  String get proThanks => 'Tack! MÜHÜR Pro är aktivt.';
+
+  @override
+  String get proPending =>
+      'Betalningen väntar. Pro aktiveras av sig själv när den är klar.';
+
+  @override
+  String get proBuyError => 'Köpet kunde inte slutföras. Försök igen senare.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro är aktivt.';
+
+  @override
+  String get proRestoreNone =>
+      'Inget aktivt Pro hittades på det här Google-kontot.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Det gick inte att nå Google Play. Kontrollera att Play Butik är installerat och att du är inloggad.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Present-Pro: $days kvar';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Present-Pro: utan tidsgräns';
+
+  @override
+  String get scanCodesTitle => 'Skanna reservkoder';
+
+  @override
+  String get scanCodesHint =>
+      'Rikta kameran mot listan med reservkoder som webbplatsen gav dig. Lästa koder samlas här; bekräfta när alla är med.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Lästa koder: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Rensa listan';
+
+  @override
+  String get totpRemoveTitle => 'Ta bort 2FA-nyckeln?';
+
+  @override
+  String get totpRemoveBody =>
+      'Om tvåstegsverifiering fortfarande är på för webbplatsen kan du kanske inte logga in på kontot utan den här nyckeln. Stäng av den på webbplatsen först eller se till att dina reservkoder är sparade.';
 }

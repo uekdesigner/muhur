@@ -365,5 +365,20 @@
   "showValue": "Mostra",
   "hideValue": "Nascondi",
   "favoriteAdd": "Aggiungi ai preferiti",
-  "favoriteRemove": "Rimuovi dai preferiti"
+  "favoriteRemove": "Rimuovi dai preferiti",
+  "proRedeem": "Riscatta codice regalo",
+  "proThanks": "Grazie! MÜHÜR Pro è attivo.",
+  "proPending": "Il pagamento è in attesa. Pro si attiverà da solo al termine.",
+  "proBuyError": "Impossibile completare l'acquisto. Riprova più tardi.",
+  "proRestoreDone": "MÜHÜR Pro è attivo.",
+  "proRestoreNone": "Nessun Pro attivo trovato su questo account Google.",
+  "proStoreUnavailable": "Impossibile raggiungere Google Play. Verifica che il Play Store sia installato e di aver effettuato l'accesso.",
+  "proStatusGift": "Pro in regalo: {days} rimanenti",
+  "proStatusGiftLife": "Pro in regalo: senza scadenza",
+  "scanCodesTitle": "Scansiona codici di backup",
+  "scanCodesHint": "Inquadra l'elenco dei codici di backup fornito dal sito. I codici letti si raccolgono qui; conferma quando ci sono tutti.",
+  "scanCodesCount": "Codici letti: {count}",
+  "scanCodesClear": "Svuota elenco",
+  "totpRemoveTitle": "Eliminare la chiave 2FA?",
+  "totpRemoveBody": "Se la verifica in due passaggi è ancora attiva sul sito, senza questa chiave potresti non riuscire ad accedere a quell'account. Disattivala prima sul sito o assicurati di aver salvato i codici di backup."
 }

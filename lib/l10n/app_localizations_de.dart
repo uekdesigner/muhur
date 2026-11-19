@@ -1282,4 +1282,59 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Aus Favoriten entfernen';
+
+  @override
+  String get proRedeem => 'Geschenkcode einlösen';
+
+  @override
+  String get proThanks => 'Danke! MÜHÜR Pro ist aktiv.';
+
+  @override
+  String get proPending =>
+      'Die Zahlung steht noch aus. Pro wird automatisch aktiviert, sobald sie abgeschlossen ist.';
+
+  @override
+  String get proBuyError =>
+      'Der Kauf konnte nicht abgeschlossen werden. Bitte versuche es später erneut.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro ist aktiv.';
+
+  @override
+  String get proRestoreNone =>
+      'Für dieses Google-Konto wurde kein aktives Pro gefunden.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Google Play ist nicht erreichbar. Prüfe, ob der Play Store installiert ist und du angemeldet bist.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Geschenk-Pro: noch $days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Geschenk-Pro: unbefristet';
+
+  @override
+  String get scanCodesTitle => 'Backup-Codes scannen';
+
+  @override
+  String get scanCodesHint =>
+      'Richte die Kamera auf die Liste der Backup-Codes, die dir die Website gegeben hat. Gelesene Codes sammeln sich hier; bestätige, wenn alle da sind.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Gelesene Codes: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Liste leeren';
+
+  @override
+  String get totpRemoveTitle => '2FA-Schlüssel löschen?';
+
+  @override
+  String get totpRemoveBody =>
+      'Wenn die Zwei-Faktor-Anmeldung auf der Website noch aktiv ist, kommst du ohne diesen Schlüssel womöglich nicht mehr in das Konto. Schalte sie zuerst auf der Website aus oder stelle sicher, dass deine Backup-Codes gespeichert sind.';
 }

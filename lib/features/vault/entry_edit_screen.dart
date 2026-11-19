@@ -3,11 +3,13 @@ import 'package:flutter/services.dart';
 
 import '../../core/constants/app_theme.dart';
 import '../../core/utils/motion.dart';
+import '../../core/widgets/dialog_parts.dart';
 import '../../core/widgets/muhur_widgets.dart';
 import '../../core/widgets/pro_badge.dart';
 import '../../l10n/app_localizations.dart';
 import '../password_gen/generator_settings.dart';
 import '../password_gen/password_generator.dart';
+import '../scanner/codes_scan_screen.dart';
 import '../scanner/qr_scan_screen.dart';
 import '../scanner/scan_launcher.dart';
 import '../scanner/scanner_screen.dart';
@@ -681,7 +683,34 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
 
   /// Alanı kaldırır; birkaç saniye "Geri al" ile aynı yerine döndürülebilir.
   /// Denetleyici ekran kapanınca atılır (geri alma için saklanır).
-  void _removeDraft(_FieldDraft d) {
+  Future<void> _removeDraft(_FieldDraft d) async {
+    // Dolu 2FA anahtarı silinmeden önce uyar: sitede 2FA açıksa hesaba
+    // girilemeyebilir.
+    if (d.type == 'totp' && d.value.text.trim().isNotEmpty) {
+      final l10n = AppLocalizations.of(context)!;
+      final ok = await showDialog<bool>(
+        context: context,
+        animationStyle: Motion.style,
+        builder: (c) => ScrollDialog(
+          title: Text(l10n.totpRemoveTitle),
+          content: Text(l10n.totpRemoveBody),
+          actions: [
+            RoundIconButton(
+              icon: Icons.close,
+              tooltip: l10n.cancel,
+              onPressed: () => Navigator.pop(c, false),
+            ),
+            RoundIconButton(
+              icon: Icons.delete_outline,
+              tooltip: l10n.delete,
+              danger: true,
+              onPressed: () => Navigator.pop(c, true),
+            ),
+          ],
+        ),
+      );
+      if (ok != true || !mounted) return;
+    }
     final i = _drafts.indexOf(d);
     final cat = _categoryId;
     setState(() => _drafts.remove(d));
@@ -731,9 +760,13 @@ class _EntryEditScreenState extends State<EntryEditScreen> {
           visualDensity: VisualDensity.compact,
           onPressed: () => _scanInto(
             d,
-            ScannerScreen(
-              initialMode: d.scan == 'iban' ? ScanMode.iban : ScanMode.text,
-            ),
+            d.scan == 'codes'
+                ? const CodesScanScreen()
+                : ScannerScreen(
+                    initialMode: d.scan == 'iban'
+                        ? ScanMode.iban
+                        : ScanMode.text,
+                  ),
           ),
         ),
       if (isDate)

@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/constants/app_theme.dart';
+import '../../core/entitlements/billing_service.dart';
 import '../../core/entitlements/entitlements.dart';
 import '../../core/entitlements/pro_prices.dart';
 import '../../core/widgets/muhur_widgets.dart';
@@ -13,6 +16,15 @@ enum ProPlan { yearly, monthly }
 /// Ayarlar ve ana sayfada gösterilen kısa durum: deneme / etkin / ücretsiz.
 String proStatusText(AppLocalizations t) {
   final e = Entitlements.instance;
+  final b = BillingService.instance;
+  if (!b.subscribed) {
+    if (b.giftLifetime) return t.proStatusGiftLife;
+    final until = b.giftUntil;
+    if (until != null) {
+      final left = until.difference(e.now).inMinutes / Duration.minutesPerDay;
+      return t.proStatusGift(t.daysCount(left < 1 ? 1 : left.ceil()));
+    }
+  }
   if (e.isSubscribed) return t.proStatusActive;
   if (e.inTrial) return t.proStatusTrial(t.daysCount(e.trialDaysLeft));
   return t.proStatusFree;
@@ -38,13 +50,78 @@ class _ProScreenState extends State<ProScreen> {
 
   ProPlan _plan = ProPlan.yearly;
 
-  void _comingSoon(AppLocalizations t) {
+  StreamSubscription<BillingEvent>? _events;
+
+  @override
+  void initState() {
+    super.initState();
+    _events = BillingService.instance.events.listen(_onEvent);
+  }
+
+  @override
+  void dispose() {
+    _events?.cancel();
+    super.dispose();
+  }
+
+  void _toast(String text) {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text(t.proComingSoon)));
+      ..showSnackBar(SnackBar(content: Text(text)));
+  }
+
+  void _onEvent(BillingEvent ev) {
+    if (!mounted) return;
+    final t = AppLocalizations.of(context)!;
+    switch (ev) {
+      case BillingEvent.purchased:
+        _toast(t.proThanks);
+      case BillingEvent.pending:
+        _toast(t.proPending);
+      case BillingEvent.error:
+        _toast(t.proBuyError);
+      case BillingEvent.canceled:
+        break;
+    }
+  }
+
+  Future<void> _buy() async {
+    final t = AppLocalizations.of(context)!;
+    final id = _plan == ProPlan.yearly
+        ? BillingService.yearlyId
+        : BillingService.monthlyId;
+    final ok = await BillingService.instance.buy(id);
+    if (!ok && mounted) _toast(t.proStoreUnavailable);
+  }
+
+  Future<void> _restore() async {
+    final t = AppLocalizations.of(context)!;
+    final ok = await BillingService.instance.refresh();
+    if (!mounted) return;
+    if (!ok) {
+      _toast(t.proStoreUnavailable);
+    } else {
+      _toast(
+        Entitlements.instance.isSubscribed
+            ? t.proRestoreDone
+            : t.proRestoreNone,
+      );
+    }
+  }
+
+  /// Play Store'un "Kodu kullan" ekranı; hediye kodu kartsız kullanılır.
+  Future<void> _redeem() async {
+    BillingService.instance.expectChange();
+    try {
+      await launchUrl(
+        Uri.parse('https://play.google.com/redeem'),
+        mode: LaunchMode.externalApplication,
+      );
+    } catch (_) {}
   }
 
   Future<void> _manage() async {
+    BillingService.instance.expectChange();
     final uri = Uri.parse(
       'https://play.google.com/store/account/subscriptions?package=$_packageId',
     );
@@ -65,7 +142,11 @@ class _ProScreenState extends State<ProScreen> {
           title: Text('${t.brandName} Pro'),
         ),
         body: ListenableBuilder(
-          listenable: Entitlements.instance,
+          listenable: Listenable.merge([
+            Entitlements.instance,
+            ProPrices.instance,
+            BillingService.instance,
+          ]),
           builder: (context, _) {
             final e = Entitlements.instance;
             final paid = e.isSubscribed;
@@ -92,15 +173,10 @@ class _ProScreenState extends State<ProScreen> {
                     t.proPerMonth,
                   ),
                   const SizedBox(height: 16),
-                  FilledButton(
-                    onPressed: () => _comingSoon(t),
-                    child: Text(t.proSubscribe),
-                  ),
-                  TextButton(
-                    onPressed: () => _comingSoon(t),
-                    child: Text(t.proRestore),
-                  ),
-                ] else
+                  FilledButton(onPressed: _buy, child: Text(t.proSubscribe)),
+                  TextButton(onPressed: _restore, child: Text(t.proRestore)),
+                  TextButton(onPressed: _redeem, child: Text(t.proRedeem)),
+                ] else if (BillingService.instance.subscribed)
                   OutlinedButton(onPressed: _manage, child: Text(t.proManage)),
                 const SizedBox(height: 10),
                 Text(

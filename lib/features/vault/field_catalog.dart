@@ -182,6 +182,7 @@ class FieldCatalog {
       (t) => t.fc2faBackupCodes,
       type: 'notes',
       sensitive: true,
+      scan: 'codes',
     ),
     FieldSpec('securityQA', (t) => t.fcSecurityQA, sensitive: true),
     FieldSpec(
@@ -238,6 +239,7 @@ class FieldCatalog {
       (t) => t.fc2faBackupCodes,
       type: 'notes',
       sensitive: true,
+      scan: 'codes',
     ),
     FieldSpec('accountTypeStatus', (t) => t.fcAccountTypeStatus),
     FieldSpec('linkedMainAccount', (t) => t.fcLinkedMainAccount),
@@ -280,6 +282,7 @@ class FieldCatalog {
       (t) => t.fc2faBackupCodes,
       type: 'notes',
       sensitive: true,
+      scan: 'codes',
     ),
     FieldSpec(
       '2faSecretKey',
@@ -319,6 +322,13 @@ class FieldCatalog {
       (t) => t.fc2faSecretKey,
       type: 'totp',
       sensitive: true,
+    ),
+    FieldSpec(
+      '2faBackupCodes',
+      (t) => t.fc2faBackupCodes,
+      type: 'notes',
+      sensitive: true,
+      scan: 'codes',
     ),
     FieldSpec('note', (t) => t.fieldNote, type: 'notes'),
   ];

@@ -365,5 +365,20 @@
   "showValue": "Anzeigen",
   "hideValue": "Ausblenden",
   "favoriteAdd": "Zu Favoriten hinzufügen",
-  "favoriteRemove": "Aus Favoriten entfernen"
+  "favoriteRemove": "Aus Favoriten entfernen",
+  "proRedeem": "Geschenkcode einlösen",
+  "proThanks": "Danke! MÜHÜR Pro ist aktiv.",
+  "proPending": "Die Zahlung steht noch aus. Pro wird automatisch aktiviert, sobald sie abgeschlossen ist.",
+  "proBuyError": "Der Kauf konnte nicht abgeschlossen werden. Bitte versuche es später erneut.",
+  "proRestoreDone": "MÜHÜR Pro ist aktiv.",
+  "proRestoreNone": "Für dieses Google-Konto wurde kein aktives Pro gefunden.",
+  "proStoreUnavailable": "Google Play ist nicht erreichbar. Prüfe, ob der Play Store installiert ist und du angemeldet bist.",
+  "proStatusGift": "Geschenk-Pro: noch {days}",
+  "proStatusGiftLife": "Geschenk-Pro: unbefristet",
+  "scanCodesTitle": "Backup-Codes scannen",
+  "scanCodesHint": "Richte die Kamera auf die Liste der Backup-Codes, die dir die Website gegeben hat. Gelesene Codes sammeln sich hier; bestätige, wenn alle da sind.",
+  "scanCodesCount": "Gelesene Codes: {count}",
+  "scanCodesClear": "Liste leeren",
+  "totpRemoveTitle": "2FA-Schlüssel löschen?",
+  "totpRemoveBody": "Wenn die Zwei-Faktor-Anmeldung auf der Website noch aktiv ist, kommst du ohne diesen Schlüssel womöglich nicht mehr in das Konto. Schalte sie zuerst auf der Website aus oder stelle sicher, dass deine Backup-Codes gespeichert sind."
 }

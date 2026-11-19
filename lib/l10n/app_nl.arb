@@ -365,5 +365,20 @@
   "showValue": "Tonen",
   "hideValue": "Verbergen",
   "favoriteAdd": "Toevoegen aan favorieten",
-  "favoriteRemove": "Verwijderen uit favorieten"
+  "favoriteRemove": "Verwijderen uit favorieten",
+  "proRedeem": "Cadeaucode inwisselen",
+  "proThanks": "Bedankt! MÜHÜR Pro is actief.",
+  "proPending": "De betaling is in behandeling. Pro gaat vanzelf aan zodra die rond is.",
+  "proBuyError": "De aankoop kon niet worden voltooid. Probeer het later opnieuw.",
+  "proRestoreDone": "MÜHÜR Pro is actief.",
+  "proRestoreNone": "Er is geen actief Pro gevonden voor dit Google-account.",
+  "proStoreUnavailable": "Google Play is niet bereikbaar. Controleer of de Play Store is geïnstalleerd en je bent ingelogd.",
+  "proStatusGift": "Cadeau-Pro: nog {days}",
+  "proStatusGiftLife": "Cadeau-Pro: onbeperkt",
+  "scanCodesTitle": "Back-upcodes scannen",
+  "scanCodesHint": "Richt de camera op de lijst met back-upcodes van de site. Gelezen codes verzamelen zich hier; bevestig als ze er allemaal zijn.",
+  "scanCodesCount": "Gelezen codes: {count}",
+  "scanCodesClear": "Lijst wissen",
+  "totpRemoveTitle": "2FA-sleutel verwijderen?",
+  "totpRemoveBody": "Als tweestapsverificatie op de site nog aan staat, kun je zonder deze sleutel mogelijk niet meer inloggen op dat account. Zet het eerst uit op de site of controleer of je back-upcodes zijn opgeslagen."
 }

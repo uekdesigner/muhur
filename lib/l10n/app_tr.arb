@@ -365,5 +365,20 @@
   "showValue": "Göster",
   "hideValue": "Gizle",
   "favoriteAdd": "Favorilere ekle",
-  "favoriteRemove": "Favorilerden çıkar"
+  "favoriteRemove": "Favorilerden çıkar",
+  "proRedeem": "Hediye kodu kullan",
+  "proThanks": "Teşekkürler! MÜHÜR Pro etkin.",
+  "proPending": "Ödeme onay bekliyor. Tamamlanınca Pro kendiliğinden açılır.",
+  "proBuyError": "Satın alma tamamlanamadı. Daha sonra tekrar deneyin.",
+  "proRestoreDone": "MÜHÜR Pro etkin.",
+  "proRestoreNone": "Bu Google hesabında etkin bir Pro bulunamadı.",
+  "proStoreUnavailable": "Google Play'e ulaşılamadı. Play Store'un yüklü ve hesabınızın açık olduğundan emin olun.",
+  "proStatusGift": "Hediye Pro: {days} kaldı",
+  "proStatusGiftLife": "Hediye Pro: süresiz",
+  "scanCodesTitle": "Yedek kodları tara",
+  "scanCodesHint": "Sitenin verdiği yedek kod listesini kameraya tutun. Okunan kodlar burada birikir; hepsi gelince onaylayın.",
+  "scanCodesCount": "Okunan kod: {count}",
+  "scanCodesClear": "Listeyi temizle",
+  "totpRemoveTitle": "2FA anahtarı silinsin mi?",
+  "totpRemoveBody": "Sitede iki adımlı doğrulamayı kapatmadıysanız, bu anahtar olmadan o hesaba giremeyebilirsiniz. Önce sitede kapatın ya da yedek kodlarınızın kayıtlı olduğundan emin olun."
 }

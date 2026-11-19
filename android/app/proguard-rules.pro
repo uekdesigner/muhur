@@ -8,3 +8,6 @@
 -keep class com.google.android.gms.internal.mlkit_vision_text_common.** { *; }
 -keep class com.google.android.gms.internal.mlkit_vision_text_latin.** { *; }
 -dontwarn com.google.android.gms.internal.mlkit_**
+-keep class com.google_mlkit_barcode_scanning.** { *; }
+-keep class com.google.android.gms.internal.mlkit_vision_barcode.** { *; }
+-keep class com.google.android.gms.internal.mlkit_vision_barcode_bundled.** { *; }

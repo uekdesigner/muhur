@@ -365,5 +365,20 @@
   "showValue": "Hiện",
   "hideValue": "Ẩn",
   "favoriteAdd": "Thêm vào yêu thích",
-  "favoriteRemove": "Xóa khỏi yêu thích"
+  "favoriteRemove": "Xóa khỏi yêu thích",
+  "proRedeem": "Đổi mã quà tặng",
+  "proThanks": "Cảm ơn bạn! MÜHÜR Pro đã được kích hoạt.",
+  "proPending": "Thanh toán đang chờ xử lý. Pro sẽ tự bật khi hoàn tất.",
+  "proBuyError": "Không thể hoàn tất giao dịch mua. Vui lòng thử lại sau.",
+  "proRestoreDone": "MÜHÜR Pro đang hoạt động.",
+  "proRestoreNone": "Không tìm thấy Pro đang hoạt động trên tài khoản Google này.",
+  "proStoreUnavailable": "Không thể kết nối Google Play. Hãy đảm bảo đã cài Cửa hàng Play và đã đăng nhập.",
+  "proStatusGift": "Pro quà tặng: còn {days}",
+  "proStatusGiftLife": "Pro quà tặng: không giới hạn thời gian",
+  "scanCodesTitle": "Quét mã dự phòng",
+  "scanCodesHint": "Hướng camera vào danh sách mã dự phòng mà trang web cung cấp. Các mã đọc được sẽ dồn vào đây; xác nhận khi đã đủ.",
+  "scanCodesCount": "Mã đã đọc: {count}",
+  "scanCodesClear": "Xóa danh sách",
+  "totpRemoveTitle": "Xóa khóa 2FA?",
+  "totpRemoveBody": "Nếu xác minh hai bước vẫn đang bật trên trang web, bạn có thể không đăng nhập được vào tài khoản đó khi thiếu khóa này. Hãy tắt nó trên trang web trước, hoặc chắc chắn rằng mã dự phòng của bạn đã được lưu."
 }

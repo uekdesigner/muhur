@@ -1281,4 +1281,59 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Remover dos favoritos';
+
+  @override
+  String get proRedeem => 'Resgatar código de presente';
+
+  @override
+  String get proThanks => 'Obrigado! O MÜHÜR Pro está ativo.';
+
+  @override
+  String get proPending =>
+      'O pagamento está pendente. O Pro será ativado automaticamente quando concluir.';
+
+  @override
+  String get proBuyError =>
+      'Não foi possível concluir a compra. Tente novamente mais tarde.';
+
+  @override
+  String get proRestoreDone => 'O MÜHÜR Pro está ativo.';
+
+  @override
+  String get proRestoreNone =>
+      'Nenhum Pro ativo foi encontrado nesta conta do Google.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Não foi possível acessar o Google Play. Verifique se a Play Store está instalada e se você fez login.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Pro de presente: faltam $days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Pro de presente: sem prazo';
+
+  @override
+  String get scanCodesTitle => 'Escanear códigos de backup';
+
+  @override
+  String get scanCodesHint =>
+      'Aponte a câmera para a lista de códigos de backup que o site forneceu. Os códigos lidos se acumulam aqui; confirme quando todos aparecerem.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Códigos lidos: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Limpar lista';
+
+  @override
+  String get totpRemoveTitle => 'Excluir a chave 2FA?';
+
+  @override
+  String get totpRemoveBody =>
+      'Se a verificação em duas etapas ainda estiver ativa no site, talvez você não consiga entrar nessa conta sem esta chave. Desative-a primeiro no site ou confirme que seus códigos de backup estão salvos.';
 }

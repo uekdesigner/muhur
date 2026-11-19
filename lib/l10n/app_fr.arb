@@ -365,5 +365,20 @@
   "showValue": "Afficher",
   "hideValue": "Masquer",
   "favoriteAdd": "Ajouter aux favoris",
-  "favoriteRemove": "Retirer des favoris"
+  "favoriteRemove": "Retirer des favoris",
+  "proRedeem": "Utiliser un code cadeau",
+  "proThanks": "Merci ! MÜHÜR Pro est actif.",
+  "proPending": "Le paiement est en attente. Pro s'activera automatiquement une fois terminé.",
+  "proBuyError": "L'achat n'a pas pu aboutir. Réessayez plus tard.",
+  "proRestoreDone": "MÜHÜR Pro est actif.",
+  "proRestoreNone": "Aucun Pro actif n'a été trouvé sur ce compte Google.",
+  "proStoreUnavailable": "Impossible d'accéder à Google Play. Vérifiez que le Play Store est installé et que vous êtes connecté.",
+  "proStatusGift": "Pro offert : encore {days}",
+  "proStatusGiftLife": "Pro offert : sans limite de durée",
+  "scanCodesTitle": "Scanner les codes de secours",
+  "scanCodesHint": "Dirigez la caméra vers la liste de codes de secours fournie par le site. Les codes lus s'ajoutent ici ; validez quand ils y sont tous.",
+  "scanCodesCount": "Codes lus : {count}",
+  "scanCodesClear": "Vider la liste",
+  "totpRemoveTitle": "Supprimer la clé 2FA ?",
+  "totpRemoveBody": "Si la validation en deux étapes est toujours active sur le site, vous risquez de ne plus pouvoir vous connecter à ce compte sans cette clé. Désactivez-la d'abord sur le site ou vérifiez que vos codes de secours sont enregistrés."
 }

@@ -1290,4 +1290,57 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'إزالة من المفضلة';
+
+  @override
+  String get proRedeem => 'استخدام رمز هدية';
+
+  @override
+  String get proThanks => 'شكرًا لك! MÜHÜR Pro مفعّل.';
+
+  @override
+  String get proPending =>
+      'الدفع قيد الانتظار. سيُفعَّل Pro تلقائيًا عند اكتماله.';
+
+  @override
+  String get proBuyError => 'تعذّر إتمام الشراء. حاول مرة أخرى لاحقًا.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro مفعّل.';
+
+  @override
+  String get proRestoreNone => 'لم يُعثر على Pro نشط في حساب Google هذا.';
+
+  @override
+  String get proStoreUnavailable =>
+      'تعذّر الوصول إلى Google Play. تأكد من تثبيت متجر Play ومن تسجيل دخولك.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Pro الهدية: متبقٍ $days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Pro الهدية: بلا انتهاء';
+
+  @override
+  String get scanCodesTitle => 'مسح الرموز الاحتياطية';
+
+  @override
+  String get scanCodesHint =>
+      'وجّه الكاميرا إلى قائمة الرموز الاحتياطية التي أعطاك إياها الموقع. تتجمع الرموز هنا عند قراءتها؛ أكّد عندما تظهر كلها.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'الرموز المقروءة: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'مسح القائمة';
+
+  @override
+  String get totpRemoveTitle => 'حذف مفتاح 2FA؟';
+
+  @override
+  String get totpRemoveBody =>
+      'إذا كان التحقق بخطوتين لا يزال مفعّلًا في الموقع، فقد لا تتمكن من تسجيل الدخول إلى ذلك الحساب بدون هذا المفتاح. أوقفه في الموقع أولًا، أو تأكد من حفظ رموزك الاحتياطية.';
 }

@@ -1294,4 +1294,59 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Убрать из избранного';
+
+  @override
+  String get proRedeem => 'Активировать подарочный код';
+
+  @override
+  String get proThanks => 'Спасибо! MÜHÜR Pro активирован.';
+
+  @override
+  String get proPending =>
+      'Платёж ожидает подтверждения. Pro включится сам, когда он завершится.';
+
+  @override
+  String get proBuyError =>
+      'Не удалось завершить покупку. Повторите попытку позже.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro активен.';
+
+  @override
+  String get proRestoreNone =>
+      'В этом аккаунте Google не найдено активного Pro.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Не удалось связаться с Google Play. Убедитесь, что Play Маркет установлен и вы вошли в аккаунт.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Подарочный Pro: осталось $days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Подарочный Pro: бессрочно';
+
+  @override
+  String get scanCodesTitle => 'Сканировать резервные коды';
+
+  @override
+  String get scanCodesHint =>
+      'Наведите камеру на список резервных кодов, который дал сайт. Считанные коды собираются здесь; подтвердите, когда появятся все.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Считано кодов: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Очистить список';
+
+  @override
+  String get totpRemoveTitle => 'Удалить ключ 2FA?';
+
+  @override
+  String get totpRemoveBody =>
+      'Если двухэтапная проверка на сайте ещё включена, без этого ключа вы можете не войти в этот аккаунт. Сначала отключите её на сайте или убедитесь, что резервные коды сохранены.';
 }

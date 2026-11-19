@@ -1264,4 +1264,58 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Hapus dari favorit';
+
+  @override
+  String get proRedeem => 'Tukarkan kode hadiah';
+
+  @override
+  String get proThanks => 'Terima kasih! MÜHÜR Pro sudah aktif.';
+
+  @override
+  String get proPending =>
+      'Pembayaran tertunda. Pro akan aktif dengan sendirinya setelah selesai.';
+
+  @override
+  String get proBuyError =>
+      'Pembelian tidak dapat diselesaikan. Coba lagi nanti.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro aktif.';
+
+  @override
+  String get proRestoreNone => 'Tidak ditemukan Pro aktif di akun Google ini.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Tidak dapat menjangkau Google Play. Pastikan Play Store terpasang dan Anda sudah masuk.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Pro hadiah: sisa $days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Pro hadiah: tanpa batas waktu';
+
+  @override
+  String get scanCodesTitle => 'Pindai kode cadangan';
+
+  @override
+  String get scanCodesHint =>
+      'Arahkan kamera ke daftar kode cadangan dari situs. Kode yang terbaca terkumpul di sini; konfirmasi setelah semuanya masuk.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Kode terbaca: $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Kosongkan daftar';
+
+  @override
+  String get totpRemoveTitle => 'Hapus kunci 2FA?';
+
+  @override
+  String get totpRemoveBody =>
+      'Jika verifikasi dua langkah masih aktif di situs, Anda mungkin tidak bisa masuk ke akun itu tanpa kunci ini. Matikan dulu di situs, atau pastikan kode cadangan Anda sudah tersimpan.';
 }

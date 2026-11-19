@@ -365,5 +365,20 @@
   "showValue": "表示",
   "hideValue": "非表示",
   "favoriteAdd": "お気に入りに追加",
-  "favoriteRemove": "お気に入りから削除"
+  "favoriteRemove": "お気に入りから削除",
+  "proRedeem": "ギフトコードを使う",
+  "proThanks": "ありがとうございます！MÜHÜR Proが有効になりました。",
+  "proPending": "支払いは保留中です。完了すると自動でProが有効になります。",
+  "proBuyError": "購入を完了できませんでした。しばらくしてからもう一度お試しください。",
+  "proRestoreDone": "MÜHÜR Proは有効です。",
+  "proRestoreNone": "このGoogleアカウントに有効なProは見つかりませんでした。",
+  "proStoreUnavailable": "Google Playに接続できませんでした。Playストアがインストールされ、ログインしていることを確認してください。",
+  "proStatusGift": "ギフトPro: 残り{days}",
+  "proStatusGiftLife": "ギフトPro: 無期限",
+  "scanCodesTitle": "バックアップコードをスキャン",
+  "scanCodesHint": "サイトから受け取ったバックアップコードの一覧にカメラを向けてください。読み取ったコードはここにたまります。すべてそろったら確定してください。",
+  "scanCodesCount": "読み取ったコード: {count}",
+  "scanCodesClear": "リストをクリア",
+  "totpRemoveTitle": "2FAキーを削除しますか？",
+  "totpRemoveBody": "サイトで2段階認証がまだ有効な場合、このキーがないとそのアカウントにログインできなくなるおそれがあります。先にサイトで無効にするか、バックアップコードが保存されていることを確認してください。"
 }

@@ -1282,4 +1282,59 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get favoriteRemove => 'Retirer des favoris';
+
+  @override
+  String get proRedeem => 'Utiliser un code cadeau';
+
+  @override
+  String get proThanks => 'Merci ! MÜHÜR Pro est actif.';
+
+  @override
+  String get proPending =>
+      'Le paiement est en attente. Pro s\'activera automatiquement une fois terminé.';
+
+  @override
+  String get proBuyError =>
+      'L\'achat n\'a pas pu aboutir. Réessayez plus tard.';
+
+  @override
+  String get proRestoreDone => 'MÜHÜR Pro est actif.';
+
+  @override
+  String get proRestoreNone =>
+      'Aucun Pro actif n\'a été trouvé sur ce compte Google.';
+
+  @override
+  String get proStoreUnavailable =>
+      'Impossible d\'accéder à Google Play. Vérifiez que le Play Store est installé et que vous êtes connecté.';
+
+  @override
+  String proStatusGift(String days) {
+    return 'Pro offert : encore $days';
+  }
+
+  @override
+  String get proStatusGiftLife => 'Pro offert : sans limite de durée';
+
+  @override
+  String get scanCodesTitle => 'Scanner les codes de secours';
+
+  @override
+  String get scanCodesHint =>
+      'Dirigez la caméra vers la liste de codes de secours fournie par le site. Les codes lus s\'ajoutent ici ; validez quand ils y sont tous.';
+
+  @override
+  String scanCodesCount(int count) {
+    return 'Codes lus : $count';
+  }
+
+  @override
+  String get scanCodesClear => 'Vider la liste';
+
+  @override
+  String get totpRemoveTitle => 'Supprimer la clé 2FA ?';
+
+  @override
+  String get totpRemoveBody =>
+      'Si la validation en deux étapes est toujours active sur le site, vous risquez de ne plus pouvoir vous connecter à ce compte sans cette clé. Désactivez-la d\'abord sur le site ou vérifiez que vos codes de secours sont enregistrés.';
 }
