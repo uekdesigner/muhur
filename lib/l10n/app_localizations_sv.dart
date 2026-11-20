@@ -1331,4 +1331,15 @@ class AppLocalizationsSv extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Om tvåstegsverifiering fortfarande är på för webbplatsen kan du kanske inte logga in på kontot utan den här nyckeln. Stäng av den på webbplatsen först eller se till att dina reservkoder är sparade.';
+
+  @override
+  String get proBannerTrial => 'Fortsätt efter provperioden';
+
+  @override
+  String get proBannerFree => 'Alla funktioner utan gränser';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly per år · cirka $month i månaden';
+  }
 }

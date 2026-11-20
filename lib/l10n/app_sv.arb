@@ -380,5 +380,8 @@
   "scanCodesCount": "Lästa koder: {count}",
   "scanCodesClear": "Rensa listan",
   "totpRemoveTitle": "Ta bort 2FA-nyckeln?",
-  "totpRemoveBody": "Om tvåstegsverifiering fortfarande är på för webbplatsen kan du kanske inte logga in på kontot utan den här nyckeln. Stäng av den på webbplatsen först eller se till att dina reservkoder är sparade."
+  "totpRemoveBody": "Om tvåstegsverifiering fortfarande är på för webbplatsen kan du kanske inte logga in på kontot utan den här nyckeln. Stäng av den på webbplatsen först eller se till att dina reservkoder är sparade.",
+  "proBannerTrial": "Fortsätt efter provperioden",
+  "proBannerFree": "Alla funktioner utan gränser",
+  "proBannerPrice": "{yearly} per år · cirka {month} i månaden"
 }

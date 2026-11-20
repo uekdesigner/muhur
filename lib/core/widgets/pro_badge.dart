@@ -1,11 +1,8 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../constants/app_theme.dart';
 import '../entitlements/entitlements.dart';
-import '../entitlements/pro_prices.dart';
 
 /// PRO etiketlerinin rengi: soldan sağa altından bakıra çapraz geçiş.
 const _gold = [Color(0xFFFBE7A6), Color(0xFFE3A857), Color(0xFFB4602C)];
@@ -224,120 +221,19 @@ class _ShineState extends State<_Shine> with SingleTickerProviderStateMixin {
   }
 }
 
-/// Ana ekranın ikinci satırında, aramanın solunda: kabartmalı PRO bloğu ve
-/// sağ üst köşesine binen kuruşsuz yıllık fiyat ("299 ₺"). PRO'nun üzerinden
-/// aralıklarla ışık geçer, ardından fiyat çerçevesi bir kez parlayıp söner.
-/// Abone olunca kaybolur; fiyat bilinmiyorsa yalnızca PRO görünür.
-/// "Animasyonları kaldır" açıksa hareket etmez.
-class ProPriceTag extends StatefulWidget {
-  const ProPriceTag({super.key});
+/// Büyük, ışık geçen PRO etiketi (ana ekrandaki Pro paneli).
+class ProLabel extends StatelessWidget {
+  const ProLabel({super.key});
 
   @override
-  State<ProPriceTag> createState() => _ProPriceTagState();
-}
-
-class _ProPriceTagState extends State<ProPriceTag>
-    with SingleTickerProviderStateMixin {
-  static const _pause = Duration(milliseconds: 2600);
-
-  late final AnimationController _glow = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 1400),
-  );
-
-  @override
-  void initState() {
-    super.initState();
-    _loop();
-  }
-
-  /// Bekleme → parlama. Beklerken kare çizilmez (pil dostu).
-  Future<void> _loop() async {
-    while (mounted) {
-      await Future<void>.delayed(_pause);
-      if (!mounted) return;
-      try {
-        await _glow.forward(from: 0).orCancel;
-      } on TickerCanceled {
-        return;
-      }
-    }
-  }
-
-  @override
-  void dispose() {
-    _glow.dispose();
-    super.dispose();
-  }
-
-  Widget _pro(bool withPrice, bool rtl) {
-    // Fiyat sağa bindiği için o taraf biraz daha geniş.
-    final side = withPrice ? 15.0 : 9.0;
-    return Container(
+  Widget build(BuildContext context) => _Shine(
+    child: Container(
       decoration: _embossed(_gold, 6),
       child: _bevel(
         6,
-        EdgeInsets.fromLTRB(rtl ? side : 9, 3, rtl ? 9 : side, 3),
+        const EdgeInsets.fromLTRB(9, 3, 9, 3),
         Text('PRO', style: _engraved(12, 1.2)),
-      ),
-    );
-  }
-
-  Widget _price(String price, double glow) => Container(
-    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-    decoration: BoxDecoration(
-      color: const Color(0xF2000000),
-      borderRadius: BorderRadius.circular(10),
-      border: Border.all(color: const Color(0xFFE3A857), width: 1.2),
-      boxShadow: [
-        BoxShadow(
-          color: const Color(0xFFFFD24A).withValues(alpha: 0.12 + 0.5 * glow),
-          blurRadius: 2 + 7 * glow,
-        ),
-      ],
-    ),
-    child: Text(
-      price,
-      style: const TextStyle(
-        color: Colors.white,
-        fontSize: 11.5,
-        fontWeight: FontWeight.w800,
-        height: 1.1,
       ),
     ),
   );
-
-  @override
-  Widget build(BuildContext context) {
-    final lang = Localizations.localeOf(context).languageCode;
-    final rtl = Directionality.of(context) == TextDirection.rtl;
-    final still = MediaQuery.of(context).disableAnimations;
-    return ListenableBuilder(
-      listenable: Listenable.merge([Entitlements.instance, ProPrices.instance]),
-      builder: (context, _) {
-        if (Entitlements.instance.isSubscribed) return const SizedBox.shrink();
-        final price = ProPrices.instance.yearlyShort(lang);
-        final pro = _Shine(child: _pro(price != null, rtl));
-        if (price == null) return pro;
-        return Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            pro,
-            Transform.translate(
-              // Fiyat PRO bloğunun sağ üst köşesine biner.
-              offset: Offset(rtl ? 8 : -8, -5),
-              child: still
-                  ? _price(price, 0)
-                  : AnimatedBuilder(
-                      animation: _glow,
-                      builder: (context, _) =>
-                          _price(price, math.sin(math.pi * _glow.value)),
-                    ),
-            ),
-          ],
-        );
-      },
-    );
-  }
 }

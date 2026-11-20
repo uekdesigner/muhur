@@ -1337,4 +1337,15 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Si la validation en deux étapes est toujours active sur le site, vous risquez de ne plus pouvoir vous connecter à ce compte sans cette clé. Désactivez-la d\'abord sur le site ou vérifiez que vos codes de secours sont enregistrés.';
+
+  @override
+  String get proBannerTrial => 'Continuez après l\'essai';
+
+  @override
+  String get proBannerFree => 'Toutes les fonctions, sans limite';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly par an · environ $month par mois';
+  }
 }

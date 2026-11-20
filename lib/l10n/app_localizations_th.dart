@@ -1305,4 +1305,15 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'หากการยืนยันแบบสองขั้นตอนยังเปิดอยู่ในเว็บไซต์ คุณอาจเข้าสู่ระบบบัญชีนั้นไม่ได้หากไม่มีคีย์นี้ ปิดในเว็บไซต์ก่อน หรือตรวจสอบว่าบันทึกรหัสสำรองไว้แล้ว';
+
+  @override
+  String get proBannerTrial => 'ใช้งานต่อหลังช่วงทดลอง';
+
+  @override
+  String get proBannerFree => 'ทุกฟีเจอร์ ไม่จำกัด';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly ต่อปี · ประมาณ $month ต่อเดือน';
+  }
 }

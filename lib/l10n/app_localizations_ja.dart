@@ -1271,4 +1271,15 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'サイトで2段階認証がまだ有効な場合、このキーがないとそのアカウントにログインできなくなるおそれがあります。先にサイトで無効にするか、バックアップコードが保存されていることを確認してください。';
+
+  @override
+  String get proBannerTrial => '体験終了後も続けて使う';
+
+  @override
+  String get proBannerFree => 'すべての機能を無制限に';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '年額$yearly・月あたり約$month';
+  }
 }

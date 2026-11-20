@@ -380,5 +380,8 @@
   "scanCodesCount": "Kode terbaca: {count}",
   "scanCodesClear": "Kosongkan daftar",
   "totpRemoveTitle": "Hapus kunci 2FA?",
-  "totpRemoveBody": "Jika verifikasi dua langkah masih aktif di situs, Anda mungkin tidak bisa masuk ke akun itu tanpa kunci ini. Matikan dulu di situs, atau pastikan kode cadangan Anda sudah tersimpan."
+  "totpRemoveBody": "Jika verifikasi dua langkah masih aktif di situs, Anda mungkin tidak bisa masuk ke akun itu tanpa kunci ini. Matikan dulu di situs, atau pastikan kode cadangan Anda sudah tersimpan.",
+  "proBannerTrial": "Lanjutkan setelah uji coba",
+  "proBannerFree": "Semua fitur tanpa batas",
+  "proBannerPrice": "{yearly} per tahun · sekitar {month} per bulan"
 }

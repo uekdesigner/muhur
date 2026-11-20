@@ -1276,4 +1276,15 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       '사이트에서 2단계 인증이 아직 켜져 있다면 이 키 없이는 그 계정에 로그인하지 못할 수 있습니다. 먼저 사이트에서 끄거나 백업 코드가 저장되어 있는지 확인하세요.';
+
+  @override
+  String get proBannerTrial => '체험 후에도 계속 사용하기';
+
+  @override
+  String get proBannerFree => '모든 기능을 무제한으로';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '연 $yearly · 월 약 $month';
+  }
 }

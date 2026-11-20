@@ -380,5 +380,8 @@
   "scanCodesCount": "Mã đã đọc: {count}",
   "scanCodesClear": "Xóa danh sách",
   "totpRemoveTitle": "Xóa khóa 2FA?",
-  "totpRemoveBody": "Nếu xác minh hai bước vẫn đang bật trên trang web, bạn có thể không đăng nhập được vào tài khoản đó khi thiếu khóa này. Hãy tắt nó trên trang web trước, hoặc chắc chắn rằng mã dự phòng của bạn đã được lưu."
+  "totpRemoveBody": "Nếu xác minh hai bước vẫn đang bật trên trang web, bạn có thể không đăng nhập được vào tài khoản đó khi thiếu khóa này. Hãy tắt nó trên trang web trước, hoặc chắc chắn rằng mã dự phòng của bạn đã được lưu.",
+  "proBannerTrial": "Tiếp tục sau thời gian dùng thử",
+  "proBannerFree": "Mọi tính năng, không giới hạn",
+  "proBannerPrice": "{yearly} mỗi năm · khoảng {month} mỗi tháng"
 }

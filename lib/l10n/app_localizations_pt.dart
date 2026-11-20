@@ -1336,4 +1336,15 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Se a verificação em duas etapas ainda estiver ativa no site, talvez você não consiga entrar nessa conta sem esta chave. Desative-a primeiro no site ou confirme que seus códigos de backup estão salvos.';
+
+  @override
+  String get proBannerTrial => 'Continue depois do teste';
+
+  @override
+  String get proBannerFree => 'Todos os recursos, sem limites';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly por ano · cerca de $month por mês';
+  }
 }

@@ -380,5 +380,8 @@
   "scanCodesCount": "Odczytane kody: {count}",
   "scanCodesClear": "Wyczyść listę",
   "totpRemoveTitle": "Usunąć klucz 2FA?",
-  "totpRemoveBody": "Jeśli weryfikacja dwuetapowa jest nadal włączona na stronie, bez tego klucza możesz nie zalogować się do tego konta. Najpierw wyłącz ją na stronie albo upewnij się, że kody zapasowe są zapisane."
+  "totpRemoveBody": "Jeśli weryfikacja dwuetapowa jest nadal włączona na stronie, bez tego klucza możesz nie zalogować się do tego konta. Najpierw wyłącz ją na stronie albo upewnij się, że kody zapasowe są zapisane.",
+  "proBannerTrial": "Kontynuuj po okresie próbnym",
+  "proBannerFree": "Wszystkie funkcje bez limitów",
+  "proBannerPrice": "{yearly} rocznie · ok. {month} miesięcznie"
 }

@@ -1317,4 +1317,15 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Sitede iki adımlı doğrulamayı kapatmadıysanız, bu anahtar olmadan o hesaba giremeyebilirsiniz. Önce sitede kapatın ya da yedek kodlarınızın kayıtlı olduğundan emin olun.';
+
+  @override
+  String get proBannerTrial => 'Deneme bitince de devam edin';
+
+  @override
+  String get proBannerFree => 'Tüm özellikler sınırsız';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return 'Yıllık $yearly · aylık ~$month';
+  }
 }

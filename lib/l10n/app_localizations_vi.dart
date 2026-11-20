@@ -1315,4 +1315,15 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Nếu xác minh hai bước vẫn đang bật trên trang web, bạn có thể không đăng nhập được vào tài khoản đó khi thiếu khóa này. Hãy tắt nó trên trang web trước, hoặc chắc chắn rằng mã dự phòng của bạn đã được lưu.';
+
+  @override
+  String get proBannerTrial => 'Tiếp tục sau thời gian dùng thử';
+
+  @override
+  String get proBannerFree => 'Mọi tính năng, không giới hạn';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly mỗi năm · khoảng $month mỗi tháng';
+  }
 }

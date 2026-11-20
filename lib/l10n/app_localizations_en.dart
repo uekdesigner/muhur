@@ -1332,4 +1332,15 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'If two-step verification is still on at the site, you may not be able to sign in to that account without this key. Turn it off at the site first, or make sure your backup codes are saved.';
+
+  @override
+  String get proBannerTrial => 'Keep going after your trial';
+
+  @override
+  String get proBannerFree => 'Every feature, unlimited';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly a year · about $month a month';
+  }
 }

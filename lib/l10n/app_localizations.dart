@@ -2415,6 +2415,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'If two-step verification is still on at the site, you may not be able to sign in to that account without this key. Turn it off at the site first, or make sure your backup codes are saved.'**
   String get totpRemoveBody;
+
+  /// No description provided for @proBannerTrial.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going after your trial'**
+  String get proBannerTrial;
+
+  /// No description provided for @proBannerFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Every feature, unlimited'**
+  String get proBannerFree;
+
+  /// No description provided for @proBannerPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'{yearly} a year · about {month} a month'**
+  String proBannerPrice(String yearly, String month);
 }
 
 class _AppLocalizationsDelegate

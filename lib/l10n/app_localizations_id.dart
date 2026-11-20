@@ -1318,4 +1318,15 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Jika verifikasi dua langkah masih aktif di situs, Anda mungkin tidak bisa masuk ke akun itu tanpa kunci ini. Matikan dulu di situs, atau pastikan kode cadangan Anda sudah tersimpan.';
+
+  @override
+  String get proBannerTrial => 'Lanjutkan setelah uji coba';
+
+  @override
+  String get proBannerFree => 'Semua fitur tanpa batas';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly per tahun · sekitar $month per bulan';
+  }
 }

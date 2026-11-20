@@ -380,5 +380,8 @@
   "scanCodesCount": "Codes lus : {count}",
   "scanCodesClear": "Vider la liste",
   "totpRemoveTitle": "Supprimer la clé 2FA ?",
-  "totpRemoveBody": "Si la validation en deux étapes est toujours active sur le site, vous risquez de ne plus pouvoir vous connecter à ce compte sans cette clé. Désactivez-la d'abord sur le site ou vérifiez que vos codes de secours sont enregistrés."
+  "totpRemoveBody": "Si la validation en deux étapes est toujours active sur le site, vous risquez de ne plus pouvoir vous connecter à ce compte sans cette clé. Désactivez-la d'abord sur le site ou vérifiez que vos codes de secours sont enregistrés.",
+  "proBannerTrial": "Continuez après l'essai",
+  "proBannerFree": "Toutes les fonctions, sans limite",
+  "proBannerPrice": "{yearly} par an · environ {month} par mois"
 }

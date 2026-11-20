@@ -380,5 +380,8 @@
   "scanCodesCount": "Okunan kod: {count}",
   "scanCodesClear": "Listeyi temizle",
   "totpRemoveTitle": "2FA anahtarı silinsin mi?",
-  "totpRemoveBody": "Sitede iki adımlı doğrulamayı kapatmadıysanız, bu anahtar olmadan o hesaba giremeyebilirsiniz. Önce sitede kapatın ya da yedek kodlarınızın kayıtlı olduğundan emin olun."
+  "totpRemoveBody": "Sitede iki adımlı doğrulamayı kapatmadıysanız, bu anahtar olmadan o hesaba giremeyebilirsiniz. Önce sitede kapatın ya da yedek kodlarınızın kayıtlı olduğundan emin olun.",
+  "proBannerTrial": "Deneme bitince de devam edin",
+  "proBannerFree": "Tüm özellikler sınırsız",
+  "proBannerPrice": "Yıllık {yearly} · aylık ~{month}"
 }

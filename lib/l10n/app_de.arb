@@ -380,5 +380,8 @@
   "scanCodesCount": "Gelesene Codes: {count}",
   "scanCodesClear": "Liste leeren",
   "totpRemoveTitle": "2FA-Schlüssel löschen?",
-  "totpRemoveBody": "Wenn die Zwei-Faktor-Anmeldung auf der Website noch aktiv ist, kommst du ohne diesen Schlüssel womöglich nicht mehr in das Konto. Schalte sie zuerst auf der Website aus oder stelle sicher, dass deine Backup-Codes gespeichert sind."
+  "totpRemoveBody": "Wenn die Zwei-Faktor-Anmeldung auf der Website noch aktiv ist, kommst du ohne diesen Schlüssel womöglich nicht mehr in das Konto. Schalte sie zuerst auf der Website aus oder stelle sicher, dass deine Backup-Codes gespeichert sind.",
+  "proBannerTrial": "Nach dem Test einfach weitermachen",
+  "proBannerFree": "Alle Funktionen ohne Limit",
+  "proBannerPrice": "{yearly} pro Jahr · ca. {month} im Monat"
 }

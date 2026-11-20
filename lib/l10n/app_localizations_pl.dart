@@ -1345,4 +1345,15 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Jeśli weryfikacja dwuetapowa jest nadal włączona na stronie, bez tego klucza możesz nie zalogować się do tego konta. Najpierw wyłącz ją na stronie albo upewnij się, że kody zapasowe są zapisane.';
+
+  @override
+  String get proBannerTrial => 'Kontynuuj po okresie próbnym';
+
+  @override
+  String get proBannerFree => 'Wszystkie funkcje bez limitów';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly rocznie · ok. $month miesięcznie';
+  }
 }

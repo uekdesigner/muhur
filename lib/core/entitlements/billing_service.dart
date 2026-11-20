@@ -101,16 +101,10 @@ class BillingService extends ChangeNotifier with WidgetsBindingObserver {
     final y = _products[yearlyId];
     final m = _products[monthlyId];
     ProPrices.instance.update(
-      yearly: y?.price,
-      yearlyShort: y == null ? null : _short(y),
-      monthly: m?.price,
+      yearly: y?.rawPrice,
+      monthly: m?.rawPrice,
+      currency: y?.currencyCode ?? m?.currencyCode,
     );
-  }
-
-  /// Kuruşu sıfırsa kuruşsuz fiyat: "₺299,00" → "₺299", "299,00 TL" → "299 TL".
-  static String _short(ProductDetails p) {
-    if (p.rawPrice != p.rawPrice.truncateToDouble()) return p.price;
-    return p.price.replaceFirst(RegExp(r'[.,]00(?=\D*$)'), '');
   }
 
   /// Play'deki sahiplikleri okur ve Pro durumunu günceller.

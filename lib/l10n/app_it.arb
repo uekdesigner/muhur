@@ -380,5 +380,8 @@
   "scanCodesCount": "Codici letti: {count}",
   "scanCodesClear": "Svuota elenco",
   "totpRemoveTitle": "Eliminare la chiave 2FA?",
-  "totpRemoveBody": "Se la verifica in due passaggi è ancora attiva sul sito, senza questa chiave potresti non riuscire ad accedere a quell'account. Disattivala prima sul sito o assicurati di aver salvato i codici di backup."
+  "totpRemoveBody": "Se la verifica in due passaggi è ancora attiva sul sito, senza questa chiave potresti non riuscire ad accedere a quell'account. Disattivala prima sul sito o assicurati di aver salvato i codici di backup.",
+  "proBannerTrial": "Continua dopo la prova",
+  "proBannerFree": "Tutte le funzioni, senza limiti",
+  "proBannerPrice": "{yearly} all'anno · circa {month} al mese"
 }

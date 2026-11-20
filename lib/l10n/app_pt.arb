@@ -380,5 +380,8 @@
   "scanCodesCount": "Códigos lidos: {count}",
   "scanCodesClear": "Limpar lista",
   "totpRemoveTitle": "Excluir a chave 2FA?",
-  "totpRemoveBody": "Se a verificação em duas etapas ainda estiver ativa no site, talvez você não consiga entrar nessa conta sem esta chave. Desative-a primeiro no site ou confirme que seus códigos de backup estão salvos."
+  "totpRemoveBody": "Se a verificação em duas etapas ainda estiver ativa no site, talvez você não consiga entrar nessa conta sem esta chave. Desative-a primeiro no site ou confirme que seus códigos de backup estão salvos.",
+  "proBannerTrial": "Continue depois do teste",
+  "proBannerFree": "Todos os recursos, sem limites",
+  "proBannerPrice": "{yearly} por ano · cerca de {month} por mês"
 }

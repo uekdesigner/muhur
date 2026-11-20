@@ -1343,4 +1343,15 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'إذا كان التحقق بخطوتين لا يزال مفعّلًا في الموقع، فقد لا تتمكن من تسجيل الدخول إلى ذلك الحساب بدون هذا المفتاح. أوقفه في الموقع أولًا، أو تأكد من حفظ رموزك الاحتياطية.';
+
+  @override
+  String get proBannerTrial => 'تابع بعد انتهاء التجربة';
+
+  @override
+  String get proBannerFree => 'كل الميزات بلا حدود';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly سنويًا · نحو $month شهريًا';
+  }
 }

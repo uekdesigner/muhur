@@ -1326,4 +1326,15 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'अगर साइट पर दो-चरणीय सत्यापन अभी चालू है, तो इस कुंजी के बिना आप उस खाते में साइन इन नहीं कर पाएँगे। पहले साइट पर इसे बंद करें या पक्का करें कि आपके बैकअप कोड सेव हैं।';
+
+  @override
+  String get proBannerTrial => 'ट्रायल के बाद भी जारी रखें';
+
+  @override
+  String get proBannerFree => 'सभी सुविधाएँ, बिना सीमा';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly सालाना · लगभग $month महीना';
+  }
 }

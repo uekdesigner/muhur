@@ -1,42 +1,64 @@
 import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
 
-/// Pro fiyatları için tek kaynak. Play Billing bağlanınca Google Play'in
-/// kullanıcının ülkesine göre verdiği fiyatlar [update] ile buraya yazılır;
-/// fiyat gösteren her yer kendiliğinden yenilenir. O zamana kadar yalnızca
-/// Türkçe arayüzde yer tutucu TL fiyatları gösterilir, diğer dillerde yanlış
-/// para birimi göstermemek için fiyat gizlenir.
+/// Pro fiyatları için tek kaynak. Play Billing'den gelen fiyatlar ve para
+/// birimi [update] ile buraya yazılır; biçim uygulamanın diline göre yapılır
+/// (Türkçe: "₺199"). Para birimini kullanıcının Google Play ülkesi belirler,
+/// uygulama dili değil. Play'den fiyat gelene kadar yalnızca Türkçe arayüzde
+/// yer tutucu TL fiyatı gösterilir; diğer dillerde yanlış para birimi
+/// göstermemek için fiyat gizlenir.
 class ProPrices extends ChangeNotifier {
   ProPrices._();
   static final ProPrices instance = ProPrices._();
 
-  // TODO(play): Play Billing bağlanınca yer tutucular kaldırılacak.
-  // Yıllık fiyat Play Console'da tam 299 TL olarak girilmeli; ana ekran
-  // etiketi kuruşsuz gösterdiği için böylece iki yer birbirini tutar.
-  static const _trYearly = '299 ₺';
-  static const _trYearlyShort = '299 ₺';
-  static const _trMonthly = '39 ₺';
+  // Play Console'daki fiyatlarla aynı olmalı: yıllık 199 ₺, aylık 24 ₺.
+  static const _trYearly = 199.0;
+  static const _trMonthly = 24.0;
 
-  String? _yearly;
-  String? _yearlyShort;
-  String? _monthly;
+  double? _yearly;
+  double? _monthly;
+  String? _currency;
 
-  /// Yıllık abonelik fiyatı (Pro ekranı); bilinmiyorsa null.
-  String? yearly(String languageCode) =>
-      _yearly ?? (languageCode == 'tr' ? _trYearly : null);
+  bool _placeholder(String locale) =>
+      _currency == null && locale.startsWith('tr');
 
-  /// Ana ekran etiketi için kuruşsuz kısa yıllık fiyat (ör. "299 ₺").
-  String? yearlyShort(String languageCode) =>
-      _yearlyShort ?? (languageCode == 'tr' ? _trYearlyShort : null);
+  double? _y(String l) => _yearly ?? (_placeholder(l) ? _trYearly : null);
+  double? _m(String l) => _monthly ?? (_placeholder(l) ? _trMonthly : null);
 
-  /// Aylık abonelik fiyatı; bilinmiyorsa null.
-  String? monthly(String languageCode) =>
-      _monthly ?? (languageCode == 'tr' ? _trMonthly : null);
+  static String _fmt(double v, String currency, String locale) {
+    final whole = v == v.truncateToDouble();
+    try {
+      return NumberFormat.simpleCurrency(
+        locale: locale,
+        name: currency,
+        decimalDigits: whole ? 0 : 2,
+      ).format(v);
+    } catch (_) {
+      return '${whole ? v.toInt() : v.toStringAsFixed(2)} $currency';
+    }
+  }
 
-  /// Play'den gelen yerel fiyatları kaydeder.
-  void update({String? yearly, String? yearlyShort, String? monthly}) {
+  String? _format(double? v, String locale) =>
+      v == null ? null : _fmt(v, _currency ?? 'TRY', locale);
+
+  /// Yıllık fiyat (kuruş sıfırsa kuruşsuz); bilinmiyorsa null.
+  String? yearly(String locale) => _format(_y(locale), locale);
+
+  /// Aylık fiyat; bilinmiyorsa null.
+  String? monthly(String locale) => _format(_m(locale), locale);
+
+  /// Yıllık planın aylık karşılığı, yuvarlanmış (ör. "₺17").
+  String? yearlyPerMonth(String locale) {
+    final y = _y(locale);
+    return y == null ? null : _format((y / 12).roundToDouble(), locale);
+  }
+
+  /// Play'den gelen fiyatları kaydeder.
+  void update({double? yearly, double? monthly, String? currency}) {
+    if (currency == null) return;
     _yearly = yearly ?? _yearly;
-    _yearlyShort = yearlyShort ?? _yearlyShort;
     _monthly = monthly ?? _monthly;
+    _currency = currency;
     notifyListeners();
   }
 }

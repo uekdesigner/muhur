@@ -1337,4 +1337,15 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Wenn die Zwei-Faktor-Anmeldung auf der Website noch aktiv ist, kommst du ohne diesen Schlüssel womöglich nicht mehr in das Konto. Schalte sie zuerst auf der Website aus oder stelle sicher, dass deine Backup-Codes gespeichert sind.';
+
+  @override
+  String get proBannerTrial => 'Nach dem Test einfach weitermachen';
+
+  @override
+  String get proBannerFree => 'Alle Funktionen ohne Limit';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly pro Jahr · ca. $month im Monat';
+  }
 }

@@ -169,15 +169,6 @@ class VaultHeader extends StatelessWidget {
                   ],
                 ),
               ),
-              GestureDetector(
-                onTap: () => ProScreen.open(context),
-                child: const Padding(
-                  // Fiyat yukarı bindiği için etiket biraz aşağıda başlar.
-                  padding: EdgeInsets.only(top: 5),
-                  child: ProPriceTag(),
-                ),
-              ),
-              const SizedBox(width: 4),
               HeaderButton(
                 icon: searchActive ? Icons.close : Icons.search,
                 tooltip: searchActive ? t.close : t.searchHint,

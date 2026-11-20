@@ -7,6 +7,7 @@ import '../../core/widgets/muhur_widgets.dart';
 import '../../l10n/app_localizations.dart';
 import '../auth/auth_service.dart';
 import '../password_gen/password_generator.dart';
+import '../pro/pro_banner.dart';
 import '../settings/settings_screen.dart';
 import 'backup_reminder_banner.dart';
 import 'category_globe.dart';
@@ -239,7 +240,13 @@ class _VaultHomeScreenState extends State<VaultHomeScreen> {
             ),
             child: const Icon(Icons.add),
           ),
-          bottomNavigationBar: StatsPanel(stats: _stats, onHealth: _openHealth),
+          bottomNavigationBar: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const ProBanner(),
+              StatsPanel(stats: _stats, onHealth: _openHealth),
+            ],
+          ),
           body: Column(
             children: [
               VaultHeader(

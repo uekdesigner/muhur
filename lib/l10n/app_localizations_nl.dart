@@ -1334,4 +1334,15 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Als tweestapsverificatie op de site nog aan staat, kun je zonder deze sleutel mogelijk niet meer inloggen op dat account. Zet het eerst uit op de site of controleer of je back-upcodes zijn opgeslagen.';
+
+  @override
+  String get proBannerTrial => 'Ga door na je proefperiode';
+
+  @override
+  String get proBannerFree => 'Alle functies, onbeperkt';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly per jaar · ca. $month per maand';
+  }
 }

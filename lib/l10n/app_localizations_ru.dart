@@ -1349,4 +1349,15 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get totpRemoveBody =>
       'Если двухэтапная проверка на сайте ещё включена, без этого ключа вы можете не войти в этот аккаунт. Сначала отключите её на сайте или убедитесь, что резервные коды сохранены.';
+
+  @override
+  String get proBannerTrial => 'Продолжайте после пробного периода';
+
+  @override
+  String get proBannerFree => 'Все функции без ограничений';
+
+  @override
+  String proBannerPrice(String yearly, String month) {
+    return '$yearly в год · около $month в месяц';
+  }
 }

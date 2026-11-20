@@ -428,5 +428,9 @@
   "@scanCodesCount": { "placeholders": { "count": { "type": "int" } } },
   "scanCodesClear": "Clear list",
   "totpRemoveTitle": "Delete the 2FA key?",
-  "totpRemoveBody": "If two-step verification is still on at the site, you may not be able to sign in to that account without this key. Turn it off at the site first, or make sure your backup codes are saved."
+  "totpRemoveBody": "If two-step verification is still on at the site, you may not be able to sign in to that account without this key. Turn it off at the site first, or make sure your backup codes are saved.",
+  "proBannerTrial": "Keep going after your trial",
+  "proBannerFree": "Every feature, unlimited",
+  "proBannerPrice": "{yearly} a year · about {month} a month",
+  "@proBannerPrice": { "placeholders": { "yearly": { "type": "String" }, "month": { "type": "String" } } }
 }
